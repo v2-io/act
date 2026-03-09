@@ -32,7 +32,7 @@ to AI agents, from immune systems to organizations.
 
 ### 2.1 TFT: The Adaptive Foundation
 
-Temporal Feedback Theory (~/src/temporal-feedback/) formalizes the universal
+Temporal Feedback Theory (priors/tft/) formalizes the universal
 feedback loop: Prolepsis -> Aisthesis -> Aporia -> Epistrophe -> Praxis. Core
 machinery:
 
@@ -49,12 +49,12 @@ complete theory of *adaptive systems* — how agents learn about and track reali
 
 ### 2.2 TST: The Software Domain
 
-Temporal Software Theory (~/src/temporal-software-theory/) applies temporal
+Temporal Software Theory (priors/tst/) applies temporal
 reasoning to software engineering optimization. 12 theorems (T-01 through T-12)
 covering specification bounds, change investment, coherence-coupling, and
 continuous operation.
 
-TST-via-TFT (~/src/temporal-software-theory/via-tft/) began mapping TST's
+TST-via-TFT (priors/tst/via-tft/) began mapping TST's
 practical insights onto TFT's formal foundations. Key contributions:
 - Six unique properties of software as a TFT domain
 - Three-part tempo decomposition: T_obs + T_explore + T_probe

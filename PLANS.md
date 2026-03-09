@@ -109,6 +109,47 @@ theory actually claims:
 
 ---
 
+## Issues to Resolve (from Codex review, March 2026)
+
+### Simulation model mismatch (high priority)
+TF-11's ODE uses deterministic disturbance ρ. The simulations use stochastic
+zero-mean Gaussian increments (AR(1)/OU process). These are related but not
+identical models, and the narrative incorrectly frames the sims as directly
+testing TF-11's ODE. Options:
+- Rewrite sims with a deterministic drift term to match TF-11's ρ
+- OR be explicit that the sims test the stochastic analog, with formal
+  justification of the ρ ↔ q mapping
+- Either way, the exponent finding (~1.05) may change and needs retesting
+
+### Central object model (high priority, in progress)
+The G_t symbol has been used for three different things: desired end-state,
+strategy graph, and committed intent. The O_t / Σ_t split (objective vs
+strategy) is a start. Codex suggests a four-way split: M_t (world model),
+D_t (desired end-state), S_t (strategy graph), I_t (committed intent).
+Whether the D_t/I_t distinction (BDI's Desire/Intention) bears formal
+weight in ACT is an open question — it matters when the agent has competing
+desires and must commit to a subset.
+
+### Credibility leaks (medium, fixable)
+- sim2 prints "R -> infinity: exponent -> 2.0" but data shows ~1.06
+- Simulation spec claims |δ| distribution is "approximately exponential"
+  but stationary law is half-normal
+- Founding notes reference ~/src/ paths instead of priors/ submodules
+
+### TST epistemic downgrade (medium, for when TST-via-ACT is written)
+TST claims "mathematical necessity" for things depending on undefined
+proxies (principled(C), n_future, change-set size as time surrogate).
+When TST becomes a domain instantiation of ACT, every claim should be
+regraded with TFT-style epistemic tags.
+
+### Consolidate DAG variants (medium)
+Three competing formalism variants exist. The convergence testing identified
+what's principled (AND/OR, single-p, Orient cascade) vs scaffold (node
+taxonomy, specific metrics). Need one canonical treatment with alternatives
+clearly demoted to reference material.
+
+---
+
 ## Open Questions (not yet assigned to phases)
 
 1. Does the information bottleneck principle for shared intent produce
