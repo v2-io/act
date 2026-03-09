@@ -78,12 +78,20 @@ Follow TFT's conventions (see priors/tft/TF-00.md):
 
 ## Important Simulation Finding
 
-The nonlinear dynamics simulations (scratch/track-b-nonlinear-sims/) found
-that **TF-11 Corollary 11.2's squared tempo advantage (exponent = 2) does
-not hold at realistic parameters.** The actual exponent is ~1.0-1.3. This is
-a regime-validity issue, not a refutation — the qualitative superlinearity
-is robust. But the specific claim needs a caveat in TFT. This has NOT yet
-been fed back to the TFT documents.
+The nonlinear dynamics simulations (scratch/track-b-nonlinear-sims/) found:
+
+- **Cor. 11.2's exponent = 2 IS correct** under deterministic drift when
+  coupling dominates base disturbance (confirmed: exponent = 1.999).
+- **Under stochastic disturbances, the asymptotic exponent is 1.5** (not
+  2.0) because E[|δ|] scales as 1/√T rather than 1/T.
+- **When coupling doesn't dominate base noise, the exponent drops to ~1.0**
+  regardless of disturbance model.
+- The original sim2's ~1.05 was two effects: stochastic model + not
+  coupling-dominant.
+
+TF-11 should note which disturbance model yields which exponent.
+Qualitative superlinearity is robust across all regimes. This has NOT
+yet been fed back to the TFT documents.
 
 ## File Organization
 
