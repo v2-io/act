@@ -11,28 +11,29 @@ that ACT builds on or must position against.
 ## Foundational — ACT's Own Lineage
 
 ### [CORE] [READ] Temporal Feedback Theory (TFT)
-- **Location**: ~/src/temporal-feedback/
+- **Location**: priors/tft/
 - **What**: Formal theory of adaptive agents under uncertainty. The adaptive
   feedback loop: mismatch, gain, tempo, persistence, adversarial dynamics.
-- **Relationship to ACT**: Part I of ACT. The adaptive systems foundation.
+- **Relationship to ACT**: Adaptive-systems foundation, now subsumed by ACT.
 - **Key documents**: TF-00 through TF-11, Appendices A-G
 
 ### [CORE] [READ] Temporal Software Theory (TST)
-- **Location**: ~/src/temporal-software-theory/
-- **What**: Theory of software engineering optimization through temporal reasoning.
-  12 theorems on specification bounds, change investment, coherence-coupling, etc.
-- **Relationship to ACT**: Domain instantiation (software development branch).
+- **Location**: priors/tst/
+- **What**: Temporal optimization target for software engineering. 12 theorems
+  on specification bounds, change investment, coherence-coupling, etc.
+- **Relationship to ACT**: Software domain instantiation. Needs regrading —
+  real content is an optimization objective, not a theorem of engineering.
 - **Key documents**: T-01 through T-12, via-tft/ directory
 
 ### [CORE] [READ] TST-via-TFT Mapping
-- **Location**: ~/src/temporal-software-theory/via-tft/
+- **Location**: priors/tst/via-tft/
 - **What**: Mapping of TST onto TFT foundations. Three-part tempo decomposition,
   causal extensions, simulation proposals, reformulated sketch.
 - **Relationship to ACT**: Prototype domain instantiation; demonstrates how
   ACT's formalism applies to a specific domain.
 
 ### [CORE] [READ] Goal/Intent Gap Analysis
-- **Location**: ~/src/temporal-feedback/scratch/15-goal-intent-gap.md
+- **Location**: priors/tft/scratch/15-goal-intent-gap.md
 - **What**: The document that identified the structural gap and proposed the
   restructuring into ACT.
 - **Relationship to ACT**: The founding analysis. Seneca, the PID evidence,

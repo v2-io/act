@@ -121,20 +121,21 @@ G_t dynamics can be designed independently in simple cases.
 
     ACT: Agentic Cycle Theory
     │
-    ├── Part I: Adaptive Systems (current TFT core, refined)
+    ├── Adaptive Systems Foundation (absorbs TFT)
     │   Agents coupled to uncertain environments.
     │   Mismatch, gain, tempo, persistence.
     │   The survival space. The prerequisite.
     │   Scope: any system that observes, models, and acts under uncertainty.
     │   Implicit goal: persist (T > rho).
+    │   [Note: even survival needs Σ_t in non-trivial environments.]
     │
-    ├── Part II: Purposeful Agency (the goal/intent extension)
+    ├── Purposeful Agency (ACT's novel contribution)
     │   Adaptive systems that also AIM.
-    │   G_t as first-class object alongside M_t.
-    │   delta_goal and delta_feasibility as additional mismatch signals.
+    │   O_t (objective) and Σ_t (strategy DAG) alongside M_t.
+    │   δ_objective and δ_feasibility as additional mismatch signals.
     │   Goal revision (directed opportunism).
     │   Shared intent with mathematical weight (IB-compressed purpose).
-    │   Orient in its full Boydian sense (M_t x G_t interaction).
+    │   Orient in its full Boydian sense (M_t × O_t/Σ_t interaction).
     │   The persistence-purpose tradeoff.
     │   Scope: adaptive systems with explicit or implicit purpose
     │   beyond mere persistence.
@@ -234,11 +235,11 @@ ACT would be the first theory that:
    loses M_t at session boundary but may retain G_t (via CLAUDE.md, task
    description). The goal survives context death even when the model doesn't.
 
-## 6. Immediate Next Steps
+## 6. Immediate Next Steps (as of founding — most now done)
 
-1. Read the prior art in detail (see reference catalog, next document)
-2. Develop the G_t formalism in scratch — what does the math actually look like?
-3. Test against domain instantiations: does the formalism produce non-obvious
-   predictions?
-4. Decide on document structure: how to organize Part I and Part II
-5. Determine relationship to existing TFT documents: absorb, reference, or fork?
+1. ~~Read the prior art in detail~~ — Done (see 01, 02)
+2. ~~Develop the G_t formalism~~ — Done (see 03, track-a/). Now O_t/Σ_t.
+3. ~~Test against domain instantiations~~ — Partially done (simulations)
+4. ~~Decide on document structure~~ — ACT supersedes TFT; structure to
+   emerge from content (see PLANS.md Phase 3)
+5. ~~Relationship to TFT~~ — Decided: ACT absorbs TFT.

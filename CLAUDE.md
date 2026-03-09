@@ -132,11 +132,11 @@ This has NOT yet been fed back to the TFT-era documents.
 
 ## How to Contribute
 
-1. Read `scratch/00-founding-notes.md` for full context
+1. Read `scratch/00-founding-notes.md` for origin and motivation
 2. Read `scratch/02-prior-art-assessment.md` for positioning
-3. For intent DAG work: read all three variants in `track-a-intent-dag/`
-   and the convergence synthesis — the AND/OR + single-p structure is the
-   current best candidate
+3. **For intent DAG work**: read `scratch/04-intent-dag-consolidated.md` —
+   this is the canonical reference. The three variants in `track-a-intent-dag/`
+   are historical development artifacts.
 4. For simulation work: the code runs (`python3 sim1_nonlinear_mismatch.py`,
    `python3 sim2_adversarial_coupling.py`); extend rather than rewrite
 5. Mark epistemic status on all claims

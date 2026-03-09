@@ -156,8 +156,9 @@ act/
     ├── 00-founding-notes.md           Origin, architecture, positioning
     ├── 01-reference-catalog.md        Prior art catalog
     ├── 02-prior-art-assessment.md     Assessment of Hafez, IBM, FAST workshop
-    ├── 03-goal-formalism-sketch.md    Goal formalism (partially superseded by O_t/Σ_t)
-    ├── track-a-intent-dag/            Intent DAG formalism (3 variants + priorities)
+    ├── 03-goal-formalism-sketch.md    Early goal formalism (superseded by O_t/Σ_t)
+    ├── 04-intent-dag-consolidated.md  Canonical intent DAG reference
+    ├── track-a-intent-dag/            Intent DAG development history (3 variants)
     └── track-b-nonlinear-sims/        Nonlinear dynamics simulations + results
 ```
 
