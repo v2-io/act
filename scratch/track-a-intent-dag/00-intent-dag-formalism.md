@@ -43,13 +43,47 @@ dithered into impotence. The formalism earns its keep if it:
 
 We will track this throughout.
 
+**Principled vs. scaffold — a guide to reading this document.**
+Not everything here has equal epistemic standing. Some elements are
+*first-principled* — they follow necessarily from ACT's foundations (TFT's
+feedback dynamics, Pearl's causal hierarchy, the goal/intent gap analysis).
+Others are *scaffold-engineering* — reasonable modeling choices that structure
+the formalism but could legitimately be different. The distinction:
+
+*First-principled (emphasize — these are load-bearing):*
+- Edges as probabilistic causal beliefs with Bayesian update (§2.1)
+- The Orient cascade: M_t update → G_t edge revision → feasibility (§4.3)
+- Compound probability decay of deep causal chains (§3.5)
+- Dissolution of parametric/structural boundary (§2.7)
+- Directed separation: M_t independent, G_t depends on M_t (§4.4)
+- Observability as strategy enablement, not just verification (§3.3)
+
+*Scaffold-engineering (useful but acknowledge as formulation choices):*
+- The four node types O/K/A/X — a taxonomy, not derived (§1.1)
+- The five structural constraints — design choices (§1.3)
+- The two-parameter edge weight (p, theta) — theta may not be needed in
+  the core; p alone may suffice for the essential structure (§1.2)
+- The noisy-OR combination rule — one independence assumption among
+  several possible; breaks for conjunctive causes (§1.2)
+- Specific health metric definitions — the *concept* that DAG structure
+  predicts strategy quality is principled; the *specific metrics* are
+  design choices (§3)
+- The aggregate health score — a placeholder (§3.6)
+
 ---
 
 ## 1. Formal Definitions
 
 ### 1.1 Node Types
 
-[Confident]
+**[SCAFFOLD — taxonomy choice, not derived.]** The four node types below
+are a reasonable decomposition for many domains, but other decompositions
+are possible. What IS principled is the *distinction* between nodes the
+agent can act on (actions), nodes the agent can observe (observables),
+and nodes the agent is trying to achieve (objectives/key results). The
+specific four-way split is a formulation choice.
+
+[Confident for the distinction; the specific types are a modeling choice]
 
 The intent DAG contains four types of nodes. Each node v in V has a type
 tau(v) in {O, K, A, X} and a set of associated properties.
@@ -155,11 +189,17 @@ i to j. The expected total contribution to node j from all its parents is:
 
     E[contribution to j] = 1 - product_{i in parents(j)} (1 - p_ij * theta_ij)
 
-This assumes approximate independence of parent contributions -- a
-simplification that breaks down when parent nodes interact (synergies or
-conflicts). [Speculative: interaction terms between parent contributions
-would require a more complex model, possibly a noisy-OR or factor graph
-representation. Deferred.]
+**[SCAFFOLD — independence assumption, handle with care.]** This assumes
+approximate independence of parent contributions — a noisy-OR model. This
+is a significant simplification. It handles disjunctive causes well ("any
+one of these actions could achieve the sub-goal") but conjunctive causes
+badly ("both A AND B are needed"). In practice, many strategies have
+conjunctive structure ("the feature works only if BOTH the backend endpoint
+AND the frontend UI are implemented"). A more principled treatment would
+use factor graphs or explicit AND/OR structure in the DAG. For this first
+sketch, the noisy-OR is a starting point; the limitation should be
+front-of-mind when applying the formalism to domains with strong action
+interdependencies.
 
 **Why not just p_ij?** The two-parameter weight (p, theta) captures two
 distinct uncertainties: "will this causal link work at all?" (p) and "if
@@ -302,12 +342,23 @@ and the uncertainty U_edge = alpha*beta / ((alpha+beta)^2 * (alpha+beta+1))
 both update naturally. The eta_edge approximation is the first-order
 Taylor expansion of this.
 
-**Connection to TFT**: This is TFT's epistrophe applied to a single edge
-of the intent DAG rather than to M_t as a whole. The mismatch signal is
-"I expected this causal link to produce this observable, and it did/didn't."
-The gain is calibrated by the same uncertainty ratio principle (TF-06).
-The key difference: the "model" being updated is not M_t (the reality
-model) but a specific causal hypothesis within G_t (the intent model).
+**Connection to TFT [FIRST-PRINCIPLED — this is load-bearing]**: This is
+TFT's epistrophe applied to a single edge of the intent DAG rather than
+to M_t as a whole. The mismatch signal is "I expected this causal link to
+produce this observable, and it did/didn't." The gain is calibrated by the
+same uncertainty ratio principle (TF-06). The key difference: the "model"
+being updated is not M_t (the reality model) but a specific causal
+hypothesis within G_t (the intent model).
+
+This is what makes ACT more than BDI-with-dynamics. BDI says agents have
+beliefs and desires but provides no mechanism for desire revision. ACT says:
+desires (G_t edges) are updated by the SAME uncertainty-ratio machinery as
+beliefs (M_t), applied to causal hypotheses about goal-achievement rather
+than to predictions about reality. The gain structure is universal — it
+applies whenever an agent holds a probabilistic belief and receives evidence.
+The distinction between "updating beliefs about reality" (TFT) and "updating
+beliefs about strategy" (ACT Part II) is a distinction in *what* is being
+updated, not in *how*.
 
 **[Prediction 1]**: The rate at which edge weights converge should follow
 the same dynamics as TFT's mismatch reduction: exponential convergence
@@ -687,7 +738,8 @@ doctrine: the emphasis on reconnaissance and intelligence (making the
 battlespace observable) is not just about building M_t; it's about
 making G_t's causal hypotheses testable.
 
-**Non-obvious implication**: An agent should sometimes prefer a
+**Non-obvious implication [FIRST-PRINCIPLED — connects directly to TFT's
+observation channel machinery]**: An agent should sometimes prefer a
 **lower-confidence but more observable** path over a higher-confidence
 but unobservable one. The observable path allows edge weight updates,
 enabling faster learning about strategy viability. The unobservable
@@ -877,8 +929,18 @@ tactical level.
 
 ### 4.3 The Orient Cycle Formalized
 
+**[FIRST-PRINCIPLED — this is ACT's central contribution.]**
+
 The three interactions above constitute the formal content of Boyd's
-Orient:
+Orient. This is what TFT was missing and what ACT adds: the cascade from
+reality-model update to strategy revision to goal reframing.
+
+TFT formalizes observation → model update (aisthesis → epistrophe). ACT
+extends the chain: observation → model update → strategy update →
+feasibility check → goal revision. Each stage is principled — it follows
+from the previous stage via the intent-reality consistency requirement
+(§4.1). The cascade is not a design choice; it's a necessary consequence
+of having strategy edges that are hypotheses about reality.
 
 *[Formulation (orient-cycle)]*
 
@@ -951,6 +1013,13 @@ one" -- uncertainty in G_t amplifies the dependency on M_t.
 ---
 
 ## 5. OKR Mapping (Motivating Example)
+
+**[SCAFFOLD — domain instantiation, not core theory.]** The OKR mapping
+demonstrates the formalism captures real strategic practice and provides
+a concrete vocabulary for the abstract definitions. The failure-mode
+diagnostics (§5.2) are where the formalism earns value beyond standard
+OKR wisdom. The structural mapping (§5.1) and extended example (§5.3) are
+illustrations.
 
 [Confident]
 
