@@ -473,60 +473,196 @@ and G_t dynamics are coupled through action selection and goal revision.
 
 ---
 
-## 9. What I'm Unsure About
+## 9. G_t as Strategy Network, Not Point (Major Revision)
 
-### 9.1 Is delta_feasibility a real signal or a diagnostic inference?
+The initial sketch (§1-8) treats G_t as a point in state space — "the agent
+wants reality to be *here*." This is wrong, or at best a degenerate case (the
+PID setpoint). Real G_t is richer:
 
-Delta_epistemic is a direct observation (the prediction was wrong). Delta_goal
-is a direct computation (G_t - M_t). But delta_feasibility is an *inference*
-— the agent must reason "I have a good model, good actions, but no progress,
-therefore the goal might be wrong." This is more like TF-10's structural
-inadequacy detection than TF-05's prediction error.
+### 9.1 The Causal Intent DAG
 
-Maybe feasibility isn't a third mismatch signal but a property of the
-delta_goal dynamics — when d||delta_goal||/dt stays positive despite adequate
-T_goal, something structural is wrong. The diagnosis of whether it's the goal
-(revise G_t), the model (improve M_t), or the actions (change strategy) is a
-higher-order inference.
+G_t is not a point but a **structured network of expected causal chains from
+actions to sub-goals to objectives**, with observability constraints and
+contingency branches. In OKR terms:
 
-### 9.2 Does G_t update continuously or discretely?
+    Objective: "Users can authenticate via OAuth"
+    ├── KR1: "OAuth flow returns valid token"
+    │   ├── Expected action path: implement token endpoint
+    │   ├── Observable confirmation: test_oauth_token_flow passes
+    │   └── Contingency: if upstream API is unavailable, mock + adapter pattern
+    ├── KR2: "Session persists across requests"
+    │   ├── Expected action path A: session middleware
+    │   ├── Expected action path B (hedge): cookie-based fallback
+    │   └── Observable confirmation: test_session_persistence passes
+    └── KR3: "Existing auth still works"
+        └── Observable confirmation: existing auth suite still green
 
-M_t updates continuously (every observation shifts the model a little). Does
-G_t work the same way? In some domains, goals change smoothly (the PID
-setpoint ramps). In others, goals change in discrete jumps (new sprint,
-new orders, pivot). Goal revision (structural G_t change) is definitely
-discrete. But within a stable goal, there might be continuous refinement
-(gradually understanding the spec better, which is really U_G decreasing
-rather than G_t changing).
+This is a **causal DAG of intent**:
+- Nodes are objectives (high-level G), key results (sub-goals), actions
+  (expected causal interventions), and observables (how I'll know it worked)
+- Edges are expected causal links (action → sub-goal → objective)
+- Branches are contingencies (if path A fails, path B)
+- Leaves are observations that confirm or deny progress
 
-### 9.3 Is "goal tempo" actually well-defined?
+The "strategy" IS this DAG. It encodes the agent's theory of how its actions
+will produce goal-achievement, including what it expects to observe along the
+way and what it will do if expectations are violated.
 
-Epistemic tempo T has a clean definition: sum of rate × gain across channels.
-Goal tempo T_goal as I've defined it (rate × effectiveness of actions) is
-fuzzier — "effectiveness" depends on the environment's response to actions,
-which is exactly what the agent is uncertain about (that's U_M's job). Maybe
-goal tempo is better defined in terms of delta_goal dynamics:
+### 9.2 delta_goal Observability
 
-    d||delta_goal||/dt = -T_goal * ||delta_goal|| + rho_goal
+The "tree in the forest" problem: the agent acts toward G_t but may not know
+whether δ_goal has closed until a confirming observation arrives. Between
+action and confirmation, δ_goal is **unobservable** — the agent has a
+prediction about goal-state, filtered through M_t.
 
-...mirroring the mismatch ODE. But delta_goal isn't driven down by the same
-mechanism as delta_epistemic. Delta_epistemic goes down through observation
-and model update (passive-ish). Delta_goal goes down through action and
-environmental modification (active). The dynamics might be fundamentally
-different.
+This means:
+- Each node in the intent DAG has an *observability profile*: how and when
+  the agent can confirm that this sub-goal was reached
+- Some sub-goals are immediately observable (compiler output: did it compile?)
+- Others are delayed (user behavior: do users actually use the OAuth flow?)
+- Some are only statistically observable (performance: is it fast enough
+  under load? requires sampling)
 
-### 9.4 How deep is the M_t/G_t mathematical parallel?
+The agent's confidence in δ_goal at any moment depends on which confirmation
+observations have arrived. The unconfirmed portions of the DAG are in a
+Schrödinger-like state — the agent must plan as if they might or might not
+have succeeded.
 
-The parallel is suggestive but might be superficial. Key differences:
-- M_t is built *bottom-up* from observations; G_t is received *top-down*
-  from specifications (or generated internally)
-- M_t converges toward a fixed target (reality); G_t may not converge at all
-  (goals can keep changing)
-- M_t update is triggered by *surprise*; G_t update is triggered by
-  *infeasibility* or *opportunity* — different trigger mechanisms
+### 9.3 Parallel Execution as Portfolio Optimization
 
-The parallel might hold for the update rule (gain × mismatch) but break for
-the dynamics (convergence behavior, stability analysis).
+When the agent is uncertain which action path in the DAG will succeed, the
+rational response is parallel execution — launching multiple paths
+simultaneously. This is already visible in practice: Claude Code sends
+parallel searches with different assumptions because the expected cost of
+redundancy is less than the expected cost of serial failure-then-retry.
+
+Formally: for a set of candidate action paths {A_1, ..., A_n} toward
+sub-goal KR_k, with estimated probabilities of success {p_1, ..., p_n}
+and costs {c_1, ..., c_n}, the agent should pursue the portfolio that
+minimizes expected total cost:
+
+    min E[cost] = min sum_i (c_i * x_i) + penalty(none_succeed | {x_i})
+
+where x_i in {0,1} indicates whether path i is pursued. When the success
+probabilities are uncertain (which they always are — the agent doesn't know
+p_i exactly), this becomes a robust optimization problem. Hedging arises
+naturally.
+
+### 9.4 Strategic Adaptation Beyond TF-10's "Panic"
+
+TF-10's structural adaptation is: "the model class is wrong, destroy and
+recreate." This maps to: the entire strategy has failed catastrophically,
+start over. That's the nuclear option — biological "panic."
+
+Real strategic adaptation operates on the intent DAG with much finer
+granularity:
+
+| Operation | What changes | Trigger |
+|-----------|-------------|---------|
+| **Pruning** | Remove a failed branch | Confirming observation shows this path doesn't work |
+| **Grafting** | Add a new branch | Discovery of a new possible action path |
+| **Reweighting** | Shift resources between branches | Updated probability estimates after partial observations |
+| **Parallel hedging** | Pursue multiple branches simultaneously | High uncertainty about which will succeed |
+| **Objective revision** | Change a high-level node | Feasibility discovery or opportunity (directed opportunism) |
+| **Structural collapse** | Replace the entire DAG | Catastrophic failure or paradigm shift (TF-10's nuclear option) |
+
+The first five are *continuous strategic maintenance*. Only the last one is
+TF-10's structural adaptation. A good strategist (or a good AI agent) spends
+most of their time on the first five and rarely reaches the last one.
+
+**Crucially**: even "structural" changes to the DAG don't require a discrete
+panic event. Because the edges are *probabilistic* — each causal link
+(action → sub-goal) has a confidence range — the DAG restructures
+*continuously* as confidence ranges update. When an edge's confidence drops
+below some threshold, the branch it supports becomes untenable and naturally
+gets pruned or replaced. When a new observation raises confidence on an
+alternative edge, resources flow toward it. The DAG is a living structure
+whose topology shifts as the agent's probabilistic causal beliefs update.
+
+This dissolves the sharp line between "parametric update" (adjusting edge
+weights) and "structural change" (adding/removing edges). In the
+probabilistic DAG, a structural change IS an extreme parametric update —
+an edge weight dropping to near-zero or rising from near-zero. TF-10's
+Proposition 10.1 (structural adaptation necessity) might be better
+understood as: "when no reweighting of existing edges can produce an
+adequate strategy, new edges (new causal hypotheses) must be introduced."
+The "destruction-creation cycle" becomes continuous DAG evolution rather
+than discrete model-class switching.
+
+### 9.5 The Strategy DAG and the Causal DAG of Reality
+
+Two DAGs coexist in the agent's state:
+- **M_t's causal DAG**: the agent's model of how reality works (what causes
+  what in the environment)
+- **G_t's intent DAG**: the agent's strategy for how to change reality toward
+  the goal (what actions cause what sub-goals)
+
+They interact: the intent DAG's edges (expected causal links from actions to
+outcomes) are hypotheses about M_t's causal DAG. When M_t reveals that an
+expected causal link doesn't hold (the action doesn't produce the expected
+sub-goal), the intent DAG must be revised.
+
+In software: the developer's strategy ("add middleware to handle sessions")
+is a hypothesis about the codebase's causal structure ("this insertion point
+in the request pipeline will give middleware access to the request context").
+When M_t reveals the hypothesis is wrong ("the pipeline doesn't work that way"),
+the strategy must be revised — not because the goal changed, but because the
+expected causal path to the goal was wrong.
+
+This gives a precise meaning to "Orient" in the full Boydian sense: Orient is
+where M_t (reality model) meets G_t (intent DAG), and the interaction produces
+either *confirmation* (the strategy's causal hypotheses hold) or *revision*
+(they don't, and the strategy must adapt). The Orient → Orient self-loop is
+the continuous maintenance of the intent DAG in light of ongoing reality
+updates.
+
+### 9.6 Implications for the Formalism
+
+This revision suggests G_t shouldn't be formalized as a point in state space
+S but as a **weighted DAG** with:
+- Nodes: objectives, sub-goals, actions, observables
+- Edges: expected causal links (weighted by estimated probability)
+- Contingency structure: alternative paths branching from uncertainty nodes
+
+The "goal-reality mismatch" δ_goal is then not a single vector but a
+**mismatch profile across the DAG**: which nodes have been confirmed achieved,
+which are pending, which have failed.
+
+The "goal update" is DAG maintenance: pruning, grafting, reweighting,
+and occasionally structural revision.
+
+The "goal tempo" becomes something like: the rate at which the DAG's
+pending nodes are being resolved (either confirmed or failed), weighted by
+their importance to the objective.
+
+This is richer than the point-in-S formalism but may be too rich for a first
+formal treatment. A pragmatic approach: develop the point-in-S case first
+(it handles PID, LQG, and simple goal-pursuit), noting that it's the
+degenerate case of the DAG formalism. Then develop the DAG formalism for
+domains where strategy matters (software, military, organizational).
+
+---
+
+## 10. What I'm Unsure About (revised)
+
+### 10.1 What is the right level of formalism for the intent DAG?
+
+The OKR/DAG structure feels right descriptively. But formalizing it risks
+over-engineering — do we need full DAG machinery, or is the point-in-S
+formalism with "structural revision when the point needs to change"
+sufficient for the core theory? Maybe the DAG is a domain-specific
+elaboration (useful for software, military) rather than a core theoretical
+construct.
+
+### 10.2 Is delta_feasibility a separate signal or a DAG property?
+
+### (Former §9.1-9.4 — superseded by §9 rewrite above. The uncertainty
+### questions about feasibility, continuous-vs-discrete, goal tempo, and the
+### M_t/G_t parallel depth are largely resolved by the DAG reframing:
+### feasibility is a DAG property, updates are DAG maintenance operations
+### which can be continuous or discrete, goal tempo is DAG resolution rate,
+### and the M_t/G_t parallel holds for simple cases but the full picture is
+### richer — two interacting DAGs.)
 
 ---
 
