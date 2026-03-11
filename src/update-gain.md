@@ -1,7 +1,7 @@
 ---
 slug: update-gain
-type: empirical-claim
-status: exact (Kalman/conjugate), robust-qualitative (general)
+type: empirical
+status: robust-qualitative
 depends:
   - mismatch-signal
   - observation-function
@@ -25,9 +25,10 @@ where:
 The update rule takes the form:
 
 *[Formulation]*
+
 $$M_t = M_{t-1} + \eta^* \cdot g(\delta_t)$$
 
-where $\delta_t$ is the mismatch (#mismatch-signal) and $g(\cdot)$ is a correction mapping from observation space to model update space.
+where $\delta_t$ is the mismatch ( #mismatch-signal) and $g(\cdot)$ is a correction mapping from observation space to model update space.
 
 ## Epistemic Status
 
@@ -41,4 +42,4 @@ where $\delta_t$ is the mismatch (#mismatch-signal) and $g(\cdot)$ is a correcti
 
 **Multi-dimensional generalization.** In vector-valued systems, $U_M$ and $U_o$ are covariance matrices and $\eta^*$ becomes a gain matrix (as in the Kalman filter). The scalar form captures the essential structure.
 
-**Connection to adaptive tempo.** The update gain is one factor in the agent's adaptive tempo (#adaptive-tempo): $\mathcal{T} = \nu \cdot \eta^*$. Updating frequently (high $\nu$) is useless if the updates extract no information (low $\eta^*$). Gain measures the *quality* of the update cycle; event rate measures its *speed*.
+**Connection to adaptive tempo.** The update gain is one factor in the agent's adaptive tempo ( #adaptive-tempo): $\mathcal{T} = \nu \cdot \eta^*$. Updating frequently (high $\nu$) is useless if the updates extract no information (low $\eta^*$). Gain measures the *quality* of the update cycle; event rate measures its *speed*.

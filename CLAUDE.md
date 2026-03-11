@@ -14,12 +14,18 @@ about epistemic status, and clarity for future readers — not code coverage.
 
 ## Where to Start
 
-**Read `src/000-contents.md` first.** This is the master outline — the whole
-argument in plain English. It maps ~75 claims across five sections, shows
+**Read `CURRENT-FULL-THEORY.md` first.** This is the canonical outline — the
+whole argument claim by claim. It maps ~75 claims across five sections, shows
 what's written, and marks gaps honestly.
+
+**Read `FORMAT.md`** for segment file conventions (frontmatter, document
+cadence, math formatting, cross-references).
 
 **Read `priors/tft/TF-00.md`** for the notation conventions and epistemic
 system that ACT adopts.
+
+**See `WORKBENCH.md`** for theory development state: what's settled, what's
+open, spike status, and reorganization notes.
 
 ## Theory Structure
 
@@ -37,21 +43,17 @@ one-claim-per-section cadence is the structural model. TFT conventions
 are adopted ONLY for epistemic labeling (equation-level tags, tiers).
 
 **File identity and ordering:**
-- The **slug** is the file's identity. Everything references by
-  `#slug-name`, never by number.
-- Numbering is the current best linearization of the dependency DAG —
-  it WILL change. Expect files to move between sections, be renumbered,
-  and be inserted or removed as the theory refines.
-- YAML frontmatter: `slug`, `type`, `depends` (list of prerequisite
-  slugs). The type of each dependency (definition import vs logical
-  antecedent vs scope assumption) is derivable from the referenced
-  file's own `type` field — no typed edges needed.
+- **Filename = slug**: `src/{slug}.md`. No numbering in filenames.
+- **Ordering lives in `CURRENT-FULL-THEORY.md`**, not in filenames.
+  The slug is the stable identity; the linearization will change.
+- YAML frontmatter: `slug`, `type`, `status`, `depends` (list of
+  prerequisite slugs). See `FORMAT.md` for details.
 - Five sections scope progressively: I. Adaptive Systems, II. Actuated
   Adaptive Systems, III. Composition and Coordination, IV. Evolving
   Software, V. Software-Grounded Agentic Systems
 
-**Cadence per file:**
-1. YAML frontmatter (slug, type, depends)
+**Cadence per file** (see `FORMAT.md` for full spec):
+1. YAML frontmatter (slug, type, status, depends)
 2. Title
 3. One-sentence summary
 4. Formal Expression (with equation-level tags)
@@ -120,23 +122,25 @@ Do not let ungrounded assertions transfer from TST uncritically.
 4. **Sector-condition framework primary.** The linear ODE is pedagogical.
 
 5. **TST gets full treatment in Section IV.** Not just domain table rows.
-   T-01 (temporal optimality) is generalized as ACT's first axiom (#010).
+   T-01 (temporal optimality) is generalized as ACT's first axiom
+   (#temporal-optimality).
 
 ## What's Settled vs. Open
 
+See `WORKBENCH.md` for the full development state. Summary:
+
 ### Settled (from convergence testing + spikes)
 - Single-parameter edges with AND/OR nodes
-- Orient cascade structure (now derived from information dependency)
+- Orient cascade structure (derived from information dependency)
 - Additive log-confidence decay (generalizes p^n)
 - Observability as strategy enablement
-- Directed separation (with explicit scope condition for goal-conditioned agents)
-- G_t = (O_t, Σ_t) split (definitional, not timescale-dependent)
-- Satisfaction gap / control regret split (replaces simpler δ_objective)
-- DAG acyclicity derived from temporal ordering (former fragility resolved)
-- Composition consistency required (not optional) by scope condition's
-  level-independence
+- Directed separation (with explicit scope condition)
+- G_t = (O_t, Σ_t) split (definitional)
+- Satisfaction gap / control regret split
+- DAG acyclicity derived from temporal ordering
+- Composition consistency required by scope condition's level-independence
 
-### Open (see Section II gaps in contents)
+### Open
 - Action-deliberation-exploration tradeoff (three-way with Σ_t)
 - Strategy tempo formalization
 - Cognitive cost of Σ_t (no β analog yet)
@@ -150,23 +154,15 @@ Do not let ungrounded assertions transfer from TST uncritically.
 - Directed separation violated by goal-conditioned agents (LLMs) —
   acknowledged as scope restriction, not a bug
 
-## Simulation Findings
-
-The track-b simulations (scratch/track-b-nonlinear-sims/) validated and
-refined specific claims:
-
-- Cor. 11.2's exponent = 2 under deterministic drift (confirmed: 1.999)
-- Under stochastic disturbances, exponent = 1.5 (not 2.0)
-- Observation noise collapses adversarial exponent from ~1.0 to ~0.2
-- Per-dimension persistence exact (scalar overestimates by 72%)
-- TF-06's gain principle empirically validated (52% reduction)
-
 ## File Organization
 
-- `src/` — **The theory.** Claim segment files. Start with
-  `000-contents.md` for the map.
-- `_archive/` — Superseded root-level docs (ACT-01.md, ACT-03.md).
-  Content extracted to src/ segments; preserved for archaeology.
+- `CURRENT-FULL-THEORY.md` — **The canonical theory outline.** Claim-by-
+  claim, section-by-section, with the current linearization.
+- `WORKBENCH.md` — **Development state.** What's done, open, fragile.
+- `FORMAT.md` — **Segment file conventions.** How to write claim files.
+- `src/` — **The theory.** Claim segment files, named by slug
+  (`src/{slug}.md`). No numbering.
+- `_archive/` — Superseded docs. Preserved for archaeology.
 - `priors/tft/` — TFT submodule (read-only reference for epistemic
   conventions and adaptive-systems foundation)
 - `priors/tst/` — TST submodule (read-only; content regrounded in src/)

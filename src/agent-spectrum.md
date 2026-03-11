@@ -1,6 +1,7 @@
 ---
 slug: agent-spectrum
 type: definition
+status: first-principled
 depends:
   - agent-environment
   - agent-model
@@ -35,8 +36,8 @@ This is *definitional* — it names regions of a continuum for analytical conven
 
 **The continuum.** The boundaries are analytical distinctions. The "has model / no model" axis is really a spectrum of model richness (from no retained state, through error-integral-derivative, through full world models). The "has objective / no objective" axis is similarly graded (from no preference, through implicit optimization criteria, through explicit multi-objective strategies).
 
-**Section I covers the left column.** Adaptive trackers are the primary subject of Section I — agents that build and maintain $M_t$ without explicit purpose. The mismatch signal (#mismatch-signal), gain (#update-gain), tempo (#adaptive-tempo), and persistence condition (#persistence-condition) fully characterize their adaptive dynamics. TFT was developed primarily for this quadrant.
+**Section I covers the left column.** Adaptive trackers are the primary subject of Section I — agents that build and maintain $M_t$ without explicit purpose. The mismatch signal ( #mismatch-signal), gain ( #update-gain), tempo ( #adaptive-tempo), and persistence condition ( #persistence-condition) fully characterize their adaptive dynamics. TFT was developed primarily for this quadrant.
 
-**Section II adds the right column.** Actuated agents need everything from Section I plus objectives, strategy, and the orient cascade that connects them. The directed separation (#directed-separation) ensures that Section I's results carry over unchanged — the adaptive machinery operates on $M_t$ independently of whether the agent has purpose.
+**Section II adds the right column.** Actuated agents need everything from Section I plus objectives, strategy, and the orient cascade that connects them. The directed separation ( #directed-separation) ensures that Section I's results carry over unchanged — the adaptive machinery operates on $M_t$ independently of whether the agent has purpose.
 
 **"Actuated" terminology.** The top-right quadrant is labeled "actuated agent" rather than "purposeful agent" to maintain a mechanical, formal register. "Purposeful" and "goal-oriented" are fine in natural language; "actuated" is the formal term. "Self-actuated" is reserved for agents that set their own objectives, as distinct from agents with externally supplied objectives.
