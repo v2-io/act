@@ -35,3 +35,11 @@ This is a *definition*. It names the quantity that characterizes an agent's tota
 **Observation noise gating.** Because $\eta^* = U_M / (U_M + U_o)$, high observation noise ($U_o$) depresses gain and collapses tempo regardless of loop speed. You cannot outrun a bad observation channel by iterating faster. This grounds Boyd's emphasis on Orient quality over raw OODA speed.
 
 **Centrality.** Tempo is ACT's core capacity metric. It appears on the left side of the persistence condition ( #persistence-condition), determines adversarial advantage ( #adversarial-tempo-advantage), and connects to code quality as observation infrastructure ( #code-quality-as-observation-infrastructure) in the software domain.
+
+**Temporal nesting.** Adaptive processes stratify by timescale, with convergence constraints between levels ( #temporal-nesting).
+
+**Mismatch dynamics.** The evolution of mismatch over time is governed by the balance between correction (via tempo) and disturbance ($\rho$) ( #mismatch-dynamics).
+
+**Scalar vs. vector tempo.** The scalar $\mathcal{T}$ assumes isotropic correction capacity. When the agent corrects some dimensions faster than others, scalar tempo overestimates effective adaptation along weak dimensions. Simulation confirms: in an anisotropic 3D system (gain varying 5:1), scalar $\rho/\mathcal{T}$ overestimated by 72%, with the weak dimension accounting for 84% of total mismatch. The correct formulation is per-dimension: $\mathcal{T}_k > \rho_k / \delta_{\text{critical},k}$ ( #per-dimension-persistence).
+
+**(Descended from TF-11.)**
