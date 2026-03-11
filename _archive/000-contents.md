@@ -11,7 +11,7 @@ A first-principles theory of adaptive, purposeful agents under uncertainty.
 
 ## How to Read This
 
-Each entry has: **number · slug** — Type — Status, then a one-sentence summary.
+Each entry has: **number · slug** — Type, then a one-sentence summary.
 
 **Claim types** (following TFT conventions from TF-00):
 - **Axiom**: Tautological or foundational — cannot be derived, only accepted
@@ -22,10 +22,12 @@ Each entry has: **number · slug** — Type — Status, then a one-sentence summ
 - **Theorem**: Formally stated and proved (or proof-sketched)
 - **Corollary**: Follows directly from a theorem
 - **Hypothesis**: Structurally motivated, needs validation
+- **Normative**: Grounded in axioms but requiring a precondition that must be verified
 - **Empirical**: Generalization supported by data, not fully derived
 - **Observation**: Finding from simulation or empirical investigation
 - **Discussion**: Conceptual or normative claim used for interpretation
 - **Measurement**: Operationalization of a theoretical quantity
+- **Proposed schema**: Mathematical shape identified, formal content pending
 - **Gap**: Known missing step — we know something belongs here
 
 **Epistemic tiers** (combining TFT's claim registry with TST's precision):
@@ -49,8 +51,9 @@ definitional, not truth-claims.
 **References** use `#slug-name` tags. Dependencies are mostly sequential;
 explicit only when reaching back to non-adjacent claims.
 
-**Numbering** by 10s to allow insertion. The slugs in YAML frontmatter are the
-stable cross-references — numbers may be renormalized as the structure settles.
+**Numbering** by 10s in general, by 5s within dense sections. The slugs in YAML
+frontmatter are the stable cross-references — numbers may be renormalized as the
+structure settles.
 
 ---
 
@@ -88,6 +91,18 @@ ACT applies where: observations exist, the agent has at least binary choice
 (|A| ≥ 2, the minimum for interventional contrast and causal learning), and
 residual uncertainty persists: H(Ω_t | C_t) > 0. *(From TF-01.)*
 
+**055 · composition-consistency** — Axiom
+Any system satisfying the scope condition may be composed of subsystems that
+themselves satisfy the scope condition. ACT's predictions at the composite level
+must be compatible with the aggregate of sub-level predictions plus coordination
+structure. The scope condition does not restrict level of description — the
+theory applies at every level where it applies at all. This means composition
+laws for tempo, persistence, gain, and mismatch are *required* for internal
+consistency, not optional extensions. *(From composition spike §1. The
+consistency argument is strong — if ACT claims level-independence, predictions
+at different levels must be non-contradictory. Specific composition laws are
+sketches; the requirement for their existence is near-derived.)*
+
 **060 · causal-structure** — Axiom
 The agent-environment interaction has irreducible causal structure. Temporal
 ordering is constitutive, not incidental. The interaction creates a causal DAG
@@ -105,7 +120,7 @@ The interaction history C_t = (o_1, a_1, ..., o_t) is the complete record of
 agent-environment interaction. All the agent can ever know derives from this
 sequence. *(From TF-02.)*
 
-**090 · agent-model** — Definition
+**090 · agent-model** — Formulation
 M_t = φ(C_t): the agent's compressed representation of how the world works,
 mapping interaction history to model space M. This is a formulation choice — we
 commit to analyzing the agent as having a complete state M_t that subsumes all
@@ -168,11 +183,11 @@ tolerable mismatch. Robust across all correction functions tested.
 *(From TF-07, Appendix A.)*
 
 **190 · sector-condition-stability** — Theorem
-The general nonlinear persistence result: the correction function g(δ) must
-satisfy sector bounds [α, β] with α > ρ/T. This is the Lyapunov/sector-
-condition framework — more general than the linear ODE, handles arbitrary
-nonlinear correction functions. The linear ODE is a pedagogical special case.
-*(From Appendix A, promoted to primary.)*
+The general nonlinear persistence result: the correction function must satisfy
+sector bounds with α > ρ/R. This is the Lyapunov/sector-condition framework —
+more general than the linear ODE, handles arbitrary nonlinear correction
+functions. Includes adaptive reserve Δρ* = αR − ρ. The linear ODE is a
+pedagogical special case. *(From Appendix A, promoted to primary.)*
 
 **200 · structural-adaptation-necessity** — Theorem
 When model class fitness F(M) < 1 − ε, no parametric update closes the mismatch
@@ -182,64 +197,160 @@ Prop 10.1, proven. *(From TF-10.)*
 
 ---
 
-## II. Purposeful Adaptive Systems
+## II. Actuated Adaptive Systems
 
 *Scope narrowing: agents that not only track reality but aim at something. This
 adds objectives and strategy alongside the reality model. The adaptive machinery
 from Section I carries over unchanged (#directed-separation) — what we add is
-the goal-directed layer. "If a man knows not to which port he sails, no wind is
-favorable." — Seneca*
+the goal-directed layer.*
+
+*The derivation chain for this section is mature
+(see `scratch/spike-v3-purposeful-agent.md`). Most of it provides better
+justification and epistemic labels for architecture that already existed. The
+genuinely novel results are: the satisfaction gap / control regret split (§270–
+275), the G_t complexity bound (in §285), and the graph structure uniqueness
+argument (see `scratch/spike-graph-uniqueness.md`).*
+
+*"If a man knows not to which port he sails, no wind is favorable." — Seneca*
 
 **210 · agent-spectrum** — Definition
 Two independent dimensions create an agent spectrum: {±model} × {±objective}.
 Four quadrants: reactive system (thermostat), adaptive tracker (Kalman filter),
-blind pursuer (PID controller), purposeful agent (commander, developer, AI
-agent). These are regions of a continuum, not discrete categories. *(From
-ACT-01.)*
+blind pursuer (PID controller), actuated agent (commander, developer, AI agent).
+These are regions of a continuum, not discrete categories.
 
-**220 · objective** — Definition
-O_t ∈ S or O_t ⊆ S: what the agent wants — a target state, region, or condition
-in environment state space. The port, the destination, the desired end-state.
-O_t specifies *what*, not *how*. *(From ACT-03.)*
+**215 · complete-agent-state** — Formulation
+X_t = (M_t, G_t): the complete agent state lifts M_t from "the" state (as in
+TFT) to the epistemic substate, adding G_t (the purposeful substate — what the
+agent wants and how it plans to get it). Section I is the special case
+X_t = (M_t, ∅). Update dynamics: f_M has no G_t argument; f_G references
+M_{τ+}; policy couples all three. *(From v3 spike §1.)*
 
-**230 · strategy-dag** — Definition
-Σ_t = (V, E, p, γ): a probabilistic causal DAG encoding the agent's theory of
-how its actions produce goal-achievement. Nodes are propositions; edges carry
-causal confidence weights p ∈ [0,1]; combination rules γ(v) ∈ {AND, OR}
-determine how parent evidence combines. *(From intent-dag-consolidated.
-Converged across three independent formalisms.)*
+**220 · objective-functional** — Definition
+O_t parametrizes TF-08's "value" term: given objective O_t, the induced value
+functional V_{O_t}: trajectories → ℝ measures how well a trajectory satisfies
+the objective. O_t can be a point target, region, constraint set, utility, or
+trajectory functional — all unified through V_{O_t}. The trajectory functional
+is the most general form; the others are special cases. *(From v3 spike §2.)*
 
-**240 · and-or-semantics** — Definition
-AND nodes: all parents required — P(v) = Π p_ij. OR nodes: any parent
-sufficient — P(v) = 1 − Π(1 − p_ij). The noisy-OR-everywhere assumption
-(first formalism attempt) was rejected: it systematically overestimates
-conjunctive structures. *(From track-a/03-alt-and-or-dag.)*
+**225 · value-object** — Definition
+V_O(M_t, π; N_h) and Q_O(M_t, a; π_cont, N_h): horizon- and policy-conditioned
+value objects. Continuation policy π_cont is a parameter, not derived. Common
+choices: one-step improvement (natural default), Bellman fixed point, receding
+horizon. λ depends on (M_t, O_t, N_h) — exploration price depends on objective
+and horizon, not just epistemic state. *(From v3 spike §2.2.)*
 
-**250 · directed-separation** — Theorem
-M_t dynamics are independent of O_t and Σ_t. O_t is independent of M_t
-(though may be revised based on it). Σ_t depends on both M_t and O_t. Action
-selection couples all three. The adaptive-systems layer (Section I) is valid on
-its own; the purposeful layer requires it. *(From ACT-03, derived from causal
-structure.)*
+**230 · strategy-dimension** — Definition
+G_t = (O_t, Σ_t): the purposeful substate decomposes into objective (evaluation
+criterion — "is this trajectory satisfactory?") and strategy (action guidance —
+"which action sequence produces a satisfactory trajectory?"). This is a
+definitional split reflecting different kinds of information, not a dynamic
+or timescale claim. Strategy representations range from none (reactive), through
+cached policies, subgoal sequences, to full causal DAGs. *(From v3 spike §3.)*
 
-**260 · compound-probability-decay** — Theorem
-Path confidence through n sequential AND-edges decays as p^n. Five steps at
-p = 0.9 each: path confidence 0.59. Ten steps: 0.35. Deep strategies are
-exponentially fragile. Mathematical necessity. *(From intent-dag-consolidated.)*
+**235 · causal-hierarchy-requirement** — Derived + Scope
+Evaluating Q_O(M_t, a; ·) is a Level 2 query ("what happens if I *do* a?").
+The causal hierarchy theorem (Bareinboim et al. 2022) proves Level 2 knowledge
+requires causal structure beyond predictive models. *Scope narrowing*: we
+restrict to agents that must acquire or refine Level 2 knowledge during
+operation, as opposed to pre-compiled controllers (PID, LQR) where the designer
+supplied it. *(From v3 spike §4.)*
 
-**270 · observability-dominance** — Derived
+**240 · loop-interventional-access** — Derived
+An agent in the feedback loop generates interventional data: a_t causally
+precedes o_{t+1}, so the mismatch δ_t conditioned on a_t carries interventional
+information. The loop provides *access* to Level 2 data; whether the agent
+*exploits* it depends on its update mechanism and model class. LLM training
+data provides causal priors (noisy, mixed provenance); the loop verifies.
+*(From TF-02 + temporal ordering; v3 spike §4.3.)*
+
+**245 · explicit-strategy-condition** — Normative
+An agent benefits from explicit Σ_t when C_plan + C_maintain < C_explore +
+C_repair. Labeled *normative*, not *derived*, because #temporal-optimality
+requires identical non-temporal outcomes as a precondition — loop-based and
+model-based approaches may differ in final value, risk, and model bias. When the
+precondition holds, this makes #temporal-optimality load-bearing for the
+purposeful layer. *(From v3 spike §5.)*
+
+**250 · chain-confidence-decay** — Derived
+log P(chain) = Σ log P(E_i | E_{<i}): chain confidence decays monotonically
+with depth. The robust result is additive log-confidence, not the special case
+p^n (which assumes independence and uniformity). Longer chains are structurally
+less confident, creating pressure toward short plans, parallel fallback paths,
+high-confidence critical links, and early failure monitoring. *(From v3 spike
+§6.1. Generalizes the earlier compound-probability-decay result.)*
+
+**255 · and-or-scope** — Scope
+We restrict to environments where causal combination is approximately
+conjunctive (AND) or disjunctive (OR), without strong interaction effects.
+Converged across three independent formalism attempts. The excluded case
+(complementarity, substitutability, interaction effects) requires richer
+combination rules — a legitimate divergence point for future work. *(From
+v3 spike §6.2.)*
+
+**260 · strategy-dag** — Definition
+Post-narrowing: the agent's strategy Σ_t = (V, E, p, γ) is a probabilistic
+causal DAG. Nodes are propositions; edges carry confidence weights p ∈ [0,1];
+combination rules γ(v) ∈ {AND, OR}. *Graph structure is strongly motivated*:
+temporal ordering → directed edges (proved), Cox's theorem → probabilistic
+uncertainty (proved), local revisability → Markov factorization (sketch — needs
+tightening), finite horizon → acyclicity (derived, resolves a former known
+fragility). The AND/OR parameterization is a formulation choice within the forced
+graph structure, motivated by Boolean completeness + parsimony under bounded
+cognition. *(From intent-dag-consolidated + graph uniqueness spike.)*
+
+**265 · directed-separation** — Derived + Scope
+f_M has no G_t argument; f_G references M_{τ+}. The epistemic update is
+goal-blind *conditional on the realized event*. The policy couples all substates
+through action selection. *Scope condition*: this requires that goals influence
+event *selection* (through action) but not event *processing*. Many agents
+(including LLMs with goal-conditioned prompts) violate this to some degree.
+The approximation is better when goal-conditioning affects attention more than
+interpretation, and worse when the agent exhibits confirmation bias. A future
+extension: coupled M_t/G_t dynamics formalizing motivated reasoning. *(From
+v3 spike §8.)*
+
+**270 · satisfaction-gap** — Definition
+δ_sat = V_{O_t}^min − A_O(M_t; Π, N_h): the gap between the minimum acceptable
+value and the best achievable under current model, policy class, and horizon.
+δ_sat > 0 means the objective is unmet, but this does NOT automatically mean the
+goal is wrong — it may indicate narrow Π, short N_h, or incorrect M_t. The
+revised cascade checks M_t, Π, N_h adequacy *before* revising O_t. Objective
+revision is last resort. *(From v3 spike §7.3. Replaces the simpler
+"δ_objective" from earlier formulations.)*
+
+**275 · control-regret** — Definition
+δ_regret = A_O(M_t; Π, N_h) − V_O(M_t, π_current; N_h) ≥ 0: the gap between
+best achievable and current performance. This is the signal for Σ_t revision.
+*Diagnostic*: large δ_sat + small δ_regret = doing the best possible but goal
+may be infeasible → check M_t/Π/N_h then consider revising O_t. Large δ_sat +
+large δ_regret = bad strategy → revise Σ_t first. *(From v3 spike §7.4.)*
+
+**280 · strategic-calibration** — Definition
+Edge residuals r_ij: predicted ΔV_O − observed ΔV_O per edge traversal.
+δ_strategic = (Σ w_ij · r_ij²)^{1/2}, aggregated across active edges with
+criticality weighting. This is a second-order inference — inherently slower
+to evaluate than δ_epistemic, requires accumulating evidence over multiple edge
+traversals. Connects to the persistence schema (#strategy-persistence-schema)
+as the candidate strategic mismatch state. *(From v3 spike §7.5.)*
+
+**285 · orient-cascade** — Derived
+Resolution ordering forced by information dependency: (1) reduce δ_epistemic
+(prerequisite — M_t appears in every subsequent formula), (2) evaluate δ_sat
+(requires adequate M_t), (3) evaluate δ_regret (requires adequate M_t +
+meaningful A_O), (4) evaluate δ_strategic (requires feasible O_t + evidence of
+suboptimal execution), (5) revise O_t (last resort, after Σ_t revisions
+exhaust). *G_t evaluable complexity bounded by M_t capacity*: an agent with poor
+S(M_t) cannot meaningfully evaluate a complex Σ_t. This creates virtuous/vicious
+cycles at the purposeful level. *(From v3 spike §7.6.)*
+
+**290 · observability-dominance** — Derived
 Unobservable edges freeze beliefs — the agent cannot update confidence on what
 it cannot see. Strategy effectiveness is gated by which edges the agent can
 observe. Observability enables strategy; its absence disables it, regardless of
 the strategy's structural quality. *(From intent-dag-consolidated.)*
 
-**280 · orient-cascade** — Derived
-The update ordering when new information arrives: observation → M_t update
-(#recursive-update) → Σ_t edge revision → feasibility check → possible O_t
-revision. Timescale separation: ν_M ≫ ν_Σ ≫ ν_O. The reality model updates
-fastest; objectives change most rarely. *(From ACT-03/intent-dag-consolidated.)*
-
-**290 · edge-update-via-gain** — Hypothesis
+**295 · edge-update-via-gain** — Hypothesis
 Strategy edges update via the same uncertainty ratio principle: η_edge =
 U_edge / (U_edge + U_obs). TFT's gain machinery (#update-gain) extends to
 strategy revision. *Parallel to M_t gain but not independently validated.*
@@ -251,87 +362,104 @@ continuous operations on edge weights, not discrete structural events. TF-10's
 destruction-creation cycle is the rare limiting case. *(From intent-dag-
 consolidated, converged.)*
 
-**310 · three-mismatch-types** — Definition (sketch)
-δ_epistemic: reality model error (Section I's mismatch, carries over).
-δ_objective: gap between current state and O_t.
-δ_strategic: strategy's predicted outcomes vs actual progress.
-*δ_strategic is the least crisp — it's a second-order inference ("trying hard
-with good model, gap not closing → strategy may be wrong"). Possible
-formalization: likelihood ratio on critical-path confidence vs observed
-progress.* *(From founding notes.)*
+**305 · strategy-persistence-schema** — Proposed schema
+If strategic update dynamics satisfy sector conditions analogous to
+#sector-condition-stability — (SA1) zero correction at zero strategic mismatch,
+(SA2') local sector bound on strategic correction, bounded strategic
+disturbance — then Σ_t persists iff α_Σ > ρ_Σ / R_Σ. Awaiting: formal
+strategic mismatch state (candidate: #strategic-calibration residual), correction
+function (edge confidence revision via gain), disturbance characterization (rate
+at which environment invalidates causal links). *(From v3 spike §9.)*
 
-**315 · ???** — Gap
-*How do the three mismatch types interact? When δ_epistemic is high, can we
-even measure δ_strategic? Is there a dominance ordering? This likely connects
-to the orient cascade (#orient-cascade) — you must resolve δ_epistemic before
-δ_strategic is meaningful.*
-
-**320 · ???** — Gap
+**310 · ???** — Gap
 *Action-deliberation-exploration tradeoff. Three-way: exploit (pursue O_t via
 Σ_t), explore (improve M_t), deliberate (revise Σ_t). How does the agent
-allocate across these? TF-07/08/09 treat the explore/exploit case for M_t;
-adding Σ_t creates a richer tradeoff. Connects to CIY (TF-09) and gain.*
+allocate? TF-07/08/09 treat explore/exploit for M_t; adding Σ_t creates a
+richer tradeoff. Connects to CIY (TF-09) and the exploration price λ.*
 
-**330 · ???** — Gap
-*Strategy tempo. What is the analog of adaptive tempo (#adaptive-tempo) for
-Σ_t updates? T_Σ = Σ channels contributing to strategy revision? This matters
-for strategy persistence — you need to revise strategy fast enough to keep up
-with changing feasibility.*
+**315 · ???** — Gap
+*Strategy tempo. The analog of #adaptive-tempo for Σ_t updates. What
+observation channels contribute to strategy revision? How fast must the agent
+revise Σ_t to maintain strategy persistence (#strategy-persistence-schema)?*
 
-**340 · strategy-persistence** — Hypothesis (sketch)
-Σ_t persists iff T_Σ > ρ_Σ / ||δ_Σ_critical||. Strategy faces its own
-persistence condition, analogous to the model's (#persistence-condition).
-A strategy that can't adapt to changing conditions faster than conditions change
-becomes incoherent. *(Structural parallel, not independently motivated.)*
+**320 · ???** — Gap
+*Cognitive cost of Σ_t. The IB analog for strategy maintenance: a 500-node DAG
+is qualitatively different from a 12-node one. For finite-context agents, the
+DAG must fit in working memory. Connects to #information-bottleneck, shared
+intent compression (#shared-intent), and the cost inequality (#explicit-strategy-
+condition) — part of C_maintain is cognitive cost.*
 
-**345 · ???** — Gap
-*Cognitive cost of Σ_t. TF-03 has β for M_t compression cost
-(#information-bottleneck). The intent DAG has no analog. A 500-node strategy
-DAG is qualitatively different from a 12-node one, even at identical path
-confidences. For finite-context agents, the DAG must fit in working memory.
-Connects to IB-compressed shared intent (#shared-intent).*
-
-**350 · ???** — Gap
-*Edge semantics and identifiability. Edges claim interventional semantics
-(p_ij = P(j | do(i), M_t)) but update from observational signals without
-identifiability assumptions. In confounded domains (military, organizational),
-this is a real causal-identification problem. In software, genuine interventions
-(tests, deploys, git bisect) are available, so the gap is less severe there.
+**325 · ???** — Gap
+*Edge identifiability. Edges claim interventional semantics (p_ij = P(j |
+do(i), M_t)) but update from observational signals. In confounded domains
+(military, organizational), this is a real causal-identification problem. In
+software, genuine interventions (tests, deploys, git bisect) are available.
 Resolution may come from the software domain pushing requirements back up.*
 
 ---
 
-## III. Coordinated and Adversarial Systems
+## III. Composition and Coordination
 
-*Scope broadening: multiple agents interacting through a shared environment.
-Correlated observations as default; independence as special case. This is where
-shared intent, adversarial dynamics, and tempo advantage become load-bearing.*
+*Scope: multiple agents interacting through a shared environment, or
+equivalently, the internal structure of composite agents. The composition axiom
+(#composition-consistency) ensures the theory applies at every level of
+description; this section develops what happens when composition is imperfect
+and what the dynamics of inter-agent interaction look like.*
+
+*Correlated observations as default; independence as the special case requiring
+justification. Adversarial dynamics are one end of a teleological unity
+spectrum, not a separate theory.*
+
+*Two sources: the simulation-validated adversarial dynamics from TFT
+(TF-11/Appendix F, track-b simulations), and the composition spike
+(`scratch/spike-agent-composition.md`) which derives the requirement for
+composition consistency from the scope condition's level-independence.*
 
 **400 · multi-agent-scope** — Scope
-Multiple agents interact through shared environment. Observations may be
-correlated (the default; independence is the special case requiring
-justification). Each agent has its own (M_t, O_t, Σ_t) triple. Agents may be
-cooperative, adversarial, or mixed. *(From TF-11/Appendix F, with correlation
-fix.)*
+Multiple agents interact through shared environment. Each agent has its own
+X_t = (M_t, G_t) state. Observations may be correlated. Agents may be
+cooperative, adversarial, or mixed — positions on a continuous spectrum, not
+discrete categories. A composite agent A_c satisfies the scope condition and
+can be analyzed as a single agent at a higher level
+(#composition-consistency). *(From TF-11/Appendix F, extended by composition
+spike.)*
+
+**405 · unity-dimensions** — Definition (sketch)
+Four substantially independent dimensions characterize a composite agent's
+internal coherence: epistemic unity U_M (shared model), teleological unity U_O
+(shared objective), strategic unity U_Σ (coordinated action), perceptual unity
+U_obs (shared observation). These map to Clausewitz's three gaps (Bungay):
+knowledge gap ↔ 1 − U_M, alignment gap ↔ 1 − U_O, effects gap ↔
+(1 − U_Σ)(1 − U_obs). *(From composition spike §3–4. Unity metrics are
+discussion-grade; Clausewitz mapping is hypothesis.)*
 
 **410 · shared-intent** — Definition + Discussion (sketch)
-
 IB-compressed purpose communicated between agents for coordinated action. The
 Auftragstaktik insight: communicate *enough* intent to enable local adaptation,
 not so much that you constrain it. The information bottleneck principle
 (#information-bottleneck) applied to inter-agent purpose rather than
 intra-agent compression. *(From intent-dag-consolidated.)*
 
-**415 · ???** — Gap
-*Intent decomposition. How does a commander's Σ_t decompose across
-subordinates? Graph partitioning minimizing inter-agent edge uncertainty. What
-can a subordinate do locally vs what requires coordination? This is where
-Auftragstaktik gets formalized.* *(From track-a/04.)*
+**415 · auftragstaktik-principle** — Hypothesis
+Optimal allocation of communication bandwidth across unity dimensions
+prioritizes teleological unity (B_O) over strategic coordination (B_Σ) over
+model sharing (B_M). The IB framework predicts this when objectives change
+slowly, strategies moderately, and models fast. *(From composition spike §4,
+grounded in Bungay's analysis of military history.)*
 
-**420 · ???** — Gap
-*Directed opportunism bounds. How much can a subordinate's local Σ_t diverge
-from the shared intent without breaking team coherence? There must be a
-KL-divergence-like measure of intent alignment.* *(From track-a/04.)*
+**420 · tempo-composition** — Derived (sketch)
+Under perfect communication and independent channels, tempos add:
+T_c = Σ T_i. With overlapping channels, diminishing returns. Communication
+overhead subtracts: T_c = Σ T_i^local + Σ T_{i→j}^shared − C_coord.
+The composition gap ΔT = Σ T_i − T_c ≥ 0 measures the cost of being
+multiple. *(From composition spike §2.3.)*
+
+**425 · team-persistence** — Derived (sketch)
+A team of sub-agents, each below individual persistence threshold, persists as
+a composite when Σ T_i − C_coord > ρ_c / ||δ_critical^c||. Coordination
+overhead C_coord directly subtracts from composite persistence margin — a team
+with high individual tempos but terrible coordination can fall below the
+threshold. *(From composition spike §2.4.)*
 
 **430 · adversarial-tempo-advantage** — Theorem
 Tempo advantage is superlinear: the ratio of adversarial mismatch scales as
@@ -339,6 +467,15 @@ Tempo advantage is superlinear: the ratio of adversarial mismatch scales as
 doesn't just help linearly — it compounds. This is the formal grounding of
 Boyd's OODA loop insight. *(From TF-11, validated across 6 simulation
 variants.)*
+
+**435 · adversarial-destabilization** — Derived
+If adversary A injects disturbance into agent B's environment (ρ_B =
+ρ_{B,base} + γ_A · T_A), A destabilizes B when γ_A · T_A > Δρ*_B (adaptive
+reserve, #sector-condition-stability). Formally defines "getting inside the
+opponent's loop" as Lyapunov instability. Once B exceeds its invariant region,
+erratic actions increase A's coupling effectiveness in a positive-feedback
+loop. *(Derived from sector-condition analysis applied to adversarial
+coupling.)*
 
 **440 · adversarial-exponent-regimes** — Observation
 The exponent α depends on the disturbance mechanism: α = 2 under deterministic
@@ -362,17 +499,23 @@ amplifies advantage by 17%. *(From simulation variant F.)*
 
 **470 · ???** — Gap
 *Adversarial DAG targeting. Which strategy edges are most valuable to attack?
-Centrality in the DAG, inter-agent coupling edges, edges that are observable
-to the adversary. How does an adversary use knowledge of Σ_t structure to
-target actions? This is where #compound-probability-decay becomes a weapon:
-disrupting one AND-edge in a deep chain collapses the whole path.*
-*(From track-a/04.)*
+Centrality in the DAG, inter-agent coupling edges, edges observable to the
+adversary. #chain-confidence-decay as a weapon: disrupting one AND-edge in a
+deep chain collapses the whole path.* *(From track-a/04.)*
 
 **475 · ???** — Gap
-*Team persistence via DAG redundancy. Why do teams persist where individuals
-can't? More paths (OR branches), more observation channels, member
-reassignment, collective grafting of strategy alternatives. Connects
-#persistence-condition to multi-agent resilience.* *(From track-a/04.)*
+*Directed separation at the composite level. If each sub-agent's f_M is
+G_t-independent, is the composite's f_M^c independent of G_t^c? Hypothesis:
+goal-blindness composes, BUT coordination routing may break it — if which
+observations reach the composite depends on the shared objective, the composite's
+effective observation function is goal-dependent.* *(From composition spike
+§2.5.)*
+
+**480 · ???** — Gap
+*Minimum unity for meaningful composition. At what point is a "composite agent"
+a useful fiction vs a genuine entity? Is there a phase transition or continuous
+degradation? What is the irreducible cost of being multiple (compositional
+entropy)?* *(From composition spike §7.)*
 
 ---
 
@@ -515,7 +658,7 @@ Given identical changeset sizes, closer changes require less implementation
 time. Explains why modules group co-changing code, layers localize changes,
 domain boundaries contain related changes. *(TST T-09.)*
 
-**645 · exponential-cognitive-load** — Hypothesis — Hypothesis
+**645 · exponential-cognitive-load** — Hypothesis
 time_actual = time_baseline × k^discontinuities, where k > 1. If context-
 switching compounds multiplicatively, even modest k (1.1–1.2) creates
 substantial differences across many discontinuities. Requires empirical
@@ -585,8 +728,8 @@ preservation, and the cognitive loop connect the theory back to the systems bein
 built with it.*
 
 **700 · ai-agent-as-act-agent** — Definition
-An AI coding agent is a purposeful adaptive agent with 100% context turnover per
-session. It inhabits the purposeful quadrant (#agent-spectrum): it has M_t
+An AI coding agent is an actuated adaptive agent with 100% context turnover per
+session. It inhabits the actuated quadrant (#agent-spectrum): it has M_t
 (context window + retrieved memory), O_t (task objective), and Σ_t (approach
 plan). *(From via-tft mapping, agentic-tft.)*
 
@@ -594,7 +737,9 @@ plan). *(From via-tft mapping, agentic-tft.)*
 M_t resets to near-zero at session start. Not gradual degradation but
 catastrophic loss. The agent must reconstruct M_t from the environment
 (codebase, CLAUDE.md, memory files) at each session. This is fundamentally
-different from human developers who retain M_t across sessions.
+different from human developers who retain M_t across sessions. In composition
+terms (#composition-consistency), this is an epistemic unity problem: each
+session starts with U_M ≈ 0 relative to previous sessions.
 *(From via-tft mapping.)*
 
 **720 · m-preservation** — Discussion
@@ -659,9 +804,20 @@ edges. Documents the convergence testing and what was settled vs open.
 *(From track-a-intent-dag/ and 04-intent-dag-consolidated.md.)*
 
 **E · prior-art-positioning** — Reference
-Assessment of Hafez (bi-predictability), IBM 2025 (the void), BDI (named the
-parts, no dynamics), active inference (closest competitor, less transparent),
-FAST workshop papers. *(From scratch/02-prior-art-assessment.md.)*
+Assessment of Hafez (bi-predictability P — complementary diagnostic, no
+goals/dynamics; H_b has no ACT analog yet), IBM 2025 (calls for what ACT
+provides; their open challenges directly addressed by ACT), BDI (named the
+parts, no dynamics), active inference (closest competitor, different foundation).
+*(From scratch/02-prior-art-assessment.md.)*
+
+**F · graph-structure-uniqueness** — Research direction
+Four axioms (directed temporal ordering, probabilistic uncertainty, state-local
+revisability, observable intermediates) strongly motivate DAG structure for
+strategy representation. Acyclicity is *derived* from temporal ordering over
+finite planning horizon (resolves former known fragility). P3→Markov step is a
+sketch (local revisability may be achievable by other sparse factorizations).
+AND/OR parameterization follows from Boolean completeness + parsimony
+(hypothesis for binary outcomes). *(From scratch/spike-graph-uniqueness.md.)*
 
 ---
 
@@ -670,23 +826,36 @@ FAST workshop papers. *(From scratch/02-prior-art-assessment.md.)*
 The claim graph is mostly sequential, but key non-local dependencies include:
 
 - **#update-gain** is used throughout: in M_t updates (Section I), Σ_t edge
-  updates (#edge-update-via-gain), and observation-quality analysis
-  (#observation-gates-advantage, #code-quality-as-observation-infrastructure)
+  updates (#edge-update-via-gain), observation-quality analysis
+  (#observation-gates-advantage, #code-quality-as-observation-infrastructure),
+  and the policy objective's exploration-exploitation term
 
-- **#persistence-condition** grounds both M_t persistence (Section I) and
-  strategy persistence (#strategy-persistence), software maintainability
-  (#code-quality-as-observation-infrastructure), and team resilience (#475)
+- **#persistence-condition** grounds both M_t persistence (Section I),
+  strategy persistence (#strategy-persistence-schema), software maintainability
+  (#code-quality-as-observation-infrastructure), team resilience
+  (#team-persistence), and adversarial destabilization (#adversarial-destabilization)
 
 - **#temporal-optimality** is the optimization criterion that everything serves:
-  it motivates adaptive tempo (Section I), grounds TST's practical claims
+  it motivates adaptive tempo (Section I), grounds the explicit strategy
+  condition (#explicit-strategy-condition), grounds TST's practical claims
   (Section IV), and explains why adversarial dynamics are superlinear
   (Section III)
 
 - **#information-bottleneck** applies to M_t compression (Section I), shared
-  intent compression (#shared-intent), and cognitive cost of Σ_t (#345)
+  intent compression (#shared-intent), cognitive cost of Σ_t (#320),
+  and the Auftragstaktik communication principle (#auftragstaktik-principle)
+
+- **#composition-consistency** (Section I) is the foundation for all of
+  Section III. Tempo composition, team persistence, and adversarial dynamics
+  are all instances of the composition principle applied at different points
+  on the unity spectrum
 
 - The software domain (Section IV) both *applies* the general theory AND
   *pushes requirements back up* — e.g., #code-quality-as-observation-
   infrastructure reveals a feedback loop that the general theory should
-  accommodate, and #edge-semantics identifiability (#350) is resolved in
-  software but not in general
+  accommodate, and edge identifiability (#325) is resolved in software but
+  not in general
+
+- **#satisfaction-gap + #control-regret** (the split of the old δ_objective)
+  are load-bearing for the orient cascade (#orient-cascade) — without this
+  split, the cascade cannot distinguish infeasible goals from bad strategies
