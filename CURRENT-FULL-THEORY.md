@@ -8,7 +8,7 @@ linearization of the dependency DAG; it will change as the theory develops.
 Slugs are the stable identities. Treat this as a living proof sketch, not a
 specification.
 
-See `FORMAT.md` for segment file conventions. See `src/old-tf-00-notation-conventions.md` for notation and the epistemic system ACT adopts.
+See `FORMAT.md` for segment file conventions. See `notation.md` for symbols, conventions, and units.
 
 
 ## Index
@@ -852,86 +852,50 @@ referential but not paradoxical.
 ## Appendices (Evidence & Reference)
 
 *These support specific claims above with detailed evidence, worked examples,
-or historical development.*
+or historical development. Like claim segments, appendices are identified
+by slug, not by position.*
 
-**A · linear-ode-approximation** — Reference
-The linear ODE from TF-11: $d\delta/dt = \rho - \mathcal{T} \cdot g(\delta)$.
+**#linear-ode-approximation** — Reference
+The linear ODE from #mismatch-dynamics: $d\|\delta\|/dt = -\mathcal{T}\|\delta\| + \rho$.
 Correct for deterministic drift in continuous time. Pedagogically valuable,
 not the general case. The sector-condition framework
-(#sector-condition-stability) is primary. *(From TF-11, demoted.)*
+( #sector-condition-stability) is primary.
 
-**B · simulation-results** — Evidence
+**#simulation-results** — Evidence
 Six simulation variants validating and refining claims from Sections I–III.
 Variant A/B: deterministic drift confirms $\alpha = 2$. Variant C/D:
 stochastic gives $\alpha = 3/2$. Variant E: observation noise gates
 advantage. Variant F: per-dimension persistence exact. *(From
 track-b-nonlinear-sims.)*
 
-**C · worked-examples** — Reference
+**#worked-examples** — Reference
 Kalman filter ($M_t$ only), PID controller ($O_t$ only), LQG ($M_t + O_t$
 without explicit $\Sigma_t$), RL agent (full triple), developer (software
-domain).
+domain). Source material: old-tf-appendix-c-kalman-example,
+old-tf-appendix-d-rl-example.
 
-**D · intent-dag-development** — Historical
+**#operationalization** — Reference
+Estimation procedures for $U_M$, $U_o$, $\rho$, $\alpha$, $R$,
+$\|\delta_{\text{critical}}\|$. Decision procedures for $\lambda$
+(exploration price), deliberation stopping, structural-switch triggers.
+Source material: old-tf-appendix-b-operationalization.
+
+**#intent-dag-development** — Historical
 Three independent formalism attempts converging on AND/OR +
 single-parameter edges. Documents the convergence testing and what was
-settled vs open.
+settled vs open. *(From `scratch/04-intent-dag-consolidated.md`.)*
 
-**E · prior-art-positioning** — Reference
+**#prior-art-positioning** — Reference
 Assessment of Hafez (bi-predictability $P$ — complementary diagnostic),
 IBM 2025 (calls for what ACT provides), BDI (named the parts, no dynamics),
 active inference (closest competitor, different foundation). *(From
-scratch/02-prior-art-assessment.md.)*
+`scratch/02-prior-art-assessment.md`, `scratch/prior-tf-novelty-analysis.md`.)*
 
-**F · graph-structure-uniqueness** — Research direction
+**#graph-structure-uniqueness** — Research direction
 Four axioms strongly motivate DAG structure for strategy representation.
 Acyclicity is *derived* from temporal ordering over finite planning horizon.
 P3 $\to$ Markov step is a sketch. AND/OR parameterization follows from
 Boolean completeness + parsimony. *(From
-scratch/spike-graph-uniqueness.md.)*
+`scratch/spike-graph-uniqueness.md`.)*
 
 
----
-
-## Dependency Summary
-
-The claim graph is mostly sequential, but key non-local dependencies include:
-
-- **#update-gain** is used throughout: in $M_t$ updates (Section I),
-  $\Sigma_t$ edge updates (#edge-update-via-gain), observation-quality
-  analysis (#observation-gates-advantage,
-  #code-quality-as-observation-infrastructure), and the policy objective's
-  exploration-exploitation term
-
-- **#persistence-condition** grounds both $M_t$ persistence (Section I),
-  strategy persistence (#strategy-persistence-schema), software
-  maintainability (#code-quality-as-observation-infrastructure), team
-  resilience (#team-persistence), and adversarial destabilization
-  (#adversarial-destabilization)
-
-- **#temporal-optimality** is the optimization criterion that everything
-  serves: it motivates adaptive tempo (Section I), grounds the explicit
-  strategy condition (#explicit-strategy-condition), grounds TST's
-  practical claims (Section IV), and explains why adversarial dynamics are
-  superlinear (Section III)
-
-- **#information-bottleneck** applies to $M_t$ compression (Section I),
-  shared intent compression (#shared-intent), cognitive cost of $\Sigma_t$
-  (Section II gap), and the Auftragstaktik communication principle
-  (#auftragstaktik-principle)
-
-- **#composition-consistency** (Section I) is the foundation for all of
-  Section III. Tempo composition, team persistence, and adversarial dynamics
-  are all instances of the composition principle applied at different points
-  on the unity spectrum
-
-- The software domain (Section IV) both *applies* the general theory AND
-  *pushes requirements back up* — e.g.,
-  #code-quality-as-observation-infrastructure reveals a feedback loop that
-  the general theory should accommodate, and edge identifiability (Section
-  II gap) is resolved in software but not in general
-
-- **#satisfaction-gap + #control-regret** (the split of the old
-  $\delta_{\text{objective}}$) are load-bearing for the orient cascade
-  (#orient-cascade) — without this split, the cascade cannot distinguish
-  infeasible goals from bad strategies
