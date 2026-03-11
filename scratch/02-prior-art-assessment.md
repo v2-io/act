@@ -294,3 +294,107 @@ all six. This is the unique contribution.
 5. **Bungay, *The Art of Action*** — shared intent source material
 6. **Friston, active inference with prior preferences** — closest competitor,
    need to understand the precise formal differences
+
+---
+
+## 5. Deeper Cross-Mapping (March 2026, second pass)
+
+Detailed analysis of what each paper can *concretely inform* for ACT,
+beyond the first-read positioning above.
+
+### Hafez → ACT: Specific Technical Connections
+
+1. **P as measurable proxy for ACT dynamics.** High tempo (T) should
+   correlate with high P. The persistence threshold (T > ρ/δ_critical)
+   may have a P-space analog: P dropping below some value when persistence
+   fails. This could provide an empirical measurement path for ACT's
+   theoretical predictions — especially useful since ACT's quantities
+   (T, η*, ρ) are harder to measure directly in complex systems.
+
+2. **H_f / H_b is a different cut than U_M / U_o.** ACT decomposes
+   mismatch into model uncertainty vs. observation uncertainty. Hafez
+   decomposes into "world opaque to agent" (H_f) vs. "agent opaque to
+   world" (H_b). These are orthogonal. H_b captures action ambiguity —
+   multiple internal states leading to indistinguishable outcomes. ACT
+   currently has no analog of H_b. This matters for legibility,
+   coordination, and shared intent (#410). An agent that is opaque to
+   its environment (high H_b) is harder for teammates to model and
+   coordinate with.
+
+3. **Agency/intelligence distinction maps to ACT's spectrum.** Hafez's
+   "agency without intelligence" ≈ ACT's reactive-to-adaptive quadrants
+   (M_t machinery without self-monitoring). Hafez's "intelligence"
+   requires self-monitoring and adaptation ≈ ACT's structural-adaptation
+   (#200) + meta-level monitoring. This gives ACT a clean external
+   reference point for the agent-spectrum (#210).
+
+4. **IDT as ACT persistence monitor.** The "Information Digital Twin" —
+   a sidecar monitoring P in real-time — is a practical architecture
+   that could instantiate ACT's persistence monitoring. An ACT-informed
+   IDT would monitor not just coupling quality but *purposeful* coupling
+   quality: is the coupling serving O_t? Hafez's IDT detects drift
+   (coupling degradation) but not goal misalignment. ACT could extend it.
+
+### IBM → ACT: The Manifesto Mapping
+
+1. **IBM's functional agency spectra map to ACT's existing structure:**
+   - Action generation (reactive → stateful → epistemic) ≈ agent-spectrum (#210)
+   - Outcome model (association → intervention → counterfactual) ≈ causal hierarchy (#060, #070)
+   - Adaptation (contextual → parametric → reflective) ≈ recursive-update (#130) through structural-adaptation (#200)
+
+2. **IBM's "controlling emergence of subgoals" (§4.3) is directly
+   addressed by ACT.** They note: the longer the chain of subgoals, the
+   weaker the constraint from the human's initial task specification.
+   This IS compound probability decay (#260). ACT already has the math
+   for why this happens and what it implies.
+
+3. **IBM's "residual control rights" maps to δ_sat disambiguation.**
+   When should a subordinate agent revise vs. escalate? ACT's cascade
+   (check M_t, then Π, then N_h, then revise O_t) provides a principled
+   answer. Their discussion of risk accumulation from sequences of local
+   decisions connects to compound probability decay and observability
+   dominance (#270).
+
+4. **IBM's "prediction + interaction enables metacognition"** — where
+   confidence calibration through social interaction produces shared
+   representations — connects to ACT's shared-intent gap (#410, #415).
+   ACT's IB-compressed shared intent could be the *formalism* for their
+   qualitative story about shared representations.
+
+### What ACT Currently Answers from the Manifesto
+
+| IBM Requirement | ACT Status | Assessment |
+|---|---|---|
+| Common theoretical language | Sections I–II vocabulary | Partial — formalism exists but Section II not in src/ yet |
+| Emergent behavior from interaction | Section III (multi-agent) | Foundation exists (adversarial tempo proved); cooperative gaps remain |
+| Causal reasoning formalization | TF-02 + causal hierarchy + loop-as-Level-2 | Strong — cleaner than IBM's qualitative FEP story |
+| Metacognitive awareness | Persistence monitoring, δ_strategic | Partial — pieces exist, not packaged as "metacognition" |
+| World model dynamics | M_t update machinery | Strong — TFT's core, simulation-validated |
+| Multi-agent safety/governance | Shared intent, adversarial dynamics | Sketched, not formalized |
+| Spectrum of agency | Agent-spectrum (#210) | Yes, richer than IBM's |
+
+### Honest Positioning Statement (for eventual paper)
+
+ACT answers IBM's call with a mathematical framework that provides the
+dynamics IBM identifies as missing, incorporates the coupling diagnostics
+Hafez develops, extends BDI with formal dynamics, and differentiates from
+active inference in accessibility and scope.
+
+The honest framing: "IBM called for a theory. We provide a framework with
+these properties [list]. Here is what's derived, what's hypothesized, and
+what remains open." Lead with Section I (proved, simulated) and Section II
+(the purposeful-agent derivation chain), with Sections III–V as "the theory
+extends to" demonstrations.
+
+The risk is over-claiming. ACT's unique contributions beyond existing
+fields (control theory, causal inference, BDI) are:
+1. The integration itself — connecting fields under one framework with
+   consistent notation and derivation chains
+2. Specific novel results: satisfaction gap / control regret split, G_t
+   complexity bounded by M_t capacity, compound probability decay as formal
+   plan fragility, feedback loop as Level 2 causal access, adversarial
+   tempo exponents
+3. The software domain as both testbed and recursive instantiation
+
+Don't present as revolutionary new mathematics. Present as a unifying
+framework with specific novel results embedded within the integration.

@@ -142,13 +142,11 @@ The overarching goal is a unified theory — ACT — that:
 
 ## What's Next (Priority Order)
 
-1. **Derive purposeful agency from first principles (Section II)** —
-   this is the hardest, most novel, and most important work. Start with
-   an abstract purposeful state G_t, show where simple forms break, derive
-   the need for causal/DAG structure from the causal hierarchy theorem.
-   The three-mismatch-types, directed separation, and orient cascade
-   should follow from this derivation. Current theoretical spike in
-   `scratch/spike-purposeful-agent-derivation.md`.
+1. **Write Section II segments from v3 spike** — The theoretical
+   derivation is mature (`scratch/spike-v3-purposeful-agent.md`).
+   The spike proposes 16 segments (210–285) with an authoring order.
+   This is where the manifesto (IBM) gets answered with actual
+   formalism rather than outlines. Most important near-term work.
 
 2. **Review and refine Gemini drafts (src/160, 170, 190)** — these are
    uncommitted first drafts establishing three Section I claims. Need
@@ -171,6 +169,47 @@ The overarching goal is a unified theory — ACT — that:
 6. **Consolidate simulation results into Appendix B** — evidence base.
 
 7. **Section V** — agentic systems. Draw from agentic-tft corpus.
+
+---
+
+## Paper Positioning Strategy (March 2026)
+
+*From analysis of the two reference papers in `refs/`. Detailed
+cross-mapping in `scratch/02-prior-art-assessment.md` §5.*
+
+**The landscape:** IBM (Miehling et al. 2025) calls for a systems theory
+of agentic AI — explicitly identifying the void. Hafez et al. (2026)
+provide a diagnostic metric (bi-predictability P) without dynamics or
+goals. No existing work fills the void. ACT is the most complete
+response identifiable.
+
+**Lead with:** Section I (proved, simulated) and Section II (the
+purposeful-agent derivation chain from v3 spike). These are where ACT
+has real substance. Sections III–V are "the theory extends to"
+demonstrations.
+
+**Cite as:**
+1. IBM as articulating the need ACT addresses
+2. Hafez as complementary diagnostic — P could measure what ACT predicts
+3. BDI as the architecture ACT gives dynamics to
+4. Active inference as the closest theoretical competitor (different
+   foundation, different accessibility, narrower scope)
+
+**ACT's unique contributions** (beyond repackaging existing fields):
+1. The integration: control theory + causal inference + information
+   theory + agent architecture under one framework
+2. Novel results: satisfaction gap / control regret split, G_t
+   complexity bounded by M_t, compound probability decay as formal plan
+   fragility, feedback loop as Level 2 causal access, adversarial tempo
+   exponents, acyclicity derived from temporal ordering
+3. Software as both testbed and recursive instantiation
+
+**The discipline:** Don't overclaim. Present as a unifying framework
+with specific novel results, not as revolutionary new mathematics. Be
+honest about what's integration vs. what's discovery. The theory is
+being developed; position the adaptive foundation (Section I) as solid
+and the purposeful extension (Section II) as the hypothesis under
+active formalization.
 
 ---
 
@@ -230,7 +269,9 @@ not yet integrated.
    the dual-mismatch framework?
 
 5. Can Hafez's P be derived from ACT quantities? Can ΔH (strategic
-   legibility) enter multi-agent adversarial dynamics?
+   legibility) enter multi-agent adversarial dynamics? *Note (March 2026):
+   Hafez's H_b (backward predictive uncertainty — agent opaque to world)
+   has no ACT analog yet. This matters for legibility and shared intent.*
 
 6. Relationship between ACT and active inference's prior preferences?
 
@@ -238,13 +279,26 @@ not yet integrated.
 
 8. Cognitive cost of maintaining Σ_t (the β analog for strategy).
 
-9. DAG acyclicity scope — modeling assumption, not structural necessity.
+9. ~~DAG acyclicity scope — modeling assumption, not structural necessity.~~
+   **RESOLVED**: Acyclicity derived from temporal ordering over finite
+   planning horizon. See `scratch/spike-graph-uniqueness.md`. Argument
+   is tight for Σ_t (future plans); does NOT apply to M_t's model of
+   cyclic environment processes.
 
-10. δ_strategic formalization — the least crisp of the three mismatch types.
+10. ~~δ_strategic formalization — the least crisp of the three mismatch
+    types.~~ **PARTIALLY RESOLVED**: v3 spike §7.5 defines edge residuals
+    typed as value-increment predictions, aggregated with criticality
+    weighting. Still needed: correction function, sector-condition
+    verification.
 
 11. Whether "code quality as observation infrastructure" is unique to
     software or an instance of a general pattern (agents modifying their
     own observation channels).
+
+12. *(New)* The P3→Markov step in graph uniqueness: does state-local
+    revisability strictly force the Markov condition, or could other
+    sparse factorizations (message-passing structures) also satisfy
+    locality? See `scratch/spike-graph-uniqueness.md` open questions.
 
 ---
 
