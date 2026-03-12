@@ -43,10 +43,29 @@ reference document. For the canonical theory structure, see
 |------|------|-----------------|
 | composition-consistency | Axiom | `scratch/spike-agent-composition.md` |
 
-### Written — Section II (1 of 20 segments)
+### Written — Section II (20 of 20 segments — all written)
 | Slug | Type | Notes |
 |------|------|-------|
 | [agent-spectrum](src/agent-spectrum.md) | Definition | Needs review |
+| [complete-agent-state](src/complete-agent-state.md) | Formulation | X_t = (M_t, G_t) lift. Backward-compatible with Section I. |
+| [objective-functional](src/objective-functional.md) | Definition | O_t → V_{O_t}: trajectories → ℝ. Fills TF-08's "value" gap. |
+| [value-object](src/value-object.md) | Definition | V_O, Q_O with continuation convention. Extends policy objective with λ(M_t, O_t, N_h). |
+| [strategy-dimension](src/strategy-dimension.md) | Definition | G_t = (O_t, Σ_t). Evaluation vs guidance. Independence of richness dimensions. |
+| [causal-hierarchy-requirement](src/causal-hierarchy-requirement.md) | Derived + Scope | Level 2 for Q_O evaluation. Scope: agents that learn during operation. |
+| [loop-interventional-access](src/loop-interventional-access.md) | Derived | Loop generates interventional data by construction. |
+| [explicit-strategy-condition](src/explicit-strategy-condition.md) | Normative | Cost inequality for explicit Σ_t. Makes temporal-optimality load-bearing. |
+| [chain-confidence-decay](src/chain-confidence-decay.md) | Derived | Log-confidence additive in depth. p^n is special case. |
+| [and-or-scope](src/and-or-scope.md) | Scope | AND/OR restriction. Noisy-OR and WEIGHTED rejected. Parsimony argument. |
+| [strategy-dag](src/strategy-dag.md) | Definition | Σ_t = (V, E, p, γ). Acyclicity derived. Edge semantics as causal credence. |
+| [directed-separation](src/directed-separation.md) | Derived + Scope | f_M is G_t-independent. Scope condition for goal-conditioned agents. |
+| [satisfaction-gap](src/satisfaction-gap.md) | Definition | δ_sat with disambiguation table. A_O (attainability) defined here. |
+| [control-regret](src/control-regret.md) | Definition | δ_regret. 2×2 diagnostic with satisfaction gap. |
+| [strategic-calibration](src/strategic-calibration.md) | Definition | Edge residuals. Discussion-grade aggregation. |
+| [orient-cascade](src/orient-cascade.md) | Derived | Resolution order from information dependency. G_t bounded by M_t. |
+| [observability-dominance](src/observability-dominance.md) | Derived | Low σ → frozen edges → epistemically dead paths. |
+| [edge-update-via-gain](src/edge-update-via-gain.md) | Hypothesis | Gain principle extended to edge credences. Signal function open. |
+| [structural-change-as-parametric-limit](src/structural-change-as-parametric-limit.md) | Formulation | Six operations from reweighting to full restructure. |
+| [strategy-persistence-schema](src/strategy-persistence-schema.md) | Proposed schema | Sector conditions for Σ_t. Schema, not theorem — needs instantiation. |
 
 ### Written — Section IV (20 segments; 4 missing, 0 old remain)
 | Slug | Type | Notes |
@@ -71,29 +90,6 @@ reference document. For the canonical theory structure, see
 | [principled-decision-integration](src/principled-decision-integration.md) | Derived | General form of dual-optimization with per-feature P(F_i). |
 | [system-availability](src/system-availability.md) | Definition | Standard reliability engineering. |
 | [continuous-operation](src/continuous-operation.md) | Scope | Extends temporal optimization to include operational failures. |
-
-### Not Yet Written — Section II
-| Slug | Type | Source material |
-|------|------|-----------------|
-| complete-agent-state | Formulation | v3 spike §1 |
-| objective-functional | Definition | v3 spike §2 |
-| value-object | Definition | v3 spike §2.2 |
-| strategy-dimension | Definition | v3 spike §3 |
-| causal-hierarchy-requirement | Derived + Scope | v3 spike §4 |
-| loop-interventional-access | Derived | v3 spike §4.3 |
-| explicit-strategy-condition | Normative | v3 spike §5 |
-| chain-confidence-decay | Derived | v3 spike §6.1 |
-| and-or-scope | Scope | v3 spike §6.2 |
-| strategy-dag | Definition | intent-dag-consolidated + graph uniqueness spike |
-| directed-separation | Derived + Scope | v3 spike §8 |
-| satisfaction-gap | Definition | v3 spike §7.3 |
-| control-regret | Definition | v3 spike §7.4 |
-| strategic-calibration | Definition | v3 spike §7.5 |
-| orient-cascade | Derived | v3 spike §7.6 |
-| observability-dominance | Derived | intent-dag-consolidated |
-| edge-update-via-gain | Hypothesis | intent-dag-consolidated |
-| structural-change-as-parametric-limit | Formulation | intent-dag-consolidated |
-| strategy-persistence-schema | Proposed schema | v3 spike §9 |
 
 ### Written — Section III (2 of 13 segments)
 | Slug | Type | Notes |

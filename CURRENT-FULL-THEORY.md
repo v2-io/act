@@ -42,25 +42,25 @@ Every slug is linked to its intended `src/{slug}.md` file, even when that file d
 | [#temporal-nesting](src/temporal-nesting.md) | Timescale stratification | Derived | I | draft |
 | [#agent-identity](src/agent-identity.md) | Non-forkable causal trajectory | Discussion | I | draft |
 | [#agent-spectrum](src/agent-spectrum.md) | ±model × ±objective quadrants | Definition | II | draft |
-| [#complete-agent-state](src/complete-agent-state.md) | X_t = (M_t, G_t) | Formulation | II | missing |
-| [#objective-functional](src/objective-functional.md) | O_t parametrizes value | Definition | II | missing |
-| [#value-object](src/value-object.md) | Horizon/policy-conditioned value | Definition | II | missing |
-| [#strategy-dimension](src/strategy-dimension.md) | G_t = (O_t, Σ_t) split | Definition | II | missing |
-| [#causal-hierarchy-requirement](src/causal-hierarchy-requirement.md) | Level 2 needed for planning | Derived + Scope | II | missing |
-| [#loop-interventional-access](src/loop-interventional-access.md) | Feedback loop → Level 2 data | Derived | II | missing |
-| [#explicit-strategy-condition](src/explicit-strategy-condition.md) | When planning beats exploring | Normative | II | missing |
-| [#chain-confidence-decay](src/chain-confidence-decay.md) | Log-confidence additive in depth | Derived | II | missing |
-| [#and-or-scope](src/and-or-scope.md) | Conjunctive/disjunctive scope | Scope | II | missing |
-| [#strategy-dag](src/strategy-dag.md) | Strategy as probabilistic DAG | Definition | II | missing |
-| [#directed-separation](src/directed-separation.md) | Epistemic update is goal-blind | Derived + Scope | II | missing |
-| [#satisfaction-gap](src/satisfaction-gap.md) | Ideal vs best achievable | Definition | II | missing |
-| [#control-regret](src/control-regret.md) | Best achievable vs current | Definition | II | missing |
-| [#strategic-calibration](src/strategic-calibration.md) | Edge residuals | Definition | II | missing |
-| [#orient-cascade](src/orient-cascade.md) | Resolution order by info dep | Derived | II | missing |
-| [#observability-dominance](src/observability-dominance.md) | Unobservable edges freeze | Derived | II | missing |
-| [#edge-update-via-gain](src/edge-update-via-gain.md) | Gain extends to strategy edges | Hypothesis | II | missing |
-| [#structural-change-as-parametric-limit](src/structural-change-as-parametric-limit.md) | Pruning/grafting as continuous | Formulation | II | missing |
-| [#strategy-persistence-schema](src/strategy-persistence-schema.md) | Sector conditions for Σ_t | Proposed schema | II | missing |
+| [#complete-agent-state](src/complete-agent-state.md) | X_t = (M_t, G_t) | Formulation | II | draft |
+| [#objective-functional](src/objective-functional.md) | O_t parametrizes value | Definition | II | draft |
+| [#value-object](src/value-object.md) | Horizon/policy-conditioned value | Definition | II | draft |
+| [#strategy-dimension](src/strategy-dimension.md) | G_t = (O_t, Σ_t) split | Definition | II | draft |
+| [#causal-hierarchy-requirement](src/causal-hierarchy-requirement.md) | Level 2 needed for planning | Derived + Scope | II | draft |
+| [#loop-interventional-access](src/loop-interventional-access.md) | Feedback loop → Level 2 data | Derived | II | draft |
+| [#explicit-strategy-condition](src/explicit-strategy-condition.md) | When planning beats exploring | Normative | II | draft |
+| [#chain-confidence-decay](src/chain-confidence-decay.md) | Log-confidence additive in depth | Derived | II | draft |
+| [#and-or-scope](src/and-or-scope.md) | Conjunctive/disjunctive scope | Scope | II | draft |
+| [#strategy-dag](src/strategy-dag.md) | Strategy as probabilistic DAG | Definition | II | draft |
+| [#directed-separation](src/directed-separation.md) | Epistemic update is goal-blind | Derived + Scope | II | draft |
+| [#satisfaction-gap](src/satisfaction-gap.md) | Ideal vs best achievable | Definition | II | draft |
+| [#control-regret](src/control-regret.md) | Best achievable vs current | Definition | II | draft |
+| [#strategic-calibration](src/strategic-calibration.md) | Edge residuals | Definition | II | draft |
+| [#orient-cascade](src/orient-cascade.md) | Resolution order by info dep | Derived | II | draft |
+| [#observability-dominance](src/observability-dominance.md) | Unobservable edges freeze | Derived | II | draft |
+| [#edge-update-via-gain](src/edge-update-via-gain.md) | Gain extends to strategy edges | Hypothesis | II | draft |
+| [#structural-change-as-parametric-limit](src/structural-change-as-parametric-limit.md) | Pruning/grafting as continuous | Formulation | II | draft |
+| [#strategy-persistence-schema](src/strategy-persistence-schema.md) | Sector conditions for Σ_t | Proposed schema | II | draft |
 | [#multi-agent-scope](src/multi-agent-scope.md) | Multiple agents, shared env | Scope | III | missing |
 | [#unity-dimensions](src/unity-dimensions.md) | 4 dimensions of coherence | Definition | III | missing |
 | [#shared-intent](src/shared-intent.md) | IB-compressed purpose | Definition + Discussion | III | missing |
