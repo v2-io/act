@@ -91,9 +91,11 @@ reference document. For the canonical theory structure, see
 | [system-availability](src/system-availability.md) | Definition | Standard reliability engineering. |
 | [continuous-operation](src/continuous-operation.md) | Scope | Extends temporal optimization to include operational failures. |
 
-### Written — Section III (2 of 13 segments)
+### Written — Section III (4 of 13 segments)
 | Slug | Type | Notes |
 |------|------|-------|
+| [composition-closure](src/composition-closure.md) | Formulation | Operationalizes agent boundary as bounded closure defect. Status: conditional (admissibility constraints and norms under-specified). |
+| [tempo-composition](src/tempo-composition.md) | Derived | Sub-additive tempo inequality. Status: sketch (proof incomplete — ε*→C_coord mapping open). |
 | [adversarial-destabilization](src/adversarial-destabilization.md) | Derived | Lyapunov destabilization + effects spiral. From TFT Appendix A, A.3/A.3.1. |
 | [communication-gain](src/communication-gain.md) | Hypothesis | Trust-weighted inter-agent gain. From TFT Appendix F, F.2. |
 
@@ -120,6 +122,7 @@ integration (F.5). See Promotion Priorities item 3.
 |-------|----------|--------|
 | Purposeful agent derivation (v3) | `scratch/spike-v3-purposeful-agent.md` | **Definitive** for Section II porting |
 | Agent composition / holon | `scratch/spike-agent-composition.md` | Core insight strong; composition laws are sketches |
+| Composition closure | `scratch/spike-composition-closure.md` | Formalized closure defect ε*; promoted to #composition-closure + #tempo-composition |
 | Graph structure uniqueness | `scratch/spike-graph-uniqueness.md` | Acyclicity derived; P3→Markov needs tightening |
 | Intent DAG consolidated | `scratch/04-intent-dag-consolidated.md` | Canonical DAG reference; converged |
 | Prior art assessment | `scratch/02-prior-art-assessment.md` | Hafez/IBM/BDI/active-inference positioning |
@@ -145,6 +148,76 @@ integration (F.5). See Promotion Priorities item 3.
   level-independence
 
 
+## Theory Core
+
+The theory has a small **inevitability core** — segments where mathematical
+necessity is the goal and is plausibly achievable — surrounded by
+**canonical formulations** (good representational choices, not forced) and
+**empirical/heuristic enrichment** (testable claims, design guidance).
+Keeping these layers explicit prevents two failure modes: trying to prove
+inherently empirical claims, and settling for "formulation" when a theorem
+is within reach.
+
+### Inevitability core (~15 segments)
+
+These are the segments where the goal is: "given the prior objects, this is
+the *only* compatible form." Mathematical inevitability is the ceiling.
+
+| Segment | Why inevitability is plausible |
+|---------|-------------------------------|
+| #recursive-update + #recursive-update-proof | Three constraints → unique recursive form. Strongest result in the theory. |
+| #mismatch-decomposition | Bias-variance decomposition: mathematical identity once mismatch is defined. |
+| #chain-confidence-decay | log(product) = sum(logs). Pure algebraic identity. |
+| #persistence-condition | Given sector conditions, the threshold follows by Lyapunov. |
+| #sector-condition-stability + #sector-condition-proof | Lyapunov stability theorem applied to the mismatch dynamics. |
+| #structural-adaptation-necessity | Parametric update converges within model class; wrong class → structural change necessary. |
+| #orient-cascade | Resolution order forced by information dependency (M_t before Σ_t before O_t). |
+| #satisfaction-gap / #control-regret | Two gaps are arithmetic once V_ideal, A_O, V_current are defined. The diagnostic value is the insight. |
+| #causal-hierarchy-requirement | Application of Bareinboim et al.'s causal hierarchy theorem to Q_O evaluation. |
+| #loop-interventional-access | Feedback loop generates interventional data by construction — structural property. |
+| #directed-separation | f_M independence from G_t follows from the update structure, given scope condition. |
+| #deliberation-cost | Think-vs-act threshold from information-theoretic argument. |
+| #composition-consistency | If scope condition doesn't restrict level, predictions at different levels must be compatible. (Needs proof.) |
+
+### Canonical formulations (second ring)
+
+Good representational choices that are motivated but not forced. The
+three-question triage (FORMAT.md) answer to "what competing formulation
+would also fit?" is "at least one alternative exists." These are where
+ACT's *design* lives.
+
+Includes: #complete-agent-state, #objective-functional, #value-object,
+#strategy-dimension, #strategy-dag, #and-or-scope, #agent-model,
+#information-bottleneck, #event-driven-dynamics, #adaptive-tempo,
+#structural-change-as-parametric-limit, #explicit-strategy-condition
+(normative, not derived), #composition-closure (operationalizes
+ #composition-consistency but is a formulation choice, not the only
+possible operationalization), most definitions.
+
+### Empirical, heuristic, and discussion (third ring)
+
+Claims whose ceiling is empirical or heuristic — testable against the
+world but not derivable from the formalism. This is NOT a demotion: these
+are where ACT becomes falsifiable and useful. Section IV is mostly here.
+
+Includes: #update-gain, #mismatch-dynamics, #edge-update-via-gain,
+#strategic-calibration, #communication-gain, #conceptual-alignment,
+#exponential-cognitive-load, #changeset-size-principle, most Section IV/V
+segments, simulation observations.
+
+### Usage
+
+When developing or reviewing a segment, check which ring it belongs to.
+If it's in the inevitability core, the goal is tightening the proof. If
+it's a canonical formulation, the goal is explaining the choice and noting
+alternatives. If it's empirical/heuristic, the goal is stating falsifiable
+predictions and connecting to validation. Don't push segments upward beyond
+their ceiling; don't leave core segments at sketch status when a proof is
+within reach.
+
+See FORMAT.md "Epistemic Triage" for the three-question diagnostic.
+
+
 ## What's Open
 
 - Action-deliberation-exploration tradeoff (three-way with $\Sigma_t$)
@@ -152,14 +225,7 @@ integration (F.5). See Promotion Priorities item 3.
 - Cognitive cost of $\Sigma_t$ (no $\beta$ analog yet)
 - Edge identifiability conditions (resolved in software, open in general)
 - P3→Markov step in graph uniqueness (sketch, needs tightening)
-- Composition laws (specific forms are sketches; existence is required).
-  Codex suggests a **closure criterion**: a group counts as a composite agent
-  when there exists a macrostate/action/observation mapping that preserves ACT
-  dynamics to tolerance $\varepsilon$. This is sharper than "all valid
-  decompositions must compose cleanly" and directly answers the minimum-unity
-  question. A concrete first target: prove $\mathcal{T}_c \leq \sum_i
-  \mathcal{T}_i$ with equality conditions (when does composite tempo equal
-  the sum of individual tempos?).
+- Bridge lemma for composition closure: formally proving small expected component-wise errors guarantee bounded trajectory divergence under Lipschitz stability conditions.
 
 
 ## Known Fragilities

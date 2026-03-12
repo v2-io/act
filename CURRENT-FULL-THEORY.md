@@ -62,10 +62,11 @@ Every slug is linked to its intended `src/{slug}.md` file, even when that file d
 | [#structural-change-as-parametric-limit](src/structural-change-as-parametric-limit.md) | Pruning/grafting as continuous | Formulation | II | draft |
 | [#strategy-persistence-schema](src/strategy-persistence-schema.md) | Sector conditions for Σ_t | Proposed schema | II | draft |
 | [#multi-agent-scope](src/multi-agent-scope.md) | Multiple agents, shared env | Scope | III | missing |
+| [#composition-closure](src/composition-closure.md) | Composite agent via closure defect | Formulation | III | draft |
+| [#tempo-composition](src/tempo-composition.md) | Sub-additive tempo inequality | Derived | III | draft |
 | [#unity-dimensions](src/unity-dimensions.md) | 4 dimensions of coherence | Definition | III | missing |
 | [#shared-intent](src/shared-intent.md) | IB-compressed purpose | Definition + Discussion | III | missing |
 | [#auftragstaktik-principle](src/auftragstaktik-principle.md) | Prioritize objective sharing | Hypothesis | III | missing |
-| [#tempo-composition](src/tempo-composition.md) | How tempos compose | Derived | III | missing |
 | [#team-persistence](src/team-persistence.md) | Composite persistence condition | Derived | III | missing |
 | [#adversarial-tempo-advantage](src/adversarial-tempo-advantage.md) | Superlinear tempo advantage | Theorem | III | missing |
 | [#communication-gain](src/communication-gain.md) | Trust-weighted update gain for inter-agent channels | Hypothesis | III | draft |
@@ -145,8 +146,6 @@ Every slug is linked to its intended `src/{slug}.md` file, even when that file d
 **???** — Gap: *Adversarial DAG targeting.* Which strategy edges are most valuable to attack? Centrality in the DAG, inter-agent coupling edges, edges observable to the adversary. #chain-confidence-decay as a weapon: disrupting one AND-edge in a deep chain collapses the whole path.
 
 **???** — Gap: *Directed separation at the composite level.* If each sub-agent's $f_M$ is $G_t$-independent, is the composite's $f_M^c$ independent of $G_t^c$? Hypothesis: goal-blindness composes, BUT coordination routing may break it — if which observations reach the composite depends on the shared objective, the composite's effective observation function is goal-dependent.
-
-**???** — Gap: *Minimum unity for meaningful composition.* At what point is a "composite agent" a useful fiction vs a genuine entity? Is there a phase transition or continuous degradation? What is the irreducible cost of being multiple (compositional entropy)?
 
 
 ---

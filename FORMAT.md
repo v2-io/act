@@ -106,6 +106,57 @@ Definition, notation, and scope-narrowing files may use a simpler format than fu
 The `## Working Notes` section is for active development: open questions about the claim, sketches of how ACT machinery might strengthen or weaken it, unresolved issues, things to check. This is *our* working space — what we're thinking about, not what we're asserting. It should be removed or emptied when the segment reaches `candidate` stage. Unlike the Discussion section (which is part of the published theory), Working Notes are process artifacts.
 
 
+## Epistemic Triage
+
+Three questions to ask when writing or reviewing any segment. These determine
+the segment's honest `type` and `status` — and, critically, its **maximum
+attainable status** (the strongest epistemic category it could ever occupy,
+regardless of additional work).
+
+### The three questions
+
+1. **What prior objects make this claim well-typed?** Which definitions,
+   axioms, or derived results must exist for this claim to even be
+   statable? If the answer is "none" or "only standard math," the claim
+   may be foundational. If it requires many prior objects, it sits later
+   in the dependency chain.
+
+2. **What competing formulation would also fit the prior objects?** If the
+   answer is "none — this is the only form compatible with the priors,"
+   the claim may be a theorem candidate (mathematical inevitability). If
+   several forms work and you're choosing the most useful one, it's a
+   formulation or design principle. Be honest: most claims have
+   alternatives.
+
+3. **What observation would falsify this claim in practice?** If a
+   concrete falsifier exists, the claim is empirical or hypothesis. If no
+   observation could distinguish it from alternatives, it may be a
+   definition or tautology, not a testable claim. If it's unfalsifiable
+   *and* not a definition, something is wrong.
+
+### Diagnostic
+
+| If... | Then the segment is probably... |
+|-------|--------------------------------|
+| Only one form fits the priors | Theorem candidate (derived, exact) |
+| Several forms fit; this is the cleanest | Formulation (canonical choice) |
+| Depends on the world, not the formalism | Empirical or hypothesis |
+| No falsifier and not a definition | Tautology or under-specified — revisit |
+
+### Max attainable status
+
+Each segment has a ceiling — the strongest epistemic status it could ever
+reach, no matter how much work is invested. A segment whose functional form
+is inherently empirical (e.g., #conceptual-alignment) will never become
+`exact`; investing effort to "prove" it is wasted. A segment that's
+discussion-grade because it hasn't been worked yet (e.g., a sketch with a
+clear proof path) may have `exact` as its ceiling.
+
+When the ceiling is clear, note it in the segment's Epistemic Status
+paragraph: *"Max attainable: [status]. Currently [status] because [reason]."*
+This prevents wasted effort and focuses energy where promotion is possible.
+
+
 ## Equation-Level Tags
 
 Inline tags before equations mark their epistemic status. These follow TFT conventions (see `notation.md` and `_archive/old-tf-00-notation-conventions.md`):
