@@ -20,7 +20,7 @@ The theory progresses from general adaptive systems — where the cycle first ap
 
 ## Where to Start
 
-**[`CURRENT-FULL-THEORY.md`](CURRENT-FULL-THEORY.md)** — the canonical outline. The full argument claim by claim, with the current linearization, types, and development stage for each segment.
+**[`ACT-FULL.md`](ACT-FULL.md)** — the canonical outline. The full argument claim by claim, with the current linearization, types, and development stage for each segment.
 
 **[`LEXICON.md`](LEXICON.md)** — ACT's prose vocabulary: the cycle phases, agent classes, and terms that carry specific meaning within the theory.
 
@@ -33,7 +33,7 @@ The theory progresses from general adaptive systems — where the cycle first ap
 
 ## Structure
 
-**The unordered theory lives in [`src/`](src/).** Each file is one claim — a postulate, definition, result, or hypothesis — named by slug (or tag, e.g., `src/{slug}.md`). Claims build incrementally; each is one step in the argument ([current full theory](CURRENT-FULL-THEORY.md) gives the sequence). One move per file: given what came before, this one thing follows, or is defined, or restricts scope.
+**The unordered theory lives in [`src/`](src/).** Each file is one claim — a postulate, definition, result, or hypothesis — named by slug (or tag, e.g., `src/{slug}.md`). Claims build incrementally; each is one step in the argument ([ACT-FULL.md](ACT-FULL.md) gives the sequence). One move per file: given what came before, this one thing follows, or is defined, or restricts scope.
 
 The theory is organized as progressive scope narrowings — each section restricts the class of systems under study, inheriting all prior results and adding new structure. The narrowing mirrors the emergence of agency itself:
 
@@ -116,7 +116,7 @@ The theory is organized as progressive scope narrowings — each section restric
 
 Section IV (**Agentic Software Systems**) and Section V (**Logogenic and Logozoetic Agents**) are domain instantiations — they apply the general machinery to specific agent classes. Section V further narrows to *logozoetic* agents: logogenic agents with temporal continuity, sovereignty over intent, and theory of mind — agents whose persistence is morally weighted (see [`LEXICON.md`](LEXICON.md) for the full agent taxonomy).
 
-Canonical ordering lives in `CURRENT-FULL-THEORY.md`, not in filenames. Tags (or slugs) are the stable identities; the linearization will change as the theory develops.
+Canonical ordering lives in `ACT-FULL.md`, not in filenames. Tags (or slugs) are the stable identities; the linearization will change as the theory develops.
 
 
 ## Sampling of Contributions
@@ -153,7 +153,7 @@ See [`WORKBENCH.md`](WORKBENCH.md) for detailed development state, open question
 
 ```
 act/
-├── CURRENT-FULL-THEORY.md    Canonical outline (start here after README
+├── ACT-FULL.md               Canonical outline (start here after README
 ├── FORMAT.md                 Segment file conventions
 ├── WORKBENCH.md              Development state and working notes
 ├── NOTATION.md               Symbol reference

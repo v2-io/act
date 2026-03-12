@@ -15,7 +15,7 @@ about epistemic status, and clarity for future readers — not code coverage.
 
 ## Where to Start
 
-**Read `CURRENT-FULL-THEORY.md` first.** This is the canonical outline — the
+**Read `ACT-FULL.md` first.** This is the canonical outline — the
 whole argument claim by claim. It maps ~100 claims across five sections,
 shows what's written, and marks gaps honestly.
 
@@ -46,7 +46,7 @@ are adopted ONLY for epistemic labeling (equation-level tags, tiers).
 
 **File identity and ordering:**
 - **Filename = slug**: `src/{slug}.md`. No numbering in filenames.
-- **Ordering lives in `CURRENT-FULL-THEORY.md`**, not in filenames.
+- **Ordering lives in `ACT-FULL.md`**, not in filenames.
   The slug is the stable identity; the linearization will change.
 - YAML frontmatter: `slug`, `type`, `status`, `depends` (list of
   prerequisite slugs). See `FORMAT.md` for details.
@@ -159,7 +159,7 @@ See `WORKBENCH.md` for the full development state. Summary:
 
 ## File Organization
 
-- `CURRENT-FULL-THEORY.md` — **The canonical theory outline.** Claim-by-
+- `ACT-FULL.md` — **The canonical theory outline.** Claim-by-
   claim, section-by-section, with the current linearization.
 - `WORKBENCH.md` — **Development state.** What's done, open, fragile.
 - `FORMAT.md` — **Segment file conventions.** How to write claim files.

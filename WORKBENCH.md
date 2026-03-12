@@ -2,7 +2,7 @@
 
 Working notes for theory development. This is a thinking tool, not a
 reference document. For the canonical theory structure, see
-`CURRENT-FULL-THEORY.md`.
+`ACT-FULL.md`.
 
 
 ## Segment Status
@@ -308,7 +308,7 @@ See FORMAT.md "Epistemic Triage" for the three-question diagnostic.
   now framed correctly: M_t-side quantities remain well-defined regardless;
   directed separation gives the clean factorized update and sequential orient
   cascade. Without it, coupled analysis, not broken theory. Updated in
-  #directed-separation, #agent-spectrum, CURRENT-FULL-THEORY.md §II scope.
+  #directed-separation, #agent-spectrum, ACT-FULL.md §II scope.
   Scalar objective scope restriction added to #objective-functional.
 - **Section IV → Section I bridge is analogical, not formal.** Git-derived
   metrics (coherence, coupling, Q) are claimed to operationalize Lyapunov
@@ -353,7 +353,7 @@ remaining work.
 
 ## Ordering Questions
 
-*The current linearization in CURRENT-FULL-THEORY.md may need revision:*
+*The current linearization in ACT-FULL.md may need revision:*
 
 - Should #temporal-optimality move from Section I to Section II? It's about
   specific objectives — arguably an actuated-agent concept, not a general
@@ -376,7 +376,7 @@ The bottleneck is no longer idea generation — it is promotion,
 canonicalization, and scope-tightening:
 
 1. ~~**Section II backbone** — DONE.~~ All 20 segments promoted to src/
-   and marked draft in CURRENT-FULL-THEORY.md.
+   and marked draft in ACT-FULL.md.
 
 2. ~~**Simulation results → ACT-native claims/appendices** — DONE.~~
    adversarial-exponent-regimes, observation-gates-advantage, and
@@ -407,7 +407,7 @@ canonicalization, and scope-tightening:
    establishes new vocabulary: cycle phases, adaptive/agentic distinction,
    agent class hierarchy, logogenic/logozoetic. The following need updating
    to reflect the new terminology:
-   - **CURRENT-FULL-THEORY.md**: section titles still use old names
+   - **ACT-FULL.md**: section titles still use old names
      (Adaptive Systems Under Uncertainty, Actuated Adaptive Systems, etc.)
    - **WORKBENCH.md**: segment tables still use old section names
    - **CLAUDE.md**: still references old section names
@@ -422,7 +422,7 @@ canonicalization, and scope-tightening:
 - **Systematic overclaiming sweep.** 12 fixes across 10 segment files:
   "formalizes X" / "formal content of" / "This IS" / "proves" language
   shifted to "formal analog" / "consistent with" / "captures the pattern"
-  with empirical caveats. README, CLAUDE.md, CURRENT-FULL-THEORY.md also
+  with empirical caveats. README, CLAUDE.md, ACT-FULL.md also
   updated: "first-principles mathematical theory" → "mathematical
   framework." Operationalization section added to README.
 - **README positioning overhaul.** "What ACT Contributes — Honest
@@ -488,7 +488,7 @@ All TFT and TST content has been copied into `src/old-*` files. The priors/ subm
 | ~~old-tf-appendix-b-operationalization~~ | ~~Estimation procedures for all TFT quantities~~ | **Absorbed.** → #operationalization. Ready to archive. |
 | ~~old-tf-appendix-c-kalman-example~~ | ~~Complete Kalman worked example~~ | **Absorbed.** → #worked-example-kalman. Ready to archive. |
 | ~~old-tf-appendix-d-rl-example~~ | ~~Nonstationary bandit worked example~~ | **Absorbed.** → #worked-example-bandit. Ready to archive. |
-| ~~old-tf-appendix-e-tft-core~~ | ~~Condensed formal chain~~ | **Archived.** Superseded by CURRENT-FULL-THEORY.md. |
+| ~~old-tf-appendix-e-tft-core~~ | ~~Condensed formal chain~~ | **Archived.** Superseded by ACT-FULL.md. |
 | old-tf-appendix-f-multi-agent | Communication gain, trust, distributed tempo, topology, game theory | **Partially absorbed.** → #communication-gain (F.2 core), #adversarial-destabilization (uses coupling model). **Still needed from F:** distributed tempo → #team-persistence (F.3), topology analysis (F.4), game-theoretic integration (F.5), trust transitivity details, falsification predictions (F.7). Extract as Section III segments get built. |
 | ~~old-tf-appendix-g-agent-identity~~ | ~~Non-forkability, clone problem~~ | **Archived.** → #agent-identity. |
 | ~~old-tf-recursive-update-derivation~~ | ~~Full uniqueness proof~~ | **Absorbed.** → #recursive-update-derivation. Ready to archive. |
@@ -501,7 +501,7 @@ All TFT and TST content has been copied into `src/old-*` files. The priors/ subm
 
 | Old file | Content | ACT status |
 |----------|---------|------------|
-| ~~old-tst-readme~~ | ~~TST overview~~ | **Archived.** Superseded by Section IV of CURRENT-FULL-THEORY.md. |
+| ~~old-tst-readme~~ | ~~TST overview~~ | **Archived.** Superseded by Section IV of ACT-FULL.md. |
 | ~~old-tst-01-temporal-optimality~~ | ~~T-01~~ | **Archived.** → #temporal-optimality (generalized). |
 | ~~old-tst-02-specification-bound~~ | ~~D-01 + T-02 + C-02.1~~ | **Archived.** → #specification-bound, #feature-definition. |
 | ~~old-tst-03-evolving-scope~~ | ~~T-03~~ | **Archived.** → #software-scope. |

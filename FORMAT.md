@@ -12,7 +12,7 @@ Do not hard-wrap lines. Let renderers (GitHub, Obsidian, editors) handle wrappin
 
 - **Segment files** live in `src/` — one claim per file.
 - **Filename = slug**: `src/{slug}.md`. No numbering in filenames.
-- **Canonical ordering** lives in `CURRENT-FULL-THEORY.md`, not in filenames. The ordering will change as the theory develops; the slug is the stable identity.
+- **Canonical ordering** lives in `ACT-FULL.md`, not in filenames. The ordering will change as the theory develops; the slug is the stable identity.
 - **Cross-references** use `#slug-name` — everywhere, always.
 
 
@@ -82,7 +82,7 @@ Orthogonal to epistemic status. Tracks where the segment is in our working proce
 | `in-progress-1`…`9` | Actively being refined; number indicates review passes |
 | `candidate` | Believed ready; can downgrade to `in-progress` if issues found |
 
-Stage appears in `CURRENT-FULL-THEORY.md`'s index table, not in segment frontmatter (it changes too often and is a property of the project, not the file).
+Stage appears in `ACT-FULL.md`'s index table, not in segment frontmatter (it changes too often and is a property of the project, not the file).
 
 ### `depends` — prerequisite slugs
 
