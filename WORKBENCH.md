@@ -156,12 +156,23 @@ integration (F.5). See Promotion Priorities item 3.
 - Cognitive cost of $\Sigma_t$ (no $\beta$ analog yet)
 - Edge identifiability conditions (resolved in software, open in general)
 - P3→Markov step in graph uniqueness (sketch, needs tightening)
-- Composition laws (specific forms are sketches; existence is required)
+- Composition laws (specific forms are sketches; existence is required).
+  Codex suggests a **closure criterion**: a group counts as a composite agent
+  when there exists a macrostate/action/observation mapping that preserves ACT
+  dynamics to tolerance $\varepsilon$. This is sharper than "all valid
+  decompositions must compose cleanly" and directly answers the minimum-unity
+  question. A concrete first target: prove $\mathcal{T}_c \leq \sum_i
+  \mathcal{T}_i$ with equality conditions (when does composite tempo equal
+  the sum of individual tempos?).
 
 
 ## Known Fragilities
 
-- Edge semantics claim interventional but update from observational
+- Edge semantics claim interventional but update from observational.
+  During Section II promotion: consider scoping literal $P(j \mid do(i), M_t)$
+  semantics to intervention-rich domains (software), using weaker
+  "agent-calibrated causal credence" for the general case. This is a natural
+  scope narrowing, not a retreat.
 - Missing commitment/resource/temporal structure in the DAG
 - Directed separation violated by goal-conditioned agents (LLMs) —
   acknowledged as scope restriction, not a bug
@@ -397,6 +408,11 @@ All TFT and TST content has been copied into `src/old-*` files. The priors/ subm
 8. Cognitive cost of maintaining $\Sigma_t$ (the $\beta$ analog for strategy).
 9. P3→Markov step in graph uniqueness: does state-local revisability strictly force the Markov condition? See `scratch/spike-graph-uniqueness.md`.
 10. Whether "code quality as observation infrastructure" is unique to software or an instance of a general pattern (agents modifying their own observation channels).
+11. LLM causal access (`scratch/llm-causal-access-note.md`): the loop argument
+    (Response 1) is load-bearing. Responses 2–3 (internal representations,
+    training-time causal exposure) are interesting but give critics easier
+    targets if blended into the canonical theory. Keep the loop argument
+    primary; others as discussion/aside.
 
 
 ## Validation (after theory stabilizes)
@@ -407,3 +423,7 @@ All TFT and TST content has been copied into `src/old-*` files. The priors/ subm
 - Multi-agent intent propagation simulation
 - TST testable predictions: specification bound calibration, coherence-coupling measurement
 - Simulations 3–6 from old-tst-via-tft-simulation-proposals (Sims 1–2 done as track-b)
+- **Flagship empirical agenda**: software unmaintainability threshold and
+  measurement program. Formalize $\mathcal{T}_{\text{team}} > \rho_{\text{total}}
+  / \|\delta_{\text{critical}}\|$ with observable precursors. This is where ACT
+  could become decisively useful beyond elegant theory.

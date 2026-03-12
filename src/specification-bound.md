@@ -50,3 +50,9 @@ The proportionality constant is not derived within ACT.
 
 **Empirical indication.** Putnam (1978) empirically discovered implementation time bounds that may approximate $t_{\min} \approx (\text{time}_{\text{specify}})^{3/4}$.
 *[Empirical Claim — historical observation, not derived within ACT. The exponent 3/4 is Putnam's empirical finding, not a theoretical prediction.]*
+
+## Working Notes
+
+- The $\min(\text{specify}, \text{demo})$ formulation may be too narrow. Demonstration is just one alternative communication channel; the real lower bound is the **cheapest sufficient transmission path** for $F$ — specification, demonstration, example, shared convention, or any combination. The formula should generalize to $\text{time}_{\min}(F) \geq \inf_{\text{channels}} \text{time}_{\text{transmit}}(F, \text{channel}, \text{context})$. As currently written, the theorem statement and prose are slightly misaligned — the prose explains more than the formula captures.
+- This segment was written by an earlier agent with less context (noted in WORKBENCH). Needs a review pass during Section I/IV tightening — particularly to connect to the ACT communication framework ( #communication-gain) and to make the information-theoretic derivation more explicit.
+- The $H(F) / C_{\text{shared}}$ proportionality is a first-order approximation. A tighter version would account for encoding efficiency and channel characteristics — but this may be over-engineering for a bound that is primarily conceptual.
