@@ -18,7 +18,9 @@ An agent in the feedback loop generates interventional data by construction: the
 
 By #causal-structure, the temporal ordering is constitutive: $a_t$ causally precedes $o_{t+1}$. The agent chose $a_t$; the environment responded with $o_{t+1}$. This is an intervention — the agent varied its action and observed the result.
 
-Formally: the pair $(a_t, o_{t+1})$ is a sample from the interventional distribution $P(o \mid do(a_t), \Omega_t)$, not from the observational distribution $P(o \mid A_t = a_t)$. The difference matters when the agent's policy correlates with confounders — but the agent's action IS the intervention, so the interventional interpretation is correct by construction.
+Formally: the pair $(a_t, o_{t+1})$ is generated under an intervention policy — the agent executed $a_t$, making it a genuine intervention rather than a passively observed association. The data *contains interventional signal*: it was produced by a do-operation, not by conditioning on a naturally occurring value of $A_t$.
+
+However, this does not mean the agent automatically has access to a clean estimate of $P(o \mid do(a_t), \Omega_t)$. Between the interventional act and a usable interventional distribution stand: (1) coverage — the agent must have tried diverse actions, not just one policy; (2) confounding within a time step — unobserved state variables that affect both action choice and outcome; (3) delay — consequences may appear much later than $t+1$; (4) partial observability — $o_{t+1}$ reveals only part of the outcome. The claim is about the *character* of the data (interventional, not observational), not about the agent's ability to extract clean causal estimates from it.
 
 The mismatch signal conditioned on the agent's action:
 

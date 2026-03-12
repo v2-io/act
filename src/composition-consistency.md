@@ -8,40 +8,54 @@ depends:
 
 # Composition Consistency
 
-ACT's predictions must be compatible across levels of description. If a system satisfies the scope condition and can be decomposed into subsystems that each independently satisfy the scope condition, the theory's predictions at the system level must not contradict its predictions at the subsystem level.
+ACT applies at every level of description where the scope condition is met. A team of agents is itself an agent; a department of teams is itself an agent. The theory's predictions at each level must be compatible — and they are, under a condition analogous to the persistence threshold: the composite's internal coordination must be fast relative to the external dynamics it faces.
 
 ## Formal Expression
 
 *[Axiom (composition-consistency)]*
 
-For any system $S$ satisfying the scope condition ( #scope-condition), and any decomposition of $S$ into subsystems $\{S_1, \ldots, S_n\}$ where each $S_i$ also satisfies the scope condition:
+For any system $S$ satisfying the scope condition ( #scope-condition), and any decomposition of $S$ into subsystems $\{S_1, \ldots, S_n\}$ where each $S_i$ also satisfies the scope condition, ACT's predictions at the system level must be compatible with its predictions at the subsystem level. Specifically, composition laws must exist such that:
 
-1. **Tempo composition**: $\mathcal{T}_S$ must be expressible as a function of $\{\mathcal{T}_{S_i}\}$ and the coordination structure among them
-2. **Persistence compatibility**: If $S$ persists ($\mathcal{T}_S > \rho_S / \|\delta_{\text{critical}}^S\|$), this must be derivable from the sub-agents' individual persistence conditions plus coordination structure
-3. **Mismatch consistency**: $\delta_S$ must be derivable from $\{\delta_{S_i}\}$ and their interaction structure
+1. **Tempo composition**: $\mathcal{T}_S$ is expressible as a function of $\{\mathcal{T}_{S_i}\}$ and the coordination structure among them
+2. **Persistence compatibility**: the system's persistence is derivable from the sub-agents' individual persistence conditions plus coordination structure
+3. **Mismatch consistency**: $\delta_S$ is derivable from $\{\delta_{S_i}\}$ and their interaction structure
 
-"Compatible" means: the predictions at different levels may concern different quantities (different levels see different observables), but they must not give contradictory answers about shared observables. The choice of boundary is a modeling decision, not a physical fact — the same physical system is being described.
+*[Sufficient Condition (composition-validity)]*
+
+**Timescale separation condition.** A group of sub-agents behaves as a valid composite agent when its internal equilibration timescale $\tau_{\text{eq}}$ — the time for sub-agents to approximately synchronize models and coordinate actions — is short relative to the external dynamics timescale $\tau_{\text{ext}}$ — the time for the environment to change significantly from the macro-agent's perspective:
+
+$$\tau_{\text{eq}} \ll \tau_{\text{ext}}$$
+
+When this holds, the internal dynamics have approximately settled by the time the next external challenge arrives, and the composite's macro-state is predictive of its macro-behavior. This is the composition analog of the persistence condition ( #persistence-condition): just as an individual agent requires $\mathcal{T} > \rho / \|\delta_{\text{critical}}\|$ to maintain bounded mismatch, a composite agent requires fast internal coordination to maintain a coherent macro-description.
+
+Most functioning groups easily satisfy this condition. A software team with daily standups and shared CI ($\tau_{\text{eq}} \sim$ hours) facing weekly feature deadlines ($\tau_{\text{ext}} \sim$ weeks) is comfortably a valid composite. A military squad communicating by voice ($\tau_{\text{eq}} \sim$ seconds) in a tactical situation evolving over minutes is clearly a single agent. The theory applies broadly; the interesting questions arise near the threshold.
 
 ## Epistemic Status
 
-*First-principled.* This is a structural requirement for ACT's internal consistency, not a claim about the world. If the scope condition ( #scope-condition) does not restrict which level of description the theory applies to — and it does not — then the theory must give non-contradictory answers regardless of where the agent boundary is drawn. A theory whose predictions depend on an arbitrary modeling choice (where to draw the boundary) would undermine its own claims to generality.
-
-The axiom is analogous to the requirement in physics that laws hold across scales. The specific *composition laws* that satisfy this requirement are formulation choices (Section III); the *requirement* that such laws exist is not.
+*First-principled.* The meta-requirement (cross-level compatibility) is a structural requirement for ACT's internal consistency — if the scope condition doesn't restrict which level the theory applies to, the predictions must not contradict across levels. The timescale separation condition is stated here as a sufficient condition for practical composition; its formal derivation requires the composition closure criterion ( #composition-closure) and the tempo composition inequality ( #tempo-composition) developed in Section III. The condition is not yet proved; it is stated early because it is intuitive, likely correct, and gives readers an immediate practical test.
 
 ## Discussion
 
-**Why this is an axiom, not a derived result.** The argument that ACT must be consistent across levels is compelling — it follows from the scope condition's level-independence. But it is not a *derivation* in the mathematical sense. It is a coherence requirement on the theory itself: we demand this property because a theory that lacks it is defective. We state it as an axiom so that every subsequent result is automatically understood to hold at every level of composition.
+**The same pattern as individual persistence.** The persistence condition says: there is a measurable threshold below which an individual agent's mismatch grows without bound and the agent degrades. Composition consistency says the same thing at the composite level: there is a measurable threshold ($\tau_{\text{eq}} / \tau_{\text{ext}}$) below which the composite description breaks down. In both cases, most competent agents are comfortably above the threshold — the theory applies broadly, and the edge cases are where it gets interesting.
 
 **What this buys the theory.** With composition consistency stated early:
-- All Section I and II results (persistence, gain, tempo, mismatch decomposition, orient cascade) hold at every level of composition without re-derivation
-- Section III becomes the study of *imperfect composition* — what happens when the coordination structure introduces friction — rather than a separate multi-agent theory
-- The formal test for valid composition ( #composition-closure) operationalizes this axiom's requirement
+- Every subsequent result (persistence, gain, tempo, mismatch decomposition, orient cascade) is understood to apply at every level of composition where the timescale condition holds
+- Section III becomes the study of *what happens near and beyond the threshold* — coordination overhead, unity dimensions, adversarial dynamics — rather than a separate multi-agent theory
+- The formal test for composition validity ( #composition-closure) provides the rigorous version of the timescale condition
+
+**When composition fails.** The timescale condition fails when:
+- Internal coordination slows (communication overhead scales poorly, conflicts consume attention, bureaucratic process)
+- External dynamics accelerate (adversary acts faster, market shifts, crisis compresses decision timescales)
+- Both simultaneously (the classic organizational failure mode — internal friction increases while external demands intensify)
+
+This is Brooks's Law formalized: adding people to a late project increases $\tau_{\text{eq}}$ (more coordination) while $\tau_{\text{ext}}$ stays fixed (the deadline doesn't move). Eventually $\tau_{\text{eq}}$ exceeds $\tau_{\text{ext}}$ and the composite ceases to function as a coherent agent.
 
 **The boundary is a modeling choice.** A development team is simultaneously: individual developers (each an ACT agent), the team (a composite ACT agent), and part of an organization (a sub-agent within a larger composite). The scope condition is satisfied at every level. Composition consistency ensures the theory doesn't give contradictory answers about observable quantities (e.g., whether the team persists) regardless of which boundary is chosen.
 
-**What composition consistency does NOT say.** It does not say the composition laws take any particular form. The specific relationship between $\mathcal{T}_S$ and $\{\mathcal{T}_{S_i}\}$ is derived in Section III ( #tempo-composition). It does not say the subsystems must be "well-behaved" — composition consistency holds even for adversarial sub-agents (where the coordination structure works against the composite). It does not say every decomposition is equally useful for analysis.
+**What composition consistency does NOT say.** It does not specify the form of the composition laws — those are derived in Section III ( #tempo-composition). It does not say every decomposition is equally useful for analysis. And it does not require perfect internal coordination — only that internal equilibration is fast relative to external dynamics.
 
 ## Working Notes
-- The relationship to holons (Koestler 1967): an ACT agent satisfying composition consistency is a holon — simultaneously a whole (analyzable as a single agent) and a part (decomposable into sub-agents). The term is occasionally useful but carries significant mystical baggage from later appropriations. Use sparingly.
+- The timescale separation condition is essentially the singular perturbation argument from #temporal-nesting applied to composition: the fast internal dynamics approximately equilibrate, and the composite's behavior is described by the slow (external) dynamics on the equilibrium manifold. The formal connection should be made explicit when temporal-nesting is reviewed.
 - Composition of directed separation: if each sub-agent's $f_M$ is $G_t$-independent, does the composite's $f_M^c$ remain $G_t^c$-independent? Hypothesis: goal-blindness composes, BUT coordination routing may break it — if which observations reach the composite depends on the shared objective, the composite's effective observation function is goal-dependent. This is the organizational analog of the LLM scope restriction in #directed-separation.
 - The "atomic agent" question: if every agent is decomposable, where does it bottom out? At agents whose internal dynamics are not usefully described by ACT — below the level where observations, actions, and uncertainty exist, the scope condition fails and the recursion terminates.
+- The relationship to holons (Koestler 1967): an ACT agent satisfying composition consistency is a holon — simultaneously a whole (analyzable as a single agent) and a part (decomposable into sub-agents). The term is occasionally useful but carries significant mystical baggage from later appropriations. Use sparingly.

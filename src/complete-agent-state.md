@@ -57,7 +57,7 @@ The robustness claim: any alternative decomposition of the complete agent state 
 
 ## Discussion
 
-**Backward compatibility with Section I.** #agent-model defines $M_t$ as the agent's complete internal state. Under the lift, $M_t$ is the epistemic substate — complete within the epistemic domain but no longer the whole story. Every Section I formula, proof, and result applies to $M_t$ without modification. The lift adds structure *alongside* $M_t$, not within it.
+**Backward compatibility with Section I — what survives the lift.** #agent-model defines $M_t$ as the agent's complete internal state. Under the lift, $M_t$ is the epistemic substate — complete within the epistemic domain but no longer the whole story. All epistemic machinery (mismatch signal, gain, tempo, persistence condition, sector-condition stability, mismatch decomposition) applies to $M_t$ without modification. However, #action-selection derives $a_t = \pi(M_t)$ from the premise that $M_t$ is the agent's *complete* state — this derivation is superseded by $a_t = \pi(M_t, G_t)$ after the lift. For Section I agents ($G_t = \emptyset$), the original result holds trivially. The lift adds structure *alongside* $M_t$, not within it; the one result that relied on $M_t$ being *all there is* (action selection) is explicitly extended.
 
 **What $G_t$ contains.** At this level, $G_t$ is opaque — it could be a scalar setpoint, a utility function, a strategy graph, or nothing. The decomposition into $O_t$ (objective) and $\Sigma_t$ (strategy) is a separate step ( #strategy-dimension), not implied by this formulation.
 

@@ -231,6 +231,26 @@ See FORMAT.md "Epistemic Triage" for the three-question diagnostic.
 - Bridge lemma for composition closure: formally proving small expected component-wise errors guarantee bounded trajectory divergence under Lipschitz stability conditions.
 
 
+## Cross-Segment Consistency Issues
+
+- **Low-end examples (thermostat, PID) are inconsistently classified.**
+  #agent-spectrum places thermostat in reactive/no-objective and PID in
+  blind-pursuer/no-model. But #scope-condition uses thermostat as the
+  canonical minimal ACT agent, #complete-agent-state gives it a scalar
+  $G_t$, and #agent-model says PID has a degenerate model but "not a
+  genuine $M_t$." A thermostat *has* a setpoint (degenerate objective) and
+  current-temperature state (degenerate model). A PID controller *has* an
+  error integral (degenerate model) and setpoint (degenerate objective).
+  Both are minimal actuated agents, not "no-objective" or "no-model"
+  agents. These examples do foundational explanatory work across Sections I
+  and II — they need one settled classification.
+- **"Section I carries over" compatibility boundary.** After the
+  $X_t = (M_t, G_t)$ lift, epistemic machinery transfers cleanly to the
+  $M_t$ substate. But #action-selection's derivation of $a_t = \pi(M_t)$
+  relied on $M_t$ being *complete* — this is superseded by
+  $a_t = \pi(M_t, G_t)$. Noted in #complete-agent-state Discussion.
+
+
 ## Known Fragilities
 
 - Edge semantics claim interventional but update from observational.
