@@ -233,17 +233,13 @@ See FORMAT.md "Epistemic Triage" for the three-question diagnostic.
 
 ## Cross-Segment Consistency Issues
 
-- **Low-end examples (thermostat, PID) are inconsistently classified.**
-  #agent-spectrum places thermostat in reactive/no-objective and PID in
-  blind-pursuer/no-model. But #scope-condition uses thermostat as the
-  canonical minimal ACT agent, #complete-agent-state gives it a scalar
-  $G_t$, and #agent-model says PID has a degenerate model but "not a
-  genuine $M_t$." A thermostat *has* a setpoint (degenerate objective) and
-  current-temperature state (degenerate model). A PID controller *has* an
-  error integral (degenerate model) and setpoint (degenerate objective).
-  Both are minimal actuated agents, not "no-objective" or "no-model"
-  agents. These examples do foundational explanatory work across Sections I
-  and II — they need one settled classification.
+- **Low-end examples (thermostat, PID) — RESOLVED.**
+  Settled doctrine: the spectrum is about *richness*, not *presence/absence*.
+  #agent-spectrum table relabeled from "absent" to "absent or trivial" with
+  continuum framing. Thermostat has degenerate M_t and O_t (near origin, not
+  truly reactive). PID has degenerate M_t (not "no genuine M_t"). Reflex arc
+  is the truly reactive case. #agent-model updated to match. Classification
+  question is "rich enough for the machinery?" not "present or absent?"
 - **"Section I carries over" compatibility boundary.** After the
   $X_t = (M_t, G_t)$ lift, epistemic machinery transfers cleanly to the
   $M_t$ substate. But #action-selection's derivation of $a_t = \pi(M_t)$
@@ -260,7 +256,11 @@ See FORMAT.md "Epistemic Triage" for the three-question diagnostic.
   scope narrowing, not a retreat.
 - Missing commitment/resource/temporal structure in the DAG
 - Directed separation violated by goal-conditioned agents (LLMs) —
-  acknowledged as scope restriction, not a bug
+  now framed correctly: M_t-side quantities remain well-defined regardless;
+  directed separation gives the clean factorized update and sequential orient
+  cascade. Without it, coupled analysis, not broken theory. Updated in
+  #directed-separation, #agent-spectrum, CURRENT-FULL-THEORY.md §II scope.
+  Scalar objective scope restriction added to #objective-functional.
 
 
 ## Codex Review Issues (from memory — fixes needed)

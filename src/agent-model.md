@@ -44,6 +44,6 @@ Any information not in $M_t$ is lost to the agent.
 This is what makes $M_t$ the complete epistemic substate, not merely one component of a richer internal representation.
 Whether $M_t$ retains *enough* information is the subject of #model-sufficiency.
 
-**Degenerate cases.** A PID controller's "model" is degenerate — it retains only the error signal and its history (integral, derivative), with no predictive capability.
-This is why the PID inhabits the "blind pursuer" quadrant: it has an objective but not a genuine $M_t$.
-The formalism accommodates this by allowing $\mathcal{M}$ to be trivial.
+**Degenerate cases.** A PID controller's $M_t$ is degenerate — it retains only the error signal and its history (integral, derivative), with no predictive capability beyond extrapolating recent trends.
+It occupies the "blind pursuer" region of the agent spectrum ( #agent-spectrum): its $O_t$ (setpoint) is clear but its $M_t$ is too impoverished to support the adaptive dynamics of Section I.
+The formalism accommodates this by allowing $\mathcal{M}$ to range from trivial (scalar) to rich (full world model).

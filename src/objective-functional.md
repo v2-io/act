@@ -36,6 +36,8 @@ The trajectory functional is the most general; the others are special cases.
 
 *First-principled.* This is a definition — it names an object and specifies its interface. The claim that $V_{O_t}: \text{trajectories} \to \mathbb{R}$ is the right interface is grounded in: any evaluation criterion must ultimately answer "how good is this trajectory?" with a scalar, because the agent must compare alternatives. The real-valued codomain follows from this comparability requirement (total ordering of alternatives).
 
+**Scope restriction: scalar comparability.** The real-valued codomain is a genuine restriction. Agents with incommensurable objectives — where no total ordering of alternatives exists — require a vector-valued or Pareto formulation outside this definition. The restriction is standard in decision theory (von Neumann–Morgenstern) and covers most practical cases, including scalarized multi-objective problems and lexicographically ordered priorities. But organizations or AI agents with hard non-compensatory constraints (safety AND profitability as independent thresholds, not a weighted sum) are only approximately covered. This should be acknowledged wherever downstream results depend on scalar $V_{O_t}$, particularly the satisfaction gap ( #satisfaction-gap) and its single-threshold feasibility test.
+
 ## Discussion
 
 **Filling TF-08's gap.** The existing policy objective ( #causal-information-yield) contains $\mathbb{E}[\text{value}(a) \mid M_t]$ without specifying what "value" means. $O_t$ provides the formal content: value is $V_{O_t}$ applied to expected trajectories. The #value-object segment develops the full evaluation machinery ($V_O$, $Q_O$ with horizon and continuation policy).

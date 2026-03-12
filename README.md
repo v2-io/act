@@ -12,6 +12,8 @@ ACT unifies three aspects of agency that existing theories treat separately:
 
 3. **Composition and shared intent** — how agents compose into larger agents and communicate purpose under uncertainty. Intent compression via the information bottleneck (the Auftragstaktik insight). Composition consistency as a requirement, not a feature.
 
+Beneath all three is a single recurring pattern: **an agent persists when its internal correction outpaces external challenge.** For an individual, this means adaptive tempo must exceed the rate of environmental disturbance — the persistence condition. For a composite (a team, an organization, a swarm), it means internal coordination must equilibrate faster than the external dynamics change — the composition threshold. Both are measurable. Both are comfortably satisfied by most competent agents. The interesting theory lives near the boundary where they aren't.
+
 The theory progresses from general adaptive systems through actuated agency and multi-agent composition to domain instantiations — particularly software development and AI agents operating on code.
 
 
@@ -73,7 +75,7 @@ TST's claims are being systematically integrated with ACT's formal machinery —
 
 ## Current Status
 
-~100 claims mapped across five sections. The adaptive systems foundation (Section I) is well-grounded, simulation-validated, and nearing segment completion. The actuated agency layer (Section II) has a mature derivation spike ready for porting to segments. Section IV is in active conversion from TST. Sections III and V have source material identified but no segments written yet.
+~99 claims mapped across five sections. 85 segments at draft, 14 remaining. Sections I (28) and II (20) are complete. Section III (11/13) has its backbone and simulation results written — two segments remain (Appendix F extraction). Section IV (20/24) is in active conversion from TST. Section V (3/6) and appendices (3/8) have source material identified.
 
 See [`WORKBENCH.md`](WORKBENCH.md) for detailed development state, open questions, known fragilities, and prior-work migration progress.
 
