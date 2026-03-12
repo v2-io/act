@@ -44,7 +44,7 @@ The proportionality constant is not derived within ACT.
 
 **Shared context as compression.** The denominator $C_{\text{shared}}$ explains why domain-specific languages, established conventions, and shared mental models accelerate development. "Make it like Twitter but for dogs" is an efficient specification only because the receiver has extensive context about what "Twitter" means. Without that context, the specification would require orders of magnitude more information.
 
-**Connection to ACT.** In ACT terms, the specification bound constrains how fast $O_t$ ( #objective) can be communicated from specifier to implementer. Shared context corresponds to the overlap between specifier's $M_t$ and implementer's $M_t$. When this overlap is small, even a simple objective requires extensive specification.
+**Connection to ACT.** In ACT terms, the specification bound constrains how fast $O_t$ ( #objective-functional) can be communicated from specifier to implementer. Shared context corresponds to the overlap between specifier's $M_t$ and implementer's $M_t$. When this overlap is small, even a simple objective requires extensive specification.
 
 *[Discussion]* This suggests that $M_t$ quality ( #agent-model) and observation infrastructure ( #code-quality-as-observation-infrastructure) are load-bearing for the specification bound: shared context built through good code (documentation, naming, structure) reduces specification time for future features. *This connection is structurally motivated but the quantitative relationship between code quality and specification time has not been empirically measured.*
 

@@ -48,10 +48,17 @@ reference document. For the canonical theory structure, see
 |------|------|-------|
 | [agent-spectrum](src/agent-spectrum.md) | Definition | Needs review |
 
-### Written — Section IV (1 of 28 segments)
+### Written — Section IV (8 of 29 segments)
 | Slug | Type | Notes |
 |------|------|-------|
-| [specification-bound](src/specification-bound.md) | Theorem | Needs review |
+| [software-scope](src/software-scope.md) | Scope | Needs review |
+| [feature-definition](src/feature-definition.md) | Definition | Needs review |
+| [specification-bound](src/specification-bound.md) | Theorem | Needs review; written by earlier agent with less context |
+| [change-expectation-baseline](src/change-expectation-baseline.md) | Derived | Median not expectation — key finding |
+| [investment-scaling](src/investment-scaling.md) | Corollary | Redirect to change-expectation-baseline |
+| [comprehension-time](src/comprehension-time.md) | Definition | Needs review |
+| [implementation-time](src/implementation-time.md) | Definition | Needs review |
+| [dual-optimization](src/dual-optimization.md) | Derived | Turnover multiplier |
 
 ### Not Yet Written — Section II
 | Slug | Type | Source material |
@@ -180,16 +187,59 @@ remaining work.
   review corrections?
 
 
+## Promotion Priorities (from Codex review, 2026-03-11)
+
+The bottleneck is no longer idea generation — it is promotion,
+canonicalization, and scope-tightening:
+
+1. **Section II backbone** — promote from v3 spike in order:
+   complete-agent-state, objective-functional, value-object,
+   strategy-dimension, directed-separation, satisfaction-gap,
+   control-regret, orient-cascade. This is where ACT's differentiating
+   machinery lives; leaving it in scratch undermines the canonical layer.
+
+2. **Simulation results → ACT-native claims/appendices** —
+   adversarial-exponent-regimes, observation-gates-advantage, and
+   per-dimension-persistence are ready to exist as first-class segments
+   rather than scratch conclusions.
+
+3. **Section V scope decision** — directed separation fails for
+   goal-conditioned LLMs (acknowledged). Section V is where the project
+   wants to land. Need to decide: is Section V an approximate application
+   of current ACT, or does it require a genuine coupled $M_t$/$G_t$
+   extension? Currently honest but strategically unresolved.
+
+
 ## Simulation Findings (Summary)
 
-The track-b simulations (`scratch/track-b-nonlinear-sims/`) validated and
-refined specific claims:
+The track-b simulations (`scratch/track-b-nonlinear-sims/`) are theory-shaping,
+not merely confirmatory. They forced regime splits and narrowed claims that the
+analytical derivations left ambiguous. Full details in variant result files.
 
-- Cor. 11.2's exponent = 2 under deterministic drift (confirmed: 1.999)
-- Under stochastic disturbances, exponent = 1.5 (not 2.0)
-- Observation noise collapses adversarial exponent from ~1.0 to ~0.2
-- Per-dimension persistence exact (scalar overestimates by 72%)
-- TF-06's gain principle empirically validated (52% reduction)
+### Adversarial tempo exponent (Variants A–D)
+- **Deterministic drift, coupling-dominant**: exponent = 2.0 (confirmed at 1.999). Cor. 11.2 exact.
+- **Stochastic AR(1) noise, coupling-dominant**: exponent = **1.5, not 2.0**. Root cause: ODE steady-state scales as $\rho/\mathcal{T}$, but stochastic RMS scales as $\rho/\sqrt{\mathcal{T}}$. This is a fundamental model distinction, not a minor correction.
+- **Non-coupling-dominant**: exponent degrades smoothly toward 1.0 as base disturbance increases relative to adversarial coupling. The coupling-dominant qualifier is quantitatively load-bearing.
+- **Implication**: Cor. 11.2's squared law is correct but conditional on deterministic coupling dominance. Applications must distinguish whether an opponent's tempo increases systematic drift vs. unpredictability.
+
+### Observation noise (Variant E)
+- Observation noise collapses adversarial exponent from ~1.0 to **~0.2** — tempo advantage nearly vanishes.
+- Optimal gain (TF-06's $\eta^*$) partially restores it (~0.4) but cannot fully recover.
+- This formally grounds Boyd's emphasis on Orient quality: faster OODA is worthless with bad observations.
+
+### Anisotropic correction (Variant F)
+- Per-dimension persistence theory is **exact** (matches AR(1) prediction to 4 significant figures).
+- Scalar tempo **overestimates by ~72%** — the weak dimension is the bottleneck.
+- Isotropic allocation beats anisotropic by 13%; targeted adversarial attack on weak dimensions amplifies advantage 17%.
+- **Implication**: need per-dimension persistence condition, not scalar $\mathcal{T} > \rho / \|\delta_{\text{critical}}\|$.
+
+### Gain validation (Variant E)
+- TF-06's uncertainty ratio principle empirically validated: 52% mismatch reduction with Riccati-optimal gain.
+
+### Hafez bridge (Variant Hafez)
+- Bi-predictability $P$ measures coupling *architecture*; ACT mismatch measures *performance*. $P$ cannot detect adversarial dynamics.
+- Agency has structural information cost: passive $P = 0.44$, active $P = 0.27$.
+- $H_b$ (backward uncertainty / agent opacity) has no direct ACT analog — potential gap for multi-agent work.
 
 
 ## Prior Work Migration Map

@@ -9,6 +9,8 @@ See `FORMAT.md` for segment file conventions. See `notation.md` for symbols, con
 
 ## Index
 
+Every slug is linked to its intended `src/{slug}.md` file, even when that file doesn't exist yet (`missing` or `old` stage). This is deliberate — the links serve as stable intent markers so the only ongoing maintenance is updating the Stage column. A `missing` link means no file exists; an `old` link means the content lives in a corresponding `src/old-*` source file awaiting conversion. Segments may also contain forward references (`#slug-name`) to not-yet-written segments; these are intentional dependency markers, not broken links.
+
 | Slug | Claim | Type | § | Stage |
 |------|-------|------|---|-------|
 | [#temporal-optimality](src/temporal-optimality.md) | Least-time is optimal | Axiom | I | draft |

@@ -103,7 +103,7 @@ The `## Working Notes` section is for active development: open questions about t
 
 ## Equation-Level Tags
 
-Inline tags before equations mark their epistemic status. These follow TFT conventions (see `src/old-tf-00-notation-conventions.md`):
+Inline tags before equations mark their epistemic status. These follow TFT conventions (see `notation.md` and `_archive/old-tf-00-notation-conventions.md`):
 
 ```
 *[Definition (slug-name)]*
@@ -125,6 +125,8 @@ Inline tags before equations mark their epistemic status. These follow TFT conve
 - **As links from root files**: `[#slug-name](src/slug-name.md)`
 
 Both forms work in GitHub and Obsidian. The plain `#slug-name` form is preferred in running prose where clickability is less important than readability.
+
+**Forward references are expected.** Segments routinely reference not-yet-written segments via `#slug-name`. These are intentional dependency markers — they document the claim's connections within the theory even before the target segment exists. Do not treat them as broken links or remove them.
 
 **Obsidian tag recognition**: Obsidian treats `#word` as a tag only when preceded by a space (or start of line). Always ensure a space before `#slug-name` — write `( #scope-condition)` not `(#scope-condition)`, and `see #update-gain` not `see#update-gain`.
 
@@ -158,7 +160,7 @@ GitHub's math renderer is stricter than Obsidian's. To keep both working:
 
 ## Notation Conventions
 
-Follow TFT conventions. See `src/old-tf-00-notation-conventions.md` for the complete symbol table, units, and conventions. Key points:
+Follow TFT conventions. See `notation.md` for ACT's symbol reference. The original TFT conventions are in `_archive/old-tf-00-notation-conventions.md`. Key points:
 
 - **Calligraphic** ($\mathcal{M}$, $\mathcal{O}$, $\mathcal{A}$, $\mathcal{C}$, $\mathcal{E}$) for sets and spaces
 - **$\mathcal{T}$** for adaptive tempo (calligraphic to distinguish from temperature)

@@ -15,14 +15,15 @@ about epistemic status, and clarity for future readers — not code coverage.
 ## Where to Start
 
 **Read `CURRENT-FULL-THEORY.md` first.** This is the canonical outline — the
-whole argument claim by claim. It maps ~75 claims across five sections, shows
-what's written, and marks gaps honestly.
+whole argument claim by claim. It maps ~100 claims across five sections,
+shows what's written, and marks gaps honestly.
 
 **Read `FORMAT.md`** for segment file conventions (frontmatter, document
 cadence, math formatting, cross-references).
 
-**Read `src/old-tf-00-notation-conventions.md`** for the notation
-conventions and epistemic system that ACT adopts from TFT.
+**Read `notation.md`** for ACT's symbol reference. For the full
+original TFT conventions and epistemic system, see
+`_archive/old-tf-00-notation-conventions.md`.
 
 **See `WORKBENCH.md`** for theory development state: what's settled, what's
 open, spike status, and reorganization notes.
@@ -59,6 +60,7 @@ are adopted ONLY for epistemic labeling (equation-level tags, tiers).
 4. Formal Expression (with equation-level tags)
 5. Epistemic Status paragraph
 6. Discussion (interpretation, connections — brief)
+7. Working Notes (optional — active development questions, removed at `candidate` stage)
 
 Definition/notation and scope-narrowing files may use a simpler format
 than full claims.
@@ -83,7 +85,7 @@ treatment of goals. ACT adds:
 
 ## Epistemic Conventions
 
-Follow TFT's conventions exactly (see src/old-tf-00-notation-conventions.md):
+Follow TFT's conventions exactly (see `notation.md` and `_archive/old-tf-00-notation-conventions.md`):
 
 **Equation-level tags** (inline before equations):
 - `*[Definition]*`, `*[Derived]*`, `*[Derived (Conditional on ...)]*`
