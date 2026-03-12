@@ -79,30 +79,31 @@ See [`WORKBENCH.md`](WORKBENCH.md) for detailed development state, open question
 
 ```
 act/
-├── CURRENT-FULL-THEORY.md   Canonical outline — start here
+├── CURRENT-FULL-THEORY.md    Canonical outline (start here after README
 ├── FORMAT.md                 Segment file conventions
 ├── WORKBENCH.md              Development state and working notes
 ├── notation.md               Symbol reference
 ├── CLAUDE.md                 Context for AI agents
 │
-├── src/                      The theory — claim segments by slug
+├── src/                      The theory — *unordered* claim segments by slug
 │   ├── {slug}.md             ACT segments
 │   ├── old-tf-*.md           TFT source material (being absorbed)
 │   └── old-tst-*.md          TST source material (being converted)
 │
 ├── scratch/                  Working documents and spikes
 │   ├── spike-v3-purposeful-agent.md    Definitive Section II derivation
-│   ├── spike-agent-composition.md      Composition/holon theory
+│   ├── spike-agent-composition.md      Composition/holon work
 │   ├── spike-graph-uniqueness.md       DAG structure uniqueness argument
-│   ├── 04-intent-dag-consolidated.md   Canonical intent DAG reference
+│   ├── 04-intent-dag-consolidated.md   Initial intent DAG reference
 │   ├── track-a-intent-dag/             DAG formalism variants (historical)
-│   └── track-b-nonlinear-sims/         Simulation code and results
+│   ├── track-b-nonlinear-sims/         Simulation code and results
+│   └── ...
 │
 ├── _archive/                 Superseded documents
-├── refs/                     Reference papers (Hafez 2026, IBM 2025)
-└── priors/                   Git submodules (historical only —
-    ├── tft/                    all content copied to src/old-tf-*)
-    └── tst/                    all content copied to src/old-tst-*)
+├── refs/                     Reference papers (Hafez 2026, IBM 2025, etc.)
+└── priors/                   Git submodules (ACT predecessor repos)
+    ├── tft/                    Temporal Feedback Theory (Subsumed by ACT)
+    └── tst/                    Temporal Software Theory (Subsumed by ACT)
 ```
 
 
