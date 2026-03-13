@@ -28,7 +28,7 @@ The exact relationship between discontinuities and time requires empirical valid
 
 $$\text{time}_{\text{actual}} = \text{time}_{\text{baseline}} \times k^{\text{discontinuities}}$$
 
-Where $k > 1$ represents the compounding factor per context switch.
+Where $k \gt 1$ represents the compounding factor per context switch.
 
 This hypothesis would explain why developers strongly prefer consolidated changes and why scattered changes feel disproportionately difficult. Even modest values of $k$ (such as 1.1 or 1.2) would create substantial differences when compounded across many discontinuities.
 
@@ -38,7 +38,7 @@ This hypothesis would explain why developers strongly prefer consolidated change
 
 From T-06, we accept cost $C$ now to save $S$ per future change when:
 
-$$C < n_{\text{future}} \times S$$
+$$C \lt n_{\text{future}} \times S$$
 
 If discontinuities compound with factor $k$, then restructuring to improve proximity becomes an investment decision. The cost of accepting more discontinuities now:
 

@@ -4,7 +4,7 @@
 
 ## Purpose
 
-This appendix addresses the measurement gap between TFT's formal objects and practical deployment: how to estimate $U_M$, $U_o$, $\rho$, $\alpha$, $R$, and $\|\delta_{\text{critical}}\|$ from data.
+This appendix addresses the measurement gap between TFT's formal objects and practical deployment: how to estimate $U_M$, $U_o$, $\rho$, $\alpha$, $R$, and $\Vert\delta_{\text{critical}}\Vert$ from data.
 
 ## B.1 Measurement Targets
 
@@ -16,7 +16,7 @@ This appendix addresses the measurement gap between TFT's formal objects and pra
 | $\rho_{\text{delib}}$ | Local mismatch drift during pauses (TF-09) | surprise per time | Deliberation windows with no corrective action |
 | $\alpha$ | Lower correction efficiency bound (App. A) | inverse time | Vector mismatch trajectories + correction term |
 | $R$ | Radius where local sector condition holds (App. A) | surprise magnitude | Same as $\alpha$, plus breakdown detection |
-| $\|\delta_{\text{critical}}\|$ | Functional adequacy threshold (TF-11) | surprise magnitude | Task-level performance curve vs mismatch |
+| $\Vert\delta_{\text{critical}}\Vert$ | Functional adequacy threshold (TF-11) | surprise magnitude | Task-level performance curve vs mismatch |
 
 ## B.2 Estimator Cookbook
 
@@ -39,7 +39,7 @@ $$\hat{\eta}^*_t = \frac{\hat{U}_{M,t}}{\hat{U}_{M,t} + \hat{U}_{o,t}}$$
 
 ### B.2.2 Estimating $\rho(t)$ and $\rho_{\text{delib}}$
 
-Let $s_t = \|\delta_t\|$ in surprise units (e.g., negative log-likelihood residual scale).
+Let $s_t = \Vert\delta_t\Vert$ in surprise units (e.g., negative log-likelihood residual scale).
 
 Global mismatch injection rate:
 
@@ -48,7 +48,7 @@ $$\hat{\rho}(t) = \left[\frac{s_{t+\Delta t} - s_t}{\Delta t} + \hat{\mathcal{T}
 
 where $[x]_+ = \max(x, 0)$ and $\hat{\mathcal{T}}_t$ is estimated adaptive tempo.
 
-**Note on estimation sequencing.** This estimator requires $\hat{\mathcal{T}}_t$, which is itself estimated from $\hat{\nu}$ and $\hat{\eta}^*$ (steps 2-3 in the recommended sequence, B.3). The estimation is therefore *sequential*, not simultaneous: estimate the gain and event rate first (from the agent's internal statistics and observation timing), then use these to extract $\rho$ from the mismatch trajectory. The gain and event rate are typically estimable independently of $\rho$ (they depend on the agent's own uncertainty and event timing, not on the environment's rate of change). This sequential structure avoids circularity but introduces sensitivity: errors in $\hat{\mathcal{T}}$ propagate linearly into $\hat{\rho}$.
+**Note on estimation sequencing.** This estimator requires $\hat{\mathcal{T}}_t$, which is itself estimated from $\hat{\nu}$ and $\hat{\eta}^\ast$ (steps 2-3 in the recommended sequence, B.3). The estimation is therefore *sequential*, not simultaneous: estimate the gain and event rate first (from the agent's internal statistics and observation timing), then use these to extract $\rho$ from the mismatch trajectory. The gain and event rate are typically estimable independently of $\rho$ (they depend on the agent's own uncertainty and event timing, not on the environment's rate of change). This sequential structure avoids circularity but introduces sensitivity: errors in $\hat{\mathcal{T}}$ propagate linearly into $\hat{\rho}$.
 
 Local pause-window drift for TF-09:
 
@@ -62,13 +62,13 @@ using windows where corrective action is suspended or effectively delayed.
 Appendix A uses:
 
 *[Assumption A2']*
-$$\delta^T F(\mathcal{T}, \delta) \ge \alpha \|\delta\|^2 \quad \text{for } \|\delta\| \le R$$
+$$\delta^T F(\mathcal{T}, \delta) \ge \alpha \Vert\delta\Vert^2 \quad \text{for } \Vert\delta\Vert \le R$$
 
 Operationally:
 
 1. Estimate $\dot{\delta}_t$ (finite differences or filtered derivative).
-2. Compute $\widehat{F}_t = -\dot{\delta}_t + w_t$ where disturbance proxy $w_t$ is estimated from exogenous perturbation channels or residual balancing.
-3. Form ratios $r_t = (\delta_t^T \widehat{F}_t) / \|\delta_t\|^2$ on bins of $\|\delta_t\|$.
+2. Compute $\widehat F_t = -\dot{\delta}_t + w_t$ where disturbance proxy $w_t$ is estimated from exogenous perturbation channels or residual balancing.
+3. Form ratios $r_t = (\delta_t^T \widehat F_t) / \Vert\delta_t\Vert^2$ on bins of $\Vert\delta_t\Vert$.
 4. Set conservative lower bound $\hat{\alpha}$ as a low quantile (for example 10th percentile) of $r_t$ in the valid region.
 
 ### B.2.4 Estimating $R$ (valid-region radius)
@@ -76,17 +76,17 @@ Operationally:
 Estimate $R$ as the largest radius for which sector inequality violations remain below tolerance:
 
 *[Operational Criterion]*
-$$\hat{R} = \sup \left\{ r > 0 : \Pr\left(\delta^T \widehat{F} < \hat{\alpha}\|\delta\|^2 \,\middle|\, \|\delta\| \le r\right) \le \epsilon \right\}$$
+$$\hat{R} = \sup \left\{ r \gt 0 : \Pr\left(\delta^T \widehat{F} \lt \hat{\alpha}\Vert\delta\Vert^2 \,\middle|\, \Vert\delta\Vert \le r\right) \le \epsilon \right\}$$
 
 with a chosen violation tolerance $\epsilon$ (for example 5%).
 
-### B.2.5 Estimating $\|\delta_{\text{critical}}\|$
+### B.2.5 Estimating $\Vert\delta_{\text{critical}}\Vert$
 
 Define a mission-level performance metric $J$ (reward rate, tracking error, service SLA, etc.).
 Set the critical mismatch threshold where performance crosses a minimum acceptable level $J_{\min}$:
 
 *[Operational Definition]*
-$$\|\hat{\delta}_{\text{critical}}\| = \inf \left\{ d : \mathbb{E}[J \mid \|\delta\| = d] < J_{\min} \right\}$$
+$$\Vert\hat{\delta}_{\text{critical}}\Vert = \inf \left\{ d : \mathbb{E}[J \mid \Vert\delta\Vert = d] \lt J_{\min} \right\}$$
 
 This anchors TF-11's normalized persistence condition to real task outcomes.
 
@@ -94,11 +94,11 @@ This anchors TF-11's normalized persistence condition to real task outcomes.
 
 1. Fix mismatch representation $\delta$ in one consistent unit system (prefer surprise-scale).
 2. Estimate $U_o$ from channel physics/calibration; estimate $U_M$ from model uncertainty.
-3. Validate gain behavior against TF-06 ($\hat{\eta}^*$ trend checks).
+3. Validate gain behavior against TF-06 ($\hat{\eta}^\ast$ trend checks).
 4. Estimate $\rho_{\text{delib}}$ from pause windows (TF-09) and $\rho(t)$ from full traces (TF-11).
 5. Estimate $\alpha$ and $R$ from local correction dynamics (Appendix A).
-6. Estimate $\|\delta_{\text{critical}}\|$ from task-performance degradation.
-7. Compute derived diagnostics: tempo margin $\hat{\mathcal{T}} - \hat{\rho}/\|\hat{\delta}_{\text{critical}}\|$, reserve $\widehat{\Delta \rho^*} = \hat{\alpha}\hat{R} - \hat{\rho}$, and deliberation feasibility $\Delta\eta^*(\Delta\tau)\|\delta_{\text{post}}\| - \hat{\rho}_{\text{delib}}\Delta\tau$.
+6. Estimate $\Vert\delta_{\text{critical}}\Vert$ from task-performance degradation.
+7. Compute derived diagnostics: tempo margin $\hat{\mathcal{T}} - \hat{\rho}/\Vert\hat{\delta}_{\text{critical}}\Vert$, reserve $\widehat{\Delta \rho^\ast} = \hat{\alpha}\hat{R} - \hat{\rho}$, and deliberation feasibility $\Delta\eta^\ast(\Delta\tau)\Vert\delta_{\text{post}}\Vert - \hat{\rho}_{\text{delib}}\Delta\tau$.
 
 ## B.4 Minimal Reproducibility Checklist
 
@@ -110,20 +110,20 @@ For any domain report claiming TFT validation, include:
 2. Estimation method for $U_M$, $U_o$, and uncertainty calibration diagnostics.
 3. Estimation method for $\rho_{\text{delib}}$ and $\rho(t)$ with window definitions.
 4. Sector-bound estimation method ($\alpha$, $R$) and violation tolerance $\epsilon$.
-5. Task-level definition of $\|\delta_{\text{critical}}\|$.
+5. Task-level definition of $\Vert\delta_{\text{critical}}\Vert$.
 6. At least one ablation where $\eta$ is intentionally miscalibrated to test TF-06 predictions.
-7. At least one induced-shock test to evaluate reserve prediction $\Delta\rho^*$.
+7. At least one induced-shock test to evaluate reserve prediction $\Delta\rho^\ast$.
 
 ## B.5 Estimator Uncertainty and Sample-Size Guidance
 
 The estimators in B.2 are point recipes. This section provides guidance on their reliability.
 
-**$\hat{\eta}^*$ (gain estimate).** Inherits uncertainty from $\hat{U}_M$ and $\hat{U}_o$. The ratio $U_M/(U_M + U_o)$ is most sensitive when $U_M \approx U_o$ (both contribute equally). Approximate variance via the delta method:
+**$\hat{\eta}^\ast$ (gain estimate).** Inherits uncertainty from $\hat U_M$ and $\hat U_o$. The ratio $U_M/(U_M + U_o)$ is most sensitive when $U_M \approx U_o$ (both contribute equally). Approximate variance via the delta method:
 
 *[Operational Guidance]*
 $$\text{Var}(\hat{\eta}^*) \approx \hat{\eta}^{*2}(1-\hat{\eta}^*)^2 \left[\frac{\text{Var}(\hat{U}_M)}{\hat{U}_M^2} + \frac{\text{Var}(\hat{U}_o)}{\hat{U}_o^2}\right]$$
 
-When $\hat{\eta}^*$ is near 0 or 1, the estimate is stable (dominated by one uncertainty source). Near 0.5, both sources matter and the estimate is most volatile.
+When $\hat{\eta}^\ast$ is near 0 or 1, the estimate is stable (dominated by one uncertainty source). Near 0.5, both sources matter and the estimate is most volatile.
 
 **$\hat{\rho}$ (mismatch injection rate).** Finite-difference estimation amplifies noise. Recommend smoothing the mismatch time series (exponential moving average or local regression) before differencing. Minimum sample guidance: ~20 mismatch observations for a stable trend estimate; ~50 for reliable variance characterization. The $[\cdot]_+$ clipping in the estimator removes negative estimates but introduces positive bias at small $\rho$; report the pre-clipped distribution if possible.
 
@@ -146,24 +146,24 @@ The exploration weight $\lambda(M_t)$ in TF-08's unified policy objective prices
 | Finite bandits | Gittins index from dynamic programming | Exact (Gittins 1979) |
 | Linear-Gaussian | Probing cost in quadratic objective | Exact (dual control) |
 | Discrete MDP | $(\text{VoI})^2 / \text{info gain}$ | Information-directed sampling (Russo & Van Roy) |
-| General | $\hat{\lambda} = c \cdot \hat{U}_M / \hat{U}_o$ | Heuristic: scale CIY weight by relative uncertainty |
+| General | $\hat{\lambda} = c \cdot \hat U_M / \hat U_o$ | Heuristic: scale CIY weight by relative uncertainty |
 
 For the heuristic: when $U_M \gg U_o$ (highly uncertain model), exploration is cheap relative to exploitation risk, so $\lambda$ should be large. When $U_M \ll U_o$ (confident model, noisy observations), exploitation dominates. The constant $c$ is domain-specific and should be calibrated by held-out performance.
 
 ### B.6.2 Deliberation Stopping Policy
 
-From Proposition 9.1 (TF-09), deliberation of duration $\Delta\tau$ is warranted when $\Delta\eta^*(\Delta\tau) \cdot \|\delta_{\text{post}}\| > \rho_{\text{delib}} \cdot \Delta\tau$. Operationally:
+From Proposition 9.1 (TF-09), deliberation of duration $\Delta\tau$ is warranted when $\Delta\eta^\ast(\Delta\tau) \cdot \Vert\delta_{\text{post}}\Vert \gt \rho_{\text{delib}} \cdot \Delta\tau$. Operationally:
 
 1. Estimate $\rho_{\text{delib}}$ from prior pause windows (B.2.2).
-2. Before each deliberation episode, estimate $\|\delta_{\text{post}}\|$ as current mismatch + $\rho_{\text{delib}} \cdot \Delta\tau_{\text{planned}}$.
-3. Estimate $\Delta\eta^*(\Delta\tau)$ from the diminishing-returns profile of past deliberation episodes (or from the marginal improvement of the first few candidate actions evaluated).
-4. Stop deliberating when the marginal improvement rate $\partial \Delta\eta^* / \partial \Delta\tau$ drops below $\rho_{\text{delib}} / \|\delta_{\text{post}}\|$ (the first-order optimality condition from TF-09).
+2. Before each deliberation episode, estimate $\Vert\delta_{\text{post}}\Vert$ as current mismatch + $\rho_{\text{delib}} \cdot \Delta\tau_{\text{planned}}$.
+3. Estimate $\Delta\eta^\ast(\Delta\tau)$ from the diminishing-returns profile of past deliberation episodes (or from the marginal improvement of the first few candidate actions evaluated).
+4. Stop deliberating when the marginal improvement rate $\partial \Delta\eta^\ast / \partial \Delta\tau$ drops below $\rho_{\text{delib}} / \Vert\delta_{\text{post}}\Vert$ (the first-order optimality condition from TF-09).
 
 ### B.6.3 Structural-Switch Trigger
 
 From Proposition 10.1 (TF-10), structural adaptation is indicated when parametric convergence leaves a mismatch floor. Operationally, the switching decision balances expected mismatch reduction against transition cost:
 
-1. Estimate the current mismatch floor $\|\delta\|_{\text{floor}}$ from the converged residual statistics.
-2. Estimate the post-switch expected mismatch as $\|\delta\|_{\text{new}} \approx \rho / \alpha'$ where $\alpha'$ is the sector bound under the candidate new model class (may need pilot estimation).
+1. Estimate the current mismatch floor $\Vert\delta\Vert_{\text{floor}}$ from the converged residual statistics.
+2. Estimate the post-switch expected mismatch as $\Vert\delta\Vert_{\text{new}} \approx \rho / \alpha'$ where $\alpha'$ is the sector bound under the candidate new model class (may need pilot estimation).
 3. Estimate transition cost $C_{\text{switch}}$: knowledge loss (parameters that don't transfer), retraining time ($\Delta\tau_{\text{switch}}$), and accumulated mismatch during transition ($\rho \cdot \Delta\tau_{\text{switch}}$).
-4. Switch when: $(\|\delta\|_{\text{floor}} - \|\delta\|_{\text{new}}) \cdot T_{\text{horizon}} > C_{\text{switch}}$, where $T_{\text{horizon}}$ is the expected time the new model class will remain adequate.
+4. Switch when: $(\Vert\delta\Vert_{\text{floor}} - \Vert\delta\Vert_{\text{new}}) \cdot T_{\text{horizon}} \gt C_{\text{switch}}$, where $T_{\text{horizon}}$ is the expected time the new model class will remain adequate.

@@ -56,6 +56,6 @@ The agent's overall capacity to track environmental changes is the sum of inform
 *[Definition]*
 $$\nu_{\text{eff}} = \sum_k \nu^{(k)} \cdot \eta^{(k)*}$$
 
-where $\nu^{(k)}$ is channel $k$'s event rate and $\eta^{(k)*}$ is the effective gain on that channel (how much each event from that channel improves the model; see TF-06).
+where $\nu^{(k)}$ is channel $k$'s event rate and $\eta^{(k)\ast}$ is the effective gain on that channel (how much each event from that channel improves the model; see TF-06).
 
 This quantity — **effective adaptation rate** — is a central measure of an agent's adaptive fitness, with consequences derived in TF-11.

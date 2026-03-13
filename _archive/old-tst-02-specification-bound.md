@@ -16,11 +16,7 @@ The theoretical minimum time to implement a deliberate feature is bounded below 
 
 ## Formal Expression
 
-$$\begin{aligned}
-&\forall \text{ feature } F: \\
-&\text{time}_{\min}(F) \geq \min(\text{time}_{\text{specify}}(F, \text{context}), \text{time}_{\text{demo}}(F)) \\
-&\text{where } \text{time}_{\text{specify}} \propto 1/\text{shared-context}
-\end{aligned}$$
+$$\begin{aligned} &\forall \text{ feature } F: \\ &\text{time}_{\min}(F) \geq \min(\text{time}_{\text{specify}}(F, \text{context}), \text{time}_{\text{demo}}(F)) \\ &\text{where } \text{time}_{\text{specify}} \propto 1/\text{shared-context} \end{aligned}$$
 
 ## Why This Changes Everything
 

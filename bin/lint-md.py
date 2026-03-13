@@ -53,10 +53,21 @@ GREEK_WORDS = re.compile(
 )
 
 # ASCII math variable patterns that should be in $...$
+# Catches subscript patterns: M_t, o_t, a_t, f_M, n_f, x_1, etc.
 ASCII_MATH_VAR = re.compile(
-    r'(?<![`$\\a-zA-Z_])'  # not preceded by code/math/word chars
-    r'([A-Z]_[a-z{}]|[a-z]_[A-Z])'  # e.g., M_t, f_M
-    r'(?![`])'  # not followed by backtick
+    r'(?<![`$\\a-zA-Z_\-])'  # not preceded by code/math/word/hyphen chars
+    r'([a-zA-Z]_[a-zA-Z{}0-9])'  # any letter_letter or letter_digit
+    r'(?![`a-zA-Z])'  # not followed by backtick or letter (avoids word_parts)
+)
+
+# ASCII renderings of Greek letter names used as math variables.
+# Only flagged when standalone (not part of a longer word).
+ASCII_GREEK_NAMES = re.compile(
+    r'(?<![a-zA-Z\\$])'
+    r'(Omega|Sigma|Delta|Gamma|Lambda|Pi'
+    r'|alpha|beta|gamma|delta|epsilon|varepsilon|zeta|eta|theta'
+    r'|lambda|mu|pi|rho|sigma|tau|phi|chi|psi|omega)'
+    r'(?![a-zA-Z])'
 )
 
 # LaTeX commands that only make sense in math mode — strong signal
@@ -280,6 +291,41 @@ def check_bare_ascii_math(line, lineno, spans):
     return issues
 
 
+def check_bare_ascii_greek(line, lineno, spans):
+    """Flag ASCII Greek letter names (rho, Omega, etc.) outside $...$.
+
+    Only flags when the name appears in a math-like context to reduce
+    false positives.  Heuristic: the Greek name is followed by _ or ^
+    (subscript/superscript), or appears adjacent to math operators/delimiters
+    like = < > ( ) , or near other detected math variables.
+    """
+    issues = []
+    for m in ASCII_GREEK_NAMES.finditer(line):
+        pos = m.start()
+        if is_in_any_special(line, pos, spans):
+            continue
+        name = m.group()
+        end = m.end()
+        # Check for math-like context
+        after = line[end:end + 3] if end < len(line) else ''
+        before = line[max(0, pos - 3):pos]
+        # Strong signals: subscript, superscript, equals, comparison
+        math_context = (
+            after.startswith('_') or after.startswith('^')
+            or after.startswith(' =') or after.startswith('=')
+            or after.startswith(' <') or after.startswith(' >')
+            or after.startswith(')') or after.startswith(',')
+            or before.endswith('(') or before.endswith(', ')
+            or before.endswith('< ') or before.endswith('> ')
+            or before.endswith('= ')
+        )
+        if math_context:
+            issues.append((lineno, pos,
+                           f'ASCII Greek name outside $: {name} — '
+                           f'use $\\{name}$'))
+    return issues
+
+
 def check_text_underscore_in_math(line, lineno, spans):
     """Rule: _ inside \\text{} breaks GitHub rendering."""
     issues = []
@@ -345,6 +391,48 @@ def check_display_math_blank_lines(lines):
     return issues
 
 
+def check_indented_bare_math(lines):
+    """Detect 4-space indented lines that look like math equations without $$ delimiters.
+
+    In markdown, 4-space indent creates a code block (monospace, no math rendering).
+    Equations intended as display math need $$ on their own lines instead.
+    """
+    issues = []
+    ctx = MathContext()
+    in_display_math = False
+
+    for i, line in enumerate(lines):
+        stripped = line.strip()
+        if stripped.startswith('```'):
+            ctx.update_code_block(line)
+            continue
+        if ctx.in_code_block:
+            continue
+        if stripped == '$$':
+            in_display_math = not in_display_math
+            continue
+        if in_display_math:
+            continue
+
+        # Look for 4-space indented lines with math-like content
+        if not line.startswith('    '):
+            continue
+        # Skip blank or very short
+        if len(stripped) < 5:
+            continue
+        # Already has $ delimiters → just a warning that it should be $$
+        if stripped.startswith('$') and not stripped.startswith('$$'):
+            # Inline math used as display — should be $$
+            issues.append((i + 1, 0,
+                           'indented inline $...$ should be display math $$...$$'))
+            continue
+        # Bare equation heuristic: contains = and math-like characters
+        if '=' in stripped and re.search(r'[A-Z].*=|\\|_|\^|\{', stripped):
+            issues.append((i + 1, 0,
+                           'bare equation (4-space indent) — needs $$...$$ delimiters'))
+    return issues
+
+
 def check_hard_wrapping(lines):
     """Detect lines broken at a fixed column width instead of letting renderers wrap.
 
@@ -354,18 +442,16 @@ def check_hard_wrapping(lines):
     """
     issues = []
     ctx = MathContext()
-    in_yaml = None  # None = before first ---, True = in frontmatter
+    # YAML frontmatter only exists when line 0 is '---'
+    in_yaml = (lines[0].strip() == '---') if lines else False
     in_display_math = False
 
     for i, line in enumerate(lines):
         stripped = line.strip()
 
-        # YAML frontmatter
-        if stripped == '---':
-            if in_yaml is None:
-                in_yaml = True
-            elif in_yaml:
-                in_yaml = False
+        # YAML frontmatter: only if file started with ---
+        if stripped == '---' and in_yaml:
+            in_yaml = (i == 0)  # closing --- ends frontmatter
             continue
         if in_yaml:
             continue
@@ -630,7 +716,8 @@ def fix_hard_wrapping(lines):
     """
     result = []
     ctx = MathContext()
-    in_yaml = None
+    # YAML frontmatter only exists when line 0 is '---'
+    in_yaml = (lines[0].strip() == '---') if lines else False
     in_display_math = False
     i = 0
 
@@ -638,12 +725,9 @@ def fix_hard_wrapping(lines):
         line = lines[i]
         stripped = line.strip()
 
-        # YAML frontmatter
-        if stripped == '---':
-            if in_yaml is None:
-                in_yaml = True
-            elif in_yaml:
-                in_yaml = False
+        # YAML frontmatter: only if file started with ---
+        if stripped == '---' and in_yaml:
+            in_yaml = (i == 0)  # closing --- ends frontmatter
             result.append(line)
             i += 1
             continue
@@ -835,6 +919,10 @@ def lint_file(filepath, fix=False):
         )
         all_issues.extend(
             (str(path), ln, col, msg)
+            for ln, col, msg in check_bare_ascii_greek(line, lineno, spans)
+        )
+        all_issues.extend(
+            (str(path), ln, col, msg)
             for ln, col, msg in check_text_underscore_in_math(line, lineno, spans)
         )
         all_issues.extend(
@@ -854,6 +942,10 @@ def lint_file(filepath, fix=False):
     all_issues.extend(
         (str(path), ln, col, msg)
         for ln, col, msg in check_hard_wrapping(lines)
+    )
+    all_issues.extend(
+        (str(path), ln, col, msg)
+        for ln, col, msg in check_indented_bare_math(lines)
     )
 
     # Apply fixes if requested

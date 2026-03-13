@@ -7,8 +7,7 @@ Action selection — *praxis* in the adaptive loop's vocabulary (TF-00) — is a
 ## Action as Model Function
 
 *[Derived]*
-$$a_t = \pi(M_t) \quad \text{(deterministic)}$$
-*[Derived]*
+$$a_t = \pi(M_t) \quad \text{(deterministic)}$$ *[Derived]*
 $$a_t \sim \pi(\cdot \mid M_t) \quad \text{(stochastic)}$$
 
 where $\pi$ is the agent's **policy** — the mapping from model state to action. We use $\pi_M$ when emphasizing that the policy is derived from (or embedded in) the model.
@@ -43,7 +42,7 @@ In practice, deliberation often involves both levels: comparing candidate action
 
 ### Formal Characterization of Action Fluency
 
-Action fluency can be characterized via the deliberation gain (TF-09): an agent has **high fluency** for a situation when additional deliberation yields negligible improvement — formally, when $\Delta\eta^*(\Delta\tau) \approx 0$ for all $\Delta\tau > 0$. Conversely, **low fluency** means deliberation significantly improves action quality, indicating that the policy $\pi(M_t)$ has not yet internalized an effective response.
+Action fluency can be characterized via the deliberation gain (TF-09): an agent has **high fluency** for a situation when additional deliberation yields negligible improvement — formally, when $\Delta\eta^\ast(\Delta\tau) \approx 0$ for all $\Delta\tau \gt 0$. Conversely, **low fluency** means deliberation significantly improves action quality, indicating that the policy $\pi(M_t)$ has not yet internalized an effective response.
 
 This gives an operational characterization: fluency is the degree to which the agent's immediate (zero-deliberation) action approaches the quality achievable with unbounded deliberation. When fluency is high, the gap between implicit and explicit action vanishes; when low, deliberation is essential.
 
@@ -78,7 +77,7 @@ For the broader exploration-exploitation framework and how actions generate info
 
 | Domain | Implicit action | Explicit deliberation |
 |--------|----------------|----------------------|
-| Kalman + LQR | LQR control law from $\hat{x}_t$ | — (separation principle) |
+| Kalman + LQR | LQR control law from $\hat x_t$ | — (separation principle) |
 | RL | Greedy policy $\arg\max Q(s,a)$ | MCTS, planning, rollouts |
 | PID | $u = K_p e + K_i \int e + K_d \dot{e}$ | — (no deliberation) |
 | Boyd's OODA | IG&C (Orient→Act) | Explicit Decide step |

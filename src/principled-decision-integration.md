@@ -30,7 +30,7 @@ This is the general form of #dual-optimization. Where dual-optimization uses a s
 
 Substituting the proportional relationships from #conceptual-alignment, #changeset-size-principle, and #change-proximity-principle:
 
-$$E[T \mid C] = t_0(C) + \sum_{i} P(F_i) \cdot \left[ \frac{\alpha \cdot h(\text{disc}(F_i \mid C))}{\text{alignment}(C)} + \beta \cdot |\text{cs}(F_i \mid C)| \cdot g(\text{prox}(F_i \mid C)) \right]$$
+$$E[T \mid C] = t_0(C) + \sum_{i} P(F_i) \cdot \left[ \frac{\alpha \cdot h(\text{disc}(F_i \mid C))}{\text{alignment}(C)} + \beta \cdot \lvert\text{cs}(F_i \mid C)\rvert \cdot g(\text{prox}(F_i \mid C)) \right]$$
 
 where $\alpha, \beta$ are empirical proportionality constants, $h$ and $g$ encode the (possibly exponential, per #exponential-cognitive-load) cost relationships, and $\text{disc}$, $\text{cs}$, $\text{prox}$ are the discontinuity count, changeset size, and proximity for feature $F_i$ under choice $C$.
 

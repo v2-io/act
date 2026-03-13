@@ -1,7 +1,6 @@
 # Domain Instantiation Mappings — Verification Draft
 
-For each domain, map: M_t, M, o_t, a_t, δ_t, η_t, φ, π, ν, ρ
-and note where the mapping is clean vs. strained.
+For each domain, map: M_t, M, o_t, a_t, δ_t, η_t, φ, π, ν, ρ and note where the mapping is clean vs. strained.
 
 ## 1. Kalman Filter (State Estimation)
 
@@ -18,20 +17,12 @@ and note where the mapping is clean vs. strained.
 | ν | Measurement rate |
 | ρ | Process noise intensity (how fast true state drifts) |
 
-**Mapping quality: EXACT.** The Kalman filter is arguably the purest
-instance of the universal pattern. Every component maps precisely.
-The optimal gain formula K_t IS η* = U_M/(U_M+U_o) in matrix form.
+**Mapping quality: EXACT.** The Kalman filter is arguably the purest instance of the universal pattern. Every component maps precisely. The optimal gain formula K_t IS η* = U_M/(U_M+U_o) in matrix form.
 
 **Notes:**
-- The Kalman filter SEPARATES estimation (model update) from control
-  (action selection). This is the separation principle, which only
-  holds for linear Gaussian systems. In general, estimation and
-  control are coupled — the optimal action depends on the model,
-  and the optimal observation strategy depends on what you plan to do.
-- The sufficient statistic property is EXACT here: (x̂_t, P_t)
-  captures all information from the history for prediction.
-- Extended/Unscented Kalman filters relax linearity — same pattern,
-  approximate sufficiency.
+- The Kalman filter SEPARATES estimation (model update) from control (action selection). This is the separation principle, which only holds for linear Gaussian systems. In general, estimation and control are coupled — the optimal action depends on the model, and the optimal observation strategy depends on what you plan to do.
+- The sufficient statistic property is EXACT here: (x̂_t, P_t) captures all information from the history for prediction.
+- Extended/Unscented Kalman filters relax linearity — same pattern, approximate sufficiency.
 
 
 ## 2. Reinforcement Learning (Value-Based: Q-Learning/DQN)
@@ -51,28 +42,14 @@ The optimal gain formula K_t IS η* = U_M/(U_M+U_o) in matrix form.
 
 **Mapping quality: GOOD, with caveats.**
 
-The TD error IS a mismatch signal — the difference between predicted
-(Q(s,a)) and observed (r + γ max Q(s',a')). ✓
+The TD error IS a mismatch signal — the difference between predicted (Q(s,a)) and observed (r + γ max Q(s',a')). ✓
 
-The fixed learning rate α is a DEGENERATE gain — not adapted to
-uncertainty. Bayesian RL methods (posterior over Q) and adaptive
-optimizers (Adam) approximate the optimal gain more closely. This
-is a known limitation of basic Q-learning. ✓
+The fixed learning rate α is a DEGENERATE gain — not adapted to uncertainty. Bayesian RL methods (posterior over Q) and adaptive optimizers (Adam) approximate the optimal gain more closely. This is a known limitation of basic Q-learning. ✓
 
-The model space M is critical: tabular Q can represent any function
-over finite S×A, but neural Q (DQN) has representational constraints
-that determine what environments it can handle. Architecture choice
-IS model class selection. ✓
+The model space M is critical: tabular Q can represent any function over finite S×A, but neural Q (DQN) has representational constraints that determine what environments it can handle. Architecture choice IS model class selection. ✓
 
 **Where it strains:**
-- The reward signal r_t doesn't fit cleanly as an "observation."
-  It's part of the observation, but it has a special role — it
-  defines what the agent should optimize. In the universal framework,
-  "what to optimize" would be part of the model or the fitness
-  criterion, not part of the observation. This is a real tension.
-  → Resolution: reward can be treated as a CHANNEL — one component
-  of the multi-channel observation, specifically the one that
-  carries evaluative (vs. descriptive) information.
+- The reward signal r_t doesn't fit cleanly as an "observation." It's part of the observation, but it has a special role — it defines what the agent should optimize. In the universal framework, "what to optimize" would be part of the model or the fitness criterion, not part of the observation. This is a real tension. → Resolution: reward can be treated as a CHANNEL — one component of the multi-channel observation, specifically the one that carries evaluative (vs. descriptive) information.
 
 
 ## 3. Model-Based RL (Dreamer / World Models)
@@ -98,11 +75,7 @@ Dreamer is perhaps the most explicit implementation of the full pattern:
 3. Learn policy from dreams (action selection from model) ✓
 4. Act in environment (generate new observations) ✓
 
-The distinction between "real" observations (from environment) and
-"imagined" observations (from the world model during dreaming) maps
-to the distinction between observation-driven and model-driven
-updating. Internal simulation IS the model predicting without
-acting — the counterfactual level of Pearl's hierarchy.
+The distinction between "real" observations (from environment) and "imagined" observations (from the world model during dreaming) maps to the distinction between observation-driven and model-driven updating. Internal simulation IS the model predicting without acting — the counterfactual level of Pearl's hierarchy.
 
 
 ## 4. PID Controller
@@ -122,34 +95,22 @@ acting — the counterfactual level of Pearl's hierarchy.
 
 **Mapping quality: GOOD, with important observations.**
 
-PID is an extremely COMPRESSED instance. The "model" is just three
-numbers tracking the error signal. There is no explicit world model,
-no prediction of future states, no learned representation. The model
-space M = R^3 is tiny.
+PID is an extremely COMPRESSED instance. The "model" is just three numbers tracking the error signal. There is no explicit world model, no prediction of future states, no learned representation. The model space M = R^3 is tiny.
 
-Yet it works remarkably well for many problems. This is because
-the STRUCTURE of the controller (proportional + integral + derivative)
-embeds implicit assumptions about the environment:
+Yet it works remarkably well for many problems. This is because the STRUCTURE of the controller (proportional + integral + derivative) embeds implicit assumptions about the environment:
 - Proportional: responds to current mismatch (assumes stationarity)
 - Integral: responds to accumulated mismatch (handles steady-state error)
 - Derivative: responds to rate of change (anticipates near-future)
 
-These three terms correspond to different TIMESCALES of adaptation,
-which maps directly to temporal nesting:
+These three terms correspond to different TIMESCALES of adaptation, which maps directly to temporal nesting:
 - D-term: fastest (high-frequency response)
 - P-term: medium (current state)
 - I-term: slowest (long-term bias correction)
 
-**Key insight: PID shows that even a minimal model (3 parameters)
-instantiates the universal pattern. The pattern doesn't require
-rich internal representations — it describes any coupling between
-an agent and its environment through observation and action.**
+**Key insight: PID shows that even a minimal model (3 parameters) instantiates the universal pattern. The pattern doesn't require rich internal representations — it describes any coupling between an agent and its environment through observation and action.**
 
 The gains (K_p, K_i, K_d) are typically FIXED at design time.
-Auto-tuning methods estimate them, and adaptive PID adjusts them
-online — moving toward the full adaptive gain framework.
-MPC (Model Predictive Control) generalizes PID with an explicit
-model, adaptive gain, and planning — a richer instantiation.
+Auto-tuning methods estimate them, and adaptive PID adjusts them online — moving toward the full adaptive gain framework. MPC (Model Predictive Control) generalizes PID with an explicit model, adaptive gain, and planning — a richer instantiation.
 
 
 ## 5. Bayesian Inference (General)
@@ -169,22 +130,15 @@ model, adaptive gain, and planning — a richer instantiation.
 
 **Mapping quality: EXACT (for the parametric case).**
 
-Bayesian inference IS the update rule in its most general form
-for parametric models. The posterior concentrates as data accumulates,
-which IS the gain decreasing with increasing model confidence.
+Bayesian inference IS the update rule in its most general form for parametric models. The posterior concentrates as data accumulates, which IS the gain decreasing with increasing model confidence.
 
 **Where Bayesian inference is BROADER than our pattern:**
-It doesn't require a loop — you can do Bayesian inference on
-a static dataset without any actions. Our pattern specifically
-requires the action → observation → update cycle.
+It doesn't require a loop — you can do Bayesian inference on a static dataset without any actions. Our pattern specifically requires the action → observation → update cycle.
 
 **Where our pattern is BROADER than Bayesian inference:**
-It handles non-parametric models, implicit models, and models
-that don't have probability distributions. A PID controller is
-not naturally Bayesian, but it instantiates our pattern.
+It handles non-parametric models, implicit models, and models that don't have probability distributions. A PID controller is not naturally Bayesian, but it instantiates our pattern.
 
-This suggests: Bayesian inference is the SPECIAL CASE of our
-update rule when:
+This suggests: Bayesian inference is the SPECIAL CASE of our update rule when:
 - M can be expressed as a probability distribution
 - The observation model P(o|M) is known
 - The update follows Bayes' theorem exactly
@@ -209,13 +163,9 @@ Our pattern encompasses cases where these conditions don't hold.
 
 **Mapping quality: STRUCTURAL, not mathematical.**
 
-Boyd never formalized his framework mathematically. The mapping is
-structural — every component has a clear correspondence — but Boyd's
-terms are descriptive/qualitative where ours are formal.
+Boyd never formalized his framework mathematically. The mapping is structural — every component has a clear correspondence — but Boyd's terms are descriptive/qualitative where ours are formal.
 
-This is exactly the relationship we want: our theory provides the
-formal grounding that Boyd's intuitions lacked. Boyd was right
-about the structure but couldn't prove it. We can (partially).
+This is exactly the relationship we want: our theory provides the formal grounding that Boyd's intuitions lacked. Boyd was right about the structure but couldn't prove it. We can (partially).
 
 **Key Boyd insights that our formalism captures:**
 1. Orient dominates → model primacy (derived from η*'s role)
@@ -226,10 +176,8 @@ about the structure but couldn't prove it. We can (partially).
 
 **What Boyd had that we should preserve:**
 - The emphasis on CULTURAL and EXPERIENTIAL dimensions of orientation
-- The recognition that observation is ALWAYS filtered through orientation
-  (our h function is implicitly model-dependent — Boyd made this explicit)
-- The adversarial focus (our Section 7 derives it but shouldn't lose
-  the strategic richness of Boyd's applications)
+- The recognition that observation is ALWAYS filtered through orientation (our h function is implicitly model-dependent — Boyd made this explicit)
+- The adversarial focus (our Section 7 derives it but shouldn't lose the strategic richness of Boyd's applications)
 
 
 ## 7. Active Inference / Free Energy Principle
@@ -252,29 +200,14 @@ about the structure but couldn't prove it. We can (partially).
 Active inference claims to be the universal framework already.
 Our relationship to it is subtle:
 
-AGREEMENT: The structure maps almost perfectly. Free energy
-IS a measure of model-reality mismatch. Minimizing free energy
-IS updating the model to reduce mismatch. Active inference
-(choosing actions to minimize expected future F) IS exploration.
+AGREEMENT: The structure maps almost perfectly. Free energy IS a measure of model-reality mismatch. Minimizing free energy IS updating the model to reduce mismatch. Active inference (choosing actions to minimize expected future F) IS exploration.
 
-DISAGREEMENT: FEP claims that all adaptive systems MUST minimize
-free energy — it's not an optimization target but a definitional
-property of systems that maintain their form. Our framework doesn't
-make this strong claim. We say systems that persist TEND TO have
-properties consistent with mismatch minimization, but we don't
-derive this from thermodynamic arguments.
+DISAGREEMENT: FEP claims that all adaptive systems MUST minimize free energy — it's not an optimization target but a definitional property of systems that maintain their form. Our framework doesn't make this strong claim. We say systems that persist TEND TO have properties consistent with mismatch minimization, but we don't derive this from thermodynamic arguments.
 
-OUR FRAMING: Free energy minimization is a CONSEQUENCE of effective
-adaptation under our framework, not its foundation. A system that
-follows our update rule with good gain will, as a side effect,
-minimize something like free energy. But we ground this in
-information theory (sufficient statistics, information bottleneck)
-rather than in thermodynamics (entropy, self-organization).
+OUR FRAMING: Free energy minimization is a CONSEQUENCE of effective adaptation under our framework, not its foundation. A system that follows our update rule with good gain will, as a side effect, minimize something like free energy. But we ground this in information theory (sufficient statistics, information bottleneck) rather than in thermodynamics (entropy, self-organization).
 
 This is a real philosophical difference, not just notational.
-The FEP says "persistence implies free energy minimization."
-We say "effective adaptation has these formal properties, which
-in many cases look like free energy minimization."
+The FEP says "persistence implies free energy minimization." We say "effective adaptation has these formal properties, which in many cases look like free energy minimization."
 
 
 ## 8. PDCA / Lean / Organizational Learning
@@ -294,21 +227,12 @@ in many cases look like free energy minimization."
 
 **Mapping quality: GOOD but looser.**
 
-Organizational learning IS adaptive feedback, but the "model" is
-distributed across humans, documents, processes, and culture. It's
-not a single mathematical object. The mapping works conceptually
-but the formalism can't be applied as precisely as in Kalman or RL.
+Organizational learning IS adaptive feedback, but the "model" is distributed across humans, documents, processes, and culture. It's not a single mathematical object. The mapping works conceptually but the formalism can't be applied as precisely as in Kalman or RL.
 
 **Key insight from this mapping:**
-The organizational η is often the bottleneck — organizations that
-DETECT mismatch but fail to UPDATE their model (bureaucratic inertia,
-political resistance, sunk-cost fallacy) have high ν (fast observation)
-but low η (poor incorporation of observations into practice).
+The organizational η is often the bottleneck — organizations that DETECT mismatch but fail to UPDATE their model (bureaucratic inertia, political resistance, sunk-cost fallacy) have high ν (fast observation) but low η (poor incorporation of observations into practice).
 
-The adaptive tempo T = ν · η* explains why some organizations with
-frequent retrospectives (high ν) still fail to adapt (low η*) —
-and why some with infrequent but decisive reviews (lower ν, high η*)
-outperform them.
+The adaptive tempo T = ν · η* explains why some organizations with frequent retrospectives (high ν) still fail to adapt (low η*) — and why some with infrequent but decisive reviews (lower ν, high η*) outperform them.
 
 
 ## 9. Biological Immune System
@@ -334,9 +258,7 @@ The immune system is essentially a model-updating system:
 - "Update" = clonal expansion of B-cells that recognize the pathogen
 - "Gain" = how aggressively the immune system responds
 
-Autoimmune disease = model error (attacking self = false positive)
-Immunodeficiency = inadequate model (can't recognize threats)
-Allergies = miscalibrated gain (overreacting to harmless signals)
+Autoimmune disease = model error (attacking self = false positive) Immunodeficiency = inadequate model (can't recognize threats) Allergies = miscalibrated gain (overreacting to harmless signals)
 
 The two-timescale structure is explicit:
 - Innate immunity: fast, generic (fixed M, high ν)
@@ -347,16 +269,8 @@ This is temporal nesting in a biological system.
 
 ## Summary Assessment
 
-EXACT mapping (every component precise): Kalman, Bayesian inference
-EXCELLENT mapping (minor caveats): Dreamer/world-model RL, immune system
-GOOD mapping (some components loose): PID, value-based RL, PDCA
-STRUCTURAL mapping (correct but informal): Boyd's OODA
+EXACT mapping (every component precise): Kalman, Bayesian inference EXCELLENT mapping (minor caveats): Dreamer/world-model RL, immune system GOOD mapping (some components loose): PID, value-based RL, PDCA STRUCTURAL mapping (correct but informal): Boyd's OODA
 
-The formalism is strongest for systems with EXPLICIT mathematical models
-and weakest for systems with DISTRIBUTED or IMPLICIT models (organizations,
-culture, subsumption architecture).
+The formalism is strongest for systems with EXPLICIT mathematical models and weakest for systems with DISTRIBUTED or IMPLICIT models (organizations, culture, subsumption architecture).
 
-This is expected and honest — the formalism's value is in providing
-the structure that these implicit systems are instances of, even when
-the mapping can't be made fully precise. The math grounds the intuition;
-the intuition extends beyond what the math can currently reach.
+This is expected and honest — the formalism's value is in providing the structure that these implicit systems are instances of, even when the mapping can't be made fully precise. The math grounds the intuition; the intuition extends beyond what the math can currently reach.

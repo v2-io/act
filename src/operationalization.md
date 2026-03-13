@@ -56,11 +56,11 @@ Global mismatch injection rate:
 
 *[Operational Definition]*
 
-$$\hat{\rho}(t) = \left[\frac{s_{t+\Delta t} - s_t}{\Delta t} + \hat{\mathcal{T}}_t \, s_t\right]_+$$
+$$\hat{\rho}(t) = \left[\frac{s_{t+\Delta t} - s_t}{\Delta t} + \hat{\mathcal T}_t \, s_t\right]_+$$
 
-where $[x]_+ = \max(x, 0)$ and $\hat{\mathcal{T}}_t$ is estimated adaptive tempo.
+where $[x]_+ = \max(x, 0)$ and $\hat{\mathcal T}$ evaluated at time $t$ is estimated adaptive tempo.
 
-**Note on estimation sequencing.** This estimator requires $\hat{\mathcal{T}}_t$, estimated from $\hat{\nu}$ and $\hat{\eta}^\ast$. Estimate the gain and event rate first (from the agent's internal statistics and observation timing), then use these to extract $\rho$ from the mismatch trajectory. This sequential structure avoids circularity but introduces sensitivity: errors in $\hat{\mathcal{T}}$ propagate linearly into $\hat{\rho}$.
+**Note on estimation sequencing.** This estimator requires $\hat{\mathcal T}_t$, estimated from $\hat{\nu}$ and $\hat{\eta}^\ast$. Estimate the gain and event rate first (from the agent's internal statistics and observation timing), then use these to extract $\rho$ from the mismatch trajectory. This sequential structure avoids circularity but introduces sensitivity: errors in $\hat{\mathcal T}$ propagate linearly into $\hat{\rho}$.
 
 Local pause-window drift for #deliberation-cost:
 
@@ -85,7 +85,7 @@ Estimate $R$ as the largest radius for which sector inequality violations remain
 
 *[Operational Criterion]*
 
-$$\hat{R} = \sup \left\{ r \gt 0 : \Pr\left(\delta^T \widehat{F} \lt \hat{\alpha}\Vert\delta\Vert^2 \,\middle|\, \Vert\delta\Vert \le r\right) \le \epsilon \right\}$$
+$$\hat{R} = \sup \left\{ r \gt 0 : \Pr\left(\delta^T \widehat{F} \lt \hat{\alpha}\Vert\delta\Vert^2 \,\middle\vert\, \Vert\delta\Vert \le r\right) \le \epsilon \right\}$$
 
 with a chosen violation tolerance $\epsilon$ (e.g., 5%).
 
@@ -107,7 +107,11 @@ This anchors #persistence-condition to real task outcomes.
 4. Estimate $\rho_{\text{delib}}$ from pause windows ( #deliberation-cost) and $\rho(t)$ from full traces.
 5. Estimate $\alpha$ and $R$ from local correction dynamics ( #sector-condition-derivation).
 6. Estimate $\Vert\delta_{\text{critical}}\Vert$ from task-performance degradation.
-7. Compute derived diagnostics: tempo margin $\hat{\mathcal{T}} - \hat{\rho}/\Vert\hat{\delta}_{\text{critical}}\Vert$, reserve $\widehat{\Delta \rho^\ast} = \hat{\alpha}\hat{R} - \hat{\rho}$, and deliberation feasibility $\Delta\eta^\ast(\Delta\tau)\Vert\delta_{\text{post}}\Vert - \hat{\rho}_{\text{delib}}\Delta\tau$.
+7. Compute derived diagnostics:
+
+   - Tempo margin: $\hat{\mathcal T} - \hat{\rho}/\Vert\hat{\delta}_{\text{critical}}\Vert$
+   - Reserve: $\widehat{\Delta \rho^\ast} = \hat{\alpha}\hat{R} - \hat{\rho}$
+   - Deliberation feasibility: $\Delta\eta^\ast(\Delta\tau)\Vert\delta_{\text{post}}\Vert - \hat{\rho}_{\text{delib}}\Delta\tau$
 
 ## Decision-Theoretic Procedures
 

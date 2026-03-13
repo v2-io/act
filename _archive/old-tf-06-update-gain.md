@@ -25,7 +25,7 @@ $$M_{\tau^+} = M_{\tau^-} + \eta^{(k)}(M_{\tau^-}) \cdot g^{(k)}(\delta^{(k)}_\t
 *[Definition (model-uncertainty)]*
 $$U_M = \text{Var}_{M_{t-1}}[\hat{o}_t \mid a_{t-1}]$$
 
-**Model uncertainty** ($U_M$): the variance (or appropriate dispersion measure) of the model's predictive distribution over the observed quantity. In the Kalman case, $U_M = P_{t|t-1}$ (prior predictive variance); in conjugate Bayesian models, $U_M$ is the posterior predictive variance; in ensemble methods, $U_M = \text{Var}_i[\hat{o}_t^{(i)}]$ across ensemble members. The definition is precise for linear-Gaussian systems (where variance fully characterizes uncertainty) and approximate for non-Gaussian systems (where variance captures second-moment uncertainty but not distributional shape). For non-parametric models, $U_M$ must be approximated — see Open Question #1.
+**Model uncertainty** ($U_M$): the variance (or appropriate dispersion measure) of the model's predictive distribution over the observed quantity. In the Kalman case, $U_M = P_{t|t-1}$ (prior predictive variance); in conjugate Bayesian models, $U_M$ is the posterior predictive variance; in ensemble methods, $U_M = \text{Var}_i[\hat o_t^{(i)}]$ across ensemble members. The definition is precise for linear-Gaussian systems (where variance fully characterizes uncertainty) and approximate for non-Gaussian systems (where variance captures second-moment uncertainty but not distributional shape). For non-parametric models, $U_M$ must be approximated — see Open Question #1.
 
 *[Definition (observation-uncertainty)]*
 $$U_o = \text{Var}[\varepsilon_t]$$
@@ -41,13 +41,13 @@ The optimal update gain has the structural form:
 *[Empirical Claim (uncertainty-ratio)]*
 $$\eta^* = \frac{U_M}{U_M + U_o}$$
 
-**Scope of claim.** The claim is that the *structural form* — a ratio of uncertainties — is universal. The scalar expression above is the simplest instantiation, exact when uncertainties are well-defined scalars (Kalman, conjugate Bayesian). For systems where $U_M$ is not naturally a scalar (neural networks, non-parametric models), the principle generalizes: the optimal gain is higher when the model is more uncertain relative to the observation, lower otherwise. The specific functional form may be a matrix (Kalman gain), per-parameter adaptive step size (Adam), or approximated heuristically. When $\eta^*$ is used as a scalar in the mismatch dynamics (TF-11, Appendix A), it represents the effective scalar projection along the mismatch direction — see TF-00, "Scalar reduction of gain and tempo." See Open Questions for the non-parametric case.
+**Scope of claim.** The claim is that the *structural form* — a ratio of uncertainties — is universal. The scalar expression above is the simplest instantiation, exact when uncertainties are well-defined scalars (Kalman, conjugate Bayesian). For systems where $U_M$ is not naturally a scalar (neural networks, non-parametric models), the principle generalizes: the optimal gain is higher when the model is more uncertain relative to the observation, lower otherwise. The specific functional form may be a matrix (Kalman gain), per-parameter adaptive step size (Adam), or approximated heuristically. When $\eta^\ast$ is used as a scalar in the mismatch dynamics (TF-11, Appendix A), it represents the effective scalar projection along the mismatch direction — see TF-00, "Scalar reduction of gain and tempo." See Open Questions for the non-parametric case.
 
 ### Interpretation
 
-- When $U_M \gg U_o$ (model is uncertain, observations reliable): $\eta^* \to 1$. Trust the observation; shift the model substantially.
-- When $U_M \ll U_o$ (model is confident, observations noisy): $\eta^* \to 0$. Trust the model; discount the observation.
-- When $U_M \approx U_o$: $\eta^* \approx 0.5$. Weight model and observation equally.
+- When $U_M \gg U_o$ (model is uncertain, observations reliable): $\eta^\ast \to 1$. Trust the observation; shift the model substantially.
+- When $U_M \ll U_o$ (model is confident, observations noisy): $\eta^\ast \to 0$. Trust the model; discount the observation.
+- When $U_M \approx U_o$: $\eta^\ast \approx 0.5$. Weight model and observation equally.
 
 This is the **uncertainty ratio principle**: new information should be weighted in proportion to the relative reliability of the source versus the existing model.
 
@@ -69,7 +69,7 @@ For an exponential family with conjugate prior[^bernardo1994] of effective sampl
 *[Domain Instantiation — Exact (Conjugate Families)]*
 $$\theta_{\text{posterior}} = \frac{n}{n + \kappa} \cdot \bar{\theta}_{\text{data}} + \frac{\kappa}{n + \kappa} \cdot \theta_{\text{prior}}$$
 
-The *cumulative* weight on all data vs. the prior, $\frac{n}{n+\kappa}$, increases as data accumulates. But the *incremental* weight of one new datum — the analog of the per-step gain $\eta^*$ — is $\frac{1}{n+\kappa}$, which *decreases* as data accumulates. This is consistent with the gain dynamics below: as the model becomes more certain ($U_M$ shrinks), each new observation shifts the posterior less. The Bayesian case validates both the structural form (uncertainty ratio) and the convergence dynamics ($\eta^* \to 0$).
+The *cumulative* weight on all data vs. the prior, $\frac{n}{n+\kappa}$, increases as data accumulates. But the *incremental* weight of one new datum — the analog of the per-step gain $\eta^\ast$ — is $\frac{1}{n+\kappa}$, which *decreases* as data accumulates. This is consistent with the gain dynamics below: as the model becomes more certain ($U_M$ shrinks), each new observation shifts the posterior less. The Bayesian case validates both the structural form (uncertainty ratio) and the convergence dynamics ($\eta^\ast \to 0$).
 
 **Status: Exact instantiation** (for conjugate families). ✓
 
@@ -96,7 +96,7 @@ PID gains $(K_p, K_i, K_d)$ are typically fixed at design time. Auto-tuning meth
 
 The optimal gain changes over time following predictable patterns:
 
-**Convergence**: As the model accumulates information, $U_M$ decreases, so $\eta^* \to 0$. The model becomes increasingly resistant to individual observations. This IS:
+**Convergence**: As the model accumulates information, $U_M$ decreases, so $\eta^\ast \to 0$. The model becomes increasingly resistant to individual observations. This IS:
 - Kalman filter convergence ($P_t \to$ steady state $\Rightarrow K_t \to$ steady state)
 - Bayesian posterior concentration
 - RL learning rate annealing
@@ -113,7 +113,7 @@ An agent whose gain does NOT reset after structural change will continue trustin
 From TF-05's decomposition:
 
 *[Derived (from TF-05)]*
-$$\mathbb{E}[\|\delta_t\|^2] = \text{model error}^2 + \text{irreducible noise}^2$$
+$$\mathbb{E}[\Vert\delta_t\Vert^2] = \text{model error}^2 + \text{irreducible noise}^2$$
 
 An agent with $\eta$ too high will adjust its model to explain observation noise, increasing model error on future predictions. An agent with $\eta$ too low will fail to correct genuine model errors.
 
@@ -127,7 +127,7 @@ The gain determines how much the agent learns from each observation. But not all
 
 The uncertainty ratio principle is the theory's strongest cross-domain bridge after the mismatch signal itself. It is exact for Kalman filters and conjugate Bayesian models, structurally correct for RL and adaptive control, and conceptually applicable to organizational and biological adaptation. Confidence that the *structural form* (ratio of uncertainties) is universal: ~75%. Confidence that the *scalar* expression is more than a useful approximation in high-dimensional / non-parametric settings: ~40%. The principle is most powerful as a design criterion (your gain should approximate this ratio) and a diagnostic tool (if your gain doesn't, you're either over- or under-correcting).
 
-**Simulation validation.** Numerical experiments (ACT Track B, Variant E) empirically validated the uncertainty ratio principle under observation noise. In a discrete-time tracking task with stochastic process noise and varying observation noise levels, the Riccati-optimal gain ($\eta^* = U_M / (U_M + U_o)$) reduced steady-state mismatch by 52% compared to a fixed gain when observation noise was moderate ($\sigma_{\text{obs}} = 0.5 \times q_{\text{env}}$). The optimal gain also proved critical in the adversarial setting: under heavy observation noise, the optimal gain preserved more than double the adversarial tempo advantage exponent (0.40 vs. 0.18) compared to a fixed gain. The empirical minimum of the gain-vs-mismatch curve matched the Riccati prediction across the full noise sweep, confirming that the uncertainty ratio form is not merely a design heuristic but the quantitatively correct gain schedule for this class of problems.
+**Simulation validation.** Numerical experiments (ACT Track B, Variant E) empirically validated the uncertainty ratio principle under observation noise. In a discrete-time tracking task with stochastic process noise and varying observation noise levels, the Riccati-optimal gain ($\eta^\ast = U_M / (U_M + U_o)$) reduced steady-state mismatch by 52% compared to a fixed gain when observation noise was moderate ($\sigma_{\text{obs}} = 0.5 \times q_{\text{env}}$). The optimal gain also proved critical in the adversarial setting: under heavy observation noise, the optimal gain preserved more than double the adversarial tempo advantage exponent (0.40 vs. 0.18) compared to a fixed gain. The empirical minimum of the gain-vs-mismatch curve matched the Riccati prediction across the full noise sweep, confirming that the uncertainty ratio form is not merely a design heuristic but the quantitatively correct gain schedule for this class of problems.
 
 ## Open Questions
 

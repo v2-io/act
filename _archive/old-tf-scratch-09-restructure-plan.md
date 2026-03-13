@@ -27,17 +27,17 @@ Files range 27–95 lines (mean ~63). Example: T-02.md = Definition D-01 ("Featu
 
 | New # | Old Source | Title | Type | Central Result | Est. Lines |
 |-------|-----------|-------|------|----------------|------------|
-| TF-01 | TF-01 | Scope | Scope Def | $\mathcal{S}_{\text{TFT}}$ defined | ~40 |
+| TF-01 | TF-01 | Scope | Scope Def | $\mathcal S_{\text{TFT}}$ defined | ~40 |
 | TF-02 | TF-01b | Causal Structure | Axiom | Temporal ordering → causality; CIY | ~90 |
-| TF-03 | TF-02 | The Model | Axiom | $M_t = \phi(\mathcal{H}_t)$ as sufficient statistic | ~80 |
+| TF-03 | TF-02 | The Model | Axiom | $M_t = \phi(\mathcal H_t)$ as sufficient statistic | ~80 |
 | TF-04 | TF-03 | Event-Driven Dynamics | Formulation | $M_{\tau^+} = f(M_{\tau^-}, e_\tau)$ | ~60 |
-| TF-05 | TF-04 | Mismatch Inevitability | Derived | Prop 5.1: $\mathbb{E}[\|\delta_t\|^2] > 0$ | ~80 |
-| TF-06 | TF-05 | The Update Gain | Empirical | Claim 6.1: $\eta^* = U_M/(U_M + U_o)$ | ~80 |
+| TF-05 | TF-04 | Mismatch Inevitability | Derived | Prop 5.1: $\mathbb{E}[\Vert\delta_t\Vert^2] \gt 0$ | ~80 |
+| TF-06 | TF-05 | The Update Gain | Empirical | Claim 6.1: $\eta^\ast = U_M/(U_M + U_o)$ | ~80 |
 | TF-07 | TF-06 §1–3 | Action Selection | Derived | $a_t = \pi(M_t)$; fluency spectrum | ~70 |
-| TF-08 | TF-06 §4–7 | Exploration-Exploitation Balance | Hypothesis | $\pi^* = \arg\max[\text{value} + \lambda \cdot \text{CIY}]$ | ~90 |
-| TF-09 | TF-06.5 | Deliberation Threshold | Derived | Prop 9.1: $\Delta\eta^* \cdot \|\delta_{\text{post}}\| > \rho \cdot \Delta\tau$ | ~70 |
-| TF-10 | TF-07 | Structural Adaptation | Derived | Prop 10.1: $\mathcal{F}(\mathcal{M}) < 1-\epsilon$ → structural change | ~90 |
-| TF-11 | TF-08 | Persistence Threshold | Hypothesis | Prop 11.1: $\mathcal{T} > \rho$ | ~90 |
+| TF-08 | TF-06 §4–7 | Exploration-Exploitation Balance | Hypothesis | $\pi^\ast = \arg\max[\text{value} + \lambda \cdot \text{CIY}]$ | ~90 |
+| TF-09 | TF-06.5 | Deliberation Threshold | Derived | Prop 9.1: $\Delta\eta^\ast \cdot \Vert\delta_{\text{post}}\Vert \gt \rho \cdot \Delta\tau$ | ~70 |
+| TF-10 | TF-07 | Structural Adaptation | Derived | Prop 10.1: $\mathcal{F}(\mathcal{M}) \lt 1-\epsilon$ → structural change | ~90 |
+| TF-11 | TF-08 | Persistence Threshold | Hypothesis | Prop 11.1: $\mathcal{T} \gt \rho$ | ~90 |
 | App A | App A | Lyapunov Stability | Derived | Props A.1–A.4 (nonlinear generalization) | ~200 |
 
 **Total: 11 numbered + 1 appendix = 12 documents** (TST has 12 numbered)

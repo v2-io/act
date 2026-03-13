@@ -13,9 +13,9 @@ For systems that must continue operating while evolving, time optimization inclu
 ## Scope Definition
 
 This theorem applies to systems where:
-- $E[\text{changes}_{\text{future}}] > 0$ (evolving systems per T-03)
-- $P(\text{perturbation}) > 0$ (subject to external shocks or internal failures)
-- $\text{required_availability} > \text{threshold}$ (must maintain operational status)
+- $E[\text{changes}_{\text{future}}] \gt 0$ (evolving systems per T-03)
+- $P(\text{perturbation}) \gt 0$ (subject to external shocks or internal failures)
+- $\text{required-availability} \gt \text{threshold}$ (must maintain operational status)
 
 ## Formal Expression
 

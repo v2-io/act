@@ -16,15 +16,15 @@ Implementation time is proportional to the size of the atomic changeset.
 
 *[Empirical Claim (changeset-size-principle)]*
 
-$$t_{\text{impl}}(F) \propto |\text{changeset}(F)|$$
+$$t_{\text{impl}}(F) \propto \lvert\text{changeset}(F)\rvert$$
 
-where $|\text{changeset}|$ measures lines changed, files touched, or modules affected (see #atomic-changeset), excluding generated code.
+where $\lvert\text{changeset}\rvert$ measures lines changed, files touched, or modules affected (see #atomic-changeset), excluding generated code.
 
 ### Corollary: Comprehension Follows Changeset Size
 
 *[Hypothesis (comprehension-follows-changeset)]*
 
-$$t_{\text{comp}}(F) \propto |\text{changeset}(F)|$$
+$$t_{\text{comp}}(F) \propto \lvert\text{changeset}(F)\rvert$$
 
 Understanding a feature that touched 20 files requires comprehending 20 contexts. This creates a double penalty for unnecessarily large changesets: both implementation time and comprehension time scale with size. Architecture that minimizes changeset size for typical features thus optimizes both dimensions of #dual-optimization simultaneously.
 
@@ -42,7 +42,7 @@ The comprehension corollary is a *hypothesis* — weaker than the implementation
 
 ## Working Notes
 
-- The proportionality hides important structure. A 100-line change in one file and 10 one-line changes across 10 files have similar $|\text{changeset}|$ but very different costs. The proximity principle ( #change-proximity-principle) captures this difference. The size principle is the first-order term; proximity is the correction.
+- The proportionality hides important structure. A 100-line change in one file and 10 one-line changes across 10 files have similar $\lvert\text{changeset}\rvert$ but very different costs. The proximity principle ( #change-proximity-principle) captures this difference. The size principle is the first-order term; proximity is the correction.
 - "Lines changed" vs "files touched" vs "modules affected" are different measures that may give different proportionality constants. Which measure best predicts time? This is an empirical question with practical implications for estimation and for evaluating architectures.
 - The comprehension corollary assumes roughly equal per-context comprehension cost. In practice, some files are much harder to understand than others. A single change in a complex state machine may cost more comprehension time than changes across 10 simple CRUD endpoints. #conceptual-alignment captures part of this — well-aligned modules are cheaper to comprehend per unit.
 

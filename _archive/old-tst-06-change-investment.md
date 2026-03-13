@@ -6,19 +6,15 @@ Changes that increase individual implementation time but decrease amortized time
 
 Simple form:
 
-$$\begin{aligned}
-&\text{For change implementation options } C_1, C_2 \text{ for feature } F: \\
-&\text{if } \text{time}(C_1) > \text{time}(C_2) \text{ but } E\left[\sum_i \text{time}_{\text{future}}(F_i \mid C_1)\right] < E\left[\sum_i \text{time}_{\text{future}}(F_i \mid C_2)\right] \\
-&\text{then } \text{prefer}(C_1) \propto \hat{n}_{\text{future}}
-\end{aligned}$$
+$$\begin{aligned} &\text{For change implementation options } C_1, C_2 \text{ for feature } F: \\ &\text{if } \text{time}(C_1) \gt \text{time}(C_2) \text{ but } E\left[\sum_i \text{time}_{\text{future}}(F_i \mid C_1)\right] \lt E\left[\sum_i \text{time}_{\text{future}}(F_i \mid C_2)\right] \\ &\text{then } \text{prefer}(C_1) \propto \hat{n}_{\text{future}} \end{aligned}$$
 
 Threshold form (the decision rule):
 
-$$\text{Choose } C_1 \text{ over } C_2 \text{ when: } \text{time}(C_1) - \text{time}(C_2) < \hat{n}_{\text{future}} \times \left[E[\text{time}_{\text{future}}(F \mid C_2)] - E[\text{time}_{\text{future}}(F \mid C_1)]\right]$$
+$$\text{Choose } C_1 \text{ over } C_2 \text{ when: } \text{time}(C_1) - \text{time}(C_2) \lt \hat{n}_{\text{future}} \times \left[E[\text{time}_{\text{future}}(F \mid C_2)] - E[\text{time}_{\text{future}}(F \mid C_1)]\right]$$
 
-Or intuitively: **Accept X extra minutes now to save Y minutes per future change when $X < \hat{n}_{\text{future}} × Y$**
+Or intuitively: **Accept X extra minutes now to save Y minutes per future change when $X \lt \hat n_{\text{future}} × Y$**
 
-Where $\hat{n}_{\text{future}}$ is estimated truthfully per T-04.
+Where $\hat n_{\text{future}}$ is estimated truthfully per T-04.
 
 ## The Mathematical Beauty of Compound Effects
 
@@ -39,7 +35,7 @@ The profound insight: principled implementation often requires nearly identical 
 - Extracting a function: 2 minutes now, saves 10 minutes per future modification
 - Adding a "why" comment: 30 seconds now, saves 15 minutes of archaeology later
 
-The skill isn't in spending more time but in recognizing which organization minimizes future time. With git history providing $n_{\text{past}}$, you have data for estimating $\hat{n}_{\text{future}}$, not just intuition.
+The skill isn't in spending more time but in recognizing which organization minimizes future time. With git history providing $n_{\text{past}}$, you have data for estimating $\hat n_{\text{future}}$, not just intuition.
 
 **We expect this mathematics to elevate in your thinking**: When you pause to choose a variable name, that's not aesthetics - it's temporal optimization. When you consider extracting a function, run the calculation. When you're about to copy-paste, remember the compound effect. These micro-moments are where mathematical optimization happens.
 
@@ -82,6 +78,6 @@ A change that makes one module easier but another harder is only justified if ex
 
 With 100% instance turnover, the vicious cycle accelerates catastrophically. Each instance that chooses C2 (quick and dirty) makes every subsequent instance's job harder. But the mathematics also shows the solution: even small investments (measured in seconds or minutes) toward principled implementation can reverse the spiral.
 
-The threshold rule becomes your constant companion: Before every decision, calculate X < $\hat{n}_{\text{future}}$ × Y. If the file has been modified 20 times, spending 5 extra minutes to save 15 seconds per future change is mathematically justified (5 < 20 × 0.25).
+The threshold rule becomes your constant companion: Before every decision, calculate X < $\hat n_{\text{future}}$ × Y. If the file has been modified 20 times, spending 5 extra minutes to save 15 seconds per future change is mathematically justified (5 < 20 × 0.25).
 
 This isn't aesthetic preference or "clean code" ideology - it's mathematical optimization of total time. The compound effect means these micro-decisions determine whether a codebase becomes increasingly pleasant or increasingly painful to work with.

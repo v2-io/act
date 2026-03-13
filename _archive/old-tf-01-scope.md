@@ -27,9 +27,9 @@ where $T$ is the (possibly stochastic) transition function.
 ## Formal Scope
 
 *[Scope Definition (scope-condition)]*
-$$\mathcal{S}_{\text{TFT}} = \{(Agent, \Omega) : \mathcal{O} \neq \emptyset, \; |\mathcal{A}| \geq 2, \; H(\Omega_t \mid \mathcal{C}_t) > 0 \}$$
+$$\mathcal{S}_{\text{TFT}} = \{(Agent, \Omega) : \mathcal{O} \neq \emptyset, \; |\mathcal{A}| \geq 2, \; H(\Omega_t \mid \mathcal{C}_t) \gt 0 \}$$
 
-where $\mathcal{C}_t = (o_1, a_1, o_2, a_2, \ldots, a_{t-1}, o_t)$ is the full interaction history (formalized in TF-02). The theory applies wherever there is an agent that observes, acts with at least a binary choice, and faces residual uncertainty[^shannon1948] about its environment. The action-space requirement ($|\mathcal{A}| \geq 2$) ensures the agent has at least one interventional contrast — the minimal condition for CIY (TF-08), Level 2 epistemic access (TF-02), and the exploration-exploitation framework (TF-08) to be non-trivially applicable. The final condition — that uncertainty persists even given the complete action-observation history — is constitutive: if the agent could fully determine $\Omega$ from its history alone, the problem would be trivial.
+where $\mathcal C_t = (o_1, a_1, o_2, a_2, \ldots, a_{t-1}, o_t)$ is the full interaction history (formalized in TF-02). The theory applies wherever there is an agent that observes, acts with at least a binary choice, and faces residual uncertainty[^shannon1948] about its environment. The action-space requirement ($|\mathcal{A}| \geq 2$) ensures the agent has at least one interventional contrast — the minimal condition for CIY (TF-08), Level 2 epistemic access (TF-02), and the exploration-exploitation framework (TF-08) to be non-trivially applicable. The final condition — that uncertainty persists even given the complete action-observation history — is constitutive: if the agent could fully determine $\Omega$ from its history alone, the problem would be trivial.
 
 ## Why This Scope
 
@@ -37,7 +37,7 @@ This includes: thermostats, PID controllers, robots, organisms, RL agents, organ
 
 This excludes:
 - **Pure mathematical structures** — no environment, no uncertainty
-- **Closed-form systems** — fully observable, fully deterministic ($H(\Omega_t \mid \mathcal{C}_t) = 0$)
+- **Closed-form systems** — fully observable, fully deterministic ($H(\Omega_t \mid \mathcal C_t) = 0$)
 - **Passive observers** — $|\mathcal{A}| = 0$ (no actions at all). Bayesian inference without action falls outside scope; the model (TF-03), mismatch (TF-05), and update gain (TF-06) apply to passive learning, but the action-dependent results are trivially void.
 - **Single-action agents** — $|\mathcal{A}| = 1$. An agent with only one available action satisfies the coupling requirement of TF-01 but gains nothing from TFT's action-dependent machinery: CIY is trivially zero (no interventional contrast), Level 2 epistemic access is unavailable, and the exploration-exploitation framework (TF-08) is void. The theory's passive-applicable results (TF-03, TF-05, TF-06) apply as in the passive observer case.
 

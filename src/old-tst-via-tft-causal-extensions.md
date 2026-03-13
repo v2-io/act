@@ -51,9 +51,9 @@ In most TFT domains, this requires model-based prediction. In software, the deve
 - **Test execution**: Run the test suite after the change. This is a slightly delayed, slightly noisier Level 2 observation (tests may not cover all effects).
 - **Deployment to staging**: Observe behavior under realistic conditions. Higher latency, higher coverage.
 
-[Confident] The software domain provides a *spectrum of Level 2 observation channels* with different (nu, U_o) characteristics:
+[Confident] The software domain provides a *spectrum of Level 2 observation channels* with different ($\nu$, $U_o$) characteristics:
 
-| Level 2 channel | nu (speed) | U_o (noise) | Coverage |
+| Level 2 channel | $\nu$ (speed) | $U_o$ (noise) | Coverage |
 |-----------------|------------|-------------|----------|
 | Type checker | Instant | Near-zero | Syntactic/type only |
 | Linter | Instant | Very low | Style + common errors |
@@ -62,7 +62,7 @@ In most TFT domains, this requires model-based prediction. In software, the deve
 | Staging deploy | Minutes-hours | Medium | Near-production |
 | Production canary | Hours | Low (real traffic) | Full coverage |
 
-Each channel is a CIY source. The "if I do this, what happens?" question is answered with progressively higher fidelity (lower U_o) and broader coverage, at the cost of higher latency (lower nu). The optimal developer strategy is to use fast, narrow channels first (type checker, unit tests) and escalate to slower, broader channels only when needed — exactly the sequential information-gathering strategy that TF-08's CIY framework motivates.
+Each channel is a CIY source. The "if I do this, what happens?" question is answered with progressively higher fidelity (lower $U_o$) and broader coverage, at the cost of higher latency (lower $\nu$). The optimal developer strategy is to use fast, narrow channels first (type checker, unit tests) and escalate to slower, broader channels only when needed — exactly the sequential information-gathering strategy that TF-08's CIY framework motivates.
 
 ### 2.1 CIY for Software Actions
 
@@ -106,7 +106,7 @@ This is Level 3 epistemic access with *ground-truth verification* — not model-
 
 - **TFT's model class fitness F(M) becomes empirically measurable.** Fork at a past point, try a different model class (architecture), and measure whether it would have achieved higher sufficiency for the actual future.
 
-- **TST's n_future estimation can be validated.** Compare the predicted n_future at time t to the actual n_future observed by time t + Delta_t.
+- **TST's n_future estimation can be validated.** Compare the predicted n_future at time $t$ to the actual n_future observed by time $t + \Delta t$.
 
 ### 3.2 Limitations of Git Counterfactuals
 
@@ -147,7 +147,7 @@ This is a causal query: P(change(B) | do(change(A))), not the associational P(ch
 
 [Plausible] Standard do-calculus adjustment on the identified DAG gives:
 
-    P(change(B) | do(change(A))) = sum_C P(change(B) | change(A), C) * P(C)
+$$P(\text{change}(B) \mid \text{do}(\text{change}(A))) = \sum_C P(\text{change}(B) \mid \text{change}(A), C) \cdot P(C)$$
 
 where C is the set of confounders (common causes like shared requirements). If the DAG is correctly specified (a big if), this gives more accurate change propagation predictions than simple co-change correlation.
 
@@ -162,13 +162,13 @@ TST's T-08 (implementation time proportional to change-set size) can be reframed
 TST's D-06 (coupling = P(change(B) | change(A))) is the associational analog.
 The causal version is:
 
-    coupling_causal(A, B) = P(change(B) | do(change(A)))
+$$\text{coupling}_{\text{causal}}(A, B) = P(\text{change}(B) \mid \text{do}(\text{change}(A)))$$
 
 And the full coupling structure is the matrix of all pairwise causal coupling strengths — a weighted adjacency matrix of the causal DAG.
 
 [Plausible] If we can estimate this matrix (from dependency analysis + adjusted co-change frequencies), we can optimize architecture against it. The goal is to minimize total expected downstream change propagation:
 
-    minimize sum_F P(F) * |downstream(intervention(F), DAG)|
+$$\text{minimize} \sum_F P(F) \cdot \lvert\text{downstream}(\text{intervention}(F), \text{DAG})\rvert$$
 
 This is a graph optimization problem: find the DAG structure (architecture) that minimizes expected downstream set size given a distribution over interventions (features). This connects software architecture to causal structure optimization — a framing I haven't seen elsewhere.
 
@@ -191,7 +191,7 @@ The running system has its own state (memory, connections, request queues, cache
 
 A deployment is a Level 2 intervention on the runtime environment:
 
-    do(deploy(new_code)) → observe(production_behavior)
+$$\text{do}(\text{deploy}(\text{new code})) \to \text{observe}(\text{production behavior})$$
 
 The CIY of a deployment depends on how different the new code is from the old — a no-op deploy has zero CIY, a major feature deploy has high CIY. Canary deployments and feature flags are strategies to reduce the *blast radius* of the intervention while preserving its CIY — exactly the exploration-exploitation balance (TF-08) applied to the deployment domain.
 

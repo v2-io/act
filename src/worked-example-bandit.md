@@ -70,7 +70,11 @@ Decomposes exactly: $\mathbb{E}[\delta_t^2] = (\hat{\mu}_{a_t} - \mu_{a_t}(t))^2
 
 *Mapping: approximate. This is where the bandit agent is most deficient relative to ACT-optimal behavior.*
 
-The Q-learning update $\hat{\mu}_{a_t} \leftarrow \hat{\mu}_{a_t} + \alpha \cdot \delta_t$ uses a **degenerate constant gain**. It does not adapt to the agent's current uncertainty state.
+The Q-learning update
+
+$$\hat{\mu}_{a_t} \leftarrow \hat{\mu}_{a_t} + \alpha \cdot \delta_t$$
+
+uses a **degenerate constant gain**. It does not adapt to the agent's current uncertainty state.
 
 **Optimal gain via effective window.** A fixed $\alpha$ is equivalent to exponential discounting with effective window $W = (1 - \alpha)/\alpha$. The per-arm model uncertainty balances estimation variance and drift-induced bias:
 

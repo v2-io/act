@@ -29,7 +29,7 @@ where:
 **Structural constraints:**
 
 1. **Acyclicity.** $\Sigma_t$ is a DAG. This is *derived*, not assumed — see below.
-2. **Rootedness.** Every node has a directed path to a unique root terminal $v_\text{root}$ — the single sink node (out-degree 0) of $\Sigma_t$. Compound objectives express their combination structure through the AND/OR machinery below $v_\text{root}$, consistent with scalar $V_O$ ( #objective-functional).
+2. **Rootedness.** Every node has a directed path to a unique root terminal $v_\text{root}$ — the single sink node (out-degree 0) of $\Sigma_t$. Compound objectives express their combination structure through the AND/OR machinery below $v_\text{root}$, consistent with scalar $V_{O_t}$ ( #objective-functional).
 3. **Source constraint.** Leaf nodes are propositions about action success ("action $a$ succeeds at $\tau_v$") or observable conditions ("condition $C_v$ holds at $\tau_v$"). Both are propositional — the distinction is whether the proposition is within the agent's causal control (action) or not (condition).
 
 **Leaf base credence.** For each leaf node $v \in V_t^{\text{leaf}}$, the base credence used in status propagation:
@@ -52,7 +52,7 @@ $$s_v = \begin{cases} p_v & \text{if } v \text{ is a leaf (base credence)} \\ \p
 
 **Well-formedness.** $\Sigma_t$ is **$O_t$-well-formed** when the agent believes that achieving the terminal conditions yields a trajectory that satisfies the objective:
 
-$$\Pr\!\left(O_t \text{ satisfied by } \tau \;\middle|\; \text{terminal conditions achieved},\; M_t\right) \geq 1 - \epsilon$$
+$$\Pr\!\left(O_t \text{ satisfied by } \tau \;\middle\vert\; \text{terminal conditions achieved},\; M_t\right) \geq 1 - \epsilon$$
 
 where "$O_t$ satisfied" means $V_{O_t}(\tau)$ exceeds the objective's own satisfaction criterion (formalized as $V_{O_t}^{\min}$ in #satisfaction-gap). This is a constraint on the relationship between $\Sigma_t$ and $O_t$, not a separate state object. It is explicit and in-principle assessable, though evaluating it requires the same value-side machinery as $A_O$ — it is not a cheap structural test. Violation triggers terminal reassessment: either the terminals need revision (they don't operationalize $O_t$ correctly) or $O_t$ itself needs revision.
 
@@ -60,7 +60,7 @@ where "$O_t$ satisfied" means $V_{O_t}(\tau)$ exceeds the objective's own satisf
 
 $$\hat{P}_\Sigma(M_t) = s_{v_\text{root}}$$
 
-is the strategy's **plan-confidence score** — the DAG's own answer to "will this plan work?" Under the edge-independence assumption implicit in the AND/OR combination rules, this is a probability. When edges have correlated failures (shared infrastructure, common-mode risks — see Working Notes), it is a heuristic confidence score that systematically overestimates success likelihood. $\hat P_\Sigma$ is explicitly distinct from $A_O$ ( #satisfaction-gap), which optimizes over the entire policy class, and from $V_O(\pi_\text{current})$ ( #value-object), which evaluates the current policy. $\hat P_\Sigma$ is cheap to compute ($O(|V| + |E|)$ forward pass) and updates in real time as $M_t$ changes through leaf credences.
+is the strategy's **plan-confidence score** — the DAG's own answer to "will this plan work?" Under the edge-independence assumption implicit in the AND/OR combination rules, this is a probability. When edges have correlated failures (shared infrastructure, common-mode risks — see Working Notes), it is a heuristic confidence score that systematically overestimates success likelihood. $\hat P_\Sigma$ is explicitly distinct from $A_O$ ( #satisfaction-gap), which optimizes over the entire policy class, and from $V_O(\pi_\text{current})$ ( #value-object), which evaluates the current policy. $\hat P_\Sigma$ is cheap to compute ($O(\lvert V\rvert + \lvert E\rvert)$ forward pass) and updates in real time as $M_t$ changes through leaf credences.
 
 **Scope of the terminal construction.** Terminal conditions as Boolean predicates with AND/OR aggregation work naturally for threshold, constraint, and composite objectives. For continuous-valued objectives without natural thresholds, the agent must set an operational threshold — introducing a discretization that is a practical proxy, not a lossless encoding of $V_O$. The primary $O_t$ ↔ theory interface remains $V_O$ through the value object ( #value-object); terminal conditions are $\Sigma_t$'s internal operational encoding.
 
@@ -72,7 +72,11 @@ is the strategy's **plan-confidence score** — the DAG's own answer to "will th
 
 Each node in $\Sigma_t$ represents a future event or state with temporal position $\tau_i \gt t$. An edge $X_i \to X_j$ requires $\tau_i \lt \tau_j$ ( #causal-structure: causes precede effects). A cycle $X_i \to X_j \to \cdots \to X_i$ would require $\tau_i \lt \tau_j \lt \cdots \lt \tau_i$, which is impossible for a real-valued time index.
 
-Strategies involving iteration ("try A, if fail try B, if fail try A again") are acyclic when time-indexed: $A_1 \to \text{check}_1 \to B_1 \to \text{check}_2 \to A_2 \to \ldots$ Each attempt is a distinct node at a distinct time. The apparent cycle is a linear chain in the unrolled view.
+Strategies involving iteration ("try A, if fail try B, if fail try A again") are acyclic when time-indexed. The sequence unfolds as:
+
+$$A_1 \to \text{check}_1 \to B_1 \to \text{check}_2 \to A_2 \to \ldots$$
+
+Each attempt is a distinct node at a distinct time. The apparent cycle is a linear chain in the unrolled view.
 
 Formally: a finite set with a strict partial order (future events ordered by time) is representable as a DAG. This is a standard result in order theory.
 
@@ -97,5 +101,5 @@ The AND/OR parameterization is a parsimony-motivated formulation choice within t
 - Edge failures are assumed independent in the combination rules. Real systems have correlated failures (shared infrastructure, common-mode risks). The actual confidence is lower than the independent-edge formula suggests. Modeling correlation structure would require augmenting the DAG with hidden common-cause nodes or using a richer parameterization — both increase complexity. Currently acknowledged as a limitation.
 - The graph-uniqueness argument (P1-P4 → DAG with Markov property) is the strongest structural justification: temporal ordering + Cox's theorem + local revisability + observable intermediates → directed graphical model with the Markov factorization. If the P3→Markov step can be tightened to a full derivation, strategy-dag could be promoted from Definition to Derived. See `scratch/spike-graph-uniqueness.md`.
 - Health metrics (groundedness, observability coverage, weighted redundancy, bottleneck scores) are scaffold — engineering quantities for monitoring DAG health, not principled derivations. They may be useful for implementation but should not enter the theory's formal chain.
-- **Satisfaction criterion not yet first-class.** The well-formedness constraint references "the objective's own satisfaction criterion," which is semantically named here but not formally introduced until #satisfaction-gap defines $V_{O_t}^{\min}$. If stricter dependency hygiene is needed, the satisfaction criterion should be introduced as a first-class object in #objective-functional (where V_O is defined), independent of the gap machinery.
-- **Terminal alignment error.** When the agent achieves its terminal conditions but evaluates $V_{O_t}(\tau) \lt V_{O_t}^{\min}$ on the actual trajectory, the well-formedness belief was wrong — the operational success criteria didn't capture what the objective actually required. This is detectable only through experience (achieve the terminals, evaluate $V_O$), not through a priori analysis. It triggers terminal reassessment — a structural change in $\Sigma_t$ driven by the $O_t$ ↔ terminal mismatch. Whether this should be formalized as a named diagnostic signal ($\delta_\text{align}$) alongside $\delta_\text{sat}$, $\delta_\text{regret}$, and $\delta_\text{strategic}$ is open.
+- **Satisfaction criterion not yet first-class.** The well-formedness constraint references "the objective's own satisfaction criterion," which is semantically named here but not formally introduced until #satisfaction-gap defines $V_{O_t}^{\min}$. If stricter dependency hygiene is needed, the satisfaction criterion should be introduced as a first-class object in #objective-functional (where $V_{O_t}$ is defined), independent of the gap machinery.
+- **Terminal alignment error.** When the agent achieves its terminal conditions but evaluates $V_{O_t}(\tau) \lt V_{O_t}^{\min}$ on the actual trajectory, the well-formedness belief was wrong — the operational success criteria didn't capture what the objective actually required. This is detectable only through experience (achieve the terminals, evaluate $V_{O_t}$), not through a priori analysis. It triggers terminal reassessment — a structural change in $\Sigma_t$ driven by the $O_t$ ↔ terminal mismatch. Whether this should be formalized as a named diagnostic signal ($\delta_\text{align}$) alongside $\delta_\text{sat}$, $\delta_\text{regret}$, and $\delta_\text{strategic}$ is open.

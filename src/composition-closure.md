@@ -17,7 +17,9 @@ We define a group of interacting agents as a valid composite macro-agent when it
 
 Let a system consist of $N$ sub-agents interacting in a shared environment with state space $\mathcal S_{env}$.
 The micro-state, micro-observations, and micro-actions are:
-$X_{micro, t} = \{ (M_{i,t}, G_{i,t}) \}_{i=1}^N \in \mathcal X_{micro}$ $o_{micro, t} = \{ o_{i,t} \}_{i=1}^N \in \mathcal O_{micro}$ $a_{micro, t} = \{ a_{i,t} \}_{i=1}^N \in \mathcal A_{micro}$
+$X_{micro, t} = \{ (M_{i,t}, G_{i,t}) \}_{i=1}^N \in \mathcal X_{micro}$
+$o_{micro, t} = \{ o_{i,t} \}_{i=1}^N \in \mathcal O_{micro}$
+$a_{micro, t} = \{ a_{i,t} \}_{i=1}^N \in \mathcal A_{micro}$
 
 The coupled micro-dynamics form an action-observation loop:
 $X_{micro, t} \xrightarrow{\pi_{micro}} a_{micro, t} \xrightarrow{E} (\Omega_{t+1}, o_{micro, t+1}) \xrightarrow{f_{micro}} X_{micro, t+1}$

@@ -26,7 +26,7 @@ $$\mu_i(t+1) = \mu_i(t) + w_i(t), \quad w_i(t) \sim \mathcal{N}(0, q), \quad q =
 - **Environment state**: $\Omega_t = (\mu_1(t), \ldots, \mu_4(t))$ --- the vector of true reward means. Not directly observable.
 - **Observation space**: $\mathcal{O} = \mathbb{R}$ --- a scalar reward, observed only for the chosen arm.
 - **Action space**: $\mathcal{A} = \{1, 2, 3, 4\}$.
-- **Residual uncertainty**: $H(\Omega_t \mid \mathcal{C}_t) > 0$ because (a) each arm's mean drifts continuously (process noise $q$), (b) rewards are noisy ($\sigma^2 = 1$), and (c) only one arm is observed per step, leaving three arms entirely unobserved. The system is squarely within $\mathcal{S}_{\text{TFT}}$.
+- **Residual uncertainty**: $H(\Omega_t \mid \mathcal C_t) \gt 0$ because (a) each arm's mean drifts continuously (process noise $q$), (b) rewards are noisy ($\sigma^2 = 1$), and (c) only one arm is observed per step, leaving three arms entirely unobserved. The system is squarely within $\mathcal S_{\text{TFT}}$.
 
 ## D.2 TF-02 (Causal Structure) + TF-08 (CIY)
 
@@ -37,7 +37,7 @@ The action (arm choice) temporally precedes the reward observation. Selecting ar
 **CIY in the bandit case.** Using the policy-induced reference distribution (default convention), where $q(\cdot \mid M_{t-1})$ is the agent's current action distribution:
 
 *[Discussion --- Bandit CIY]*
-$$\text{CIY}(a = i;\, M_{t-1}) = \mathbb{E}_{j \sim q}\!\left[D_{\mathrm{KL}}\!\left(P(r \mid do(a{=}i), M_{t-1}) \,\|\, P(r \mid do(a{=}j), M_{t-1})\right)\right]$$
+$$\text{CIY}(a = i;\, M_{t-1}) = \mathbb{E}_{j \sim q}\!\left[D_{\mathrm{KL}}\!\left(P(r \mid do(a{=}i), M_{t-1}) \,\Vert\, P(r \mid do(a{=}j), M_{t-1})\right)\right]$$
 
 Under the Gaussian reward model, $P(r \mid do(a{=}i), M_{t-1}) = \mathcal{N}(\hat{\mu}_i, \sigma^2)$, so the KL divergence between arms $i$ and $j$ reduces to:
 
@@ -61,9 +61,9 @@ The Q-learning agent maintains:
 *[Formulation]*
 $$M_t = (\hat{\mu}_1, \ldots, \hat{\mu}_4,\; n_1, \ldots, n_4)$$
 
-where $\hat{\mu}_i$ is the running estimate of arm $i$'s mean reward and $n_i$ is the visit count. This is a compression $\phi(\mathcal{C}_t)$ of the interaction history --- a lossy one that retains only per-arm sample means and counts.
+where $\hat{\mu}_i$ is the running estimate of arm $i$'s mean reward and $n_i$ is the visit count. This is a compression $\phi(\mathcal C_t)$ of the interaction history --- a lossy one that retains only per-arm sample means and counts.
 
-**Model sufficiency**: $S(M_t) < 1$ for two reasons:
+**Model sufficiency**: $S(M_t) \lt 1$ for two reasons:
 
 1. **No drift tracking.** The model treats reward means as stationary. It does not represent the random-walk dynamics $\mu_i(t+1) = \mu_i(t) + w_i$, so historical observations are weighted equally regardless of recency. This means the model cannot predict *changes* in reward means.
 2. **No uncertainty representation.** Unlike a Bayesian agent that would maintain posterior variances, the Q-learner's $M_t$ has no explicit representation of its own uncertainty $U_M$.
@@ -113,7 +113,7 @@ At this optimal point, $U_M \approx 2\sigma\sqrt{q} = 0.2$, and the TFT uncertai
 
 $$\eta^* = \frac{U_M}{U_M + U_o} = \frac{0.2}{0.2 + 1.0} = \frac{1}{6} \approx 0.167$$
 
-**Discrepancy.** The optimal $\alpha^* \approx 0.091$ from the window analysis differs from the TFT $\eta^* \approx 0.167$ because $\alpha$ operates on raw prediction errors while $\eta^*$ accounts for the full uncertainty structure. The two converge when the model properly tracks its own uncertainty. The fixed-$\alpha$ Q-learner is only TFT-optimal in the narrow sense that $\alpha = 1/(W^* + 1)$ minimizes steady-state MSE for the right $W^*$ matching the drift rate --- but it achieves this optimality *accidentally*, without representing $U_M$ or $U_o$ explicitly.
+**Discrepancy.** The optimal $\alpha^\ast \approx 0.091$ from the window analysis differs from the TFT $\eta^\ast \approx 0.167$ because $\alpha$ operates on raw prediction errors while $\eta^\ast$ accounts for the full uncertainty structure. The two converge when the model properly tracks its own uncertainty. The fixed-$\alpha$ Q-learner is only TFT-optimal in the narrow sense that $\alpha = 1/(W^\ast + 1)$ minimizes steady-state MSE for the right $W^\ast$ matching the drift rate --- but it achieves this optimality *accidentally*, without representing $U_M$ or $U_o$ explicitly.
 
 ## D.6 TF-08 (Exploration)
 
@@ -143,7 +143,7 @@ The UCB bonus $c\sqrt{\ln t / n_i}$ serves as an approximate $\lambda \cdot \tex
 
 *Mapping status: approximate. The structural claims hold; specific numerical values are illustrative.*
 
-**Per-arm adaptive tempo.** With $k = 4$ arms and approximately uniform exploration, each arm is sampled at average rate $\nu / k = 1/4$ pulls per step. The per-arm gain is $\eta^* \approx \alpha$. So the per-arm correction tempo is:
+**Per-arm adaptive tempo.** With $k = 4$ arms and approximately uniform exploration, each arm is sampled at average rate $\nu / k = 1/4$ pulls per step. The per-arm gain is $\eta^\ast \approx \alpha$. So the per-arm correction tempo is:
 
 *[Discussion --- Per-Arm Tempo]*
 $$\mathcal{T}_i = \frac{\nu}{k} \cdot \alpha = \frac{1}{4} \cdot \alpha$$
@@ -159,15 +159,15 @@ $$\rho_i = \sqrt{q} = 0.1 \; \text{reward units} \cdot \text{step}^{-1}$$
 
 In surprise-equivalent (Mahalanobis) units, this would be $\rho_i^{\text{surprise}} = \sqrt{q}/\sigma = 0.1$, which happens to equal the reward-unit value because $\sigma = 1$ in this example. For systems where $\sigma \neq 1$, the normalization matters.
 
-**Persistence condition.** Per-arm persistence requires $\mathcal{T}_i > \rho_i / \|\delta_{\text{critical}}\|$. Taking $\|\delta_{\text{critical}}\| = 1$ (mismatch of one standard deviation of reward noise as the functional threshold, consistent with the reward-unit convention):
+**Persistence condition.** Per-arm persistence requires $\mathcal T_i \gt \rho_i / \Vert\delta_{\text{critical}}\Vert$. Taking $\Vert\delta_{\text{critical}}\Vert = 1$ (mismatch of one standard deviation of reward noise as the functional threshold, consistent with the reward-unit convention):
 
 $$\mathcal{T}_i = 0.023 \quad \text{vs.} \quad \rho_i = 0.1$$
 
-This *fails* the persistence condition: $0.023 < 0.1$. The per-arm correction tempo is too low relative to the drift rate. The agent cannot keep all arms' estimates current under uniform exploration.
+This *fails* the persistence condition: $0.023 \lt 0.1$. The per-arm correction tempo is too low relative to the drift rate. The agent cannot keep all arms' estimates current under uniform exploration.
 
 **Interpretation.** This is expected and informative. A nonstationary 4-armed bandit with this parameterization is a *hard* problem for a Q-learner with uniform exploration. The persistence failure diagnoses exactly why: with 4 arms and one pull per step, each arm is visited too infrequently to track its drifting mean. TFT prescribes two remedies:
 
-1. **Increase $\eta^*$** (raise $\alpha$): Use a larger learning rate to extract more information per observation. But this increases steady-state noise (overfitting to observation noise).
+1. **Increase $\eta^\ast$** (raise $\alpha$): Use a larger learning rate to extract more information per observation. But this increases steady-state noise (overfitting to observation noise).
 2. **Concentrate $\nu$**: Abandon uniform exploration. Focus pulls on a subset of arms, increasing per-arm $\nu/k_{\text{active}}$ above the persistence threshold. This is exactly what a good UCB policy does --- it does not explore uniformly but concentrates visits on promising or uncertain arms, effectively reducing $k_{\text{active}}$.
 
 **With focused exploration** ($k_{\text{active}} = 2$ arms receiving most visits):
@@ -184,7 +184,7 @@ This barely meets the threshold. The TFT framework reveals the fundamental tensi
 
 $$\mathcal{T} = \nu \cdot \alpha = 1 \times 0.091 = 0.091$$
 
-The aggregate drift rate is $\rho = k \cdot \sqrt{q} = 4 \times 0.1 = 0.4$. Aggregate persistence ($\mathcal{T} > \rho$) also fails: $0.091 < 0.4$. The agent's total adaptive capacity is fundamentally outpaced by the total environmental drift across all arms. This is a regime where model-based approaches (Bayesian bandits, Kalman bandit filters) with their higher effective $\eta^*$ have a structural advantage, consistent with TF-06's observation that advanced RL methods converge toward the TFT-optimal gain form.
+The aggregate drift rate is $\rho = k \cdot \sqrt{q} = 4 \times 0.1 = 0.4$. Aggregate persistence ($\mathcal{T} \gt \rho$) also fails: $0.091 \lt 0.4$. The agent's total adaptive capacity is fundamentally outpaced by the total environmental drift across all arms. This is a regime where model-based approaches (Bayesian bandits, Kalman bandit filters) with their higher effective $\eta^\ast$ have a structural advantage, consistent with TF-06's observation that advanced RL methods converge toward the TFT-optimal gain form.
 
 ## Summary: Mapping Quality
 
@@ -194,13 +194,13 @@ The aggregate drift rate is $\rho = k \cdot \sqrt{q} = 4 \times 0.1 = 0.4$. Aggr
 | Causal structure (action precedes observation) | Exact | Structural |
 | CIY (informative actions) | Approximate | Model lacks uncertainty representation |
 | Model ($M_t$ as compressed history) | Exact | Definitional |
-| Model sufficiency ($S < 1$) | Exact | Q-learner demonstrably insufficient |
+| Model sufficiency ($S \lt 1$) | Exact | Q-learner demonstrably insufficient |
 | Mismatch ($\delta_t = r_t - \hat{\mu}_{a_t}$) | Exact | Standard prediction error |
-| Gain ($\alpha$ as degenerate $\eta^*$) | Approximate | Fixed $\alpha$ does not adapt to uncertainty |
+| Gain ($\alpha$ as degenerate $\eta^\ast$) | Approximate | Fixed $\alpha$ does not adapt to uncertainty |
 | Exploration (UCB as approximate CIY) | Approximate | Structural analogy; not derived from CIY |
 | Tempo ($\mathcal{T} = (\nu/k) \cdot \alpha$ per arm) | Approximate | Assumes uniform allocation |
 | Persistence condition | Exact (qualitative) | Threshold structure is robust (Appendix A) |
 
-The nonstationary bandit demonstrates that TFT's conceptual chain applies outside the Kalman regime, but also reveals where the exact quantitative results break down: the uncertainty ratio principle (TF-06) requires the model to represent its own uncertainty, which the Q-learner does not. The gap between the Q-learner's fixed $\alpha$ and the TFT-optimal adaptive $\eta^*$ is precisely the gap between a degenerate constant gain and the full uncertainty-ratio form --- the same gap that separates a fixed-gain PID controller from a Kalman filter.
+The nonstationary bandit demonstrates that TFT's conceptual chain applies outside the Kalman regime, but also reveals where the exact quantitative results break down: the uncertainty ratio principle (TF-06) requires the model to represent its own uncertainty, which the Q-learner does not. The gap between the Q-learner's fixed $\alpha$ and the TFT-optimal adaptive $\eta^\ast$ is precisely the gap between a degenerate constant gain and the full uncertainty-ratio form --- the same gap that separates a fixed-gain PID controller from a Kalman filter.
 
-**Note on tensor tempo (TF-11 Open Question #4).** The per-arm analysis in C.7 is a natural instance of the per-dimension tempo decomposition: each arm is an independent mismatch dimension with its own $\mathcal{T}_i$ and $\rho_i$. The persistence condition must hold per-dimension ($\mathcal{T}_i > \rho_i$), not merely in aggregate. The aggregate tempo $\mathcal{T} = \nu \cdot \alpha$ overstates the agent's effective adaptation along any individual arm's dimension --- exactly the failure mode that the scalar-to-tensor generalization is designed to capture.
+**Note on tensor tempo (TF-11 Open Question #4).** The per-arm analysis in C.7 is a natural instance of the per-dimension tempo decomposition: each arm is an independent mismatch dimension with its own $\mathcal T_i$ and $\rho_i$. The persistence condition must hold per-dimension ($\mathcal T_i \gt \rho_i$), not merely in aggregate. The aggregate tempo $\mathcal{T} = \nu \cdot \alpha$ overstates the agent's effective adaptation along any individual arm's dimension --- exactly the failure mode that the scalar-to-tensor generalization is designed to capture.

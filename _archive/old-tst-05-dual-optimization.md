@@ -19,10 +19,7 @@ A principled decision minimizes both time-to-comprehension and time-of-implement
 
 ## Formal Expression
 
-$$\begin{aligned}
-&\text{For implementation } C \text{ of current feature:} \\
-&\text{principled}(C) \rightarrow \text{minimizes}\left(\text{time}_{\text{comprehension}}(F_i \mid C) + \text{time}_{\text{implementation}}(F_i \mid C)\right)
-\end{aligned}$$
+$$\begin{aligned} &\text{For implementation } C \text{ of current feature:} \\ &\text{principled}(C) \rightarrow \text{minimizes}\left(\text{time}_{\text{comprehension}}(F_i \mid C) + \text{time}_{\text{implementation}}(F_i \mid C)\right) \end{aligned}$$
 
 ## The Hidden Cost of Incomprehension
 
@@ -55,7 +52,7 @@ Sometimes these goals conflict:
 - Explicit code can speed comprehension but slow implementation
 - DRY principles can reduce implementation sites but increase indirection
 
-Resolution depends on $\hat{n}_{\text{future}}$ and team stability. But with extreme AI turnover, **always bias toward comprehension**. Code that a fresh instance can understand in minutes is worth more than code that saves implementation time.
+Resolution depends on $\hat n_{\text{future}}$ and team stability. But with extreme AI turnover, **always bias toward comprehension**. Code that a fresh instance can understand in minutes is worth more than code that saves implementation time.
 
 Practical implications for AI-maintained code:
 - Explicit is better than implicit

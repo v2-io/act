@@ -31,7 +31,7 @@ In environments with evolving domain understanding (startups, research, explorat
 - A "feature" that updates names/structure to match model($t_1$) has concrete ROI
 
 The calculation: If realignment takes time $T_{\text{align}}$ but saves $\Delta t$ comprehension per future feature, realign when:
-$$T_{\text{align}} < n_{\text{future}} \times \Delta t$$
+$$T_{\text{align}} \lt n_{\text{future}} \times \Delta t$$
 
 ## The AI Inversion: Code as Domain Teacher
 

@@ -17,11 +17,11 @@ The horizon- and policy-conditioned value object $V_O$ turns the abstract object
 
 Given objective $O_t$, model $M_t$, policy $\pi$, and horizon $N_h$:
 
-$$V_O(M_t, \pi; N_h) = \mathbb{E}\!\left[V_{O_t}(\tau_{t:t+N_h}) \;\middle|\; M_t,\; \pi\right]$$
+$$V_O(M_t, \pi; N_h) = \mathbb{E}\!\left[V_{O_t}(\tau_{t:t+N_h}) \;\middle\vert\; M_t,\; \pi\right]$$
 
 **Action-value form** (for action selection):
 
-$$Q_O(M_t, a; \pi_{\text{cont}}, N_h) = \mathbb{E}\!\left[V_{O_t}(\tau) \;\middle|\; M_t,\; a_t = a,\; a_{t+1:} \sim \pi_{\text{cont}}\right]$$
+$$Q_O(M_t, a; \pi_{\text{cont}}, N_h) = \mathbb{E}\!\left[V_{O_t}(\tau) \;\middle\vert\; M_t,\; a_t = a,\; a_{t+1:} \sim \pi_{\text{cont}}\right]$$
 
 $Q_O$ answers: "if I take action $a$ now and then follow $\pi_{\text{cont}}$ afterward, what is my expected trajectory value?" This is the interventional query that connects the value object to action selection.
 

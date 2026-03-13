@@ -57,7 +57,7 @@ The real power of T-08 isn't measuring your current feature but predicting futur
 1. Analyze how your implementation affects future change-set sizes
 2. Compare architectures by the change-sets they'll require for common operations
 3. Justify refactoring by demonstrating reduced future change-sets
-4. Choose implementations that minimize $\hat{n}_{\text{future}} \times E[|\text{changeset}|]$
+4. Choose implementations that minimize $\hat n_{\text{future}} \times E[|\text{changeset}|]$
 
 **Critical insight**: It almost never makes sense to minimize YOUR current change-set. What matters is how your implementation affects the expected sum of all future change-sets. A larger change-set now that enables smaller future change-sets is mathematically superior by T-06's investment principle.
 

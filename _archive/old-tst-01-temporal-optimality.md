@@ -4,19 +4,11 @@ For any set of implementations achieving identical outcomes across all non-tempo
 
 ## Formal Expression
 
-$$\begin{aligned}
-&\text{Let } \mathbf{I} = \{I_1, I_2, \ldots, I_n\} \text{ be implementations of } F\\
-&\text{If } \forall m \in \mathbf{M}\setminus\{\operatorname{time}\}, \; \forall i,j: m(I_i) \equiv m(I_j)\\
-&\text{Then } I^* = \arg\min_{I_k \in \mathbf{I}} \operatorname{time}(I_k)
-\end{aligned}$$
+$$\begin{aligned} &\text{Let } \mathbf{I} = \{I_1, I_2, \ldots, I_n\} \text{ be implementations of } F\\ &\text{If } \forall m \in \mathbf{M}\setminus\{\operatorname{time}\}, \; \forall i,j: m(I_i) \equiv m(I_j)\\ &\text{Then } I^* = \arg\min_{I_k \in \mathbf{I}} \operatorname{time}(I_k) \end{aligned}$$
 
 Where
 
-$$\begin{aligned}
-I^* &:= \text{the optimal implementation}\\
-\mathbf{M} &:= \text{the set of all measurable aspects (functional, quality, etc.)}\\
-m(I_k) &:= \text{the value of metric } m \text{ for implementation } I_k
-\end{aligned}$$
+$$\begin{aligned} I^* &:= \text{the optimal implementation}\\ \mathbf{M} &:= \text{the set of all measurable aspects (functional, quality, etc.)}\\ m(I_k) &:= \text{the value of metric } m \text{ for implementation } I_k \end{aligned}$$
 
 And where identical outcomes $m(I_i) \equiv m(I_j)$ means:
 - **Functional equivalence**: Same input→output mappings for all inputs

@@ -31,7 +31,7 @@ This is a *postulate* — the temporal ordering of events is a physical fact abo
 - **Strong coupling** ($a_t$ significantly affects $\Omega_{t+1}$): Robot manipulation, military action. Interventional information is rich.
 - **Weak coupling** ($a_t$ marginally affects $\Omega_{t+1}$): Scientific observation, small financial trades. Interventional information is sparse but non-zero.
 - **Nominal coupling** ($a_t$ negligibly affects $\Omega_{t+1}$): Near-passive observation. The causal structure degenerates toward Level 1, but the agent's *choice* of what to observe still matters.
-- **Zero coupling** ($T(\Omega_{t+1} \mid \Omega_t, a_t) = T(\Omega_{t+1} \mid \Omega_t)$ for all $a_t$): Actions don't affect the environment. Level 2 access vanishes. The feedback "loop" collapses to a one-way channel. Still within scope when $|\mathcal{A}| \geq 2$ ( #scope-condition), but action-dependent results become trivially void.
+- **Zero coupling** ($T(\Omega_{t+1} \mid \Omega_t, a_t) = T(\Omega_{t+1} \mid \Omega_t)$ for all $a_t$): Actions don't affect the environment. Level 2 access vanishes. The feedback "loop" collapses to a one-way channel. Still within scope when $\lvert\mathcal{A}\rvert \geq 2$ ( #scope-condition), but action-dependent results become trivially void.
 
 The theory should not be understood as applying only to agents with strong environmental control. The causal structure of the temporal ordering alone is sufficient for the core results.
 

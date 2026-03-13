@@ -387,9 +387,9 @@ MPC's "Orient" is literally: **state estimation + forward simulation + constrain
 
 | Sub-function | MPC Instantiation |
 |---|---|
-| **Representation** | Full state vector $\hat{x}_k$ + dynamic model $f(\cdot)$ + constraints $\mathcal{X}, \mathcal{U}$ |
+| **Representation** | Full state vector $\hat x_k$ + dynamic model $f(\cdot)$ + constraints $\mathcal{X}, \mathcal{U}$ |
 | **Inference** | Kalman filter / MHE for state estimation |
-| **Model revision** | Online system identification: $\theta \leftarrow \theta + K(t)(y_t - \hat{y}_t)$ |
+| **Model revision** | Online system identification: $\theta \leftarrow \theta + K(t)(y_t - \hat y_t)$ |
 | **Attention** | Horizon length $N$ determines how far ahead the model "looks" |
 | **IG&C** | At steady state, the receding-horizon solution approaches a fixed control law |
 
@@ -418,7 +418,7 @@ $$P_{k|k} = (I - K_k H_k) P_{k|k-1}$$
 
 - The **Kalman gain** $K_k$ is the mathematical expression of *how much to trust new observations versus the existing model*. When measurement noise $R_k$ is small (reliable observations), $K_k$ is large and the filter trusts the new data. When process noise $Q_k$ is large (uncertain dynamics), the filter also trusts new data more. This is **precision weighting** -- the same mechanism Friston identified in active inference.
 
-- The **innovation** $(z_k - H_k \hat{x}_{k|k-1})$ -- the difference between what was observed and what the model predicted -- is the mathematical equivalent of Boyd's *mismatch between mental model and reality*. The entire Kalman update reads: "Adjust orientation in proportion to surprise, weighted by relative confidence in observations versus model."
+- The **innovation** $(z_k - H_k \hat x_{k|k-1})$ -- the difference between what was observed and what the model predicted -- is the mathematical equivalent of Boyd's *mismatch between mental model and reality*. The entire Kalman update reads: "Adjust orientation in proportion to surprise, weighted by relative confidence in observations versus model."
 
 - The filter **explicitly maintains uncertainty** (the covariance matrix $P$). This is something Boyd emphasized but never mathematized -- the importance of knowing *what you don't know*.
 
@@ -607,7 +607,7 @@ SLAM addresses a distinctly OODA-shaped problem: a robot must simultaneously bui
 
 Modern SLAM formulations explicitly encode Orientation as probabilistic inference over poses and landmarks. The MAP (Maximum A Posteriori) formulation on a factor graph yields a nonlinear least-squares objective:
 
-$$X_{MAP} = \arg\min_X \sum_i \|h_i(X_i) - z_i\|^2_{\Sigma_i}$$
+$$X_{MAP} = \arg\min_X \sum_i \Verth_i(X_i) - z_i\Vert^2_{\Sigma_i}$$
 
 where $X$ represents the full trajectory + map, $h_i$ are measurement models, $z_i$ are observations, and $\Sigma_i$ are noise covariances. So "Orient" is: **choose the world-model (trajectory + map) that best explains the evidence, under your noise model.**
 
@@ -737,7 +737,7 @@ Both frameworks share the same deep insight: the system does not passively recei
 
 The central quantity is **variational free energy**:
 
-$$F = \underbrace{D_{KL}[q(\theta) \| p(\theta)]}_{\text{complexity}} - \underbrace{\mathbb{E}_q[\ln p(D \mid \theta)]}_{\text{accuracy}}$$
+$$F = \underbrace{D_{KL}[q(\theta) \Vert p(\theta)]}_{\text{complexity}} - \underbrace{\mathbb{E}_q[\ln p(D \mid \theta)]}_{\text{accuracy}}$$
 
 This decomposition is deeply Boydian:
 
@@ -854,7 +854,7 @@ Security Operations Centers (SOCs) implement an OODA-structured workflow explici
 - **Containment/Response** (Decide/Act): Execute containment playbooks, eradicate threats, recover systems.[^102]
 - **Lessons Learned** (Feedback -> re-Orient): Post-incident review updates playbooks, refines detection rules, and enriches threat models.[^101]
 
-**Orient is fundamentally graph + causality:** Alerts are observations; the incident narrative is a hypothesis. The analyst builds an **attack graph / causal chain**: initial access -> execution -> persistence -> lateral movement -> exfiltration. Bayesian correlation of signals (EDR, DNS, auth logs) updates incident probability. Causal interventions test hypotheses: isolate host = $do(\text{network\_disconnect}=1)$, then observe whether beaconing stops (tests the C2 hypothesis).
+**Orient is fundamentally graph + causality:** Alerts are observations; the incident narrative is a hypothesis. The analyst builds an **attack graph / causal chain**: initial access -> execution -> persistence -> lateral movement -> exfiltration. Bayesian correlation of signals (EDR, DNS, auth logs) updates incident probability. Causal interventions test hypotheses: isolate host = $do(\text{network\-disconnect}=1)$, then observe whether beaconing stops (tests the C2 hypothesis).
 
 Modern AI-driven SOCs close this loop automatically, with continuous improvement cycles that learn from each incident to improve future detection and response. The cybersecurity domain adds an explicitly adversarial dimension -- attackers and defenders are each trying to operate inside the other's OODA loop, making it one of the purest real-world applications of Boyd's competitive framework, including the effects spiral.[^99][^101]
 
@@ -939,7 +939,7 @@ Across military strategy, control engineering, software architecture, AI design,
 | Subsumption (Brooks)                | Sense (per layer)           | (implicit in behavior)                              | Act (per layer)         | Inhibition/suppression[^46]   | Layered behavior priorities |
 | Hybrid 3-Layer Architecture         | Reactive sense              | Executive + Deliberative                            | Motor output            | Multi-timescale feedback[^43] | Three-level model hierarchy |
 | Autonomy Stack (ROS 2)              | Perception layer            | Planning/decision layer                             | Control layer           | Sensor feedback[^51]          | Funnel-like decision structure |
-| SLAM                                | Sensor observation          | MAP inference: $\arg\min \sum \|h_i - z_i\|^2$     | Movement/exploration    | Loop closure correction[^56]  | Factor graph (poses + landmarks) |
+| SLAM                                | Sensor observation          | MAP inference: $\arg\min \sum \Verth_i - z_i\Vert^2$     | Movement/exploration    | Loop closure correction[^56]  | Factor graph (poses + landmarks) |
 | POMDP                               | Observation $z$             | Belief update $b'(s')$                              | Policy action           | Reward + next observation     | Belief distribution $b(s)$ |
 | BDI (Belief-Desire-Intention)       | Perceive                    | Deliberate (Beliefs->Desires->Intentions)           | Execute plan            | Belief revision[^60]          | Belief base + desire set |
 | Motor Schema / Potential Fields     | Sense (per schema)          | Vector summation                                    | Combined motor output   | Continuous field update[^47]  | Schema weights |

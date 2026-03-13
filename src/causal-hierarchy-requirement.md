@@ -18,7 +18,7 @@ Evaluating the action-value $Q_O$ requires answering "what happens if I *do* act
 
 Action selection via #value-object requires:
 
-$$Q_O(M_t, a;\, \pi_{\text{cont}}, N_h) = \mathbb{E}\!\left[V_{O_t}(\tau) \;\middle|\; M_t,\; a_t = a,\; a_{t+1:} \sim \pi_{\text{cont}}\right]$$
+$$Q_O(M_t, a;\, \pi_{\text{cont}}, N_h) = \mathbb{E}\!\left[V_{O_t}(\tau) \;\middle\vert\; M_t,\; a_t = a,\; a_{t+1:} \sim \pi_{\text{cont}}\right]$$
 
 The conditioning "$a_t = a$" is an *intervention*, not a *conditioning on observed data*. By #pearl-causal-hierarchy, Level 2 queries ($P(Y \mid do(X))$) cannot in general be computed from Level 1 data ($P(Y \mid X)$) alone. Therefore:
 

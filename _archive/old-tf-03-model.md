@@ -4,7 +4,7 @@ Any persisting agent maintains a **model** — a compressed representation of it
 
 ## Definitions
 
-**Interaction History** ($\mathcal{C}_t$, *chronica*): The complete, singular causal record of the agent's observations and actions:
+**Interaction History** ($\mathcal C_t$, *chronica*): The complete, singular causal record of the agent's observations and actions:
 
 *[Definition]*
 $$\mathcal{C}_t = (o_1, a_1, o_2, a_2, \ldots, a_{t-1}, o_t)$$
@@ -16,7 +16,7 @@ This is the agent's *only* raw material. Everything the agent "knows" must be co
 *[Definition]*
 $$M_t = \phi(\mathcal{C}_t)$$
 
-where $\phi: \mathcal{C}^* \to \mathcal{M}$ maps histories to elements of a **model space** $\mathcal{M}$.
+where $\phi: \mathcal{C}^\ast \to \mathcal{M}$ maps histories to elements of a **model space** $\mathcal{M}$.
 
 **Model Space** ($\mathcal{M}$): The set of representable models. This is a structural choice that constrains what the agent can represent:
 
@@ -45,7 +45,7 @@ The model faces a fundamental trade-off formalized by the **information bottlene
 *[Formulation (IB-objective)]*
 $$\phi^* = \arg\min_{\phi} \left[ I(M_t; \mathcal{C}_t) - \beta \cdot I(M_t; o_{t+1:\infty} \mid a_{t:\infty}) \right]$$
 
-- $I(M_t; \mathcal{C}_t)$ measures **compression cost** — how much of the history the model retains
+- $I(M_t; \mathcal C_t)$ measures **compression cost** — how much of the history the model retains
 - $I(M_t; o_{t+1:\infty} \mid a_{t:\infty})$ measures **predictive power** — how much the model can predict
 - $\beta$ controls the trade-off: higher $\beta$ favors prediction; lower favors compression
 
@@ -53,13 +53,13 @@ Varying $\beta$ traces a Pareto frontier of optimal models. This IS the rate-dis
 
 A PID controller's model ($\mathbb{R}^3$) is an aggressively compressed point on this curve — it retains almost nothing of the history but preserves enough for effective control of simple dynamics. A Bayesian posterior retains much more. Neither is universally superior; the optimal point depends on $\mathcal{M}$, the environment's complexity, and the agent's computational constraints.
 
-**Connection to environmental volatility.** The optimal $\beta$ is not static — it depends on the environment's rate of change $\rho$ (TF-11). In highly volatile environments (high $\rho$), the predictive value of historical detail decays rapidly: detailed memories of past dynamics become stale as the environment shifts. The optimal $\beta$ is therefore *lower* — the agent should compress aggressively, retaining only the most robust predictive structure, because (a) historical detail has diminishing predictive shelf-life, and (b) complex models with many parameters have lower effective $\eta^*$ per parameter (TF-06), reducing adaptive tempo $\mathcal{T}$. In stable environments (low $\rho$), $\beta$ can be higher: the agent has the luxury of retaining dense historical specificities for nuanced, high-fidelity predictions. This connects TF-03's representation choice to TF-11's persistence condition: an agent that retains too much history in a volatile environment pays twice — once in computational cost, and once in reduced $\mathcal{T}$ that may fall below the persistence threshold.
+**Connection to environmental volatility.** The optimal $\beta$ is not static — it depends on the environment's rate of change $\rho$ (TF-11). In highly volatile environments (high $\rho$), the predictive value of historical detail decays rapidly: detailed memories of past dynamics become stale as the environment shifts. The optimal $\beta$ is therefore *lower* — the agent should compress aggressively, retaining only the most robust predictive structure, because (a) historical detail has diminishing predictive shelf-life, and (b) complex models with many parameters have lower effective $\eta^\ast$ per parameter (TF-06), reducing adaptive tempo $\mathcal{T}$. In stable environments (low $\rho$), $\beta$ can be higher: the agent has the luxury of retaining dense historical specificities for nuanced, high-fidelity predictions. This connects TF-03's representation choice to TF-11's persistence condition: an agent that retains too much history in a volatile environment pays twice — once in computational cost, and once in reduced $\mathcal{T}$ that may fall below the persistence threshold.
 
 ## Model Adequacy
 
 A model is **adequate** to the degree that it is a sufficient statistic[^fisher1922] for the history with respect to future prediction. The formal measure of adequacy — **model sufficiency** $S(M_t)$ — and the related concept of **model class fitness** $\mathcal{F}(\mathcal{M})$ are introduced in TF-10, where they become load-bearing for the structural adaptation necessity result (Proposition 10.1).
 
-The key intuition: when the model captures everything predictively relevant in the history, knowing the full history $\mathcal{C}_t$ in addition to $M_t$ provides no further predictive power. Perfect sufficiency ($S = 1$) is an ideal. Real models are approximately sufficient, and the degree of approximation determines both the quality of the recursive update and the agent's susceptibility to structural inadequacy.
+The key intuition: when the model captures everything predictively relevant in the history, knowing the full history $\mathcal C_t$ in addition to $M_t$ provides no further predictive power. Perfect sufficiency ($S = 1$) is an ideal. Real models are approximately sufficient, and the degree of approximation determines both the quality of the recursive update and the agent's susceptibility to structural inadequacy.
 
 ## Why This Is a Formulation
 

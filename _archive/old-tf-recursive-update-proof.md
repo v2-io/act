@@ -8,17 +8,17 @@
 
 ## 1. Setup
 
-We work within TFT's scope ($\mathcal{S}_{\text{TFT}}$, TF-01): an agent coupled to an environment $\Omega$ through observation and action channels, with residual uncertainty.
+We work within TFT's scope ($\mathcal S_{\text{TFT}}$, TF-01): an agent coupled to an environment $\Omega$ through observation and action channels, with residual uncertainty.
 
 **Universe of information at event time $\tau$.** The following information exists (in the broadest ontological sense) at the moment event $e_\tau$ occurs:
 
 | Information | Description |
 |-------------|-------------|
 | $\Omega_\tau$ | The environment state |
-| $\mathcal{C}_{\tau^-}$ | The complete event history up to (but not including) $e_\tau$ |
+| $\mathcal C_{\tau^-}$ | The complete event history up to (but not including) $e_\tau$ |
 | $\{M_{\tau'}\}_{\tau' \leq \tau^-}$ | The agent's prior internal states, culminating in $M_{\tau^-}$ |
 | $e_\tau$ | The current event (observation arriving or action completing) |
-| $\{e_{\tau'}\}_{\tau' > \tau}$ | Future events (not yet occurred) |
+| $\{e_{\tau'}\}_{\tau' \gt \tau}$ | Future events (not yet occurred) |
 
 The question: of these, which can the update $M_{\tau^+}$ depend on?
 
@@ -26,7 +26,7 @@ The question: of these, which can the update $M_{\tau^+}$ depend on?
 
 **Constraint 1 — Arrow of time (TF-02 axiom).** Events are temporally ordered and this ordering is irreversible. An update occurring at time $\tau$ cannot depend on events that have not yet occurred:
 
-$$M_{\tau^+} \text{ cannot depend on } \{e_{\tau'}\}_{\tau' > \tau}$$
+$$M_{\tau^+} \text{ cannot depend on } \{e_{\tau'}\}_{\tau' \gt \tau}$$
 
 This is a physical constraint — the most primitive one. In a classical universe, information from the future is simply not available. Even if the agent can *predict* future events, those predictions are part of $M_{\tau^-}$ (they are internal computations, not future information). Even an oracle's outputs would arrive as events $e_\tau$ through the observation channel.
 
@@ -34,11 +34,11 @@ This is a physical constraint — the most primitive one. In a classical univers
 
 $$M_{\tau^+} \text{ cannot depend on } \Omega_\tau \text{ except through } e_\tau$$
 
-This is a scope constraint. If the agent could access $\Omega$ directly, the residual uncertainty condition ($H(\Omega_t \mid \mathcal{C}_t) > 0$) in TF-01 would be trivially violable — the agent could simply read off the environment state. Partial observability is constitutive of TFT's scope.
+This is a scope constraint. If the agent could access $\Omega$ directly, the residual uncertainty condition ($H(\Omega_t \mid \mathcal C_t) \gt 0$) in TF-01 would be trivially violable — the agent could simply read off the environment state. Partial observability is constitutive of TFT's scope.
 
 **Constraint 3 — State completeness.** $M_{\tau^-}$ is the agent's *complete* internal state just before event $e_\tau$. By "complete" we mean: there is no information about the agent's past that is available to the update mechanism but not encoded in $M_{\tau^-}$.
 
-$$M_{\tau^+} \text{ cannot depend on } \mathcal{C}_{\tau^-} \text{ or } \{M_{\tau'}\}_{\tau' < \tau^-} \text{ except through } M_{\tau^-}$$
+$$M_{\tau^+} \text{ cannot depend on } \mathcal{C}_{\tau^-} \text{ or } \{M_{\tau'}\}_{\tau' \lt \tau^-} \text{ except through } M_{\tau^-}$$
 
 This constraint deserves careful examination (see Section 4 below).
 
@@ -56,7 +56,7 @@ $$M_{\tau^+} = F(\text{accessible information at } \tau)$$
 
 We characterize the accessible information by eliminating what is not accessible.
 
-**(i) Eliminate future events.** By C1 (arrow of time), $\{e_{\tau'}\}_{\tau' > \tau}$ is not accessible. These events have not occurred; no physical process can deliver their content to the update mechanism at time $\tau$.
+**(i) Eliminate future events.** By C1 (arrow of time), $\{e_{\tau'}\}_{\tau' \gt \tau}$ is not accessible. These events have not occurred; no physical process can deliver their content to the update mechanism at time $\tau$.
 
 After this elimination, the candidate dependency set is:
 $$\{\Omega_\tau,\; \mathcal{C}_{\tau^-},\; \{M_{\tau'}\}_{\tau' \leq \tau^-},\; e_\tau\}$$
@@ -66,7 +66,7 @@ $$\{\Omega_\tau,\; \mathcal{C}_{\tau^-},\; \{M_{\tau'}\}_{\tau' \leq \tau^-},\; 
 After this elimination:
 $$\{\mathcal{C}_{\tau^-},\; \{M_{\tau'}\}_{\tau' \leq \tau^-},\; e_\tau\}$$
 
-**(iii) Reduce past information to $M_{\tau^-}$.** By C3 (state completeness), $M_{\tau^-}$ is the agent's complete internal state. Every element of $\mathcal{C}_{\tau^-}$ and every prior model state $M_{\tau'}$ ($\tau' < \tau^-$) that could influence the update can do so *only through* its effect on $M_{\tau^-}$. The agent has no independent access channel to raw historical events or prior states — its sole record of the past is $M_{\tau^-}$.
+**(iii) Reduce past information to $M_{\tau^-}$.** By C3 (state completeness), $M_{\tau^-}$ is the agent's complete internal state. Every element of $\mathcal C_{\tau^-}$ and every prior model state $M_{\tau'}$ ($\tau' \lt \tau^-$) that could influence the update can do so *only through* its effect on $M_{\tau^-}$. The agent has no independent access channel to raw historical events or prior states — its sole record of the past is $M_{\tau^-}$.
 
 To see why: the agent's internal state evolves through a sequence of updates. At each prior event $\tau_k$, the state was updated based on the then-available information. The cumulative effect of all prior events on the agent's current state is exactly $M_{\tau^-}$. The raw events $e_{\tau_1}, e_{\tau_2}, \ldots$ that produced this state are no longer separately available to the agent — they were "consumed" by the update mechanism and their information (to the extent it was retained) is now encoded in $M_{\tau^-}$.
 
@@ -123,7 +123,7 @@ Could the function $f$ depend on the timestamp $\tau$ itself? Yes — and this i
 
 ### What about agents that store full history?
 
-An agent that maintains a complete log of all past events — with $M_{\tau^-} \supseteq \mathcal{C}_{\tau^-}$ — is entirely consistent. The model space $\mathcal{M}$ is simply large enough to include the raw history. The update $f(M_{\tau^-}, e_\tau)$ appends $e_\tau$ to the log (and possibly updates derived quantities). The theorem doesn't say the agent *must* compress; it says whatever the agent retains is $M_{\tau^-}$, and the update is a function of that plus the new event.
+An agent that maintains a complete log of all past events — with $M_{\tau^-} \supseteq \mathcal C_{\tau^-}$ — is entirely consistent. The model space $\mathcal{M}$ is simply large enough to include the raw history. The update $f(M_{\tau^-}, e_\tau)$ appends $e_\tau$ to the log (and possibly updates derived quantities). The theorem doesn't say the agent *must* compress; it says whatever the agent retains is $M_{\tau^-}$, and the update is a function of that plus the new event.
 
 The information bottleneck (TF-03) argues that compression is *wise* — the Pareto-optimal trade-off between retention cost and predictive power — but the recursive update form holds regardless of compression level.
 
@@ -149,18 +149,18 @@ All three constraints are necessary for the conclusion: C1 eliminates the future
 
 For readers who prefer a measure-theoretic framing:
 
-**Definition.** The agent's **information set** at time $\tau$ is the sigma-algebra $\mathcal{I}_\tau^{agent}$ — the collection of events (in the probability-theoretic sense) about which the agent can condition its update.
+**Definition.** The agent's **information set** at time $\tau$ is the sigma-algebra $\mathcal I_\tau^{agent}$ — the collection of events (in the probability-theoretic sense) about which the agent can condition its update.
 
-**C1** restricts $\mathcal{I}_\tau^{agent} \subseteq \sigma(\{e_{\tau'} : \tau' \leq \tau\} \cup \{\Omega_\tau\} \cup \{M_{\tau'} : \tau' \leq \tau^-\})$ — no future information.
+**C1** restricts $\mathcal I_\tau^{agent} \subseteq \sigma(\{e_{\tau'} : \tau' \leq \tau\} \cup \{\Omega_\tau\} \cup \{M_{\tau'} : \tau' \leq \tau^-\})$ — no future information.
 
-**C2** further restricts: $\sigma(\Omega_\tau) \setminus \sigma(e_\tau)$ is not in $\mathcal{I}_\tau^{agent}$ — the agent cannot condition on aspects of $\Omega_\tau$ that are not captured by $e_\tau$.
+**C2** further restricts: $\sigma(\Omega_\tau) \setminus \sigma(e_\tau)$ is not in $\mathcal I_\tau^{agent}$ — the agent cannot condition on aspects of $\Omega_\tau$ that are not captured by $e_\tau$.
 
-**C3** further restricts: $\sigma(\{e_{\tau'} : \tau' < \tau\} \cup \{M_{\tau'} : \tau' < \tau^-\}) \subseteq \sigma(M_{\tau^-})$ from the agent's perspective — all past information accessible to the agent is subsumed by $M_{\tau^-}$.
+**C3** further restricts: $\sigma(\{e_{\tau'} : \tau' \lt \tau\} \cup \{M_{\tau'} : \tau' \lt \tau^-\}) \subseteq \sigma(M_{\tau^-})$ from the agent's perspective — all past information accessible to the agent is subsumed by $M_{\tau^-}$.
 
 After all three restrictions:
 $$\mathcal{I}_\tau^{agent} = \sigma(M_{\tau^-}, e_\tau)$$
 
-The update $M_{\tau^+}$ must be $\mathcal{I}_\tau^{agent}$-measurable. By the Doob–Dynkin lemma, any $\sigma(M_{\tau^-}, e_\tau)$-measurable random variable is a (Borel) function of $(M_{\tau^-}, e_\tau)$. Therefore $M_{\tau^+} = f(M_{\tau^-}, e_\tau)$ for some measurable $f$. $\square$
+The update $M_{\tau^+}$ must be $\mathcal I_\tau^{agent}$-measurable. By the Doob–Dynkin lemma, any $\sigma(M_{\tau^-}, e_\tau)$-measurable random variable is a (Borel) function of $(M_{\tau^-}, e_\tau)$. Therefore $M_{\tau^+} = f(M_{\tau^-}, e_\tau)$ for some measurable $f$. $\square$
 
 ## 6. What This Opens
 
@@ -228,7 +228,7 @@ The real content is not the mathematical argument but the *analytical commitment
 
 Agent A and Agent B share a common memory bank (think: shared database, Google Docs, shared filesystem). When Agent A updates, it reads from and writes to the shared memory. The shared memory is not "A's state" or "B's state" — it's a third entity.
 
-$$M_A^{\tau^+} = f(M_A^{\tau^-}, e_\tau, \text{shared\_mem}_{\tau^-})$$
+$$M_A^{\tau^+} = f(M_A^{\tau^-}, e_\tau, \text{shared\-mem}_{\tau^-})$$
 
 **Assessment:** C3 absorbs this by saying $M_A$ should include A's portion of the shared memory. But if the shared memory is *truly shared* (both agents read and write it concurrently), it's unclear whose state it belongs to. The clean resolution is the multi-agent framework (Appendix F): the shared memory is part of the *composite* system's state, and each agent's interaction with it is mediated by events (reads and writes).
 
@@ -238,7 +238,7 @@ $$M_A^{\tau^+} = f(M_A^{\tau^-}, e_\tau, \text{shared\_mem}_{\tau^-})$$
 
 Suppose the agent's update uses thermal noise from its hardware — randomness that isn't an observation of the environment and isn't part of $M_{\tau^-}$:
 
-$$M_{\tau^+} = f(M_{\tau^-}, e_\tau, \text{hardware\_noise}_\tau)$$
+$$M_{\tau^+} = f(M_{\tau^-}, e_\tau, \text{hardware\-noise}_\tau)$$
 
 **Assessment:** Where does hardware noise live in the ontology?
 - If it's modeled as part of the agent's internal state ($M$ includes RNG state), it's deterministic.
@@ -283,7 +283,7 @@ C3 is a definitional commitment that produces the Markov structure. It cannot be
 **The genuine content of the theorem is:**
 1. C1 eliminates a physically impossible class of updates (future-dependent).
 2. C2 eliminates a scope-excluded class ($\Omega$-dependent).
-3. After (1) and (2), the *only remaining question* is how the past enters: through the full history $\mathcal{C}_{\tau^-}$ or through a compressed state $M_{\tau^-}$. C3 says the agent *has* a complete state, and whatever that state is, it's all the agent has. The Markov form follows.
+3. After (1) and (2), the *only remaining question* is how the past enters: through the full history $\mathcal C_{\tau^-}$ or through a compressed state $M_{\tau^-}$. C3 says the agent *has* a complete state, and whatever that state is, it's all the agent has. The Markov form follows.
 
 The theorem does NOT say:
 - That $M$ must be a lossy compression (the agent could store full history)

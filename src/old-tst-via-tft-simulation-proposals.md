@@ -8,7 +8,7 @@ Both TFT and TST have theoretical claims that would benefit from empirical groun
 
 - **TFT's linear mismatch ODE** is explicitly flagged as hypothesis. The quantitative results (steady-state formula, squared tempo advantage) depend on linearity. How far off is the linear approximation in practice?
 
-- **TST's proportionality claims** (T-08: time ∝ changeset size; T-09: proximity affects time) are labeled empirical but lack empirical measurement.
+- **TST's proportionality claims** (T-08: time $\propto$ changeset size; T-09: proximity affects time) are labeled empirical but lack empirical measurement.
 
 - **The TFT→software mapping** (see mapping.md) is structurally motivated but untested. Do TFT's predictions (persistence threshold, adaptive reserve, gain dynamics) actually predict software development outcomes?
 
@@ -18,61 +18,41 @@ Simulations can address all three. The software domain is particularly amenable 
 
 ## Simulation 1: Nonlinear Mismatch Dynamics
 
-**Purpose**: Test how far the linear mismatch ODE departs from more realistic
-dynamics, and whether the qualitative results (persistence threshold, steady-state
-bound) survive.
+**Purpose**: Test how far the linear mismatch ODE departs from more realistic dynamics, and whether the qualitative results (persistence threshold, steady-state bound) survive.
 
-**For TFT**: This directly addresses TF-11 Open Question #1 — the linear ODE is a
-first-order approximation; what happens with saturation, thresholds, and structural
-breakdown?
+**For TFT**: This directly addresses TF-11 Open Question #1 — the linear ODE is a first-order approximation; what happens with saturation, thresholds, and structural breakdown?
 
 ### Setup
 
-Simulate an adaptive agent tracking a drifting target (a simplified version of the
-Kalman example in Appendix C, but with controlled nonlinearities):
+Simulate an adaptive agent tracking a drifting target (a simplified version of the Kalman example in Appendix C, but with controlled nonlinearities):
 
-1. **Environment**: Scalar state x_t following a random walk with drift rate q
-   (controllable rho).
+1. **Environment**: Scalar state $x_t$ following a random walk with drift rate $q$ (controllable $\rho$).
 
-2. **Agent**: Maintains estimate x_hat_t, updates via:
-   x_hat_{t+1} = x_hat_t + eta * g(delta_t)
-   where g is the correction function.
+2. **Agent**: Maintains estimate $\hat x_t$, updates via:
+   $$\hat{x}_{t+1} = \hat{x}_t + \eta \cdot g(\delta_t)$$ where $g$ is the correction function.
 
 3. **Correction functions to test**:
-   - Linear: g(delta) = delta (TFT's current assumption)
-   - Saturating: g(delta) = delta / (1 + |delta|/R) (bounded correction at large
-     mismatch — plausible for agents with limited update capacity)
-   - Threshold: g(delta) = delta * 1[|delta| > epsilon] (dead zone for small
-     mismatch — plausible for agents that ignore small surprises)
-   - Sigmoid: g(delta) = R * tanh(delta/R) (combines saturation and smoothness)
-   - Structural breakdown: g(delta) = delta * 1[|delta| < R_max] (correction fails
-     entirely beyond a mismatch radius — TF-10's model class inadequacy)
+   - Linear: $g(\delta) = \delta$ (TFT's current assumption)
+   - Saturating: $g(\delta) = \delta / (1 + \lvert\delta\rvert/R)$ (bounded correction at large mismatch — plausible for agents with limited update capacity)
+   - Threshold: $g(\delta) = \delta \cdot \mathbb{1}[\lvert\delta\rvert \gt \varepsilon]$ (dead zone for small mismatch — plausible for agents that ignore small surprises)
+   - Sigmoid: $g(\delta) = R \cdot \tanh(\delta/R)$ (combines saturation and smoothness)
+   - Structural breakdown: $g(\delta) = \delta \cdot \mathbb{1}[\lvert\delta\rvert \lt R_{\text{max}}]$ (correction fails entirely beyond a mismatch radius — TF-10's model class inadequacy)
 
 4. **Measurements**:
-   - Steady-state |delta| vs. rho/T (compare to linear prediction)
-   - Convergence rate (how fast |delta| decays from initial conditions)
-   - Persistence threshold (at what rho does the agent fail?)
-   - Distribution of |delta| (the linear ODE predicts a point; nonlinear dynamics
-     may produce a distribution)
+   - Steady-state $\lvert\delta\rvert$ vs. $\rho/T$ (compare to linear prediction)
+   - Convergence rate (how fast $\lvert\delta\rvert$ decays from initial conditions)
+   - Persistence threshold (at what $\rho$ does the agent fail?)
+   - Distribution of $\lvert\delta\rvert$ (the linear ODE predicts a point; nonlinear dynamics may produce a distribution)
 
 ### Expected Insights
 
-- The saturating case should show higher steady-state mismatch than the linear
-  prediction (correction is less effective at large delta, so the system equilibrates
-  at a higher level). The persistence threshold should be *harder* to satisfy.
+- The saturating case should show higher steady-state mismatch than the linear prediction (correction is less effective at large $\delta$, so the system equilibrates at a higher level). The persistence threshold should be *harder* to satisfy.
 
-- The threshold case should show a "dead zone" where small mismatch persists
-  indefinitely — the agent doesn't bother correcting small errors. This is plausible
-  for real systems (developers don't fix trivial naming issues; PID controllers have
-  dead bands).
+- The threshold case should show a "dead zone" where small mismatch persists indefinitely — the agent doesn't bother correcting small errors. This is plausible for real systems (developers don't fix trivial naming issues; PID controllers have dead bands).
 
-- The structural breakdown case should show catastrophic failure above R_max — a
-  sharp transition from bounded mismatch to divergence. This would validate TF-10's
-  structural adaptation trigger as a dynamical event, not just an information-
-  theoretic observation.
+- The structural breakdown case should show catastrophic failure above R_max — a sharp transition from bounded mismatch to divergence. This would validate TF-10's structural adaptation trigger as a dynamical event, not just an information- theoretic observation.
 
-**Effort**: Low-medium. This is a 1D simulation with simple dynamics. Could be done
-in Python/NumPy in a few hundred lines.
+**Effort**: Low-medium. This is a 1D simulation with simple dynamics. Could be done in Python/NumPy in a few hundred lines.
 
 ---
 
@@ -87,11 +67,12 @@ in Python/NumPy in a few hundred lines.
 Two agents A and B, each tracking its own drifting target, with adversarial coupling:
 
 1. **Each agent**: As in Simulation 1, but with a coupling term:
-   rho_B = rho_base + gamma_A * T_A (A's actions disrupt B's environment) rho_A = rho_base + gamma_B * T_B
+   $\rho_B = \rho_{\text{base}} + \gamma_A \cdot T_A$ (A's actions disrupt B's environment)
+   $\rho_A = \rho_{\text{base}} + \gamma_B \cdot T_B$
 
-2. **Vary**: T_A/T_B ratio from 0.5 to 5.0, gamma_A/gamma_B from 0.5 to 2.0, and test each correction function from Simulation 1.
+2. **Vary**: $T_A/T_B$ ratio from 0.5 to 5.0, $\gamma_A/\gamma_B$ from 0.5 to 2.0, and test each correction function from Simulation 1.
 
-3. **Measure**: The steady-state mismatch ratio |delta_B|/|delta_A| and compare to the predicted (gamma_A/gamma_B)(T_A/T_B)^2.
+3. **Measure**: The steady-state mismatch ratio $\lvert\delta_B\rvert/\lvert\delta_A\rvert$ and compare to the predicted $(\gamma_A/\gamma_B)(T_A/T_B)^2$.
 
 ### Expected Insights
 
@@ -99,7 +80,7 @@ Two agents A and B, each tracking its own drifting target, with adversarial coup
 
 - Under saturating correction: the advantage should be *less* than squared (because A's high tempo saturates B's correction function, so the marginal damage of additional A-tempo is diminishing). The exponent might drop from 2 toward 1 or even sublinear.
 
-- Under structural breakdown: there should be a *threshold* effect — below a critical T_A/T_B ratio, both agents persist; above it, B collapses catastrophically (exits the valid correction region). This would validate Prop A.3's destabilization threshold as a sharp transition.
+- Under structural breakdown: there should be a *threshold* effect — below a critical $T_A/T_B$ ratio, both agents persist; above it, B collapses catastrophically (exits the valid correction region). This would validate Prop A.3's destabilization threshold as a sharp transition.
 
 **Effort**: Medium. Two coupled agents with parameterized dynamics. Extends Simulation 1 straightforwardly.
 
@@ -118,23 +99,22 @@ Two agents A and B, each tracking its own drifting target, with adversarial coup
 2. **Agent**: An AI agent (LLM) tasked with implementing a series of features that were actually implemented historically (from the git log). The agent implements each feature from the specification alone, without seeing the actual implementation.
 
 3. **Track TFT quantities at each step**:
-   - **Mismatch delta_t**: Compare the agent's predictions about the codebase (before reading) to what it finds (after reading). Measurable via: "predict which files need changing" → "discover which files actually needed changing."
-   - **Gain eta***: How much the agent's model updates per observation (qualitatively:
-     how much each file read changes the agent's plan).
-   - **Tempo T**: Features completed per unit time, weighted by model accuracy.
-   - **rho**: Rate at which the codebase changes between the agent's sessions (measurable from git history).
+   - **Mismatch $\delta_t$**: Compare the agent's predictions about the codebase (before reading) to what it finds (after reading). Measurable via: "predict which files need changing" → "discover which files actually needed changing."
+   - **Gain $\eta^\ast$**: How much the agent's model updates per observation (qualitatively: how much each file read changes the agent's plan).
+   - **Tempo $T$**: Features completed per unit time, weighted by model accuracy.
+   - **$\rho$**: Rate at which the codebase changes between the agent's sessions (measurable from git history).
 
-4. **Compare to actual history**: How do the agent's change-sets compare to the actual developer's? Are they larger (agent has higher delta)? More scattered (agent has lower architectural comprehension)? Do they converge as the agent "learns" the codebase within a session?
+4. **Compare to actual history**: How do the agent's change-sets compare to the actual developer's? Are they larger (agent has higher $\delta$)? More scattered (agent has lower architectural comprehension)? Do they converge as the agent "learns" the codebase within a session?
 
 ### Expected Insights
 
 - The agent's initial mismatch should be high and decrease as it reads more code (validating the cold-start → comprehension → effective-action trajectory).
 
-- Change-set sizes should decrease as the agent builds a better model (validating that higher model quality → smaller change-sets, connecting TFT to TST's T-08).
+- Change-set sizes should decrease as the agent builds a better model (validating that higher model quality $\to$ smaller change-sets, connecting TFT to TST's T-08).
 
-- There should be a measurable persistence condition: for sufficiently complex codebases or sufficiently fast-changing requirements, the agent's model degrades faster than it can be maintained (persistence failure).
+- There should be a measurable persistence condition: for sufficiently complex codebases or sufficiently fast-changing requirements, the agent's model degrades faster than it can be maintained (persistence failure $\delta_{\text{critical}}$ exceeded).
 
-- The 100% turnover problem should manifest as: each new session starts with high delta, and the steady-state session performance should depend on the quality of externalized memory (CLAUDE.md, documentation).
+- The 100% turnover problem should manifest as: each new session starts with high $\delta$, and the steady-state session performance should depend on the quality of externalized memory (CLAUDE.md, documentation).
 
 **Effort**: High. Requires an LLM agent framework, a curated set of historical features with specifications, and instrumentation to track the TFT quantities. But the payoff is substantial — this would be the first empirical validation of TFT in a non-trivial domain beyond Kalman filters.
 
@@ -186,7 +166,7 @@ Two agents A and B, each tracking its own drifting target, with adversarial coup
 
 1. **Simulated codebase**: A simplified codebase model (not a real language — just a DAG of modules with defined interfaces, where "implementing a feature" means modifying a set of modules determined by the DAG structure).
 
-2. **Multiple agents**: Each with their own M_t, observing different subsets of the codebase, making changes independently.
+2. **Multiple agents**: Each with their own $M_t$, observing different subsets of the codebase, making changes independently.
 
 3. **Cooperative mode**: Agents share their models (communicate which modules they've modified and why). Communication has a cost (coordination overhead from F.3).
 
@@ -196,7 +176,7 @@ Two agents A and B, each tracking its own drifting target, with adversarial coup
    - Team steady-state mismatch under cooperative vs. independent operation
    - Whether cooperative communication enables persistence in environments where solo agents fail (Appendix F's key prediction)
    - How adversarial coupling degrades team persistence
-   - Optimal team size (where marginal communication tempo = marginal coordination cost — F.3's prediction)
+   - Optimal team size (where marginal communication tempo $=$ marginal coordination cost — F.3's prediction)
 
 ### Expected Insights
 
@@ -223,8 +203,8 @@ Two agents A and B, each tracking its own drifting target, with adversarial coup
 2. **Protocol**: Feed the agent files one at a time. After each file, ask it to predict properties of files it hasn't seen yet (function signatures, module dependencies, naming patterns).
 
 3. **Measure**:
-   - Prediction accuracy over time (should improve as M_t builds)
-   - Rate of model change per observation (proxy for eta* — should decrease as the agent becomes more confident)
+   - Prediction accuracy over time (should improve as $M_t$ builds)
+   - Rate of model change per observation (proxy for $\eta^\ast$ — should decrease as the agent becomes more confident)
    - Mismatch between predictions and reality (should decrease toward an irreducible floor set by codebase complexity)
    - Whether there's a point where additional observations yield diminishing returns (the agent's model has "converged" for its current model class)
 
@@ -232,11 +212,11 @@ Two agents A and B, each tracking its own drifting target, with adversarial coup
 
 - The gain trajectory should match TFT's predictions: high initially, decaying toward a steady state.
 
-- The steady-state should depend on codebase quality: well-structured codebases (low U_o) should yield lower steady-state mismatch than poorly-structured ones.
+- The steady-state should depend on codebase quality: well-structured codebases (low $U_o$) should yield lower steady-state mismatch than poorly-structured ones.
 
 - There should be a measurable "model class inadequacy" signal: the agent's predictions stop improving even though its model keeps updating (it's fitting noise rather than learning structure — TF-10's symptom #2).
 
-**Effort**: Medium. Requires an LLM, a codebase, and a prediction evaluation framework. The measurement of "eta*" in a non-parametric model (LLM) is the main challenge — it needs to be operationalized as something like "how much does the agent's prediction distribution shift after each observation."
+**Effort**: Medium. Requires an LLM, a codebase, and a prediction evaluation framework. The measurement of "$\eta^\ast$" in a non-parametric model (LLM) is the main challenge — it needs to be operationalized as something like "how much does the agent's prediction distribution shift after each observation."
 
 ---
 
@@ -265,4 +245,4 @@ For Simulations 3-4, the AI agent framework matters more than the simulation lan
 
 **Reproducibility**: All simulations should follow Appendix B's minimal reproducibility checklist (adapted): mismatch definition, estimation methods, parameter specifications, and at least one ablation.
 
-**Open question**: Can Simulations 1-2 (abstract dynamics) and 3-4 (real codebases) be connected? That is, can we measure the correction function g(delta) from real developer behavior (Simulation 3), then use that empirically-measured g in the dynamics simulations (Simulation 1) to validate the ODE predictions? This would close the loop between abstract theory and empirical observation.
+**Open question**: Can Simulations 1-2 (abstract dynamics) and 3-4 (real codebases) be connected? That is, can we measure the correction function $g(\delta)$ from real developer behavior (Simulation 3), then use that empirically-measured $g$ in the dynamics simulations (Simulation 1) to validate the ODE predictions? This would close the loop between abstract theory and empirical observation.

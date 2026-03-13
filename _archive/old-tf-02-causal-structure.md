@@ -4,7 +4,7 @@ The agent-environment coupling has an irreducible **causal structure** grounded 
 
 ## The Temporal Arrow
 
-The interaction history $\mathcal{C}_t$ is not merely a set of observations and actions — it is an *ordered sequence* in which temporal position carries meaning:
+The interaction history $\mathcal C_t$ is not merely a set of observations and actions — it is an *ordered sequence* in which temporal position carries meaning:
 
 *[Definition]*
 $$\mathcal{C}_t = (o_1, a_1, o_2, a_2, \ldots, a_{t-1}, o_t)$$
@@ -27,7 +27,7 @@ The temporal notion is the most primitive because it survives even when statisti
 
 From this causal foundation, three levels of epistemic access emerge (following Pearl's causal hierarchy[^pearl2009][^bareinboim2022], but grounded here in temporal structure):
 
-**Level 1 — Associational**: $P(o_t \mid \mathcal{C}_{<t})$
+**Level 1 — Associational**: $P(o_t \mid \mathcal C_{\ltt})$
 
 *What will I observe next, given what I've observed before?*
 
@@ -42,7 +42,7 @@ The $do(\cdot)$ operator marks the crucial distinction: this is not "what observ
 2. The agent chose the action (it was not determined by the same causes that determine the observation)
 3. The environment's response carries information about the *causal* relationship between action and outcome
 
-Level 2 is why the feedback loop is more powerful than passive observation. By *acting* and then observing consequences, the agent obtains information about causal mechanisms — not merely about correlations. The mismatch signal $\delta_t = o_t - \hat{o}_t(M_{t-1}, a_{t-1})$, conditioned on the agent's own action, is an *interventional* signal. It tells the agent something about the causal structure of the environment that no amount of passive observation can provide.
+Level 2 is why the feedback loop is more powerful than passive observation. By *acting* and then observing consequences, the agent obtains information about causal mechanisms — not merely about correlations. The mismatch signal $\delta_t = o_t - \hat o_t(M_{t-1}, a_{t-1})$, conditioned on the agent's own action, is an *interventional* signal. It tells the agent something about the causal structure of the environment that no amount of passive observation can provide.
 
 **Level 3 — Counterfactual**: $P(o_t^{a'} \mid a_{t-1} = a, o_t = o)$
 
@@ -56,7 +56,7 @@ This requires the model to simulate alternative histories — to run the causal 
 
 Note that *forward-looking* deliberation — comparing candidate actions before choosing — primarily exercises Level 2 (iterated mental intervention), shading into Level 3 when the agent evaluates past choices to refine the comparison. See TF-07 and TF-08 for the full treatment of deliberation as interventional and counterfactual simulation.
 
-**Availability vs. exploitation.** The three levels describe the epistemic access that the causal structure *makes available* — not what any particular agent *uses*. Many systems within TFT's scope operate primarily or exclusively at Level 1. A Kalman filter coupled with an LQR controller has actions that causally affect the environment, and its innovation signal is technically conditioned on its prior action (through the prediction $\hat{x}_{t|t-1} = A\hat{x}_{t-1} + B a_{t-1}$). Level 2 access is structurally present. But the separation principle guarantees that the estimation quality is invariant to the control policy — the system does not *exploit* the interventional structure of its observations for informational purposes. It operates at Level 1 in practice. Only dual control[^feldbaum1960] — choosing actions partly for their informational value, breaking the separation principle — exercises Level 2 access in the Kalman domain. Similarly, a PID controller has no deliberative capacity and no counterfactual reasoning; it operates entirely at Level 1. The levels characterize the *structure of possible epistemic access* inherent in any feedback loop, not the capabilities of any specific agent. Which levels an agent actually exercises depends on its architecture and model class ($\mathcal{M}$).
+**Availability vs. exploitation.** The three levels describe the epistemic access that the causal structure *makes available* — not what any particular agent *uses*. Many systems within TFT's scope operate primarily or exclusively at Level 1. A Kalman filter coupled with an LQR controller has actions that causally affect the environment, and its innovation signal is technically conditioned on its prior action (through the prediction $\hat x_{t|t-1} = A\hat x_{t-1} + B a_{t-1}$). Level 2 access is structurally present. But the separation principle guarantees that the estimation quality is invariant to the control policy — the system does not *exploit* the interventional structure of its observations for informational purposes. It operates at Level 1 in practice. Only dual control[^feldbaum1960] — choosing actions partly for their informational value, breaking the separation principle — exercises Level 2 access in the Kalman domain. Similarly, a PID controller has no deliberative capacity and no counterfactual reasoning; it operates entirely at Level 1. The levels characterize the *structure of possible epistemic access* inherent in any feedback loop, not the capabilities of any specific agent. Which levels an agent actually exercises depends on its architecture and model class ($\mathcal{M}$).
 
 ## Why This Is an Axiom
 
@@ -122,7 +122,7 @@ The irreversibility of temporal ordering, combined with the recursive update, yi
 - The model update is **directed** — the model at time $t$ depends on prior events, never on future ones
 - The mismatch signal $\delta_t$ is **retrospective** — it compares a prediction (made before $o_t$) with an observation (arriving after)
 - Action selection $a_t = \pi(M_t)$ is **prospective** — it uses the current model to influence future events
-- The interaction history $\mathcal{C}_t$ is a **monotonically growing** causal record — events are added but never removed
+- The interaction history $\mathcal C_t$ is a **monotonically growing** causal record — events are added but never removed
 
 ## Causal Structure Independent of Coupling Strength
 
@@ -134,7 +134,7 @@ A critical property: the causal structure of the feedback loop is preserved even
 
 **Nominal coupling** ($a_t$ negligibly affects $\Omega_{t+1}$): An observer with nearly zero environmental impact. The causal structure degenerates toward Level 1, but the temporal ordering of the agent's *own* actions and observations still matters — the agent's *choice* of what to observe and when (even if it doesn't change the environment) structures what it learns.
 
-**Zero coupling** ($T(\Omega_{t+1} \mid \Omega_t, a_t) = T(\Omega_{t+1} \mid \Omega_t)$ for all $a_t$): The agent's actions do not affect the environment state. Level 2 access vanishes — different actions produce the same outcome distribution, so no interventional contrast exists. The feedback "loop" collapses to a one-way channel. Note that this case is still *within scope* when $|\mathcal{A}| \geq 2$ (TF-01), since the agent does choose among actions — but those choices produce no causal information about the environment. The theory's action-dependent results (TF-07, TF-08 adversarial dynamics) become trivially void, but the model (TF-03), mismatch (TF-05), and update gain (TF-06) still apply to the passive learning case. Systems with $|\mathcal{A}| < 2$ (passive observers, single-action agents) are outside TFT's scope entirely (TF-01).
+**Zero coupling** ($T(\Omega_{t+1} \mid \Omega_t, a_t) = T(\Omega_{t+1} \mid \Omega_t)$ for all $a_t$): The agent's actions do not affect the environment state. Level 2 access vanishes — different actions produce the same outcome distribution, so no interventional contrast exists. The feedback "loop" collapses to a one-way channel. Note that this case is still *within scope* when $|\mathcal{A}| \geq 2$ (TF-01), since the agent does choose among actions — but those choices produce no causal information about the environment. The theory's action-dependent results (TF-07, TF-08 adversarial dynamics) become trivially void, but the model (TF-03), mismatch (TF-05), and update gain (TF-06) still apply to the passive learning case. Systems with $|\mathcal{A}| \lt 2$ (passive observers, single-action agents) are outside TFT's scope entirely (TF-01).
 
 The theory should not be understood as applying only to agents with strong environmental control. The causal structure of the temporal ordering alone is sufficient for the core results.
 
@@ -144,7 +144,7 @@ The causal axiom constrains the update rule (TF-06) in a specific way: the model
 
 ## Agent Identity and Temporal Continuity
 
-The causal structure has implications for agent identity: an agent's causal history $\mathcal{C}_t$ is a singular, non-forkable trajectory. This observation, including a precise statement of the "clone problem," is developed in [Appendix G](Appendix-G-Agent-Identity.md). It is discussion-grade and not required for the formal theorem chain.
+The causal structure has implications for agent identity: an agent's causal history $\mathcal C_t$ is a singular, non-forkable trajectory. This observation, including a precise statement of the "clone problem," is developed in [Appendix G](Appendix-G-Agent-Identity.md). It is discussion-grade and not required for the formal theorem chain.
 
 ---
 

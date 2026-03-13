@@ -13,20 +13,20 @@ To formalize when structural adaptation is necessary, we first need measures of 
 *[Definition (sufficiency)]*
 $$S(M_t) = 1 - \frac{I(\mathcal{C}_t \,;\, o_{t+1:\infty} \mid M_t, a_{t:\infty})}{I(\mathcal{C}_t \,;\, o_{t+1:\infty} \mid a_{t:\infty})}$$
 
-When $S = 1$: the model captures everything in the history that is predictively relevant. Knowing $\mathcal{C}_t$ in addition to $M_t$ provides no further predictive power.
+When $S = 1$: the model captures everything in the history that is predictively relevant. Knowing $\mathcal C_t$ in addition to $M_t$ provides no further predictive power.
 
 When $S = 0$: the model captures nothing predictively relevant.
 
 Perfect sufficiency ($S = 1$) is an ideal. Real models are approximately sufficient, and the degree of sufficiency is itself a measure of model quality.
 
-**Convention when denominator vanishes.** If the environment is memoryless (pure noise), the history carries no predictive information: $I(\mathcal{C}_t; o_{t+1:\infty} \mid a_{t:\infty}) = 0$, making the denominator zero. In this case, define $S(M_t) \equiv 1$: any model — including an empty one — is trivially sufficient because there is nothing predictively relevant to compress.
+**Convention when denominator vanishes.** If the environment is memoryless (pure noise), the history carries no predictive information: $I(\mathcal C_t; o_{t+1:\infty} \mid a_{t:\infty}) = 0$, making the denominator zero. In this case, define $S(M_t) \equiv 1$: any model — including an empty one — is trivially sufficient because there is nothing predictively relevant to compress.
 
 **Policy-conditioned sufficiency (operational form).** The definition above conditions on the full future action sequence $a_{t:\infty}$, making $S$ a property of the model's *representational capacity* independent of the agent's policy. This is the theoretical ideal but is non-operational: it cannot be computed or estimated from finite data. For all practical purposes — empirical estimation, optimization targets, falsifiable predictions — use the **policy-conditioned** form:
 
 *[Definition (Operational Form)]*
 $$S_\Pi(M_t) = 1 - \frac{I(\mathcal{C}_t \,;\, o_{t+1:t+N_h} \mid M_t, \pi \in \Pi)}{I(\mathcal{C}_t \,;\, o_{t+1:t+N_h} \mid \pi \in \Pi)}$$
 
-where $N_h$ is a finite prediction horizon and $\Pi$ is the policy class under consideration. This is the measured object in any empirical application of TFT. It answers a more specific question: "is $M_t$ a sufficient statistic for prediction *under policies the agent might actually use* over a *finite horizon*?" A model may have $S_\Pi \approx 1$ for one policy class but $S_{\Pi'} < 1$ for another — a chess engine's model is sufficient for its own search policy but not for an alien evaluation function.
+where $N_h$ is a finite prediction horizon and $\Pi$ is the policy class under consideration. This is the measured object in any empirical application of TFT. It answers a more specific question: "is $M_t$ a sufficient statistic for prediction *under policies the agent might actually use* over a *finite horizon*?" A model may have $S_\Pi \approx 1$ for one policy class but $S_{\Pi'} \lt 1$ for another — a chess engine's model is sufficient for its own search policy but not for an alien evaluation function.
 
 The full-sequence $S(M_t)$ remains the theoretical upper bound: $S(M_t) \geq S_\Pi(M_t)$ for any $\Pi$ and any $N_h$. Throughout TFT, results that depend on sufficiency (TF-05's mismatch inevitability bridge, Proposition 10.1 below) hold for both forms — they require only that the model falls short of perfect sufficiency, which the operational form can detect.
 
@@ -55,19 +55,19 @@ For formal analysis, we focus on the parametric/structural distinction because i
 
 ## Proposition 10.1: Structural Adaptation Necessity
 
-**Statement.** If the model class fitness $\mathcal{F}(\mathcal{M}) < 1 - \epsilon$ for some $\epsilon > 0$, then no amount of parametric adaptation within $\mathcal{M}$ can reduce the expected mismatch below a floor determined by $\epsilon$.
+**Statement.** If the model class fitness $\mathcal{F}(\mathcal{M}) \lt 1 - \epsilon$ for some $\epsilon \gt 0$, then no amount of parametric adaptation within $\mathcal{M}$ can reduce the expected mismatch below a floor determined by $\epsilon$.
 
 **Assumptions.**
-1. The agent has converged parametrically: $M_t$ has reached $M^* = \arg\sup_{M \in \mathcal{M}} S(M)$ (or is within the convergent basin).
-2. The environment dynamics have a predictable component that exceeds $\mathcal{M}$'s capacity — formally, $I(\mathcal{C}_t; o_{t+1:\infty} \mid M^*, a_{t:\infty}) > 0$ (there is predictive information in the history that the best model in $\mathcal{M}$ fails to capture).
+1. The agent has converged parametrically: $M_t$ has reached $M^\ast = \arg\sup_{M \in \mathcal{M}} S(M)$ (or is within the convergent basin).
+2. The environment dynamics have a predictable component that exceeds $\mathcal{M}$'s capacity — formally, $I(\mathcal C_t; o_{t+1:\infty} \mid M^\ast, a_{t:\infty}) \gt 0$ (there is predictive information in the history that the best model in $\mathcal{M}$ fails to capture).
 
 **Proof sketch.**
 
-1. By the definitions above, $S(M^*) = \mathcal{F}(\mathcal{M}) < 1 - \epsilon$.
-2. Therefore $I(\mathcal{C}_t; o_{t+1:\infty} \mid M^*, a_{t:\infty}) > 0$: the history contains information predictive of future observations that $M^*$ does not capture.
+1. By the definitions above, $S(M^\ast) = \mathcal{F}(\mathcal{M}) \lt 1 - \epsilon$.
+2. Therefore $I(\mathcal C_t; o_{t+1:\infty} \mid M^\ast, a_{t:\infty}) \gt 0$: the history contains information predictive of future observations that $M^\ast$ does not capture.
 3. This uncaptured predictive information manifests as *systematic* mismatch — structured residuals $\delta_t$ that contain signal, not merely noise.
-4. From TF-05's decomposition, the model error component $|\hat{o}_t - \mathbb{E}[o_t \mid \Omega_t]|^2$ has a positive lower bound that cannot be reduced by any $M \in \mathcal{M}$.
-5. The update rule (TF-06) adjusts $M_t$ within $\mathcal{M}$, but by assumption the optimal $M^*$ is already (approximately) reached. Further updates oscillate without net improvement.
+4. From TF-05's decomposition, the model error component $|\hat o_t - \mathbb{E}[o_t \mid \Omega_t]|^2$ has a positive lower bound that cannot be reduced by any $M \in \mathcal{M}$.
+5. The update rule (TF-06) adjusts $M_t$ within $\mathcal{M}$, but by assumption the optimal $M^\ast$ is already (approximately) reached. Further updates oscillate without net improvement.
 6. Therefore: reducing mismatch below the floor requires changing $\mathcal{M}$ — i.e., structural adaptation. $\square$
 
 **Corollary.** Persistent irreducible mismatch (after parametric convergence) is *diagnostic* of model class inadequacy. An agent that detects systematic patterns in its residuals has evidence that $\mathcal{F}(\mathcal{M})$ is insufficient.
@@ -76,9 +76,9 @@ For formal analysis, we focus on the parametric/structural distinction because i
 
 When $\mathcal{F}(\mathcal{M})$ is low, no model in $\mathcal{M}$ can adequately compress the interaction history. Observable symptoms:
 
-1. **Persistent irreducible mismatch**: $\|\delta_t\|$ remains large despite extended updating — the model has converged within $\mathcal{M}$ but the best achievable model is still poor.
+1. **Persistent irreducible mismatch**: $\Vert\delta_t\Vert$ remains large despite extended updating — the model has converged within $\mathcal{M}$ but the best achievable model is still poor.
 
-2. **Gain collapse without performance**: $\eta^*$ has decreased (model appears confident) but predictions remain inaccurate — the model is confidently wrong, having fitted to structure in $\mathcal{M}$ that doesn't match reality.
+2. **Gain collapse without performance**: $\eta^\ast$ has decreased (model appears confident) but predictions remain inaccurate — the model is confidently wrong, having fitted to structure in $\mathcal{M}$ that doesn't match reality.
 
 3. **Systematic mismatch patterns**: $\delta_t$ shows structure (correlations, trends, periodicities) that the model class cannot represent — the residuals contain signal that $\mathcal{M}$ lacks the capacity to absorb.
 
@@ -104,7 +104,7 @@ The severity of structural change needed depends on *how far* the current model 
 
 When structural adaptation involves significant decomposition and recombination (as opposed to incremental expansion or compression), it tends to follow a characteristic pattern. Not all structural adaptation follows this pattern — gradual model expansion, for instance, may not involve a discrete "destruction" phase — but it is common enough across domains to warrant description:
 
-**Phase 1 — Anomaly accumulation**: Mismatch signals persist despite parametric adaptation. $\|\delta\|$ converges to a floor above zero. The agent's performance plateaus.
+**Phase 1 — Anomaly accumulation**: Mismatch signals persist despite parametric adaptation. $\Vert\delta\Vert$ converges to a floor above zero. The agent's performance plateaus.
 
 **Phase 2 — Recognition**: The agent (or meta-process) detects that the residual mismatch is structural, not parametric. This requires a higher-level mismatch signal — mismatch about the mismatch, a *meta-observation* that the model class is failing.
 
@@ -114,7 +114,7 @@ When structural adaptation involves significant decomposition and recombination 
 
 **Phase 5 — Recombination**: A new model class $\mathcal{M}'$ is selected — potentially incorporating elements from the previous structure in new configurations — and a new model $M'_0 \in \mathcal{M}'$ is initialized.
 
-**Phase 6 — Rapid parametric adaptation**: Because $M'_0$ is newly initialized, model uncertainty $U_M$ is high, so $\eta^*$ is large (TF-06). The model learns rapidly in the new structure.
+**Phase 6 — Rapid parametric adaptation**: Because $M'_0$ is newly initialized, model uncertainty $U_M$ is high, so $\eta^\ast$ is large (TF-06). The model learns rapidly in the new structure.
 
 ## Structural Overfitting: The Opposite Failure Mode
 
@@ -122,11 +122,11 @@ Proposition 10.1 addresses the case where $\mathcal{M}$ is too constrained — t
 
 ### Symptoms of Structural Overfitting
 
-1. **Low training mismatch, high generalization mismatch**: $\|\delta_t\| \to 0$ on observed data, but predictions on novel observations (new actions, unseen environment states) degrade. The model has fitted the noise in $\mathcal{C}_t$ rather than the signal.
+1. **Low training mismatch, high generalization mismatch**: $\Vert\delta_t\Vert \to 0$ on observed data, but predictions on novel observations (new actions, unseen environment states) degrade. The model has fitted the noise in $\mathcal C_t$ rather than the signal.
 
-2. **Model complexity growing without predictive gain**: In the information bottleneck framing (TF-03), the compression cost $I(M_t; \mathcal{C}_t)$ increases while the predictive power $I(M_t; o_{t+1:\infty} \mid a_{t:\infty})$ plateaus — the model is retaining history detail that carries no predictive value.
+2. **Model complexity growing without predictive gain**: In the information bottleneck framing (TF-03), the compression cost $I(M_t; \mathcal C_t)$ increases while the predictive power $I(M_t; o_{t+1:\infty} \mid a_{t:\infty})$ plateaus — the model is retaining history detail that carries no predictive value.
 
-3. **Gain collapse to zero on the *wrong* basis**: $\eta^* \to 0$ because $U_M \to 0$ (the model is "confident"), but this confidence is spurious — the model is certain about noise-fitted parameters, not about genuine environment structure.
+3. **Gain collapse to zero on the *wrong* basis**: $\eta^\ast \to 0$ because $U_M \to 0$ (the model is "confident"), but this confidence is spurious — the model is certain about noise-fitted parameters, not about genuine environment structure.
 
 **Connection to TF-03.** The information bottleneck provides the diagnostic:
 
