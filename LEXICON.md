@@ -76,7 +76,7 @@ ACT's scope condition requires four things for an adaptive system (from agent-en
 
 - **R** — Representation: internal state modeling the environment
 - **O** — Observation channel: $O \neq \emptyset$
-- **A** — Action choice: $|A| \geq 2$
+- **A** — Action choice: $\lvert A \rvert \geq 2$
 - **U** — Residual uncertainty: $H(\Omega_t \mid C_t) > 0$
 
 The MECE partition of the excluded space — ordered so each category assumes prior conditions are met:

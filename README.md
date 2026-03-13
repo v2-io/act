@@ -123,7 +123,7 @@ Canonical ordering lives in `ACT-FULL.md`, not in filenames. Tags (or slugs) are
 
 ACT's value is primarily **integration**: using largely established mathematical tools to define a unified account of adaptive agency. The individual pieces (Lyapunov stability, Kalman filtering, IB, causal DAGs) are known. Current specific contributions generally fall into five categories:
 
-1. **Synthesis that produces new structure.** The uncertainty ratio $\eta^* = U_M/(U_M + U_o)$ unifies Kalman gain, Bayesian learning rates, and RL step sizes under one principle. The persistence condition $\mathcal{T} > \rho/\|\delta_{\text{critical}}\|$ connects Lyapunov stability to agent viability. These are known mathematics applied to a new domain — their value is the unified framework, not the individual results.
+1. **Synthesis that produces new structure.** The uncertainty ratio $\eta^* = U_M/(U_M + U_o)$ unifies Kalman gain, Bayesian learning rates, and RL step sizes under one principle. The persistence condition $\mathcal{T} > \rho/\lVert\delta_{\text{critical}}\rVert$ connects Lyapunov stability to agent viability. These are known mathematics applied to a new domain — their value is the unified framework, not the individual results.
 
 2. **Genuinely novel formalizations.** The derivation that graph structure (DAGs) is *forced* by temporal ordering + probabilistic uncertainty + local revisability (not just a convenient choice). DAG acyclicity derived from finite planning horizons. The satisfaction gap / control regret split (separating "infeasible goal" from "bad strategy"). The feedback loop as a Level 2 causal engine (Bareinboim et al.'s causal hierarchy applied to agent architecture). These produce results we have not seen stated elsewhere.
 

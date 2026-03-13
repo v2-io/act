@@ -112,7 +112,7 @@ The cycle is: Prolepsis → Aisthesis → Aporia → Epistrophe → Praxis → (
 |--------|------|---------|
 | $\mathcal{T}$ | Rate ($t^{-1}$) | Adaptive tempo: $\sum_k \nu^{(k)} \cdot \eta^{(k)*}$ |
 | $\rho(t)$ | Rate (surprise/time) | Environment change rate (mismatch injection rate) |
-| $\|\delta\|_{ss}$ | Scalar $\geq 0$ | Steady-state mismatch: $\rho / \mathcal{T}$ (linear approximation) |
+| $\lVert\delta\rVert_{ss}$ | Scalar $\geq 0$ | Steady-state mismatch: $\rho / \mathcal{T}$ (linear approximation) |
 
 
 ## Lyapunov / Sector-Condition Analysis ( #sector-condition-stability)
@@ -120,13 +120,13 @@ The cycle is: Prolepsis → Aisthesis → Aporia → Epistrophe → Praxis → (
 | Symbol | Type | Meaning |
 |--------|------|---------|
 | $F(\mathcal{T}, \delta)$ | Function | Correction function (general nonlinear) |
-| $w(t)$ | Vector | Disturbance (new mismatch), $\|w(t)\| \leq \rho$ |
+| $w(t)$ | Vector | Disturbance (new mismatch), $\lVert w(t)\rVert \leq \rho$ |
 | $\alpha$ | Scalar $> 0$ | Lower sector bound of correction function |
 | $R$ | Scalar $> 0$ | Radius of sector-condition region (model class capacity) |
 | $R^*$ | Scalar $> 0$ | Ultimately bounded mismatch radius: $\rho/\alpha$ |
 | $\Delta\rho^*$ | Scalar $\geq 0$ | Adaptive reserve: $\alpha R - \rho$ |
 | $\gamma_A$ | Scalar $> 0$ | Coupling effectiveness of $A$'s actions on $B$'s disturbance |
-| $V(\delta)$ | Scalar $\geq 0$ | Lyapunov function: $\frac{1}{2}\|\delta\|^2$ |
+| $V(\delta)$ | Scalar $\geq 0$ | Lyapunov function: $\frac{1}{2}\lVert\delta\rVert^2$ |
 
 
 ## Deliberation ( #deliberation-cost)
@@ -168,7 +168,7 @@ The cycle is: Prolepsis → Aisthesis → Aporia → Epistrophe → Praxis → (
 
 ## Conventions
 
-**Subscript $t$**: Discrete time index or macroscopic continuous time. Context disambiguates: $M_t = f(M_{t-1}, o_t, a_{t-1})$ is discrete; $d\|\delta\|/dt$ is continuous.
+**Subscript $t$**: Discrete time index or macroscopic continuous time. Context disambiguates: $M_t = f(M_{t-1}, o_t, a_{t-1})$ is discrete; $d\lVert\delta\rVert/dt$ is continuous.
 
 **Subscript $\tau$**: Continuous timestamp of an individual event. Used in the event-driven formulation for microscopic update dynamics.
 
@@ -176,11 +176,11 @@ The cycle is: Prolepsis → Aisthesis → Aporia → Epistrophe → Praxis → (
 
 **Calligraphic letters** ($\mathcal{M}$, $\mathcal{O}$, $\mathcal{A}$, $\mathcal{E}$, $\mathcal{C}$, $\mathcal{T}$, $\mathcal{I}$): Sets, spaces, or aggregate quantities. $\mathcal{C}$ for chronica (not $\mathcal{H}$, to avoid collision with entropy). Exceptions: $\mathcal{T}$ is a scalar rate (calligraphic distinguishes from temperature); $\mathcal{I}(e_\tau)$ is a scalar (distinguishes from mutual information $I$).
 
-**$\|\cdot\|$**: Norm (Euclidean or information-theoretic). Used for mismatch magnitude.
+**$\lVert\cdot\rVert$**: Norm (Euclidean or information-theoretic). Used for mismatch magnitude.
 
-**$|\cdot|$**: Cardinality of a set (e.g., $|\mathcal{A}|$). Not for mismatch — use $\|\cdot\|$.
+**$\lvert\cdot\rvert$**: Cardinality of a set (e.g., $\lvert\mathcal{A}\rvert$). Not for mismatch — use $\lVert\cdot\rVert$.
 
-**Scalar reduction of gain and tempo.** When $\eta^*$ appears as scalar in mismatch dynamics, it represents the effective correction fraction along the current mismatch direction: $\eta^*_{\text{eff}} = \delta^T K \delta / \|\delta\|^2$. Scalar tempo $\mathcal{T} = \nu \cdot \eta^*_{\text{eff}}$ is the correction rate along this direction. The sector condition parameter $\alpha$ corresponds to the worst-case scalar projection. The full anisotropic treatment requires a tempo tensor; the scalar reduction is valid when correction dynamics are approximately isotropic.
+**Scalar reduction of gain and tempo.** When $\eta^*$ appears as scalar in mismatch dynamics, it represents the effective correction fraction along the current mismatch direction: $\eta^*_{\text{eff}} = \delta^T K \delta / \lVert\delta\rVert^2$. Scalar tempo $\mathcal{T} = \nu \cdot \eta^*_{\text{eff}}$ is the correction rate along this direction. The sector condition parameter $\alpha$ corresponds to the worst-case scalar projection. The full anisotropic treatment requires a tempo tensor; the scalar reduction is valid when correction dynamics are approximately isotropic.
 
 
 ## Units
@@ -195,7 +195,7 @@ The theory uses natural (dimensionless information-theoretic) units where possib
 | $\rho$ | Surprise $\cdot t^{-1}$ | Mismatch injection rate |
 | $S(M_t)$ | Dimensionless $\in [0, 1]$ | Ratio |
 
-**Dimensional analysis of the mismatch ODE.** In $d\|\delta\|/dt = -\mathcal{T}\|\delta\| + \rho$: LHS has units [surprise $\cdot t^{-1}$]; $\mathcal{T}\|\delta\|$ has $[t^{-1}] \cdot [\text{surprise}]$; $\rho$ has [surprise $\cdot t^{-1}$]. All consistent. Note $\mathcal{T}$ and $\rho$ have different units — the persistence condition $\mathcal{T} > \rho/\|\delta_{\text{critical}}\|$ is dimensionally consistent. The shorthand "$\mathcal{T} > \rho$" is valid only when $\|\delta_{\text{critical}}\|$ is normalized to 1.
+**Dimensional analysis of the mismatch ODE.** In $d\lVert\delta\rVert/dt = -\mathcal{T}\lVert\delta\rVert + \rho$: LHS has units [surprise $\cdot t^{-1}$]; $\mathcal{T}\lVert\delta\rVert$ has $[t^{-1}] \cdot [\text{surprise}]$; $\rho$ has [surprise $\cdot t^{-1}$]. All consistent. Note $\mathcal{T}$ and $\rho$ have different units — the persistence condition $\mathcal{T} > \rho/\lVert\delta_{\text{critical}}\rVert$ is dimensionally consistent. The shorthand "$\mathcal{T} > \rho$" is valid only when $\lVert\delta_{\text{critical}}\rVert$ is normalized to 1.
 
 
 ## Global Assumptions
@@ -205,7 +205,7 @@ Load-bearing assumptions that appear locally but are referenced by multiple resu
 | ID | Assumption | Used by |
 |----|-----------|---------|
 | GA-1 | **Fresh noise.** $\varepsilon_t$ is conditionally independent of $\mathcal{C}_{t-1}$ given $(\Omega_t, a_{t-1})$. | #mismatch-decomposition |
-| GA-2 | **Bounded disturbance.** $\|w(t)\| \leq \rho$ for finite $\rho$. | #sector-condition-stability, #persistence-condition |
-| GA-3 | **Sector condition.** $\delta^T F(\mathcal{T}, \delta) \geq \alpha\|\delta\|^2$ for $\|\delta\| \leq R$. | #sector-condition-stability |
+| GA-2 | **Bounded disturbance.** $\lVert w(t)\rVert \leq \rho$ for finite $\rho$. | #sector-condition-stability, #persistence-condition |
+| GA-3 | **Sector condition.** $\delta^T F(\mathcal{T}, \delta) \geq \alpha\lVert\delta\rVert^2$ for $\lVert\delta\rVert \leq R$. | #sector-condition-stability |
 | GA-4 | **Local deliberation drift.** Mismatch accumulates at rate $\rho_{\text{delib}}$ during inaction. | #deliberation-cost |
 | GA-5 | **Fluid limit.** Event rate high relative to dynamics timescale ($\eta^* \ll 1$). | #mismatch-dynamics |

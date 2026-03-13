@@ -206,8 +206,7 @@ GitHub's math renderer is stricter than Obsidian's. To keep both working:
 - `\text{}` works in both for words inside math
 - `\operatorname{}` for multi-letter operators
   (e.g., `$\operatorname{argmin}$`)
-- Escape pipes in tables: use `\lvert`/`\rvert` instead of `|` inside
-  math that lives within a markdown table cell
+- **Vertical bars**: use `\vert` (not `|`) for single bars and `\Vert` (not `\|`) for double bars, everywhere in math — not just in tables. Raw `|` is ambiguous (conditional? delimiter? absolute value?) and breaks inside markdown table cells; `\|` has inconsistent rendering. For matched delimiters (absolute value, norms, set-builder notation), prefer `\lvert`/`\rvert` and `\lVert`/`\rVert` respectively
 - Subscripts/superscripts with multiple characters need braces:
   `$x_{t+1}$` not `$x_t+1$`
 - Avoid raw `<` and `>` in math — use `\lt` and `\gt` if needed
@@ -220,7 +219,7 @@ Follow TFT conventions. See `notation.md` for ACT's symbol reference. The origin
 
 - **Calligraphic** ($\mathcal{M}$, $\mathcal{O}$, $\mathcal{A}$, $\mathcal{C}$, $\mathcal{E}$) for sets and spaces
 - **$\mathcal{T}$** for adaptive tempo (calligraphic to distinguish from temperature)
-- **$\|\cdot\|$** for norms (mismatch magnitude); **$|\cdot|$** for cardinality
+- **$\lVert\cdot\rVert$** for norms (mismatch magnitude); **$\lvert\cdot\rvert$** for cardinality
 - **Subscript $t$**: discrete time or macroscopic continuous time
 - **Subscript $\tau$**: continuous event timestamp (microscopic)
 - **Superscript $(k)$**: channel index
