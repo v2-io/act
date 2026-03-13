@@ -6,7 +6,11 @@ ACT (Agentic Cycle Theory) is a mathematical framework for adaptive, purposeful 
 
 This is theoretical research, not software engineering. The primary artifacts are mathematical formalisms and claim segments. Quality means rigor, honesty about epistemic status, and clarity for future readers — not code coverage.
 
-## Where to Start
+## Current Priority
+
+**Read `scratch/2026-03-13-feedback.md` first.** This is a consolidated review from three independent frontier-model reviews (Claude Opus, OpenAI Codex, Google Gemini) identifying the theory's most important issues. The top priorities are: (1) quantifying the directed-separation approximation for goal-conditioned agents, (2) clarifying the $\alpha$ vs $\mathcal{T}$ relationship in the persistence condition, (3) resolving the composition-closure bridge lemma. Work should address these before expanding into new segments.
+
+## Where to Start (for orientation)
 
 **Read `ACT-FULL.md` first.** This is the canonical outline — the whole argument claim by claim. It maps ~100 claims across five sections, shows what's written, and marks gaps honestly.
 

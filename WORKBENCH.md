@@ -3,6 +3,22 @@
 Working notes for theory development. This is a thinking tool, not a reference document. For the canonical theory structure, see `ACT-FULL.md`.
 
 
+## Review Feedback — 2026-03-13 (PRIORITY)
+
+Three independent frontier-model reviews (Claude Opus, OpenAI Codex, Google Gemini) converged on the same core issues. Full consolidated feedback with attribution: **[`scratch/2026-03-13-feedback.md`](scratch/2026-03-13-feedback.md)**
+
+**Top issues to address (ranked by severity):**
+
+1. **HIGH — Directed separation blocks the main application class.** LLM agents violate it; Section V is blocked. Need: coupling-strength parameter $\kappa$, graded analysis of orient-cascade degradation, or explicit scoping decision.
+2. **HIGH — Persistence claim ($\mathcal{T}$) is stronger than its proof ($\alpha$).** The $\alpha = \mathcal{T}$ substitution is exact only for linear correction. Audit downstream uses.
+3. **HIGH — Composition is foundational before its bridge theorem exists.** Closure-defect → trajectory-error bound is unresolved. Section III reads more settled than it is.
+4. **MEDIUM-HIGH — Graph uniqueness not at theorem strength.** Acyclicity is tight (promote independently). P3→Markov is a sketch. Frame as partially-derived program.
+5. **MEDIUM-HIGH — Section IV overstates causal status of git data.** #causal-discovery-from-git is missing. Frame as empirical program, not secure operationalization.
+6. **MEDIUM — Several formal issues:** CIY proxy sign-indefiniteness, complete-agent-state uniqueness claim, edge-independence assumption in strategy-dag, strategic-calibration type problem, $\delta_{\text{critical}}$/$R$ as inputs not outputs.
+
+**Editorial:** All three reviewers recommend splitting presentation into (a) core results, (b) conditional architecture, (c) empirical programs. This is the single highest-leverage presentation change.
+
+
 ## Segment Status
 
 ### Written — Section I (28 segments, all written)
