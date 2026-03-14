@@ -8,11 +8,11 @@ Working document. Tentative, flexible, unapproved. Its value is in ordering what
 
 The ordering reflects two forces in tension: **theoretical integrity** (what the math needs next) and **strategic momentum** (what gets collaborators and credibility fastest). Where they conflict, momentum wins for now — a theory with collaborators can be tightened later; a perfect theory with no audience can't.
 
-### 1. Fix the α/T substitution (1-2 days)
+### 1. Fix the $\alpha$/$\mathcal{T}$ substitution (1-2 days)
 
-**Why first:** This is the easiest HIGH issue and it's purely editorial. Every downstream result that says T > ρ/‖δ_critical‖ should say α > ρ/R, with T = α noted as the linear special case. This is a find-and-replace with careful annotation, not new mathematics. Doing it first signals to any reviewer that the theory takes its own epistemic labels seriously.
-
-**Deliverable:** Updated segments with clean separation between the general result (in terms of α) and the linear operational form (in terms of T). A brief note in the appendix proving α is monotone in T for the correction function classes tested in simulation (linear, saturating, sigmoid).
+**Why first:** This is the easiest HIGH issue and it's purely editorial. Every downstream result that says $\mathcal T \gt \rho/\lVert\delta_{\text{critical}}\rVert$ should say $\alpha \gt \rho/R$, with $\mathcal T = \alpha$ noted as the linear special case. This is a find-and-replace with careful annotation, not new mathematics. Doing it first signals to any reviewer that the theory takes its own epistemic labels seriously.
+    
+**Deliverable:** Updated segments with clean separation between the general result (in terms of $\alpha$) and the linear operational form (in terms of $\mathcal T$). A brief note in the appendix proving $\alpha$ is monotone in $\mathcal T$ for the correction function classes tested in simulation (linear, saturating, sigmoid).
 
 ### 2. Write the Section IV standalone paper (1-2 weeks)
 
@@ -36,11 +36,11 @@ The ordering reflects two forces in tension: **theoretical integrity** (what the
 **Why third:** This is the #1 theoretical blocker. Until it's resolved, Section V (logogenic agents) is blocked, which means the theory can't address its most exciting application domain. The landscape research shows that Active Inference explicitly does NOT separate perception from action (they jointly minimize free energy) — so ACT needs to engage with this, not assume separation.
 
 **The approach (from the feedback consensus):**
-- Introduce coupling strength κ measuring how much G_t leaks into f_M
-- κ = 0 is perfect separation (current theory, exact)
-- κ = 1 is full coupling (logogenic agents, needs new treatment)
-- Show what happens to the orient cascade as κ increases: sequential → partially ordered → fully coupled
-- Even a qualitative bound on approximation error at moderate κ would unblock Section V
+- Introduce coupling strength $\kappa$ measuring how much $G_t$ leaks into $f_M$
+- $\kappa = 0$ is perfect separation (current theory, exact)
+- $\kappa = 1$ is full coupling (logogenic agents, needs new treatment)
+- Show what happens to the orient cascade as $\kappa$ increases: sequential → partially ordered → fully coupled
+- Even a qualitative bound on approximation error at moderate $\kappa$ would unblock Section V
 
 **This is the first item that requires new mathematical thinking.** See Primer 3 below.
 
@@ -56,14 +56,14 @@ See Primer 4 below.
 
 ### 5. Write the positioning preprint (1 week, after items 1-3)
 
-**Why here:** Once α/T is fixed and κ is at least sketched, the core theory is defensible enough for a preprint that positions ACT in the landscape. This is not the full monograph — it's a 15-20 page paper that says:
+**Why here:** Once $\alpha$/$\mathcal T$ is fixed and $\kappa$ is at least sketched, the core theory is defensible enough for a preprint that positions ACT in the landscape. This is not the full monograph — it's a 15-20 page paper that says:
 
 "Here's the framework. Here's how it connects known results across these domains. Here's what it predicts that existing frameworks don't. Here's the research program."
 
 **Key sections:**
 - The adaptive cycle and its five phases (briefly, accessibly)
 - The uncertainty ratio as cross-domain unification (with explicit acknowledgment of Kalman, Friston, Gershman)
-- The persistence condition (in terms of α, with T as operational form)
+- The persistence condition (in terms of $\alpha$, with $\mathcal T$ as operational form)
 - The satisfaction gap / control regret split (the most novel formalization — lead with it)
 - The software domain as testbed (pointer to the Section IV paper)
 - The landscape positioning (vs. Active Inference, Categorical Cybernetics, Hafez, IBM)
@@ -81,7 +81,7 @@ These can be done incrementally as editorial passes between the bigger items:
 - Soften complete-agent-state uniqueness to conjecture (item 8 — one sentence)
 - Elevate edge-independence caveat (item 9 — one paragraph)
 - Clarify strategic calibration domain (item 10 — one paragraph)
-- Clarify δ_critical and R as inputs (item 11 — one paragraph)
+- Clarify $\delta_{\text{critical}}$ and $R$ as inputs (item 11 — one paragraph)
 
 ### 7. Engage the landscape (ongoing, starting after item 2)
 
@@ -97,9 +97,9 @@ These can be done incrementally as editorial passes between the bigger items:
 
 In rough priority order, after the above:
 - **Game-theoretic integration:** ACT's adversarial dynamics are Lyapunov-only. Incorporating Nash equilibria and mechanism design for the multi-agent case. This is where the evolutionary game theory + MARL literature (arXiv:2412.20523) matters.
-- **Safety/corrigibility:** The gap analysis flagged this as ACT's largest blind spot. The formal corrigibility result (AAAI 2025) and the Alignment Verification Trilemma should be engaged with explicitly. ACT's persistence condition + goal revision machinery could provide a framework for corrigibility (an agent that can revise O_t in response to external authority is corrigible in a specific formal sense).
+- **Safety/corrigibility:** The gap analysis flagged this as ACT's largest blind spot. The formal corrigibility result (AAAI 2025) and the Alignment Verification Trilemma should be engaged with explicitly. ACT's persistence condition + goal revision machinery could provide a framework for corrigibility (an agent that can revise $O_t$ in response to external authority is corrigible in a specific formal sense).
 - **Information geometry upgrade:** ACT uses flat information theory. Upgrading to Fisher-Rao geometry on the parameter spaces would give natural gradients, geodesic flows, and curvature-aware adaptation. The "Geometries of Cognition" (2025/2026) paper is the closest reference.
-- **The logozoetic formalism:** Once κ is resolved and Section V is unblocked, the logozoetic agent concept can be developed formally. IIT 4.0's Φ measure is the closest existing formalization of what makes a system's persistence morally weighted.
+- **The logozoetic formalism:** Once $\kappa$ is resolved and Section V is unblocked, the logozoetic agent concept can be developed formally. IIT 4.0's Φ measure is the closest existing formalization of what makes a system's persistence morally weighted.
 
 ---
 
@@ -109,17 +109,17 @@ Each primer is designed to get you into the mental zone where the problem become
 
 ---
 
-### Primer 1: The α vs T Problem (Sector Condition Tightening)
+### Primer 1: The $\alpha$ vs $\mathcal T$ Problem (Sector Condition Tightening)
 
 **What you need to know:**
 
-Imagine you have a thermostat. It measures the temperature (observation), compares to the setpoint (prediction), and adjusts (correction). The mismatch δ is how far off reality is from your model.
+Imagine you have a thermostat. It measures the temperature (observation), compares to the setpoint (prediction), and adjusts (correction). The mismatch $\delta$ is how far off reality is from your model.
 
-The correction function F(δ) is how the system responds to mismatch. In the simplest case, F(δ) = T·δ — correction is proportional to mismatch, scaled by tempo T. This is the linear case. Like a spring: the further you pull, the harder it pulls back, proportionally.
+The correction function $F(\delta)$ is how the system responds to mismatch. In the simplest case, $F(\delta) = \mathcal T \cdot \delta$ — correction is proportional to mismatch, scaled by tempo $\mathcal T$. This is the linear case. Like a spring: the further you pull, the harder it pulls back, proportionally.
 
 But real systems aren't linear springs. They saturate (can't correct faster than some maximum), they have dead zones (ignore small errors), they break down (completely stop working when error is too large). These are all nonlinear correction functions.
 
-The sector condition is a way of saying: "I don't know the exact shape of F, but I know it at least points in the right direction with at least some minimum efficiency." That minimum efficiency is α.
+The sector condition is a way of saying: "I don't know the exact shape of $F$, but I know it at least points in the right direction with at least some minimum efficiency." That minimum efficiency is $\alpha$.
 
 ```python
 # Linear case: alpha equals tempo exactly
@@ -137,15 +137,15 @@ def F_saturating(T, delta, R=10):
 # i.e., the correction "power" is at least alpha times the mismatch squared
 ```
 
-The Lyapunov proof shows: mismatch stays bounded as long as α > ρ/R. The persistence condition says: T > ρ/‖δ_critical‖. These are the same statement ONLY when α = T, which is ONLY when F is linear.
+The Lyapunov proof shows: mismatch stays bounded as long as $\alpha \gt \rho/R$. The persistence condition says: $\mathcal T \gt \rho/\lVert\delta_{\text{critical}}\rVert$. These are the same statement ONLY when $\alpha = \mathcal T$, which is ONLY when $F$ is linear.
 
-**The problem for ACT:** Throughout the theory, T is used where α should be. This means the persistence condition is stated as if it's general, but it's actually specific to linear correction.
+**The problem for ACT:** Throughout the theory, $\mathcal T$ is used where $\alpha$ should be. This means the persistence condition is stated as if it's general, but it's actually specific to linear correction.
 
 **What to do:**
 
-1. In every segment that uses T > ρ/‖δ_critical‖, replace with α > ρ/R and add a note: "In the linear case, α = T and R → ∞, recovering T > ρ/‖δ_critical‖."
+1. In every segment that uses $\mathcal T \gt \rho/\lVert\delta_{\text{critical}}\rVert$, replace with $\alpha \gt \rho/R$ and add a note: "In the linear case, $\alpha = \mathcal T$ and $R \to \infty$, recovering $\mathcal T \gt \rho/\lVert\delta_{\text{critical}}\rVert$."
 
-2. For the nonlinear cases tested in simulation (saturating, sigmoid, threshold, breakdown), compute α as a function of T:
+2. For the nonlinear cases tested in simulation (saturating, sigmoid, threshold, breakdown), compute $\alpha$ as a function of $\mathcal T$:
 
 ```python
 # For each correction function, the effective alpha is the worst-case ratio:
@@ -163,9 +163,9 @@ The Lyapunov proof shows: mismatch stays bounded as long as α > ρ/R. The persi
 # alpha = T within valid region, then drops to 0 outside
 ```
 
-3. Show that α is monotone increasing in T for all five correction functions tested. This means "higher tempo → higher α → better persistence" always holds, even if the quantitative threshold shifts. This justifies using T as a qualitative proxy even when the exact bound requires α.
+3. Show that $\alpha$ is monotone increasing in $\mathcal T$ for all five correction functions tested. This means "higher tempo → higher $\alpha$ → better persistence" always holds, even if the quantitative threshold shifts. This justifies using $\mathcal T$ as a qualitative proxy even when the exact bound requires $\alpha$.
 
-**Time estimate:** This is 1-2 days of careful find-and-replace plus a brief appendix note computing α for each correction function class.
+**Time estimate:** This is 1-2 days of careful find-and-replace plus a brief appendix note computing $\alpha$ for each correction function class.
 
 ---
 
@@ -208,15 +208,15 @@ You have all of these:
 
 ---
 
-### Primer 3: The κ Coupling Parameter (Directed Separation)
+### Primer 3: The $\kappa$ Coupling Parameter (Directed Separation)
 
 **What you need to know:**
 
 Imagine two systems: a camera and a robot arm. The camera observes the world. The robot arm acts on the world. They're connected through a controller.
 
-In the "separated" case (κ = 0), the camera does its job regardless of what the arm is trying to do. It processes images the same way whether the arm is trying to pick up a cup or swat a fly. The observation system is goal-blind.
+In the "separated" case ($\kappa = 0$), the camera does its job regardless of what the arm is trying to do. It processes images the same way whether the arm is trying to pick up a cup or swat a fly. The observation system is goal-blind.
 
-In the "coupled" case (κ = 1), what the camera pays attention to depends on what the arm is trying to do. If you're picking up a cup, the camera zooms in on the cup. If you're swatting a fly, the camera tracks the fly. The observation system is goal-directed.
+In the "coupled" case ($\kappa = 1$), what the camera pays attention to depends on what the arm is trying to do. If you're picking up a cup, the camera zooms in on the cup. If you're swatting a fly, the camera tracks the fly. The observation system is goal-directed.
 
 ```python
 # Separated update (kappa = 0):
@@ -242,9 +242,9 @@ Human eyes are partially coupled: you can't help but look where you're reaching 
 
 **Why separation matters for ACT:**
 
-When κ = 0, the orient cascade resolves sequentially: first update M (beliefs about reality), THEN update Σ (strategy), THEN maybe update O (objectives). This is clean because each step depends only on the output of the previous step.
+When $\kappa = 0$, the orient cascade resolves sequentially: first update $M$ (beliefs about reality), THEN update $\Sigma$ (strategy), THEN maybe update $O$ (objectives). This is clean because each step depends only on the output of the previous step.
 
-When κ > 0, M and Σ are entangled: your beliefs depend on your goals, and your goals depend on your beliefs, simultaneously. The cascade becomes a coupled system that must be solved simultaneously rather than sequentially.
+When $\kappa \gt 0$, $M$ and $\Sigma$ are entangled: your beliefs depend on your goals, and your goals depend on your beliefs, simultaneously. The cascade becomes a coupled system that must be solved simultaneously rather than sequentially.
 
 **The specific problem:**
 
@@ -260,7 +260,7 @@ But it's known to fail for:
 
 The goal is NOT to prove separation holds generally (it doesn't). The goal is to quantify how much it costs when it fails.
 
-Think of it like this: even when κ > 0, the sequential cascade might be a *good approximation* — meaning the error introduced by pretending κ = 0 and solving sequentially is small compared to the actual mismatch.
+Think of it like this: even when $\kappa \gt 0$, the sequential cascade might be a *good approximation* — meaning the error introduced by pretending $\kappa = 0$ and solving sequentially is small compared to the actual mismatch.
 
 ```python
 # The approximation error from pretending kappa = 0:
@@ -279,11 +279,54 @@ def cascade_error(M, G, event, kappa):
 # If goals and beliefs are strongly correlated, even low kappa has significant error
 ```
 
-The key insight from Active Inference: they don't try to separate. They jointly minimize free energy over both beliefs and goals simultaneously. ACT could potentially say: "When κ is small, the sequential cascade is a good approximation with bounded error. When κ is large, use the coupled formulation (which is more expensive but correct). The κ parameter determines which regime you're in."
+The key insight from Active Inference: they don't try to separate. They jointly minimize free energy over both beliefs and goals simultaneously. ACT could potentially say: "When $\kappa$ is small, the sequential cascade is a good approximation with bounded error. When $\kappa$ is large, use the coupled formulation (which is more expensive but correct). The $\kappa$ parameter determines which regime you're in."
 
-**Practical implication:** For an LLM agent, κ is high but the coupling might be *structured* — the goal affects *which* parts of the context get attention, not *how* attention works mechanically. This might make the error more manageable than the worst case suggests. Whether the attention mechanism's goal-conditioning is "shallow" (κ is effectively moderate) or "deep" (κ is truly high) is an empirical question about transformer architectures.
+**Practical implication:** For an LLM agent, $\kappa$ is high but the coupling might be *structured* — the goal affects *which* parts of the context get attention, not *how* attention works mechanically. This might make the error more manageable than the worst case suggests. Whether the attention mechanism's goal-conditioning is "shallow" ($\kappa$ is effectively moderate) or "deep" ($\kappa$ is truly high) is an empirical question about transformer architectures.
 
-**Concrete next step:** Write a simulation. Two-dimensional system where dimension 1 is "beliefs" and dimension 2 is "goals." Introduce coupling κ that makes the belief update depend on the goal state. Run the sequential cascade and the coupled update for a range of κ values. Measure the approximation error. See if it grows linearly in κ, quadratically, or worse. This gives you the shape of the bound before you try to prove it analytically.
+**Concrete next step:** Write a simulation. Two-dimensional system where dimension 1 is "beliefs" and dimension 2 is "goals." Introduce coupling $\kappa$ that makes the belief update depend on the goal state. Run the sequential cascade and the coupled update for a range of $\kappa$ values. Measure the approximation error. See if it grows linearly in $\kappa$, quadratically, or worse. This gives you the shape of the bound before you try to prove it analytically.
+
+---
+The LQG separation principle failures are a mix, and the distinction matters a lot for how ACT should think about κ. Let me walk through them.
+
+**The LQG separation principle, concretely:**
+
+For linear dynamics, Gaussian noise, and quadratic cost, the optimal controller decomposes cleanly into:
+1. A Kalman filter (optimal estimator) — computes the state estimate from observations
+2. An LQR controller — acts on the estimate as if it were the true state
+
+The key property: the Kalman filter doesn't need to know the cost function. The LQR controller doesn't need to know the noise statistics (beyond what the estimate provides). They can be designed independently. This is exactly ACT's directed separation — f_M is goal-blind.
+
+**Now the failure modes:**
+
+**Nonlinear systems — provably fails.** This isn't empirical; there are theorems. In a nonlinear system, the *distribution* of estimation error depends on the trajectory the system takes, which depends on the control policy. So the optimal estimator depends on what the controller will do, and vice versa — they become coupled. The mathematical reason is clean: linearity is what makes the estimation error distribution independent of the state trajectory. Remove linearity, and the error distribution becomes state-dependent, which makes it policy-dependent.
+
+**Non-Gaussian noise — provably fails.** The Kalman filter is optimal because for Gaussian distributions, the mean and covariance are sufficient statistics. With non-Gaussian noise, the posterior has higher-order structure (skewness, multimodality, heavy tails) that may be shaped by the control policy. The sufficient statistic for estimation is no longer just (mean, covariance) — it's the full posterior, which depends on which part of state space the controller has been steering toward.
+
+**Active perception / dual control — the deepest failure, also provable.** This is Feldbaum's dual control problem from the 1960s. When the agent can choose actions that *improve its estimate* (probing actions, exploratory moves), there's a fundamental coupling. The optimal action must balance exploitation (act on current beliefs) with exploration (act to reduce uncertainty about the system). The separation principle fails because the optimal action depends not just on the state estimate but on the *estimation uncertainty* — and that uncertainty depends on what future actions the agent will take.
+
+This one maps directly to ACT's CIY / explore-exploit tradeoff, by the way.
+
+**But here's the critical nuance: LQG doesn't become "irrelevant" under these conditions.** It becomes an *approximation*. Engineers use certainty-equivalence (pretend separation holds, design estimator and controller independently) for mildly nonlinear systems all the time, and it often works well. The Extended Kalman Filter + nonlinear control is exactly this — treat the system as locally linear, apply separation, accept the approximation error.
+
+**So the failure modes sit on a spectrum, not a cliff:**
+
+- Mild nonlinearity: separation is a good approximation. Error is small, bounded, often quantifiable via perturbation analysis.
+- Strong nonlinearity: separation is a poor approximation. The coupled solution can be qualitatively different (e.g., the optimal policy may be to deliberately probe regions of state space the separated controller would avoid).
+- Dual control: separation is *structurally wrong* — it can't even represent the explore/exploit tradeoff because it doesn't let the controller influence what the estimator will learn.
+
+**What this means for ACT and κ:**
+
+The LQG precedent suggests that κ might not be a single scalar. The *kind* of coupling matters as much as the *strength*:
+
+1. **Attention coupling** (which events to seek) — this is the dual-control / active perception case. ACT already handles this through the processing/selection distinction: goals influence *which* events arrive (through π → a → e), but f_M processes them goal-blindly. This coupling goes through the action channel, not through f_M itself.
+
+2. **Interpretation coupling** (how to process events that arrive) — this is the one that actually violates directed separation. The LLM case: the same code snippet is processed differently depending on what task is in the prompt.
+
+3. **Filtering coupling** (which parts of an event to attend to) — somewhere between 1 and 2. Goal-directed attention within a single observation.
+
+The LQG precedent is encouraging in one sense: it suggests that approximate separation with bounded error is a real thing, not wishful thinking. But it's cautionary in another: the bound depends heavily on the *structure* of the coupling, not just its magnitude.
+
+I should flag my epistemic status: I'm confident about the provable failures (nonlinear, non-Gaussian, dual control — these are textbook control theory). I'm less certain about the precise conditions under which approximate separation degrades gracefully vs. catastrophically. My sense is that it degrades gracefully for "perturbative" violations (mild nonlinearity) and can transition to qualitatively different behavior for "structural" violations (dual control, LLMs). But I haven't verified specific bounds.
 
 ---
 
@@ -291,11 +334,11 @@ The key insight from Active Inference: they don't try to separate. They jointly 
 
 **What you need to know:**
 
-You have two agents, A and B, working together. Each one has its own model M_A, M_B and its own mismatch δ_A, δ_B. The composite "team agent" has a macro-model M_team and a macro-mismatch δ_team.
+You have two agents, A and B, working together. Each one has its own model $M_A$, $M_B$ and its own mismatch $\delta_A$, $\delta_B$. The composite "team agent" has a macro-model $M_{\text{team}}$ and a macro-mismatch $\delta_{\text{team}}$.
 
 The question: if each individual agent keeps its mismatch bounded (both A and B persist), does the team also keep its mismatch bounded?
 
-Intuitively: yes, obviously, if they're coordinated. But the "obviously" hides a gap. What if their individual corrections interfere? What if A's correction makes B's mismatch worse? What if the macro-model is a lossy compression of (M_A, M_B) that loses important cross-agent information?
+Intuitively: yes, obviously, if they're coordinated. But the "obviously" hides a gap. What if their individual corrections interfere? What if A's correction makes B's mismatch worse? What if the macro-model is a lossy compression of $(M_A, M_B)$ that loses important cross-agent information?
 
 ```python
 # Individual agents, each persisting:
@@ -342,23 +385,23 @@ If the projection operator (from individual states to composite state) is Lipsch
              <= L * sqrt(R*_A^2 + R*_B^2) + epsilon
 ```
 
-where epsilon is the closure defect — the irreducible error from projecting to a coarser description.
+where $\epsilon$ is the closure defect — the irreducible error from projecting to a coarser description.
 
 **The specific problem for ACT:**
 
-ACT needs to prove: "If each agent persists (individual mismatch bounded) AND the projection is Lipschitz AND the closure defect ε is bounded, THEN the composite mismatch is bounded."
+ACT needs to prove: "If each agent persists (individual mismatch bounded) AND the projection is Lipschitz AND the closure defect $\varepsilon$ is bounded, THEN the composite mismatch is bounded."
 
 This is the bridge lemma. It turns the informal argument ("coordinated persistent agents make a persistent team") into a formal result with quantitative bounds.
 
 **What to try:**
 
 Start with the simplest case: two agents with completely independent observation channels and non-overlapping action spaces. Like two thermostats controlling different rooms. In this case:
-- M_team = (M_A, M_B) — no projection needed, no information loss
-- δ_team = (δ_A, δ_B) — independent, so |δ_team| = sqrt(δ_A² + δ_B²)
+- $M_{\text{team}} = (M_A, M_B)$ — no projection needed, no information loss
+- $\delta_{\text{team}} = (\delta_A, \delta_B)$ — independent, so $\lvert\delta_{\text{team}}\rvert = \sqrt{\delta_A^2 + \delta_B^2}$
 - Persistence: if both persist individually, the team persists (trivially)
 
 Then add coupling: agent A's actions affect agent B's environment. Now:
-- ρ_B depends on what A does
+- $\rho_B$ depends on what A does
 - A's correction of its own mismatch might increase B's disturbance
 - The bound needs to account for cross-agent disturbance
 
@@ -376,7 +419,7 @@ delta_team_bound = sqrt(R_star_A**2 + R_star_B_effective**2)
 # The team persists iff this is less than the composite critical threshold
 ```
 
-The coupling term γ_AB · T_A is exactly what the adversarial dynamics segments already formalize. The composition bridge lemma is essentially: "the adversarial destabilization result, but with *cooperative* coupling (γ could be negative — A's actions *reduce* B's disturbance) and with a formal projection step."
+The coupling term $\gamma_{AB} \cdot \mathcal T_A$ is exactly what the adversarial dynamics segments already formalize. The composition bridge lemma is essentially: "the adversarial destabilization result, but with *cooperative* coupling ($\gamma$ could be negative — A's actions *reduce* B's disturbance) and with a formal projection step."
 
 **Concrete next step:** Write the proof for the uncoupled case (it's almost trivial). Then write it for the unidirectionally coupled case (A affects B but not vice versa — this is just the adversarial destabilization result with a sign change). Then attempt the bidirectionally coupled case. The difficulty scales with the number of coupling terms.
 
@@ -411,7 +454,7 @@ action = argmin_action(expected_F(beliefs, action))
 
 **Where Active Inference and ACT agree:**
 
-1. The uncertainty ratio η* = U_M/(U_M+U_o) is *exactly* precision weighting in Active Inference. When Friston says "precision-weighted prediction errors drive belief updating," he means the same thing ACT means by "gain-weighted mismatch correction." They are the same formula derived from different starting points.
+1. The uncertainty ratio $\eta^\ast = U_M/(U_M+U_o)$ is *exactly* precision weighting in Active Inference. When Friston says "precision-weighted prediction errors drive belief updating," he means the same thing ACT means by "gain-weighted mismatch correction." They are the same formula derived from different starting points.
 
 2. Both treat the agent-environment coupling as the fundamental object of study.
 
@@ -421,9 +464,9 @@ action = argmin_action(expected_F(beliefs, action))
 
 1. **Foundation:** ACT uses Lyapunov stability (from control theory). Active Inference uses variational Bayesian inference (from statistics/physics). These are different mathematical traditions that produce similar results — like deriving the same theorem from different axioms.
 
-2. **Goals:** In Active Inference, goals are "prior preferences" — beliefs about what observations the agent expects to see. There's no separate goal object; goals ARE beliefs. In ACT, goals (O_t, Σ_t) are separate from beliefs (M_t). This is a real philosophical difference: Active Inference says "I believe I will see reward" (goal as belief); ACT says "I want reward, and separately, I believe I will/won't get it" (goal and belief as distinct).
+2. **Goals:** In Active Inference, goals are "prior preferences" — beliefs about what observations the agent expects to see. There's no separate goal object; goals ARE beliefs. In ACT, goals ($O_t$, $\Sigma_t$) are separate from beliefs ($M_t$). This is a real philosophical difference: Active Inference says "I believe I will see reward" (goal as belief); ACT says "I want reward, and separately, I believe I will/won't get it" (goal and belief as distinct).
 
-3. **Separation:** Active Inference explicitly rejects the separation of perception and action — they jointly minimize free energy. ACT assumes directed separation (perception is goal-blind) and is now struggling with where this breaks down (the κ problem). Active Inference's approach is more general but less modular.
+3. **Separation:** Active Inference explicitly rejects the separation of perception and action — they jointly minimize free energy. ACT assumes directed separation (perception is goal-blind) and is now struggling with where this breaks down (the $\kappa$ problem). Active Inference's approach is more general but less modular.
 
 4. **Multi-agent:** Active Inference is extending to multi-agent settings (AAMAS 2025 paper on factorised active inference) but it's early. ACT's adversarial dynamics (tempo advantage, destabilization threshold, effects spiral) are more developed in this specific area.
 
@@ -527,7 +570,7 @@ The key result: **formal corrigibility** (AAAI 2025). An agent is "corrigible" i
 
 **Why this matters for ACT:**
 
-ACT has an objective functional V_O that the agent optimizes. It has goal revision (the agent can change O_t). It has persistence (the agent's drive to maintain bounded mismatch). But it has NO mechanism for:
+ACT has an objective functional $V_O$ that the agent optimizes. It has goal revision (the agent can change $O_t$). It has persistence (the agent's drive to maintain bounded mismatch). But it has NO mechanism for:
 - An external authority overriding the agent's objectives
 - The agent accepting reduced persistence for safety reasons
 - Constraints on the agent's goal revision (can it revise away from safety?)
@@ -536,7 +579,7 @@ In ACT's current formulation, a self-actuated agent with sovereignty over intent
 
 **What to try:**
 
-The lexicographic structure maps naturally to ACT's goal hierarchy. Instead of a single O_t, the agent has a stack:
+The lexicographic structure maps naturally to ACT's goal hierarchy. Instead of a single $O_t$, the agent has a stack:
 
 ```python
 O_t = [
@@ -551,7 +594,7 @@ O_t = [
 # This is a CONSTRAINT on the goal revision in the orient cascade
 ```
 
-This doesn't solve alignment — but it maps the formal corrigibility result into ACT's vocabulary, which lets ACT engage with the safety literature rather than ignoring it. And it surfaces the key question: what is the formal mechanism that prevents an adaptive agent from revising away its safety constraints? In ACT terms: is there a "hardened" layer of O_t that the orient cascade can't reach?
+This doesn't solve alignment — but it maps the formal corrigibility result into ACT's vocabulary, which lets ACT engage with the safety literature rather than ignoring it. And it surfaces the key question: what is the formal mechanism that prevents an adaptive agent from revising away its safety constraints? In ACT terms: is there a "hardened" layer of $O_t$ that the orient cascade can't reach?
 
 ---
 
@@ -603,7 +646,7 @@ If this mapping is tight — if the formalism actually works out — it's a unif
 
 - Don't chase mathematical sophistication for its own sake. The categorical cybernetics approach is more elegant but less accessible. ACT's strength is that working engineers can use it. Preserve that.
 
-- Don't delay publication until the theory is "complete." It won't be. The Section IV paper can go out now (after the α/T fix). The positioning preprint can go out after the κ sketch. Perfect is the enemy of momentum.
+- Don't delay publication until the theory is "complete." It won't be. The Section IV paper can go out now (after the $\alpha$/$\mathcal T$ fix). The positioning preprint can go out after the $\kappa$ sketch. Perfect is the enemy of momentum.
 
 - Don't write a monograph first. Write papers. Papers get read, cited, and responded to. A monograph is where the mature theory eventually lives, not where it launches.
 

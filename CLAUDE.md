@@ -86,6 +86,8 @@ Do NOT use "Solid," "Confident," or "Plausible" as tier labels — these are not
 
 5. **TST gets full treatment in Section IV.** Not just domain table rows. T-01 (temporal optimality) is generalized as ACT's first postulate ( #temporal-optimality).
 
+6. **Math in conversation vs files.** In terminal chat responses, use Unicode for math (α, δ, Σ, →, ≥, etc.) — there is no LaTeX rendering in the terminal and raw LaTeX is harder to parse visually. In markdown files written to disk, use proper inline LaTeX per FORMAT.md. Joseph may respond in whatever notation is easiest to type (Latin approximations, prose, code-like, Unicode, or LaTeX) — interpret generously.
+
 ## What's Settled vs. Open
 
 See `WORKBENCH.md` for the full development state. Summary:
