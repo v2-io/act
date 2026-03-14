@@ -30,7 +30,9 @@ $\text{CIY} \geq 0$ by construction (expectation of KL divergences). $\text{CIY}
 
 $$\text{CIY}_{\text{proxy}}(a_{t-1}) = I(o_t; a_{t-1} \mid M_{t-1}) - I(o_t; a_{t-1} \mid \Omega_t, M_{t-1})$$
 
-This proxy is sign-indefinite in general and requires causal assumptions for interpretation. The canonical CIY (interventional) is the primary quantity; the proxy is auxiliary.
+This proxy is **sign-indefinite in general** and requires causal assumptions for interpretation. The canonical CIY (interventional) is the primary quantity; the proxy is auxiliary.
+
+**Safety conditions for proxy use.** The proxy form should NOT be used in policy optimization (e.g., as the CIY term in the unified policy objective) because an agent maximizing a sign-indefinite quantity may optimize in the wrong direction. The proxy is suitable only for diagnostic purposes: detecting whether an action carried causal information (large $\lvert\text{CIY}_{\text{proxy}}\rvert$) vs. none ($\text{CIY}_{\text{proxy}} \approx 0$). For decision-making, use the canonical CIY (non-negative by construction) or a known-safe surrogate (ensemble disagreement, UCB bonuses). If the canonical CIY is intractable and no safe surrogate is available, the CIY term should be dropped from the policy objective entirely, defaulting to pure exploitation.
 
 ## Epistemic Status
 

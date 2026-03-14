@@ -53,7 +53,7 @@ This is the single point of coupling between epistemic and purposeful dynamics. 
 2. **Different dynamics**: epistemic and purposeful components have distinct update sources, timescales, and information dependencies
 3. **Directed separation**: the claim that $f_M$ is $G_t$-independent ( #directed-separation) is only statable when the components are separated
 
-The robustness claim: any alternative decomposition of the complete agent state into epistemic and purposeful components — if it preserves the directed separation — will be structurally isomorphic to $(M_t, G_t)$, because directed separation forces a component whose update function doesn't reference purpose.
+We conjecture that any alternative decomposition of the complete agent state into epistemic and purposeful components — if it preserves the directed separation — will be structurally isomorphic to $(M_t, G_t)$, because directed separation forces a component whose update function doesn't reference purpose. This is a plausible structural claim (the directed separation gives a canonical factorization), but it is not proved. Alternative decompositions that cross-cut the epistemic/purposeful boundary (e.g., a "relevance-weighted model" that mixes $M_t$ and $O_t$) might be useful in practice while not being isomorphic to the clean separation. The $(M_t, G_t)$ decomposition is chosen for its analytical utility, not proved unique.
 
 ## Discussion
 
