@@ -43,14 +43,14 @@ The mathematical findings are *generative*: they tell you what structure is nece
 OUTLINE.md              Top-level assembly index
 LEXICON.md              Prose vocabulary (spans whole project)
 NOTATION.md             Symbol reference (spans all sections)
-FORMAT.md               Segment file conventions
+FORMAT.md               Segment file and general md conventions
 WORKBENCH.md            Development state
 
-scratch/                Working documents, spikes, derivation attempts
-reflections/            Author's philosophical/theoretical journal
-refs/                   Reference papers
-_archive/               Superseded materials
+msc/                    Working documents, spikes, derivation attempts
+ref/                    Reference papers
 bin/                    Build and lint tools
+
+_obs/                   Superseded materials
 ```
 
 ## What This Contributes

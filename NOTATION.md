@@ -7,7 +7,7 @@ type: reference
 
 All symbols used in Agentic Cycle Theory, serving as a single authoritative reference. When a symbol appears in any ACT document, its meaning is as defined here unless explicitly noted otherwise.
 
-Notation conventions are adopted from TFT (`_archive/old-tf-00-notation-conventions.md`) with extensions for ACT's purposeful-agent machinery.
+Notation conventions are adopted from TFT (`_obs/old-tf-00-notation-conventions.md`) with extensions for ACT's purposeful-agent machinery.
 
 
 ## The Adaptive Cycle

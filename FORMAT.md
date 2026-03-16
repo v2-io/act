@@ -136,7 +136,7 @@ When the ceiling is clear, note it in the segment's Epistemic Status paragraph: 
 
 ## Equation-Level Tags
 
-Inline tags before equations mark their epistemic status. These follow TFT conventions (see `notation.md` and `_archive/old-tf-00-notation-conventions.md`):
+Inline tags before equations mark their epistemic status. These follow TFT conventions (see `notation.md` and `_obs/old-tf-00-notation-conventions.md`):
 
 ```
 *[Definition (slug-name)]*
@@ -192,7 +192,7 @@ GitHub's math renderer is stricter than Obsidian's. To keep both working:
 
 ## Notation Conventions
 
-Follow TFT conventions. See `notation.md` for ACT's symbol reference. The original TFT conventions are in `_archive/old-tf-00-notation-conventions.md`. Key points:
+Follow TFT conventions. See `notation.md` for ACT's symbol reference. The original TFT conventions are in `_obs/old-tf-00-notation-conventions.md`. Key points:
 
 - **Calligraphic** ($\mathcal{M}$, $\mathcal{O}$, $\mathcal{A}$, $\mathcal{C}$, $\mathcal{E}$) for sets and spaces
 - **$\mathcal{T}$** for adaptive tempo (calligraphic to distinguish from temperature)

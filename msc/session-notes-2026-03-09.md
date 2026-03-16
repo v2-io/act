@@ -2,18 +2,18 @@
 
 ## What happened
 
-Full read of the entire corpus (TFT, TST, via-tft, ACT src/, all appendices, scratch/, feedback). Then a theoretical spike on deriving purposeful agency from first principles, iterated through three versions with Gemini and Codex review at each stage, culminating in a graph uniqueness argument.
+Full read of the entire corpus (TFT, TST, via-tft, ACT src/, all appendices, msc/, feedback). Then a theoretical spike on deriving purposeful agency from first principles, iterated through three versions with Gemini and Codex review at each stage, culminating in a graph uniqueness argument.
 
 ## What we produced
 
 | File | What it is |
 |------|-----------|
-| `scratch/opus-analysis-2026-03-09.md` | Initial reading analysis |
-| `scratch/spike-purposeful-agent-derivation.md` | v1: exploratory spike (preserved for archaeology) |
-| `scratch/spike-v2-purposeful-agent.md` | v2: first clean rewrite |
-| `scratch/spike-v3-purposeful-agent.md` | v3: definitive version for src/ porting |
-| `scratch/spike-graph-uniqueness.md` | Graph structure uniqueness argument |
-| `scratch/llm-causal-access-note.md` | Pearl reconciliation / LLM causal access |
+| `msc/opus-analysis-2026-03-09.md` | Initial reading analysis |
+| `msc/spike-purposeful-agent-derivation.md` | v1: exploratory spike (preserved for archaeology) |
+| `msc/spike-v2-purposeful-agent.md` | v2: first clean rewrite |
+| `msc/spike-v3-purposeful-agent.md` | v3: definitive version for src/ porting |
+| `msc/spike-graph-uniqueness.md` | Graph structure uniqueness argument |
+| `msc/llm-causal-access-note.md` | Pearl reconciliation / LLM causal access |
 | `PLANS.md` | Updated with governing objectives |
 
 ## The nuanced framing

@@ -55,7 +55,7 @@ Every slug is linked to its intended `src/{slug}.md` file, even when that file d
 
 *Scope narrowing: agents that not only track reality but aim at something. This adds objectives and strategy alongside the reality model. Section I's adaptive machinery applies to the epistemic substate $M_t$ directly. The clean factorization — where $M_t$ updates independently of $G_t$, yielding the sequential orient cascade — is conditional on directed separation ( #directed-separation). What Section II adds is the goal-directed layer: objectives, strategy, and the orient cascade that connects them.*
 
-*The derivation chain for this section is mature (see `scratch/spike-v3-purposeful-agent.md`). Most of it provides better justification and epistemic labels for architecture that already existed. The genuinely novel results are: the satisfaction gap / control regret split ( #satisfaction-gap, #control-regret), the $G_t$ complexity bound (in #orient-cascade), and the graph structure uniqueness argument (see `scratch/spike-graph-uniqueness.md`).*
+*The derivation chain for this section is mature (see `msc/spike-v3-purposeful-agent.md`). Most of it provides better justification and epistemic labels for architecture that already existed. The genuinely novel results are: the satisfaction gap / control regret split ( #satisfaction-gap, #control-regret), the $G_t$ complexity bound (in #orient-cascade), and the graph structure uniqueness argument (see `msc/spike-graph-uniqueness.md`).*
 
 *"If a man knows not to which port he sails, no wind is favorable." — Seneca*
 
@@ -95,7 +95,7 @@ Every slug is linked to its intended `src/{slug}.md` file, even when that file d
 
 *Correlated observations as default; independence as the special case requiring justification. Adversarial dynamics are one end of a teleological unity spectrum, not a separate theory.*
 
-*Two sources: the simulation-validated adversarial dynamics from TFT (TF-11/Appendix F, track-b simulations), and the composition spike (`scratch/spike-agent-composition.md`) which derives the requirement for composition consistency from the scope condition's level-independence.*
+*Two sources: the simulation-validated adversarial dynamics from TFT (TF-11/Appendix F, track-b simulations), and the composition spike (`msc/spike-agent-composition.md`) which derives the requirement for composition consistency from the scope condition's level-independence.*
 
 | § | Type | N | Tag | Claim | Stage |
 |---|------|---|-----|-------|-------|

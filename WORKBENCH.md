@@ -1,17 +1,17 @@
 # WORKBENCH — ACT Theory Development
 
-Working notes for theory development. This is a thinking tool, not a reference document. For the canonical theory structure, see `act-core/OUTLINE.md`.
+Working notes for theory development. This is a thinking tool, not a reference document. For the canonical theory structure, see `01-act-core/OUTLINE.md`.
 
 
 ## Review Feedback — 2026-03-13 (PRIORITY)
 
-Three independent frontier-model reviews (Claude Opus, OpenAI Codex, Google Gemini) converged on the same core issues. Full consolidated feedback with attribution: **[`scratch/2026-03-13-feedback.md`](scratch/2026-03-13-feedback.md)**
+Three independent frontier-model reviews (Claude Opus, OpenAI Codex, Google Gemini) converged on the same core issues. Full consolidated feedback with attribution: **[`msc/2026-03-13-feedback.md`](msc/2026-03-13-feedback.md)**
 
 **Top issues to address (ranked by severity):**
 
 1. **HIGH — Directed separation blocks the main application class.** LLM agents violate it; Section V is blocked. ~~Need: coupling-strength parameter $\kappa$, graded analysis of orient-cascade degradation, or explicit scoping decision.~~ **2026-03-14 update:** Resolved as architectural classification (not κ-as-scalar). Three architecture classes: modular (separation by construction), fully merged (fails by construction), partially modular. Section V should start from coupled formulation, not approximate separated case. See updated #directed-separation Working Notes.
 2. ~~**HIGH — Persistence claim ($\mathcal{T}$) is stronger than its proof ($\alpha$).** The $\alpha = \mathcal{T}$ substitution is exact only for linear correction. Audit downstream uses.~~ **FIXED 2026-03-14.** #persistence-condition now presents general α > ρ/R first, with T form as linear special case. α-T relationship documented for each correction function class. δ_critical and R clarified as domain parameters.
-3. **HIGH — Composition is foundational before its bridge theorem exists.** Closure-defect → trajectory-error bound is unresolved. Section III reads more settled than it is. **2026-03-14 update:** 2-agent bridge lemma spike written (`scratch/spike-composition-bridge-2agent.md`). Orthogonal case trivial, unidirectional coupling straightforward (adversarial-destabilization with sign change), bidirectional case has concrete conditions. Cases 1-2 ready for src/ promotion.
+3. **HIGH — Composition is foundational before its bridge theorem exists.** Closure-defect → trajectory-error bound is unresolved. Section III reads more settled than it is. **2026-03-14 update:** 2-agent bridge lemma spike written (`msc/spike-composition-bridge-2agent.md`). Orthogonal case trivial, unidirectional coupling straightforward (adversarial-destabilization with sign change), bidirectional case has concrete conditions. Cases 1-2 ready for src/ promotion.
 4. **MEDIUM-HIGH — Graph uniqueness not at theorem strength.** Acyclicity is tight (promote independently). P3→Markov is a sketch. Frame as partially-derived program.
 5. **MEDIUM-HIGH — Section IV overstates causal status of git data.** #causal-discovery-from-git is missing. Frame as empirical program, not secure operationalization.
 6. ~~**MEDIUM — Several formal issues:** CIY proxy sign-indefiniteness, complete-agent-state uniqueness claim, edge-independence assumption in strategy-dag, strategic-calibration type problem, $\delta_{\text{critical}}$/$R$ as inputs not outputs.~~ **ALL FIXED 2026-03-14.** CIY proxy safety conditions added. Uniqueness claim softened to conjecture. Edge-independence caveat elevated. Credit-assignment problem added. δ_critical/R clarified.
@@ -146,22 +146,22 @@ Three independent frontier-model reviews (Claude Opus, OpenAI Codex, Google Gemi
 **Appendices (3 missing):**
 - `#linear-ode-approximation` — pedagogical linear mismatch ODE (detail).
 - `#intent-dag-development` — convergence on AND/OR + single-p (aside). Source: 04-intent-dag-consolidated.md.
-- `#prior-art-positioning` — Hafez, IBM, BDI, active inference (detail). Source: scratch/02-prior-art-assessment.md.
+- `#prior-art-positioning` — Hafez, IBM, BDI, active inference (detail). Source: msc/02-prior-art-assessment.md.
 
 
 ## Key Spikes
 
 | Spike | Location | Status |
 |-------|----------|--------|
-| Purposeful agent derivation (v3) | `scratch/spike-v3-purposeful-agent.md` | Section II porting **COMPLETE** — all 20 segments in src/ |
-| Agent composition / holon | `scratch/spike-agent-composition.md` | Core insight strong; composition laws are sketches |
-| Composition closure | `scratch/spike-composition-closure.md` | Formalized closure defect $\varepsilon^\ast$; promoted to #composition-closure + #tempo-composition |
-| Graph structure uniqueness | `scratch/spike-graph-uniqueness.md` | Acyclicity derived; P3→Markov needs tightening |
-| Intent DAG consolidated | `scratch/04-intent-dag-consolidated.md` | Canonical DAG reference; converged |
-| Prior art assessment | `scratch/02-prior-art-assessment.md` | Hafez/IBM/BDI/active-inference positioning |
-| LLM causal access note | `scratch/llm-causal-access-note.md` | Pearl reconciliation; potential intro/paper/blog |
-| DAG boundary type closure | `scratch/spike-dag-type-closure.md` | v2; reviewed by Codex; ready for porting |
-| Track-b simulations | `scratch/track-b-nonlinear-sims/` | 6 variants, all validated |
+| Purposeful agent derivation (v3) | `msc/spike-v3-purposeful-agent.md` | Section II porting **COMPLETE** — all 20 segments in src/ |
+| Agent composition / holon | `msc/spike-agent-composition.md` | Core insight strong; composition laws are sketches |
+| Composition closure | `msc/spike-composition-closure.md` | Formalized closure defect $\varepsilon^\ast$; promoted to #composition-closure + #tempo-composition |
+| Graph structure uniqueness | `msc/spike-graph-uniqueness.md` | Acyclicity derived; P3→Markov needs tightening |
+| Intent DAG consolidated | `msc/04-intent-dag-consolidated.md` | Canonical DAG reference; converged |
+| Prior art assessment | `msc/02-prior-art-assessment.md` | Hafez/IBM/BDI/active-inference positioning |
+| LLM causal access note | `msc/llm-causal-access-note.md` | Pearl reconciliation; potential intro/paper/blog |
+| DAG boundary type closure | `msc/spike-dag-type-closure.md` | v2; reviewed by Codex; ready for porting |
+| Track-b simulations | `msc/track-b-nonlinear-sims/` | 6 variants, all validated |
 
 
 ## What's Settled
@@ -233,7 +233,7 @@ See FORMAT.md "Epistemic Triage" for the three-question diagnostic.
 - **Closure defect → coordination overhead mapping**: the core open problem in tempo-composition. The sub-additive inequality $\mathcal T_c \leq \sum \mathcal T_i$ is almost certainly correct, but the quantitative relationship $C_{\text{coord}}(\varepsilon^\ast)$ — how closure defect determines the tempo lost to internal reconciliation — is unproved. This is the missing bridge between the composition postulate (Section I) and a formally derived composition threshold. Proving this for the 2-agent case with orthogonal observation channels is the natural first step.
 - Strategy persistence schema → result: requires formalizing strategic correction function, characterizing $\rho_\Sigma$ (rate of environmental causal drift), and verifying sector condition. Substantial Lyapunov work.
 - Meta-adaptation of $\Pi$ and $N_h$: can the agent structurally adapt its own policy class and planning horizon? Analogous to model-class change (TF-10). Satisfaction gap's disambiguation table handles descriptively; formal mechanism open.
-- DAG boundary type closure — **PORTED to #strategy-dag.** Leaf base credence ($p_v$) with temporal indexing, unique root terminal, well-formedness constraint, $\hat P_\Sigma$ as strategy self-assessment distinct from $A_O$, terminal alignment error as experience-only signal. Spike at `scratch/spike-dag-type-closure.md` (v2). Terminal alignment error ($\delta_\text{align}$) formalization still open.
+- DAG boundary type closure — **PORTED to #strategy-dag.** Leaf base credence ($p_v$) with temporal indexing, unique root terminal, well-formedness constraint, $\hat P_\Sigma$ as strategy self-assessment distinct from $A_O$, terminal alignment error as experience-only signal. Spike at `msc/spike-dag-type-closure.md` (v2). Terminal alignment error ($\delta_\text{align}$) formalization still open.
 - Adversarial DAG targeting (Section III). Which strategy edges are most valuable to attack? Centrality in the DAG, inter-agent coupling edges, edges observable to the adversary. #chain-confidence-decay as a weapon: disrupting one AND-edge in a deep chain collapses the whole path.
 - Composite directed separation (Section III). If each sub-agent's $f_M$ is $G_t$-independent, is the composite's $f_M^c$ independent of $G_t^c$? Hypothesis: goal-blindness composes, BUT coordination routing may break it — if which observations reach the composite depends on the shared objective, the composite's effective observation function is goal-dependent.
 - Software tempo decomposition (Section IV). Three components: $\mathcal T_{\text{obs}}$ (compiler, linter, tests), $\mathcal T_{\text{explore}}$ (code reading, navigation), $\mathcal T_{\text{probe}}$ (test runs, staging). Which is the bottleneck? Each connects to #code-quality-as-observation-infrastructure. Source: old-tst-via-tft-mapping has the richest treatment.
@@ -325,7 +325,7 @@ The bottleneck is no longer idea generation — it is promotion, canonicalizatio
 
 ## Simulation Findings (Summary)
 
-The track-b simulations (`scratch/track-b-nonlinear-sims/`) are theory-shaping, not merely confirmatory. They forced regime splits and narrowed claims that the analytical derivations left ambiguous. Full details in variant result files.
+The track-b simulations (`msc/track-b-nonlinear-sims/`) are theory-shaping, not merely confirmatory. They forced regime splits and narrowed claims that the analytical derivations left ambiguous. Full details in variant result files.
 
 ### Adversarial tempo exponent (Variants A–D)
 - **Deterministic drift, coupling-dominant**: exponent = 2.0 (confirmed at 1.999). Cor. 11.2 exact.
@@ -418,7 +418,7 @@ All TFT and TST content has been copied into `src/old-*` files. The priors/ subm
 
 ## Prior Art Positioning & Paper Strategy
 
-*Detailed cross-mapping in `scratch/02-prior-art-assessment.md`.*
+*Detailed cross-mapping in `msc/02-prior-art-assessment.md`.*
 
 **The landscape:** IBM (Miehling et al. 2025) calls for a systems theory of agentic AI — explicitly identifying the void. Hafez et al. (2026) provide a diagnostic metric (bi-predictability $P$) without dynamics or goals. No existing work fills the void. ACT is the most complete response identifiable.
 
@@ -476,9 +476,9 @@ All TFT and TST content has been copied into `src/old-*` files. The priors/ subm
 6. Relationship between ACT and active inference's prior preferences?
 7. Which physical domains have deterministic vs stochastic $\rho$?
 8. Cognitive cost of maintaining $\Sigma_t$ (the $\beta$ analog for strategy).
-9. P3→Markov step in graph uniqueness: does state-local revisability strictly force the Markov condition? See `scratch/spike-graph-uniqueness.md`.
+9. P3→Markov step in graph uniqueness: does state-local revisability strictly force the Markov condition? See `msc/spike-graph-uniqueness.md`.
 10. Whether "code quality as observation infrastructure" is unique to software or an instance of a general pattern (agents modifying their own observation channels).
-11. LLM causal access (`scratch/llm-causal-access-note.md`): the loop argument (Response 1) is load-bearing. Responses 2–3 (internal representations, training-time causal exposure) are interesting but give critics easier targets if blended into the canonical theory. Keep the loop argument primary; others as discussion/aside.
+11. LLM causal access (`msc/llm-causal-access-note.md`): the loop argument (Response 1) is load-bearing. Responses 2–3 (internal representations, training-time causal exposure) are interesting but give critics easier targets if blended into the canonical theory. Keep the loop argument primary; others as discussion/aside.
 
 12. **[Brainstorm] Internal aporia as sub-agent adversarial dynamics.** Is aporia within a composite agent structurally equivalent to adversarial dynamics between its sub-agents? When a composite agent experiences mismatch, its sub-agents may disagree about what went wrong and what to do — that disagreement IS adversarial dynamics at the sub-agent level, and its resolution IS the composite's epistrophe. This would explain why high-stakes human institutions (legal systems, scientific method, parliamentary procedure, red teams, Socratic dialectic) *deliberately engineer* internal adversarial dynamics: structured adversarial sub-processes produce higher-quality aporia than any single perspective can generate alone. Better aporia → better epistrophe → better adaptation. These institutions are "aporia amplifiers." Formally, this would mean: (a) the teleological unity between adversarial sub-agents is negative on specific dimensions but serves positive unity at the composite level; (b) Section I's adversarial tempo advantage, applied at the sub-agent level, becomes a mechanism for improving the composite's cycle quality; (c) theory of mind (recursive modeling of other agents) is what makes internal adversarial dynamics *productive* rather than merely destructive — you can only run a useful internal debate if the sub-processes can model each other's reasoning. Connection to logozoetic agents: theory of mind is a qualifying property, which may be partly *why* it qualifies — it enables the richer internal aporia that more sophisticated adaptation requires. Status: brainstorm, not even hypothesis yet. But it connects adversarial dynamics (Section I), composition (Section III), the orient cascade (Section II), and logozoetic agent properties (Section V) in a way that feels structurally motivated. See `LEXICON.md` for related discussion.
 

@@ -113,4 +113,4 @@ These are all essential to ACT but create barriers for the SE audience. The pape
 
 - This paper doesn't require anyone to accept ACT. It stands on temporal optimality (a postulate most developers would accept intuitively) and the cost decomposition (straightforward).
 - The empirical operationalization is the weakest part. A small pilot study (even just coherence/coupling metrics from 5 repos) would dramatically improve the paper's credibility.
-- The competition is thin: none of the 25 surveyed frameworks have a formal software-specific theory that produces testable quantitative predictions from first principles. The gap analysis (scratch/2026-03-13-landscape-research/gap-analysis.md) confirms "code quality as observation infrastructure" has no prior art as a formal control-theoretic treatment.
+- The competition is thin: none of the 25 surveyed frameworks have a formal software-specific theory that produces testable quantitative predictions from first principles. The gap analysis (msc/2026-03-13-landscape-research/gap-analysis.md) confirms "code quality as observation infrastructure" has no prior art as a formal control-theoretic treatment.

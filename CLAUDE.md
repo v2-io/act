@@ -17,7 +17,7 @@ This is theoretical research, not software engineering. The primary artifacts ar
 
 ## Current Priority
 
-**Read `scratch/2026-03-13-feedback.md` first.** This is a consolidated review from three independent frontier-model reviews (Claude Opus, OpenAI Codex, Google Gemini) identifying the theory's most important issues. The top priorities are: (1) the directed-separation scope decision (resolved as architectural classification — modular/merged/partially modular), (2) the α/T relationship (fixed 2026-03-14), (3) resolving the composition-closure bridge lemma (2-agent spike written, cases 1-2 ready for promotion).
+**Read `msc/2026-03-13-feedback.md` first.** This is a consolidated review from three independent frontier-model reviews (Claude Opus, OpenAI Codex, Google Gemini) identifying the theory's most important issues. The top priorities are: (1) the directed-separation scope decision (resolved as architectural classification — modular/merged/partially modular), (2) the α/T relationship (fixed 2026-03-14), (3) resolving the composition-closure bridge lemma (2-agent spike written, cases 1-2 ready for promotion).
 
 ## Where to Start (for orientation)
 
@@ -25,7 +25,7 @@ This is theoretical research, not software engineering. The primary artifacts ar
 
 **Read `FORMAT.md`** for segment file conventions (frontmatter, document cadence, math formatting, cross-references).
 
-**Read `NOTATION.md`** for the symbol reference. For the full original TFT conventions and epistemic system, see `_archive/old-tf-00-notation-conventions.md`.
+**Read `NOTATION.md`** for the symbol reference. For the full original TFT conventions and epistemic system, see `_obs/old-tf-00-notation-conventions.md`.
 
 **See `WORKBENCH.md`** for theory development state: what's settled, what's open, spike status, and reorganization notes.
 
@@ -60,7 +60,7 @@ The adaptive-systems foundation (from TFT) formalizes how agents adapt to realit
 
 ## Epistemic Conventions
 
-Follow TFT's conventions exactly (see `NOTATION.md` and `_archive/old-tf-00-notation-conventions.md`):
+Follow TFT's conventions exactly (see `NOTATION.md` and `_obs/old-tf-00-notation-conventions.md`):
 
 **Equation-level tags** (inline before equations):
 - `*[Definition]*`, `*[Derived]*`, `*[Derived (Conditional on ...)]*`
@@ -141,8 +141,8 @@ See `WORKBENCH.md` for the full development state. Summary:
 
 **Supporting:**
 - `bin/` — Build and lint tools (`build`, `lint-md`)
-- `_archive/` — Superseded docs. Preserved for archaeology.
-- `refs/` — Reference papers
-- `scratch/` — Working documents, spikes, historical artifacts
-- `reflections/` — Author's philosophical/theoretical journal
+- `_obs/` — Superseded docs. Preserved for archaeology.
+- `ref/` — Reference papers
+- `msc/` — Working documents, spikes, historical artifacts
+- `msc/reflections/` — Author's philosophical/theoretical journal
 - `../agentic-tft/` — Prior bridge work: TFT → AI agents. Docs 10-14 relevant to logogenic agents.

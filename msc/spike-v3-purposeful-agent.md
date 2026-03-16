@@ -2,7 +2,7 @@
 
 **Status**: Third pass. Incorporates all Codex/Gemini review corrections from v1 and v2. This is the document from which `src/` claim segments should be authored.
 
-**Date**: 2026-03-09 **History**: v1 (exploratory spike) → v2 (clean rewrite, Codex round 1) → v3 (precision fixes, Codex round 2). Prior versions preserved in scratch/ for archaeological record.
+**Date**: 2026-03-09 **History**: v1 (exploratory spike) → v2 (clean rewrite, Codex round 1) → v3 (precision fixes, Codex round 2). Prior versions preserved in msc/ for archaeological record.
 
 **Discipline**: Every step is labeled: **Formulation** (representational choice), **Definition** (names an object), **Scope** (restricts attention), **Derived** (mathematical necessity from prior steps), **Normative** (design criterion grounded in the axioms but requiring an outcome-equivalence precondition), **Proposed schema** (mathematical shape identified, formal content pending). No label inflation.
 
@@ -448,7 +448,7 @@ E. Timescale separation $\nu_O \ll \nu_\Sigma$ for many agent populations F. LLM
 
 ### Strings being pulled: graphical structure uniqueness
 
-See `scratch/spike-graph-uniqueness.md` for an exploration of whether the DAG structure (not just "some causal representation") can be derived from first principles. The key insight: LOCAL REVISABILITY of the strategy → the Markov condition → directed graphical model. Combined with temporal ordering → acyclicity, this may constitute a uniqueness argument analogous to Cox's theorem for probability. The AND/OR semantics may follow from Boolean completeness + parsimony under bounded cognition. If this argument holds, it narrows the "formulation choice" space significantly — the graph structure is forced, and only the specific parameterization (CPT form) remains a choice.
+See `msc/spike-graph-uniqueness.md` for an exploration of whether the DAG structure (not just "some causal representation") can be derived from first principles. The key insight: LOCAL REVISABILITY of the strategy → the Markov condition → directed graphical model. Combined with temporal ordering → acyclicity, this may constitute a uniqueness argument analogous to Cox's theorem for probability. The AND/OR semantics may follow from Boolean completeness + parsimony under bounded cognition. If this argument holds, it narrows the "formulation choice" space significantly — the graph structure is forced, and only the specific parameterization (CPT form) remains a choice.
 
 ### What remains open
 - **Strategic correction dynamics**: §7.5 now defines the strategic mismatch state (edge residuals typed as value-increment predictions). Still needed: formal correction function (edge confidence revision rule), sector-condition verification, and disturbance characterization. These would promote §9 from schema to theorem.
