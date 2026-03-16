@@ -1,6 +1,6 @@
 # LEXICON — ACT's Domain Language
 
-ACT's formal machinery uses mathematical symbols ($\delta$, $\eta^\ast$, $\mathcal{T}$, $M_t$, $\Sigma_t$, etc.) defined in `notation.md`. This document is the complement: the **prose vocabulary** — terms that carry specific meaning within the theory, distinguished from their colloquial or prior-art usage. These are the words ACT *speaks*, not the symbols it computes with.
+ACT's formal machinery uses mathematical symbols ($\delta$, $\eta^\ast$, $\mathcal{T}$, $M_t$, $\Sigma_t$, etc.) defined in `NOTATION.md`. This document is the complement: the **prose vocabulary** — terms that carry specific meaning within the theory, distinguished from their colloquial or prior-art usage. These are the words ACT *speaks*, not the symbols it computes with.
 
 This is a living working document. Entries capture reasoning and nuance, not just definitions. The goal is a bounded ubiquitous domain language: anyone working within ACT should use these terms with these meanings, and the meanings should be precise enough that misuse is detectable.
 

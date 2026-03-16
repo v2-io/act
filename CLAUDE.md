@@ -1,8 +1,10 @@
-# CLAUDE.md — Context for AI Agents Working on ACT
+# CLAUDE.md — Context for AI Agents Working on Agentic Systems
 
 ## What This Project Is
 
-ACT (Agentic Cycle Theory) is a mathematical framework for adaptive, purposeful agents — integrating control theory, causal inference, information theory, and agent architecture under a common formalism. It supersedes and subsumes Temporal Feedback Theory (TFT, in priors/tft/), which provides the adaptive-systems foundation. TFT is prior work now absorbed into ACT, not a separate co-existing theory.
+**Agentic Systems** is a research framework for adaptive, purposeful agents — integrating control theory, causal inference, information theory, and agent architecture under a common formalism. Its mathematical core is **Agentic Cycle Theory (ACT)**, which lives in `act-core/`. The broader framework encompasses composition dynamics, domain instantiations (software, logogenic agents), architectural guidance, and philosophical foundations that are informed by the mathematics but not reducible to it.
+
+ACT supersedes and subsumes Temporal Feedback Theory (TFT), which provides the adaptive-systems foundation. TFT is prior work now absorbed into ACT, not a separate co-existing theory.
 
 This is theoretical research, not software engineering. The primary artifacts are mathematical formalisms and claim segments. Quality means rigor, honesty about epistemic status, and clarity for future readers — not code coverage.
 
@@ -12,23 +14,23 @@ This is theoretical research, not software engineering. The primary artifacts ar
 
 ## Where to Start (for orientation)
 
-**Read `ACT-FULL.md` first.** This is the canonical outline — the whole argument claim by claim. It maps ~100 claims across five sections, shows what's written, and marks gaps honestly.
+**Read `act-core/OUTLINE.md` first.** This is the canonical outline of the mathematical core — the whole argument claim by claim. It maps ~100 claims across five sections, shows what's written, and marks gaps honestly.
 
 **Read `FORMAT.md`** for segment file conventions (frontmatter, document cadence, math formatting, cross-references).
 
-**Read `notation.md`** for ACT's symbol reference. For the full original TFT conventions and epistemic system, see `_archive/old-tf-00-notation-conventions.md`.
+**Read `NOTATION.md`** for the symbol reference. For the full original TFT conventions and epistemic system, see `_archive/old-tf-00-notation-conventions.md`.
 
 **See `WORKBENCH.md`** for theory development state: what's settled, what's open, spike status, and reorganization notes.
 
 ## Theory Structure
 
-The theory lives in `src/` as claim segments. **Each file is like a high-level proof step** — one move per file. Given what came before, this one thing follows, or is defined, or restricts scope. A postulate and the result derived from it are two steps, not one. Corollaries and alternate formulations can live with their parent claim (they reinforce its independence), but anything that could be referenced independently should be its own file.
+The theory lives in `act-core/src/` as claim segments. **Each file is like a high-level proof step** — one move per file. Given what came before, this one thing follows, or is defined, or restricts scope. A postulate and the result derived from it are two steps, not one. Corollaries and alternate formulations can live with their parent claim (they reinforce its independence), but anything that could be referenced independently should be its own file.
 
 **TFT's file structure is NOT the model — it's what went wrong.** TFT's monolithic multi-claim documents are the problem ACT fixes. TST's one-claim-per-section cadence is the structural model. TFT conventions are adopted ONLY for epistemic labeling (equation-level tags, tiers).
 
 **File identity and ordering:**
-- **Filename = slug**: `src/{slug}.md`. No numbering in filenames.
-- **Ordering lives in `ACT-FULL.md`**, not in filenames. The slug is the stable identity; the linearization will change.
+- **Filename = slug**: `act-core/src/{slug}.md`. No numbering in filenames.
+- **Ordering lives in `act-core/OUTLINE.md`**, not in filenames. The slug is the stable identity; the linearization will change.
 - YAML frontmatter: `slug`, `type`, `status`, `depends` (list of prerequisite slugs). See `FORMAT.md` for details.
 - Five sections scope progressively: I. Adaptive Systems, II. Actuated Adaptive Systems, III. Composition and Coordination, IV. Evolving Software, V. Software-Grounded Agentic Systems
 
@@ -55,7 +57,7 @@ The adaptive-systems foundation (from TFT) formalizes how agents adapt to realit
 
 ## Epistemic Conventions
 
-Follow TFT's conventions exactly (see `notation.md` and `_archive/old-tf-00-notation-conventions.md`):
+Follow TFT's conventions exactly (see `NOTATION.md` and `_archive/old-tf-00-notation-conventions.md`):
 
 **Equation-level tags** (inline before equations):
 - `*[Definition]*`, `*[Derived]*`, `*[Derived (Conditional on ...)]*`
@@ -76,9 +78,9 @@ Do NOT use "Solid," "Confident," or "Plausible" as tier labels — these are not
 
 ## Key Architectural Decisions
 
-1. **ACT supersedes TFT.** TFT and TST are prior work, fully copied into `src/old-*` files. Don't treat them as separate co-existing theories.
+1. **ACT supersedes TFT.** TFT and TST are prior work, fully copied into `act-core/src/old-*` files. Don't treat them as separate co-existing theories.
 
-2. **Claim segments, not chapters.** New theory content goes in `src/` as individual claim files, not in ACT-01/ACT-03 style chapter documents.
+2. **Claim segments, not chapters.** New theory content goes in `act-core/src/` as individual claim files, not in ACT-01/ACT-03 style chapter documents.
 
 3. **AND/OR DAG with single-parameter edges.** Three independent formalism attempts converged on this. Noisy-OR and WEIGHTED are rejected.
 
@@ -118,13 +120,21 @@ See `WORKBENCH.md` for the full development state. Summary:
 
 ## File Organization
 
-- `ACT-FULL.md` — **The canonical theory outline.** Claim-by-claim, section-by-section, with the current linearization.
+**Root level (Agentic Systems):**
 - `WORKBENCH.md` — **Development state.** What's done, open, fragile.
 - `FORMAT.md` — **Segment file conventions.** How to write claim files.
-- `src/` — **The theory.** Claim segment files, named by slug (`src/{slug}.md`). No numbering.
+- `NOTATION.md` — **Symbol reference.** All math notation defined here.
+- `LEXICON.md` — **Prose vocabulary.** Cycle phases, agent classes, key terms.
+- `TODO.md` — **Deferred organizational items.**
+
+**ACT mathematical core:**
+- `act-core/OUTLINE.md` — **The canonical theory outline.** Claim-by-claim, section-by-section, with the current linearization.
+- `act-core/src/` — **The theory.** Claim segment files, named by slug (`act-core/src/{slug}.md`). No numbering.
+
+**Supporting:**
+- `bin/` — Build and lint tools (`build-index`, `lint-md`)
 - `_archive/` — Superseded docs. Preserved for archaeology.
-- `priors/tft/` — TFT submodule (**historical only** — all content copied to `src/old-tf-*` files; no need to read these)
-- `priors/tst/` — TST submodule (**historical only** — all content copied to `src/old-tst-*` files; no need to read these)
 - `refs/` — Reference papers
 - `scratch/` — Working documents, spikes, historical artifacts - `spike-v3-purposeful-agent.md` — Definitive Section II derivation - `spike-agent-composition.md` — Composition/holon theory - `spike-graph-uniqueness.md` — DAG structure uniqueness argument - `04-intent-dag-consolidated.md` — Canonical intent DAG reference - `track-a-intent-dag/` — DAG formalism variants (historical) - `track-b-nonlinear-sims/` — Simulation code and results
+- `reflections/` — Author's philosophical/theoretical journal
 - `../agentic-tft/` — Prior bridge work: TFT → AI agents. Docs 10-14 relevant to Section V.

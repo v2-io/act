@@ -1,6 +1,6 @@
 # WORKBENCH — ACT Theory Development
 
-Working notes for theory development. This is a thinking tool, not a reference document. For the canonical theory structure, see `ACT-FULL.md`.
+Working notes for theory development. This is a thinking tool, not a reference document. For the canonical theory structure, see `act-core/OUTLINE.md`.
 
 
 ## Review Feedback — 2026-03-13 (PRIORITY)
@@ -24,111 +24,111 @@ Three independent frontier-model reviews (Claude Opus, OpenAI Codex, Google Gemi
 ### Written — Section I (28 segments, all written)
 | Slug | Type | Notes |
 |------|------|-------|
-| [temporal-optimality](src/temporal-optimality.md) | Postulate | Needs review |
-| [agent-environment](src/agent-environment.md) | Definition | Needs review |
-| [observation-function](src/observation-function.md) | Definition | Needs review |
-| [action-transition](src/action-transition.md) | Definition | Needs review |
-| [scope-condition](src/scope-condition.md) | Scope | Needs review |
-| [composition-consistency](src/composition-consistency.md) | Postulate | Scale invariance requirement. Source: spike-agent-composition.md §1, §9. |
-| [agent-model](src/agent-model.md) | Formulation | Needs review |
-| [information-bottleneck](src/information-bottleneck.md) | Formulation | Needs review |
-| [model-sufficiency](src/model-sufficiency.md) | Definition | Needs review |
-| [model-class-fitness](src/model-class-fitness.md) | Definition | Needs review |
-| [causal-structure](src/causal-structure.md) | Postulate | Needs review |
-| [pearl-causal-hierarchy](src/pearl-causal-hierarchy.md) | Definition | Needs review |
-| [chronica](src/chronica.md) | Definition | Needs review |
-| [event-driven-dynamics](src/event-driven-dynamics.md) | Formulation | Needs review |
-| [recursive-update](src/recursive-update.md) | Derived | Needs review |
-| [action-selection](src/action-selection.md) | Derived | Needs review |
-| [mismatch-signal](src/mismatch-signal.md) | Definition | Needs review |
-| [mismatch-decomposition](src/mismatch-decomposition.md) | Result | Needs review |
-| [update-gain](src/update-gain.md) | Empirical | Needs review |
-| [causal-information-yield](src/causal-information-yield.md) | Definition | Needs review |
-| [adaptive-tempo](src/adaptive-tempo.md) | Definition | Needs review |
-| [mismatch-dynamics](src/mismatch-dynamics.md) | Hypothesis | Needs review |
-| [deliberation-cost](src/deliberation-cost.md) | Derived | Needs review |
-| [persistence-condition](src/persistence-condition.md) | Result | Needs review |
-| [sector-condition-stability](src/sector-condition-stability.md) | Result | Needs review |
-| [structural-adaptation-necessity](src/structural-adaptation-necessity.md) | Result | Needs review |
-| [temporal-nesting](src/temporal-nesting.md) | Derived | Needs review |
-| [agent-identity](src/agent-identity.md) | Discussion | Needs review |
+| [temporal-optimality](act-core/src/temporal-optimality.md) | Postulate | Needs review |
+| [agent-environment](act-core/src/agent-environment.md) | Definition | Needs review |
+| [observation-function](act-core/src/observation-function.md) | Definition | Needs review |
+| [action-transition](act-core/src/action-transition.md) | Definition | Needs review |
+| [scope-condition](act-core/src/scope-condition.md) | Scope | Needs review |
+| [composition-consistency](act-core/src/composition-consistency.md) | Postulate | Scale invariance requirement. Source: spike-agent-composition.md §1, §9. |
+| [agent-model](act-core/src/agent-model.md) | Formulation | Needs review |
+| [information-bottleneck](act-core/src/information-bottleneck.md) | Formulation | Needs review |
+| [model-sufficiency](act-core/src/model-sufficiency.md) | Definition | Needs review |
+| [model-class-fitness](act-core/src/model-class-fitness.md) | Definition | Needs review |
+| [causal-structure](act-core/src/causal-structure.md) | Postulate | Needs review |
+| [pearl-causal-hierarchy](act-core/src/pearl-causal-hierarchy.md) | Definition | Needs review |
+| [chronica](act-core/src/chronica.md) | Definition | Needs review |
+| [event-driven-dynamics](act-core/src/event-driven-dynamics.md) | Formulation | Needs review |
+| [recursive-update](act-core/src/recursive-update.md) | Derived | Needs review |
+| [action-selection](act-core/src/action-selection.md) | Derived | Needs review |
+| [mismatch-signal](act-core/src/mismatch-signal.md) | Definition | Needs review |
+| [mismatch-decomposition](act-core/src/mismatch-decomposition.md) | Result | Needs review |
+| [update-gain](act-core/src/update-gain.md) | Empirical | Needs review |
+| [causal-information-yield](act-core/src/causal-information-yield.md) | Definition | Needs review |
+| [adaptive-tempo](act-core/src/adaptive-tempo.md) | Definition | Needs review |
+| [mismatch-dynamics](act-core/src/mismatch-dynamics.md) | Hypothesis | Needs review |
+| [deliberation-cost](act-core/src/deliberation-cost.md) | Derived | Needs review |
+| [persistence-condition](act-core/src/persistence-condition.md) | Result | Needs review |
+| [sector-condition-stability](act-core/src/sector-condition-stability.md) | Result | Needs review |
+| [structural-adaptation-necessity](act-core/src/structural-adaptation-necessity.md) | Result | Needs review |
+| [temporal-nesting](act-core/src/temporal-nesting.md) | Derived | Needs review |
+| [agent-identity](act-core/src/agent-identity.md) | Discussion | Needs review |
 
 ### Written — Section II (20 of 20 segments — all written)
 | Slug | Type | Notes |
 |------|------|-------|
-| [agent-spectrum](src/agent-spectrum.md) | Definition | Needs review |
-| [complete-agent-state](src/complete-agent-state.md) | Formulation | $X_t = (M_t, G_t)$ lift. Backward-compatible with Section I. |
-| [objective-functional](src/objective-functional.md) | Definition | $O_t \to V_{O_t}$: trajectories $\to \mathbb{R}$. Fills TF-08's "value" gap. |
-| [value-object](src/value-object.md) | Definition | $V_O$, $Q_O$ with continuation convention. Extends policy objective with $\lambda(M_t, O_t, N_h)$. |
-| [strategy-dimension](src/strategy-dimension.md) | Definition | $G_t = (O_t, \Sigma_t)$. Evaluation vs guidance. Independence of richness dimensions. |
-| [causal-hierarchy-requirement](src/causal-hierarchy-requirement.md) | Derived + Scope | Level 2 for $Q_O$ evaluation. Scope: agents that learn during operation. |
-| [loop-interventional-access](src/loop-interventional-access.md) | Derived | Loop generates interventional data by construction. |
-| [explicit-strategy-condition](src/explicit-strategy-condition.md) | Normative | Cost inequality for explicit $\Sigma_t$. Makes temporal-optimality load-bearing. |
-| [chain-confidence-decay](src/chain-confidence-decay.md) | Derived | Log-confidence additive in depth. $p^n$ is special case. |
-| [and-or-scope](src/and-or-scope.md) | Scope | AND/OR restriction. Noisy-OR and WEIGHTED rejected. Parsimony argument. |
-| [strategy-dag](src/strategy-dag.md) | Definition | $\Sigma_t = (V, E, p, \gamma)$. Acyclicity derived. Edge semantics as causal credence. |
-| [directed-separation](src/directed-separation.md) | Derived + Scope | $f_M$ is $G_t$-independent. Scope condition for goal-conditioned agents. |
-| [satisfaction-gap](src/satisfaction-gap.md) | Definition | $\delta_{\text{sat}}$ with disambiguation table. $A_O$ (attainability) defined here. |
-| [control-regret](src/control-regret.md) | Definition | $\delta_{\text{regret}}$. 2×2 diagnostic with satisfaction gap. |
-| [strategic-calibration](src/strategic-calibration.md) | Definition | Edge residuals. Discussion-grade aggregation. |
-| [orient-cascade](src/orient-cascade.md) | Derived | Resolution order from information dependency. $G_t$ bounded by $M_t$. |
-| [observability-dominance](src/observability-dominance.md) | Derived | Low $\sigma$ → frozen edges → epistemically dead paths. |
-| [edge-update-via-gain](src/edge-update-via-gain.md) | Hypothesis | Gain principle extended to edge credences. Signal function open. |
-| [structural-change-as-parametric-limit](src/structural-change-as-parametric-limit.md) | Formulation | Six operations from reweighting to full restructure. |
-| [strategy-persistence-schema](src/strategy-persistence-schema.md) | Proposed schema | Sector conditions for $\Sigma_t$. Schema, not result — needs instantiation. |
+| [agent-spectrum](act-core/src/agent-spectrum.md) | Definition | Needs review |
+| [complete-agent-state](act-core/src/complete-agent-state.md) | Formulation | $X_t = (M_t, G_t)$ lift. Backward-compatible with Section I. |
+| [objective-functional](act-core/src/objective-functional.md) | Definition | $O_t \to V_{O_t}$: trajectories $\to \mathbb{R}$. Fills TF-08's "value" gap. |
+| [value-object](act-core/src/value-object.md) | Definition | $V_O$, $Q_O$ with continuation convention. Extends policy objective with $\lambda(M_t, O_t, N_h)$. |
+| [strategy-dimension](act-core/src/strategy-dimension.md) | Definition | $G_t = (O_t, \Sigma_t)$. Evaluation vs guidance. Independence of richness dimensions. |
+| [causal-hierarchy-requirement](act-core/src/causal-hierarchy-requirement.md) | Derived + Scope | Level 2 for $Q_O$ evaluation. Scope: agents that learn during operation. |
+| [loop-interventional-access](act-core/src/loop-interventional-access.md) | Derived | Loop generates interventional data by construction. |
+| [explicit-strategy-condition](act-core/src/explicit-strategy-condition.md) | Normative | Cost inequality for explicit $\Sigma_t$. Makes temporal-optimality load-bearing. |
+| [chain-confidence-decay](act-core/src/chain-confidence-decay.md) | Derived | Log-confidence additive in depth. $p^n$ is special case. |
+| [and-or-scope](act-core/src/and-or-scope.md) | Scope | AND/OR restriction. Noisy-OR and WEIGHTED rejected. Parsimony argument. |
+| [strategy-dag](act-core/src/strategy-dag.md) | Definition | $\Sigma_t = (V, E, p, \gamma)$. Acyclicity derived. Edge semantics as causal credence. |
+| [directed-separation](act-core/src/directed-separation.md) | Derived + Scope | $f_M$ is $G_t$-independent. Scope condition for goal-conditioned agents. |
+| [satisfaction-gap](act-core/src/satisfaction-gap.md) | Definition | $\delta_{\text{sat}}$ with disambiguation table. $A_O$ (attainability) defined here. |
+| [control-regret](act-core/src/control-regret.md) | Definition | $\delta_{\text{regret}}$. 2×2 diagnostic with satisfaction gap. |
+| [strategic-calibration](act-core/src/strategic-calibration.md) | Definition | Edge residuals. Discussion-grade aggregation. |
+| [orient-cascade](act-core/src/orient-cascade.md) | Derived | Resolution order from information dependency. $G_t$ bounded by $M_t$. |
+| [observability-dominance](act-core/src/observability-dominance.md) | Derived | Low $\sigma$ → frozen edges → epistemically dead paths. |
+| [edge-update-via-gain](act-core/src/edge-update-via-gain.md) | Hypothesis | Gain principle extended to edge credences. Signal function open. |
+| [structural-change-as-parametric-limit](act-core/src/structural-change-as-parametric-limit.md) | Formulation | Six operations from reweighting to full restructure. |
+| [strategy-persistence-schema](act-core/src/strategy-persistence-schema.md) | Proposed schema | Sector conditions for $\Sigma_t$. Schema, not result — needs instantiation. |
 
 ### Written — Section IV (20 segments; 4 missing, 0 old remain)
 | Slug | Type | Notes |
 |------|------|-------|
-| [software-scope](src/software-scope.md) | Scope | Needs review |
-| [feature-definition](src/feature-definition.md) | Definition | Needs review |
-| [specification-bound](src/specification-bound.md) | Result | Needs review; written by earlier agent with less context. Includes communication-as-bottleneck corollary. |
-| [change-expectation-baseline](src/change-expectation-baseline.md) | Derived | Median not expectation — key finding. Includes investment-scaling corollary. |
-| [comprehension-time](src/comprehension-time.md) | Definition | Needs review |
-| [implementation-time](src/implementation-time.md) | Definition | Needs review |
-| [dual-optimization](src/dual-optimization.md) | Derived | Turnover multiplier |
-| [change-investment](src/change-investment.md) | Derived | Pairwise threshold from dual-optimization. Compound effects are hypothesis, not derived. |
-| [conceptual-alignment](src/conceptual-alignment.md) | Hypothesis | Includes realignment-as-feature corollary. Functional form ungrounded. |
-| [atomic-changeset](src/atomic-changeset.md) | Definition | |
-| [changeset-size-principle](src/changeset-size-principle.md) | Empirical | Includes comprehension-follows-changeset corollary (hypothesis). |
-| [change-distance](src/change-distance.md) | Definition | |
-| [change-proximity-principle](src/change-proximity-principle.md) | Derived + Hypothesis | Qualitative derived; functional form hypothesis. |
-| [exponential-cognitive-load](src/exponential-cognitive-load.md) | Hypothesis | ACT deliberation-cost suggests dependency-structure model, not fixed exponent. |
-| [system-coupling](src/system-coupling.md) | Definition | Causal (interventional) interpretation via git. |
-| [system-coherence](src/system-coherence.md) | Definition | |
-| [coherence-coupling-measurement](src/coherence-coupling-measurement.md) | Measurement | Ratio form is one possible aggregation. |
-| [principled-decision-integration](src/principled-decision-integration.md) | Derived | General form of dual-optimization with per-feature $P(F_i)$. |
-| [system-availability](src/system-availability.md) | Definition | Standard reliability engineering. |
-| [continuous-operation](src/continuous-operation.md) | Scope | Extends temporal optimization to include operational failures. |
+| [software-scope](act-core/src/software-scope.md) | Scope | Needs review |
+| [feature-definition](act-core/src/feature-definition.md) | Definition | Needs review |
+| [specification-bound](act-core/src/specification-bound.md) | Result | Needs review; written by earlier agent with less context. Includes communication-as-bottleneck corollary. |
+| [change-expectation-baseline](act-core/src/change-expectation-baseline.md) | Derived | Median not expectation — key finding. Includes investment-scaling corollary. |
+| [comprehension-time](act-core/src/comprehension-time.md) | Definition | Needs review |
+| [implementation-time](act-core/src/implementation-time.md) | Definition | Needs review |
+| [dual-optimization](act-core/src/dual-optimization.md) | Derived | Turnover multiplier |
+| [change-investment](act-core/src/change-investment.md) | Derived | Pairwise threshold from dual-optimization. Compound effects are hypothesis, not derived. |
+| [conceptual-alignment](act-core/src/conceptual-alignment.md) | Hypothesis | Includes realignment-as-feature corollary. Functional form ungrounded. |
+| [atomic-changeset](act-core/src/atomic-changeset.md) | Definition | |
+| [changeset-size-principle](act-core/src/changeset-size-principle.md) | Empirical | Includes comprehension-follows-changeset corollary (hypothesis). |
+| [change-distance](act-core/src/change-distance.md) | Definition | |
+| [change-proximity-principle](act-core/src/change-proximity-principle.md) | Derived + Hypothesis | Qualitative derived; functional form hypothesis. |
+| [exponential-cognitive-load](act-core/src/exponential-cognitive-load.md) | Hypothesis | ACT deliberation-cost suggests dependency-structure model, not fixed exponent. |
+| [system-coupling](act-core/src/system-coupling.md) | Definition | Causal (interventional) interpretation via git. |
+| [system-coherence](act-core/src/system-coherence.md) | Definition | |
+| [coherence-coupling-measurement](act-core/src/coherence-coupling-measurement.md) | Measurement | Ratio form is one possible aggregation. |
+| [principled-decision-integration](act-core/src/principled-decision-integration.md) | Derived | General form of dual-optimization with per-feature $P(F_i)$. |
+| [system-availability](act-core/src/system-availability.md) | Definition | Standard reliability engineering. |
+| [continuous-operation](act-core/src/continuous-operation.md) | Scope | Extends temporal optimization to include operational failures. |
 
 ### Written — Section III (13 of 13 segments — all written)
 | Slug                                                                | Type        | Notes                                                                                                                                |
 | ------------------------------------------------------------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| [multi-agent-scope](src/multi-agent-scope.md)                       | Scope       | Coupling through shared environment.                                                                                                 |
-| [composition-closure](src/composition-closure.md)                   | Formulation | Operationalizes agent boundary as bounded closure defect. Status: conditional (admissibility constraints and norms under-specified). |
-| [tempo-composition](src/tempo-composition.md)                       | Derived     | Sub-additive tempo inequality. Status: sketch (proof incomplete — $\varepsilon^\ast \to C_{\text{coord}}$ mapping open).             |
-| [unity-dimensions](src/unity-dimensions.md)                         | Definition  | 4 dimensions: epistemic, teleological, strategic, perceptual. Status: discussion-grade. Clausewitz mapping.                          |
-| [shared-intent](src/shared-intent.md)                               | Definition  | IB-compressed purposeful state for inter-agent communication. Status: discussion-grade.                                              |
-| [auftragstaktik-principle](src/auftragstaktik-principle.md)         | Hypothesis  | $B_O \gt B_\Sigma \gt B_M$. Bungay evidence. Status: discussion-grade.                                                               |
-| [adversarial-destabilization](src/adversarial-destabilization.md)   | Derived     | Lyapunov destabilization + effects spiral. From TFT Appendix A, A.3/A.3.1.                                                           |
-| [communication-gain](src/communication-gain.md)                     | Hypothesis  | Trust-weighted inter-agent gain. From TFT Appendix F, F.2.                                                                           |
-| [adversarial-exponent-regimes](src/adversarial-exponent-regimes.md) | Observation | Three regimes: $b=2$ (det/coupled), $b=1.5$ (stoch/coupled), $b \to 1$ (non-coupled). From track-b sims.                             |
-| [observation-gates-advantage](src/observation-gates-advantage.md)   | Observation | Obs noise collapses advantage; optimal gain partially restores. From track-b Variant E.                                              |
-| [per-dimension-persistence](src/per-dimension-persistence.md)       | Result      | Per-dim AR(1) exact to 4 sig figs. Scalar overestimates 72%. From track-b Variant F.                                                 |
-| [team-persistence](src/team-persistence.md)                         | Derived     | Distributed tempo, cooperative-adversarial $\rho$ decomposition, 3-lever persistence. From TFT F.3.                                  |
-| [adversarial-tempo-advantage](src/adversarial-tempo-advantage.md)   | Result      | Superlinear exponent $b=2$ (det/coupled). Analytical result + regime conditions. From TFT Cor 11.2.                                  |
+| [multi-agent-scope](act-core/src/multi-agent-scope.md)                       | Scope       | Coupling through shared environment.                                                                                                 |
+| [composition-closure](act-core/src/composition-closure.md)                   | Formulation | Operationalizes agent boundary as bounded closure defect. Status: conditional (admissibility constraints and norms under-specified). |
+| [tempo-composition](act-core/src/tempo-composition.md)                       | Derived     | Sub-additive tempo inequality. Status: sketch (proof incomplete — $\varepsilon^\ast \to C_{\text{coord}}$ mapping open).             |
+| [unity-dimensions](act-core/src/unity-dimensions.md)                         | Definition  | 4 dimensions: epistemic, teleological, strategic, perceptual. Status: discussion-grade. Clausewitz mapping.                          |
+| [shared-intent](act-core/src/shared-intent.md)                               | Definition  | IB-compressed purposeful state for inter-agent communication. Status: discussion-grade.                                              |
+| [auftragstaktik-principle](act-core/src/auftragstaktik-principle.md)         | Hypothesis  | $B_O \gt B_\Sigma \gt B_M$. Bungay evidence. Status: discussion-grade.                                                               |
+| [adversarial-destabilization](act-core/src/adversarial-destabilization.md)   | Derived     | Lyapunov destabilization + effects spiral. From TFT Appendix A, A.3/A.3.1.                                                           |
+| [communication-gain](act-core/src/communication-gain.md)                     | Hypothesis  | Trust-weighted inter-agent gain. From TFT Appendix F, F.2.                                                                           |
+| [adversarial-exponent-regimes](act-core/src/adversarial-exponent-regimes.md) | Observation | Three regimes: $b=2$ (det/coupled), $b=1.5$ (stoch/coupled), $b \to 1$ (non-coupled). From track-b sims.                             |
+| [observation-gates-advantage](act-core/src/observation-gates-advantage.md)   | Observation | Obs noise collapses advantage; optimal gain partially restores. From track-b Variant E.                                              |
+| [per-dimension-persistence](act-core/src/per-dimension-persistence.md)       | Result      | Per-dim AR(1) exact to 4 sig figs. Scalar overestimates 72%. From track-b Variant F.                                                 |
+| [team-persistence](act-core/src/team-persistence.md)                         | Derived     | Distributed tempo, cooperative-adversarial $\rho$ decomposition, 3-lever persistence. From TFT F.3.                                  |
+| [adversarial-tempo-advantage](act-core/src/adversarial-tempo-advantage.md)   | Result      | Superlinear exponent $b=2$ (det/coupled). Analytical result + regime conditions. From TFT Cor 11.2.                                  |
 
 ### Written — Appendices (8 segments)
 | Slug | Type | Notes |
 |------|------|-------|
-| [sector-condition-derivation](src/sector-condition-derivation.md) | Derivation | Full Lyapunov derivations (A.1, A.2). |
-| [recursive-update-derivation](src/recursive-update-derivation.md) | Derivation | Uniqueness derivation + 7 counterexample attacks. |
-| [multi-timescale-stability](src/multi-timescale-stability.md) | Sketch | N-timescale singular perturbation framework. |
-| [operationalization](src/operationalization.md) | Detail | Estimation procedures for ACT quantities. |
-| [worked-example-kalman](src/worked-example-kalman.md) | Worked example | End-to-end exact mapping. |
-| [worked-example-bandit](src/worked-example-bandit.md) | Worked example | End-to-end approximate mapping; persistence failure diagnostic. |
-| [simulation-results](src/simulation-results.md) | Detail | 6 variants validating/refining Section I predictions. Track-b reference. |
-| [graph-structure-uniqueness](src/graph-structure-uniqueness.md) | Derivation | 4 postulates → DAG structure. Acyclicity proved; P3→Markov sketch. |
+| [sector-condition-derivation](act-core/src/sector-condition-derivation.md) | Derivation | Full Lyapunov derivations (A.1, A.2). |
+| [recursive-update-derivation](act-core/src/recursive-update-derivation.md) | Derivation | Uniqueness derivation + 7 counterexample attacks. |
+| [multi-timescale-stability](act-core/src/multi-timescale-stability.md) | Sketch | N-timescale singular perturbation framework. |
+| [operationalization](act-core/src/operationalization.md) | Detail | Estimation procedures for ACT quantities. |
+| [worked-example-kalman](act-core/src/worked-example-kalman.md) | Worked example | End-to-end exact mapping. |
+| [worked-example-bandit](act-core/src/worked-example-bandit.md) | Worked example | End-to-end approximate mapping; persistence failure diagnostic. |
+| [simulation-results](act-core/src/simulation-results.md) | Detail | 6 variants validating/refining Section I predictions. Track-b reference. |
+| [graph-structure-uniqueness](act-core/src/graph-structure-uniqueness.md) | Derivation | 4 postulates → DAG structure. Acyclicity proved; P3→Markov sketch. |
 
 ### Not Yet Written — 10 segments remaining
 
@@ -255,7 +255,7 @@ See FORMAT.md "Epistemic Triage" for the three-question diagnostic.
 
 - Edge semantics claim interventional but update from observational. During Section II promotion: consider scoping literal $P(j \mid do(i), M_t)$ semantics to intervention-rich domains (software), using weaker "agent-calibrated causal credence" for the general case. This is a natural scope narrowing, not a retreat.
 - Missing commitment/resource/temporal structure in the DAG
-- Directed separation violated by goal-conditioned agents (LLMs) — now framed correctly: $M_t$-side quantities remain well-defined regardless; directed separation gives the clean factorized update and sequential orient cascade. Without it, coupled analysis, not broken theory. Updated in #directed-separation, #agent-spectrum, ACT-FULL.md §II scope. Scalar objective scope restriction added to #objective-functional.
+- Directed separation violated by goal-conditioned agents (LLMs) — now framed correctly: $M_t$-side quantities remain well-defined regardless; directed separation gives the clean factorized update and sequential orient cascade. Without it, coupled analysis, not broken theory. Updated in #directed-separation, #agent-spectrum, act-core/OUTLINE.md §II scope. Scalar objective scope restriction added to #objective-functional.
 - **Section IV → Section I bridge is analogical, not formal.** Git-derived metrics (coherence, coupling, $Q$) are claimed to operationalize Lyapunov quantities ($\alpha$, $R$, $\rho$) but no mathematical proof connects them. The chain git data → $Q$ → comprehension time → developer tempo → $\alpha$ has empirical hypothesis steps. This matters because the operationalization story is ACT's main defense against the "unmeasurable quantities" critique. Either formalize the bridge or be explicit that it's an empirical research program, not a derivation.
 
 
@@ -277,7 +277,7 @@ Items 1–10 are addressed in v3 spike. Porting to src/ segments is the remainin
 
 ## Ordering Questions
 
-*The current linearization in ACT-FULL.md may need revision:*
+*The current linearization in act-core/OUTLINE.md may need revision:*
 
 - Should #temporal-optimality move from Section I to Section II? It's about specific objectives — arguably an actuated-agent concept, not a general adaptive-systems concept. Counter-argument: it applies to Section I agents too (a Kalman filter that converges faster is better).
 
@@ -296,7 +296,7 @@ Items 1–10 are addressed in v3 spike. Porting to src/ segments is the remainin
 
 The bottleneck is no longer idea generation — it is promotion, canonicalization, and scope-tightening:
 
-1. ~~**Section II backbone** — DONE.~~ All 20 segments promoted to src/ and marked draft in ACT-FULL.md.
+1. ~~**Section II backbone** — DONE.~~ All 20 segments promoted to src/ and marked draft in act-core/OUTLINE.md.
 
 2. ~~**Simulation results → ACT-native claims/appendices** — DONE.~~ adversarial-exponent-regimes, observation-gates-advantage, and per-dimension-persistence promoted to src/ as first-class segments.
 
@@ -311,7 +311,7 @@ The bottleneck is no longer idea generation — it is promotion, canonicalizatio
 7. **Remaining appendices (3)** — `#linear-ode-approximation`, `#intent-dag-development`, `#prior-art-positioning`. Lower urgency.
 
 8. **Vocabulary normalization pass** — LEXICON.md (created 2026-03-12) establishes new vocabulary: cycle phases, adaptive/agentic distinction, agent class hierarchy, logogenic/logozoetic. The following need updating to reflect the new terminology:
-   - **ACT-FULL.md**: section titles still use old names (Adaptive Systems Under Uncertainty, Actuated Adaptive Systems, etc.)
+   - **act-core/OUTLINE.md**: section titles still use old names (Adaptive Systems Under Uncertainty, Actuated Adaptive Systems, etc.)
    - **WORKBENCH.md**: segment tables still use old section names
    - **CLAUDE.md**: still references old section names
    - **Segment files**: "loop" used where "cycle" may now be more precise; cycle phase vocabulary (Prolepsis, Aisthesis, etc.) not yet planted in early segments (scope-condition, adaptive-tempo, agent-environment)
@@ -319,7 +319,7 @@ The bottleneck is no longer idea generation — it is promotion, canonicalizatio
    Lower urgency — LEXICON.md is canonical; these are consistency updates, not content changes. Best done during the segment review pass.
 
 ### Completed non-promotion work (2026-03-12)
-- **Systematic overclaiming sweep.** 12 fixes across 10 segment files: "formalizes X" / "formal content of" / "This IS" / "proves" language shifted to "formal analog" / "consistent with" / "captures the pattern" with empirical caveats. README, CLAUDE.md, ACT-FULL.md also updated: "first-principles mathematical theory" → "mathematical framework." Operationalization section added to README.
+- **Systematic overclaiming sweep.** 12 fixes across 10 segment files: "formalizes X" / "formal content of" / "This IS" / "proves" language shifted to "formal analog" / "consistent with" / "captures the pattern" with empirical caveats. README, CLAUDE.md, act-core/OUTLINE.md also updated: "first-principles mathematical theory" → "mathematical framework." Operationalization section added to README.
 - **README positioning overhaul.** "What ACT Contributes — Honest Calibration" with 5-category breakdown. Prior Art section expanded with explicit credit to borrowed mathematics. Operationalization section addresses the bridge gap across all sections.
 
 
@@ -378,7 +378,7 @@ All TFT and TST content has been copied into `src/old-*` files. The priors/ subm
 | ~~old-tf-appendix-b-operationalization~~ | ~~Estimation procedures for all TFT quantities~~ | **Absorbed.** → #operationalization. Ready to archive. |
 | ~~old-tf-appendix-c-kalman-example~~ | ~~Complete Kalman worked example~~ | **Absorbed.** → #worked-example-kalman. Ready to archive. |
 | ~~old-tf-appendix-d-rl-example~~ | ~~Nonstationary bandit worked example~~ | **Absorbed.** → #worked-example-bandit. Ready to archive. |
-| ~~old-tf-appendix-e-tft-core~~ | ~~Condensed formal chain~~ | **Archived.** Superseded by ACT-FULL.md. |
+| ~~old-tf-appendix-e-tft-core~~ | ~~Condensed formal chain~~ | **Archived.** Superseded by act-core/OUTLINE.md. |
 | old-tf-appendix-f-multi-agent | Communication gain, trust, distributed tempo, topology, game theory | **Partially absorbed.** → #communication-gain (F.2 core), #adversarial-destabilization (uses coupling model). **Still needed from F:** distributed tempo → #team-persistence (F.3), topology analysis (F.4), game-theoretic integration (F.5), trust transitivity details, falsification predictions (F.7). Extract as Section III segments get built. |
 | ~~old-tf-appendix-g-agent-identity~~ | ~~Non-forkability, clone problem~~ | **Archived.** → #agent-identity. |
 | ~~old-tf-recursive-update-derivation~~ | ~~Full uniqueness proof~~ | **Absorbed.** → #recursive-update-derivation. Ready to archive. |
@@ -391,7 +391,7 @@ All TFT and TST content has been copied into `src/old-*` files. The priors/ subm
 
 | Old file | Content | ACT status |
 |----------|---------|------------|
-| ~~old-tst-readme~~ | ~~TST overview~~ | **Archived.** Superseded by Section IV of ACT-FULL.md. |
+| ~~old-tst-readme~~ | ~~TST overview~~ | **Archived.** Superseded by Section IV of act-core/OUTLINE.md. |
 | ~~old-tst-01-temporal-optimality~~ | ~~T-01~~ | **Archived.** → #temporal-optimality (generalized). |
 | ~~old-tst-02-specification-bound~~ | ~~D-01 + T-02 + C-02.1~~ | **Archived.** → #specification-bound, #feature-definition. |
 | ~~old-tst-03-evolving-scope~~ | ~~T-03~~ | **Archived.** → #software-scope. |

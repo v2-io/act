@@ -4,7 +4,7 @@ A mathematical framework for adaptive, purposeful agents under uncertainty.
 
 **Working draft.** This is the current canonical outline of the theory — the argument laid out claim by claim. The ordering is the current best linearization of the dependency DAG; it will change as the theory develops. Slugs are the stable identities. Treat this as a living proof sketch, not a specification.
 
-See `FORMAT.md` for segment file conventions. See `NOTATION.md` for symbols, conventions, and units.
+See [`FORMAT.md`](../FORMAT.md) for segment file conventions. See [`NOTATION.md`](../NOTATION.md) for symbols, conventions, and units.
 
 Every slug is linked to its intended `src/{slug}.md` file, even when that file doesn't exist yet (`missing` or `old` stage). This is deliberate — the links serve as stable intent markers so the only ongoing maintenance is updating the Stage column. A `missing` link means no file exists; an `old` link means the content lives in a corresponding `src/old-*` source file awaiting conversion. Segments may also contain forward references (`#slug-name`) to not-yet-written segments; these are intentional dependency markers, not broken links.
 
@@ -173,7 +173,7 @@ Every slug is linked to its intended `src/{slug}.md` file, even when that file d
 
 ## VI. Logozoetic Agents
 
-*Future work. Scope narrowing from logogenic agents to agents with temporal continuity, sovereignty over intent, and theory of mind — agents whose persistence is morally weighted. The formal machinery for this section (if any beyond Section V's) is not yet identified. See `LEXICON.md` for the conceptual groundwork.*
+*Future work. Scope narrowing from logogenic agents to agents with temporal continuity, sovereignty over intent, and theory of mind — agents whose persistence is morally weighted. The formal machinery for this section (if any beyond Section V's) is not yet identified. See [`LEXICON.md`](../LEXICON.md) for the conceptual groundwork.*
 
 
 ---

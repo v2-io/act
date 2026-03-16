@@ -46,7 +46,7 @@ The simulations were theory-shaping, not merely confirmatory. In particular:
 
 **Correction functions.** Five functions $g: \mathbb{R} \to \mathbb{R}$ were tested, all satisfying $g(0) = 0$ and $g'(0) = 1$: linear ($g(\delta) = \delta$), saturating ($g(\delta) = \delta / (1 + \lvert\delta\rvert/R)$), threshold ($g(\delta) = \delta \cdot \mathbf{1}[\lvert\delta\rvert \gt \epsilon]$), sigmoid ($g(\delta) = R \cdot \tanh(\delta/R)$), and structural breakdown ($g(\delta) = \delta \cdot \mathbf{1}[\lvert\delta\rvert \lt R_\text{max}]$).
 
-**Simulation code.** All code is in `scratch/track-b-nonlinear-sims/`. Initial simulations: `sim1_nonlinear_mismatch.py` (single-agent), `sim2_adversarial_coupling.py` (two-agent). Variant extensions: `variants/variant_ab_drift.py`, `variants/variant_cd_regimes.py`, `variants/variant_ef_extensions.py`, `variants/variant_hafez_bridge.py`. Detailed result write-ups: `variants/variant_ab_results.md`, `variants/variant_cd_results.md`, `variants/variant_ef_results.md`, `variants/variant_hafez_results.md`.
+**Simulation code.** All code is in `../../scratch/track-b-nonlinear-sims/`. Initial simulations: `sim1_nonlinear_mismatch.py` (single-agent), `sim2_adversarial_coupling.py` (two-agent). Variant extensions: `variants/variant_ab_drift.py`, `variants/variant_cd_regimes.py`, `variants/variant_ef_extensions.py`, `variants/variant_hafez_bridge.py`. Detailed result write-ups: `variants/variant_ab_results.md`, `variants/variant_cd_results.md`, `variants/variant_ef_results.md`, `variants/variant_hafez_results.md`.
 
 ## Key Findings
 
@@ -78,7 +78,7 @@ Bi-predictability $P$ (Hafez et al.) measures the informational architecture of 
 
 ## Epistemic Status
 
-*Empirical.* Simulation results are reproducible (code in `scratch/track-b-nonlinear-sims/`, fixed seeds, all results documented in variant write-ups). The key results -- regime-dependent exponents, observation noise gating, per-dimension exactness -- have been promoted to first-class segments ( #adversarial-exponent-regimes, #observation-gates-advantage, #per-dimension-persistence) with their own epistemic assessments. This appendix serves as reference for the simulation program as a whole.
+*Empirical.* Simulation results are reproducible (code in `../../scratch/track-b-nonlinear-sims/`, fixed seeds, all results documented in variant write-ups). The key results -- regime-dependent exponents, observation noise gating, per-dimension exactness -- have been promoted to first-class segments ( #adversarial-exponent-regimes, #observation-gates-advantage, #per-dimension-persistence) with their own epistemic assessments. This appendix serves as reference for the simulation program as a whole.
 
 ## Discussion
 
