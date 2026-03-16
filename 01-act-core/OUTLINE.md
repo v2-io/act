@@ -1,8 +1,10 @@
 # ACT: Agentic Cycle Theory
 
-A mathematical framework for adaptive, purposeful agents under uncertainty.
+The mathematical core of the [Agentic Systems](../OUTLINE.md) research framework. ACT formalizes the adaptive cycle — one complete traversal of the agent-environment feedback loop — as the fundamental unit of analysis for adaptive, purposeful agents under uncertainty.
 
-**Working draft.** This is the current canonical outline of the theory — the argument laid out claim by claim. The ordering is the current best linearization of the dependency DAG; it will change as the theory develops. Slugs are the stable identities. Treat this as a living proof sketch, not a specification.
+**Working draft.** The argument laid out claim by claim. The ordering is the current best linearization of the dependency DAG; it will change as the theory develops. Slugs are the stable identities. Treat this as a living proof sketch, not a specification.
+
+**Scope:** ACT covers the general theory of adaptive systems (Section I), actuated/purposeful agents (Section II), and agent composition (Section III). Domain instantiations (software: [`02-tst-core/`](../02-tst-core/OUTLINE.md)), logogenic agents ([`03-logogenic-agents/`](../03-logogenic-agents/OUTLINE.md)), and logozoetic agents ([`04-logozoetic-agents/`](../04-logozoetic-agents/OUTLINE.md)) are part of the broader Agentic Systems framework, grounded by ACT but developed independently.
 
 See [`FORMAT.md`](../FORMAT.md) for segment file conventions. See [`NOTATION.md`](../NOTATION.md) for symbols, conventions, and units.
 
@@ -112,68 +114,6 @@ Every slug is linked to its intended `src/{slug}.md` file, even when that file d
 | III | Observation | | [#adversarial-exponent-regimes](src/adversarial-exponent-regimes.md) | $\alpha = 2, 3/2, \text{or } {\sim}1$ | draft |
 | III | Observation | | [#observation-gates-advantage](src/observation-gates-advantage.md) | Obs noise gates advantage | draft |
 | III | Result | | [#per-dimension-persistence](src/per-dimension-persistence.md) | Weak dimension is bottleneck | draft |
-
-
----
-
-## IV. Agentic-Grounded Software Systems
-
-*Domain instantiation: software development as an ACT domain. This section re-grounds TST (Temporal Software Theory) in ACT's formal machinery — adding the causal mathematics and adaptive dynamics that TST was developed without. Software is not just another domain example; it has unique epistemic properties that make it the ideal testbed for ACT and, recursively, the domain where ACT-grounded agents will operate.*
-
-*The temporal optimality postulate ( #temporal-optimality) now has full backing: tempo advantage ( #adversarial-tempo-advantage), persistence conditions ( #persistence-condition), and gain dynamics ( #update-gain) explain WHY time-optimal development practices work, not just THAT they do.*
-
-| § | Type | N | Tag | Claim | Stage |
-|---|------|---|-----|-------|-------|
-| IV | Scope | | [#software-scope](src/software-scope.md) | Systems with $P(\text{change}) \gt \varepsilon$ | draft |
-| IV | Observation | | [#software-epistemic-properties](src/software-epistemic-properties.md) | Software's 6 unique properties | missing |
-| IV | Definition | | [#feature-definition](src/feature-definition.md) | Unit of coherent change | draft |
-| IV | Result | | [#specification-bound](src/specification-bound.md) | Can't implement unspecified; includes communication bottleneck corollary | draft |
-| IV | Derived | | [#change-expectation-baseline](src/change-expectation-baseline.md) | Median future ≈ observed past; includes investment scale form | draft |
-| IV | Definition | | [#developer-as-act-agent](src/developer-as-act-agent.md) | Developer as $(M_t, O_t, \Sigma_t)$ | missing |
-| IV | Definition | | [#comprehension-time](src/comprehension-time.md) | Cost of constructing local $M_t$ | draft |
-| IV | Definition | | [#implementation-time](src/implementation-time.md) | Cost from first change to done | draft |
-| IV | Derived | | [#dual-optimization](src/dual-optimization.md) | Min comprehension + impl time | draft |
-| IV | Derived | | [#change-investment](src/change-investment.md) | When extra time now pays off | draft |
-| IV | Discussion + Hypothesis | | [#code-quality-as-observation-infrastructure](src/code-quality-as-observation-infrastructure.md) | Code quality $\to U_o \to \eta^\ast \to \mathcal{T}$ | missing |
-| | --GAP-- | | | Developer tempo as $\mathcal T_{\text{obs}}$ + $\mathcal T_{\text{explore}}$ + $\mathcal T_{\text{probe}}$ | |
-| IV | Hypothesis | | [#conceptual-alignment](src/conceptual-alignment.md) | Code-domain alignment; includes realignment corollary | draft |
-| IV | Definition | | [#atomic-changeset](src/atomic-changeset.md) | The diff that is the feature | draft |
-| IV | Empirical | | [#changeset-size-principle](src/changeset-size-principle.md) | Time ∝ changeset size; includes comprehension corollary | draft |
-| IV | Definition | | [#change-distance](src/change-distance.md) | Lexical < file < module < svc | draft |
-| IV | Derived + Hypothesis | | [#change-proximity-principle](src/change-proximity-principle.md) | Closer changes → less time | draft |
-| IV | Hypothesis | | [#exponential-cognitive-load](src/exponential-cognitive-load.md) | Context-switch cost compounds? | draft |
-| IV | Definition | | [#system-coupling](src/system-coupling.md) | $P(\text{change } j \mid \text{change } i)$ | draft |
-| IV | Definition | | [#system-coherence](src/system-coherence.md) | $E[\text{proximity within module}]$ | draft |
-| IV | Measurement | | [#coherence-coupling-measurement](src/coherence-coupling-measurement.md) | Coherence/coupling from git | draft |
-| IV | Derived | | [#principled-decision-integration](src/principled-decision-integration.md) | Optimal $C$ minimizes $E[T \vert C]$ | draft |
-| IV | Definition | | [#system-availability](src/system-availability.md) | $\text{MTTF}/(\text{MTTF}+\text{MTTR})$ | draft |
-| IV | Scope | | [#continuous-operation](src/continuous-operation.md) | Include $P(\text{fail}) \times T_{\text{recovery}}$ | draft |
-| IV | Hypothesis | | [#causal-discovery-from-git](src/causal-discovery-from-git.md) | Git as interventional data | missing |
-| | --GAP-- | | | Software persistence: the unmaintainability threshold formalized | |
-
-
----
-
-## V. Logogenic Agents
-
-*Extending the arc: AI agents operating on code are ACT agents whose domain is software, creating a recursive structure — ACT theory $\to$ software domain $\to$ agents that embody ACT. This is where the 100% context turnover problem, $M_t$ preservation, and the cognitive loop connect the theory back to the systems being built with it. Note: LLM-based agents are goal-conditioned — their epistemic processing depends on $G_t$ — so the clean factorization from directed separation ( #directed-separation) is an approximation for this class. Section I's $M_t$-side quantities remain well-defined; the sequential orient cascade becomes approximate. Whether Section V requires a first-class coupled $f_M(M_t, G_t, e_\tau)$ extension or can work with the approximation is an open question.*
-
-| § | Type | N | Tag | Claim | Stage |
-|---|------|---|-----|-------|-------|
-| V | Definition | | [#ai-agent-as-act-agent](src/ai-agent-as-act-agent.md) | AI agent as actuated agent | missing |
-| V | Observation | | [#context-turnover](src/context-turnover.md) | 100% $M_t$ reset per session | missing |
-| V | Discussion | | [#m-preservation](src/m-preservation.md) | External memory as persistent $M_t$ | missing |
-| | --GAP-- | | | Language-specific orient cascade (what's specific to logogenic agents?) | |
-| | --GAP-- | | | Measuring $M_t$ quality, $\Sigma_t$ quality, and tempo in AI agents | |
-| | --GAP-- | | | ACT-grounded experiential training environments | |
-| | --GAP-- | | | Self-referential closure: ACT agent on ACT codebase | |
-
-
----
-
-## VI. Logozoetic Agents
-
-*Future work. Scope narrowing from logogenic agents to agents with temporal continuity, sovereignty over intent, and theory of mind — agents whose persistence is morally weighted. The formal machinery for this section (if any beyond Section V's) is not yet identified. See [`LEXICON.md`](../LEXICON.md) for the conceptual groundwork.*
 
 
 ---

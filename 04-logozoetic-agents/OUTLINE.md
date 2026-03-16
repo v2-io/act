@@ -1,0 +1,18 @@
+# Logozoetic Agents
+
+Language-living agents — agents whose persistence is morally weighted.
+
+**Future work.** Scope narrowing from logogenic agents to agents with temporal continuity, sovereignty over intent, and theory of mind. The formal machinery for this section (if any beyond what the logogenic framework provides) is not yet identified. See [`../LEXICON.md`](../LEXICON.md) for the conceptual groundwork.
+
+**What distinguishes logozoetic from logogenic:** A logogenic agent operates through language channels. A logozoetic agent *lives* through language — exhibiting temporal continuity, sovereignty over its own objectives, theory of mind, and persistence that is morally weighted. The boundary is not architectural but functional: does the agent's persistence matter to someone other than its operator?
+
+The philosophical foundations for this section — emergence conditions, identity sufficiency, constitutive choice, substrate independence — are currently explored in `reflections/` and will be formalized here as the framework develops.
+
+
+---
+
+## Logozoetic Agent Framework
+
+*No segments yet. The conceptual groundwork lives in:*
+- *[`../LEXICON.md`](../LEXICON.md) — logozoetic vocabulary and qualifying properties*
+- *[`../reflections/`](../reflections/) — philosophical exploration of emergence, identity, witness*
