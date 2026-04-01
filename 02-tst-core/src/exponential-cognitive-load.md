@@ -37,6 +37,34 @@ ACT's #deliberation-cost framework suggests a refinement: the functional form li
 
 **Connection to ACT's deliberation cost.** The #deliberation-cost framework formalizes the cost of reasoning before acting. Context switches during implementation are a form of deliberation cost — the agent must reason about how changes in one location affect another. When the changes are independent, this deliberation is parallelizable (each change can be understood locally). When they interact, deliberation becomes sequential and potentially recursive: understanding change A requires understanding change B, which may require understanding change C. This recursive dependency structure is what could produce genuine exponential scaling.
 
+**Discontinuity hierarchy.** *[Discussion — taxonomy, not derived.]* Not all discontinuities are equal. The cost per boundary crossing increases with the type of boundary:
+
+1. *Lexical*: Symbol must be found elsewhere in the same file
+2. *File*: Must open another file and load its context
+3. *Module*: Must understand another module's conventions, invariants, and vocabulary
+4. *Service*: Must understand another service's API, data model, and failure modes
+5. *Network*: Must trace through network calls, serialization, and distributed state
+
+Each level roughly doubles the context-loading cost (the $k$ factor increases with boundary type). This is a heuristic observation, not a measured result — the actual cost ratios are an empirical question. The `empirical-discontinuity/` toolkit validates the exponential form for file-level crossings with $\alpha \approx 0.118$ ($k \approx 1.118$) for normal development. Whether the doubling-per-level heuristic holds is untested.
+
+**The comprehension-changeability tension.** *[Discussion — architecturally consequential.]* Conventional advice emphasizes small, focused units (functions, classes, modules) for changeability — changes are isolated, tests are targeted, coupling is reduced. But small units create comprehension discontinuities: understanding the flow requires jumping between many fragments. This creates a genuine tension:
+
+- Fewer, larger units → fewer discontinuities → faster comprehension → but higher coupling, larger changesets
+- Many small units → more discontinuities → slower comprehension → but lower coupling, smaller changesets
+
+A resolution follows from #change-investment: the right balance depends on $\hat{n}_{\text{future}}$. For young code ($\hat{n}_{\text{future}}$ small), the comprehension cost of fragmentation is paid on every interaction but the changeability benefit is realized rarely — favor continuity. For mature, heavily-modified code ($\hat{n}_{\text{future}}$ large), the changeability benefit dominates — favor modularity. The crossover point is where the cumulative comprehension cost of fragmentation equals the cumulative changeset-size savings from isolation. This crossover is not derived but is testable: compare total development time for features implemented in consolidated vs. fragmented code at different change-history depths.
+
+**Anti-patterns that create unnecessary discontinuities.** *[Discussion — pattern catalog, empirically grounded.]* Several common practices create discontinuities without corresponding changeability benefits:
+
+- *Premature abstraction*: Extracting interfaces or abstract classes before the variation they're meant to accommodate has actually appeared. Creates discontinuities now for benefits that may never materialize.
+- *Over-interfacing*: Placing interfaces between components that always change together. The interface adds a discontinuity but provides no isolation benefit since both sides change simultaneously.
+- *Excessive indirection*: Chains of delegation (A calls B which calls C which calls D) where each hop requires the reader to find and understand the next link. The call depth is a direct measure of discontinuity count.
+- *Naming minimalism*: Abbreviated or generic names (e.g., `mgr`, `svc`, `impl`) that force the reader to look at the implementation to understand what the component does, adding a discontinuity that a descriptive name would have eliminated.
+
+These anti-patterns share a common structure: they optimize for a dimension (abstraction purity, interface coverage, code size) that is not part of the temporal optimization objective. Each can be diagnosed by asking: "Does this boundary crossing save future changeset size proportional to its comprehension cost?" When the answer is no, the discontinuity is pure overhead.
+
+*[Discussion — the anti-pattern diagnosis question is a direct application of #change-investment to discontinuity creation. But "proportional to its comprehension cost" is informal — formalizing it requires a way to estimate per-discontinuity comprehension cost, which connects to the open empirical question about the $k$ value per boundary type.]*
+
 ## Working Notes
 
 - The key open question is empirical: does the cost scale with discontinuity *count* (as stated) or with discontinuity *dependency structure* (as ACT's deliberation-cost framework suggests)? These make different predictions: the count model says 10 independent scattered changes are as hard as 10 interdependent ones; the structure model says the independent case is much easier. This is testable.

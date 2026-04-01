@@ -40,6 +40,22 @@ The comprehension corollary is a *hypothesis* — weaker than the implementation
 
 **Connection to ACT.** The changeset is the observable trace of the agent's intervention in the environment. Changeset size is a proxy for the *scope* of the intervention. Larger interventions require more of the agent's time (both to plan and to execute), which is the implementation-time proportionality. They also require more of the *next* agent's time to comprehend (the corollary), which matters under the turnover multiplier in #dual-optimization.
 
+**Architectural patterns that reduce future changeset size.** *[Discussion — the principle's practical force lies in predicting changeset size from architecture.]*
+
+Patterns that tend to reduce changeset size for typical features:
+- *Centralized configuration*: changing a behavior requires modifying one location instead of many scattered constants
+- *Well-defined interfaces*: changes behind an interface don't propagate to callers
+- *Domain-aligned module boundaries* ( #conceptual-alignment): features map to single modules rather than scattering across many
+
+Patterns that tend to increase changeset size:
+- *Scattered magic numbers/strings*: every behavior change requires a multi-site hunt
+- *Leaky abstractions*: callers depend on implementation details, so internal changes cascade outward
+- *Cross-cutting concerns without infrastructure*: logging, auth, or error-handling code duplicated across modules rather than centralized
+
+*[Discussion — these patterns are well-established in software engineering practice. The contribution of the changeset-size principle is not identifying them but explaining *why* they matter: they determine the proportionality constant between features and implementation time. Whether a pattern is "good" reduces to whether it shrinks future changesets for probable features.]*
+
+**Historical validation via git.** *[Discussion — empirical approach, partially operationalized.]* The proportionality is testable from git history: for a given codebase, measure changeset size (lines, files, or modules) and correlate with implementation time (commit-to-merge duration, or gap between first and last commit in a feature branch). The `empirical-discontinuity/` toolkit demonstrates this approach for discontinuity counting; extending it to changeset size would test the proportionality directly. Prior work on change-impact analysis (MacCormack et al. 2006, "Propagation Cost") provides related empirical methodology.
+
 ## Working Notes
 
 - The proportionality hides important structure. A 100-line change in one file and 10 one-line changes across 10 files have similar $\lvert\text{changeset}\rvert$ but very different costs. The proximity principle ( #change-proximity-principle) captures this difference. The size principle is the first-order term; proximity is the correction.

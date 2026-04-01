@@ -44,6 +44,18 @@ The quantitative form inherits the assumptions of #change-expectation-baseline: 
 
 ## Discussion
 
+**The hidden cost of incomprehension.** *[Discussion — qualitative observation.]* Comprehension time is often invisible in development metrics but dominates actual development time. It consists of activities that produce no visible output:
+
+- Reading existing code to understand where and how to make changes
+- Understanding *why* something was done a certain way (design intent recovery)
+- Discovering hidden dependencies and side effects
+- Constructing and validating a mental model ($M_t$) of the relevant system state
+- Re-deriving context that was obvious to the original author
+
+These activities are hard to measure because they don't produce artifacts. A developer "reading code for 45 minutes" looks idle but is constructing $M_t$. This invisibility creates a systematic bias: organizations measure and optimize implementation time (visible output) while neglecting comprehension time (invisible input). The dual-optimization claim says comprehension time deserves at least equal weight — and under high turnover, more.
+
+*[Discussion — empirical approach: comprehension time could be estimated from the gap between task assignment and first commit (as defined in #comprehension-time). Comparing this gap across codebases with different comprehensibility characteristics would quantify the hidden cost. The `empirical-discontinuity/` toolkit measures one component of this — discontinuity-driven comprehension overhead.]*
+
 **When comprehension and implementation conflict.** Sometimes they pull in opposite directions:
 - Abstraction can speed implementation but slow comprehension (indirection cost)
 - Explicit code can speed comprehension but slow implementation (more code to write)

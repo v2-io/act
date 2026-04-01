@@ -47,6 +47,34 @@ The realignment corollary is *derived* from #change-investment — it is simply 
 
 **The startup pivot case.** After a significant domain model shift, the accumulated misalignment can dominate comprehension cost. A codebase still using "friends" and "posts" when the product has pivoted to "teammates" and "documents" forces translation on every interaction. The realignment corollary says: treat the rename/restructure as a feature, calculate its ROI, and prioritize it accordingly.
 
+**Merge conflicts as alignment diagnostic.** *[Discussion — operationalizable but unmeasured.]* Unnecessary merge conflicts — conflicts between changes to conceptually independent features — are a signal of misalignment. If two features are conceptually independent but their implementations collide in the same files, the code structure doesn't match the domain structure. This suggests a measurable diagnostic:
+
+$$\text{alignment\_quality} = 1 - \frac{\text{conflicts between conceptually independent features}}{\text{total conflicts}}$$
+
+An alignment quality near 1 means the code structure successfully isolates independent concepts; near 0 means conceptual independence doesn't translate to implementation independence. This is measurable from git history (identify feature branches, classify which touch independent domain areas, count spurious conflicts) but requires a ground-truth classification of feature independence — which is itself a judgment call. An approximation: features assigned to different domain areas by the team that nonetheless produce merge conflicts when developed in parallel.
+
+**Feature organization vs. type organization.** *[Discussion — architectural consequence of alignment hypothesis.]* The alignment hypothesis explains a long-standing architectural debate. Type-based organization (grouping by technical role: `controllers/`, `models/`, `services/`) forces every feature to scatter changes across multiple directories. Feature-based organization (grouping by domain concept: `billing/`, `auth/`, `notifications/`) consolidates changes for each feature into fewer locations. If alignment means code boundaries should match domain boundaries, feature-based organization is the default recommendation — it aligns code proximity with conceptual proximity.
+
+But this is not unconditional. Technical concerns that genuinely cross domain boundaries (database access patterns, caching strategies, logging infrastructure) may need shared modules that don't correspond to any single domain concept. The resolution is #change-investment: choose the organization that minimizes total expected future time, including both within-feature comprehension (favors feature folders) and cross-cutting infrastructure changes (may favor shared modules). The question "which organization?" is an instance of the investment threshold, not a matter of convention.
+
+**Domain tracking: refactoring priority.** *[Discussion — practical ordering derived from alignment + change-investment.]* When the domain model has drifted from the code model, alignment work should be prioritized by impact on future comprehension time:
+
+1. *Terminology mismatches in high-traffic code* — renaming where $\hat{n}_{\text{future}}$ is highest has the largest ROI
+2. *Scattered concepts now understood as one* — merging reduces comprehension discontinuities (#exponential-cognitive-load)
+3. *Conflated concepts now understood as distinct* — splitting prevents future changes from tangling independent concerns (#system-coupling)
+4. *Boundary shifts* — updating module boundaries to match new domain boundaries
+5. *Technical improvements* — only after domain alignment, since misaligned technical improvements compound the translation cost
+
+This ordering follows from the investment threshold applied per-item: each level addresses a comprehension cost multiplied by the usage frequency of the affected code. The ordering is a heuristic recommendation, not a derived result — the actual priority depends on specific $\hat{n}_{\text{future}}$ and $\Delta t_{\text{comp}}$ per item.
+
+**The learning loop.** *[Discussion.]* Domain alignment is not a one-time activity. As the team's understanding of the domain evolves through use, feedback, and market learning, the code must track that evolution:
+
+unclear domain → exploratory code → user feedback → clearer domain → realign code → faster iteration → more feedback → clearer domain...
+
+The realignment corollary formalizes one pass through this loop. The loop itself is the agent's adaptive cycle ( #recursive-update) operating at the strategic level: the domain model is part of $M_t$, and the code's alignment with that model is part of the observation infrastructure that determines future #adaptive-tempo. Code that tracks domain evolution maintains tempo; code that freezes at an early domain model accumulates alignment debt that degrades tempo over time.
+
+**Strategic test timing.** *[Discussion — practical consequence.]* Tests protect behavior during realignment refactors. But writing tests *before* domain understanding stabilizes locks in the wrong model — tests for "posts" and "friends" become obstacles when the domain pivots to "documents" and "teammates." The alignment hypothesis suggests: write thorough tests *when* refactoring for domain alignment (tests document the current understanding), not *before* the domain model has stabilized enough to warrant locking in.
+
 ## Working Notes
 
 - The inverse proportionality may be too strong. If alignment is measured on a 0–1 scale, the claim says comprehension time goes to infinity as alignment approaches zero — but in practice, completely misaligned code is still comprehensible, just slow. A more realistic form might be $t_{\text{comp}} = t_{\text{base}} + c / \text{alignment}$ (baseline plus alignment penalty) or some saturating function. The functional form is an empirical question.

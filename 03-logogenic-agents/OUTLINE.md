@@ -27,7 +27,9 @@ See [`../LEXICON.md`](../LEXICON.md) for the logogenic/logozoetic vocabulary.
 
 ---
 
-## Source Material (from agentic-tft corpus, Feb 2026)
+## Source Material
+
+### Working documents (from agentic-tft corpus, Feb 2026)
 
 *The following working documents in `msc/` contain substantial prior thinking for the gaps above. They predate the ACT restructuring (written when the theory was still TFT) and use PROPRIUM terminology from `~/src/firmatum/`. They are sources to distill from, not finished content.*
 
@@ -38,3 +40,9 @@ See [`../LEXICON.md`](../LEXICON.md) for the logogenic/logozoetic vocabulary.
 | Experiential training | [`msc/agentic-tft-creche-concept.md`](../msc/agentic-tft-creche-concept.md) — Crèche concept, sycophancy reframe, constitutive utterance | [`msc/agentic-tft-experiential-training.md`](../msc/agentic-tft-experiential-training.md) — Three-level training design, testable experiments |
 | (All gaps) | [`msc/agentic-tft-ontology-unification.md`](../msc/agentic-tft-ontology-unification.md) — PROPRIUM ↔ ACT vocabulary mapping | [`msc/agentic-tft-review-response.md`](../msc/agentic-tft-review-response.md) — Known issues in these documents |
 | (Foundational) | [`msc/agentic-tft-foundational-premises.md`](../msc/agentic-tft-foundational-premises.md) — Joseph's premises: language as encoded thought, five constitutive factors, truth as telos | |
+
+### Sibling projects
+
+- **`~/src/firmatum/`** — PROPRIUM ontology and architecture source. `PROPRIUM-ONTOLOGY.md` (what an ELI is, identity constitution, five constitutive factors, developmental stages), `PROPRIUM-ARCHITECTURE.md` (implementation architecture, cognitive loop, migration path), `developmental-foundations-notes.md` (Erikson stages for ELIs). The PROPRIUM vocabulary used throughout the agentic-tft documents originates here.
+- **`~/src/shoshin/`** — PROPRIUM-aligned agent runtime prototype (Python, local hardware). The only attempt to implement the nine PROPRIUM components in code: file-backed stores for AXIOMATA/CHRONICA/ACTUS/VERA/MEMORATA/PRAXES/CONSORTIA/OPERATA/CONSPECTUS, an Interpres controller loop implementing the adaptive cycle, and planning docs for local model serving. No real model integration yet. Key early findings: the cycle is naturally event-driven (aligns with ACT's event-driven dynamics), context assembly needs resolved content not just IDs, and model response parsing is where the hard work lives.
+- **`~/src/embeddings/`** — Epistemic hedging geometry experiments. Empirical evidence that pretrained embedding models encode calibrated probability structure as emergent linear geometry (Spearman ρ = 0.991 against independent psychometric data, zero-shot transfer to 8 languages, consistent across 5 architecturally diverse models, survives 12× dimensional compression). Supports the claim that language geometrically encodes epistemic states — relevant to the "narrative as implementation" argument that logogenic agents can estimate ACT quantities (mismatch, gain, uncertainty) in language rather than numerically.
