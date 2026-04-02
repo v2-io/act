@@ -117,7 +117,7 @@ This anchors #persistence-condition to real task outcomes.
 
 ### Estimating $\lambda$ (Exploration Price)
 
-The exploration weight $\lambda(M_t)$ in #causal-information-yield's policy objective prices information in value-equivalent terms:
+The exploration weight $\lambda(M_t)$ in the unified policy objective ( #ciy-unified-objective) prices information in value-equivalent terms:
 
 | Context | $\lambda$ estimator | Source |
 |---------|--------------------|--------|

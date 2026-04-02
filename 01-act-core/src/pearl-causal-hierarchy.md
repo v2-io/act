@@ -47,7 +47,7 @@ This is *definitional* — it names three modes of epistemic access that are str
 
 **The causal hierarchy theorem.** Bareinboim et al. (2022) prove that the three levels form a strict hierarchy: Level 2 knowledge cannot in general be computed from Level 1 data alone, and Level 3 cannot be computed from Level 2 alone. This is load-bearing for ACT's Section II: evaluating $Q_O(M_t, a; \cdot)$ is a Level 2 query, so agents that need to *learn* action consequences during operation require causal structure beyond predictive models ( #causal-hierarchy-requirement).
 
-**Software as a uniquely rich domain for this hierarchy.** In most domains, Level 3 counterfactuals require model-based simulation with uncertain fidelity. In software development, `git checkout` provides Level 3 access with ground-truth verification — the agent can literally execute the counterfactual. This is one of software's unique epistemic properties ( #software-epistemic-properties) and makes it an ideal testbed for causal reasoning within ACT.
+**Software as a uniquely rich domain for this hierarchy.** In most domains, Level 3 counterfactuals require model-based simulation with uncertain fidelity. In software development, `git checkout` provides Level 3 access with ground-truth verification — the agent can literally execute the counterfactual. This is one of software's unique epistemic properties ( #software-epistemic-properties — cross-component reference, see `02-tst-core/`) and makes it an ideal testbed for causal reasoning within ACT.
 
 **Domain instantiations of the three levels:**
 

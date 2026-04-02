@@ -1,7 +1,7 @@
 ---
 slug: adversarial-tempo-advantage
 type: result
-status: exact
+status: conditional
 depends:
   - mismatch-dynamics
   - adversarial-destabilization

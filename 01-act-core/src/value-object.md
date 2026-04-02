@@ -39,7 +39,7 @@ The one-step improvement is the natural default because it mirrors ACT's general
 
 ## Discussion
 
-**Extending the policy objective.** The existing policy objective ( #causal-information-yield) uses $\mathbb{E}[\text{value}(a) \mid M_t]$ without formal content for "value." With the value object, this becomes:
+**Extending the policy objective.** The existing policy objective ( #ciy-unified-objective) uses $\mathbb{E}[\text{value}(a) \mid M_t]$ without formal content for "value." With the value object, this becomes:
 
 *[Discussion (policy-objective-extension)]*
 
@@ -50,7 +50,7 @@ Note that $\lambda$ now depends on $(M_t, O_t, N_h)$, not just $M_t$. The value 
 - An agent with a safety constraint should explore differently from a utility maximizer
 - Two agents with identical $M_t$ but different objectives should price exploration differently
 
-This extension is structurally motivated but the specific form of $\lambda(M_t, O_t, N_h)$ is not derived within ACT (same status as #causal-information-yield's treatment of $\lambda$).
+This extension is structurally motivated but the specific form of $\lambda(M_t, O_t, N_h)$ is not derived within ACT (same status as #ciy-unified-objective's treatment of $\lambda$).
 
 **Connection to #model-sufficiency.** $V_O$ is conditioned on $M_t$, not on the true environment state $\Omega_t$. When $S(M_t) \lt 1$, the agent's value estimates are biased — it may over- or underestimate trajectory values because its model is incomplete. The satisfaction gap ( #satisfaction-gap) and control regret ( #control-regret) are defined in terms of $V_O(M_t, \cdot)$, not $V_O(\Omega_t, \cdot)$, which means they measure the agent's *believed* situation, not the true one. Improving $M_t$ (reducing $\delta_{\text{epistemic}}$) brings the agent's value estimates closer to reality.
 

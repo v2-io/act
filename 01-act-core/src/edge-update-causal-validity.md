@@ -34,7 +34,7 @@ C1 establishes that the data is interventional. C2 and C3 determine whether the 
 
 ### Three regimes
 
-These conditions partition domains into admissibility regimes, paralleling #causal-information-yield:
+These conditions partition domains into admissibility regimes, paralleling #ciy-observational-proxy:
 
 | Regime | C1 | C2 | C3 | Causal validity of leaf-edge updates |
 |--------|----|----|----|----|
@@ -79,7 +79,7 @@ Both drive $\eta_{\text{edge}} \to 0$ and produce the same effect: the edge is f
 
 The restriction to leaf-originating edges for strong identification: **derived** from #strategy-dag's node definitions. Only action-leaf nodes correspond to operations the agent directly performs. This is a structural property of the DAG, not an empirical claim.
 
-The three-regime classification: **robust qualitative**. The regimes parallel the CIY admissibility regimes now in #causal-information-yield's Formal Expression (promoted from Discussion 2026-04-01). The underlying logic is Pearl's interventional/observational distinction applied to strategy-edge updates.
+The three-regime classification: **robust qualitative**. The regimes parallel the CIY admissibility regimes in #ciy-observational-proxy. The underlying logic is Pearl's interventional/observational distinction applied to strategy-edge updates.
 
 The identifiability coefficient $\iota_{ij}$: **hypothesis**. The concept is sound (discounting by attribution confidence is standard in causal inference), but the specific form — a scalar multiplier on the gain — is a first-order approximation.
 

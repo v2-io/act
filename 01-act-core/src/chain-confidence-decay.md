@@ -52,5 +52,5 @@ These are not prescriptions but consequences — an agent that ignores chain dec
 
 ## Working Notes
 
-- The independent-edge assumption (used in the quantitative table) is conservative for positively correlated steps (shared infrastructure → correlated failures make the actual confidence *lower* than independent calculation suggests). Correlation structure is unmodeled — acknowledged as a limitation.
+- The independent-edge assumption (used in the quantitative table) is optimistic for positively correlated failures (shared infrastructure → correlated failures make the actual confidence *lower* than independent calculation suggests). Correlation structure is unmodeled — acknowledged as a limitation.
 - The additive log-confidence form is the robust result; $p^n$ is the special case for independent uniform edges. This distinction matters: the qualitative consequence (decay with depth) is robust; the specific rate depends on the conditional structure.

@@ -40,7 +40,7 @@ The trajectory functional is the most general; the others are special cases.
 
 ## Discussion
 
-**Filling TF-08's gap.** The existing policy objective ( #causal-information-yield) contains $\mathbb{E}[\text{value}(a) \mid M_t]$ without specifying what "value" means. $O_t$ provides the formal content: value is $V_{O_t}$ applied to expected trajectories. The #value-object segment develops the full evaluation machinery ($V_O$, $Q_O$ with horizon and continuation policy).
+**Filling TF-08's gap.** The existing policy objective ( #ciy-unified-objective) contains $\mathbb{E}[\text{value}(a) \mid M_t]$ without specifying what "value" means. $O_t$ provides the formal content: value is $V_{O_t}$ applied to expected trajectories. The #value-object segment develops the full evaluation machinery ($V_O$, $Q_O$ with horizon and continuation policy).
 
 **$O_t$ evaluates; $\Sigma_t$ guides.** The objective says "is this trajectory satisfactory?" The strategy ( #strategy-dimension) says "which action sequence produces a satisfactory trajectory?" A chess player's objective (win) is simple; the strategy (how to win) is complex. These answer different questions and carry different kinds of information — the split is developed in #strategy-dimension.
 

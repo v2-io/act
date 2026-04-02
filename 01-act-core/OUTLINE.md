@@ -41,11 +41,13 @@ Every slug is linked to its intended `src/{slug}.md` file, even when that file d
 | I | Result | | [#mismatch-decomposition](src/mismatch-decomposition.md) | Model error + obs noise | draft |
 | I | Empirical | | [#update-gain](src/update-gain.md) | Optimal update weighting | draft |
 | I | Definition | | [#causal-information-yield](src/causal-information-yield.md) | Information from interventions | draft |
+| I | Scope | | [#ciy-observational-proxy](src/ciy-observational-proxy.md) | When CIY is estimable from observational data | draft |
+| I | Discussion | | [#ciy-unified-objective](src/ciy-unified-objective.md) | Joint exploitation-exploration objective | draft |
 | I | Definition | | [#adaptive-tempo](src/adaptive-tempo.md) | Rate of useful info acquisition | draft |
 | I | Hypothesis | | [#mismatch-dynamics](src/mismatch-dynamics.md) | Mismatch evolution ODE | draft |
 | I | Derived | | [#deliberation-cost](src/deliberation-cost.md) | Think vs act tradeoff | draft |
-| I | Result | | [#persistence-condition](src/persistence-condition.md) | Bounded mismatch condition | draft |
 | I | Result | | [#sector-condition-stability](src/sector-condition-stability.md) | Nonlinear persistence (Lyapunov) | draft |
+| I | Result | | [#persistence-condition](src/persistence-condition.md) | Bounded mismatch condition | draft |
 | I | Result | | [#structural-adaptation-necessity](src/structural-adaptation-necessity.md) | When parametric update fails | draft |
 | I | Derived | | [#temporal-nesting](src/temporal-nesting.md) | Timescale stratification | draft |
 | I | Discussion | | [#agent-identity](src/agent-identity.md) | Non-forkable causal trajectory | draft |

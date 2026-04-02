@@ -22,7 +22,7 @@ Four conditions jointly define ACT's domain:
 
 1. **Observations exist**: $\mathcal O \neq \emptyset$ — the agent has some perceptual channel to the environment ( #observation-function)
 2. **At least binary choice**: $\lvert\mathcal A\rvert \geq 2$ — the agent can choose between at least two actions ( #action-transition)
-3. **At least one action has causal effect**: there exist distinct actions $a, a'$ whose interventional outcome distributions differ — the agent's choices make a difference to what it can observe. This is the minimal condition for the adaptive loop to generate interventional data ( #loop-interventional-access)
+3. **At least one action has causal effect**: there exist distinct actions $a, a'$ whose interventional outcome distributions differ (where $do(\cdot)$ is Pearl's intervention operator; see #pearl-causal-hierarchy) — the agent's choices make a difference to what it can observe. This is the minimal condition for the adaptive loop to generate interventional data ( #loop-interventional-access)
 4. **Residual uncertainty persists**: $H(\Omega_t \mid \mathcal C_t) \gt 0$ — the environment is not fully determined by the interaction history
 
 ## Epistemic Status

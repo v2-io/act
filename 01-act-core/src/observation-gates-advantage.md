@@ -42,7 +42,7 @@ At $\sigma_{\text{obs}} = 1.0$ (10x the process noise), the fixed-gain adversari
 
 **Practical implication.** An agent facing an adversary with superior tempo should invest in degrading the adversary's observation quality rather than trying to match their speed. Conversely, an agent with superior tempo should protect its observation channels — the tempo advantage is only as good as the observation quality that supports it.
 
-**Connection to code quality.** In the software domain ( #code-quality-as-observation-infrastructure), code quality IS observation infrastructure. A well-structured codebase provides low-noise observations (clear tests, readable code, explicit interfaces). A poorly structured codebase adds observation noise to every development cycle, degrading the developer's effective tempo regardless of how fast they work.
+**Connection to code quality.** In the software domain ( #code-quality-as-observation-infrastructure — cross-component reference, see `02-tst-core/`), code quality IS observation infrastructure. A well-structured codebase provides low-noise observations (clear tests, readable code, explicit interfaces). A poorly structured codebase adds observation noise to every development cycle, degrading the developer's effective tempo regardless of how fast they work.
 
 ## Working Notes
 - The finding that fixed $\eta = 0.1$ is "remarkably robust" to observation noise (42% degradation at $\sigma_{\text{obs}} = 10 \times q_{\text{env}}$) suggests that conservative gains are a reasonable default for environments with unknown noise levels. The cost of being slightly below optimal is much less than the cost of being above optimal (overcorrection amplifies noise).

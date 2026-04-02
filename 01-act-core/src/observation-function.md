@@ -36,4 +36,4 @@ This is *definitional*. The observation function $h$ is a modeling device that c
 
 **Lossiness is the key property.** The observation function $h$ maps from $\Omega_t$ (high-dimensional, inaccessible) to $\mathcal{O}$ (what the agent actually receives). Information is destroyed in this mapping. This is what forces the agent to maintain a model ( #agent-model) rather than simply reading off the environment state.
 
-**Action-dependence.** The inclusion of $a_{t-1}$ allows the observation function to capture active perception: what the agent sees may depend on where it looked. This is relevant in software ( #software-epistemic-properties), where observation quality is partly under agent control.
+**Action-dependence.** The inclusion of $a_{t-1}$ allows the observation function to capture active perception: what the agent sees may depend on where it looked. This is relevant in software ( #software-epistemic-properties — cross-component reference, see `02-tst-core/`), where observation quality is partly under agent control.

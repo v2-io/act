@@ -39,18 +39,9 @@ In the linear case ($F(\mathcal{T}, \delta) = \mathcal{T} \cdot \delta$), $\alph
 
 ### Derivation
 
-From the sector-condition analysis ( #sector-condition-stability):
+From #sector-condition-stability (Prop A.1 in #sector-condition-derivation): under the sector condition and bounded disturbance, mismatch is ultimately bounded by $R^\ast = \rho/\alpha$, and the agent persists iff $R^\ast \lt R$, i.e., $\alpha \gt \rho/R$.
 
-1. The correction function $F(\mathcal{T}, \delta)$ satisfies the sector bound:
-   $\delta^T F \geq \alpha \Vert\delta\Vert^2$ for $\Vert\delta\Vert \leq R$.
-2. The Lyapunov function $V(\delta) = \frac{1}{2}\Vert\delta\Vert^2$ satisfies:
-   $\dot{V} \leq -\alpha\Vert\delta\Vert^2 + \rho\Vert\delta\Vert$
-3. This gives $\dot{V} \lt 0$ when $\Vert\delta\Vert \gt \rho/\alpha$.
-4. Ultimate bound: $\Vert\delta\Vert \leq R^\ast = \rho/\alpha$.
-5. The agent persists when $R^\ast \lt R$, i.e., $\alpha \gt \rho/R$.
-6. In the linear case, $\alpha = \mathcal{T}$ and the relevant bound is $\Vert\delta_{\text{critical}}\Vert$ rather than $R$ (which is infinite), giving $\mathcal{T} \gt \rho / \Vert\delta_{\text{critical}}\Vert$.
-
-The full proof is in Appendix A (Prop A.1). $\square$
+In the linear case, $\alpha = \mathcal{T}$ and the relevant bound is $\Vert\delta_{\text{critical}}\Vert$ rather than $R$ (which is infinite), giving $\mathcal{T} \gt \rho / \Vert\delta_{\text{critical}}\Vert$. $\square$
 
 ### Per-Dimension Extension
 
@@ -84,4 +75,4 @@ The persistence condition appears in multiple downstream contexts:
 
 - **Structural adaptation** ( #structural-adaptation-necessity): When model class fitness $\mathcal{F}(\mathcal{M}) \lt 1 - \varepsilon$, the effective $\alpha$ in the sector condition shrinks, eventually violating persistence. *This connection is developed in #structural-adaptation-necessity.*
 
-- **Software maintainability** ( #code-quality-as-observation-infrastructure): *[Discussion]* A codebase may become "unmaintainable" when the development team's adaptive tempo falls below the rate of complexity accumulation. The vicious cycle would then be the persistence condition being violated through the agent's own prior actions degrading future $\mathcal{T}$ via $U_o$. *This connection is structurally motivated but not yet formally derived within ACT. It requires formalizing "complexity accumulation rate" as an instance of $\rho$.*
+- **Software maintainability** ( #code-quality-as-observation-infrastructure — cross-component reference, see `02-tst-core/`): *[Discussion]* A codebase may become "unmaintainable" when the development team's adaptive tempo falls below the rate of complexity accumulation. The vicious cycle would then be the persistence condition being violated through the agent's own prior actions degrading future $\mathcal{T}$ via $U_o$. *This connection is structurally motivated but not yet formally derived within ACT. It requires formalizing "complexity accumulation rate" as an instance of $\rho$.*
