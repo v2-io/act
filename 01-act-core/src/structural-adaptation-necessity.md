@@ -1,7 +1,7 @@
 ---
 slug: structural-adaptation-necessity
 type: result
-status: exact
+status: conditional
 depends:
   - model-sufficiency
   - model-class-fitness
@@ -32,7 +32,7 @@ If the model class fitness $\mathcal{F}(\mathcal{M}) \lt 1 - \varepsilon$ for so
 
 ## Epistemic Status
 
-*Exact* — this is a pure information-theoretic result. If the model class cannot represent the environment's predictive structure, no parameter optimization within that class can compensate. The assumptions are: the agent has converged parametrically (reached $M^\ast$ or its vicinity), and the environment has predictable structure that exceeds $\mathcal{M}$'s capacity.
+*Conditional.* The step from "lost predictive information" (step 2) to "systematic one-step mismatch" (step 3) requires an alignment assumption: that the lost predictive information affects the one-step conditional mean, not just higher moments. #mismatch-decomposition explicitly flags this: insufficiency implies positive model error under the alignment assumption, or positive proper-scoring regret without it. As written, the result is conditional on this alignment assumption. Without it, the conclusion should be stated in terms of proper-scoring regret (the best model in $\mathcal{M}$ has irreducible regret relative to the optimal predictor) rather than one-step mismatch magnitude. The qualitative conclusion — parametric adaptation cannot compensate for model-class inadequacy — holds either way; the quantitative mechanism differs.
 
 ## Discussion
 

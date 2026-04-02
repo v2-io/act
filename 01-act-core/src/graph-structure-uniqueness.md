@@ -1,7 +1,7 @@
 ---
 slug: graph-structure-uniqueness
 type: derivation
-status: sketch
+status: conditional
 depends:
   - strategy-dag
   - chain-confidence-decay
@@ -64,29 +64,45 @@ Each component $X_i$ of the strategy has a set of direct causes $\text{Pa}(X_i)$
 
 Each edge carries uncertainty: $P(X_i \mid \text{Pa}(X_i))$. By P2 (Cox), this is a probability distribution. The joint distribution over all strategy components is some $P(X_1, \ldots, X_n)$.
 
-#### Step 3: P3 implies the Markov condition (key step — sketch)
+#### Step 3: P3 + P1 + causal sufficiency imply the Markov condition
 
-**Claim.** P3 (state-local revisability) implies the Markov condition.
+*[Derived (Conditional on causal sufficiency of $\Sigma_t$)]*
 
-**The Markov condition.** Each variable $X_i$ is conditionally independent of its non-descendants given its parents:
+**Claim.** P3 (state-local revisability) combined with P1 (temporal ordering) and causal sufficiency of the strategy representation implies the local Markov property.
+
+**The local Markov property.** Each variable $X_i$ is conditionally independent of its non-descendants given its parents:
 
 $$X_i \perp \text{NonDesc}(X_i) \mid \text{Pa}(X_i)$$
 
-**Derivation sketch.** Suppose the agent updates its belief about $X_i$ using only $\text{Pa}(X_i)$ — i.e., it computes $P(X_i \mid \text{Pa}(X_i))$ without considering other variables. For this to be correct (to match the full conditional $P(X_i \mid \text{Pa}(X_i), \text{other evidence})$), we need:
+**The argument has three parts:**
+
+**(a) P3 requires some local neighborhood to suffice.** When the agent updates its belief about $X_i$, it must do so using a local neighborhood $\text{Ne}(X_i)$ rather than the entire graph. For the local update to be correct:
+
+$$P(X_i \mid \text{Ne}(X_i), \text{rest}) = P(X_i \mid \text{Ne}(X_i))$$
+
+P3 establishes that SOME such neighborhood exists. It does not specify which.
+
+**(b) P1 identifies parents as the natural neighborhood.** In a directed graph respecting temporal ordering, causal influence on $X_i$ flows from temporally preceding nodes through directed edges. The nodes with direct causal influence on $X_i$ are precisely $\text{Pa}(X_i)$ — the parents. Non-parent predecessors can only affect $X_i$ through the parents (their influence is mediated). Non-descendants are either predecessors (influence mediated through parents) or temporally unrelated (no causal path to $X_i$). Therefore: in a temporally ordered directed graph, $\text{Pa}(X_i)$ is the minimal local neighborhood that captures all direct causal influence on $X_i$.
+
+**(c) Causal sufficiency makes parents sufficient.** The above requires that all direct causes of $X_i$ ARE represented as parents in the graph — that there are no latent common causes between $X_i$ and its non-descendants. This is the causal sufficiency assumption.
+
+For $\Sigma_t$ specifically, causal sufficiency is a reasonable assumption: the agent *constructed* the strategy graph, so all nodes are explicit. There are no "hidden" strategy components — the agent chose every node. If environmental factors affect multiple strategy steps (shared infrastructure, weather, market conditions), they should appear as condition nodes in $\Sigma_t$ ( #strategy-dag, source constraint). If they are omitted, the strategy is model-inadequate — exactly the situation #structural-adaptation-necessity addresses — and the Markov condition fails for the explicit nodes. This is a model quality issue, not a structural limitation of the argument.
+
+**Assembling (a)-(c).** P3 requires a sufficient local neighborhood. P1 identifies parents as the causal neighborhood. Causal sufficiency ensures parents capture all direct influences. Therefore:
 
 $$P(X_i \mid \text{Pa}(X_i), \text{NonDesc}(X_i)) = P(X_i \mid \text{Pa}(X_i))$$
 
-for all values of $\text{NonDesc}(X_i)$. This IS conditional independence of $X_i$ from its non-descendants given its parents — the Markov condition.
+This IS the local Markov property.
 
-**Why non-descendants specifically.** Descendants of $X_i$ DO depend on $X_i$ (by construction — they are downstream). But updating $X_i$ based on $\text{Pa}(X_i)$ does not require knowing descendants, because causal influence flows FROM $X_i$ TO descendants, not the reverse. Learning about descendants can provide evidence about $X_i$ (diagnostic reasoning / explaining away), but that evidence flows through the graph structure itself — it does not violate P3 because the update still propagates locally through the graph.
-
-**The factorization.** The Markov condition is equivalent to the factorization of the joint distribution:
+**Equivalence to factorization.** For positive distributions (all configurations have nonzero probability — a mild regularity condition), the local Markov property is equivalent to the global Markov property and to the factorization property (Lauritzen 1996, Theorem 3.27; Verma 1993):
 
 $$P(X_1, \ldots, X_n) = \prod_{i=1}^{n} P(X_i \mid \text{Pa}(X_i))$$
 
-This is the defining property of a Bayesian network. So P3 forces the strategy to be representable as a Bayesian network.
+This is the defining property of a Bayesian network.
 
-**Gap.** The step from "local updates suffice" to "the Markov condition holds" is standard in the graphical models literature (Lauritzen 1996, Koller & Friedman 2009), but connecting it rigorously to ACT's specific postulates requires spelling out the full argument. In particular, other sparse factorizations (e.g., message-passing structures on factor graphs) may also support locality without requiring the parent-conditional Markov property specifically. The argument above shows that the Markov condition is *sufficient* for P3; the claim that it is *necessary* (or that only Markov-factored representations support correct local revision) needs tightening.
+**What about non-parent local neighborhoods?** The earlier sketch noted that other sparse factorizations (e.g., factor graphs with message-passing) might also support local revision. This is true — factor-graph message passing achieves exact inference for trees and approximate inference for loopy graphs, using a different local neighborhood (the factor's scope, not the parents). But P1 (directed temporal ordering) selects the parent-conditional factorization specifically, because the causal direction matters: the agent needs to reason about consequences of interventions ($do(X_i)$), and Pearl's do-calculus is defined on the parent-conditional DAG factorization, not on undirected factor graphs. Directed local neighborhoods (parents) are forced by the combination of locality (P3) and causal directionality (P1); undirected alternatives sacrifice the causal semantics that #strategy-dag requires.
+
+**Why non-descendants specifically.** Descendants of $X_i$ depend on $X_i$ by construction — they are downstream. Updating $X_i$ based on $\text{Pa}(X_i)$ does not require knowing descendants, because causal influence flows FROM $X_i$ TO descendants, not the reverse. Learning about descendants can provide evidence about $X_i$ (diagnostic reasoning / explaining away), but that evidence flows through the graph structure itself via belief propagation — it does not violate P3 because the update still propagates locally.
 
 #### Step 4: P1 + finite horizon implies acyclicity (proved)
 
@@ -135,8 +151,8 @@ Each attempt is a distinct node at a distinct time. The apparent cycle is a line
 | Probabilistic uncertainty | Cox's theorem (P2) | Proved |
 | Acyclicity | Temporal ordering + finite horizon (P1) | Proved |
 | Internal structure | Fragility + monitoring (P4, #chain-confidence-decay) | Derived |
-| Markov factorization | Local revisability (P3) | Sketch — P3 implies Markov needs tightening |
-| **DAG with Markov property** | **P1 + P2 + P3 + P4** | **Sketch — rests on the P3 step** |
+| Markov factorization | Local revisability (P3) + temporal ordering (P1) + causal sufficiency | Conditional — holds for causally sufficient strategies |
+| **DAG with Markov property** | **P1 + P2 + P3 + P4 + causal sufficiency** | **Conditional — causal sufficiency is the remaining assumption** |
 | AND/OR parameterization | Boolean completeness + parsimony | Hypothesis (binary outcomes only) |
 | Single-parameter edges | Parsimony / IB | Formulation choice |
 | Specific node ontology | — | Formulation choice |
@@ -160,9 +176,13 @@ The correct claim is narrow: for a given factorized distribution, DAG and factor
 
 ## Epistemic Status
 
-The acyclicity derivation is *exact* — it follows from temporal ordering over a finite horizon via standard order theory. The individual postulates P1, P2, and P4 are each well-grounded (temporal structure, Cox's theorem, and chain fragility respectively). The overall argument that graph structure is forced is well-motivated but rests on the P3 step, which is currently a *sketch*. The step from local revisability to the Markov condition is standard in the graphical models literature (Lauritzen 1996, Koller & Friedman 2009), but connecting it to ACT's specific postulates — and establishing that the Markov condition is *necessary* (not merely sufficient) for correct local revision — requires spelling out the full argument. Other sparse factorizations may also support locality.
+The acyclicity derivation is *exact* — it follows from temporal ordering over a finite horizon via standard order theory. The individual postulates P1, P2, and P4 are each well-grounded (temporal structure, Cox's theorem, and chain fragility respectively).
 
-Max attainable: *exact* for the acyclicity result (already there). For the full graph-structure-is-forced claim: *exact* if P3 implies Markov can be tightened to a proof; otherwise the ceiling is *robust-qualitative* (the conclusion is right, the specific forcing path needs work).
+The P3→Markov step is now *conditional on causal sufficiency* of $\Sigma_t$. The argument has three parts: P3 requires some local neighborhood (locality), P1 identifies parents as the causal neighborhood (directionality), and causal sufficiency ensures parents capture all direct influences (no hidden common causes). Assembling these gives the local Markov property, which Lauritzen (1996, Theorem 3.27) proves equivalent to the factorization property for positive distributions. The causal sufficiency assumption is reasonable for agent-constructed strategies (all nodes are explicit) and fails precisely when the strategy is model-inadequate — the situation #structural-adaptation-necessity addresses.
+
+The previous concern about alternative sparse factorizations (factor graphs, message-passing structures) is resolved: P1's directed temporal ordering selects the parent-conditional factorization specifically, because undirected alternatives sacrifice the causal semantics that #strategy-dag requires for interventional reasoning.
+
+Max attainable: *exact* for acyclicity (already there). *Conditional* for the full DAG-with-Markov-property claim — conditional on causal sufficiency, which is a property of strategy quality rather than agent architecture. This is an honest upgrade from the previous "sketch" status.
 
 The AND/OR restriction is a *hypothesis* for binary outcomes, grounded in Boolean completeness and parsimony. For non-binary outcomes, it does not apply and richer parameterizations within the forced graphical structure are needed.
 

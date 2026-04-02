@@ -1,7 +1,7 @@
 ---
 slug: per-dimension-persistence
 type: result
-status: exact
+status: empirical
 depends:
   - persistence-condition
   - adaptive-tempo
@@ -31,7 +31,11 @@ The aggregate $L_2$ mismatch $\Vert\delta\Vert = \sqrt{\sum_k \delta_k^2}$ is do
 
 ## Epistemic Status
 
-*Exact.* The per-dimension steady state is derived from the AR(1) stationary distribution and matches simulation to 4 significant figures. The scalar tempo overestimates by 72% in a 3-dimensional test case with 5:1 gain variation. This is a mathematical result, not an approximation — the per-dimension AR(1) processes are independent under diagonal correction, so the per-dimension theory is simply the 1D result applied per dimension.
+*Empirical.* The per-dimension steady-state formula is derived from the AR(1) stationary distribution (a stochastic-noise model) and matches simulation to 4 significant figures within that model. However, two issues prevent an `exact` status:
+
+1. **Regime mixing.** The summary states the persistence threshold as $\mathcal T_k \gt \rho_k / \lVert\delta_{\text{critical},k}\rVert$ (a deterministic-drift condition using per-dimension tempo), but the formal expression derives steady-state mismatch from a stochastic AR(1) process using raw gain $\eta_k$, not tempo $\mathcal T_k = \nu_k \eta_k$. These are different models: the deterministic-drift threshold comes from the sector-condition framework ( #sector-condition-stability); the stochastic formula comes from AR(1) stationarity. The per-dimension threshold as stated does not follow from the AR(1) formula — it is the deterministic result applied per dimension, which is plausible but not derived from the stochastic model presented.
+
+2. **Simulation evidence, not proof.** The 72% overestimate and 4-significant-figure match are simulation results within the AR(1) model class. They validate the stochastic formula but do not constitute a proof of the per-dimension persistence threshold. The threshold is better understood as an empirical finding supported by simulation and motivated by the deterministic analogy.
 
 ## Discussion
 

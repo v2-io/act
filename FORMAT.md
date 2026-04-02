@@ -12,7 +12,7 @@ Do not hard-wrap lines. Let renderers (GitHub, Obsidian, editors) handle wrappin
 
 - **Segment files** live in `src/` — one claim per file.
 - **Filename = slug**: `src/{slug}.md`. No numbering in filenames.
-- **Canonical ordering** lives in `ACT-FULL.md`, not in filenames. The ordering will change as the theory develops; the slug is the stable identity.
+- **Canonical ordering** lives in each component's `OUTLINE.md` (e.g., `01-act-core/OUTLINE.md`), not in filenames. The ordering will change as the theory develops; the slug is the stable identity.
 - **Cross-references** use `#slug-name` — everywhere, always.
 
 

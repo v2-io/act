@@ -1,7 +1,7 @@
 ---
 slug: orient-cascade
 type: derived
-status: exact
+status: conditional
 depends:
   - directed-separation
   - mismatch-signal
@@ -42,7 +42,7 @@ The ordering is forced by information dependency.
 
 ## Epistemic Status
 
-*Exact.* The cascade ordering is a logical consequence of which quantities appear in which formulas. If you define the mismatch signals as we have ( #mismatch-signal, #satisfaction-gap, #control-regret, #strategic-calibration) and accept #directed-separation, the resolution order follows. What is NOT derived is the *timing* — how long the agent should spend on each step before proceeding. The ordering is forced; the resource allocation across steps is open.
+The cascade **ordering** is *exact*: it is a logical consequence of which quantities appear in which formulas. Steps 1-2 (epistemic update, attainability assessment) rest on well-typed quantities ( #mismatch-signal, #satisfaction-gap) and exact derivation. Steps 3-5 (control regret, strategic calibration, objective revision) depend on #strategic-calibration, which is discussion-grade — the credit-assignment problem and execution-fidelity requirement are acknowledged but unresolved ( #strategic-calibration, Epistemic Status). The ordering of all five steps is forced by information dependency (each step's input depends on prior steps' output). The *content* of steps 3-5 — what exactly the agent computes and whether the quantities are estimable in practice — inherits strategic-calibration's discussion-grade status. What is NOT derived is the *timing* — how long the agent should spend on each step before proceeding.
 
 ## Discussion
 

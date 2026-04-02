@@ -128,6 +128,7 @@ Every slug is linked to its intended `src/{slug}.md` file, even when that file d
 | A   | Derivation |     | [#recursive-update-derivation](src/recursive-update-derivation.md) | Uniqueness derivation via three constraints + counterexamples  | draft   |
 | A   | Sketch     |     | [#multi-timescale-stability](src/multi-timescale-stability.md)     | N-timescale singular perturbation sketch                       | draft   |
 | A   | Detail     |     | [#linear-ode-approximation](src/linear-ode-approximation.md)       | Pedagogical linear mismatch ODE                                | missing |
+| A   | Derivation |     | [#graph-structure-uniqueness](src/graph-structure-uniqueness.md)   | 4 postulates → DAG; acyclicity proved, P3→Markov sketch        | draft   |
 | A   | Detail     |     | [#simulation-results](src/simulation-results.md)                   | 6 variants validating claims                                   | draft   |
 
 
