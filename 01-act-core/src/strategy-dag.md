@@ -8,7 +8,6 @@ depends:
   - pearl-causal-hierarchy
   - objective-functional
   - strategy-dimension
-  - satisfaction-gap
 ---
 
 # Definition: Strategy DAG
@@ -106,5 +105,5 @@ The AND/OR parameterization is a parsimony-motivated formulation choice within t
 - Edge failures are assumed independent in the combination rules. Real systems have correlated failures (shared infrastructure, common-mode risks). The actual confidence is lower than the independent-edge formula suggests. Modeling correlation structure would require augmenting the DAG with hidden common-cause nodes or using a richer parameterization — both increase complexity. Currently acknowledged as a limitation.
 - The graph-uniqueness argument (P1-P4 → DAG with Markov property) is the strongest structural justification: temporal ordering + Cox's theorem + local revisability + observable intermediates → directed graphical model with the Markov factorization. If the P3→Markov step can be tightened to a full derivation, strategy-dag could be promoted from Definition to Derived. See `../../msc/spike-graph-uniqueness.md`.
 - Health metrics (groundedness, observability coverage, weighted redundancy, bottleneck scores) are scaffold — engineering quantities for monitoring DAG health, not principled derivations. They may be useful for implementation but should not enter the theory's formal chain.
-- **Satisfaction criterion not yet first-class.** The well-formedness constraint references "the objective's own satisfaction criterion," which is semantically named here but not formally introduced until #satisfaction-gap defines $V_{O_t}^{\min}$. If stricter dependency hygiene is needed, the satisfaction criterion should be introduced as a first-class object in #objective-functional (where $V_{O_t}$ is defined), independent of the gap machinery.
+- **Satisfaction criterion.** $V_{O_t}^{\min}$ is now introduced in #objective-functional as a parameter of the objective — the minimum acceptable trajectory value. The well-formedness constraint references it from there, not from #satisfaction-gap. The satisfaction gap diagnostic builds on $V_{O_t}^{\min}$ but does not define it.
 - **Terminal alignment error.** When the agent achieves its terminal conditions but evaluates $V_{O_t}(\tau) \lt V_{O_t}^{\min}$ on the actual trajectory, the well-formedness belief was wrong — the operational success criteria didn't capture what the objective actually required. This is detectable only through experience (achieve the terminals, evaluate $V_{O_t}$), not through a priori analysis. It triggers terminal reassessment — a structural change in $\Sigma_t$ driven by the $O_t$ ↔ terminal mismatch. Whether this should be formalized as a named diagnostic signal ($\delta_\text{align}$) alongside $\delta_\text{sat}$, $\delta_\text{regret}$, and $\delta_\text{strategic}$ is open.

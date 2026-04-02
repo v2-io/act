@@ -1,7 +1,7 @@
 ---
 slug: event-driven-dynamics
 type: formulation
-status: axiomatic
+status: robust-qualitative
 depends:
   - causal-structure
   - observation-function

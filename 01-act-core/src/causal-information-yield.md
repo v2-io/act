@@ -1,7 +1,7 @@
 ---
 slug: causal-information-yield
 type: definition
-status: discussion-grade
+status: exact
 depends:
   - pearl-causal-hierarchy
   - action-selection

@@ -1,7 +1,7 @@
 ---
 slug: agent-model
 type: formulation
-status: discussion-grade
+status: robust-qualitative
 depends:
   - agent-environment
   - observation-function
@@ -27,7 +27,7 @@ The mapping $\phi$ is a many-to-one compression: multiple distinct histories may
 
 ## Epistemic Status
 
-This is a *formulation* — a representational commitment, not a derived result. We choose to analyze agents as maintaining a state object $M_t$ that mediates between history and future action. Alternative formulations exist (e.g., history-based policies that map $\mathcal C_t$ directly to actions without an explicit model). The formulation is justified by its analytical utility: it enables the information bottleneck analysis ( #information-bottleneck), the mismatch decomposition ( #mismatch-signal), and the gain principle ( #update-gain).
+*Robust qualitative.* This is a *formulation* — a representational commitment, not a derived result. We choose to analyze agents as maintaining a state object $M_t$ that mediates between history and future action. Alternative formulations exist (e.g., history-based policies that map $\mathcal C_t$ directly to actions without an explicit model). The formulation is justified by its analytical utility: it enables the information bottleneck analysis ( #information-bottleneck), the mismatch decomposition ( #mismatch-signal), and the gain principle ( #update-gain). The formulation is robust — any agent that conditions its actions on retained information can be described this way — but the specific commitment to a complete, compressed state $M_t$ is a modeling choice, not a derivation.
 
 ## Discussion
 

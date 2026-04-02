@@ -1,12 +1,12 @@
 ---
 slug: objective-functional
-type: definition
+type: formulation
 status: axiomatic
 depends:
   - complete-agent-state
 ---
 
-# Definition: Objective Functional
+# Formulation: Objective Functional
 
 The objective $O_t$ is the component of $G_t$ that specifies what the agent wants — the evaluation criterion for trajectories. Its interface to the theory is a single functional $V_{O_t}: \text{trajectories} \to \mathbb{R}$, regardless of how the objective is internally represented.
 
@@ -32,9 +32,11 @@ $V_{O_t}(\tau)$ is a scalar measure of how well trajectory $\tau$ satisfies the 
 
 The trajectory functional is the most general; the others are special cases.
 
+**Satisfaction threshold.** Many objectives carry a natural threshold $V_{O_t}^{\min}$ — the minimum trajectory value the agent treats as acceptable. Point targets, constraint sets, and threshold objectives define this directly; utility-maximizing objectives may not. When $V_{O_t}^{\min}$ exists, it enables the satisfaction gap diagnostic ( #satisfaction-gap) and the well-formedness constraint on strategy ( #strategy-dag). $V_{O_t}^{\min}$ is a parameter of the objective, not a theory output — it encodes "what counts as success" in domain terms.
+
 ## Epistemic Status
 
-*Axiomatic.* This is a definition — it names an object and specifies its interface. The claim that $V_{O_t}: \text{trajectories} \to \mathbb{R}$ is the right interface is grounded in: any evaluation criterion must ultimately answer "how good is this trajectory?" with a scalar, because the agent must compare alternatives. The real-valued codomain follows from this comparability requirement (total ordering of alternatives).
+*Axiomatic, with a substantive commitment.* This is a formulation — it names an object and specifies its interface, but the real-valued codomain is a genuine restriction, not a neutral naming. The claim that $V_{O_t}: \text{trajectories} \to \mathbb{R}$ is the right interface is grounded in: any evaluation criterion must ultimately answer "how good is this trajectory?" with a scalar, because the agent must compare alternatives. The real-valued codomain follows from this comparability requirement (total ordering of alternatives).
 
 **Scope restriction: scalar comparability.** The real-valued codomain is a genuine restriction, and it is load-bearing — the satisfaction gap ( #satisfaction-gap) and control regret ( #control-regret) require comparing scalar values to produce their diagnostic. Three arguments ground the restriction:
 

@@ -1,7 +1,7 @@
 ---
 slug: information-bottleneck
 type: formulation
-status: axiomatic
+status: discussion-grade
 depends:
   - agent-model
 ---
