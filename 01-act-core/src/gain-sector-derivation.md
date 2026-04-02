@@ -142,7 +142,7 @@ is the strong convexity modulus. The basin radius $R$ is the largest ball around
 
 $$\delta^T F(\delta) = \eta \cdot \delta^T \nabla L(M^\ast + \delta) \geq \alpha \lVert\delta\rVert^2$$
 
-Dividing by $\eta > 0$:
+Dividing by $\eta \gt 0$:
 
 $$\delta^T \nabla L(M^\ast + \delta) \geq \frac{\alpha}{\eta} \lVert\delta\rVert^2$$
 
@@ -174,7 +174,7 @@ The gradient equivalence (Prop B.4) classifies which loss functions satisfy GA-3
 | L2-regularized convex loss | Global: $\mu \geq \lambda$ | $\eta \cdot \lambda$ (floor) | $\infty$ | Exact |
 | Unregularized logistic | Global convex, not strongly | $\eta \cdot \mu(R)$, decaying | $\infty$ (but $\alpha \to 0$) | Local |
 | Quasi-convex | $\delta^T \nabla L \geq 0$ but ratio $\to 0$ | $\eta \cdot \mu(R) \to 0$ | Finite effective | Local |
-| Non-convex within basin | Local: $\mu > 0$ in basin | $\eta \cdot \mu_{\text{local}}$ | Distance to nearest saddle | Local |
+| Non-convex within basin | Local: $\mu \gt 0$ in basin | $\eta \cdot \mu_\text{local}$ | Distance to nearest saddle | Local |
 | Non-convex beyond basin | Fails: $\lambda_{\min}(\nabla^2 L) \lt 0$ | N/A | N/A | Fails |
 
 **Key observations:**
@@ -200,7 +200,7 @@ The mismatch transform $g$ rotates the correction away from the mismatch directi
 
 ### FM-2: Gain Collapse
 
-$\eta^\ast \to 0$ while $\rho > 0$, so $\alpha \to 0$ and the persistence condition $\alpha > \rho/R$ eventually fails. An agent accumulating experience in a non-stationary environment will eventually have gain too small to track changes. This is not a bridge failure but a persistence-condition failure — the bridge holds ($\alpha = \eta^\ast \cdot c > 0$ for finite experience), but $\alpha$ falls below $\rho/R$. See #update-gain.
+$\eta^\ast \to 0$ while $\rho \gt 0$, so $\alpha \to 0$ and the persistence condition $\alpha \gt \rho/R$ eventually fails. An agent accumulating experience in a non-stationary environment will eventually have gain too small to track changes. This is not a bridge failure but a persistence-condition failure — the bridge holds ($\alpha = \eta^\ast \cdot c \gt 0$ for finite experience), but $\alpha$ falls below $\rho/R$. See #update-gain.
 
 ### FM-3: Nonlinear Saturation
 
@@ -262,7 +262,7 @@ Poisson in natural parameter space. Sector ratio positive at every step, ranging
 
 **Max attainable:** *conditional* for the bridge (B1 is inherent — pathological update rules exist), *exact* for the gradient equivalence. The condition cannot be removed: there exist correction functions that violate the sector condition (FM-1 through FM-5).
 
-**What remains open.** (1) Non-gradient agents (PID controllers, rule-based systems, human judgment): GA-3 remains an empirical claim for these agent classes. (2) Time-varying $\alpha$: when the gain adapts (Adam, RMSprop, Kalman transient), $\alpha(t)$ varies; the Lyapunov analysis extends to time-varying $\alpha(t) \geq \underline{\alpha} > 0$ via standard results (Khalil 2002, Chapter 8). (3) Stochastic gradients: SGD satisfies the sector condition *in expectation*; the per-step noise enters as effective disturbance in the Prop A.1S framework.
+**What remains open.** (1) Non-gradient agents (PID controllers, rule-based systems, human judgment): GA-3 remains an empirical claim for these agent classes. (2) Time-varying $\alpha$: when the gain adapts (Adam, RMSprop, Kalman transient), $\alpha(t)$ varies; the Lyapunov analysis extends to time-varying $\alpha(t) \geq \underline{\alpha} \gt 0$ via standard results (Khalil 2002, Chapter 8). (3) Stochastic gradients: SGD satisfies the sector condition *in expectation*; the per-step noise enters as effective disturbance in the Prop A.1S framework.
 
 
 ## Discussion
