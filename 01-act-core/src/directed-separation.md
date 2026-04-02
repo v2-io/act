@@ -57,9 +57,9 @@ Whether directed separation holds is determined by the agent's **processing topo
 
 *[Definition (processing-coupling)]*
 
-$$\kappa_{\text{processing}} = \frac{I(G_t \,;\, M_{\tau^+} \mid e_\tau)}{H(G_t \mid e_\tau)}$$
+$$\kappa_{\text{processing}} = \frac{I(G_t \,;\, M_{\tau^+} \mid e_\tau,\, M_{\tau^-})}{H(G_t \mid e_\tau,\, M_{\tau^-})}$$
 
-where $I(\cdot;\cdot\mid\cdot)$ is conditional mutual information and $H(\cdot\mid\cdot)$ is conditional entropy. This measures how much information about goals flows through the shared causal paths in the processing infrastructure (paths that bypass the event $e_\tau$).
+where $I(\cdot;\cdot\mid\cdot)$ is conditional mutual information and $H(\cdot\mid\cdot)$ is conditional entropy. The conditioning on $M_{\tau^-}$ is essential: without it, prior correlation between goals and model state (which exists even in modular agents) inflates the measure. The quantity captures *extra* goal information entering the epistemic update beyond what was already in the prior model — information that flows through shared causal paths in the processing infrastructure (paths that bypass the event $e_\tau$).
 
 - $\kappa_{\text{processing}} = 0$: Class 1 (modular). No information about $G_t$ reaches $M_{\tau^+}$ except through $e_\tau$.
 - $\kappa_{\text{processing}} \approx 1$: Class 2 (fully merged). Nearly all goal information is available to the epistemic update.

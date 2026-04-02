@@ -377,7 +377,7 @@ Section II tells the agent: *switch to arm 2, but first explore to confirm — t
 | Strategy DAG $\Sigma_t$ ( #strategy-dag) | Exact | AND/OR with 7 nodes | Small enough for manual propagation |
 | AND/OR scope ( #and-or-scope) | Exact | Natural fit | Phase 1 is genuinely OR; root is genuinely AND |
 | Status propagation | Exact | Closed-form | Forward pass computable by hand |
-| Plan confidence $\hat P_\Sigma$ ( #strategy-dag) | Exact | From propagation | $0.485$ at $t = 0$ |
+| Plan confidence $\hat P_\Sigma$ ( #strategy-dag) | Exact (computation) | From propagation; systematically optimistic under correlated failure | $0.485$ at $t = 0$ |
 | Chain confidence decay ( #chain-confidence-decay) | Exact | Mathematical identity | AND-node multiplicative; OR-node resilient |
 | Orient cascade ( #orient-cascade) | Exact (ordering) | All 5 steps exercised | Content is tractable in this domain |
 | Observability dominance ( #observability-dominance) | Exact (mechanism) | Unpulled arms frozen | $\sigma_3 = 0 \Rightarrow \eta_3^\ast = 0$ |
@@ -385,7 +385,7 @@ Section II tells the agent: *switch to arm 2, but first explore to confirm — t
 | Strategic calibration ( #strategic-calibration) | Approximate | Credit assignment tractable here | Single-arm attribution is clean |
 | Satisfaction gap dynamics | Exact | Time series of $\delta_\text{sat}$ | Model improvement resolves positive gap |
 
-**Quantities that map cleanly.** All Section II definitions (objective, value object, satisfaction gap, control regret, strategy DAG, plan confidence) have exact instantiations. The orient cascade ordering is exact and all five steps are exercised.
+**Quantities that map cleanly.** All Section II definitions (objective, value object, satisfaction gap, control regret, strategy DAG) have exact instantiations. Plan confidence $\hat P_\Sigma$ is exact as a computation (the AND/OR propagation is correct), but systematically overestimates actual success probability under correlated edge failures ( #strategy-dag). In this toy bandit, edge independence is a reasonable approximation; in complex domains the overestimate may be severe. The orient cascade ordering is exact and all five steps are exercised.
 
 **Quantities that map approximately.** Strategic calibration is approximate because even in this simple domain, attributing value changes to specific DAG edges requires assumptions about the agent's execution fidelity. Observability dominance is exact in mechanism but the multiplicative form $\text{conf}_\text{obs} = \text{conf} \cdot \text{obs}$ is a first-order approximation.
 
