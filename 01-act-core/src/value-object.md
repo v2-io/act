@@ -5,7 +5,6 @@ status: exact
 depends:
   - objective-functional
   - agent-model
-  - causal-hierarchy-requirement
 ---
 
 # Definition: Value Object

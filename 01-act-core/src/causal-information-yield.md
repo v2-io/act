@@ -10,7 +10,7 @@ depends:
 
 # Definition: Causal Information Yield
 
-Actions don't merely select among outcomes — they generate information about how the environment responds to interventions. Causal information yield (CIY) quantifies this: how much an action reveals about causal structure that passive observation cannot provide.
+Actions don't merely select among outcomes — they produce characteristically different outcome distributions depending on the causal structure. Causal information yield (CIY) quantifies the **action-distinguishability** of an action: how different its outcome distribution is from what alternative actions would produce.
 
 ## Formal Expression
 
@@ -53,6 +53,14 @@ The regime is a property of the **domain and the agent's action space**, not a p
 The CIY *definition* is well-grounded in causal inference theory. The *structural claim* — that the optimal policy jointly maximizes value and causal information — is *discussion-grade*, supported by convergent results in Bayesian RL, active inference, and information-directed sampling, but not derived from first principles within ACT. The specific form of $\lambda(M_t)$ (the exploration-exploitation balance weight) is not derived. See discussion of the unified policy objective below.
 
 ## Discussion
+
+**CIY measures distinguishability, not learning value.** CIY as defined is the expected KL divergence between outcome distributions — how different the outcomes of $a$ are from the outcomes of typical alternatives. This is **action-distinguishability**, not **expected information gain** (EIG). The distinction matters: an action can have high CIY even when the agent already knows the outcome distributions perfectly (the distributions ARE different, but the agent learns nothing new by confirming what it already knows). High CIY is *necessary* for learning (indistinguishable actions can't teach anything) but not *sufficient* (distinguishable actions only teach when the agent is uncertain about the distinction).
+
+The two quantities approximately coincide when $U_M$ is high — when the agent doesn't know the outcome distributions, high-CIY actions also have high EIG because observing a characteristically different outcome updates the agent's beliefs about the causal structure. They diverge when $U_M$ is low — a confident agent gains nothing from taking a distinguishable action it already understands.
+
+The $\lambda(M_t)$ weighting in the unified policy objective (below) partially compensates: when $U_M$ is low, $\lambda \to 0$, suppressing the CIY term regardless of its magnitude. This makes the exploration term behave more like EIG — suppressing exploration when the agent is already certain. The compensation is heuristic (the $\lambda$ form is not derived). For the current theory, CIY serves as a tractable surrogate for EIG, with the $\lambda$ weighting providing the uncertainty-gating that makes the surrogate reasonable.
+
+**Open direction: proper EIG within ACT.** Replacing CIY with a proper expected information gain quantity — $\text{EIG}(a; M) = I(o; \theta \mid do(a), M)$ where $\theta$ parameterizes the model — would be a stronger foundation for the exploration term, particularly in domains where the agent must decide between actions that are all highly distinguishable but differ in what they teach. Under certain scopes (intervention-rich domains with well-parameterized models), the EIG formulation might yield sharper exploration strategies — preferring actions that resolve the *most uncertain* causal links rather than the most distinguishable ones. Whether this yields operationally significant improvements over the $\lambda$-weighted CIY surrogate is an empirical question. The CIY formulation has the advantage of being computable from the agent's current model alone (it doesn't require reasoning about model uncertainty); EIG requires a meta-model of what the agent doesn't know.
 
 **Dependence on the reference distribution $q$.** The quantitative CIY value depends on the choice of $q$, which is a significant degree of freedom. A uniform $q$ treats all alternatives equally; a policy-induced $q$ emphasizes alternatives the agent would consider. ACT adopts the policy-induced $q$ as default: $q(\cdot \mid M) = \pi(\cdot \mid M)$, yielding CIY as "how different is this action's outcome from what I'd typically see?" CIY values are not comparable across different $q$ choices.
 

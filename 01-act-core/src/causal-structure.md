@@ -30,10 +30,10 @@ This is a *postulate* — the temporal ordering of events is a physical fact abo
 
 - **Strong coupling** ($a_t$ significantly affects $\Omega_{t+1}$): Robot manipulation, military action. Interventional information is rich.
 - **Weak coupling** ($a_t$ marginally affects $\Omega_{t+1}$): Scientific observation, small financial trades. Interventional information is sparse but non-zero.
-- **Nominal coupling** ($a_t$ negligibly affects $\Omega_{t+1}$): Near-passive observation. The causal structure degenerates toward Level 1, but the agent's *choice* of what to observe still matters.
-- **Zero coupling** ($T(\Omega_{t+1} \mid \Omega_t, a_t) = T(\Omega_{t+1} \mid \Omega_t)$ for all $a_t$): Actions don't affect the environment. Level 2 access vanishes. The feedback "loop" collapses to a one-way channel. Still within scope when $\lvert\mathcal{A}\rvert \geq 2$ ( #scope-condition), but action-dependent results become trivially void.
+- **Nominal coupling** ($a_t$ negligibly affects $\Omega_{t+1}$, but the agent's *choice of what to observe* produces distinguishable observation distributions): Near-passive, but still within scope — the agent's query actions generate weak but nonzero interventional contrasts. The theory applies but the interventional information per action is sparse.
+- **Zero coupling** ($T(\Omega_{t+1} \mid \Omega_t, a_t) = T(\Omega_{t+1} \mid \Omega_t)$ for all $a_t$ AND observation distributions are action-independent): Actions don't affect the environment or the observations. Level 2 access vanishes. The feedback "loop" collapses to a one-way channel. **Outside ACT's scope** ( #scope-condition, condition 3) — ACT is a theory of agency, not passive estimation.
 
-The theory should not be understood as applying only to agents with strong environmental control. The causal structure of the temporal ordering alone is sufficient for the core results.
+The theory applies to any agent whose choices make a causal difference to what it can observe, from strong coupling (robot manipulation) through weak coupling (scientific observation) to query-only coupling (choosing which question to ask). It does not apply to systems whose actions have no causal effect whatsoever.
 
 **Consequences for the feedback loop.** The irreversibility of temporal ordering yields the core structure:
 
