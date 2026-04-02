@@ -5,6 +5,7 @@ status: discussion-grade
 depends:
   - agent-environment
   - observation-function
+  - chronica
 ---
 
 # Formulation: The Reality Model

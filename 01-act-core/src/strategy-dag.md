@@ -8,6 +8,7 @@ depends:
   - pearl-causal-hierarchy
   - objective-functional
   - strategy-dimension
+  - satisfaction-gap
 ---
 
 # Definition: Strategy DAG

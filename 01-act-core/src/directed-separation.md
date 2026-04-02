@@ -5,6 +5,7 @@ status: conditional
 depends:
   - complete-agent-state
   - recursive-update
+  - scope-condition
 ---
 
 # Derived: Directed Separation

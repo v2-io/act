@@ -5,6 +5,7 @@ status: exact
 depends:
   - objective-functional
   - agent-model
+  - causal-hierarchy-requirement
 ---
 
 # Definition: Value Object
@@ -21,9 +22,9 @@ $$V_O(M_t, \pi; N_h) = \mathbb{E}\!\left[V_{O_t}(\tau_{t:t+N_h}) \;\middle\vert\
 
 **Action-value form** (for action selection):
 
-$$Q_O(M_t, a; \pi_{\text{cont}}, N_h) = \mathbb{E}\!\left[V_{O_t}(\tau) \;\middle\vert\; M_t,\; a_t = a,\; a_{t+1:} \sim \pi_{\text{cont}}\right]$$
+$$Q_O(M_t, a; \pi_{\text{cont}}, N_h) = \mathbb{E}\!\left[V_{O_t}(\tau) \;\middle\vert\; M_t,\; do(a_t = a),\; a_{t+1:} \sim \pi_{\text{cont}}\right]$$
 
-$Q_O$ answers: "if I take action $a$ now and then follow $\pi_{\text{cont}}$ afterward, what is my expected trajectory value?" This is the interventional query that connects the value object to action selection.
+$Q_O$ answers: "if I *do* action $a$ now and then follow $\pi_{\text{cont}}$ afterward, what is my expected trajectory value?" The $do(\cdot)$ notation is explicit: this is an interventional query ( #causal-hierarchy-requirement), not conditioning on observed action choice. The agent asks about consequences of an intervention, not about correlates of a naturally occurring action. Under model sufficiency ($S(M_t) = 1$), the interventional and conditional expectations coincide because $M_t$ screens off confounders; when $S(M_t) \lt 1$, the interventional interpretation is the correct one and the conditional may be biased by unmodeled confounders.
 
 **Continuation convention.** All value queries are conditioned on a specific continuation policy $\pi_{\text{cont}}$ and finite horizon $N_h$. $\pi_{\text{cont}}$ is a *parameter* of the value object, not a derived quantity. ACT does not prescribe a specific solution concept. Common choices:
 
