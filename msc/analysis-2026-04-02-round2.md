@@ -225,3 +225,51 @@ With the bridge formalized, Section I's promotion bottleneck shifts:
 **Section II bottleneck:** Signal function for edge revision (unblocks strategy loop closure)
 
 **Section III bottleneck:** Purposeful composite worked example (validates admissibility machinery with G_t)
+
+
+---
+
+## Round 3 Integration (Codex + fresh Claude)
+
+### Quick Fixes Done
+
+1. **Dependency cycle** (Codex #7): gain-sector-derivation depended on gain-sector-bridge AND vice versa. Fixed by removing bridge from derivation's depends (the derivation backs the bridge, not vice versa).
+2. **κ_processing conditioning** (Codex #4): I(G_t; M_{τ+} | e_τ) inflated by prior goal-model correlation. Fixed to I(G_t; M_{τ+} | e_τ, M_{τ-}) — measures extra goal information, net of what was already in the prior.
+3. **Plan confidence marking** (Codex #8): worked-example-strategy marked P̂_Σ as "Exact" but strategy-dag says correlated failure makes it systematically overestimate. Fixed to "Exact (computation)" with caveat.
+
+### New Issues Requiring Attention
+
+**N1. Strategy persistence mismatch state gap (Codex #1).** The schema says the candidate mismatch is δ_strategic (from strategic-calibration — value-increment residuals). But the derivation appendix uses δ_k = p̂_k − θ_k (raw edge credence error). These are different quantities. The appendix validates a *surrogate* (Beta-Bernoulli edge error), not the *operational diagnostic* the theory exposes.
+
+This is a real gap but not a fatal one — the derivation shows the sector-condition machinery *works* for strategy dynamics. The mapping from δ_strategic (value residuals) to edge-credence errors requires the credit-assignment machinery that is acknowledged as open. The honest framing: "sector conditions are verified for per-edge credence error; promotion to the operational diagnostic δ_strategic requires solving credit assignment."
+
+**N2. Strategic persistence is instantaneous (Codex #2).** α_Σ = 1/(n+1) decreases with experience. The sector check is time-varying and local in time, not a fixed persistence bound. The gain-collapse analysis in the single-edge spike addresses this (the forgetting fix stabilizes α), but the surrounding prose sometimes reads as if persistence is a permanent property. Should be clarified: "persistence holds at any given experience level; the critical experience n* = R_Σ/ρ_Σ − 1 is the horizon where gain-collapse threatens."
+
+**N3. Passive tracker scope (Codex #3, recurring).** Three rounds now. The caveat paragraphs aren't satisfying reviewers. Decision needed: formal scope split or accept the ambiguity.
+
+**N4. Composition assumes ACT-shaped macro-agents (Codex #6).** The admissibility class (A1-A4) requires ACT state decomposition, macro mismatch, macro tempo, and sector-stable correction. This is a constrained representation test, not scale-invariance. Honest acknowledgment needed in composition-closure.
+
+**N5. Team tempo should have redundancy as a first-class term (Codex #5).** We added the caveat but correlated observations are the *default* in multi-agent settings. The additive formula with a footnote caveat understates the issue.
+
+### What Both Reviews Confirm (Steady State)
+
+- Section I is strong, especially with the gain-sector bridge
+- The satisfaction-gap / control-regret diagnostic is the cleanest §II contribution
+- Strategy-revision loop remains the weakest formal chain
+- 67 segments at draft, 0 past draft — promotion is the priority
+- tempo-composition already correctly labeled "sketch" (both reviewers flagged it but the metadata was already right)
+
+### Promotion Readiness
+
+The updated FORMAT.md now has a formal four-gate promotion workflow. Both reviewers independently identified the same ~8 segments as closest to candidate:
+
+1. sector-condition-derivation
+2. recursive-update-derivation
+3. mismatch-decomposition
+4. chain-confidence-decay
+5. satisfaction-gap + control-regret
+6. worked-example-kalman
+7. persistence-condition
+8. gain-sector-bridge
+
+These should be promoted in topological order per FORMAT.md. The dependency leaves (segments with no dependencies or only definitional dependencies) go first.
