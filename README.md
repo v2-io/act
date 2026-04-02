@@ -85,80 +85,55 @@ The cycle is emphatically NOT "observe → update → act." That three-step pipe
 
 ### Agent Classes
 
-*Status: **in progress.** The hierarchy below reflects current thinking. The adaptive/agentic boundary and its relationship to Section I scope narrowings is under active development. Entries marked ⚙ are not yet reflected in the theory's formal segments or section titles.*
+*Entries marked ⚙ are not yet reflected in the theory's formal segments or section titles.*
 
 ACT defines agents through progressive scope narrowings. Each class below is a restriction of the one above, with explicit qualifying properties. Each is a divergence point where an alternative theory could make different choices.
 
-#### Adaptive System (Section I, general scope)
+#### Adaptive System (Section I — adaptive scope)
 
-Any system satisfying the scope condition: coupled to an environment through observation and action channels, maintaining internal state, operating under residual uncertainty. This is the broadest class — the feedback loop exists and the cycle runs, producing mismatch correction. Thermostats, bacteria, PID controllers, and immune systems all qualify. An adaptive system need not have goals, an outcome model, or any representation of how its actions affect the environment. It corrects; it does not plan.
+Any system that observes under residual uncertainty: $\mathcal O \neq \emptyset$ and $H(\Omega_t \mid \mathcal C_t) \gt 0$. This is the broadest class — the system receives information from reality and that information is incomplete. Section I's full machinery (mismatch, gain, tempo, persistence) applies here. Thermostats, bacteria, PID controllers, Kalman filters (with or without control inputs), passive Bayesian learners, and immune systems all qualify. An adaptive system need not have goals, action choices, or any representation of how its actions affect the environment. It observes and corrects; it does not necessarily intervene or plan.
 
 ##### What's not adaptive — the excluded space
 
-ACT's scope condition requires four things for an adaptive system (from agent-environment, agent-model, and scope-condition):
+The adaptive scope requires:
 
-- **R** — Representation: internal state modeling the environment
-- **O** — Observation channel: $O \neq \emptyset$
-- **A** — Action choice: $\lvert A \rvert \geq 2$
-- **U** — Residual uncertainty: $H(\Omega_t \mid C_t) \gt 0$
+- **O** — Observation channel: $\mathcal O \neq \emptyset$
+- **U** — Residual uncertainty: $H(\Omega_t \mid \mathcal C_t) \gt 0$
 
-The MECE partition of the excluded space — ordered so each category assumes prior conditions are met:
+The excluded space:
 
-**1. No representation — physical feedback without a model.** Violates R.
+**1. No observation channel — no contact with reality.** Violates O.
 
-Systems with feedback-like dynamics — a deviation from some reference drives a process that reduces it — but no representation that could be wrong. The "correction" is direct physics, not model-mediated.
-
-- Thermodynamic equilibration (hot object cooling to room temperature)
-- Chemical equilibrium (mass-action kinetics toward steady state)
-- Diffusion (concentration gradient driving transport)
-- Mechanical settling (damped oscillation to rest, ball rolling to valley floor)
-- Erosion / sedimentation (gradient-driven geological processes)
-
-These are the most seductive non-examples. They have the *shape* of adaptation without its substance. Boundary principle: the scope condition applies when there exists a representation that can be wrong in a way that matters.
-
-**2. No observation channel — acting without sensing.** Violates O, given R.
-
-Systems that produce outputs affecting an environment but receive no information back. One-directional influence, not coupling.
+Systems that receive no information from the environment. One-directional influence outward (if any), not coupling.
 
 - Open-loop controllers (pre-programmed trajectory, no feedback)
 - Fire-and-forget systems (missile after guidance cutoff)
 - Pure axiomatic computation (proof engine operating on axioms alone — no environmental input)
 - Broadcast-only transmitters
+- Physical feedback without a model — thermodynamic equilibration, chemical equilibrium, diffusion, mechanical settling. These have the *shape* of adaptation without its substance: the "correction" is direct physics, not model-mediated.
 
-**3. No action choice — sensing without intervening.** Violates A, given R and O.
+**2. No residual uncertainty — nothing to adapt to.** Violates U, given O.
 
-Systems that observe, may maintain sophisticated models, but cannot choose among actions. They can correlate but not intervene — no interventional contrast, no Level 2 causal access.
-
-- Passive sensors / recording instruments
-- Bayesian inference without an action channel
-- Read-only monitoring dashboards
-- Pure prediction markets (participants may have agency, but the market-as-system only aggregates)
-
-Edge case: a Bayesian learner can update $M_t$ and achieve sophisticated Level 1 inference, but the exploration-exploitation framework, CIY, and causal learning are all void without action.
-
-**4. No residual uncertainty — nothing to adapt to.** Violates U, given R, O, and A.
-
-The agent's history fully determines the environment. Optimal control over known dynamics — a solved engineering problem, not an adaptive one.
+The system's history fully determines the environment. No mismatch is possible.
 
 - Fully observable deterministic state machines (solved game trees)
 - Known-plant + known-controller classical control
-- Satellite in stable orbit with calculable perturbations
 - Lookup-table execution of pre-computed solutions
 
-**5. Degenerate interior — technically in scope but vacuous.**
+**3. Degenerate interior — technically in scope but vacuous.**
 
-All four conditions are met, but the adaptive machinery makes trivial predictions:
+Both conditions are met, but the adaptive machinery makes trivial predictions:
 
 - *Irreducible chaos*: Lyapunov exponent makes prediction horizon shorter than action latency — no model outperforms the null model. $S(M_t) \approx 0$ for all $M$.
 - *Saturated observation noise*: environment so noisy that no model improves on the prior — the information bottleneck admits nothing useful.
 
 These aren't excluded — ACT applies — but the theory's predictions are trivially satisfied. The "true but uninteresting" corner of the scope.
 
-Categories 1–4 are strictly MECE as a partition of the excluded space ($\neg R$, then $R \wedge \neg O$, then $R \wedge O \wedge \neg A$, then $R \wedge O \wedge A \wedge \neg U$). Category 5 is a degenerate interior region — worth flagging because it's where people ask "does the theory say anything useful here?"
+#### ⚙ Agentic System / Agent (agency scope — Sections II and III)
 
-#### ⚙ Agentic System / Agent (emerges within Section I)
+The agency scope narrows the adaptive scope by adding two conditions: $\lvert\mathcal A\rvert \geq 2$ (at least binary choice) and $\exists\, a \neq a'$ s.t. $P(o \mid do(a)) \neq P(o \mid do(a'))$ (at least one action has causal effect). These unlock the causal-information results ( #loop-interventional-access, #causal-hierarchy-requirement) and the purposeful-agent machinery of Section II.
 
-*Status: boundary under active development. The transition from "adaptive" to "agentic" likely occurs at or near the causal-structure postulate, but the precise scope condition is not yet formalized.*
+Systems within the adaptive scope but outside the agency scope — passive observers, nominal agents whose actions have no causal effect — can use Section I's adaptive machinery but not the causal-information or purposeful-agent results.
 
 An adaptive system becomes an **agent** — an agentic system — when it additionally possesses:
 
@@ -301,7 +276,7 @@ The formal set relationships: logozoetic ⊂ logogenic ∩ self-actuated ⊂ act
 
 | Class | Qualifying property | ACT boundary | Example |
 |---|---|---|---|
-| **Adaptive system** | Feedback loop + mismatch correction | scope-condition (Section I) | Thermostat, PID controller |
+| **Adaptive system** | Observations + uncertainty + mismatch correction | Adaptive scope (Section I) | Thermostat, Kalman filter, PID controller |
 | **⚙ Agentic system** | + outcome model + goal-directed action + model adaptation | causal-structure (within Section I) | Autonomous vehicle, RL agent |
 | **Actuated agent** | + explicit $G_t = (O_t, \Sigma_t)$ | complete-agent-state (Section II) | Military unit with mission orders |
 | **Self-actuated agent** | + sets own $O_t$ (goal autonomy) | *(reserved)* | Human, *(future AI)* |
