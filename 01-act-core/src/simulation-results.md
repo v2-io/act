@@ -26,15 +26,15 @@ The simulations were theory-shaping, not merely confirmatory. In particular:
 
 ## Variant Summary
 
-| Variant | Tested | Key Finding | Theory Impact | Promoted Segment |
-|---------|--------|-------------|---------------|------------------|
-| A | Deterministic drift coupling; coupling-dominance sweep | Exponent $b \to 2.0$ in coupling-dominant limit (confirmed at 1.999) | Corollary 11.2 is exact under deterministic drift dominance | [#adversarial-exponent-regimes](adversarial-exponent-regimes.md) |
-| B | Drift-noise interpolation across correction functions | Smooth transition between drift ($b = 2.0$) and noise ($b = 1.5$) regimes; coupling dominance is the key qualifier, not drift vs. noise per se | Confirmed that the coupling-dominant condition is quantitatively load-bearing | [#adversarial-exponent-regimes](adversarial-exponent-regimes.md) |
-| C | Exponent vs. gain ($\eta$) in stochastic model | Exponent drops toward 0.5 as $\eta \to 0$ (away from coupling dominance at fixed $q_\text{base}$); discrete AR(1) exponent never exceeds 1.5 | Stochastic noise coupling has asymptotic exponent 1.5, not 2.0 -- a fundamental model distinction | [#adversarial-exponent-regimes](adversarial-exponent-regimes.md) |
-| D | Exponent vs. base noise ($q_\text{base}$) at fixed $\eta$ | Continuous ODE exponent $\to$ 2.0, discrete AR(1) exponent $\to$ 1.5, as $q_\text{base} \to 0$ | Definitively separated the two asymptotes; simulations match discrete AR(1) prediction exactly | [#adversarial-exponent-regimes](adversarial-exponent-regimes.md) |
-| E | Observation noise; optimal gain validation | Observation noise collapses adversarial exponent from $\sim 1.0$ to $\sim 0.2$; Riccati-optimal gain restores it to $\sim 0.4$; 52% mismatch reduction at moderate noise | Observation quality gates tempo advantage; optimal gain ( #update-gain) empirically validated | [#observation-gates-advantage](observation-gates-advantage.md) |
-| F | Multi-dimensional anisotropic correction; targeted adversarial attack | Per-dimension theory exact to 4 significant figures; scalar tempo overestimates by 72%; targeted attack amplifies advantage by 17% | Scalar persistence condition is necessary but not sufficient; per-dimension condition required | [#per-dimension-persistence](per-dimension-persistence.md) |
-| Hafez bridge | Bi-predictability $P$ vs. ACT mismatch in adversarial and non-adversarial settings | $P$ measures coupling architecture (scale-invariant); mismatch measures coupling performance; $P$ is blind to adversarial dynamics | $P$ and ACT mismatch are complementary diagnostics; $H_b$ (agent opacity) has no direct ACT analog -- potential gap for multi-agent work | -- |
+| Variant | Disturbance Model | Tested | Key Finding | Theory Impact | Promoted Segment |
+|---------|:-:|--------|-------------|---------------|------------------|
+| A | **D** (deterministic drift) | Deterministic drift coupling; coupling-dominance sweep | Exponent $b \to 2.0$ in coupling-dominant limit (confirmed at 1.999) | Validates Model D derivation ($b = 2$) | [#adversarial-exponent-regimes](adversarial-exponent-regimes.md) |
+| B | **D+S** (interpolation) | Drift-noise interpolation across correction functions | Smooth transition between drift ($b = 2.0$) and noise ($b = 1.5$) regimes; coupling dominance is the key qualifier, not drift vs. noise per se | Confirmed that the coupling-dominant condition is quantitatively load-bearing | [#adversarial-exponent-regimes](adversarial-exponent-regimes.md) |
+| C | **S** (stochastic AR(1)) | Exponent vs. gain ($\eta$) in stochastic model | Exponent drops toward 0.5 as $\eta \to 0$ (away from coupling dominance at fixed $q_\text{base}$); discrete AR(1) exponent never exceeds 1.5 | Validates Model S derivation ($b = 3/2$) | [#adversarial-exponent-regimes](adversarial-exponent-regimes.md) |
+| D | **D vs. S** (separated) | Exponent vs. base noise ($q_\text{base}$) at fixed $\eta$ | Continuous ODE exponent $\to$ 2.0 (Model D), discrete AR(1) exponent $\to$ 1.5 (Model S), as $q_\text{base} \to 0$ | Definitively separated the two asymptotes; validates both derivations | [#adversarial-exponent-regimes](adversarial-exponent-regimes.md) |
+| E | **S** (stochastic AR(1)) | Observation noise; optimal gain validation | Observation noise collapses adversarial exponent from $\sim 1.0$ to $\sim 0.2$; Riccati-optimal gain restores it to $\sim 0.4$; 52% mismatch reduction at moderate noise | Observation quality gates tempo advantage; optimal gain ( #update-gain) empirically validated | [#observation-gates-advantage](observation-gates-advantage.md) |
+| F | **S** (stochastic AR(1)) | Multi-dimensional anisotropic correction; targeted adversarial attack | Per-dimension theory exact to 4 significant figures; scalar tempo overestimates by 72%; targeted attack amplifies advantage by 17% | Validates Model S per-dimension steady state | [#per-dimension-persistence](per-dimension-persistence.md) |
+| Hafez bridge | **S** (stochastic AR(1)) | Bi-predictability $P$ vs. ACT mismatch in adversarial and non-adversarial settings | $P$ measures coupling architecture (scale-invariant); mismatch measures coupling performance; $P$ is blind to adversarial dynamics | $P$ and ACT mismatch are complementary diagnostics; $H_b$ (agent opacity) has no direct ACT analog -- potential gap for multi-agent work | -- |
 
 ## Methodology
 
@@ -50,15 +50,15 @@ The simulations were theory-shaping, not merely confirmatory. In particular:
 
 ## Key Findings
 
-### The adversarial exponent is regime-dependent
+### The adversarial exponent is regime-dependent (now derived)
 
-The mismatch ODE's $\rho$ parameter conflates two quantities: deterministic drift (persistent directional change) and stochastic noise scale (unpredictable fluctuations). These yield different steady-state scaling:
+The theory now distinguishes two disturbance models (Model D: bounded deterministic, GA-2; Model S: stochastic zero-mean, GA-2S), each producing a different steady-state scaling and therefore a different adversarial exponent:
 
-- **Deterministic drift, coupling-dominant:** $\Vert\delta\Vert_{ss} = \rho / \mathcal{T}$. Adversarial exponent $b \to 2.0$.
-- **Stochastic noise, coupling-dominant:** $\Vert\delta\Vert_{ss} = \rho / \sqrt{\mathcal{T}}$ (from AR(1) stationary variance). Adversarial exponent $b \to 1.5$.
-- **Non-coupling-dominant:** Exponent degrades smoothly toward 1.0 (deterministic) or 0.5 (stochastic) as base disturbance grows relative to adversarial coupling.
+- **Model D, coupling-dominant:** $\lVert\delta\rVert_{ss} = \rho / \mathcal{T}$. Adversarial exponent $b = 2$ (derived from Prop A.1; Variant A confirms at 1.999).
+- **Model S, coupling-dominant:** $\lVert\delta\rVert_{\text{rms}} = \sigma_w / \sqrt{2\mathcal{T}}$ (from Prop A.1S). Adversarial exponent $b = 3/2$ (derived; Variants C-D confirm at 1.481).
+- **Non-coupling-dominant:** Exponent degrades smoothly toward 1.0 (Model D) or 0.5 (Model S) as base disturbance grows relative to adversarial coupling.
 
-The original sim2 result ($b \approx 1.05$) was not a falsification of Corollary 11.2 but a measurement in the wrong regime -- stochastic noise coupling at moderate coupling dominance. Variants A--D systematically mapped the full regime space and identified the analytical root causes. See #adversarial-exponent-regimes for the full treatment.
+The original sim2 result ($b \approx 1.05$) was not a falsification of Corollary 11.2 but a measurement in the wrong regime -- stochastic noise coupling at moderate coupling dominance. Variants A--D systematically mapped the full regime space and validated the derived exponents. See #adversarial-exponent-regimes for the full treatment.
 
 ### Observation noise gates adversarial advantage
 
@@ -86,4 +86,4 @@ Bi-predictability $P$ (Hafez et al.) measures the informational architecture of 
 
 **What the simulations did not test.** The simulations did not test whether the AR(1) mismatch dynamics are a good model for any particular real-world adaptive system. They also did not test cross-dimensional coupling (off-diagonal correction), non-Gaussian disturbances, non-stationary parameters, or multi-agent composition dynamics. The interaction between observation noise and the deterministic-drift exponent regime ($b = 2.0$) was not tested -- Variant E used stochastic coupling only.
 
-**Theory-shaping role.** The most important contribution of the simulations was not confirming predictions but forcing the theory to be more precise. The regime split in the adversarial exponent, the observation-noise gating mechanism, and the per-dimension bottleneck effect were all findings that the analytical derivations left ambiguous or unaddressed. The simulations narrowed the theory's claims from "the exponent is 2" to "the exponent is 2 under deterministic drift in the coupling-dominant regime, and 1.5 under stochastic noise in the coupling-dominant regime," which is a substantively different and more useful statement.
+**Theory-shaping role.** The most important contribution of the simulations was not confirming predictions but forcing the theory to be more precise. The regime split in the adversarial exponent, the observation-noise gating mechanism, and the per-dimension bottleneck effect were all findings that the analytical derivations initially left ambiguous or unaddressed. The simulations forced the disturbance model split (Model D vs. Model S), which in turn enabled the analytical derivation of both exponents. The simulations now serve as validation of the derived results: Variant A validates $b = 2$ (Model D), Variants C-D validate $b = 3/2$ (Model S), Variant F validates the Model S per-dimension steady state.

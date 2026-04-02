@@ -16,32 +16,52 @@ An agent maintains bounded mismatch — persists as a viable adaptive system —
 
 *[Derived (persistence-threshold, from sector-condition analysis)]*
 
+### Model D: Deterministic Bounded Disturbance (GA-2)
+
 **General form (nonlinear):**
 
 $$\alpha \gt \frac{\rho}{R}$$
 
 where:
 - $\alpha$ is the worst-case correction efficiency (the sector-condition lower bound on the correction function — see #sector-condition-stability)
-- $\rho$ is the rate of environment change (rate of new mismatch introduction, GA-2: $\Vert w(t)\Vert \leq \rho$)
+- $\rho$ is the disturbance bound (GA-2: $\lVert w(t)\rVert \leq \rho$)
 - $R$ is the model class capacity (radius of the region where the sector condition holds)
 
 The ultimately bounded mismatch is $R^\ast = \rho / \alpha$, and persistence requires $R^\ast \lt R$.
 
-**Linear operational form:**
+**Linear operational form (Model D):**
 
-$$\mathcal{T} \gt \frac{\rho}{\Vert\delta_{\text{critical}}\Vert}$$
+$$\mathcal{T} \gt \frac{\rho}{\lVert\delta_{\text{critical}}\rVert}$$
 
-In the linear case ($F(\mathcal{T}, \delta) = \mathcal{T} \cdot \delta$), $\alpha = \mathcal{T}$ exactly and $R \to \infty$. The critical mismatch $\Vert\delta_{\text{critical}}\Vert$ then replaces $R$ as the effective bound — the agent persists when steady-state mismatch $\rho / \mathcal{T}$ stays below the tolerance threshold. This is the form used throughout the theory as the operational persistence condition. It is exact for linear correction and a useful proxy for mildly nonlinear correction (where $\alpha \approx \mathcal{T}$), but it overstates the persistence margin when the correction function saturates at large mismatch.
+In the linear case ($F(\mathcal{T}, \delta) = \mathcal{T} \cdot \delta$), $\alpha = \mathcal{T}$ exactly and $R \to \infty$. The critical mismatch $\lVert\delta_{\text{critical}}\rVert$ then replaces $R$ as the effective bound — the agent persists when steady-state mismatch $\rho / \mathcal{T}$ stays below the tolerance threshold. This is the form used throughout the theory as the operational persistence condition. It is exact for linear correction and a useful proxy for mildly nonlinear correction (where $\alpha \approx \mathcal{T}$), but it overstates the persistence margin when the correction function saturates at large mismatch.
+
+### Model S: Stochastic Disturbance (GA-2S)
+
+**General form (nonlinear):**
+
+$$\alpha > \frac{n\sigma_w^2}{2R^2}$$
+
+where $n = \dim(\delta)$ and $\sigma_w^2 = \mathbb{E}[\lVert w(t)\rVert^2]$. The RMS steady-state mismatch is $R^*_S = \sigma_w\sqrt{n/(2\alpha)}$, and persistence (in the mean-square sense) requires $R^*_S < R$. See Prop A.1S in #sector-condition-derivation.
+
+**Linear operational form (Model S):**
+
+$$\mathcal{T} > \frac{n\sigma_w^2}{2\lVert\delta_{\text{critical}}\rVert^2}$$
+
+In the linear case, $\alpha = \mathcal{T}$. The condition is quadratic in $\lVert\delta_{\text{critical}}\rVert$ (not linear as in Model D) because the RMS mismatch scales as $1/\sqrt{\mathcal{T}}$, not $1/\mathcal{T}$.
+
+**Per-dimension (Model S):** $\eta_k > c \cdot \rho_k^2 / \delta_{\text{critical},k}^2$ where $c$ depends on the probability guarantee. See #per-dimension-persistence.
+
+### Common Properties
 
 **The relationship between $\alpha$ and $\mathcal{T}$:** For all correction functions tested in simulation (linear, saturating, sigmoid, threshold, structural breakdown), $\alpha$ is monotone increasing in $\mathcal{T}$ — higher tempo always improves correction efficiency. The quantitative relationship varies: for a saturating function with capacity $R$, $\alpha \approx \mathcal{T} / 2$ (worst case at the capacity boundary); for sigmoid (tanh), $\alpha \approx 0.76 \cdot \mathcal{T}$. The qualitative conclusion — "faster adaptation improves persistence" — holds for all correction function classes.
 
-**Assumptions.** Bounded disturbance (GA-2) and sector condition on the correction function (GA-3). See #sector-condition-stability for the general nonlinear treatment from which this threshold emerges.
+**Assumptions.** The Model D threshold assumes bounded disturbance (GA-2) and sector condition (GA-3). The Model S threshold assumes stochastic disturbance (GA-2S) and the same sector condition (GA-3). See #sector-condition-stability for the general nonlinear treatment from which both thresholds emerge.
 
 ### Derivation
 
-From #sector-condition-stability (Prop A.1 in #sector-condition-derivation): under the sector condition and bounded disturbance, mismatch is ultimately bounded by $R^\ast = \rho/\alpha$, and the agent persists iff $R^\ast \lt R$, i.e., $\alpha \gt \rho/R$.
+**Model D:** From #sector-condition-stability (Prop A.1 in #sector-condition-derivation): under the sector condition and bounded disturbance, mismatch is ultimately bounded by $R^\ast = \rho/\alpha$, and the agent persists iff $R^\ast \lt R$, i.e., $\alpha \gt \rho/R$. In the linear case, $\alpha = \mathcal{T}$ and the relevant bound is $\lVert\delta_{\text{critical}}\rVert$ rather than $R$ (which is infinite), giving $\mathcal{T} \gt \rho / \lVert\delta_{\text{critical}}\rVert$. $\square$
 
-In the linear case, $\alpha = \mathcal{T}$ and the relevant bound is $\Vert\delta_{\text{critical}}\Vert$ rather than $R$ (which is infinite), giving $\mathcal{T} \gt \rho / \Vert\delta_{\text{critical}}\Vert$. $\square$
+**Model S:** From Prop A.1S in #sector-condition-derivation: under the sector condition and stochastic disturbance, the RMS mismatch converges to $\sigma_w\sqrt{n/(2\alpha)}$, and the agent persists (mean-square) iff $\alpha > n\sigma_w^2/(2R^2)$. In the linear case, $\mathcal{T} > n\sigma_w^2/(2\lVert\delta_{\text{critical}}\rVert^2)$. $\square$
 
 ### Per-Dimension Extension
 
@@ -57,7 +77,7 @@ The scalar condition overestimates by up to 72% in simulation. The weak dimensio
 
 ## Epistemic Status
 
-The threshold's *existence* is *robust qualitative* — any monotone correction function has a capacity limit; this holds across all correction functions tested (linear, saturating, threshold, sigmoid). The general form $\alpha \gt \rho / R$ is *exact* under the sector-condition assumptions (GA-2, GA-3; Prop A.1). The linear operational form $\mathcal{T} \gt \rho / \Vert\delta_{\text{critical}}\Vert$ is *exact* for linear correction (where $\alpha = \mathcal{T}$) and a *useful approximation* for mildly nonlinear correction. For strongly nonlinear correction (saturating, threshold, breakdown), the general $\alpha$-form is required — $\mathcal{T}$ overestimates $\alpha$ and the linear form overstates the persistence margin. Downstream segments that use $\mathcal{T} \gt \rho / \Vert\delta_{\text{critical}}\Vert$ should be understood as using the linear operational form; the qualitative conclusions hold because $\alpha$ is monotone in $\mathcal{T}$. The per-dimension extension is *empirically exact* (matches AR(1) prediction to 4 significant figures in simulation) but awaits formal derivation beyond the 1D case.
+The threshold's *existence* is *robust qualitative* — any monotone correction function has a capacity limit; this holds across all correction functions tested (linear, saturating, threshold, sigmoid). Both disturbance models produce exact thresholds: Model D gives $\alpha > \rho/R$ (*exact* under GA-2, GA-3; Prop A.1); Model S gives $\alpha > n\sigma_w^2/(2R^2)$ (*exact* under GA-2S, GA-3; Prop A.1S). The linear operational forms ($\mathcal{T} > \rho/\lVert\delta_{\text{critical}}\rVert$ for Model D; $\mathcal{T} > n\sigma_w^2/(2\lVert\delta_{\text{critical}}\rVert^2)$ for Model S) are *exact* for linear correction and *useful approximations* for mildly nonlinear correction. For strongly nonlinear correction, the general $\alpha$-forms are required. Downstream segments that use the linear operational forms should be understood accordingly; the qualitative conclusions hold because $\alpha$ is monotone in $\mathcal{T}$. The per-dimension extension is *empirically exact* for Model S (matches AR(1) prediction to 4 significant figures in simulation); the Model D per-dimension threshold ($\mathcal{T}_k > \rho_k/\delta_{\text{critical},k}$) is exact by the same Lyapunov argument applied per dimension.
 
 ## Discussion
 

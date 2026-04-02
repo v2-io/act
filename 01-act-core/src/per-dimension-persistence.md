@@ -1,41 +1,68 @@
 ---
 slug: per-dimension-persistence
 type: result
-status: empirical
+status: conditional
 depends:
   - persistence-condition
   - adaptive-tempo
+  - sector-condition-derivation
 ---
 
 # Result: Per-Dimension Persistence
 
-The scalar persistence condition $\mathcal{T} \gt \rho / \Vert\delta_{\text{critical}}\Vert$ overestimates adaptive capacity when the agent's correction gain varies across dimensions. The weak dimension is the bottleneck — it dominates the aggregate mismatch regardless of performance on strong dimensions. The correct condition is per-dimension: $\mathcal T_k \gt \rho_k / \Vert\delta_{\text{critical},k}\Vert$ for each dimension $k$ with significant disturbance.
+The scalar persistence condition overestimates adaptive capacity when the agent's correction gain varies across dimensions. The weak dimension is the bottleneck — it dominates the aggregate mismatch regardless of performance on strong dimensions. The correct condition is per-dimension, with the form depending on whether the disturbance is deterministic (Model D) or stochastic (Model S).
 
 ## Formal Expression
 
 *[Result (per-dimension-persistence)]*
 
-For an agent with $d$-dimensional mismatch $\delta_t \in \mathbb{R}^d$, diagonal correction gain $\eta = \text{diag}(\eta_1, \ldots, \eta_d)$, and per-dimension disturbance $\rho_k$:
+For an agent with $d$-dimensional mismatch $\delta_t \in \mathbb{R}^d$, diagonal correction gain $\eta = \text{diag}(\eta_1, \ldots, \eta_d)$, and per-dimension disturbance:
 
-The per-dimension steady-state mismatch (AR(1) process) is:
+### Model D: Deterministic Per-Dimension Threshold
 
-$$E[\Vert\delta_k\Vert] = \frac{\rho_k}{\sqrt{2\eta_k - \eta_k^2}} \cdot \sqrt{\frac{2}{\pi}}$$
+Under bounded disturbance $|w_k(t)| \leq \rho_k$ (GA-2, per dimension), the per-dimension steady-state mismatch is:
+
+$$|\delta_k|_{ss} = \frac{\rho_k}{\alpha_k}$$
+
+**Persistence requires** $\alpha_k > \rho_k / R_k$ **for each dimension**, or in linear operational form:
+
+$$\mathcal{T}_k > \frac{\rho_k}{\delta_{\text{critical},k}} \quad \text{for each dimension } k$$
+
+This is the deterministic worst-case bound — exact under bounded disturbance by the same Lyapunov argument as Prop A.1, applied per dimension.
+
+### Model S: Stochastic Per-Dimension Steady State
+
+Under stochastic disturbance $w_{k,t} \sim N(0, \rho_k^2)$ (GA-2S, per dimension), the discrete AR(1) process $\delta_{k,t+1} = (1 - \eta_k)\delta_{k,t} + w_{k,t}$ has stationary distribution $\delta_k \sim N(0, \rho_k^2/(2\eta_k - \eta_k^2))$, giving:
+
+$$E[|\delta_k|] = \frac{\rho_k}{\sqrt{2\eta_k - \eta_k^2}} \cdot \sqrt{\frac{2}{\pi}}$$
 
 which for small $\eta_k$ approximates:
 
-$$E[\Vert\delta_k\Vert] \approx \frac{\rho_k}{\sqrt{2\eta_k}} \cdot \sqrt{\frac{2}{\pi}}$$
+$$E[|\delta_k|] \approx \frac{\rho_k}{\sqrt{2\eta_k}} \cdot \sqrt{\frac{2}{\pi}}$$
 
-**Persistence requires** $\eta_k \gt \rho_k / \Vert\delta_{\text{critical},k}\Vert$ **for each dimension independently.**
+**Persistence requires** (from $E[|\delta_k|] < \delta_{\text{critical},k}$, small-$\eta_k$ approximation):
 
-The aggregate $L_2$ mismatch $\Vert\delta\Vert = \sqrt{\sum_k \delta_k^2}$ is dominated by the dimension with the largest $\rho_k / \eta_k$ ratio.
+$$\eta_k > \frac{\rho_k^2}{\pi \cdot \delta_{\text{critical},k}^2}$$
+
+Or as a probability bound ($P(|\delta_k| > \delta_{\text{critical},k}) < \epsilon$, using the Gaussian tail):
+
+$$\eta_k > \frac{\rho_k^2 \cdot z_{1-\epsilon}^2}{2 \cdot \delta_{\text{critical},k}^2}$$
+
+where $z_{1-\epsilon}$ is the Gaussian quantile. Note: the stochastic threshold is quadratic in $\rho_k/\delta_{\text{critical},k}$ (not linear as in Model D), reflecting the $1/\sqrt{\alpha}$ scaling.
+
+### Common Structure
+
+The aggregate $L_2$ mismatch $\lVert\delta\rVert = \sqrt{\sum_k \delta_k^2}$ is dominated by the dimension with the largest $\rho_k / \eta_k$ ratio (Model S) or $\rho_k / \alpha_k$ ratio (Model D). The qualitative conclusion — the weak dimension is the bottleneck — holds for both models.
 
 ## Epistemic Status
 
-*Empirical.* The per-dimension steady-state formula is derived from the AR(1) stationary distribution (a stochastic-noise model) and matches simulation to 4 significant figures within that model. However, two issues prevent an `exact` status:
+*Exact conditional on disturbance model.* Both per-dimension forms are now derived from their respective disturbance models:
 
-1. **Regime mixing.** The summary states the persistence threshold as $\mathcal T_k \gt \rho_k / \lVert\delta_{\text{critical},k}\rVert$ (a deterministic-drift condition using per-dimension tempo), but the formal expression derives steady-state mismatch from a stochastic AR(1) process using raw gain $\eta_k$, not tempo $\mathcal T_k = \nu_k \eta_k$. These are different models: the deterministic-drift threshold comes from the sector-condition framework ( #sector-condition-stability); the stochastic formula comes from AR(1) stationarity. The per-dimension threshold as stated does not follow from the AR(1) formula — it is the deterministic result applied per dimension, which is plausible but not derived from the stochastic model presented.
+1. **Model D threshold** ($\mathcal{T}_k > \rho_k/\delta_{\text{critical},k}$) follows from Prop A.1 applied per dimension — the same Lyapunov argument with bounded disturbance, restricted to each coordinate. This is exact under GA-2 + GA-3.
 
-2. **Simulation evidence, not proof.** The 72% overestimate and 4-significant-figure match are simulation results within the AR(1) model class. They validate the stochastic formula but do not constitute a proof of the per-dimension persistence threshold. The threshold is better understood as an empirical finding supported by simulation and motivated by the deterministic analogy.
+2. **Model S steady state** ($E[|\delta_k|] = \rho_k/\sqrt{2\eta_k - \eta_k^2} \cdot \sqrt{2/\pi}$) follows from the AR(1) stationary distribution under Gaussian disturbance (GA-2S). The stochastic persistence threshold ($\eta_k > \rho_k^2/(\pi \cdot \delta_{\text{critical},k}^2)$) is derived from this formula. The 4-significant-figure simulation match validates Model S, not Model D.
+
+The previously noted "regime mixing" is resolved: the two threshold forms belong to different disturbance models. The Model D threshold is linear in $\rho_k$; the Model S threshold is quadratic. The 72% scalar overestimate and weak-dimension bottleneck are structural properties that hold under both models.
 
 ## Discussion
 
@@ -53,7 +80,7 @@ Scalar prediction: $\rho / \mathcal{T} = 0.284 / 0.21 = 1.35$. Actual $\Vert\del
 
 **Adversarial exploitation.** An adversary who identifies the target's weak dimension can concentrate disturbance there. Targeted attack (80% on the weak dimension) amplifies the mismatch ratio by 17% (from 2.70 to 3.15). The real danger is structural: if the weak dimension's mismatch exceeds its critical threshold ($R_{\text{max}}$), correction fails on that dimension while the aggregate $\Vert\delta\Vert_{L_2}$ may still look manageable. Per-dimension monitoring is essential.
 
-**Implications for the persistence condition.** Like the scalar result, per-dimension persistence addresses *structural persistence* (see Persistence in `LEXICON.md`) — whether the correction machinery on each dimension can outpace that dimension's disturbance rate. An agent can be structurally persistent on every dimension while still being operationally fragile on one (near its per-dimension $R_k$ boundary). The scalar persistence condition ( #persistence-condition) remains correct as a *necessary* condition: if the aggregate tempo is insufficient, the agent fails. But it is not *sufficient* — an agent can satisfy the scalar condition while failing on a single dimension. The per-dimension condition $\mathcal T_k \gt \rho_k / \lVert\delta_{\text{critical},k}\rVert$ is the natural extension — simulation confirms it predicts per-dimension failure correctly, but its formal status is empirical (validated within the AR(1) model class, not derived from the sector-condition framework in the stochastic regime). See Epistemic Status above for the precise gap.
+**Implications for the persistence condition.** Like the scalar result, per-dimension persistence addresses *structural persistence* (see Persistence in `LEXICON.md`) — whether the correction machinery on each dimension can outpace that dimension's disturbance rate. An agent can be structurally persistent on every dimension while still being operationally fragile on one (near its per-dimension $R_k$ boundary). The scalar persistence condition ( #persistence-condition) remains correct as a *necessary* condition: if the aggregate tempo is insufficient, the agent fails. But it is not *sufficient* — an agent can satisfy the scalar condition while failing on a single dimension. The per-dimension condition has two forms: Model D ($\mathcal{T}_k > \rho_k/\delta_{\text{critical},k}$, exact under bounded disturbance) and Model S ($\eta_k > \rho_k^2/(\pi \cdot \delta_{\text{critical},k}^2)$, exact under Gaussian disturbance). Both predict per-dimension failure correctly; the choice depends on the disturbance character in the domain.
 
 **Connection to multi-agent systems.** The per-dimension result has a direct multi-agent analog: in a composite agent, each sub-agent's contribution to composite tempo may be strong in some dimensions and weak in others. The composite's persistence requires coverage across all relevant dimensions — a team of specialists who each handle one dimension well composes better than a team of generalists who are mediocre at everything, provided the dimension assignment matches.
 

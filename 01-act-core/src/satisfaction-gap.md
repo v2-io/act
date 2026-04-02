@@ -36,6 +36,7 @@ where $V_{O_t}^{\min}$ is the minimum trajectory value that counts as "objective
 | Policy class too narrow | Expand $\Pi$ (structural adaptation of $\Sigma_t$) | $\delta_{\text{sat}}$ decreases when richer policies are tried |
 | Horizon too short | Extend $N_h$ | $\delta_{\text{sat}}$ decreases with longer planning horizon |
 | Model is wrong about feasibility | Improve $M_t$ (reduce $\delta_{\text{epistemic}}$) | $\delta_{\text{sat}}$ changes when $M_t$ is corrected |
+| Objectives jointly infeasible | Revise $O_t$ or relax constraints | Individual terminal satisfaction gaps are zero but AND-node fails; cross-terminal tradeoff is required |
 
 Objective revision is the **last resort**, not the first response to unmet goals. The orient cascade ( #orient-cascade) formalizes this ordering.
 

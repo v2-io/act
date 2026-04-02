@@ -22,7 +22,8 @@ Estimation recipes for core ACT quantities, bridging the measurement gap between
 |----------|-------------|--------------|---------------------|
 | $U_M$ | Model uncertainty ( #update-gain) | domain-specific variance/entropy | Predictive posterior or ensemble spread |
 | $U_o$ | Observation uncertainty ( #update-gain) | sensor variance/noise scale | Channel calibration or residual variance |
-| $\rho(t)$ | Mismatch injection rate ( #mismatch-dynamics) | surprise per time | Time-series of mismatch magnitudes |
+| $\rho_{\det}(t)$ | Mismatch injection rate bound, Model D ( #mismatch-dynamics) | surprise per time | Time-series of mismatch magnitudes; worst-case bounds |
+| $\sigma_w$ | Disturbance noise scale, Model S ( #mismatch-dynamics) | surprise per $\sqrt{\text{time}}$ | Mismatch innovation variance (residual after correction) |
 | $\rho_{\text{delib}}$ | Local mismatch drift during pauses ( #deliberation-cost) | surprise per time | Deliberation windows with no corrective action |
 | $\alpha$ | Lower correction efficiency bound ( #sector-condition-stability) | inverse time | Vector mismatch trajectories + correction term |
 | $R$ | Radius where local sector condition holds ( #sector-condition-stability) | surprise magnitude | Same as $\alpha$, plus breakdown detection |
@@ -48,21 +49,36 @@ For the scalar gain heuristic ( #update-gain), normalize to common units and com
 
 $$\hat{\eta}^*_t = \frac{\hat{U}_{M,t}}{\hat{U}_{M,t} + \hat{U}_{o,t}}$$
 
-### Estimating $\rho(t)$ and $\rho_{\text{delib}}$
+### Estimating Disturbance Parameters ($\rho_{\det}$, $\sigma_w$, $\rho_{\text{delib}}$)
 
-Let $s_t = \Vert\delta_t\Vert$ in surprise units (e.g., negative log-likelihood residual scale).
+The disturbance model split (Model D vs. Model S; see #mismatch-dynamics, #sector-condition-stability) requires different estimation procedures depending on the disturbance character.
 
-Global mismatch injection rate:
+**Identifying the disturbance model.** The choice between Model D and Model S is domain-dependent:
+- **Model D** (bounded deterministic, GA-2): appropriate when the environment changes persistently and directionally. Estimate $\rho_{\det}$ from worst-case bounds on mismatch injection rate. Examples: adversary who maneuvers systematically, API that drifts, climate that shifts.
+- **Model S** (stochastic zero-mean, GA-2S): appropriate when the environment fluctuates unpredictably around a stable mean. Estimate $\sigma_w$ from residual variance of mismatch innovations. Examples: market noise, sensor noise, random perturbations.
+- **Mixed environments** use both: estimate $\rho_{\det}$ from the persistent component (trend) and $\sigma_w$ from the residual variance after detrending. The adversarial exponent interpolates smoothly between $b = 2$ (pure drift) and $b = 3/2$ (pure noise); see #adversarial-exponent-regimes.
+
+Let $s_t = \lVert\delta_t\rVert$ in surprise units (e.g., negative log-likelihood residual scale).
+
+**Model D: Global mismatch injection rate ($\hat{\rho}_{\det}$):**
 
 *[Operational Definition]*
 
-$$\hat{\rho}(t) = \left[\frac{s_{t+\Delta t} - s_t}{\Delta t} + \hat{\mathcal T}_t \, s_t\right]_+$$
+$$\hat{\rho}_{\det}(t) = \left[\frac{s_{t+\Delta t} - s_t}{\Delta t} + \hat{\mathcal T}_t \, s_t\right]_+$$
 
-where $[x]_+ = \max(x, 0)$ and $\hat{\mathcal T}$ evaluated at time $t$ is estimated adaptive tempo.
+where $[x]_+ = \max(x, 0)$ and $\hat{\mathcal T}$ evaluated at time $t$ is estimated adaptive tempo. Take the supremum (or a high quantile) over the estimation window.
 
-**Note on estimation sequencing.** This estimator requires $\hat{\mathcal T}_t$, estimated from $\hat{\nu}$ and $\hat{\eta}^\ast$. Estimate the gain and event rate first (from the agent's internal statistics and observation timing), then use these to extract $\rho$ from the mismatch trajectory. This sequential structure avoids circularity but introduces sensitivity: errors in $\hat{\mathcal T}$ propagate linearly into $\hat{\rho}$.
+**Model S: Noise scale ($\hat{\sigma}_w$):**
 
-Local pause-window drift for #deliberation-cost:
+*[Operational Definition]*
+
+$$\hat{\sigma}_w^2 = \text{Var}\left[\frac{s_{t+\Delta t} - (1 - \hat{\eta}^\ast)s_t}{\sqrt{\Delta t}}\right]$$
+
+i.e., the variance of the mismatch innovations (residuals after subtracting the expected correction). For AR(1) processes, this is the innovation variance $\hat{\rho}^2$ directly.
+
+**Note on estimation sequencing.** Both estimators require $\hat{\mathcal T}_t$ (or $\hat{\eta}^\ast$), estimated from $\hat{\nu}$ and $\hat{\eta}^\ast$. Estimate the gain and event rate first (from the agent's internal statistics and observation timing), then use these to extract the disturbance parameters from the mismatch trajectory. This sequential structure avoids circularity but introduces sensitivity: errors in $\hat{\mathcal T}$ propagate into $\hat{\rho}_{\det}$ and $\hat{\sigma}_w$.
+
+**Local pause-window drift for #deliberation-cost ($\hat{\rho}_{\text{delib}}$):**
 
 *[Operational Definition]*
 
@@ -109,8 +125,9 @@ This anchors #persistence-condition to real task outcomes.
 6. Estimate $\Vert\delta_{\text{critical}}\Vert$ from task-performance degradation.
 7. Compute derived diagnostics:
 
-   - Tempo margin: $\hat{\mathcal T} - \hat{\rho}/\Vert\hat{\delta}_{\text{critical}}\Vert$
-   - Reserve: $\widehat{\Delta \rho^\ast} = \hat{\alpha}\hat{R} - \hat{\rho}$
+   - Tempo margin (Model D): $\hat{\mathcal T} - \hat{\rho}_{\det}/\lVert\hat{\delta}_{\text{critical}}\rVert$
+   - Tempo margin (Model S): $\hat{\mathcal T} - n\hat{\sigma}_w^2/(2\lVert\hat{\delta}_{\text{critical}}\rVert^2)$
+   - Reserve: $\widehat{\Delta \rho^\ast} = \hat{\alpha}\hat{R} - \hat{\rho}_{\det}$
    - Deliberation feasibility: $\Delta\eta^\ast(\Delta\tau)\Vert\delta_{\text{post}}\Vert - \hat{\rho}_{\text{delib}}\Delta\tau$
 
 ## Decision-Theoretic Procedures

@@ -132,11 +132,72 @@ without mismatch diverging (where $R$ is the radius of the sector-condition regi
 | Organization | Well-capitalized firm, stable market | Startup in volatile market |
 | Military | Force with operational depth | Force at culmination point |
 
+## Proposition A.1S: Bounded Mismatch Under Stochastic Disturbance
+
+**Statement.** Under (A1), (A2'), (A3), with stochastic disturbance (GA-2S: $w(t)$ is zero-mean with $\mathbb{E}[\lVert w(t)\rVert^2] = \sigma_w^2$), the mismatch $\delta(t)$ satisfies:
+
+*[Derived (stochastic-bounded-mismatch, from Itô-Lyapunov analysis)]*
+
+$$\mathbb{E}[\lVert\delta(t)\rVert^2] \leq \lVert\delta(0)\rVert^2 e^{-2\alpha t} + \frac{n\sigma_w^2}{2\alpha}$$
+
+for all $t$, where $n = \dim(\delta)$. The agent persists in the mean-square sense iff:
+
+$$\alpha > \frac{n\sigma_w^2}{2R^2}$$
+
+**Proof.**
+
+The SDE form of the mismatch dynamics under stochastic disturbance is:
+
+$$d\delta = -F(\mathcal{T}, \delta)\,dt + \sigma_w\,dW_t$$
+
+where $W_t$ is a standard $n$-dimensional Wiener process.
+
+Apply Itô's formula to $V(\delta) = \frac{1}{2}\lVert\delta\rVert^2$:
+
+*[Derived (Proof Step)]*
+
+$$dV = \delta^T(-F)\,dt + \delta^T \sigma_w\,dW_t + \frac{1}{2}\sigma_w^2 n\,dt$$
+
+The last term is the Itô correction: $\frac{1}{2}\text{tr}(\sigma_w^2 I_n) = \frac{n}{2}\sigma_w^2$.
+
+Taking expectations (the Itô integral $\delta^T \sigma_w\,dW_t$ has zero expectation):
+
+*[Derived (Proof Step)]*
+
+$$\frac{d}{dt}\mathbb{E}[V] = \mathbb{E}[\delta^T(-F)] + \frac{n}{2}\sigma_w^2$$
+
+By (A2'): $\delta^T F \geq \alpha\lVert\delta\rVert^2 = 2\alpha V$. Therefore:
+
+*[Derived (Proof Step)]*
+
+$$\frac{d}{dt}\mathbb{E}[V] \leq -2\alpha\,\mathbb{E}[V] + \frac{n}{2}\sigma_w^2$$
+
+This is a linear ODE in $\mathbb{E}[V]$ with solution:
+
+$$\mathbb{E}[V(t)] \leq V(0)\,e^{-2\alpha t} + \frac{n\sigma_w^2}{4\alpha}(1 - e^{-2\alpha t})$$
+
+Since $V = \frac{1}{2}\lVert\delta\rVert^2$, the steady-state mean-square mismatch is:
+
+$$\mathbb{E}[\lVert\delta\rVert^2]_{ss} = \frac{n\sigma_w^2}{2\alpha}$$
+
+The RMS steady-state mismatch is:
+
+*[Derived (stochastic-steady-state)]*
+
+$$R^*_S \;=\; \lVert\delta\rVert_{\text{rms}} = \sigma_w\sqrt{\frac{n}{2\alpha}}$$
+
+Persistence requires $R^*_S < R$, giving $\alpha > n\sigma_w^2 / (2R^2)$. $\square$
+
+**Interpretation.** Model D (Prop A.1) gives $R^* = \rho/\alpha$, scaling as $1/\alpha$. Model S gives $R^*_S = \sigma_w\sqrt{n/(2\alpha)}$, scaling as $1/\sqrt{\alpha}$. Doubling the correction efficiency halves the deterministic steady-state mismatch but only reduces the stochastic steady-state by a factor of $\sqrt{2} \approx 1.41$. Correction is less effective against noise than against drift. This difference in scaling propagates into the adversarial exponent regimes ( #adversarial-exponent-regimes): $b = 2$ under Model D, $b = 3/2$ under Model S.
+
+**Tail bound.** At steady state, Markov's inequality gives $P(\lVert\delta\rVert > R) \leq n\sigma_w^2/(2\alpha R^2)$. The agent stays within $R$ with probability $\geq 1 - \epsilon$ provided $\alpha \geq n\sigma_w^2/(2\epsilon R^2)$. For the linear case (Ornstein-Uhlenbeck), the stationary distribution is Gaussian and exact tail probabilities are available. The Markov bound is the general result holding under (A2') alone.
+
 ## Summary of Results
 
 | Result | What it proves | Assumptions | Linear case recovery |
 |--------|---------------|-------------|---------------------|
-| **A.1** (Bounded Mismatch) | $R^\ast = \rho/\alpha$ | (A1), (A2'), bounded $\rho$ | $\alpha = \mathcal{T}$ gives $R^\ast = \rho/\mathcal{T}$ |
+| **A.1** (Bounded Mismatch) | $R^\ast = \rho/\alpha$ | (A1), (A2'), bounded $\rho$ (GA-2) | $\alpha = \mathcal{T}$ gives $R^\ast = \rho/\mathcal{T}$ |
+| **A.1S** (Stochastic Bounded Mismatch) | $R^*_S = \sigma_w\sqrt{n/(2\alpha)}$ | (A1), (A2'), stochastic $w$ (GA-2S) | $\alpha = \mathcal{T}$ gives $R^*_S = \sigma_w\sqrt{n/(2\mathcal{T})}$ |
 | **A.2** (Stability Margin) | $\Delta\rho^\ast = \alpha R - \rho$ | Same as A.1 | $R \to \infty$ for linear (always stable if $\mathcal{T} \gt 0$) |
 
 ## Epistemic Status
@@ -149,7 +210,7 @@ The setup and assumptions are *definitions* — they specify what we mean by "co
 
 **What the proofs do NOT illuminate.** (1) Quantitative steady-state values — Lyapunov gives *bounds*, not exact values; the linear analysis remains necessary for quantitative predictions. (2) Convergence rates — standard Lyapunov tells you stable/unstable, not how fast. (3) Optimal gain structure — #update-gain comes from estimation theory, not stability theory. (4) Model sufficiency — the #information-bottleneck framework is information-theoretic, complementary to but independent of stability analysis.
 
-**The bounded-disturbance assumption.** Proposition A.1 requires $\Vertw(t)\Vert \leq \rho$ — a finite upper bound on disturbance magnitude. This excludes heavy-tailed environmental shocks (financial crises, ecological catastrophes, strategic surprise) where $\Vertw(t)\Vert$ can exceed any finite bound with non-negligible probability. For such environments, stochastic Lyapunov methods (input-to-state stability in probability, martingale-based stability) would be needed. The bounded case gives worst-case guarantees for the typical regime; extreme tail events are better understood as triggers for structural adaptation ( #structural-adaptation-necessity) rather than disturbances to be absorbed parametrically.
+**Two disturbance models.** Proposition A.1 assumes bounded disturbance (GA-2: $\lVert w(t)\rVert \leq \rho$); Proposition A.1S assumes stochastic disturbance (GA-2S: $\mathbb{E}[\lVert w(t)\rVert^2] = \sigma_w^2$). These are not approximations to each other — they capture structurally different environments. Model D (bounded) covers persistent directional change: an adversary who maneuvers, an API that drifts, a climate that shifts. Model S (stochastic) covers unpredictable fluctuations around a stable mean: market noise, sensor noise, random perturbations. The choice of model is an empirical question for each domain; the theory provides both tools. Neither model handles heavy-tailed environmental shocks (financial crises, ecological catastrophes, strategic surprise) where $\lVert w(t)\rVert$ can exceed any finite bound with non-negligible probability. Extreme tail events are better understood as triggers for structural adaptation ( #structural-adaptation-necessity) rather than disturbances to be absorbed parametrically.
 
 ## Working Notes
 

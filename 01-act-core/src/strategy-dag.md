@@ -99,6 +99,8 @@ The AND/OR parameterization is a parsimony-motivated formulation choice within t
 
 **Connection to Pearl's framework.** The strategy DAG is a causal Bayesian network where the agent is both the modeler and the intervener. Pearl's do-calculus applies in intervention-rich domains where the agent can experimentally verify edge credences. In confounded domains, the DAG degrades to a "best causal belief" structure — useful for planning but with acknowledged potential for systematic bias.
 
+**Depth penalties on calibration.** Beyond the confidence decay that deeper DAGs suffer ( #chain-confidence-decay), the two-edge strategic dynamics analysis (`msc/spike-two-edge-strategic-dynamics.md`) shows that deeper edges are also harder to calibrate. Edge $k$ in a chain is tested only when all upstream edges succeed, so its effective correction rate is attenuated by $\prod_{j<k}\theta_j$ (the evidence-starvation effect). Deeper DAGs therefore face a double penalty: lower aggregate confidence AND slower convergence of edge credences toward truth. This reinforces the structural pressure toward shallow, observable strategies — deep plans require both high per-edge reliability and sustained observability at every intermediate level to remain calibratable.
+
 ## Working Notes
 
 - Edge failures are assumed independent in the combination rules. Real systems have correlated failures (shared infrastructure, common-mode risks). The actual confidence is lower than the independent-edge formula suggests. Modeling correlation structure would require augmenting the DAG with hidden common-cause nodes or using a richer parameterization — both increase complexity. Currently acknowledged as a limitation.

@@ -64,29 +64,51 @@ $$\frac{\Vert\delta_B\Vert_{ss}}{\Vert\delta_A\Vert_{ss}} \to \frac{\gamma_A \cd
 
 $\square$
 
-### Regime-Dependent Exponents
+### Regime 2: Stochastic Coupling ($b = 3/2$)
 
-The squared law ($b = 2$) holds under deterministic drift coupling and coupling-dominant conditions. The exponent varies by regime:
+*[Derived (stochastic-tempo-advantage, from Model S steady state and coupling model)]*
 
-| Regime | Coupling type | Dominance | Exponent $b$ |
-|:---|:---|:---|:---:|
-| 1 | Deterministic drift | Coupling-dominant | $2$ |
-| 2 | Stochastic noise | Coupling-dominant | $3/2$ |
-| 3 | Either | Non-coupling-dominant | $\to 1$ (det.) or $\to 1/2$ (stoch.) |
+When the adversarial coupling enters as zero-mean noise rather than persistent drift, the disturbance model is Model S (GA-2S). The coupling model: $\sigma_B = \sigma_{\text{base}} + \gamma_A \cdot \mathcal{T}_A$ (the adversary's tempo increases the unpredictability of disturbances, not their systematic direction).
 
-**Regime 2 (stochastic).** When the adversarial coupling enters as zero-mean noise rather than persistent drift, the steady-state RMS mismatch scales as $\rho / \sqrt{\mathcal{T}}$ (because the stationary variance of the AR(1) process scales as $\rho^2 / \mathcal{T}$, and absolute deviation scales as the square root of variance). Substituting into the ratio yields $b = 3/2$ in the coupling-dominant limit.
+From the Model S steady state (Prop A.1S, scalar $n = 1$, linear $\alpha = \mathcal{T}$):
 
-**Regime 3 (non-coupling-dominant).** When $\rho_{\text{base}} \gtrsim \gamma \cdot \mathcal{T}$, the base disturbance dominates and the coupling terms become a perturbation. The mismatch ratio degrades toward $\mathcal T_A / \mathcal T_B$ (linear, $b = 1$) for deterministic dynamics, or toward $(\mathcal T_A / \mathcal T_B)^{1/2}$ for stochastic.
+$$\lVert\delta\rVert_{\text{rms}} = \frac{\sigma}{\sqrt{2\mathcal{T}}}$$
+
+Substituting the coupled noise scales:
+
+$$\lVert\delta_B\rVert_{\text{rms}} = \frac{\sigma_{\text{base}} + \gamma_A \mathcal{T}_A}{\sqrt{2\mathcal{T}_B}}, \qquad \lVert\delta_A\rVert_{\text{rms}} = \frac{\sigma_{\text{base}} + \gamma_B \mathcal{T}_B}{\sqrt{2\mathcal{T}_A}}$$
+
+Taking the ratio:
+
+$$\frac{\lVert\delta_B\rVert_{\text{rms}}}{\lVert\delta_A\rVert_{\text{rms}}} = \frac{(\sigma_{\text{base}} + \gamma_A \mathcal{T}_A)\sqrt{\mathcal{T}_A}}{(\sigma_{\text{base}} + \gamma_B \mathcal{T}_B)\sqrt{\mathcal{T}_B}}$$
+
+In the coupling-dominant limit ($\gamma \mathcal{T} \gg \sigma_{\text{base}}$, symmetric coupling $\gamma_A = \gamma_B$):
+
+$$\frac{\lVert\delta_B\rVert_{\text{rms}}}{\lVert\delta_A\rVert_{\text{rms}}} \to \frac{\gamma_A \mathcal{T}_A \sqrt{\mathcal{T}_A}}{\gamma_B \mathcal{T}_B \sqrt{\mathcal{T}_B}} = \frac{\gamma_A}{\gamma_B} \cdot \left(\frac{\mathcal{T}_A}{\mathcal{T}_B}\right)^{3/2}$$
+
+The exponent is $b = 3/2$. $\square$
+
+**Why 3/2, not 2.** The $1/\sqrt{\alpha}$ scaling of Model S (vs. $1/\alpha$ for Model D) removes one half-power from the denominator. The numerator contributes $\mathcal{T}_A^1$ from the coupling; the denominator contributes $\mathcal{T}_B^{1/2}$ from the noise averaging. Combined with the $A$-side denominator ($1/\mathcal{T}_A^{1/2}$): $\mathcal{T}_A^{3/2}/\mathcal{T}_B^{3/2}$.
+
+### Summary of Regime-Dependent Exponents
+
+| Regime | Coupling type | Dominance | Exponent $b$ | Source |
+|:---|:---|:---|:---:|:---|
+| 1 | Deterministic drift (Model D) | Coupling-dominant | $2$ | Derived above |
+| 2 | Stochastic noise (Model S) | Coupling-dominant | $3/2$ | Derived above |
+| 3 | Either | Non-coupling-dominant | $\to 1$ (det.) or $\to 1/2$ (stoch.) | Asymptotic limit |
+
+**Regime 3 (non-coupling-dominant).** When $\rho_{\text{base}} \gtrsim \gamma \cdot \mathcal{T}$ (or $\sigma_{\text{base}} \gtrsim \gamma \cdot \mathcal{T}$), the base disturbance dominates and the coupling terms become a perturbation. The mismatch ratio degrades toward $\mathcal T_A / \mathcal T_B$ (linear, $b = 1$) for Model D, or toward $(\mathcal T_A / \mathcal T_B)^{1/2}$ for Model S.
 
 The simulation validation across all three regimes is in #adversarial-exponent-regimes.
 
 ## Epistemic Status
 
-The squared law ($b = 2$) is *exact* under the linear mismatch dynamics ( #mismatch-dynamics) and the deterministic coupling-dominant conditions. The derivation is straightforward algebra from the steady-state formula and the coupling model. The coupling model itself is an *assumption* — the same one used in #adversarial-destabilization.
+Both coupling-dominant exponents are *exact* conditional on their respective disturbance models. The squared law ($b = 2$) is *exact* under Model D (deterministic bounded disturbance, GA-2) with coupling-dominant conditions. The $3/2$ law ($b = 3/2$) is *exact* under Model S (stochastic disturbance, GA-2S) with coupling-dominant conditions, derived from the $1/\sqrt{\alpha}$ steady-state scaling (Prop A.1S in #sector-condition-derivation). Both derivations are straightforward algebra from the respective steady-state formulas and the coupling model. The coupling model itself is an *assumption* — the same one used in #adversarial-destabilization.
 
-The regime-dependent exponents ($b = 3/2$ stochastic, $b \to 1$ non-coupling-dominant) are *empirical* — confirmed by simulation ( #adversarial-exponent-regimes, with the deterministic case matching at $b = 1.999$) and consistent with the analytical scaling arguments, but the stochastic case is not yet derived from the stochastic mismatch dynamics in full generality. The transition between regimes is smooth, not sharp.
+The non-coupling-dominant limits ($b \to 1$ for Model D, $b \to 1/2$ for Model S) are derived asymptotically. The smooth transition between regimes is confirmed by simulation ( #adversarial-exponent-regimes) but the interpolation formula is empirical. The transition between regimes is smooth, not sharp.
 
-Max attainable: exact conditional on the mismatch dynamics and coupling model. The result is as strong as its assumptions; no additional work changes the epistemic status without changing the dynamical model.
+Max attainable: exact conditional on the disturbance model and coupling model. The result is as strong as its assumptions; no additional work changes the epistemic status without changing the dynamical model.
 
 ## Discussion
 
@@ -101,7 +123,7 @@ Max attainable: exact conditional on the mismatch dynamics and coupling model. T
 ## Working Notes
 
 - The analysis treats each agent's tempo as exogenous — $\mathcal T_A$ does not change in response to $B$'s actions and vice versa. A fully coupled analysis where both agents' mismatch states co-evolve simultaneously (joint Lyapunov function over $(\delta_A, \delta_B)$) is the open extension. The decoupled result is a worst-case bound for the slower agent: in practice, the faster agent may divert adaptive capacity to generating disturbance rather than correcting its own mismatch, creating a self-limiting effect.
-- The stochastic exponent ($b = 3/2$) is derived from the AR(1) stationary variance scaling, which is exact for the discrete process. The continuous-time analog (Ornstein-Uhlenbeck) gives the same scaling. A full derivation from the stochastic mismatch SDE would unify Regimes 1 and 2 under a single framework with drift and diffusion terms.
+- The stochastic exponent ($b = 3/2$) is now derived from both the AR(1) stationary variance (discrete) and the Itô-Lyapunov analysis (continuous, Prop A.1S). The continuous-time analog (Ornstein-Uhlenbeck) gives the same scaling, confirming the result is not a discretization artifact. The two models (D and S) are unified by the common sector-condition framework with different disturbance assumptions (GA-2 vs. GA-2S).
 - Asymmetric coupling ($\gamma_A \neq \gamma_B$) appears as a multiplicative prefactor $\gamma_A / \gamma_B$ that shifts the mismatch ratio without changing the exponent. An agent with lower tempo but higher coupling effectiveness ($\gamma$) can partially compensate — but the squared dependence on tempo dominates for large tempo ratios.
 
 *(Descended from TFT Corollary 11.2.)*

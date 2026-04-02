@@ -83,6 +83,36 @@ with $\alpha_c \gt 0$ (positive correction rate) and $R_c \gt 0$ (finite reserve
 
 **What (A1)-(A4) do NOT require.** Directed separation ( #directed-separation) is not part of the admissibility constraints. It is an additional structural property that some composites have and others don't ( #directed-separation-under-composition). Results that depend on directed separation declare it as an additional assumption. Similarly, strategy structure ($G_c = (O_c, \Sigma_c)$ with a DAG) is not required — simpler goal representations are admissible.
 
+### Admissibility constraints on projections
+
+*[Definition (projection-admissibility, proposed from spike)]*
+
+The admissible class of projections $\mathcal P_{\text{adm}}(\epsilon_I, L)$ consists of projections $\Lambda = (\Lambda_x, \Lambda_o, \Lambda_a, \Lambda_\Omega)$ satisfying three conditions:
+
+**(P1) Information preservation.** The projection retains at least a fraction $(1 - \epsilon_I)$ of the predictive mutual information:
+
+$$I\big(\Lambda_x(X_{\text{micro},t});\; \Lambda_o(o_{\text{micro},t+1}) \mid \Lambda_a(a_{\text{micro},t})\big) \geq (1 - \epsilon_I) \cdot I\big(X_{\text{micro},t};\; o_{\text{micro},t+1} \mid a_{\text{micro},t}\big)$$
+
+The left side is the predictive information the macro-state has about next macro-observations, conditioned on the macro-action. The right side is the same quantity at the micro level. The parameter $\epsilon_I \in [0, 1)$ controls how much predictive power may be sacrificed by projection. This is the information bottleneck (Tishby et al. 1999) applied to the projection map.
+
+**(P2) Lipschitz continuity.** Each component of $\Lambda$ is Lipschitz-continuous with constant $L$:
+
+$$\lVert \Lambda_x(X) - \Lambda_x(X') \rVert_{\mathcal X_c} \leq L \cdot \lVert X - X' \rVert_{\mathcal X_{\text{micro}}} \quad \forall\, X, X' \in \mathcal X_{\text{micro}}$$
+
+(and analogously for $\Lambda_o, \Lambda_a, \Lambda_\Omega$, each with its own Lipschitz constant). Without Lipschitz regularity, bounded closure defect does not imply bounded trajectory error — the bridge lemma requires this or something equivalent. When the projection is $L$-Lipschitz, the trajectory error bound becomes $L \cdot \varepsilon^\ast / \alpha_c$.
+
+**(P3) Dimensionality reduction.** The macro-state space has strictly lower dimension than the micro-state space:
+
+$$\dim(\mathcal X_c) < \dim(\mathcal X_{\text{micro}})$$
+
+This prevents the trivial identity projection, which achieves $\varepsilon^\ast = 0$ but is not a genuine abstraction.
+
+**Why three conditions.** No single condition suffices alone. (P1) prevents degenerate projections (a constant map $\Lambda_x = c$ has zero mutual information). (P2) prevents pathological projections (discontinuous maps that amplify micro-errors into unbounded macro-errors). (P3) prevents trivial projections (the identity map satisfies (P1) and (P2) but achieves nothing). Together they constrain $\mathcal P_{\text{adm}}$ to projections that are informative, regular, and genuinely reductive.
+
+**The $(\epsilon_I, L)$ parameters are part of the problem specification, not derived quantities.** The natural choice for many applications is $L = 1$ (non-expansive projection) and $\epsilon_I$ chosen as the minimum information loss compatible with genuine dimensionality reduction.
+
+**Independence from (A1)-(A4).** The macro-dynamics admissibility (A1)-(A4) partially constrains the projection — (A1) requires $\Lambda_x$ to preserve the $M_c / G_c$ decomposition, and (A4) implicitly requires regularity through the sector condition. But (A1)-(A4) do not specify how much predictive information the projection must retain. A macro-agent with a very coarse projection can satisfy (A1)-(A4) while being a poor representation of the micro-system. The information-preservation condition (P1) fills this gap. See `msc/spike-projection-admissibility.md` §5 for the full independence analysis.
+
 ### Bridge lemma: closure defect to trajectory error
 
 *[Derived (bridge-lemma, from sector-condition-derivation + A4)]*
@@ -125,11 +155,11 @@ This parallels the persistence condition: the closure error rate must not exceed
 
 *Conditional.* Max attainable: conditional (formulation choice).
 
-The closure defect $\varepsilon^\ast$ is well-defined given (A1)-(A4) and specified norms. The admissibility constraints (A1)-(A4) are a *formulation choice* — they specify what "ACT-shaped macro-dynamics" means by requiring the components that ACT's results depend on. Other admissibility specifications are possible (behavioral equivalence, information-theoretic measures); this one is motivated by making the persistence machinery and the bridge lemma available at the macro level.
+The closure defect $\varepsilon^\ast$ is well-defined given (A1)-(A4), (P1)-(P3), and specified norms. The macro-dynamics admissibility (A1)-(A4) and the projection admissibility (P1)-(P3) are independent formulation choices — (A1)-(A4) specify what "ACT-shaped macro-dynamics" means; (P1)-(P3) specify what "informative, regular, genuinely reductive projections" means. Both are needed for $\varepsilon^\ast$ to be an infimum over a non-trivial, non-degenerate class. The projection admissibility conditions have a proposed definition with one exact instantiation (two-Kalman case, `msc/spike-projection-admissibility.md`); general-case computability of (P1) remains open.
 
 The bridge lemma is *derived* under the contraction assumption ($\lambda = 1 - \alpha_c / \nu_c \lt 1$, i.e., the macro-agent doesn't fully correct in one step — always true for realistic systems). The discrete-time argument uses a standard linear recurrence, not continuous-time Lyapunov, so the continuous/discrete gap is closed. The remaining assumption is that the sector condition on the correction function implies contraction of the full update map $f_c(\cdot, o)$ in its state argument — which holds when the correction dominates the state update (the correction is the primary mechanism by which the state changes in response to itself, as opposed to new information from $o$). This is the normal regime for adaptive agents; it can fail during structural adaptation when the state changes discontinuously.
 
-The norm choices ($\lVert\cdot\rVert_\mathcal{X}$, $\lVert\cdot\rVert_\mathcal{A}$, $\lVert\cdot\rVert_\mathcal{O}$, and the combination norm) remain load-bearing and unspecified. Domain-specific instantiation will require choosing these.
+The norm choices ($\lVert\cdot\rVert_\mathcal{X}$, $\lVert\cdot\rVert_\mathcal{A}$, $\lVert\cdot\rVert_\mathcal{O}$, and the combination norm) are load-bearing. For estimation-type agents, the Mahalanobis norm (weighted by inverse prediction-error covariance) is the natural choice — verified exactly in the two-Kalman case. For general domains, norm specification remains open.
 
 ## Discussion
 
@@ -149,10 +179,19 @@ This is a weakest-link bound (conservative but clean). Cooperative coupling ( #t
 
 **Connection to team-persistence.** #team-persistence derives persistence conditions for sub-agents in a cooperative-adversarial network. This segment provides the macro-level complement: the conditions under which the composite itself is a valid ACT agent. Together they close the loop: sub-agents persist individually (team-persistence) AND the composite is a meaningful macro-agent (composition closure with admissibility).
 
+**Two-Kalman instantiation.** The simplest nontrivial worked case: two Kalman filters tracking correlated scalar random walks with correlation $\rho_{\text{corr}}$, no communication. The natural projection keeps the state estimates and discards the covariance states (means-only projection, dimension 2 from micro-dimension 4). At steady state, the closure defect is exactly $\varepsilon^\ast = 0$ for uncorrelated processes ($\rho_{\text{corr}} = 0$) and proportional to $\lvert\rho_{\text{corr}}\rvert$ for correlated ones. The defect measures cross-information that independent filters fail to exploit — the cost of independence, not an approximation error. All three (P1)-(P3) conditions are verified exactly: $\epsilon_I = 0$ (no information loss at steady state, since the discarded covariance state is constant), $L = 1$ (the projection is a coordinate map), and $\dim(\mathcal X_c) = 2 < 4 = \dim(\mathcal X_{\text{micro}})$. See `msc/spike-projection-admissibility.md` §3 for the full derivation.
+
+**Norm specification for estimation-type agents.** The two-Kalman case identifies the Mahalanobis norm as the natural choice for agents whose primary function is state estimation. The state norm weights by the inverse prediction-error covariance: $\lVert X_c - X_c' \rVert^2 = (\hat\omega_c - \hat\omega_c')^T (P_{\text{pred}}^\ast)^{-1} (\hat\omega_c - \hat\omega_c')$. The observation norm weights by the inverse innovation covariance $S^{-1} = (P_{\text{pred}}^\ast + R)^{-1}$. The general principle: norms should weight by inverse uncertainty, so that differences in well-estimated components count more than differences in poorly-estimated ones. This is the norm the Kalman filter implicitly uses — the Kalman gain minimizes the expected squared Mahalanobis distance from truth. For domains without a natural covariance structure (discrete states, non-Gaussian models), the Euclidean norm remains the default. See `msc/spike-projection-admissibility.md` §4 for derivation and §4.5 for the general-case pattern.
+
 ## Working Notes
 
-- The norm choices ($\lVert\cdot\rVert_\mathcal{X}$, $\lVert\cdot\rVert_\mathcal{A}$, $\lVert\cdot\rVert_\mathcal{O}$, and the combination norm on the tuple) are load-bearing but unspecified. Domain-specific instantiation will require choosing these. For a software team, the natural norms might be task-weighted; for a military unit, they might be objective-weighted.
-- The $\mathcal P_{\text{adm}}$ question (projection admissibility) is not addressed by (A1)-(A4), which constrain the macro-dynamics. Projection admissibility — what projections $\Lambda$ are allowed — is an independent question. An information-preservation approach ($\Lambda$ must retain predictive mutual information) is promising but not yet formalized.
+- **Resolved: $\mathcal P_{\text{adm}}$ now has a proposed definition.** (P1)-(P3) above. Confirmed independent of (A1)-(A4) — the macro-dynamics admissibility partially constrains projections but does not specify information-preservation level. See `msc/spike-projection-admissibility.md` §5 for the analysis.
+- **Resolved: norm choices for estimation-type agents.** The Mahalanobis norm (inverse-covariance-weighted) is the natural choice for Kalman-type agents, verified exactly in the two-Kalman case. The general principle (weight by inverse uncertainty) extends to other estimation frameworks. For non-estimation agents (discrete states, non-Gaussian), norms remain domain-specific.
+- **Open: computing (P1) for nonlinear/non-Gaussian systems.** The information-preservation condition requires conditional mutual information over the joint distribution of micro-states, observations, and actions. Tractable for linear-Gaussian systems (closed-form); requires Monte Carlo estimation or variational bounds for general systems.
+- **Open: the right value of $\epsilon_I$.** The information-preservation threshold is a free parameter. Too small ($\epsilon_I \to 0$) excludes useful projections; too large ($\epsilon_I \to 1$) admits degenerate ones. A natural candidate: $\epsilon_I$ comparable to the fractional information loss from adding one agent to the composite — tying it to team size and coupling structure. Formalizing this is open.
+- **Open: $N$-agent scaling of $\varepsilon^\ast$.** Whether the closure defect scales polynomially or exponentially with $N$ depends on coupling structure. Tree-structured coupling (hierarchical organizations) may allow efficient dimensionality reduction; fully-connected coupling may not. This is the formal analog of the claim that very large teams cannot be treated as single agents.
+- **Open: Mori-Zwanzig connection.** The closure defect should relate to the MZ memory kernel — when correlations between projected and discarded variables decay fast, $\varepsilon^\ast$ is small. A rigorous lower bound $\varepsilon^\ast \geq f(\text{memory kernel norm})$ would anchor ACT's composition framework in established dynamical-systems theory. Plausible but unworked.
+- **Open: strategy DAG projection.** How individual strategy DAGs compose under $\Lambda_x$ (union, abstracted DAG, or no macro-strategy) is deeply domain-specific and not resolved by (P1)-(P3). The information-preservation condition provides a functional test but not a specific mechanism.
 - The bridge lemma's discrete-time formalization needs the contraction mapping theorem for one-step update maps under persistent perturbation. This is standard in discrete Lyapunov theory (Elaydi 2005) and should be a straightforward translation of the continuous-time sketch.
 - The weakest-link structure ($\alpha_c = \min_i \alpha_i^{\text{eff}}$) is conservative. In practice, strong sub-agents may compensate for weak ones through cooperative coupling. A tighter bound would account for cross-agent compensation, likely through the cooperative disturbance reduction terms in #team-persistence.
 - **A richer toy case** is needed: two purposeful agents (Section II) with strategy DAGs, cooperative communication, and a shared objective. This would exercise (A1) fully (including the $G_c$ component) and test whether the admissibility constraints are tight enough to be useful without being so tight they exclude interesting composites.

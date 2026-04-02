@@ -21,17 +21,27 @@ where:
 - $\mathcal{T} \cdot \Vert\delta\Vert$ is the rate at which the agent corrects mismatch (proportional to both tempo and current mismatch)
 - $\rho(t)$ is the **environment change rate** — the rate at which new mismatch is introduced by changes in $\Omega$
 
-**Steady state** ($d\Vert\delta\Vert/dt = 0$):
+**Steady state, Model D (deterministic bounded disturbance, $\lVert w(t)\rVert \leq \rho$):**
 
-*[Derived (from linear hypothesis)]*
+Setting $d\lVert\delta\rVert/dt = 0$:
 
-$$\Vert\delta\Vert_{ss} = \frac{\rho}{\mathcal{T}}$$
+*[Derived (from linear hypothesis, deterministic)]*
+
+$$\lVert\delta\rVert_{ss} = \frac{\rho}{\mathcal{T}}$$
 
 Steady-state mismatch is the ratio of how fast the environment changes to how fast the agent adapts.
 
-**Transient solution:**
+**Steady state, Model S (stochastic zero-mean disturbance, $d\delta = -\mathcal{T}\delta\,dt + \sigma_w\,dW_t$):**
 
-$$\Vert\delta(t)\Vert = \Vert\delta_0\Vert e^{-\mathcal{T} t} + \frac{\rho}{\mathcal{T}}(1 - e^{-\mathcal{T} t})$$
+*[Derived (from Itô-Lyapunov analysis — see Prop A.1S in #sector-condition-derivation)]*
+
+$$\lVert\delta\rVert_{\text{rms}} = \frac{\sigma_w}{\sqrt{2\mathcal{T}}}$$
+
+(scalar case, $n = 1$; general: $\sigma_w\sqrt{n/(2\mathcal{T})}$). Steady-state mismatch scales as the square root of the disturbance-to-correction ratio, not the ratio itself. The $1/\sqrt{\mathcal{T}}$ scaling (vs. $1/\mathcal{T}$ for Model D) means correction is less effective against noise than against drift.
+
+**Transient solution (Model D):**
+
+$$\lVert\delta(t)\rVert = \lVert\delta_0\rVert e^{-\mathcal{T} t} + \frac{\rho}{\mathcal{T}}(1 - e^{-\mathcal{T} t})$$
 
 Mismatch decays exponentially from initial conditions toward the steady state.
 
@@ -54,6 +64,6 @@ Mismatch decays exponentially from initial conditions toward the steady state.
 
 These nonlinearities are exactly what the sector-condition framework ( #sector-condition-stability) handles.
 
-**Adversarial coupling.** When two agents are coupled ($A$'s actions increase $B$'s $\rho$): $\rho_B = \rho_{B,\text{base}} + \gamma_A \cdot \mathcal T_A$. Under linear dynamics with coupling-dominant disturbance, steady-state mismatch ratios scale as $(\mathcal T_A/\mathcal T_B)^2$ (Cor. 11.2 from TFT — heuristic, confirmed by simulation at exponent 1.999 under deterministic drift). Under stochastic disturbances, the exponent is 3/2, not 2. See #adversarial-tempo-advantage.
+**Adversarial coupling.** When two agents are coupled ($A$'s actions increase $B$'s disturbance): $\rho_B = \rho_{B,\text{base}} + \gamma_A \cdot \mathcal T_A$. The steady-state mismatch ratio scales superlinearly with the tempo ratio, but the exponent depends on the disturbance model. Under Model D (deterministic drift, coupling-dominant): $(\mathcal T_A/\mathcal T_B)^2$ — the squared law, derived from the $1/\mathcal{T}$ steady-state scaling. Under Model S (stochastic noise, coupling-dominant): $(\mathcal T_A/\mathcal T_B)^{3/2}$ — derived from the $1/\sqrt{\mathcal{T}}$ steady-state scaling. See #adversarial-tempo-advantage.
 
 **(Descended from TF-11.)**

@@ -29,7 +29,15 @@ where $\alpha_\Sigma$ is the strategic correction rate, $\rho_\Sigma$ is the str
 
 ## Epistemic Status
 
-*Sketch.* This is a **result schema**, not a proven result. The mathematical template (sector conditions → bounded mismatch) is derived ( #sector-condition-derivation). What's missing is the instantiation — showing that specific strategic update dynamics satisfy the template's preconditions. The schema says: "if the shape fits, the conclusion follows." Whether the shape fits is genuine future work.
+*Sketch, with verified instances.* This is a **result schema**, not a proven result in the general case. The mathematical template (sector conditions → bounded mismatch) is derived ( #sector-condition-derivation). What was missing was instantiation — showing that specific strategic update dynamics satisfy the template's preconditions. Three cases have now been verified in spike analyses (`msc/spike-single-edge-strategic-dynamics.md`, `msc/spike-two-edge-strategic-dynamics.md`):
+
+1. **Single edge, Beta-Bernoulli** ($A \to G$): Sector condition satisfied globally with $\alpha_\Sigma = 1/(n+1)$. The bound is tight (expected correction is exactly linear). (A1) satisfied. Persistence condition: $1/(n+1) > \rho_\Sigma / R_\Sigma$.
+
+2. **Two-edge chain, observable intermediate** ($A \to B \to G$, $B$ observable): Sector condition satisfied globally with $\alpha_\Sigma = \min(1/(n_1+1), \theta_1/(n_2+1))$ — a weakest-link result. Correction function is diagonal (no cross-edge coupling). (A1) satisfied. The $\theta_1$ factor in edge 2's rate is the evidence-starvation effect.
+
+3. **Two-edge chain, unobservable intermediate** ($A \to B \to G$, $B$ not observable): Per-edge sector condition **fails** — the marginal Bayesian update violates (A1) with bias $O(1/n)$. But plan-level tracking (treating $\hat{\Phi} = p_1 p_2$ as a single Beta) recovers the sector condition with $\alpha_{\Sigma,\text{plan}} = 1/(n_\Phi + 1)$, at the cost of per-edge diagnostic resolution.
+
+The schema is no longer purely hypothetical. The sector parameter for strategic dynamics is the edge update gain $\eta_{\text{edge}}$ — the same quantity that governs epistemic persistence. The structural parallel between epistemic and strategic persistence is not an analogy but a mathematical identity at the sector-framework level.
 
 ## Discussion
 
@@ -53,6 +61,6 @@ where $\alpha_\Sigma$ is the strategic correction rate, $\rho_\Sigma$ is the str
 
 ## Working Notes
 
-- The most natural first step toward promotion: verify the sector condition for the simplest case — a single-edge strategy with binary outcomes and Beta-Bernoulli updating. If the sector condition holds for this toy case, it motivates the effort to verify it for the full DAG. If it fails even here, the schema may need structural revision.
+- **Done.** The single-edge and two-edge (observable) cases verify the sector condition. The two-edge unobservable case verifies it at plan level but not per-edge. See `msc/spike-single-edge-strategic-dynamics.md` and `msc/spike-two-edge-strategic-dynamics.md`. The next step is extending to OR-nodes and general DAG topologies.
 - The strategic disturbance $\rho_\Sigma$ is qualitatively different from epistemic disturbance $\rho$. Epistemic disturbance is about the environment changing (physical state evolves). Strategic disturbance is about the agent's causal theory becoming invalid (the intervention-outcome mapping shifts). These can be correlated (a changing environment invalidates both model and strategy) but they're not the same quantity.
 - The stochastic treatment (from track-b simulations) suggests $\rho_\Sigma / \sqrt{\mathcal T_\Sigma}$ rather than $\rho_\Sigma / \mathcal T_\Sigma$ for the steady-state strategic mismatch. If this carries over from the epistemic domain, the persistence threshold is different in the stochastic case. Whether strategic disturbance is better modeled as deterministic or stochastic drift is domain-dependent.

@@ -32,9 +32,15 @@ where $\alpha \gt 0$ is the worst-case correction efficiency within the valid re
 
 *[Derived (bounded-mismatch, from Lyapunov analysis)]*
 
-The mismatch $\delta(t)$ is ultimately bounded by $R^\ast = \rho / \alpha$. The agent persists (avoids divergence) iff:
+**Model D (deterministic bounded disturbance, GA-2).** The mismatch $\delta(t)$ is ultimately bounded by $R^\ast = \rho / \alpha$. The agent persists (avoids divergence) iff:
 
 $$\alpha \gt \frac{\rho}{R}$$
+
+**Model S (stochastic disturbance, GA-2S).** Under stochastic zero-mean disturbance with $\mathbb{E}[\lVert w(t)\rVert^2] = \sigma_w^2$, the steady-state RMS mismatch is:
+
+$$R^*_S = \sigma_w\sqrt{\frac{n}{2\alpha}}$$
+
+where $n = \dim(\delta)$. The agent persists in the mean-square sense iff $\alpha > n\sigma_w^2/(2R^2)$. The key difference: Model D scales as $1/\alpha$; Model S scales as $1/\sqrt{\alpha}$. See Prop A.1S in #sector-condition-derivation.
 
 *[Derived (adaptive-reserve)]*
 
@@ -49,11 +55,11 @@ $$\Delta\rho^* = \alpha R - \rho$$
 3. $\dot{V} \lt 0$ when $\Vert\delta\Vert \gt \rho/\alpha$, giving ultimate bound $R^\ast = \rho/\alpha$.
 4. Persistence requires $R^\ast \lt R$, i.e., $\alpha \gt \rho/R$. $\square$
 
-Full derivation in #sector-condition-derivation (Props A.1, A.2).
+Full derivation in #sector-condition-derivation (Props A.1, A.1S, A.2).
 
 ## Epistemic Status
 
-These results are *exact* consequences of standard Lyapunov stability theory under the sector condition and bounded disturbance assumptions. They replace the linear ODE ($\dot{\delta} = -\mathcal{T}\delta + \rho$) with a rigorous nonlinear foundation. The linear ODE is recovered as a special case where $F(\mathcal{T}, \delta) = \mathcal{T}\delta$ and $\alpha = \mathcal{T}$.
+The Model D results ($R^* = \rho/\alpha$, persistence iff $\alpha > \rho/R$) are *exact* consequences of standard Lyapunov stability theory under the sector condition and bounded disturbance assumptions (GA-2, GA-3). The Model S results ($R^*_S = \sigma_w\sqrt{n/(2\alpha)}$, persistence iff $\alpha > n\sigma_w^2/(2R^2)$) are *exact* consequences of Itô-Lyapunov analysis under the sector condition and stochastic disturbance assumptions (GA-2S, GA-3). Both replace the linear ODE ($\dot{\delta} = -\mathcal{T}\delta + \rho$) with a rigorous nonlinear foundation. The linear ODE is recovered as a special case where $F(\mathcal{T}, \delta) = \mathcal{T}\delta$ and $\alpha = \mathcal{T}$. Which disturbance model applies is a domain question, not a theory question.
 
 ## Discussion
 

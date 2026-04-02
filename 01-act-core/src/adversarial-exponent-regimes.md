@@ -1,38 +1,40 @@
 ---
 slug: adversarial-exponent-regimes
-type: observation
-status: empirical
+type: result
+status: conditional
 depends:
   - adversarial-destabilization
+  - adversarial-tempo-advantage
   - adaptive-tempo
   - persistence-condition
+  - sector-condition-derivation
 ---
 
-# Observation: Adversarial Exponent Regimes
+# Result: Adversarial Exponent Regimes
 
-The adversarial tempo advantage exponent — the power $b$ in $\Vert\delta_B\Vert / \Vert\delta_A\Vert \sim (\mathcal T_A / \mathcal T_B)^b$ — is not a single number. It depends on two structural features of the disturbance: whether the adversarial coupling enters as deterministic drift or stochastic noise, and whether the coupling dominates the base disturbance rate. Three regimes emerge from simulation.
+The adversarial tempo advantage exponent — the power $b$ in $\lVert\delta_B\rVert / \lVert\delta_A\rVert \sim (\mathcal T_A / \mathcal T_B)^b$ — is not a single number. It depends on two structural features of the disturbance: whether the adversarial coupling enters as deterministic drift (Model D) or stochastic noise (Model S), and whether the coupling dominates the base disturbance rate. Three regimes, with the coupling-dominant exponents now derived analytically from the respective disturbance models.
 
 ## Formal Expression
 
-*[Observation (adversarial-exponent-regimes, from track-b simulations)]*
+*[Derived (adversarial-exponent-regimes, from Model D/S steady states + coupling model; validated by simulation)]*
 
-**Regime 1: Deterministic drift, coupling-dominant.** When adversarial coupling enters as a persistent directional disturbance ($\rho_B = \rho_{\text{base}} + \gamma \cdot \mathcal T_A$, deterministic) and coupling dominates ($\gamma \cdot \mathcal T_B \gg \rho_{\text{base}}$):
+**Regime 1: Model D (deterministic drift), coupling-dominant.** When adversarial coupling enters as a persistent directional disturbance ($\rho_B = \rho_{\text{base}} + \gamma \cdot \mathcal T_A$, GA-2) and coupling dominates ($\gamma \cdot \mathcal T_B \gg \rho_{\text{base}}$):
 
-$$b \to 2.0 \qquad \text{(confirmed at 1.999)}$$
+$$b = 2 \qquad \text{(simulation: 1.999)}$$
 
-This is the exact prediction of the mismatch ODE steady state $\Vert\delta\Vert_{ss} = \rho / \mathcal{T}$.
+Derived from the Model D steady state $\lVert\delta\rVert_{ss} = \rho/\mathcal{T}$ (Prop A.1). See #adversarial-tempo-advantage.
 
-**Regime 2: Stochastic noise, coupling-dominant.** When adversarial coupling enters through the noise scale of zero-mean perturbations ($\sigma_B = \sigma_{\text{base}} + \gamma \cdot \mathcal T_A$) and coupling dominates:
+**Regime 2: Model S (stochastic noise), coupling-dominant.** When adversarial coupling enters through the noise scale of zero-mean perturbations ($\sigma_B = \sigma_{\text{base}} + \gamma \cdot \mathcal T_A$, GA-2S) and coupling dominates:
 
-$$b \to 1.5$$
+$$b = \frac{3}{2} \qquad \text{(simulation: 1.481)}$$
 
-Root cause: the AR(1) steady-state RMS scales as $\rho / \sqrt{\mathcal{T}}$ (not $\rho / \mathcal{T}$), because variance scales as $\rho^2 / \mathcal{T}$ and the expected absolute deviation scales as the square root of variance.
+Derived from the Model S steady state $\lVert\delta\rVert_{\text{rms}} = \sigma_w/\sqrt{2\mathcal{T}}$ (Prop A.1S). The $1/\sqrt{\mathcal{T}}$ scaling (vs. $1/\mathcal{T}$ for Model D) removes one half-power from the denominator, reducing the exponent from 2 to 3/2. See #adversarial-tempo-advantage.
 
 **Regime 3: Non-coupling-dominant.** When base disturbance is comparable to or exceeds the adversarial coupling ($\rho_{\text{base}} \gtrsim \gamma \cdot \mathcal T_B$):
 
-$$b \to 1.0 \text{ (deterministic)} \quad \text{or} \quad b \to 0.5 \text{ (stochastic)}$$
+$$b \to 1.0 \text{ (Model D)} \quad \text{or} \quad b \to 0.5 \text{ (Model S)}$$
 
-The exponent degrades smoothly as the base-to-coupling ratio increases.
+The exponent degrades smoothly as the base-to-coupling ratio increases. The asymptotic limits are derived (they reflect the $1/\mathcal{T}$ or $1/\sqrt{\mathcal{T}}$ scaling without the coupling numerator); the smooth interpolation is empirical.
 
 | $\rho_{\text{base}} / (\gamma \cdot \mathcal T_B)$ | Exponent (deterministic) | Exponent (stochastic) |
 |:---:|:---:|:---:|
@@ -43,11 +45,11 @@ The exponent degrades smoothly as the base-to-coupling ratio increases.
 
 ## Epistemic Status
 
-*Empirical.* Max attainable: exact conditional on disturbance model. The three regimes are established by simulation (6 variants, multiple parameter sweeps) and confirmed by analytical derivation of the AR(1) steady-state scaling. The deterministic exponent ($b = 2$) is derivable from the mismatch ODE; the stochastic exponent ($b = 1.5$) is derivable from the AR(1) stationary variance. What is empirical is the claim that real adversarial interactions fall into these regimes — whether a given adversary's tempo increases systematic drift vs. unpredictability is a domain question.
+*Exact conditional on disturbance model.* The coupling-dominant exponents are derived, not empirical: $b = 2$ follows from the Model D steady state (Prop A.1) and the coupling model; $b = 3/2$ follows from the Model S steady state (Prop A.1S) and the coupling model. The simulation results (6 variants, multiple parameter sweeps) now serve as validation of the derived exponents, not as their epistemic foundation. The non-coupling-dominant limits ($b \to 1$, $b \to 1/2$) are derived asymptotically; the smooth interpolation between coupling-dominant and non-coupling-dominant is empirical. What remains empirical is whether a given real adversarial interaction is better modeled as Model D or Model S — that is a domain question, not a theory question.
 
 ## Discussion
 
-**The mismatch ODE conflates two quantities.** The equation $d\Vert\delta\Vert/dt = -\mathcal{T} \cdot \Vert\delta\Vert + \rho$ is ambiguous about whether $\rho$ represents deterministic drift (persistent directional change) or stochastic noise scale (unpredictable fluctuations). These give different steady-state scaling: $\rho / \mathcal{T}$ vs. $\rho / \sqrt{\mathcal{T}}$. For the mismatch dynamics ( #mismatch-dynamics), this distinction needs explicit treatment.
+**The disturbance model determines the exponent.** The mismatch dynamics ( #mismatch-dynamics) now distinguish two disturbance models: Model D (bounded deterministic, GA-2) with steady-state $\rho/\mathcal{T}$, and Model S (stochastic zero-mean, GA-2S) with steady-state $\sigma_w/\sqrt{2\mathcal{T}}$. The different steady-state scaling is the root cause of the different exponents. This resolves the ambiguity that previously existed in the single-$\rho$ formulation.
 
 **Why the squared law held for the coupling-dominance sweep.** In Variant A, the coupling enters as deterministic drift: $\rho_B = \rho_{\text{base}} + \gamma \cdot \mathcal T_A$, and the steady state is $\Vert\delta_B\Vert = \rho_B / \mathcal T_B$. The ratio $\Vert\delta_B\Vert / \Vert\delta_A\Vert$ in the coupling-dominant limit gives $(\mathcal T_A / \mathcal T_B)^2$ directly.
 
