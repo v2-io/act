@@ -19,6 +19,7 @@ The sector-condition mathematics ( #sector-condition-stability, #sector-conditio
 **If** strategic update dynamics satisfy:
 - **(SA1)** Zero correction at zero strategic mismatch: when $\delta_{\text{strategic}} = 0$, no revision occurs
 - **(SA2')** Local sector condition on strategic correction: the correction function is appropriately bounded
+- **(SA3)** Sufficient exploration (OR-nodes only): the action selection policy allocates correction capacity to all OR alternatives at a rate exceeding the strategic disturbance-to-reserve ratio
 - Bounded strategic disturbance: the rate at which the environment invalidates causal links is bounded
 
 **Then** $\Sigma_t$ persists iff:
@@ -36,6 +37,8 @@ where $\alpha_\Sigma$ is the strategic correction rate, $\rho_\Sigma$ is the str
 2. **Two-edge chain, observable intermediate** ($A \to B \to G$, $B$ observable): Sector condition satisfied globally with $\alpha_\Sigma = \min(1/(n_1+1), \theta_1/(n_2+1))$ — a weakest-link result. Correction function is diagonal (no cross-edge coupling). (A1) satisfied. The $\theta_1$ factor in edge 2's rate is the evidence-starvation effect.
 
 3. **Two-edge chain, unobservable intermediate** ($A \to B \to G$, $B$ not observable): Per-edge sector condition **fails** — the marginal Bayesian update violates (A1) with bias $O(1/n)$. But plan-level tracking (treating $\hat{\Phi} = p_1 p_2$ as a single Beta) recovers the sector condition with $\alpha_{\Sigma,\text{plan}} = 1/(n_\Phi + 1)$, at the cost of per-edge diagnostic resolution.
+
+4. **Two-arm OR-node, $\varepsilon$-greedy** ($A_1, A_2 \to G$, $G$ is OR): Sector condition satisfied with $\alpha_\Sigma = \min((1-\varepsilon)/(n_1+1),\; \varepsilon/(n_2+1))$ — an **exploration-gated** weakest-link, not depth-gated as in AND chains. (SA3) required: minimum exploration rate $\varepsilon > \rho_\Sigma(n_{\max}+1)/R_\Sigma$. Pure greedy ($\varepsilon = 0$) **fails** the sector condition. With optimal equal-rate allocation, $\alpha_\Sigma = 1/(n_1 + n_2 + 2)$ — the correction capacity is split across alternatives.
 
 The schema is no longer purely hypothetical. The sector parameter for strategic dynamics is the edge update gain $\eta_{\text{edge}}$ — the same quantity that governs epistemic persistence. The structural parallel between epistemic and strategic persistence is not an analogy but a mathematical identity at the sector-framework level.
 
@@ -61,6 +64,6 @@ The schema is no longer purely hypothetical. The sector parameter for strategic 
 
 ## Working Notes
 
-- **Done.** The single-edge and two-edge (observable) cases verify the sector condition. The two-edge unobservable case verifies it at plan level but not per-edge. See `msc/spike-single-edge-strategic-dynamics.md` and `msc/spike-two-edge-strategic-dynamics.md`. The next step is extending to OR-nodes and general DAG topologies.
+- **Done.** Four cases verified: single-edge AND, two-edge AND (observable and unobservable intermediate), and two-arm OR ($\varepsilon$-greedy). See `msc/spike-single-edge-strategic-dynamics.md`, `msc/spike-two-edge-strategic-dynamics.md`, `msc/spike-or-node-strategic-dynamics.md`. Key findings: AND-node persistence is depth-gated (evidence starvation); OR-node persistence is exploration-gated (action selection policy). Both satisfy the schema's form ($\alpha_\Sigma > \rho_\Sigma/R_\Sigma$) but OR-nodes require the additional SA3 condition. The next step is mixed AND/OR DAGs and general topologies.
 - The strategic disturbance $\rho_\Sigma$ is qualitatively different from epistemic disturbance $\rho$. Epistemic disturbance is about the environment changing (physical state evolves). Strategic disturbance is about the agent's causal theory becoming invalid (the intervention-outcome mapping shifts). These can be correlated (a changing environment invalidates both model and strategy) but they're not the same quantity.
 - The stochastic treatment (from track-b simulations) suggests $\rho_\Sigma / \sqrt{\mathcal T_\Sigma}$ rather than $\rho_\Sigma / \mathcal T_\Sigma$ for the steady-state strategic mismatch. If this carries over from the epistemic domain, the persistence threshold is different in the stochastic case. Whether strategic disturbance is better modeled as deterministic or stochastic drift is domain-dependent.
