@@ -50,13 +50,21 @@ Credit assignment is solved (exact, polynomial-time) when:
 | **Binary outcomes, independent edges, linear chain** | Marginal Bayesian update = proportional blame | Prop B.3 (with plan-level fallback for unobservable) |
 | **Tree DAG, observable leaves** | No shared descendants; message passing is exact | Belief propagation (standard) |
 
-### The Expected Intractable Cases
+### The Intractable Cases: Three Independent Barriers
 
-*[Discussion (intractable-credit-assignment, sketch)]*
+*[Discussion (intractable-credit-assignment)]*
 
-Exact per-edge attribution in general AND/OR DAGs with partial observability is expected to be computationally hard. The structural argument: the "contribution of edge $k$ to the observed outcome" has the form of a Shapley value over a cooperative game defined by the AND/OR propagation. Shapley value computation for general coalitional games is \#P-complete (Deng and Papadimitriou, 1994). If the AND/OR propagation game reduces to a general weighted threshold game, the hardness transfers.
+Exact per-edge attribution in general AND/OR DAGs with partial observability faces three independent barriers (full analysis in `msc/spike-credit-assignment-boundaries.md`):
 
-Beyond computational hardness, there is an information-theoretic issue: when intermediates are unobservable, per-edge attribution is *underdetermined*, not just hard. Multiple distinct edge-credence vectors produce the same root-level observation distribution. The system of equations is rank-deficient — the observations do not carry enough information to uniquely identify which edges failed. This is not a limitation of any algorithm but a structural property of partial observability.
+**1. Computational intractability (\#P-hardness).** The "contribution of edge $k$ to the observed outcome" has the form of a Shapley value over a cooperative game defined by the AND/OR propagation. Since AND/OR DAGs can represent any monotone Boolean function (including weighted threshold functions), and Shapley value computation for weighted voting games is \#P-complete (Deng and Papadimitriou, 1994), exact attribution is \#P-hard. *Caveat:* the reduction is to *exact* computation; approximate Shapley values are computable in polynomial time with sampling.
+
+**2. Information-theoretic underdetermination.** When intermediates are unobservable, per-edge attribution is *underdetermined*, not just hard. The identifiable subspace has dimension bounded by the number of observable nodes:
+
+$$\dim(\mathcal{I}(\mathcal{V}_{\text{obs}})) \leq \lvert\mathcal{V}_{\text{obs}}\rvert$$
+
+When $\lvert\mathcal{V}_{\text{obs}}\rvert \lt \lvert E\rvert$ (fewer observable nodes than edges), some directions in $\boldsymbol\theta$-space are fundamentally unresolvable from the available data. Any attribution in the unidentifiable directions relies on prior beliefs, not evidence.
+
+**3. The posterior correlation barrier.** Even for approximately identifiable cases, any factored representation (independent Beta posteriors per edge) necessarily discards the correlation introduced by failure at multi-parent nodes. The exact posterior complexity grows exponentially with the number of observed failures. The factored representation is an approximation by construction — coupled corrections are inherent to the problem, not an artifact of a bad algorithm.
 
 ### The Design Requirement
 
@@ -73,6 +81,19 @@ $$\mathbb{E}[(\text{signal}(o_t, i, j) - p_{ij}) \cdot (p_{ij} - \theta_{ij})] \
 **Sufficient condition for persistence:** Per-component directional fidelity + bounded gain ($\eta_{\text{edge}} > 0$). The theory guarantees persistence when these hold, regardless of how the signals are computed.
 
 **What's NOT required:** Exact attribution, unbiased estimation, minimum-variance estimation, or optimality of any kind. The persistence guarantee is robust to approximation — a sloppy but directionally correct signal function still produces bounded strategic mismatch. The *quality* of the approximation affects the *tightness* of the persistence bound (how close $R^\ast_\Sigma$ is to zero), not whether persistence holds at all.
+
+### The Hierarchy of Credit Assignment Quality
+
+| Level | Requirement | What it buys | Cost |
+|---|---|---|---|
+| **0** (none) | Plan-level tracking only | Persistence guarantee (Prop B.5) | No per-edge diagnostics |
+| **1** (directional) | Directional fidelity per edge | Persistence + rough per-edge diagnostics | Gradient computation $O(\lvert V\rvert + \lvert E\rvert)$ |
+| **2** (approximate) | Proportional blame / expectation propagation | Persistence + per-edge diagnostics (with bias) | Factor-graph inference |
+| **3** (exact) | Full Bayesian posterior | Persistence + optimal per-edge calibration | \#P-hard (general case) |
+
+ACT's formal guarantees require only Level 0. Practical agents need at least Level 1 for adaptive behavior. Level 2 is the sweet spot for most applications. Level 3 is a mathematical ideal that is computationally unattainable in the general case.
+
+**The strongest Level 1 candidate: gradient-based attribution.** The signal function $\text{signal}_k = p_k + J_k \cdot (y_G - \hat P_\Sigma) / \lVert\mathbf{J}\rVert^2$ uses the Jacobian $\mathbf{J} = \nabla_\mathbf{p} P_\Sigma$ already computed for the persistence analysis. This satisfies directional fidelity (SA1) when the DAG is monotone (which AND/OR DAGs are), has sector parameter $\alpha_s = \eta / \kappa(\mathbf{J})^2$ for coupled cases and $\alpha_s = \eta$ for componentwise cases, and is computable in $O(\lvert V\rvert + \lvert E\rvert)$. It is the ACT analog of policy gradient methods (REINFORCE) in RL.
 
 ## Epistemic Status
 
