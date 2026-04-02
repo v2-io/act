@@ -85,21 +85,41 @@ with $\alpha_c \gt 0$ (positive correction rate) and $R_c \gt 0$ (finite reserve
 
 ### Bridge lemma: closure defect to trajectory error
 
-*[Derived (bridge-lemma, sketch, from sector-condition-derivation + A4)]*
+*[Derived (bridge-lemma, from sector-condition-derivation + A4)]*
 
-If the macro-dynamics satisfy (A4), then bounded closure defect implies bounded trajectory error by the same argument that proves bounded mismatch in Prop A.1 of #sector-condition-derivation.
+If the macro-dynamics satisfy (A4), then bounded closure defect implies bounded trajectory error.
 
-Define trajectory error: $e_t = X_{c,t} - \Lambda_x(X_{\text{micro},t})$ — the divergence between the macro-state evolved by macro-dynamics and the projected micro-state.
+**Setup.** Let $\tilde X_{c,t} = \Lambda_x(X_{\text{micro},t})$ be the projected micro-state ("true" macro-state) and $X_{c,t}$ be the macro-state evolved by macro-dynamics. Define trajectory error $e_t = X_{c,t} - \tilde X_{c,t}$.
 
-The closure defect acts as persistent perturbation on $e_t$, while the sector condition on $f_c$ provides contraction. By the Lyapunov argument (Prop A.1 applied to $e_t$ with disturbance $\varepsilon^\ast$):
+**Per-step error evolution.** At step $t$, decompose the next-step error:
 
-$$\limsup_{t \to \infty} \lVert e_t \rVert \leq \frac{\varepsilon^\ast}{\alpha_c}$$
+$$e_{t+1} = \underbrace{f_c(\tilde X_{c,t} + e_t, o_{c,t+1}) - f_c(\tilde X_{c,t}, o_{c,t+1})}_{\text{propagation of accumulated error}} + \underbrace{f_c(\tilde X_{c,t}, o_{c,t+1}) - \tilde X_{c,t+1}}_{\text{new closure error } \leq \varepsilon_x}$$
 
-provided $\varepsilon^\ast \lt \alpha_c R_c$ — the closure defect is within the macro-agent's adaptive reserve.
+The first term measures how the macro-update propagates existing error. By (A4), the macro-correction is contracting: it reduces the mismatch component of the state. In discrete time, the sector condition with correction rate $\alpha_c$ and event rate $\nu_c$ gives a per-step contraction factor:
 
-**Interpretation.** The trajectory error bound $\varepsilon^\ast / \alpha_c$ has the same structure as the mismatch bound $\rho / \alpha$ from #persistence-condition. This is not coincidence — both are instances of the same Lyapunov result: any system with contracting dynamics and bounded perturbation has bounded steady-state error, regardless of what the "error" measures. The sector condition (A4) ensures contraction; the closure defect provides the perturbation.
+$$\lambda = 1 - \alpha_c / \nu_c \quad (\lt 1 \text{ when } \alpha_c \lt \nu_c)$$
 
-**Condition for meaningful composition.** The composite is a meaningful macro-agent when $\varepsilon^\ast / \alpha_c \lt R_c$, i.e., when $\varepsilon^\ast \lt \alpha_c R_c$. This parallels the persistence condition: the closure defect must not exceed the macro-agent's adaptive reserve. If it does, the macro-description diverges from micro-reality and the composite "isn't really a single agent" in a precise dynamical sense.
+The condition $\alpha_c \lt \nu_c$ means the agent doesn't fully correct in a single step — always true for realistic systems. Under this contraction:
+
+$$\lVert e_{t+1} \rVert \leq \lambda \lVert e_t \rVert + \varepsilon_x$$
+
+**Bound.** This is a standard linear recurrence. Starting from $e_0 = 0$:
+
+$$\lVert e_t \rVert \leq \varepsilon_x \sum_{k=0}^{t-1} \lambda^k = \varepsilon_x \frac{1 - \lambda^t}{1 - \lambda}$$
+
+As $t \to \infty$:
+
+$$\limsup_{t \to \infty} \lVert e_t \rVert \leq \frac{\varepsilon_x}{1 - \lambda} = \frac{\varepsilon_x \nu_c}{\alpha_c}$$
+
+Since the closure defect $\varepsilon^\ast$ is the per-step error and $\varepsilon^\ast \nu_c$ is the closure error rate (per-step error × steps per unit time), this bound has the same structure as $\rho / \alpha$ from #persistence-condition — a ratio of disturbance rate to correction rate.
+
+**Condition for meaningful composition.** The bound must fit within the sector-condition region:
+
+$$\frac{\varepsilon^\ast \nu_c}{\alpha_c} \lt R_c \quad \Longleftrightarrow \quad \varepsilon^\ast \lt \frac{\alpha_c R_c}{\nu_c}$$
+
+This parallels the persistence condition: the closure error rate must not exceed the macro-agent's adaptive reserve. If it does, the macro-description diverges from micro-reality.
+
+**Why this is the persistence condition in disguise.** The trajectory error $e_t$ evolves under the same dynamics as mismatch $\delta_t$ — contraction from the correction function, perturbation from an external source. For mismatch, the source is environmental disturbance $\rho$. For trajectory error, the source is closure defect $\varepsilon^\ast \nu_c$. The Lyapunov argument is identical (cf. Prop A.1 in #sector-condition-derivation); only the labels change. The sector condition (A4) does double duty.
 
 ## Epistemic Status
 
@@ -107,7 +127,7 @@ provided $\varepsilon^\ast \lt \alpha_c R_c$ — the closure defect is within th
 
 The closure defect $\varepsilon^\ast$ is well-defined given (A1)-(A4) and specified norms. The admissibility constraints (A1)-(A4) are a *formulation choice* — they specify what "ACT-shaped macro-dynamics" means by requiring the components that ACT's results depend on. Other admissibility specifications are possible (behavioral equivalence, information-theoretic measures); this one is motivated by making the persistence machinery and the bridge lemma available at the macro level.
 
-The bridge lemma is a *sketch* — the continuous-time Lyapunov argument is clean but the discrete-time translation (one-step contraction maps) needs technical work. The argument that (A4) provides both persistence and trajectory-error boundedness is structurally sound — it's the same theorem applied to different state variables — but the precise conditions for this reuse (whether contraction on the mismatch subspace implies contraction on the trajectory-error subspace) need verification.
+The bridge lemma is *derived* under the contraction assumption ($\lambda = 1 - \alpha_c / \nu_c \lt 1$, i.e., the macro-agent doesn't fully correct in one step — always true for realistic systems). The discrete-time argument uses a standard linear recurrence, not continuous-time Lyapunov, so the continuous/discrete gap is closed. The remaining assumption is that the sector condition on the correction function implies contraction of the full update map $f_c(\cdot, o)$ in its state argument — which holds when the correction dominates the state update (the correction is the primary mechanism by which the state changes in response to itself, as opposed to new information from $o$). This is the normal regime for adaptive agents; it can fail during structural adaptation when the state changes discontinuously.
 
 The norm choices ($\lVert\cdot\rVert_\mathcal{X}$, $\lVert\cdot\rVert_\mathcal{A}$, $\lVert\cdot\rVert_\mathcal{O}$, and the combination norm) remain load-bearing and unspecified. Domain-specific instantiation will require choosing these.
 
