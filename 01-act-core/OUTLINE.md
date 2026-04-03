@@ -87,8 +87,8 @@ Every slug is linked to its intended `src/{slug}.md` file, even when that file d
 | II  | Scope           |     | [#edge-update-causal-validity](src/edge-update-causal-validity.md)                     | When edge updates are causally valid                             | draft |
 | II  | Discussion      |     | [#credit-assignment-boundary](src/credit-assignment-boundary.md)                       | Tractable/intractable boundary; design requirement               | draft |
 | II  | Formulation     |     | [#structural-change-as-parametric-limit](src/structural-change-as-parametric-limit.md) | Pruning/grafting as continuous                                   | draft |
-|     | --GAP--         |     |                                                                                        | Rate of useful $\Sigma_t$ revision (adaptive tempo for strategy) |       |
-|     | --GAP--         |     |                                                                                        | Complexity cost of maintaining $\Sigma_t$ (IB/MDL for DAGs)      |       |
+| II  | Definition      |     | [#strategic-tempo](src/strategic-tempo.md)                                             | Rate of useful $\Sigma_t$ revision                               | draft |
+| II  | Formulation     |     | [#strategy-complexity-cost](src/strategy-complexity-cost.md)                           | Complexity cost of maintaining $\Sigma_t$ (IB/MDL for DAGs)      | draft |
 | II  | Proposed schema |     | [#strategy-persistence-schema](src/strategy-persistence-schema.md)                     | Sector conditions for $\Sigma_t$                                 | draft |
 |     | --GAP--         |     |                                                                                        | Three-way exploit/explore/deliberate allocation with $\Sigma_t$  |       |
 
