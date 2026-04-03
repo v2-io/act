@@ -6,7 +6,7 @@ depends:
   - agent-environment
   - observation-function
   - action-transition
-stage: draft
+stage: deps-verified
 ---
 
 # Scope: Scope Condition

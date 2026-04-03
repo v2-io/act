@@ -3,7 +3,7 @@ slug: agent-environment
 type: definition
 status: axiomatic
 depends: []
-stage: draft
+stage: deps-verified
 ---
 
 # Definition: Agent-Environment Coupling

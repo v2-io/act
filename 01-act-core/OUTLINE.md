@@ -21,15 +21,15 @@ Every slug is linked to its intended `src/{slug}.md` file, even when that file d
 
 | § | Type | N | Tag | Claim | Stage |
 |---|------|---|-----|-------|-------|
-| I | Postulate | | [#temporal-optimality](src/temporal-optimality.md) | Least-time is optimal | draft |
-| I | Definition | | [#agent-environment](src/agent-environment.md) | Agent-environment boundary | draft |
-| I | Definition | | [#observation-function](src/observation-function.md) | Lossy, noisy observations | draft |
-| I | Definition | | [#action-transition](src/action-transition.md) | Actions affect environment | draft |
-| I | Scope | | [#scope-condition](src/scope-condition.md) | Where ACT applies | draft |
+| I | Postulate | | [#temporal-optimality](src/temporal-optimality.md) | Least-time is optimal | deps-verified |
+| I | Definition | | [#agent-environment](src/agent-environment.md) | Agent-environment boundary | deps-verified |
+| I | Definition | | [#observation-function](src/observation-function.md) | Lossy, noisy observations | deps-verified |
+| I | Definition | | [#action-transition](src/action-transition.md) | Actions affect environment | deps-verified |
+| I | Scope | | [#scope-condition](src/scope-condition.md) | Where ACT applies | deps-verified |
 | I | Postulate | | [#composition-consistency](src/composition-consistency.md) | Agent/subagent scale invariance | draft |
-| I | Postulate | | [#causal-structure](src/causal-structure.md) | Irreducible causal structure | draft |
-| I | Definition | | [#pearl-causal-hierarchy](src/pearl-causal-hierarchy.md) | Three levels of causal reasoning | draft |
-| I | Definition | | [#chronica](src/chronica.md) | Complete interaction history | draft |
+| I | Postulate | | [#causal-structure](src/causal-structure.md) | Irreducible causal structure | deps-verified |
+| I | Definition | | [#pearl-causal-hierarchy](src/pearl-causal-hierarchy.md) | Three levels of causal reasoning | deps-verified |
+| I | Definition | | [#chronica](src/chronica.md) | Complete interaction history | deps-verified |
 | I | Formulation | | [#agent-model](src/agent-model.md) | Compressed history as state | draft |
 | I | Formulation | | [#information-bottleneck](src/information-bottleneck.md) | Optimal model compression | draft |
 | I | Definition | | [#model-sufficiency](src/model-sufficiency.md) | Predictive information retained | draft |

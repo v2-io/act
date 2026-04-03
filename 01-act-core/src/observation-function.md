@@ -4,7 +4,7 @@ type: definition
 status: axiomatic
 depends:
   - agent-environment
-stage: draft
+stage: deps-verified
 ---
 
 # Definition: Observation Function

@@ -7,7 +7,7 @@ depends:
   - observation-function
   - action-transition
   - causal-structure
-stage: draft
+stage: deps-verified
 ---
 
 # Definition: Chronica

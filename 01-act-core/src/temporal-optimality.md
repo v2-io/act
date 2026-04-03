@@ -3,7 +3,7 @@ slug: temporal-optimality
 type: postulate
 status: axiomatic
 depends: []
-stage: draft
+stage: deps-verified
 ---
 
 # Postulate: Temporal Optimality
