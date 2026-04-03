@@ -5,7 +5,7 @@ status: robust-qualitative
 depends:
   - mismatch-signal
   - observation-function
-stage: draft
+stage: deps-verified
 ---
 
 # Empirical: Update Gain

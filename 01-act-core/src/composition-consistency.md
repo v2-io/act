@@ -4,7 +4,7 @@ type: postulate
 status: axiomatic
 depends:
   - scope-condition
-stage: draft
+stage: deps-verified
 ---
 
 # Postulate: Composition Consistency

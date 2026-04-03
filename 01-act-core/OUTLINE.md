@@ -26,25 +26,25 @@ Every slug is linked to its intended `src/{slug}.md` file, even when that file d
 | I | Definition | | [#observation-function](src/observation-function.md) | Lossy, noisy observations | deps-verified |
 | I | Definition | | [#action-transition](src/action-transition.md) | Actions affect environment | deps-verified |
 | I | Scope | | [#scope-condition](src/scope-condition.md) | Where ACT applies | deps-verified |
-| I | Postulate | | [#composition-consistency](src/composition-consistency.md) | Agent/subagent scale invariance | draft |
+| I | Postulate | | [#composition-consistency](src/composition-consistency.md) | Agent/subagent scale invariance | deps-verified |
 | I | Postulate | | [#causal-structure](src/causal-structure.md) | Irreducible causal structure | deps-verified |
 | I | Definition | | [#pearl-causal-hierarchy](src/pearl-causal-hierarchy.md) | Three levels of causal reasoning | deps-verified |
 | I | Definition | | [#chronica](src/chronica.md) | Complete interaction history | deps-verified |
-| I | Formulation | | [#agent-model](src/agent-model.md) | Compressed history as state | draft |
-| I | Formulation | | [#information-bottleneck](src/information-bottleneck.md) | Optimal model compression | draft |
-| I | Definition | | [#model-sufficiency](src/model-sufficiency.md) | Predictive information retained | draft |
-| I | Definition | | [#model-class-fitness](src/model-class-fitness.md) | Best achievable sufficiency | draft |
-| I | Formulation | | [#event-driven-dynamics](src/event-driven-dynamics.md) | Events in continuous time | draft |
-| I | Derived | | [#recursive-update](src/recursive-update.md) | State updates must be recursive | draft |
-| I | Derived | | [#action-selection](src/action-selection.md) | Action as function of model | draft |
-| I | Definition | | [#mismatch-signal](src/mismatch-signal.md) | Prediction error signal | draft |
-| I | Result | | [#mismatch-decomposition](src/mismatch-decomposition.md) | Model error + obs noise | draft |
-| I | Empirical | | [#update-gain](src/update-gain.md) | Optimal update weighting | draft |
-| I | Definition | | [#causal-information-yield](src/causal-information-yield.md) | Information from interventions | draft |
-| I | Definition | | [#adaptive-tempo](src/adaptive-tempo.md) | Rate of useful info acquisition | draft |
+| I | Formulation | | [#agent-model](src/agent-model.md) | Compressed history as state | deps-verified |
+| I | Formulation | | [#information-bottleneck](src/information-bottleneck.md) | Optimal model compression | deps-verified |
+| I | Definition | | [#model-sufficiency](src/model-sufficiency.md) | Predictive information retained | deps-verified |
+| I | Definition | | [#model-class-fitness](src/model-class-fitness.md) | Best achievable sufficiency | deps-verified |
+| I | Formulation | | [#event-driven-dynamics](src/event-driven-dynamics.md) | Events in continuous time | deps-verified |
+| I | Derived | | [#recursive-update](src/recursive-update.md) | State updates must be recursive | deps-verified |
+| I | Derived | | [#action-selection](src/action-selection.md) | Action as function of model | deps-verified |
+| I | Definition | | [#mismatch-signal](src/mismatch-signal.md) | Prediction error signal | deps-verified |
+| I | Result | | [#mismatch-decomposition](src/mismatch-decomposition.md) | Model error + obs noise | deps-verified |
+| I | Empirical | | [#update-gain](src/update-gain.md) | Optimal update weighting | deps-verified |
+| I | Definition | | [#causal-information-yield](src/causal-information-yield.md) | Information from interventions | deps-verified |
+| I | Definition | | [#adaptive-tempo](src/adaptive-tempo.md) | Rate of useful info acquisition | deps-verified |
 | I | Hypothesis | | [#mismatch-dynamics](src/mismatch-dynamics.md) | Mismatch evolution ODE | draft |
 | I | Derived | | [#deliberation-cost](src/deliberation-cost.md) | Think vs act tradeoff | draft |
-| I | Derived | | [#gain-sector-bridge](src/gain-sector-bridge.md) | Gain + directional fidelity → sector condition | draft |
+| I | Derived | | [#gain-sector-bridge](src/gain-sector-bridge.md) | Gain + directional fidelity → sector condition | deps-verified |
 | I | Result | | [#sector-condition-stability](src/sector-condition-stability.md) | Nonlinear persistence (Lyapunov) | draft |
 | I | Result | | [#persistence-condition](src/persistence-condition.md) | Bounded mismatch condition | draft |
 | I | Result | | [#structural-adaptation-necessity](src/structural-adaptation-necessity.md) | When parametric update fails | draft |
@@ -64,22 +64,22 @@ Every slug is linked to its intended `src/{slug}.md` file, even when that file d
 
 | §   | Type            | N   | Tag                                                                                    | Claim                                                            | Stage |
 | --- | --------------- | --- | -------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | ----- |
-| II  | Definition      |     | [#agent-spectrum](src/agent-spectrum.md)                                               | ±model × ±objective quadrants                                    | draft |
-| II  | Formulation     |     | [#complete-agent-state](src/complete-agent-state.md)                                   | $X_t = (M_t, G_t)$                                               | draft |
-| II  | Formulation     |     | [#objective-functional](src/objective-functional.md)                                   | $O_t$ parametrizes value                                         | draft |
-| II  | Definition      |     | [#value-object](src/value-object.md)                                                   | Horizon/policy-conditioned value                                 | draft |
-| II  | Definition      |     | [#strategy-dimension](src/strategy-dimension.md)                                       | $G_t = (O_t, \Sigma_t)$ split                                    | draft |
+| II  | Definition      |     | [#agent-spectrum](src/agent-spectrum.md)                                               | ±model × ±objective quadrants                                    | deps-verified |
+| II  | Formulation     |     | [#complete-agent-state](src/complete-agent-state.md)                                   | $X_t = (M_t, G_t)$                                               | deps-verified |
+| II  | Formulation     |     | [#objective-functional](src/objective-functional.md)                                   | $O_t$ parametrizes value                                         | deps-verified |
+| II  | Definition      |     | [#value-object](src/value-object.md)                                                   | Horizon/policy-conditioned value                                 | deps-verified |
+| II  | Definition      |     | [#strategy-dimension](src/strategy-dimension.md)                                       | $G_t = (O_t, \Sigma_t)$ split                                    | deps-verified |
 | II  | Derived + Scope |     | [#causal-hierarchy-requirement](src/causal-hierarchy-requirement.md)                   | Level 2 needed for planning                                      | draft |
 | II  | Derived         |     | [#loop-interventional-access](src/loop-interventional-access.md)                       | Feedback loop → Level 2 data                                     | draft |
 | II  | Scope           |     | [#ciy-observational-proxy](src/ciy-observational-proxy.md)                             | When CIY is estimable from observational data                    | draft |
 | II  | Discussion      |     | [#ciy-unified-objective](src/ciy-unified-objective.md)                                 | Joint exploitation-exploration objective                         | draft |
 | II  | Normative       |     | [#explicit-strategy-condition](src/explicit-strategy-condition.md)                     | When planning beats exploring                                    | draft |
-| II  | Derived         |     | [#chain-confidence-decay](src/chain-confidence-decay.md)                               | Log-confidence additive in depth                                 | draft |
+| II  | Derived         |     | [#chain-confidence-decay](src/chain-confidence-decay.md)                               | Log-confidence additive in depth                                 | deps-verified |
 | II  | Scope           |     | [#and-or-scope](src/and-or-scope.md)                                                   | Conjunctive/disjunctive scope                                    | draft |
 | II  | Definition      |     | [#strategy-dag](src/strategy-dag.md)                                                   | Strategy as probabilistic DAG                                    | draft |
 | II  | Derived + Scope |     | [#directed-separation](src/directed-separation.md)                                     | Epistemic update is goal-blind                                   | draft |
-| II  | Definition      |     | [#satisfaction-gap](src/satisfaction-gap.md)                                           | Ideal vs best achievable                                         | draft |
-| II  | Definition      |     | [#control-regret](src/control-regret.md)                                               | Best achievable vs current                                       | draft |
+| II  | Definition      |     | [#satisfaction-gap](src/satisfaction-gap.md)                                           | Ideal vs best achievable                                         | deps-verified |
+| II  | Definition      |     | [#control-regret](src/control-regret.md)                                               | Best achievable vs current                                       | deps-verified |
 | II  | Definition      |     | [#strategic-calibration](src/strategic-calibration.md)                                 | Edge residuals ( #credit-assignment-boundary)                    | draft |
 | II  | Derived         |     | [#orient-cascade](src/orient-cascade.md)                                               | Resolution order by info dep                                     | draft |
 | II  | Derived         |     | [#observability-dominance](src/observability-dominance.md)                             | Unobservable edges freeze                                        | draft |
@@ -90,7 +90,7 @@ Every slug is linked to its intended `src/{slug}.md` file, even when that file d
 | II  | Definition      |     | [#strategic-tempo](src/strategic-tempo.md)                                             | Rate of useful $\Sigma_t$ revision                               | draft |
 | II  | Formulation     |     | [#strategy-complexity-cost](src/strategy-complexity-cost.md)                           | Complexity cost of maintaining $\Sigma_t$ (IB/MDL for DAGs)      | draft |
 | II  | Proposed schema |     | [#strategy-persistence-schema](src/strategy-persistence-schema.md)                     | Sector conditions for $\Sigma_t$                                 | draft |
-|     | --GAP--         |     |                                                                                        | Three-way exploit/explore/deliberate allocation with $\Sigma_t$  |       |
+| II  | Formulation     |     | [#exploit-explore-deliberate](src/exploit-explore-deliberate.md)                       | Three-way exploit/explore/deliberate allocation with $\Sigma_t$  | draft |
 
 
 ---
@@ -134,7 +134,7 @@ Every slug is linked to its intended `src/{slug}.md` file, even when that file d
 | A   | Derivation |     | [#gain-sector-derivation](src/gain-sector-derivation.md)               | Gain-sector bridge proofs: Kalman, gradient equivalence, verification | draft   |
 | A   | Derivation |     | [#recursive-update-derivation](src/recursive-update-derivation.md)     | Uniqueness derivation via three constraints + counterexamples         | draft   |
 | A   | Sketch     |     | [#multi-timescale-stability](src/multi-timescale-stability.md)         | N-timescale singular perturbation sketch                              | draft   |
-| A   | Detail     |     | [#linear-ode-approximation](src/linear-ode-approximation.md)           | Pedagogical linear mismatch ODE                                       | missing |
+| A   | Detail     |     | [#linear-ode-approximation](src/linear-ode-approximation.md)           | Pedagogical linear mismatch ODE                                       | draft   |
 | A   | Derivation |     | [#graph-structure-uniqueness](src/graph-structure-uniqueness.md)       | 4 postulates → DAG (exact); Markov conditional on causal sufficiency  | draft   |
 | A   | Derivation |     | [#strategic-dynamics-derivation](src/strategic-dynamics-derivation.md) | Sector condition verification for strategy edges (4 cases)            | draft   |
 | A   | Derivation |     | [#discrete-sector-condition](src/discrete-sector-condition.md)         | Discrete-time Props DA.1, DA.1S, DA.2; fluid limit; GA-5 closed       | draft   |

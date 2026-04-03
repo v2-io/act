@@ -5,7 +5,7 @@ status: axiomatic
 depends:
   - update-gain
   - event-driven-dynamics
-stage: draft
+stage: deps-verified
 ---
 
 # Definition: Adaptive Tempo

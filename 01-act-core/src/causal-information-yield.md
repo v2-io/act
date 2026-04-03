@@ -6,7 +6,7 @@ depends:
   - pearl-causal-hierarchy
   - action-selection
   - mismatch-signal
-stage: draft
+stage: deps-verified
 ---
 
 # Definition: Causal Information Yield

@@ -5,7 +5,7 @@ status: exact
 depends:
   - objective-functional
   - agent-model
-stage: draft
+stage: deps-verified
 ---
 
 # Definition: Value Object

@@ -6,7 +6,7 @@ depends:
   - causal-structure
   - observation-function
   - action-transition
-stage: draft
+stage: deps-verified
 ---
 
 # Formulation: Event-Driven Dynamics

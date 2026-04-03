@@ -5,7 +5,7 @@ status: exact
 depends:
   - value-object
   - satisfaction-gap
-stage: draft
+stage: deps-verified
 ---
 
 # Definition: Control Regret

@@ -6,7 +6,8 @@ depends:
   - mismatch-signal
   - observation-function
   - agent-model
-stage: draft
+  - scope-condition
+stage: deps-verified
 ---
 
 # Result: Mismatch Decomposition

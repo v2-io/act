@@ -5,7 +5,7 @@ status: exact
 depends:
   - value-object
   - objective-functional
-stage: draft
+stage: deps-verified
 ---
 
 # Definition: Satisfaction Gap

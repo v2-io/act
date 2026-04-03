@@ -5,7 +5,7 @@ status: exact
 depends:
   - agent-model
   - recursive-update
-stage: draft
+stage: deps-verified
 ---
 
 # Derived: Action Selection
