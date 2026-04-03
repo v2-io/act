@@ -79,6 +79,7 @@ Three independent frontier-model reviews (Claude Opus, OpenAI Codex, Google Gemi
 | [strategy-persistence-schema](01-act-core/src/strategy-persistence-schema.md) | Proposed schema | Sector conditions for $\Sigma_t$. Schema, not result — needs instantiation. |
 | [strategic-tempo](01-act-core/src/strategic-tempo.md) | Definition | T_Σ = Σ ν_ij·η_edge,ij. Verified against four topologies. AND depth-gated, OR exploration-gated. |
 | [strategy-complexity-cost](01-act-core/src/strategy-complexity-cost.md) | Formulation | IB/MDL for strategy DAGs. Max useful depth d*. Triple depth penalty. Discussion-grade. |
+| [exploit-explore-deliberate](01-act-core/src/exploit-explore-deliberate.md) | Formulation | Three-way allocation. Two-stage structure. Extended deliberation objective. Dominance regimes. |
 
 ### Written — TST (20 segments; 4 missing, 0 old remain) — now in `02-tst-core/`
 | Slug | Type | Notes |
@@ -252,7 +253,7 @@ See FORMAT.md "Epistemic Triage" for the three-question diagnostic.
 
 ## What's Open
 
-- Action-deliberation-exploration tradeoff (three-way with $\Sigma_t$). Existing machinery handles components separately (CIY for explore, $\delta_{\text{regret}}$ for deliberation trigger). Unified policy objective would need a deliberation information value term alongside $\lambda \cdot \text{CIY}$.
+- ~~Action-deliberation-exploration tradeoff (three-way with $\Sigma_t$).~~ **Resolved 2026-04-02**: Two-stage formulation (act-vs-deliberate, then exploit-vs-explore). Extended deliberation objective adds $\Delta V_\Sigma$ (strategic benefit) to #deliberation-cost. Dominance regimes derived from constituent first-order conditions. Promoted to #exploit-explore-deliberate. Open: $\Delta V_\Sigma$ operationalization, interaction between epistemic and strategic improvement, discrete stopping-problem formulation.
 - ~~Strategy tempo formalization ($\mathcal T_\Sigma$).~~ **Resolved 2026-04-02**: T_Σ = Σ ν_ij·η_edge,ij defined, verified against four topologies. AND-chains depth-gated, OR-nodes exploration-gated. Per-edge persistence formulation. Promoted to #strategic-tempo. Open: mixed AND/OR DAGs, optimal topology.
 - ~~Cognitive cost of $\Sigma_t$ (no $\beta$ analog yet).~~ **Resolved 2026-04-02**: IB/MDL framework for strategy DAGs. DL(Σ_t) scaling O(|E| log |V|). Max useful depth d* derived. Triple depth penalty. Promoted to #strategy-complexity-cost. Open: computational tractability of strategy IB, dynamic complexity.
 - Edge identifiability conditions (resolved in software, open in general). Edges claim interventional semantics ($p_{ij} = P(j \mid do(i), M_t)$) but update from observational signals. In confounded domains (military, organizational), this is a real causal-identification problem. In software, genuine interventions (tests, deploys, git bisect) are available. Resolution may come from the software domain pushing requirements back up.

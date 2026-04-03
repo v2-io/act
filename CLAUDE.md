@@ -106,13 +106,13 @@ See `WORKBENCH.md` for the full development state. Summary:
 - DAG acyclicity derived from temporal ordering
 - Composition consistency required by scope condition's level-independence
 - α/T relationship verified for all correction function classes (α proportional to T)
+- Strategic tempo $\mathcal{T}_\Sigma$ (defined, verified against four topologies)
+- Cognitive cost of $\Sigma_t$ (IB/MDL framework, max useful depth $d^\ast$)
+- Three-way exploit/explore/deliberate allocation (two-stage formulation, dominance regimes)
+- P3→Markov step in graph uniqueness (conditional on causal sufficiency)
 
 ### Open
-- Action-deliberation-exploration tradeoff (three-way with $\Sigma_t$)
-- Strategy tempo formalization
-- Cognitive cost of $\Sigma_t$ (no $\beta$ analog yet)
 - Edge identifiability conditions (resolved in software, open in general)
-- P3→Markov step in graph uniqueness (sketch, needs tightening)
 - Composition laws (specific forms are sketches; existence is required)
 - Coupled formulation for logogenic agents (Section V scope decision)
 
