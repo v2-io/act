@@ -107,6 +107,14 @@ The AND/OR parameterization is a parsimony-motivated formulation choice within t
 
 **Depth penalties on calibration.** Beyond the confidence decay that deeper DAGs suffer ( #chain-confidence-decay), the two-edge strategic dynamics analysis (#strategic-dynamics-derivation (Props B.2-B.3)) shows that deeper edges are also harder to calibrate. Edge $k$ in a chain is tested only when all upstream edges succeed, so its effective correction rate is attenuated by $\prod_{j<k}\theta_j$ (the evidence-starvation effect). Deeper DAGs therefore face a double penalty: lower aggregate confidence AND slower convergence of edge credences toward truth. This reinforces the structural pressure toward shallow, observable strategies — deep plans require both high per-edge reliability and sustained observability at every intermediate level to remain calibratable.
 
+**Edge-independence scope.** The AND/OR status propagation treats edge failures as independent. This is a **load-bearing assumption**, not a minor caveat — it enters every result that depends on $\hat P_\Sigma$.
+
+*What it buys:* Tractable $O(\lvert V\rvert + \lvert E\rvert)$ status propagation; single-parameter edges; clean persistence proofs (the sector condition transfers from per-edge credence to plan value via the Jacobian — Prop B.5 in #strategic-dynamics-derivation).
+
+*What it costs:* $\hat P_\Sigma$ systematically overestimates success under positively correlated failure (the dominant real-world case). The plan-confidence error $\delta_s = \hat P_\Sigma - \Phi$ proved persistent by B.5 tracks calibration *within the independence model* — $\Phi$ is the AND/OR formula at true edge rates, not actual plan success ( #strategic-calibration). Gradient-based credit assignment ( #credit-assignment-boundary) inherits the same bias: the residual $(y_G - \hat P_\Sigma)$ conflates per-edge miscalibration with omitted correlation structure. Chain confidence decay ( #chain-confidence-decay) notes that positive correlation makes the independent formula conservative, understating actual fragility.
+
+*Mitigation:* Agents can model correlation structure explicitly by adding common-cause nodes to $\Sigma_t$ — a shared infrastructure dependency becomes a node whose children are the edges it correlates. This shifts the burden from the propagation formula (which remains independent-edge) to the DAG construction (which now represents the correlation). The independence assumption then holds *within the augmented DAG*, at the cost of a larger graph.
+
 ## Working Notes
 
 - Edge failures are assumed independent in the combination rules. Real systems have correlated failures (shared infrastructure, common-mode risks). The actual confidence is lower than the independent-edge formula suggests. Modeling correlation structure would require augmenting the DAG with hidden common-cause nodes or using a richer parameterization — both increase complexity. Currently acknowledged as a limitation.
