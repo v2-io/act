@@ -9,7 +9,7 @@ stage: deps-verified
 
 # Postulate: Composition Consistency
 
-ACT applies at every level of description where the scope condition is met. A team of agents is itself an agent; a department of teams is itself an agent. The theory's predictions at each level must be compatible — and they are, under a condition analogous to the persistence threshold: the composite's internal coordination must be fast relative to the external dynamics it faces.
+ACT applies at every level of description where the scope condition is met. A team of agents is itself an agent; a department of teams is itself an agent. The theory's predictions at each level must be compatible. Section III develops conditions under which they are — specifically, a condition analogous to the persistence threshold: the composite's internal coordination must be fast relative to the external dynamics it faces. That derivation requires a contraction assumption beyond the core ACT machinery ( #composition-closure).
 
 ## Formal Expression
 
@@ -42,7 +42,7 @@ Most functioning groups easily satisfy this condition. A software team with dail
 **What this buys the theory.** With composition consistency stated early:
 - Every subsequent result (persistence, gain, tempo, mismatch decomposition, orient cascade) is understood to apply at every level of composition where the timescale condition holds
 - Section III becomes the study of *what happens near and beyond the threshold* — coordination overhead, unity dimensions, adversarial dynamics — rather than a separate multi-agent theory
-- The formal test for composition validity ( #composition-closure) provides the rigorous version of the timescale condition
+- The formal test for composition validity ( #composition-closure) develops the rigorous version of the timescale condition, conditional on a contraction assumption beyond (A4)
 
 **When composition fails.** The timescale condition fails when:
 - Internal coordination slows (communication overhead scales poorly, conflicts consume attention, bureaucratic process)
