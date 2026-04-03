@@ -20,17 +20,17 @@
 
 Six issues identified by Codex automated review. Items 1-3 are HIGH priority (affect core diagnostic chain); 4-6 are MEDIUM.
 
-1. **HIGH — Q_O causal validity conditions on wrong state.** `value-object.md:25` defines action value from $M_t$, but actions are chosen from $(M_t, G_t)$. Conditioning on $M_t$ alone doesn't block confounding from $G_t$. Weakens $A_O$, $\delta_{\text{sat}}$, $\delta_{\text{regret}}$ as interventional diagnostics. Fix: condition on $X_t = (M_t, G_t)$ or explicitly assume $G_t$ fixed.
+1. ~~**HIGH — Q_O causal validity conditions on wrong state.**~~ **FIXED 2026-04-02.** Rewrote causal validity paragraph in value-object.md. Two mechanisms: (1) do-operator severs action-selection confounding from $G_t$, (2) continuation policy is a parameter. Under directed separation, $M_t$ alone is sufficient. Class 2 degradation cross-referenced.
 
-2. **HIGH — Orient cascade contradicts 2×2 diagnostic.** `control-regret.md:32` includes the $\delta_{\text{sat}} > 0$, $\delta_{\text{regret}} \gg 0$ quadrant ("hard goal + weak strategy → revise $\Sigma_t$ first"). But `orient-cascade.md:28` only evaluates $\delta_{\text{regret}}$ "if feasible" (i.e., $\delta_{\text{sat}} \leq 0$), removing the exact quadrant needed to distinguish "hard goal" from "hard goal plus weak strategy."
+2. ~~**HIGH — Orient cascade contradicts 2×2 diagnostic.**~~ **FIXED 2026-04-02.** Removed "if feasible" gate on step 3. Cascade now evaluates $\delta_{\text{regret}}$ regardless of $\delta_{\text{sat}}$'s sign, with all four 2×2 quadrants explicitly handled. Step 5 entry conditions clarified.
 
-3. **HIGH — Strategy-persistence overstates Prop B.5.** `strategy-persistence-schema.md:50` says strategic mismatch is "Resolved" citing B.5. But `strategic-dynamics-derivation.md:290` says B.5 is about plan-confidence error $\delta_s$, not the strategic-calibration residual $\delta_{\text{strategic}}$, and `:292` says extending to $\delta_{\text{strategic}}$ still requires credit-assignment machinery. Direct inconsistency.
+3. ~~**HIGH — Strategy-persistence overstates Prop B.5.**~~ **FIXED 2026-04-02.** Changed "Resolved" to "partially resolved." B.5 proves sector transfer to $\delta_s$ (plan-confidence error); transfer to $\delta_{\text{strategic}}$ (calibration residual) remains open and requires credit-assignment machinery.
 
-4. **MEDIUM — Composition bridge assumes extra contraction.** `composition-closure.md:121` states bridge lemma requires macro-update contraction, `:161` admits this is additional (not from (A4)). But `tempo-composition.md:27` treats the defect→overhead link as "follows directly." Downstream prose stronger than proof status.
+4. ~~**MEDIUM — Composition bridge assumes extra contraction.**~~ **FIXED 2026-04-02.** Added caveat in tempo-composition.md that the connection depends on the bridge lemma's contraction assumption, which is not formally derived from (A4).
 
-5. **MEDIUM — A_O mixes full-policy and one-step attainability.** `satisfaction-gap.md:19` defines $A_O$ as supremum over policies (full-policy). `value-object.md:35` uses one-step improvement with $\pi_{\text{cont}} = \pi_{\text{current}}$ as the canonical default. These differ unless $\Pi$ is restricted to one-step deviations. Meaning of control regret changes.
+5. ~~**MEDIUM — A_O mixes full-policy and one-step attainability.**~~ **FIXED 2026-04-02.** Clarified in satisfaction-gap.md that $A_O$ inherits the continuation convention. Under canonical default, $A_O$ is best-first-action (one-step improvement), not full-policy optimum. Distinction made explicit.
 
-6. **MEDIUM — Graph-structure-uniqueness overclaims.** `:15` says four postulates "force" a DAG with Markov property, but `:179` and `:203` say P3→Markov is conditional/open. Acyclicity is strong; "forced Markov DAG" is not.
+6. ~~**MEDIUM — Graph-structure-uniqueness overclaims.**~~ **FIXED 2026-04-02.** Title/summary qualified: "DAG (exact), Markov conditional on causal sufficiency." OUTLINE entry updated to match.
 
 ## Tooling
 

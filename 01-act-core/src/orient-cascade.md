@@ -25,18 +25,22 @@ For actuated agents, epistrophe (the corrective phase of the cycle) expands into
 2. **Evaluate $\delta_{\text{sat}}$** — is the goal achievable?
    Compute $A_O(M_t; \Pi, N_h)$ using the updated $M_t$. Requires adequate $M_t$ to assess attainability ( #satisfaction-gap).
 
-3. **If feasible ($\delta_{\text{sat}} \leq 0$), evaluate $\delta_{\text{regret}}$** — is the policy suboptimal?
-   Compare $A_O$ to $V_O(M_t, \pi_{\text{current}}; N_h)$. Requires both adequate $M_t$ and meaningful $A_O$ ( #control-regret).
+3. **Evaluate $\delta_{\text{regret}}$** — is the policy suboptimal?
+   Compare $A_O$ to $V_O(M_t, \pi_{\text{current}}; N_h)$ ( #control-regret). This step applies regardless of $\delta_{\text{sat}}$'s sign — the 2×2 diagnostic ( #control-regret) requires both quantities to distinguish four cases:
+   - $\delta_{\text{sat}} \leq 0$, $\delta_{\text{regret}} \approx 0$: **success** — goal attainable, policy near-optimal.
+   - $\delta_{\text{sat}} \leq 0$, $\delta_{\text{regret}} \gg 0$: **strategy problem** — goal attainable, policy poor → revise $\Sigma_t$.
+   - $\delta_{\text{sat}} \gt 0$, $\delta_{\text{regret}} \gg 0$: **both** — goal hard AND strategy weak → revise $\Sigma_t$ first (cheaper than revising $O_t$), then reassess $\delta_{\text{sat}}$.
+   - $\delta_{\text{sat}} \gt 0$, $\delta_{\text{regret}} \approx 0$: **capability limit** — already doing the best available; proceed to step 5.
 
 4. **If $\delta_{\text{regret}}$ high, evaluate $\delta_{\text{strategic}}$** — is the plan's causal model wrong?
-   Examine edge residuals. Requires adequate $M_t$, feasible $O_t$, and evidence of suboptimal execution ( #strategic-calibration).
+   Examine edge residuals. Requires adequate $M_t$ and evidence of suboptimal execution ( #strategic-calibration).
 
 5. **If $\delta_{\text{sat}} \gt 0$ persists across $\Sigma_t$ revisions** — revise $O_t$.
-   The cascade's ordering ensures objective revision is the last resort, not the first response to unmet goals.
+   The cascade's ordering ensures objective revision is the last resort, not the first response to unmet goals. The agent reaches this step only in the capability-limit quadrant ($\delta_{\text{sat}} \gt 0$, $\delta_{\text{regret}} \approx 0$), or after strategy revision fails to close the gap.
 
 **Derivation.** Each step's input depends on prior steps' outputs:
 - You cannot evaluate strategy quality with a broken reality model (step 3 requires step 1)
-- You cannot distinguish bad strategy from infeasible goal without evaluating attainability first (step 4 requires step 2)
+- You cannot distinguish "bad strategy" from "infeasible goal" without both $\delta_{\text{sat}}$ and $\delta_{\text{regret}}$ (step 3 requires step 2)
 - You should not revise the objective until you've verified that improving $\Sigma_t$ cannot close the gap (step 5 requires steps 3-4)
 
 The ordering is forced by information dependency.
