@@ -18,7 +18,7 @@ When model class fitness is insufficient — when no model in the current class 
 
 *[Derived (structural-adaptation-necessity, Prop 10.1 from TFT)]*
 
-If the model class fitness $\mathcal{F}(\mathcal{M}) \lt 1 - \varepsilon$ for some $\varepsilon \gt 0$, then no parametric adaptation within $\mathcal{M}$ can reduce the expected mismatch below a floor determined by $\varepsilon$.
+If the model class fitness $\mathcal{F}(\mathcal{M}) \lt 1 - \varepsilon$ for some $\varepsilon \gt 0$, then no parametric adaptation within $\mathcal{M}$ can reduce the expected mismatch below a floor determined by $\varepsilon$ (under the alignment assumption — see Epistemic Status). Without the alignment assumption, the result holds for irreducible proper-scoring regret rather than one-step mean mismatch. The qualitative conclusion is the same either way: parametric adaptation cannot compensate for model-class inadequacy.
 
 ### Derivation
 
