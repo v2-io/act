@@ -6,7 +6,7 @@ depends:
   - adaptive-tempo
   - mismatch-signal
   - sector-condition-derivation
-stage: draft
+stage: deps-verified
 ---
 
 # Result: Sector Condition Stability

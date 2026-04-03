@@ -5,7 +5,7 @@ status: heuristic
 depends:
   - adaptive-tempo
   - mismatch-signal
-stage: draft
+stage: deps-verified
 ---
 
 # Hypothesis: Mismatch Dynamics

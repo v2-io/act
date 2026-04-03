@@ -5,7 +5,7 @@ status: conditional
 depends:
   - update-gain
   - sector-condition-derivation
-stage: draft
+stage: deps-verified
 ---
 
 # Derivation: Gain-Sector Bridge — Proofs and Verification

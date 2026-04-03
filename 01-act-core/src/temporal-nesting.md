@@ -5,7 +5,7 @@ status: robust-qualitative
 depends:
   - adaptive-tempo
   - structural-adaptation-necessity
-stage: draft
+stage: deps-verified
 ---
 
 # Derived: Temporal Nesting

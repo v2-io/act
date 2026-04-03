@@ -7,7 +7,8 @@ depends:
   - event-driven-dynamics
   - causal-structure
   - scope-condition
-stage: draft
+  - observation-function
+stage: deps-verified
 ---
 
 # Derivation: Recursive Update — Uniqueness Derivation
@@ -56,7 +57,7 @@ This constraint does the most interesting work and deserves careful examination 
 
 $$M_{\tau^+} = f(M_{\tau^-}, e_\tau)$$
 
-for some function $f: \mathcal{M} \times \mathcal{E} \to \mathcal{M}$. No other update form is consistent with the three constraints.
+for some (possibly stochastic) function $f: \mathcal{M} \times \mathcal{E} \to \mathcal{M}$. No other update form is consistent with the three constraints.
 
 **Derivation.** Consider the most general possible update. The updated state $M_{\tau^+}$ is a function of *all accessible information*:
 
