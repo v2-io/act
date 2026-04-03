@@ -108,7 +108,7 @@ See `WORKBENCH.md` for the full development state. Summary:
 - α/T relationship verified for all correction function classes (α proportional to T)
 - Strategic tempo $\mathcal{T}_\Sigma$ (defined, verified against four topologies)
 - Cognitive cost of $\Sigma_t$ (IB/MDL framework, max useful depth $d^\ast$)
-- Three-way exploit/explore/deliberate allocation (two-stage formulation, dominance regimes)
+- Three-way exploit/explore/deliberate: extended deliberation threshold derived; two-stage decomposition and dominance regimes are discussion-grade (simulation shows unified objective outperforms two-stage; deliberation rarely chosen by oracle)
 - P3→Markov step in graph uniqueness (conditional on causal sufficiency)
 
 ### Open

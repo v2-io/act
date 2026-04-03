@@ -90,7 +90,7 @@ Every slug is linked to its intended `src/{slug}.md` file, even when that file d
 | II  | Definition      |     | [#strategic-tempo](src/strategic-tempo.md)                                             | Rate of useful $\Sigma_t$ revision                               | draft |
 | II  | Formulation     |     | [#strategy-complexity-cost](src/strategy-complexity-cost.md)                           | Complexity cost of maintaining $\Sigma_t$ (IB/MDL for DAGs)      | draft |
 | II  | Proposed schema |     | [#strategy-persistence-schema](src/strategy-persistence-schema.md)                     | Sector conditions for $\Sigma_t$                                 | draft |
-| II  | Formulation     |     | [#exploit-explore-deliberate](src/exploit-explore-deliberate.md)                       | Three-way exploit/explore/deliberate allocation with $\Sigma_t$  | draft |
+| II  | Discussion      |     | [#exploit-explore-deliberate](src/exploit-explore-deliberate.md)                       | Three-way exploit/explore/deliberate: extended deliberation threshold + conceptual framing | draft |
 
 
 ---

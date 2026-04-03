@@ -58,7 +58,7 @@ In these domains, explicit $\Sigma_t$ is strongly motivated even if the planning
 
 **This makes #temporal-optimality load-bearing.** The postulate provides the normative grounding: among approaches producing equivalent outcomes, prefer the one requiring less time. The cost inequality instantiates this for the planning-vs-exploration choice. Without #temporal-optimality, the inequality would be an engineering heuristic without theoretical grounding.
 
-**Connection to the three-way tradeoff.** For actuated agents, the binary explore/exploit tradeoff extends to three modes: exploit (pursue $O_t$ via $\Sigma_t$), explore (improve $M_t$), and deliberate (revise $\Sigma_t$). The cost inequality addresses the coarsest question (is explicit $\Sigma_t$ worth having?). The finer question of how to allocate between the three modes at each time step is open — it connects to #causal-information-yield's exploration price $\lambda$ extended with $\Sigma_t$ revision costs.
+**Connection to the three-way tradeoff.** For actuated agents, the binary explore/exploit tradeoff extends to three modes: exploit (pursue $O_t$ via $\Sigma_t$), explore (improve $M_t$), and deliberate (revise $\Sigma_t$). The cost inequality addresses the coarsest question (is explicit $\Sigma_t$ worth having?). The finer allocation between the three modes is addressed in #exploit-explore-deliberate — the extended deliberation threshold is derived, but the broader three-way framing is discussion-grade. The deepest insight: deliberation is computation on existing data (no new observations), making it a fundamentally different resource type from external action.
 
 ## Working Notes
 

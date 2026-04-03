@@ -79,7 +79,7 @@ Three independent frontier-model reviews (Claude Opus, OpenAI Codex, Google Gemi
 | [strategy-persistence-schema](01-act-core/src/strategy-persistence-schema.md) | Proposed schema | Sector conditions for $\Sigma_t$. Schema, not result — needs instantiation. |
 | [strategic-tempo](01-act-core/src/strategic-tempo.md) | Definition | T_Σ = Σ ν_ij·η_edge,ij. Verified against four topologies. AND depth-gated, OR exploration-gated. |
 | [strategy-complexity-cost](01-act-core/src/strategy-complexity-cost.md) | Formulation | IB/MDL for strategy DAGs. Max useful depth d*. Triple depth penalty. Discussion-grade. |
-| [exploit-explore-deliberate](01-act-core/src/exploit-explore-deliberate.md) | Formulation | Three-way allocation. Two-stage structure. Extended deliberation objective. Dominance regimes. |
+| [exploit-explore-deliberate](01-act-core/src/exploit-explore-deliberate.md) | Discussion | Extended deliberation threshold (derived). Two-stage decomposition NOT forced (unified objective outperforms in simulation). Dominance regimes qualitative. Deepest insight: deliberation = computation on existing data. Discussion-grade. |
 
 ### Written — TST (20 segments; 4 missing, 0 old remain) — now in `02-tst-core/`
 | Slug | Type | Notes |
