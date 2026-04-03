@@ -37,9 +37,9 @@ Canonical source: `msc/analysis-2026-04-02-comprehensive.md` for full context an
 
 - **Multi-timescale stability.** #multi-timescale-stability is a sketch; #temporal-nesting leans on it. Needs formal N-timescale singular perturbation treatment.
 
-- **Channel independence caveat propagation.** Caveat added to #adaptive-tempo; propagate to #persistence-condition, #adversarial-tempo-advantage, #team-persistence, #tempo-composition (72% overestimate in anisotropic systems).
+- ~~**Channel independence caveat propagation.**~~ **DONE.** Caveats added to persistence-condition, adversarial-tempo-advantage, tempo-composition. team-persistence already had it.
 
-- **Edge-independence scope note.** Correlated edges flagged in #strategy-dag, #strategic-calibration, #chain-confidence-decay, #credit-assignment-boundary. No segment provides formal treatment. Either formalize or add a single cross-cutting scope note. **Note:** Codex finding 2 makes this more urgent — the independence assumption affects B.5's meaning.
+- ~~**Edge-independence scope note.**~~ **DONE.** Cross-cutting subsection added to strategy-dag Discussion covering buys/costs/mitigation with cross-references.
 
 - **Communication-gain adversarial scope.** Additive model fails for deception (trust is game-theoretic). Either extend or add explicit scope limitation to #communication-gain.
 
@@ -73,9 +73,9 @@ Canonical source: `msc/analysis-2026-04-02-comprehensive.md` for full context an
 
 - **Prior art positioning.** Active inference/FEP, POMDP, BDI relationships. Source: msc/02-prior-art-assessment.md.
 
-- **"Forced" vs "strongly motivated" language.** Audit for consistency: acyclicity IS proved, Markov IS conditional. Graph-structure-uniqueness overclaims per Codex finding 5.
+- ~~**"Forced" vs "strongly motivated" language.**~~ **DONE.** Three-tier classification (proved/conditional/choice) now consistent across graph-structure-uniqueness, strategy-dag, and-or-scope.
 
-- **Composition presentation.** Per Codex finding 3: present Section III as "ACT plus contraction premise," not as scale invariance already discharged.
+- ~~**Composition presentation.**~~ **DONE.** composition-consistency and WORKBENCH fixed to flag contraction assumption explicitly.
 
 
 ## Promotion Pipeline
