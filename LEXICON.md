@@ -95,7 +95,8 @@ Terms with specific ACT meaning awaiting full treatment in README.md:
 
 - **Observability dominance** — unobservable strategy edges freeze; paths become epistemically dead
 - **Strategy DAG** ($\Sigma_t$) — probabilistic AND/OR DAG with single-parameter edges and derived acyclicity
-- **Edge credence** ($p_{ij}$) — agent's causal confidence in a strategy edge
+- **Edge credence** ($p_{ij}$) — agent's causal efficacy estimate for a strategy edge; identification strength varies by regime (A/B/C)
+- **Strategic tempo** ($\mathcal{T}_\Sigma$) — rate of useful strategy revision: $\sum_{(i,j)} \nu_{ij} \cdot \eta_{\text{edge},ij}$; AND-chains depth-gated, OR-nodes exploration-gated
 - **Plan confidence** ($\hat{P}_\Sigma$) — root-node propagated status; systematically optimistic under correlated failures
 - **Composition closure** — approximate dynamical homomorphism between micro and macro dynamics
 - **Closure defect** ($\varepsilon^\ast$) — minimum achievable approximation error for a composite agent

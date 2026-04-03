@@ -110,8 +110,10 @@ The cycle is: Prolepsis → Aisthesis → Aporia → Epistrophe → Praxis → (
 
 | Symbol | Type | Meaning |
 |--------|------|---------|
-| $\mathcal{T}$ | Rate ($t^{-1}$) | Adaptive tempo: $\sum_k \nu^{(k)} \cdot \eta^{(k)\ast}$ |
+| $\mathcal{T}$ | Rate ($t^{-1}$) | Adaptive tempo (epistemic): $\sum_k \nu^{(k)} \cdot \eta^{(k)\ast}$ |
+| $\mathcal{T}_\Sigma$ | Rate ($t^{-1}$) | Strategic tempo: $\sum_{(i,j) \in E} \nu_{ij} \cdot \eta_{\text{edge},ij}$ ( #strategic-tempo) |
 | $\rho(t)$ | Rate (surprise/time) | Environment change rate (mismatch injection rate) |
+| $\rho_\Sigma$ | Rate | Strategic disturbance rate (rate of causal-link invalidation) |
 | $\lVert\delta\rVert_{ss}$ | Scalar $\geq 0$ | Steady-state mismatch: $\rho / \mathcal{T}$ (linear approximation) |
 
 
