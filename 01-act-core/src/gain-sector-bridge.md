@@ -100,4 +100,4 @@ The gradient equivalence is validated by simulation across quadratic, logistic, 
 
 $$\text{gain principle} + \text{B1} \;\xrightarrow{\text{derived}}\; \text{sector condition (GA-3)} \;\xrightarrow{\text{Lyapunov (exact)}}\; \text{persistence, reserve, adversarial scaling}$$
 
-The left arrow is this segment. The right arrow is #sector-condition-derivation. The only remaining gap in Section I's formal chain is the fluid-limit approximation (GA-5).
+The left arrow is this segment. The right arrow is #sector-condition-derivation. The discrete-time framework ( [#discrete-sector-condition](discrete-sector-condition.md)) requires an additional upper bound on the correction function ($c_{\max} < 2/\eta^\ast$) — the no-overshoot condition. This is automatically satisfied for Bayesian updates (the posterior lies between prior and data) and is equivalent to the standard step-size condition $\eta < 2/L$ for gradient descent. With this constraint, the fluid limit is formally justified: Model D steady state is exact, Model S variance gap is $O(\eta^\ast c_{\max})$. Section I's formal chain is now complete.

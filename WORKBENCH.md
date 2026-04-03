@@ -120,7 +120,7 @@ Three independent frontier-model reviews (Claude Opus, OpenAI Codex, Google Gemi
 | [team-persistence](01-act-core/src/team-persistence.md)                         | Derived     | Distributed tempo, cooperative-adversarial $\rho$ decomposition, 3-lever persistence. From TFT F.3.                                  |
 | [adversarial-tempo-advantage](01-act-core/src/adversarial-tempo-advantage.md)   | Result      | Both coupling-dominant exponents derived: $b=2$ (Model D), $b=3/2$ (Model S). Status: conditional on disturbance model.                                  |
 
-### Written — Appendices (8 segments)
+### Written — Appendices (9 segments)
 | Slug | Type | Notes |
 |------|------|-------|
 | [sector-condition-derivation](01-act-core/src/sector-condition-derivation.md) | Derivation | Full Lyapunov derivations (A.1, A.1S, A.2). A.1S adds stochastic (Model S) Itô-Lyapunov result. |
@@ -131,6 +131,7 @@ Three independent frontier-model reviews (Claude Opus, OpenAI Codex, Google Gemi
 | [worked-example-bandit](01-act-core/src/worked-example-bandit.md) | Worked example | End-to-end approximate mapping; persistence failure diagnostic. |
 | [simulation-results](01-act-core/src/simulation-results.md) | Detail | 6 variants validating/refining Section I predictions. Track-b reference. |
 | [graph-structure-uniqueness](01-act-core/src/graph-structure-uniqueness.md) | Derivation | 4 postulates + causal sufficiency → DAG with Markov property. Acyclicity exact. P3→Markov now conditional on causal sufficiency (upgraded from sketch 2026-04-01 via Lauritzen 1996 equivalence). |
+| [discrete-sector-condition](01-act-core/src/discrete-sector-condition.md) | Derivation | Discrete-time Props DA.1, DA.1S, DA.2 via contraction mapping. Fluid limit theorem. **GA-5 closed** — Model D gap zero, Model S gap $O(\eta^\ast c_{\max})$. |
 
 ### Not Yet Written — 10 segments remaining
 
@@ -192,6 +193,7 @@ Three independent frontier-model reviews (Claude Opus, OpenAI Codex, Google Gemi
 - Scalar objective load-bearing for diagnostics; structural results survive vector extension
 - Three senses of persistence disambiguated: structural, operational, continuity (see LEXICON in README.md)
 - Agent continuity stance orthogonal to purposefulness (five stances defined)
+- Fluid limit (GA-5) formally justified: discrete-time sector condition via contraction mapping recovers continuous results (Model D gap zero, Model S gap $O(\eta^\ast c_{\max})$)
 
 
 ## Theory Core

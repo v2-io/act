@@ -50,7 +50,7 @@ Mismatch decays exponentially from initial conditions toward the steady state.
 
 *Heuristic.* This is explicitly a first-order linear approximation. The qualitative behavior (bounded mismatch, steady-state ratio, exponential convergence) is robust across correction function forms. The quantitative predictions (exact steady-state value, convergence rate, the squared adversarial scaling law) are specific to the linear case. The general nonlinear treatment ( #sector-condition-stability) replaces the linear correction term with a sector-bounded correction function and proves persistence without committing to a specific functional form.
 
-**Bridging assumption (discrete to continuous).** This ODE is a fluid-limit approximation of the discrete event-driven dynamics ( #event-driven-dynamics). Valid when $\eta^\ast \ll 1$ (the small-gain regime — each event makes a small correction). Least accurate during initial transients when $\eta^\ast$ is large, but this phase is short-lived.
+**Bridging assumption (discrete to continuous).** This ODE is a fluid-limit approximation of the discrete event-driven dynamics ( #event-driven-dynamics). The fluid limit is formally justified by [#discrete-sector-condition](discrete-sector-condition.md): for Model D (deterministic), the discrete and continuous steady states are identical (zero gap); for Model S (stochastic), the variance gap is $O(\eta^\ast c_{\max})$, quantitatively small whenever $\eta^\ast c_{\max} \ll 1$. The approximation is least accurate during initial transients when $\eta^\ast$ is large, but this phase is short-lived and the transient error is bounded by $O(\eta^\ast c_{\max} / \nu^{1/2})$ under Lipschitz regularity.
 
 ## Discussion
 
