@@ -10,7 +10,7 @@ stage: claims-verified
 
 # Definition: Satisfaction Gap
 
-The satisfaction gap measures whether the agent's objective is achievable: the distance between what the objective requires and what the best available policy can deliver. It answers "is this goal feasible given what I know and what I can do?"
+The satisfaction gap measures the distance between what the objective requires and what the best available one-step policy improvement can deliver, under the current model and horizon. Under the canonical continuation convention ( #value-object), this is a *local* diagnostic — it answers "can I improve toward the goal from here?" not "is the goal globally feasible?" A multi-step recoverable objective may show positive δ_sat because continuation is frozen at π_current. Different continuation conventions yield different gap values; see Epistemic Status.
 
 ## Formal Expression
 

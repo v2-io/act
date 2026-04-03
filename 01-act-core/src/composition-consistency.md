@@ -23,13 +23,13 @@ For any system $S$ satisfying the scope condition ( #scope-condition), and any d
 
 *[Sufficient Condition (composition-validity)]*
 
-**Timescale separation condition.** A group of sub-agents behaves as a valid composite agent when its internal equilibration timescale $\tau_{\text{eq}}$ — the time for sub-agents to approximately synchronize models and coordinate actions — is short relative to the external dynamics timescale $\tau_{\text{ext}}$ — the time for the environment to change significantly from the macro-agent's perspective:
+**Conjectured timescale separation condition.** A group of sub-agents plausibly behaves as a valid composite agent when its internal equilibration timescale $\tau_{\text{eq}}$ — the time for sub-agents to approximately synchronize models and coordinate actions — is short relative to the external dynamics timescale $\tau_{\text{ext}}$:
 
 $$\tau_{\text{eq}} \ll \tau_{\text{ext}}$$
 
-When this holds, the internal dynamics have approximately settled by the time the next external challenge arrives, and the composite's macro-state is predictive of its macro-behavior. This is the composition analog of the persistence condition ( #persistence-condition): just as an individual agent requires $\mathcal{T} \gt \rho / \Vert\delta_{\text{critical}}\Vert$ to maintain bounded mismatch, a composite agent requires fast internal coordination to maintain a coherent macro-description.
+This is stated as a *conjectural sufficient condition* — intuitive, likely correct, and useful as a heuristic test. The formal derivation requires the composition closure criterion ( #composition-closure) and the tempo composition inequality ( #tempo-composition) developed in Section III, both of which depend on a contraction assumption beyond the core ACT machinery that has not yet been proved from the stated admissibility constraints. Until the bridge lemma is closed, this condition is a motivated heuristic, not a theorem.
 
-Most functioning groups easily satisfy this condition. A software team with daily standups and shared CI ($\tau_{\text{eq}} \sim$ hours) facing weekly feature deadlines ($\tau_{\text{ext}} \sim$ weeks) is comfortably a valid composite. A military squad communicating by voice ($\tau_{\text{eq}} \sim$ seconds) in a tactical situation evolving over minutes is clearly a single agent. The theory applies broadly; the interesting questions arise near the threshold.
+**Intuitive support.** The condition mirrors the persistence condition ( #persistence-condition): just as an individual agent requires correction faster than disturbance, a composite requires internal coordination faster than external change. Domain examples suggest the threshold is easily satisfied in practice — a software team with daily standups ($\tau_{\text{eq}} \sim$ hours) facing weekly deadlines ($\tau_{\text{ext}} \sim$ weeks), a military squad on voice ($\tau_{\text{eq}} \sim$ seconds) in a minutes-timescale situation — but these are informal illustrations of the heuristic, not validated applications of a proven result.
 
 ## Epistemic Status
 

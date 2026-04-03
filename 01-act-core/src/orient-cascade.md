@@ -33,17 +33,19 @@ For actuated agents, epistrophe (the corrective phase of the cycle) expands into
    - $\delta_{\text{sat}} \gt 0$, $\delta_{\text{regret}} \approx 0$: **capability limit** — already doing the best available; proceed to step 5.
 
 4. **If $\delta_{\text{regret}}$ high, evaluate $\delta_{\text{strategic}}$** — is the plan's causal model wrong?
-   Examine edge residuals. Requires adequate $M_t$ and evidence of suboptimal execution ( #strategic-calibration).
+   Examine edge residuals. Requires adequate $M_t$ and evidence of suboptimal execution ( #strategic-calibration). **Note:** $\delta_{\text{strategic}}$ is the operational diagnostic the cascade uses, but its persistence is open — the strategic persistence proof ( #strategy-persistence-schema) covers plan-confidence error $\delta_s$, not $\delta_{\text{strategic}}$ (which requires credit-assignment machinery). The cascade's step 4 is therefore grounded in a discussion-grade quantity, even though the ordering of step 4 relative to the other steps is derived.
 
 5. **If $\delta_{\text{sat}} \gt 0$ persists across $\Sigma_t$ revisions** — revise $O_t$.
    The cascade's ordering ensures objective revision is the last resort, not the first response to unmet goals. The agent reaches this step only in the capability-limit quadrant ($\delta_{\text{sat}} \gt 0$, $\delta_{\text{regret}} \approx 0$), or after strategy revision fails to close the gap.
 
 **Derivation.** Each step's input depends on prior steps' outputs:
 - You cannot evaluate strategy quality with a broken reality model (step 3 requires step 1)
-- You cannot distinguish "bad strategy" from "infeasible goal" without both $\delta_{\text{sat}}$ and $\delta_{\text{regret}}$ (step 3 requires step 2)
+- You cannot distinguish "locally bad strategy" from "locally unattainable goal" without both $\delta_{\text{sat}}$ and $\delta_{\text{regret}}$ (step 3 requires step 2)
 - You should not revise the objective until you've verified that improving $\Sigma_t$ cannot close the gap (step 5 requires steps 3-4)
 
 The ordering is forced by information dependency.
+
+**Convention caveat.** The 2×2 diagnostic and the inferences drawn from it are relative to the continuation convention in the value object ( #value-object). Under the canonical default ($\pi_{\text{cont}} = \pi_{\text{current}}$), $\delta_{\text{sat}}$ and $\delta_{\text{regret}}$ are *one-step-improvement* quantities. A multi-step recoverable objective may appear locally unattainable ($\delta_{\text{sat}} \gt 0$) because the continuation is frozen; a revisable policy may appear near-optimal ($\delta_{\text{regret}} \approx 0$) because only one-step deviations are considered. The cascade's diagnostic power scales with the continuation convention's horizon: under Bellman or receding-horizon conventions, the diagnostics are global; under one-step improvement, they are local. The *ordering* of the cascade is convention-independent; the *strength of the inferences* at each step is not.
 
 ## Epistemic Status
 

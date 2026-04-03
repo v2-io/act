@@ -10,7 +10,7 @@ stage: claims-verified
 
 # Definition: Control Regret
 
-Control regret measures the gap between the best achievable performance and the agent's current performance — how much the agent is leaving on the table by following its current policy rather than the best available one. This is the signal for strategy revision.
+Control regret measures the gap between the best available one-step policy improvement and the agent's current policy, under the current model and horizon. Under the canonical continuation convention ( #value-object), this is a *local* diagnostic — it answers "could I do better right now?" not "is my overall strategy globally suboptimal?" A revisable policy may show low δ_regret simply because continuation is frozen. This is the signal for strategy revision, with the caveat that the signal's scope matches the continuation convention's scope.
 
 ## Formal Expression
 

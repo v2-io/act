@@ -5,6 +5,7 @@ status: exact
 depends:
   - objective-functional
   - agent-model
+  - directed-separation
 stage: deps-verified
 ---
 
@@ -49,7 +50,11 @@ Different continuation conventions yield different values for $A_O$, $\delta_{\t
 
 ## Epistemic Status
 
-*Exact* under the assumption that $M_t$ supports the required conditional expectations. The value object is a mathematical definition — conditional expectations of a functional over trajectories. The definitions are precise; the *computability* of these expectations is a separate question (in practice, they are approximated via simulation, sampling, or function approximation).
+The segment contains two distinct epistemic layers:
+
+1. **The definition** ($V_O$, $Q_O$ as conditional expectations): *exact.* These are mathematical definitions — conditional expectations of a functional over trajectories. The definitions are precise; the *computability* of these expectations is a separate question.
+
+2. **The causal-validity claim** (that $Q_O$ depends on $M_t$ alone as a state variable): *conditional* on directed separation ( #directed-separation). For Class 1 (modular) agents, this is exact. For Class 2 (fully merged) agents, $M_t$ carries goal-conditioned bias and the causal validity degrades. The frontmatter `status: exact` applies to the definitions; the causal-validity argument is conditional on the architectural scope restriction.
 
 ## Discussion
 
