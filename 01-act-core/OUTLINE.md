@@ -44,10 +44,10 @@ Every slug is linked to its intended `src/{slug}.md` file, even when that file d
 | I | Definition | | [#adaptive-tempo](src/adaptive-tempo.md) | Rate of useful info acquisition | deps-verified |
 | I | Hypothesis | | [#mismatch-dynamics](src/mismatch-dynamics.md) | Mismatch evolution ODE | deps-verified |
 | I | Derived | | [#deliberation-cost](src/deliberation-cost.md) | Think vs act tradeoff | deps-verified |
-| I | Derived | | [#gain-sector-bridge](src/gain-sector-bridge.md) | Gain + directional fidelity → sector condition | deps-verified |
-| I | Result | | [#sector-condition-stability](src/sector-condition-stability.md) | Nonlinear persistence (Lyapunov) | deps-verified |
-| I | Result | | [#persistence-condition](src/persistence-condition.md) | Bounded mismatch condition | deps-verified |
-| I | Result | | [#structural-adaptation-necessity](src/structural-adaptation-necessity.md) | When parametric update fails | deps-verified |
+| I | Derived | | [#gain-sector-bridge](src/gain-sector-bridge.md) | Gain + directional fidelity → sector condition | claims-verified |
+| I | Result | | [#sector-condition-stability](src/sector-condition-stability.md) | Nonlinear persistence (Lyapunov) | claims-verified |
+| I | Result | | [#persistence-condition](src/persistence-condition.md) | Bounded mismatch condition | claims-verified |
+| I | Result | | [#structural-adaptation-necessity](src/structural-adaptation-necessity.md) | When parametric update fails | claims-verified |
 | I | Derived | | [#temporal-nesting](src/temporal-nesting.md) | Timescale stratification | deps-verified |
 | I | Discussion | | [#agent-identity](src/agent-identity.md) | Non-forkable causal trajectory | deps-verified |
 
@@ -132,7 +132,7 @@ Every slug is linked to its intended `src/{slug}.md` file, even when that file d
 | --- | ---------- | --- | ---------------------------------------------------------------------- | --------------------------------------------------------------------- | ------- |
 | A   | Derivation |     | [#sector-condition-derivation](src/sector-condition-derivation.md)     | Lyapunov derivations for bounded mismatch and adaptive reserve        | claims-verified |
 | A   | Derivation |     | [#gain-sector-derivation](src/gain-sector-derivation.md)               | Gain-sector bridge proofs: Kalman, gradient equivalence, verification | deps-verified |
-| A   | Derivation |     | [#recursive-update-derivation](src/recursive-update-derivation.md)     | Uniqueness derivation via three constraints + counterexamples         | deps-verified |
+| A   | Derivation |     | [#recursive-update-derivation](src/recursive-update-derivation.md)     | Uniqueness derivation via three constraints + counterexamples         | claims-verified |
 | A   | Sketch     |     | [#multi-timescale-stability](src/multi-timescale-stability.md)         | N-timescale singular perturbation sketch                              | draft   |
 | A   | Detail     |     | [#linear-ode-approximation](src/linear-ode-approximation.md)           | Pedagogical linear mismatch ODE                                       | draft   |
 | A   | Derivation |     | [#graph-structure-uniqueness](src/graph-structure-uniqueness.md)       | 4 postulates → DAG (exact); Markov conditional on causal sufficiency  | draft   |

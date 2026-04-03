@@ -7,7 +7,7 @@ depends:
   - mismatch-signal
   - sector-condition-derivation
   - gain-sector-derivation
-stage: deps-verified
+stage: claims-verified
 ---
 
 # Derived: Gain–Sector Bridge
