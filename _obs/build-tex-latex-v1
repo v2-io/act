@@ -1,0 +1,928 @@
+#!/usr/bin/env python3
+"""
+Assemble a LaTeX document from an outline file.
+
+Reads an outline file whose tables reference segment files, and assembles a
+single .tex document suitable for arXiv submission, with:
+
+  - amsart document class with theorem-like environments for each claim type
+  - Section structure preserved from outline
+  - Segment content converted from markdown to LaTeX
+  - Academic numbering via LaTeX's own counter system
+  - Cross-references via \\label{}/\\ref{}
+  - Working notes stripped; missing segments warned on stderr
+
+Usage:
+    bin/build-tex 01-act-core/OUTLINE.md                  # → stdout
+    bin/build-tex 01-act-core/OUTLINE.md -o act-core.tex  # → file
+"""
+
+import argparse
+import re
+import sys
+import warnings
+from pathlib import Path
+
+
+# ── Reused from bin/build ───────────────────────────────────────────────
+
+
+def parse_table_row(line):
+    """Parse '| a | b | c |' into ['a', 'b', 'c']. Returns None if not a table row."""
+    stripped = line.strip()
+    if not stripped.startswith('|') or not stripped.endswith('|'):
+        return None
+    cells = stripped.split('|')
+    return [c.strip() for c in cells[1:-1]]
+
+
+def is_separator_row(cells):
+    return all(re.match(r'^[-:]+$', c) for c in cells if c)
+
+
+def extract_slug_and_path(cell):
+    m = re.search(r'\[#([\w-]+)\]\(([^)]+\.md)\)', cell)
+    if m:
+        return m.group(1), m.group(2)
+    return None, None
+
+
+def strip_frontmatter(text):
+    lines = text.split('\n')
+    if not lines or lines[0].strip() != '---':
+        return text
+    for i in range(1, len(lines)):
+        if lines[i].strip() == '---':
+            return '\n'.join(lines[i + 1:]).lstrip('\n')
+    return text
+
+
+def strip_working_notes(text):
+    matches = list(re.finditer(r'^## Working Notes\b', text, re.MULTILINE))
+    if not matches:
+        return text
+    return text[:matches[-1].start()].rstrip('\n') + '\n'
+
+
+def resolve_segment(outline_dir, rel_path, slug):
+    candidate = outline_dir / rel_path
+    if candidate.exists():
+        return candidate
+    candidate = outline_dir / 'src' / f'{slug}.md'
+    if candidate.exists():
+        return candidate
+    return None
+
+
+def collect_slugs(lines):
+    slugs = set()
+    for line in lines:
+        cells = parse_table_row(line)
+        if cells:
+            for cell in cells:
+                s, _ = extract_slug_and_path(cell)
+                if s:
+                    slugs.add(s)
+    return slugs
+
+
+# ── Markdown → LaTeX conversion ────────────────────────────────────────
+
+
+def tex_escape(text):
+    """Escape characters special to LaTeX, but NOT inside math mode.
+
+    Note: # is NOT escaped here — cross-ref rewriting handles #slug patterns,
+    and stray # in prose is rare enough to handle manually. _ is escaped since
+    underscores in prose (variable_name) need protection but math-mode underscores
+    are handled by the math-region splitter.
+    """
+    text = text.replace('&', r'\&')
+    text = text.replace('%', r'\%')
+    # Don't escape # — it's used for cross-refs and rarely appears in prose
+    text = text.replace('_', r'\_')
+    # Don't escape { } — they appear in LaTeX commands we've already generated
+    text = text.replace('~', r'\textasciitilde{}')
+    text = text.replace('^', r'\textasciicircum{}')
+    return text
+
+
+def fix_math_escapes(math):
+    """Convert GitHub-compatible math escapes to standard LaTeX."""
+    math = math.replace(r'\gt', '>')
+    math = math.replace(r'\lt', '<')
+    math = math.replace(r'\ast', '*')
+    # Fix \Vert and \vert immediately followed by a letter (no space/brace)
+    # e.g. \Vertw → \Vert w, \Vertt → \Vert t
+    math = re.sub(r'\\Vert([a-zA-Z])', r'\\Vert \1', math)
+    math = re.sub(r'\\vert([a-zA-Z])', r'\\vert \1', math)
+    return math
+
+
+def protect_math_and_convert(line, converter):
+    """Split line into math/non-math regions, apply converter only to non-math."""
+    parts = []
+    i = 0
+    n = len(line)
+
+    while i < n:
+        # Inline code (backticks) — convert to \texttt
+        if line[i] == '`':
+            ticks = 0
+            while i + ticks < n and line[i + ticks] == '`':
+                ticks += 1
+            closer = '`' * ticks
+            end = line.find(closer, i + ticks)
+            if end != -1:
+                code_content = line[i + ticks:end]
+                parts.append(r'\texttt{' + tex_escape(code_content) + '}')
+                i = end + ticks
+            else:
+                parts.append(converter(line[i:]))
+                i = n
+            continue
+
+        # Display math $$...$$ (inline on one line)
+        if line[i] == '$' and i + 1 < n and line[i + 1] == '$':
+            end = line.find('$$', i + 2)
+            if end != -1:
+                math = line[i:end + 2]
+                math = fix_math_escapes(math)
+                parts.append(math)
+                i = end + 2
+            else:
+                parts.append(line[i:])
+                i = n
+            continue
+
+        # Inline math $...$
+        if line[i] == '$':
+            end = line.find('$', i + 1)
+            if end != -1:
+                math = line[i:end + 1]
+                math = fix_math_escapes(math)
+                parts.append(math)
+                i = end + 1
+            else:
+                parts.append(converter(line[i:]))
+                i += 1
+            continue
+
+        # Regular text — find next special char
+        j = i
+        while j < n and line[j] not in ('$', '`'):
+            j += 1
+        parts.append(converter(line[i:j]))
+        i = j
+
+    return ''.join(parts)
+
+
+def convert_inline_formatting(text):
+    """Convert markdown bold/italic and links to LaTeX, handling only non-math text."""
+    # Markdown links [text](url) → \href{url}{text} or just text for local refs
+    def _convert_link(m):
+        label, url = m.group(1), m.group(2)
+        if url.endswith('.md') or url.startswith('#') or url.startswith('../'):
+            return label  # local ref — just keep the label text
+        return f'\\href{{{url}}}{{{label}}}'
+    text = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', _convert_link, text)
+    # Bold+italic ***text*** or ___text___
+    text = re.sub(r'\*\*\*(.+?)\*\*\*', r'\\textbf{\\textit{\1}}', text)
+    # Bold **text**
+    text = re.sub(r'\*\*(.+?)\*\*', r'\\textbf{\1}', text)
+    # Italic *text* but not equation-level tags like *[Definition ...]*
+    text = re.sub(r'(?<!\*)\*(?!\[)(.+?)(?<!\])\*(?!\*)', r'\\textit{\1}', text)
+    return text
+
+
+def convert_prose(text):
+    """Convert a piece of non-math text: apply formatting first, then escape remaining."""
+    # Links and formatting BEFORE escaping, since they use markdown syntax chars
+    text = convert_inline_formatting(text)
+    # Strip markdown footnote references [^1], [^note], etc.
+    text = re.sub(r'\[\^[^\]]+\]', '', text)
+    # Escape remaining special chars
+    text = text.replace('&', r'\&')
+    text = text.replace('%', r'\%')
+    # Escape # but don't double-escape \#
+    text = re.sub(r'(?<!\\)#', r'\\#', text)
+    # Escape bare underscores not inside LaTeX commands
+    text = re.sub(r'(?<!\\)_', r'\_', text)
+    # Convert cross-ref markers to \cref
+    text = re.sub(r'CREF:([\w-]+):CREF', r'\\S\\,\\ref{\1}', text)
+    return text
+
+
+def convert_line(line):
+    """Convert a single line from markdown to LaTeX (inline elements only)."""
+    result = protect_math_and_convert(line, convert_prose)
+    # Catch any CREF markers that survived (e.g., in math regions)
+    result = re.sub(r'CREF:([\w-]+):CREF', r'\\S\\,\\ref{\1}', result)
+    return result
+
+
+def md_table_to_latex(table_lines):
+    """Convert a markdown table (list of raw lines) to a LaTeX tabular."""
+    rows = []
+    for line in table_lines:
+        cells = parse_table_row(line)
+        if cells is None:
+            continue
+        if is_separator_row(cells):
+            continue
+        rows.append(cells)
+
+    if not rows:
+        return ''
+
+    ncols = max(len(r) for r in rows)
+    col_spec = 'l' * ncols
+
+    out = []
+    out.append(r'\begin{adjustbox}{max width=\textwidth}')
+    out.append(r'\small')
+    out.append(r'\begin{tabular}{' + col_spec + '}')
+    out.append(r'\toprule')
+
+    for idx, row in enumerate(rows):
+        cells = [convert_line(c) for c in row]
+        while len(cells) < ncols:
+            cells.append('')
+        out.append(' & '.join(cells) + r' \\')
+        if idx == 0:
+            out.append(r'\midrule')
+
+    out.append(r'\bottomrule')
+    out.append(r'\end{tabular}')
+    out.append(r'\end{adjustbox}')
+    return '\n'.join(out)
+
+
+def convert_display_math(content):
+    """Convert display math block content to LaTeX display math."""
+    content = content.strip()
+    if content.startswith('$$'):
+        content = content[2:]
+    if content.endswith('$$'):
+        content = content[:-2]
+    content = content.strip()
+
+    content = fix_math_escapes(content)
+
+    # If it already has an align-like environment, just wrap in equation
+    if r'\begin{aligned}' in content:
+        return '\\begin{equation}\n' + content + '\n\\end{equation}'
+
+    # Check if multi-line (multiple \\ separated expressions)
+    if r'\\' in content and '\n' in content:
+        return '\\begin{equation}\n\\begin{aligned}\n' + content + '\n\\end{aligned}\n\\end{equation}'
+
+    return '\\[\n' + content + '\n\\]'
+
+
+def convert_blockquote(lines):
+    """Convert blockquote lines (starting with >) to LaTeX."""
+    content = '\n'.join(re.sub(r'^>\s?', '', l) for l in lines)
+    return '\\begin{quote}\n' + convert_line(content) + '\n\\end{quote}'
+
+
+# ── Segment → LaTeX ────────────────────────────────────────────────────
+
+# Map from segment type to LaTeX environment name
+TYPE_TO_ENV = {
+    'postulate':       'postulate',
+    'definition':      'definition',
+    'scope':           'scope',
+    'formulation':     'formulation',
+    'derived':         'proposition',
+    'result':          'theorem',
+    'corollary':       'corollary',
+    'hypothesis':      'hypothesis',
+    'normative':       'normative',
+    'empirical':       'empirical',
+    'observation':     'observation',
+    'discussion':      'discussion',
+    'measurement':     'measurement',
+    'proposed-schema': 'schema',
+    'derivation':      'derivation',
+    'worked-example':  'example',
+    'detail':          'detail',
+    'sketch':          'sketch',
+    'aside':           'aside',
+}
+
+
+def segment_to_latex(text, slug, seg_type, known_slugs):
+    """Convert a full segment's markdown content to LaTeX.
+
+    Returns a string of LaTeX content (not wrapped in an environment yet —
+    the caller handles that based on the segment type).
+    """
+    text = strip_frontmatter(text)
+    text = strip_working_notes(text)
+
+    # Rewrite cross-references in raw markdown BEFORE LaTeX conversion
+    text = rewrite_crossrefs_md(text, known_slugs)
+
+    lines = text.split('\n')
+    out = []
+
+    # State
+    in_display_math = False
+    display_math_buf = []
+    in_list = False
+    list_type = None  # 'itemize' or 'enumerate'
+    in_table = False
+    table_buf = []
+    in_blockquote = False
+    blockquote_buf = []
+    skip_until_next_heading = False
+    current_heading_level = 0
+
+    # Extract title from first heading
+    title = slug
+    for line in lines:
+        hm = re.match(r'^#{1,6}\s+(.*)', line)
+        if hm:
+            raw_title = hm.group(1).strip()
+            # Strip type prefix like "Result: " or "Definition: "
+            cm = re.match(r'^(?:Postulate|Definition|Result|Derived|Hypothesis|Formulation|Scope|Discussion|Observation|Empirical|Normative|Corollary|Sketch|Detail|Derivation|Worked Example|Measurement|Proposed Schema|Aside):\s*(.*)', raw_title)
+            if cm:
+                title = cm.group(1)
+            else:
+                title = raw_title
+            break
+
+    # Determine LaTeX environment
+    env = TYPE_TO_ENV.get(seg_type, 'remark')
+
+    out.append(f'\\begin{{{env}}}[{convert_line(title)}]')
+    out.append(f'\\label{{{slug}}}')
+
+    i = 0
+    first_heading_skipped = False
+
+    while i < len(lines):
+        line = lines[i]
+        stripped = line.strip()
+
+        # Skip the first heading (already used as environment title)
+        if not first_heading_skipped:
+            if re.match(r'^#{1,6}\s', line):
+                first_heading_skipped = True
+                i += 1
+                # Also skip the one-sentence summary (next non-empty line)
+                while i < len(lines) and lines[i].strip() == '':
+                    i += 1
+                if i < len(lines) and not re.match(r'^#{1,6}\s', lines[i]) and not lines[i].strip().startswith('*['):
+                    # This is the summary line — emit it as the first paragraph
+                    out.append(convert_line(lines[i].strip()))
+                    out.append('')
+                    i += 1
+                continue
+
+        # Flush table if we're leaving table context
+        if in_table and not stripped.startswith('|'):
+            out.append(md_table_to_latex(table_buf))
+            out.append('')
+            table_buf = []
+            in_table = False
+
+        # Flush blockquote
+        if in_blockquote and not stripped.startswith('>'):
+            out.append(convert_blockquote(blockquote_buf))
+            out.append('')
+            blockquote_buf = []
+            in_blockquote = False
+
+        # Display math blocks
+        if stripped == '$$':
+            if in_display_math:
+                math_content = '\n'.join(display_math_buf)
+                out.append(convert_display_math(math_content))
+                out.append('')
+                display_math_buf = []
+                in_display_math = False
+            else:
+                in_display_math = True
+            i += 1
+            continue
+
+        if in_display_math:
+            display_math_buf.append(line)
+            i += 1
+            continue
+
+        # Headings → labeled subsections within the segment
+        hm = re.match(r'^(#{1,6})\s+(.*)', line)
+        if hm:
+            heading_text = hm.group(2).strip()
+            out.append('')
+            out.append(f'\\medskip\\noindent\\textbf{{{convert_line(heading_text)}.}}')
+            out.append('')
+            i += 1
+            continue
+
+        # Lists
+        if re.match(r'^[-*]\s', stripped):
+            if not in_list:
+                in_list = True
+                list_type = 'itemize'
+                out.append(r'\begin{itemize}')
+            item_text = re.sub(r'^[-*]\s+', '', stripped)
+            out.append(r'  \item ' + convert_line(item_text))
+            i += 1
+            continue
+        elif re.match(r'^\d+\.\s', stripped):
+            if not in_list:
+                in_list = True
+                list_type = 'enumerate'
+                out.append(r'\begin{enumerate}')
+            item_text = re.sub(r'^\d+\.\s+', '', stripped)
+            out.append(r'  \item ' + convert_line(item_text))
+            i += 1
+            continue
+        else:
+            if in_list:
+                out.append(f'\\end{{{list_type}}}')
+                out.append('')
+                in_list = False
+
+        # Tables
+        if stripped.startswith('|'):
+            in_table = True
+            table_buf.append(line)
+            i += 1
+            continue
+
+        # Blockquotes
+        if stripped.startswith('>'):
+            in_blockquote = True
+            blockquote_buf.append(line)
+            i += 1
+            continue
+
+        # Equation-level tags: *[Definition (slug-name)]* → marginal note or skip
+        tag_m = re.match(r'^\*\[(.+?)\]\*\s*$', stripped)
+        if tag_m:
+            # In LaTeX, the theorem environment already provides the type label.
+            # Emit as a small marginal annotation only for non-redundant tags.
+            tag_text = tag_m.group(1)
+            # Skip tags that just repeat the segment type
+            if not any(tag_text.lower().startswith(t) for t in
+                       ('definition', 'postulate', 'formulation')):
+                out.append(f'% [{tag_text}]')
+            i += 1
+            continue
+
+        # Horizontal rules
+        if re.match(r'^---+$', stripped) or re.match(r'^\*\*\*+$', stripped):
+            out.append(r'\medskip\noindent\rule{\textwidth}{0.4pt}\medskip')
+            out.append('')
+            i += 1
+            continue
+
+        # Empty line → paragraph break
+        if stripped == '':
+            out.append('')
+            i += 1
+            continue
+
+        # Regular paragraph text
+        out.append(convert_line(stripped))
+        i += 1
+
+    # Flush any open environments
+    if in_list:
+        out.append(f'\\end{{{list_type}}}')
+    if in_table:
+        out.append(md_table_to_latex(table_buf))
+    if in_blockquote:
+        out.append(convert_blockquote(blockquote_buf))
+    if in_display_math:
+        math_content = '\n'.join(display_math_buf)
+        out.append(convert_display_math(math_content))
+
+    out.append(f'\\end{{{env}}}')
+    out.append('')
+
+    return '\n'.join(out)
+
+
+def rewrite_crossrefs_md(text, known_slugs):
+    """Rewrite cross-references in raw markdown text (before LaTeX conversion).
+
+    Converts #slug-name and [#slug](slug.md) to \\cref{slug} markers that
+    survive the LaTeX conversion pipeline (since \\cref is already LaTeX).
+    """
+    lines = text.split('\n')
+    result = []
+    in_code = False
+    in_display_math = False
+
+    for line in lines:
+        stripped = line.strip()
+
+        # Skip code blocks
+        if stripped.startswith('```'):
+            in_code = not in_code
+            result.append(line)
+            continue
+        if in_code:
+            result.append(line)
+            continue
+
+        # Skip display math
+        if stripped == '$$':
+            in_display_math = not in_display_math
+            result.append(line)
+            continue
+        if in_display_math:
+            result.append(line)
+            continue
+
+        # Replace markdown-style links: [#slug](slug.md) → CREF_MARKER
+        def _replace_link_ref(m):
+            slug = m.group(1)
+            if slug in known_slugs:
+                return f'CREF:{slug}:CREF'
+            return m.group(0)
+        line = re.sub(r'\[#([\w-]+)\]\([^)]*\.md\)', _replace_link_ref, line)
+
+        # Replace standalone #slug-name (not at line start as heading)
+        def _replace_ref(m):
+            slug = m.group(1)
+            if slug in known_slugs:
+                return f'CREF:{slug}:CREF'
+            return m.group(0)
+        if not stripped.startswith('#'):
+            line = re.sub(r'(?<!\w)#([a-z][a-z0-9-]*[a-z0-9])(?!\w)', _replace_ref, line)
+        else:
+            # For heading lines, only replace after the heading markers
+            hm = re.match(r'^(#{1,6}\s+)(.*)', line)
+            if hm:
+                prefix, rest = hm.group(1), hm.group(2)
+                rest = re.sub(r'(?<!\w)#([a-z][a-z0-9-]*[a-z0-9])(?!\w)', _replace_ref, rest)
+                line = prefix + rest
+            else:
+                line = re.sub(r'(?<!\w)#([a-z][a-z0-9-]*[a-z0-9])(?!\w)', _replace_ref, line)
+
+        result.append(line)
+
+    return '\n'.join(result)
+
+
+# ── LaTeX preamble ──────────────────────────────────────────────────────
+
+
+def latex_preamble(title, author):
+    """Generate the LaTeX preamble with theorem environments for all ACT types."""
+    return r"""\documentclass[11pt,oneside]{article}
+
+%% ── Packages ────────────────────────────────────────────────────────────
+\usepackage{fontspec}
+\usepackage{xcolor}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{adjustbox}
+\usepackage[colorlinks=true,linkcolor=blue!60!black,citecolor=blue!60!black,urlcolor=blue!60!black]{hyperref}
+\usepackage{cleveref}
+\usepackage[margin=1in]{geometry}
+\usepackage{parskip}            % paragraph spacing instead of indentation
+\usepackage{titlesec}
+\usepackage{enumitem}
+
+%% ── Typography ──────────────────────────────────────────────────────────
+\setmainfont{Latin Modern Roman}
+\setmonofont{Latin Modern Mono}[Scale=0.85]
+\setlength{\parskip}{0.4\baselineskip plus 2pt minus 1pt}
+
+%% ── Section formatting ─────────────────────────────────────────────────
+\titleformat{\section}{\Large\bfseries}{}{0em}{}[\vspace{0.3em}\hrule\vspace{0.5em}]
+\titleformat{\subsection}{\large\bfseries}{}{0em}{}
+\titleformat{\subsubsection}{\normalsize\bfseries}{}{0em}{}
+
+%% ── Segment environments ───────────────────────────────────────────────
+%% Each segment type gets a counter and a clean header, NOT italic body.
+\newcounter{claim}[section]
+\renewcommand{\theclaim}{\thesection.\arabic{claim}}
+\crefname{claim}{}{}        % no prefix — we embed the type in the ref text
+\Crefname{claim}{}{}
+
+%% Generic segment environment: \begin{segment}{Type}{Title}
+%% Stores the type name so \label can pick it up for cref
+\newenvironment{segment}[2]{%
+  \refstepcounter{claim}%
+  \bigskip\noindent\hrule\smallskip
+  \noindent{\bfseries #1~\theclaim}\enskip(#2).\par\smallskip
+  \noindent\ignorespaces
+}{%
+  \par\smallskip\noindent\hrule\bigskip
+}
+
+%% Named environments that map to specific types
+\newenvironment{postulate}[1][]{\begin{segment}{Postulate}{#1}}{\end{segment}}
+\newenvironment{definition}[1][]{\begin{segment}{Definition}{#1}}{\end{segment}}
+\newenvironment{formulation}[1][]{\begin{segment}{Formulation}{#1}}{\end{segment}}
+\newenvironment{scope}[1][]{\begin{segment}{Scope}{#1}}{\end{segment}}
+\newenvironment{proposition}[1][]{\begin{segment}{Proposition}{#1}}{\end{segment}}
+\newenvironment{theorem}[1][]{\begin{segment}{Theorem}{#1}}{\end{segment}}
+\newenvironment{corollary}[1][]{\begin{segment}{Corollary}{#1}}{\end{segment}}
+\newenvironment{hypothesis}[1][]{\begin{segment}{Hypothesis}{#1}}{\end{segment}}
+\newenvironment{normative}[1][]{\begin{segment}{Normative}{#1}}{\end{segment}}
+\newenvironment{empirical}[1][]{\begin{segment}{Empirical}{#1}}{\end{segment}}
+\newenvironment{observation}[1][]{\begin{segment}{Observation}{#1}}{\end{segment}}
+\newenvironment{discussion}[1][]{\begin{segment}{Discussion}{#1}}{\end{segment}}
+\newenvironment{measurement}[1][]{\begin{segment}{Measurement}{#1}}{\end{segment}}
+\newenvironment{schema}[1][]{\begin{segment}{Proposed Schema}{#1}}{\end{segment}}
+\newenvironment{example}[1][]{\begin{segment}{Example}{#1}}{\end{segment}}
+\newenvironment{detail}[1][]{\begin{segment}{Detail}{#1}}{\end{segment}}
+\newenvironment{derivation}[1][]{\begin{segment}{Derivation}{#1}}{\end{segment}}
+\newenvironment{sketch}[1][]{\begin{segment}{Sketch}{#1}}{\end{segment}}
+\newenvironment{aside}[1][]{\begin{segment}{Aside}{#1}}{\end{segment}}
+\newenvironment{remark}[1][]{\begin{segment}{Remark}{#1}}{\end{segment}}
+
+%% ── Notation macros ─────────────────────────────────────────────────────
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+%% ── List formatting ────────────────────────────────────────────────────
+\setlist{nosep,leftmargin=1.5em}
+
+%% ── Document metadata ──────────────────────────────────────────────────
+\title{""" + title + r"""}
+\author{""" + author + r"""}
+\date{\today}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+"""
+
+
+LATEX_POSTAMBLE = r"""
+\end{document}
+"""
+
+
+# ── Outline → LaTeX assembly ───────────────────────────────────────────
+
+
+def parse_outline(index_path):
+    """Parse an outline file and return structured data for LaTeX assembly.
+
+    Returns a list of items, each a dict:
+      {'kind': 'section', 'level': int, 'title': str, 'scope_text': str}
+      {'kind': 'segment', 'slug': str, 'rel_path': str, 'type': str, 'claim': str}
+      {'kind': 'gap', 'description': str}
+      {'kind': 'text', 'content': str}  (non-table, non-heading lines between sections)
+    """
+    outline_dir = index_path.parent
+    text = index_path.read_text(encoding='utf-8')
+    lines = text.split('\n')
+
+    items = []
+    in_table = False
+    in_frontmatter = False
+    frontmatter_dashes = 0
+
+    # Skip YAML frontmatter if present
+    start = 0
+    if lines and lines[0].strip() == '---':
+        for i in range(1, len(lines)):
+            if lines[i].strip() == '---':
+                start = i + 1
+                break
+
+    i = start
+    while i < len(lines):
+        line = lines[i]
+        stripped = line.strip()
+        cells = parse_table_row(line)
+
+        # Table start
+        if cells and not in_table:
+            in_table = True
+            i += 1
+            continue
+
+        if in_table:
+            if cells:
+                if is_separator_row(cells):
+                    i += 1
+                    continue
+
+                is_gap = any('--GAP--' in c for c in cells)
+                if is_gap:
+                    desc_candidates = [
+                        c for c in cells
+                        if c and '--GAP--' not in c
+                        and not re.match(r'^[IVSA]+$', c.strip())
+                    ]
+                    gap_desc = desc_candidates[-1] if desc_candidates else 'Open question'
+                    items.append({'kind': 'gap', 'description': gap_desc})
+                else:
+                    slug, rel_path = None, None
+                    for c in cells:
+                        s, p = extract_slug_and_path(c)
+                        if s:
+                            slug, rel_path = s, p
+                            break
+                    type_str = cells[1].strip() if len(cells) > 1 else ''
+                    claim_text = cells[4].strip() if len(cells) > 4 else ''
+                    if slug:
+                        items.append({
+                            'kind': 'segment',
+                            'slug': slug,
+                            'rel_path': rel_path,
+                            'type': type_str.lower().split('+')[0].strip(),
+                            'claim': claim_text,
+                        })
+
+                i += 1
+                continue
+            else:
+                in_table = False
+                # fall through to process current line
+
+        # Headings
+        hm = re.match(r'^(#{1,6})\s+(.*)', line)
+        if hm:
+            level = len(hm.group(1))
+            heading = hm.group(2).strip()
+            items.append({'kind': 'section', 'level': level, 'title': heading})
+            i += 1
+            continue
+
+        # Scope text (italic blocks between heading and table)
+        if stripped.startswith('*') and stripped.endswith('*') and len(stripped) > 2:
+            items.append({'kind': 'scope', 'content': stripped})
+            i += 1
+            continue
+
+        # Horizontal rule
+        if re.match(r'^---+$', stripped):
+            i += 1
+            continue
+
+        # Other text
+        if stripped:
+            items.append({'kind': 'text', 'content': stripped})
+
+        i += 1
+
+    return items
+
+
+def build_latex(index_path):
+    """Build the complete LaTeX document from an outline file."""
+    outline_dir = index_path.parent
+    text = index_path.read_text(encoding='utf-8')
+    all_lines = text.split('\n')
+
+    known_slugs = collect_slugs(all_lines)
+    items = parse_outline(index_path)
+
+    # Extract title from first heading
+    doc_title = 'Untitled'
+    for item in items:
+        if item['kind'] == 'section' and item['level'] == 1:
+            doc_title = item['title']
+            break
+
+    out = []
+    out.append(latex_preamble(doc_title, 'Joseph A.\\ Wecker'))
+
+    stats = {'included': 0, 'missing': 0, 'gaps': 0}
+
+    section_cmds = {
+        1: 'section',      # but we already used title for \title
+        2: 'section',
+        3: 'subsection',
+        4: 'subsubsection',
+        5: 'paragraph',
+        6: 'subparagraph',
+    }
+
+    first_heading = True
+
+    for item in items:
+        kind = item['kind']
+
+        if kind == 'section':
+            if first_heading and item['level'] == 1:
+                first_heading = False
+                continue  # skip — already in \title
+            cmd = section_cmds.get(item['level'], 'paragraph')
+            title = convert_line(item['title'])
+            out.append(f'\\{cmd}{{{title}}}')
+            out.append('')
+
+        elif kind == 'scope':
+            # Scope text → italic introductory paragraph
+            scope_text = item['content'].strip('*').strip()
+            out.append(f'\\begin{{quote}}\\itshape')
+            out.append(convert_line(scope_text))
+            out.append(f'\\end{{quote}}')
+            out.append('')
+
+        elif kind == 'text':
+            # Outline preamble text — most of this is development notes
+            # Skip lines that reference internal tooling, stages, slugs, etc.
+            content = item['content']
+            skip_patterns = [
+                'Every slug is linked',
+                'See [`FORMAT.md`]',
+                'See [`NOTATION.md`]',
+                '**Working draft.**',
+                'Slugs are the stable',
+                'Stage column',
+            ]
+            if any(p in content for p in skip_patterns):
+                continue
+            out.append(convert_line(content))
+            out.append('')
+
+        elif kind == 'gap':
+            desc = item['description']
+            print(f'  [gap] {desc}', file=sys.stderr)
+            stats['gaps'] += 1
+
+        elif kind == 'segment':
+            slug = item['slug']
+            rel_path = item.get('rel_path')
+            seg_type = item['type']
+
+            seg_path = resolve_segment(outline_dir, rel_path, slug) if rel_path else None
+
+            if seg_path and seg_path.exists():
+                seg_text = seg_path.read_text(encoding='utf-8')
+                latex_content = segment_to_latex(seg_text, slug, seg_type, known_slugs)
+                out.append(latex_content)
+                stats['included'] += 1
+            else:
+                print(f'  [missing] {slug}', file=sys.stderr)
+                stats['missing'] += 1
+
+    out.append(LATEX_POSTAMBLE)
+
+    return '\n'.join(out), stats
+
+
+# ── CLI ──────────────────────────────────────────────────────────────────
+
+
+def main():
+    parser = argparse.ArgumentParser(
+        description='Assemble an outline file into a LaTeX document.'
+    )
+    parser.add_argument(
+        'outline',
+        type=Path,
+        help='Path to the outline file (e.g., 01-act-core/OUTLINE.md)'
+    )
+    parser.add_argument(
+        '-o', '--output',
+        type=Path,
+        default=None,
+        help='Output file path (default: stdout)'
+    )
+    parser.add_argument(
+        '--author',
+        default='Joseph A. Wecker',
+        help='Author name for the document'
+    )
+
+    args = parser.parse_args()
+
+    index_path = args.outline.resolve()
+    if not index_path.exists():
+        print(f'Error: {index_path} not found', file=sys.stderr)
+        return 1
+
+    text, stats = build_latex(index_path)
+
+    if args.output:
+        output_path = args.output.resolve()
+        output_path.write_text(text, encoding='utf-8')
+        dest = output_path.name
+    else:
+        sys.stdout.write(text)
+        dest = 'stdout'
+
+    total = stats['included'] + stats['missing'] + stats['gaps']
+    print(f'\nBuilt → {dest}:', file=sys.stderr)
+    print(f'  {stats["included"]} segments included', file=sys.stderr)
+    print(f'  {stats["missing"]} segments missing (warned)', file=sys.stderr)
+    print(f'  {stats["gaps"]} gaps (warned)', file=sys.stderr)
+    print(f'  {total} total entries', file=sys.stderr)
+
+    return 0
+
+
+if __name__ == '__main__':
+    sys.exit(main())

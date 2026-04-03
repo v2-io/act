@@ -1,0 +1,143 @@
+\startenvironment env-act
+%
+% ConTeXt environment for Agentic Cycle Theory papers.
+% Adapted from Principia Ars Technica's tuftish typography.
+%
+
+% ── Fonts ────────────────────────────────────────────────────────────────
+\input tuftish-fonts-lmtx
+
+\usetypescript[tuftish]
+\setupbodyfont[tuftish,rm,11pt]
+\setupwhitespace[medium]
+\setupinterlinespace[line=3ex]
+\setupalign[width,hanging,fullhz,tolerant,stretch]
+\setuptolerance[horizontal,verytolerant]
+
+% Math fonts (Latin Modern for math, Garamond for text)
+\setupmathematics[autopunctuation=yes]
+
+% LaTeX compatibility macros for math
+\def\operatorname#1{\mathop{\text{#1}}}
+\def\boldsymbol#1{\mathbf{#1}}
+
+% Minimal pmatrix/bmatrix/cases compatibility
+% Using \startcases from ConTeXt and manual matrix definitions
+\definemathmatrix[pmatrix][left={\left(},right={\right)}]
+\definemathmatrix[bmatrix][left={\left[},right={\right]}]
+
+% ── Colors ───────────────────────────────────────────────────────────────
+\usecolors[ral]
+\definecolor[dark-txt]      [RAL7023]
+\definecolor[light-txt]     [h=C6C5B2]
+\definecolor[kinda-antique] [h=FFFEF2]
+\definecolor[accent]        [h=8B0000]   % dark red for section headers
+\definecolor[rulecolor]     [h=CCCCCC]
+
+% ── Page layout ──────────────────────────────────────────────────────────
+% US Letter, generous margins, right margin for notes
+\setuppapersize[letter][letter]
+
+\setuplayout[
+  backspace=25mm,
+  leftmargin=14mm, leftmargindistance=3mm,
+  rightmargin=50mm, rightmargindistance=6mm,
+  width=125mm,
+  topspace=12mm, header=8mm, headerdistance=10mm,
+  bottom=15mm, bottomdistance=3mm, footer=8mm,
+  grid=yes]
+
+\setuppagenumbering[location=none, alternative={doublesided,singlesided}]
+
+% Margin notes
+\setupmargindata[inrightmargin][
+  location=right,
+  width=45mm,
+  align=flushleft,
+  style={\switchtobodyfont[8.5pt]\setupinterlinespace[2.8ex]},
+  stack=continue]
+
+% ── Background ───────────────────────────────────────────────────────────
+\setupbackgrounds[paper][background=color,backgroundcolor=kinda-antique]
+
+% ── Interaction ──────────────────────────────────────────────────────────
+\setupinteraction[
+  state=start,
+  color=accent,
+  contrastcolor=accent,
+  style=]
+
+% ── Headers / Footers ────────────────────────────────────────────────────
+\setupheadertexts[]
+\setupfootertexts[\ss\userpagenumber][]
+
+% ── Sectioning ───────────────────────────────────────────────────────────
+
+% Parts (I, II, III for Adaptive Systems, Actuated Adaptation, Composites)
+\setuphead[part][
+  conversion=Romannumerals,
+  style={\rmd\ss\sc},
+  page=right,
+  header=empty, footer=none,
+  before={\blank[4*big]},
+  after={\blank[2*big]}]
+
+% Sections (top-level within a part)
+\definefont[SectionFont][file:Roboto-Light.ttf*roboto-norm at 18pt]
+\define[2]\actsectioncommand{\blank[3*big]\noindent{\SectionFont\color[dark-txt]{#2}}\blank[line]\noindent\blackrule[width=\textwidth,height=0.4pt,color=rulecolor]\blank[big]}
+\setuphead[chapter][
+  command=\actsectioncommand,
+  number=no,
+  header=empty, footer=none,
+  page=right,
+  before=, after=]
+
+% ── Segment environments ────────────────────────────────────────────────
+% Each ACT claim type gets a numbered, visually distinct block.
+%
+% Counter: shared across all types within a chapter (section).
+\definecounter[claim][way=bychapter]
+
+% \segmentheader{Type}{Title} — call directly from generated .tex
+\define[2]\segmentheader{%
+  \incrementcounter[claim]%
+  \blank[big]%
+  \noindent\blackrule[width=\textwidth,height=0.3pt,color=rulecolor]%
+  \blank[halfline]%
+  \noindent{\bf #1~\rawcountervalue[claim]}\enskip({\it #2}).%
+  \blank[halfline]%
+}
+
+\define\segmentfooter{%
+  \blank[halfline]%
+  \noindent\blackrule[width=\textwidth,height=0.3pt,color=rulecolor]%
+  \blank[big]%
+}
+
+% ── Internal headings within segments ────────────────────────────────────
+% "Formal Expression", "Epistemic Status", "Discussion", etc.
+\define[1]\segmentsubhead{\blank[halfline]\noindent{\bf #1.}\blank[none]}
+
+% ── Blockquotes ──────────────────────────────────────────────────────────
+\definedelimitedtext[blockquote]
+\setupdelimitedtext[blockquote][
+  leftmargin=10mm,
+  rightmargin=10mm,
+  style={\it\setupbodyfont[small]}]
+
+% ── Tables ───────────────────────────────────────────────────────────────
+% Use natural tables for flexibility
+\setupTABLE[frame=off]
+\setupTABLE[row][first][topframe=on,bottomframe=on,framecolor=rulecolor,rulethickness=0.5pt]
+\setupTABLE[row][last][bottomframe=on,framecolor=rulecolor,rulethickness=0.5pt]
+\setupTABLE[column][each][style={\switchtobodyfont[9pt]}]
+
+% ── Code ─────────────────────────────────────────────────────────────────
+\setuptyping[style={\switchtobodyfont[tt,9pt]}]
+
+% ── Descriptions ─────────────────────────────────────────────────────────
+\definedescription[desc][
+  headstyle=bold, style=normal, align=flushleft,
+  alternative=hanging, width=broad, margin=1cm]
+
+\stopenvironment

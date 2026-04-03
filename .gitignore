@@ -5,3 +5,4 @@ __pycache__/
 .obsidian/
 .obsidian.vimrc
 .claude/
+.build/

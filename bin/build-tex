@@ -1,0 +1,402 @@
+#!/usr/bin/env ruby
+#
+# Assemble a ConTeXt document from an outline file.
+# Uses kramdown (via bin/md2context) for markdown→ConTeXt conversion.
+#
+# Usage:
+#   bin/build-tex 01-act-core/OUTLINE.md
+#   bin/build-tex 01-act-core/OUTLINE.md --tex-only
+#   bin/build-tex 01-act-core/OUTLINE.md -o output.tex
+
+require 'pathname'
+require 'yaml'
+require 'fileutils'
+require 'open3'
+
+ROOT      = Pathname.new(__FILE__).dirname.parent.realpath
+ENV_DIR   = ROOT / 'env'
+FONTS_DIR = ENV_DIR / 'fonts'
+BUILD_DIR = ROOT / '.build'
+MD2CTX    = ROOT / 'bin' / 'md2context'
+
+# ── Outline parsing (reused from bin/build, simplified) ──────────────────
+
+def parse_table_row(line)
+  s = line.strip
+  return nil unless s.start_with?('|') && s.end_with?('|')
+  s.split('|')[1..-2].map(&:strip)
+end
+
+def separator_row?(cells)
+  cells.all? { |c| c.empty? || c.match?(/^[-:]+$/) }
+end
+
+def extract_slug_and_path(cell)
+  m = cell.match(/\[#([\w-]+)\]\(([^)]+\.md)\)/)
+  m ? [m[1], m[2]] : [nil, nil]
+end
+
+def resolve_segment(outline_dir, rel_path, slug)
+  [outline_dir / rel_path, outline_dir / 'src' / "#{slug}.md"].find(&:exist?)
+end
+
+def collect_slugs(lines)
+  slugs = []
+  lines.each do |line|
+    cells = parse_table_row(line)
+    next unless cells
+    cells.each { |c| s, _ = extract_slug_and_path(c); slugs << s if s }
+  end
+  slugs
+end
+
+def parse_outline(index_path)
+  lines = index_path.read.split("\n")
+  items = []
+  in_table = false
+
+  # Skip YAML frontmatter
+  i = 0
+  if lines[0]&.strip == '---'
+    i += 1
+    i += 1 until i >= lines.length || lines[i].strip == '---'
+    i += 1
+  end
+
+  while i < lines.length
+    line = lines[i]
+    stripped = line.strip
+    cells = parse_table_row(line)
+
+    if cells && !in_table
+      in_table = true; i += 1; next
+    end
+
+    if in_table
+      unless cells
+        in_table = false
+        # fall through
+      else
+        unless separator_row?(cells)
+          if cells.any? { |c| c.include?('--GAP--') }
+            desc = cells.reject { |c| c.empty? || c.include?('--GAP--') || c.match?(/^[IVSA]+$/) }
+            items << { kind: :gap, description: desc.last || 'Open question' }
+          else
+            slug = rel_path = nil
+            cells.each { |c| slug, rel_path = extract_slug_and_path(c); break if slug }
+            if slug
+              items << {
+                kind: :segment, slug: slug, rel_path: rel_path,
+                type: (cells[1]&.strip || '').downcase.split('+').first&.strip || '',
+                claim: cells[4]&.strip || ''
+              }
+            end
+          end
+        end
+        i += 1; next
+      end
+    end
+
+    if (hm = stripped.match(/^(\#{1,6})\s+(.*)/))
+      items << { kind: :section, level: hm[1].length, title: hm[2].strip }
+    elsif stripped.start_with?('*') && stripped.end_with?('*') && stripped.length > 2
+      items << { kind: :scope, content: stripped[1..-2] }
+    elsif stripped.match?(/^---+$/)
+      # skip
+    elsif stripped.length > 0
+      items << { kind: :text, content: stripped }
+    end
+    i += 1
+  end
+  items
+end
+
+# ── Segment processing ───────────────────────────────────────────────────
+
+TYPE_NAMES = {
+  'postulate' => 'Postulate', 'definition' => 'Definition',
+  'scope' => 'Scope', 'formulation' => 'Formulation',
+  'derived' => 'Derived', 'result' => 'Result',
+  'corollary' => 'Corollary', 'hypothesis' => 'Hypothesis',
+  'normative' => 'Normative', 'empirical' => 'Empirical',
+  'observation' => 'Observation', 'discussion' => 'Discussion',
+  'measurement' => 'Measurement', 'proposed-schema' => 'Proposed Schema',
+  'derivation' => 'Derivation', 'worked-example' => 'Example',
+  'detail' => 'Detail', 'sketch' => 'Sketch', 'aside' => 'Aside'
+}
+
+def strip_frontmatter(text)
+  lines = text.split("\n")
+  return text unless lines[0]&.strip == '---'
+  lines.each_with_index do |l, i|
+    next if i == 0
+    return lines[(i+1)..].join("\n").lstrip if l.strip == '---'
+  end
+  text
+end
+
+def strip_working_notes(text)
+  idx = text.index(/^## Working Notes\b/m)
+  idx ? text[0...idx].rstrip + "\n" : text
+end
+
+def extract_title(text)
+  text.each_line do |l|
+    if (m = l.match(/^\#{1,6}\s+(.*)/))
+      raw = m[1].strip
+      # Strip type prefix like "Result: Sector Condition Stability"
+      if (cm = raw.match(/^(?:Postulate|Definition|Result|Derived|Hypothesis|Formulation|Scope|Discussion|Observation|Empirical|Normative|Corollary|Sketch|Detail|Derivation|Worked Example|Measurement|Proposed Schema|Aside):\s*(.*)/))
+        return cm[1]
+      end
+      return raw
+    end
+  end
+  nil
+end
+
+def convert_segment_md(md_text, known_slugs)
+  # Pre-process: rewrite #slug cross-refs to ConTeXt \in{§}[slug]
+  # Do this before kramdown so it doesn't interpret them as headings
+  known_slugs.each do |slug|
+    # [#slug](file.md) → §X.Y (will become \in{§}[slug])
+    md_text = md_text.gsub(/\[##{Regexp.escape(slug)}\]\([^)]*\.md\)/, "§\\\\,\\\\in{}[#{slug}]")
+  end
+  # Standalone #slug-name in prose (preceded by space or parens)
+  known_slugs.each do |slug|
+    md_text = md_text.gsub(/(?<=[\s(])##{Regexp.escape(slug)}(?=[\s,;.)\]])/, "§\\\\,\\\\in{}[#{slug}]")
+  end
+
+  # Fix GitHub-compatible math escapes that ConTeXt doesn't understand
+  md_text = md_text.gsub('\gt', '>').gsub('\lt', '<').gsub('\ast', '*')
+  # Fix _\cmd{...} → _{\cmd{...}} and ^\cmd{...} → ^{\cmd{...}}
+  # ConTeXt requires braces around sub/superscript when they contain commands
+  md_text = md_text.gsub(/([_^])\\(\w+)\{([^}]*)\}/, '\1{\\\\\\2{\3}}')
+  # Fix LaTeX environments that don't exist in ConTeXt
+  md_text = md_text.gsub('\\begin{cases}', '\\startcases').gsub('\\end{cases}', '\\stopcases')
+  md_text = md_text.gsub('\\begin{aligned}', '\\startalign').gsub('\\end{aligned}', '\\stopalign')
+  # pmatrix/bmatrix: keep LaTeX syntax, define compat macros in env-act.tex
+  # (ConTeXt's matrix syntax is too different for simple find-replace)
+  # \operatorname{X} → \mathop{\text{X}} (ConTeXt equivalent)
+  md_text = md_text.gsub(/\\operatorname\{([^}]*)\}/, '\\mathop{\\text{\1}}')
+  # \boldsymbol → \mathbf (ConTeXt equivalent)
+  md_text = md_text.gsub('\\boldsymbol', '\\mathbf')
+  # Fix \Vert/\vert immediately followed by a letter
+  md_text = md_text.gsub(/\\Vert([a-zA-Z])/, '\\Vert \1')
+  md_text = md_text.gsub(/\\vert([a-zA-Z])/, '\\vert \1')
+
+  # Protect inline math from kramdown's emphasis parser:
+  # Replace $...$ with MATHPLACEHOLDER_N_MATHPLACEHOLDER, run kramdown, restore.
+  math_store = []
+
+  # Display math $$...$$ first (greedy, multi-line)
+  md_text = md_text.gsub(/\$\$(.+?)\$\$/m) do |match|
+    math_store << match
+    "DISPLAYMATH#{math_store.length - 1}DISPLAYMATH"
+  end
+
+  # Inline math $...$
+  md_text = md_text.gsub(/\$([^\$\n]+?)\$/) do |match|
+    math_store << match
+    "INLINEMATH#{math_store.length - 1}INLINEMATH"
+  end
+
+  # Run through kramdown → ConTeXt converter
+  out, err, status = Open3.capture3(MD2CTX.to_s, stdin_data: md_text)
+  $stderr.puts err unless err.empty?
+
+  # Restore math
+  out = out.gsub(/DISPLAYMATH(\d+)DISPLAYMATH/) do
+    raw = math_store[$1.to_i]
+    content = raw[2..-3]  # strip $$
+    "\\startformula\n#{content}\n\\stopformula"
+  end
+  out = out.gsub(/INLINEMATH(\d+)INLINEMATH/) do
+    math_store[$1.to_i]  # keep $...$
+  end
+
+  # Post-process: escape any bare # that survived (not in \in, \#, or \type)
+  out = out.gsub(/(?<!\\)#(?!{)/, '\\#')
+
+  # Post-process: fix LaTeX math constructs that don't exist in ConTeXt
+  out = out.gsub('\\begin{cases}', '\\startcases').gsub('\\end{cases}', '\\stopcases')
+  out = out.gsub('\\begin{aligned}', '\\startalign').gsub('\\end{aligned}', '\\stopalign')
+  # Convert LaTeX matrix environments to ConTeXt
+  out = out.gsub(/\\begin\{pmatrix\}(.*?)\\end\{pmatrix\}/m) do
+    content = $1.strip
+    rows = content.split('\\\\').map(&:strip)
+    "\\startpmatrix\n" + rows.map { |r| "\\NC #{r} \\NR" }.join("\n") + "\n\\stoppmatrix"
+  end
+  out = out.gsub(/\\begin\{bmatrix\}(.*?)\\end\{bmatrix\}/m) do
+    content = $1.strip
+    rows = content.split('\\\\').map(&:strip)
+    "\\startbmatrix\n" + rows.map { |r| "\\NC #{r} \\NR" }.join("\n") + "\n\\stopbmatrix"
+  end
+  out = out.gsub(/\\operatorname\{([^}]*)\}/, '\\mathop{\\text{\1}}')
+  out = out.gsub('\\boldsymbol', '\\mathbf')
+  # Fix sub/superscript + command: _\text{x} → _{\text{x}}, ^\text{x} → ^{\text{x}}
+  out = out.gsub(/([_^])\\(\w+)\{([^}]*)\}/) { "#{$1}{\\#{$2}{#{$3}}}" }
+
+  out
+end
+
+# ── Document assembly ────────────────────────────────────────────────────
+
+def build(index_path)
+  outline_dir = index_path.parent
+  all_lines = index_path.read.split("\n")
+  known_slugs = collect_slugs(all_lines)
+  items = parse_outline(index_path)
+
+  doc_title = items.find { |i| i[:kind] == :section && i[:level] == 1 }&.dig(:title) || 'Untitled'
+
+  out = []
+  out << "\\environment env-act"
+  out << ""
+  out << "\\starttext"
+  out << ""
+  out << "\\startalignment[middle]"
+  out << "{\\tfd\\bf #{doc_title}}"
+  out << "\\blank[line]"
+  out << "{\\ss Joseph A.\\,Wecker}"
+  out << "\\blank[halfline]"
+  out << "{\\ss\\currentdate}"
+  out << "\\stopalignment"
+  out << "\\blank[2*big]"
+  out << ""
+  out << "\\placecontent"
+  out << "\\page"
+  out << ""
+
+  stats = { included: 0, missing: 0, gaps: 0 }
+  first_heading = true
+  skip_preamble = true
+
+  items.each do |item|
+    case item[:kind]
+    when :section
+      if first_heading && item[:level] == 1
+        first_heading = false; next
+      end
+      skip_preamble = false
+      case item[:level]
+      when 2
+        out << "\\chapter{#{item[:title]}}"
+        out << "\\resetcounter[claim]"
+        out << ""
+      when 3
+        out << "\\section{#{item[:title]}}"
+        out << ""
+      else
+        out << "\\subsection{#{item[:title]}}"
+        out << ""
+      end
+
+    when :scope
+      content = item[:content]
+      # Rewrite known cross-refs and escape remaining #
+      known_slugs.each do |slug|
+        content = content.gsub(/(?<=[\s(])##{Regexp.escape(slug)}(?=[\s,;.)\]])/, "§\\,\\in{}[#{slug}]")
+      end
+      content = content.gsub(/(?<!\\)#(?!{)/, '\\#')
+      out << "\\startblockquote"
+      out << content
+      out << "\\stopblockquote"
+      out << ""
+
+    when :text
+      next if skip_preamble
+      next if item[:content].include?('Every slug is linked')
+      next if item[:content].include?('FORMAT.md')
+      next if item[:content].include?('NOTATION.md')
+      next if item[:content].include?('**Working draft.**')
+      out << item[:content]
+      out << ""
+
+    when :gap
+      $stderr.puts "  [gap] #{item[:description]}"
+      stats[:gaps] += 1
+
+    when :segment
+      slug = item[:slug]
+      seg_path = resolve_segment(outline_dir, item[:rel_path], slug) if item[:rel_path]
+
+      if seg_path&.exist?
+        raw = seg_path.read
+        title = extract_title(strip_frontmatter(raw)) || slug
+        type_display = TYPE_NAMES[item[:type]] || 'Result'
+
+        md_body = strip_frontmatter(raw)
+        md_body = strip_working_notes(md_body)
+        # Remove the first heading (we use it as the segment header)
+        md_body = md_body.sub(/^\#{1,6}\s+.*\n*/, '')
+
+        ctx_body = convert_segment_md(md_body, known_slugs)
+
+        out << "\\segmentheader{#{type_display}}{#{title}}"
+        out << "\\reference[#{slug}]{#{title}}"
+        out << ""
+        out << ctx_body
+        out << "\\segmentfooter"
+        out << ""
+        stats[:included] += 1
+        $stderr.print "." if stats[:included] % 5 == 0
+      else
+        $stderr.puts "  [missing] #{slug}"
+        stats[:missing] += 1
+      end
+    end
+  end
+
+  out << "\\stoptext"
+  $stderr.puts ""
+  [out.join("\n"), stats]
+end
+
+# ── Main ─────────────────────────────────────────────────────────────────
+
+if __FILE__ == $0
+  if ARGV.empty? || ARGV.include?('--help')
+    $stderr.puts "Usage: bin/build-tex OUTLINE.md [-o output.tex] [--tex-only]"
+    exit 1
+  end
+
+  outline_path = Pathname.new(ARGV[0]).expand_path
+  abort "Error: #{outline_path} not found" unless outline_path.exist?
+
+  tex_only = ARGV.include?('--tex-only')
+  output = ARGV.index('-o')&.then { |i| ARGV[i + 1] }
+
+  text, stats = build(outline_path)
+
+  if output
+    output_path = Pathname.new(output).expand_path
+  else
+    basename = outline_path.parent.basename.to_s.sub(/^\d+-/, '')
+    output_path = BUILD_DIR / "#{basename}.tex"
+  end
+
+  FileUtils.mkdir_p(output_path.parent)
+  output_path.write(text)
+
+  total = stats[:included] + stats[:missing] + stats[:gaps]
+  $stderr.puts "Built → #{output_path}:"
+  $stderr.puts "  #{stats[:included]} segments included"
+  $stderr.puts "  #{stats[:missing]} segments missing"
+  $stderr.puts "  #{stats[:gaps]} gaps"
+  $stderr.puts "  #{total} total"
+
+  unless tex_only
+    build_dir = output_path.parent
+    FileUtils.cp(ENV_DIR / 'env-act.tex', build_dir / 'env-act.tex')
+    FileUtils.cp(ENV_DIR / 'tuftish-fonts-lmtx.tex', build_dir / 'tuftish-fonts-lmtx.tex')
+    FileUtils.ln_sf(FONTS_DIR, build_dir / 'fonts') unless (build_dir / 'fonts').exist?
+    env_sub = build_dir / 'env'
+    FileUtils.mkdir_p(env_sub)
+    FileUtils.ln_sf(FONTS_DIR, env_sub / 'fonts') unless (env_sub / 'fonts').exist?
+
+    $stderr.puts ""
+    $stderr.puts "To compile:"
+    $stderr.puts "  cd #{build_dir}"
+    $stderr.puts "  OSFONTDIR='#{FONTS_DIR}:#{FONTS_DIR}/Fonts' mtxrun --script context --nonstopmode #{output_path.basename}"
+  end
+end

@@ -1,0 +1,5 @@
+\contentsline {section}{\numberline {1}I. Adaptive Systems Under Uncertainty}{2}{section.1}%
+\contentsline {section}{\numberline {2}II. Actuated Adaptation: Agentic Systems}{47}{section.2}%
+\contentsline {section}{\numberline {3}III. Agentic Composites}{101}{section.3}%
+\contentsline {section}{\numberline {4}Appendices: Details}{132}{section.4}%
+\contentsline {section}{\numberline {5}Appendices: Operational Domains}{178}{section.5}%

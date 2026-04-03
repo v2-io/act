@@ -1,0 +1,180 @@
+#!/usr/bin/env ruby
+
+require 'kramdown'
+
+module Kramdown
+  module Converter
+    class Context < Latex
+      def initialize(root, options) super end
+      
+      def nyi(tag)
+        STDERR.puts("USED BUT NOT YET IMPLEMENTED: #{tag}")
+        "\\type{#{tag}}"
+      end
+
+      def inner(el, opts)
+        result = +''
+        options = opts.dup.merge(parent: el)
+        el.children.each_with_index do |inner_el, index|
+          options[:index]  = index
+          options[:result] = result
+          converter_method = "convert_#{inner_el.type}"
+          if respond_to?(converter_method)
+            converted = send(converter_method, inner_el, options)
+            result << (converted || "")
+          else
+            puts "WARNING: No converter for element type: #{inner_el.type}"
+            result << ""
+          end
+        end
+        result
+      end
+
+      def convert(el,opts={})      send("convert_#{el.type}",el,opts) end
+      def convert_root(el, opts)   inner(el, opts) end
+      def convert_blank(_el, opts) opts[:result] =~ /\n\n\Z|\A\Z/ ? "" : "\n" end
+      def convert_text(el, _opts)  el.value end #escape(el.value) end
+      def convert_p(el, opts)      "#{inner(el, opts)}\n\n" end
+
+      def convert_comment(el, opts)
+        comments = el.value.split("\n")
+        comments.map{|c| "% #{c}"}.join("\n")
+      end
+
+      def convert_header(el,opts)
+        title = inner(el, opts)
+        "\n\\segmentsubhead{#{title}}\n\n"
+      end
+
+      STOPS = /(\W|^)(the|be|to|of|and|a|an|or|nor)(\W|$)/i
+      def id_for(txt)
+        txt.gsub!(/\(.*?\)/, '') # Ignore anything in parenthasese
+        txt.gsub!(STOPS, ' ')    # Remove small set of stop words
+        generate_id(txt.strip.gsub(/\s+/,' ')) # Collapse spaces & use kramdown's
+      end
+
+      def convert_hr(el,opts)     "\\thinrule\n\n" end
+      def convert_em(el,opts)     "\\emph{#{inner(el,opts)}}" end
+      #def convert_strong(el,opts) "{\\bold #{inner(el,opts)}}" end
+      def convert_strong(el,opts) "{\\boldish #{inner(el,opts)}}" end
+      def convert_br(el, opts)    "\n\n" end
+      def convert_smart_quote(el,opts)
+        idx = opts[:index]
+        sibs = opts[:parent].children if opts[:parent]
+        case el.value
+        when :ldquo then "\\quotation{"
+        when :rdquo then "}"
+        when :lsquo then "\\quote{"
+        when :rsquo
+          # Check if this closes a \quote{ opened by a preceding :lsquo
+          has_lsquo = false
+          if sibs && idx
+            (0...idx).each do |j|
+              has_lsquo = true if sibs[j].type == :smart_quote && sibs[j].value == :lsquo
+            end
+          end
+          has_lsquo ? "}" : "'"
+        else ""
+        end
+      end
+
+      def convert_footnote(el, opts) "\\sidenote{#{inner(el.value,opts).rstrip}}" end
+      #def convert_footnote(el, opts) "\\footnote{#{inner(el.value,opts).rstrip}}" end
+
+      TYPOGRAPHIC_SYMS = {mdash: '---', ndash: '--', hellip: '\ldots{}'}
+      def convert_typographic_sym(el, opts)
+        TYPOGRAPHIC_SYMS[el.value] || nyi("<typographic: '#{el.value}'>")
+      end
+
+      def convert_blockquote(el, opts)
+        "\\startblockquote\n" +
+          inner(el, opts) +
+          "\n\\stopblockquote\n"
+      end
+
+      def convert_a(el, opts)
+        # TODO: internal hyperref (url.start_with?('#'))
+        url      = el.attr['href'].gsub('%','\\%').gsub('#','\\#')
+        title    = el.attr['title']
+        linktext = title && title != '' ? title : url
+        "\\httplink{#{inner(el,opts)}}{#{url}}{#{linktext}}"
+      end
+
+      # TODO: Lots of other itemize markers...
+      def convert_ul(el, opts)
+        ch = el.children[0]
+        ch = ch.children[0] if ch.type == :li
+        ch = ch.children[0] if ch.type == :p
+        if ch.type == :text && ch.value.start_with?('[ ]')
+          "\n\\starttodos\n" + inner(el,opts) + "\n\\stoptodos\n"
+        else
+          "\n\\startitemize[#{el.type==:ul ? 'packed' : 'n,packed'}]\n"+inner(el,opts)+"\n\\stopitemize\n"
+        end
+      end
+
+      alias convert_ol convert_ul
+      def convert_li(el, opts) 
+        content = inner(el,opts).strip
+        # Handle checkbox syntax [ ] or [x] at the beginning of items
+        # Remove the brackets and space after replacing with checkbox symbol
+        content = content.gsub(/^\[\s*\]\s*/, '$\\square$ ')  # Empty checkbox
+        content = content.gsub(/^\[x\]\s*/i, '$\\boxtimes$ ')  # Checked checkbox
+        "\\item #{content}\n"
+      end
+
+      # TODO: These guys need quite a bit of work when there's a clear usecase
+      def convert_dl(el, opts) inner(el,opts) end
+      def convert_dt(el, opts) "\n\\desc{#{inner(el,opts)}} " end
+      def convert_dd(el, opts) inner(el, opts) end
+
+      def convert_img(el, opts)
+        source  = el.attr['src']
+        caption = el.attr['alt']
+        # TODO: figure labels, margin-width, full-width, externalfigure overrides, image labels(useexternalfigure...),
+        # standalone images (only thing in a <p> like in latex.rb)
+        "\\placefigure{#{caption}}{\\externalfigure[#{source}][maxwidth=\\textwidth]}"
+      end
+      def convert_standalone_image(el, opts, img) nyi('<standalone-image>') end
+
+      def convert_codeblock(el, opts)    
+        lang = el.options[:lang] || ''
+        "\\starttyping[option=#{lang}]\n#{el.value}\\stoptyping\n"
+      end
+      
+      def convert_codespan(el, opts)     
+        "\\type{#{el.value}}"
+      end
+      
+      def convert_raw(el, opts)          
+        el.value if el.options[:type] == :context || el.options[:type] == :tex
+      end
+      
+      def convert_math(el, opts)         
+        if el.options[:category] == :block
+          "\\startformula\n#{el.value}\n\\stopformula\n"
+        else
+          "$#{el.value}$"
+        end
+      end
+      def convert_abbreviation(el, opts) nyi('<abbreviation>') end
+
+      def convert_table(el, opts)
+        # Basic table support - just skip tables for now
+        "\\par[Table not rendered - tables not yet supported]\\par\n"
+      end
+      def convert_thead(el, opts)        "" end
+      def convert_tbody(el, opts)        inner(el, opts) end
+      def convert_tfoot(el, opts)        "" end
+      def convert_tr(el, opts)           "" end
+      def convert_td(el, opts)           inner(el, opts) + " " end
+
+      def convert_entity(el, opts)       nyi('<entity>') end
+      def convert_html_element(el, opts) nyi('<html-element>') end
+      def convert_xml_comment(el, opts)  nyi('<xml-comment>') end
+      def convert_xml_pi(el, opts)       nyi('<xml-pi>') end
+    end
+  end
+end
+
+doc = Kramdown::Document.new(ARGF.read)
+puts doc.to_context

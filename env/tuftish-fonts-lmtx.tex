@@ -1,0 +1,206 @@
+%
+% LMTX-compatible version of tuftish-fonts.tex
+% Font names updated to match LMTX's normalization
+%
+% WRT Garamond Premier Pro:
+%  Caption:   from 5.9 to 8.9 points
+%  Body Text: from 8.9 to 14.9 points (designed @ 11pt)
+%  Subhead:   from 14.9 to 22.9 points
+%  Display:   from 22.9 to 72.0 points
+%
+
+\enabledirectives[fonts.injections.fontkern]
+
+\setupfontexpansion[aphz][stretch=4,shrink=4,step=.2,vector=default,factor=1.0]
+\definefontfeature[default][liga=yes,kern=yes,tlig=yes,trep=no]
+\definefontfeature[tuftish-norm][default]
+ [mode=node, protrusion=quality, extension=quality, expansion=aphz,
+  compose=yes, analyze=yes, autolanguage=position, autoscript=position,
+  checkmarks=yes, curs=yes, extensions=yes, extrafeatures=yes, script=dflt,
+  spacekern=yes, kern=yes, size=yes,
+  mark=yes, mkmk=yes,
+  char-ligatures=yes, missing=yes, case=yes,
+  tlig=yes, liga=yes, rlig=yes, clig=yes, trep=no,
+  itlc=yes, textitalics=yes]
+
+\definefontfeature[swashy][default][swsh=yes,cswh=yes]
+\definefontfeature[super-swashy][default][swsh=yes,cswh=no]
+
+\definefontfeature [f:liningstyle] [onum=no,lnum=yes]
+\definefontfeature [f:oldstyle][default][onum=yes]
+
+\definefontfeature [gpp-norm]   [tuftish-norm] [protrusion=quality,extension=quality,pnum=yes,tnum=no,onum=yes,lnum=no,locl=yes,zero=yes,trep=no,mode=node]
+\definefontfeature [gpp-norm-reg][gpp-norm]    [salt=yes,trep=no,mode=node]
+\definefontfeature [gpp-it]     [gpp-norm]     [protrusion=quality,extension=quality,clig=yes,calt=yes]
+\definefontfeature [gpp-sc]     [gpp-norm-reg] [protrusion=quality,extension=quality,smcp=yes,hist=yes,dlig=yes,calt=yes,clig=yes,onum=no,lnum=yes]
+\definefontfeature [gpp-ac]     [gpp-norm]     [protrusion=quality,extension=quality,case=yes,dlig=yes,cpsp=yes,calt=yes,salt=yes,clig=yes,onum=no,titl=yes,lnum=yes,pnum=yes]
+\definefontfeature [gpp-title]  [gpp-norm]     [protrusion=quality,extension=quality,case=yes,dlig=yes,cpsp=yes,calt=yes,salt=yes,clig=yes,onum=yes,titl=yes,lnum=no,pnum=yes]
+\definefontfeature [gpp-titlish][tuftish-norm] [case=yes,dlig=yes,calt=yes,salt=yes,clig=yes,onum=yes,titl=yes,lnum=no,pnum=yes,smcp=yes]
+\definefontfeature [roboto-norm][tuftish-norm] [protrusion=quality,extension=quality,pnum=yes,tnum=no,onum=yes,lnum=no]
+\definefontfeature [roboto-title][roboto-norm] [protrusion=quality,extension=quality,pnum=yes,tnum=no,onum=no,lnum=yes,titl=yes]
+\definefontfeature [roboto-sc]  [roboto-norm]  [protrusion=quality,extension=quality,smcp=yes,case=yes,cpsp=yes,titl=yes]
+\definefontfeature [roboto-ac]  [roboto-norm]  [protrusion=quality,extension=quality,case=yes,hist=yes,dlig=yes,calt=yes,clig=yes,cpsp=yes,titl=yes]
+\definefontfeature [fira-norm]  []
+[mode=node,protrusion=quality,extension=quality,locl=no,clig=yes,calt=yes,zero=no,mark=yes,mkmk=yes,kern=yes,size=yes,liga=yes,rlig=yes,clig=yes,trep=yes,tlig=yes]
+
+\definefontfeature[normkern][kern=yes]
+\definefontfeature[ackern][kern=yes,letterspace=0.8]
+\definefontfeature[actight][kern=yes,letterspace=0.8]
+\definefontfeature[emacsp][effect={width=1.5}]
+
+% Font fallbacks for missing glyphs
+\definefontfallback [rmfb] [file:FreeSerif.otf] [0x00000-0xFFFFF] [check=yes,force=no,rscale=auto]
+\definefontfallback [ssfb] [file:DejaVuSans.ttf] [0x00000-0xFFFFF] [check=yes,force=no,rscale=auto]
+\definefontfallback [ttfb] [file:DejaVuSansMono.ttf] [0x00000-0xFFFFF] [check=yes,force=no,rscale=auto]
+
+% Font alternatives
+\definefontalternative[md]   % medium
+\definefontalternative[mi]   % medium italic
+\definefontalternative[MD]   % semibold
+\definefontalternative[MI]   % semibold italic
+\definefontalternative[ms]   % medium smallcap
+\definefontalternative[MS]   % semibold smallcap
+\definefontalternative[AC]   % allcaps
+
+\definecolor[darkred][r=0.62,g=0.10,b=0.13]  % RAL3003: Ruby Red
+
+% Character kerning (matching original settings)
+\setupcharacterkerning[normkern][factor=-0.045]  % Slightly tighter than normal
+\setupcharacterkerning[tightkern][factor=-0.08]  % Tighter kerning for small caps
+\setupcharacterkerning[ackern][factor=0.06]      % Slightly wider for all-caps
+\setupcharacterkerning[actight][factor=-0.08]    % Same as tightkern
+
+% Alternative/Body text
+\definealternativestyle[embold][\em\bf][]
+\definealternativestyle[boldish][\boldish][]
+\definealternativestyle[emish][\emish][]
+\definealternativestyle[sc][{\setcharacterkerning[actight]\sc}][{\setcharacterkerning[actight]\sc}]
+\definealternativestyle[ac][{\setcharacterkerning[ackern]\setcharactercasing[WORD]}][{\setcharacterkerning[ackern]\setcharactercasing[WORD]}]
+\definealternativestyle[slish][\slish][]
+\definealternativestyle[ssslanted][\ss\sl][]
+\definealternativestyle[mono][\tt][]
+\definealternativestyle[veryverylight][{\transparent[.15]}][{\transparent[.15]}]
+\definealternativestyle[verylight][{\transparent[.30]}][{\transparent[.30]}]
+\definealternativestyle[light][{\transparent[.45]}][{\transparent[.45]}]
+
+% Body and caption font switching
+\def\CaptionBody{captionface,rm,8pt}
+\def\TextCaption{\switchtobodyfont[\CaptionBody]}
+\def\TextNormal{\switchtobodyfont[tuftish,rm,11pt]}
+
+% Custom font definitions
+\definefont [ChapterLetterFont]  [file:Roboto-Thin.ttf*roboto-title at 22pt]
+\definefont [ChapterFont]        [file:Roboto-Thin.ttf*roboto-norm at 32pt]
+\definefont [LettrineFont]       [file:garamondpremrpro-ltdisp*gpp-norm at 48pt]
+\definefont [SectionNumberFont]  [file:garamondpremrpro*f:oldstyle at 14pt]
+\definefont [TitleFont]          [file:garamondpremrpro-ltdisp*gpp-title at 36pt]
+\definefont [SubSubTitleFont]    [file:Roboto-Thin.ttf*roboto-ac at 14pt]
+\definefont [EpigraphFont]       [file:Roboto-Thin.ttf*roboto-ac at 14pt]
+\definefont [EpigraphAuthorFont] [file:Roboto-ThinItalic.ttf*roboto-norm at 16pt]
+\definefont [TextCaption]        [SerifMargin at 8.5pt]
+\definefont [CaptionBody]        [SerifMargin at 8.5pt]
+
+% Font synonyms for consistent naming
+\definefontsynonym[ChapterBelowTitleFont][SerifMedium]
+
+\starttypescriptcollection[tuftish]
+  \starttypescript[serif,sans,mono][tuftish]
+    % LMTX-compatible font references (no hyphens in names)
+    \definefontsynonym [Serif]               [file:GaramondPremrProAlt]     [features=gpp-norm-reg,fallbacks=rmfb]
+    \definefontsynonym [SerifItalic]         [file:garamondpremrpro-it]     [features=gpp-it,fallbacks=rmfb]
+    \definefontsynonym [SerifMedium]         [file:garamondpremrpro-med]    [features=gpp-norm,fallbacks=rmfb]
+    \definefontsynonym [SerifMediumItalic]   [file:garamondpremrpro-medit]  [features=gpp-it,fallbacks=rmfb]
+    \definefontsynonym [SerifSemiBold]       [file:garamondpremrpro-smbd]   [features=gpp-norm,fallbacks=rmfb]
+    \definefontsynonym [SerifSemiBoldItalic] [file:garamondpremrpro-smbdit] [features=gpp-it,fallbacks=rmfb]
+    \definefontsynonym [SerifBold]           [file:garamondpremrpro-bd]     [features=gpp-norm,fallbacks=rmfb]
+    \definefontsynonym [SerifBoldItalic]     [file:garamondpremrpro-bdit]   [features=gpp-it,fallbacks=rmfb]
+    \definefontsynonym [SerifCaps]           [file:GaramondPremrProAlt]     [features=gpp-sc,fallbacks=rmfb]
+    \definefontsynonym [SerifAllCaps]        [file:GaramondPremrProAlt]     [features=gpp-ac,fallbacks=rmfb]
+    \definefontsynonym [SerifBoldCaps]       [file:garamondpremrpro-bd]     [features=gpp-sc,fallbacks=rmfb]
+    \definefontsynonym [SerifBoldAllCaps]    [file:garamondpremrpro-bd]     [features=gpp-ac,fallbacks=rmfb]
+    \definefontsynonym [SerifSemiBoldCaps]   [file:garamondpremrpro-smbd]   [features=gpp-sc,fallbacks=rmfb]
+    \definefontsynonym [SerifMediumCaps]     [file:garamondpremrpro-med]    [features=gpp-sc,fallbacks=rmfb]
+    
+    \definefontsynonym [Sans]           [file:Roboto-Regular]    [features=roboto-norm,fallbacks=ssfb]
+    \definefontsynonym [SansItalic]     [file:Roboto-Italic]     [features=roboto-norm,fallbacks=ssfb]
+    \definefontsynonym [SansBold]       [file:Roboto-Bold]       [features=roboto-norm,fallbacks=ssfb]
+    \definefontsynonym [SansBoldItalic] [file:Roboto-BoldItalic] [features=roboto-norm,fallbacks=ssfb]
+    \definefontsynonym [SansCaps]       [file:Roboto-Regular]    [features=roboto-sc,fallbacks=ssfb]
+    \definefontsynonym [SansAllCaps]    [file:Roboto-Regular]    [features=roboto-ac,fallbacks=ssfb]
+    
+    \definefontsynonym [Mono]           [file:FiraCode-Regular]  [features=fira-norm,fallbacks=ttfb]
+    \definefontsynonym [MonoBold]       [file:FiraCode-Bold]     [features=fira-norm,fallbacks=ttfb]
+    
+    % Margin fonts
+    \definefontsynonym [SerifMargin]       [file:garamondpremrpro-capt]    [features=gpp-norm,fallbacks=rmfb]
+    \definefontsynonym [SerifMarginItalic] [file:garamondpremrpro-itcapt]  [features=gpp-it,fallbacks=rmfb]
+    \definefontsynonym [SerifMarginBold]   [file:garamondpremrpro-bdcapt]  [features=gpp-norm,fallbacks=rmfb]
+  \stoptypescript
+
+  \starttypescript [serif] [tuftish]
+    \setups[font:fallback:serif]
+  \stoptypescript
+  \starttypescript [sans] [tuftish]
+    \setups[font:fallback:sans]
+  \stoptypescript
+  \starttypescript [mono] [tuftish]
+    \setups[font:fallback:mono]
+  \stoptypescript
+  \starttypescript [tuftish]
+    \definetypeface[tuftish][rm][serif][tuftish][default]
+    \definetypeface[tuftish][ss][sans][tuftish][default]
+    \definetypeface[tuftish][tt][mono][tuftish][default]
+  \stoptypescript
+\stoptypescriptcollection
+
+% Math fonts (fallback to Latin Modern)
+\definetypeface[tuftish][mm][math][modern][default]
+
+% Define font alternatives (matching original)
+\define\ac{\setcharacterkerning[ackern]\setcharactercasing[WORD]\AC}
+\define\sctight{\sc\setcharacterkerning[tightkern]}
+\define\boldish{\rm\ms\setcharacterkerning[normkern]}
+\define\emish{\it}
+\define\slish{\sl}
+\define\strongish{\boldish}
+\def\uppercaseish#1{{\ac #1}}
+
+% Fallback font collections
+\definefallbackfamily [mainface][rm][]
+[check=yes,force=no,range=arabicpresentationformsa]
+
+\definefallbackfamily [mainface][rm][]
+[check=yes,force=no,range=arabicpresentationformsb]
+
+\definefallbackfamily [mainface][rm][]
+[check=yes,force=no,range=arabicsupplement]
+
+\definefallbackfamily [mainface] [rm] [minionpro]
+[range={0x01F00-0x01FFF}, check=yes, force=no,rscale=0.85]
+
+\definefallbackfamily[mainface][rm][code2000]
+[range={0x03000-0x04000,0x0A000-0x0CFFF,0x0F900-0x0F95F},check=yes,force=no,rscale=0.85]
+
+\definefallbackfamily [mainface] [rm] [gentiumplus]
+[check=yes, force=no, range={greekandcoptic, greekextended},rscale=auto]
+
+\definefallbackfamily [mainface] [rm] [lucidabrightmathot]
+[check=yes,force=no,range={0x00300-0x003FF,0x02100-0x02200,0x02900-0x02AFF},rscale=auto]
+
+\definefallbackfamily [mainface] [rm] [stixgeneral]
+[check=yes,force=no,range={0x01D00-0x01DFF,0x01F00-0x02000,0x02980-0x02AFF,0x1D400-0x1D7FF},rscale=auto]
+
+\definefallbackfamily [mainface] [rm] [sileot]
+[check=yes,force=no,range={0x02190-0x02200},rscale=auto]
+
+\definefallbackfamily [mainface] [rm] [tg-adventor]
+[check=yes,force=no,range={0x00600-0x00700},rscale=auto]
+
+% Caption face for margin notes
+\definefontfamily[captionface][rm][garamondpremierpro]
+  [tf=file:garamondpremrprocapt*gpp-norm,
+   sl=file:garamondpremrproitcapt*gpp-it,
+   it=file:garamondpremrproitcapt*gpp-it,
+   bf=file:garamondpremrprobdcapt*gpp-norm,
+   bs=file:garamondpremrprobditcapt*gpp-it,
+   bi=file:garamondpremrprobditcapt*gpp-it]
