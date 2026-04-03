@@ -11,7 +11,7 @@ Three independent frontier-model reviews (Claude Opus, OpenAI Codex, Google Gemi
 
 1. **HIGH — Directed separation blocks the main application class.** LLM agents violate it; Section V is blocked. ~~Need: coupling-strength parameter $\kappa$, graded analysis of orient-cascade degradation, or explicit scoping decision.~~ **2026-03-14 update:** Resolved as architectural classification (not κ-as-scalar). **2026-04-01 update:** Architectural classification promoted from Working Notes to Formal Expression in #directed-separation, with $\kappa_{\text{processing}}$ operationalization. CIY admissibility regimes promoted to Formal Expression. Routing structure formalized in #multi-agent-scope. Composition cases in #directed-separation-under-composition.
 2. ~~**HIGH — Persistence claim ($\mathcal{T}$) is stronger than its proof ($\alpha$).** The $\alpha = \mathcal{T}$ substitution is exact only for linear correction. Audit downstream uses.~~ **FIXED 2026-03-14.** #persistence-condition now presents general α > ρ/R first, with T form as linear special case. α-T relationship documented for each correction function class. δ_critical and R clarified as domain parameters.
-3. **HIGH — Composition is foundational before its bridge theorem exists.** Closure-defect → trajectory-error bound is unresolved. Section III reads more settled than it is. **2026-03-14 update:** 2-agent bridge lemma spike written (`msc/spike-composition-bridge-2agent.md`). **2026-04-01 update:** Bridge lemma sketched in #composition-closure — sector condition (A4) implies trajectory error bounded at $\varepsilon^\ast / \alpha_c$, same Lyapunov argument as Prop A.1. Admissibility (A1)-(A4) specified. Sketch status — discrete-time formalization pending.
+3. **HIGH — Composition is foundational before its bridge theorem exists.** Closure-defect → trajectory-error bound is unresolved. Section III reads more settled than it is. **2026-03-14 update:** 2-agent bridge lemma spike written (`msc/spike-composition-bridge-2agent.md`). **2026-04-01 update:** Bridge lemma sketched in #composition-closure — sector condition (A4) implies trajectory error bounded at $\varepsilon^\ast / \alpha_c$, same Lyapunov argument as Prop A.1. Admissibility (A1)-(A4) specified. Sketch status — discrete-time formalization pending. **2026-04-02 update:** Full correlated Kalman derivation (`msc/spike-composition-correlated-kalman.md`) shows $\varepsilon^\ast = 0$ at steady state for ALL $\rho$. Prior claim that $\varepsilon^\ast \propto |\rho|$ was incorrect — the performance gap $\Delta_{\text{perf}} \propto \rho^2$ is a separate quantity (optimality, not representability). First genuine $\varepsilon^\ast > 0$ identified from purposeful substates (Beta-Bernoulli divergent auxiliary state).
 4. **MEDIUM-HIGH — Graph uniqueness not at theorem strength.** Acyclicity is tight (promote independently). ~~P3→Markov is a sketch.~~ **2026-04-01 update:** P3→Markov tightened to conditional on causal sufficiency, via three-part argument (locality from P3, directionality from P1, sufficiency from agent-constructed Σ_t) + Lauritzen 1996 equivalence theorem. Status upgraded from sketch to conditional.
 5. **MEDIUM-HIGH — Section IV overstates causal status of git data.** #causal-discovery-from-git is missing. Frame as empirical program, not secure operationalization.
 6. ~~**MEDIUM — Several formal issues:** CIY proxy sign-indefiniteness, complete-agent-state uniqueness claim, edge-independence assumption in strategy-dag, strategic-calibration type problem, $\delta_{\text{critical}}$/$R$ as inputs not outputs.~~ **ALL FIXED 2026-03-14.** CIY proxy safety conditions added. Uniqueness claim softened to conjecture. Edge-independence caveat elevated. Credit-assignment problem added. δ_critical/R clarified.
@@ -135,7 +135,7 @@ Three independent frontier-model reviews (Claude Opus, OpenAI Codex, Google Gemi
 | [graph-structure-uniqueness](01-act-core/src/graph-structure-uniqueness.md) | Derivation | 4 postulates + causal sufficiency → DAG with Markov property. Acyclicity exact. P3→Markov now conditional on causal sufficiency (upgraded from sketch 2026-04-01 via Lauritzen 1996 equivalence). |
 | [discrete-sector-condition](01-act-core/src/discrete-sector-condition.md) | Derivation | Discrete-time Props DA.1, DA.1S, DA.2 via contraction mapping. Fluid limit theorem. **GA-5 closed** — Model D gap zero, Model S gap $O(\eta^\ast c_{\max})$. |
 
-### Not Yet Written — 10 segments remaining
+### Not Yet Written — 14 segments remaining
 
 **TST (4 missing — now in `02-tst-core/`):**
 - `#software-epistemic-properties` — software's 6 unique epistemic properties. Source: old-tst-via-tft-readme.
@@ -143,10 +143,14 @@ Three independent frontier-model reviews (Claude Opus, OpenAI Codex, Google Gemi
 - `#code-quality-as-observation-infrastructure` — code quality → $U_o$ → $\eta^\ast$ → $\mathcal{T}$. Source: old-tst-via-tft-mapping.
 - `#causal-discovery-from-git` — git as interventional data source. Source: old-tst-via-tft-causal-extensions.
 
-**Logogenic Agents (3 missing — blocked on scope decision, now in `03-logogenic-agents/`):**
+**Logogenic Agents (7 missing — now in `03-logogenic-agents/`; see coupled survival analysis):**
 - `#ai-agent-as-act-agent` — AI agent as actuated agent (directed separation fails → coupled analysis).
 - `#context-turnover` — 100% $M_t$ reset per session.
+- `#coupled-update-dynamics` — Logogenic-specific coupled formulation $X_{\tau^+} = f_{\text{LLM}}(\text{prompt}(X_{\tau^-}, e_\tau))$. **NEW from spike.**
+- `#section-ii-survival` — Which Section II results survive without directed separation (16/24 exactly, 5 approximately, 2 require modification). **NEW from spike.**
+- `#coupled-diagnostic-framework` — Post-hoc diagnostic decomposition from coupled update. **NEW from spike.**
 - `#m-preservation` — external memory as persistent $M_t$.
+- `#observation-ambiguity-modulation` — $\kappa \times$ ambiguity scope condition. **NEW from spike.**
 
 **Appendices (3 missing):**
 - `#linear-ode-approximation` — pedagogical linear mismatch ODE (detail).
@@ -164,6 +168,11 @@ Three independent frontier-model reviews (Claude Opus, OpenAI Codex, Google Gemi
 | Graph structure uniqueness | `msc/spike-graph-uniqueness.md` | Acyclicity derived; P3→Markov needs tightening |
 | Intent DAG consolidated | `msc/04-intent-dag-consolidated.md` | Canonical DAG reference; converged |
 | Prior art assessment | `msc/02-prior-art-assessment.md` | Hafez/IBM/BDI/active-inference positioning |
+| Discrete-time sector condition | `msc/spike-discrete-time-sector.md` | Closes GA-5 (Section I formal chain complete). **Promoted to segment.** |
+| Strategy tempo + cognitive cost | `msc/spike-strategy-tempo-cost.md` | $\mathcal{T}_\Sigma$ defined; IB/MDL cost framework; max depth $d^\ast$ derived. **Promoted to segments.** |
+| Coupled survival analysis | `msc/spike-coupled-survival-analysis.md` | Maps Section II for Class 2 agents: 16/24 survive exactly, 5 approximately, 2 need modification. 7-segment roadmap for `03-logogenic-agents/`. |
+| Correlated Kalman composition | `msc/spike-composition-correlated-kalman.md` | Full derivation: $\varepsilon^\ast = 0$ for all $\rho$. $\Delta_{\text{perf}} \propto \rho^2$ is optimality, not representability. First $\varepsilon^\ast > 0$ from purposeful substates. |
+| Edge semantics resolution | `msc/spike-edge-semantics-resolution.md` | Resolves observational/interventional tension: regime-indexed causal efficacy estimate. **Applied to segments.** |
 | LLM causal access note | `msc/llm-causal-access-note.md` | Pearl reconciliation; potential intro/paper/blog |
 | DAG boundary type closure | `msc/spike-dag-type-closure.md` | v2; reviewed by Codex; ready for porting |
 | Single-edge strategic dynamics | `msc/spike-single-edge-strategic-dynamics.md` | **Sector condition verified** for Beta-Bernoulli. α_Σ = η_edge = 1/(n+1). **PROMOTED** to segments. |
@@ -302,7 +311,7 @@ The #directed-separation segment's Working Notes point toward the right response
 
 ### What's needed
 
-A formal treatment of what happens to the dynamics when separation fails. Not just "it's harder" but: what new phenomena emerge (motivated reasoning, confirmation bias as coupling terms in $f_M$), what the persistence condition becomes for coupled systems (state-dependent $\alpha$?), and which Section II results survive as approximate or limiting cases. This is the scope of `03-logogenic-agents/`.
+A formal treatment of what happens to the dynamics when separation fails. Not just "it's harder" but: what new phenomena emerge (motivated reasoning, confirmation bias as coupling terms in $f_M$), what the persistence condition becomes for coupled systems (state-dependent $\alpha$?), and which Section II results survive as approximate or limiting cases. This is the scope of `03-logogenic-agents/`. **2026-04-02 update:** The coupled survival analysis (`msc/spike-coupled-survival-analysis.md`) now provides the detailed classification: 16 of 24 results survive exactly, 5 approximately, 2 require modification. A 7-segment minimal viable roadmap is specified.
 
 
 ## Known Fragilities

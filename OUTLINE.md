@@ -27,7 +27,7 @@ See [`02-tst-core/OUTLINE.md`](02-tst-core/OUTLINE.md)
 
 ## Part III — Logogenic Agents
 
-*Language-constituted agents. Framework stage — informed by ACT, not yet at ACT's level of formalization.*
+*Language-constituted agents. Framework stage — informed by ACT, not yet at ACT's level of formalization. Coupled survival analysis (2026-04-02) establishes a 7-segment minimal viable formulation.*
 
 See [`03-logogenic-agents/OUTLINE.md`](03-logogenic-agents/OUTLINE.md)
 
