@@ -43,7 +43,13 @@ This is a **second-order inference** — it requires accumulating evidence over 
 
 ## Discussion
 
-**Connection to #strategy-persistence-schema.** $\delta_{\text{strategic}}$ is the candidate strategic mismatch state for the persistence schema. The correction function would be edge-credence revision (reducing $p_{ij}$ when $r_{ij}$ is persistently positive, increasing when consistently negative — see #edge-update-via-gain). The disturbance would be environmental changes that alter edge-traversal outcomes. Whether this correction satisfies the sector condition remains open.
+**Connection to #strategy-persistence-schema.** There are two distinct strategic mismatch quantities:
+
+1. **Plan-confidence error** $\delta_s = \hat P_\Sigma - \Phi$ — the scalar gap between the agent's aggregate plan-confidence and the true plan success probability. Computable from status propagation alone, without credit assignment. The sector condition transfers to $\delta_s$ (Prop B.5 in #strategic-dynamics-derivation).
+
+2. **Strategic calibration residual** $\delta_{\text{strategic}}$ (this segment) — an $L^2$ aggregation of per-edge value-increment residuals requiring credit assignment to compute.
+
+These are related (both measure strategy-reality mismatch) but not interchangeable. $\delta_s$ is the proven persistence target; $\delta_{\text{strategic}}$ provides finer-grained diagnostics but its persistence properties remain open, pending the credit-assignment machinery in #credit-assignment-boundary. The correction function for both is edge-credence revision ( #edge-update-via-gain); the disturbance is environmental changes that alter edge-traversal outcomes.
 
 **Typing as value-increment residuals.** Each edge predicts a scalar (value increment), not a full state transition. This is the most tractable typing because it connects directly to the value object $V_O$ and allows aggregation across heterogeneous step types (a military advance and a logistics delivery produce different state changes but both produce value increments measurable on the same scale).
 
