@@ -8,7 +8,7 @@ depends:
   - causal-structure
   - scope-condition
   - observation-function
-stage: deps-verified
+stage: claims-verified
 ---
 
 # Derivation: Recursive Update — Uniqueness Derivation

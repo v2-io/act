@@ -7,7 +7,7 @@ depends:
   - model-class-fitness
   - mismatch-decomposition
   - update-gain
-stage: deps-verified
+stage: claims-verified
 ---
 
 # Result: Structural Adaptation Necessity
