@@ -230,23 +230,56 @@ APPENDIX_SECTIONS = {"A", "B"}
 MAIN_SECTIONS = {"I", "II", "III", "IV", "V"}
 
 
-def _short_label(slug):
-    """Make a compact label from a slug."""
-    # Abbreviate common prefixes
-    s = slug
-    for prefix in ["worked-example-", "causal-information-", "ciy-"]:
-        if s.startswith(prefix):
-            break
-    # Wrap at hyphens — max ~20 chars per line
-    parts = s.split("-")
+TYPE_PREFIXES = {
+    "postulate":        "POS",
+    "definition":       "DEF",
+    "formulation":      "FORM",
+    "scope":            "SCOPE",
+    "derived":          "DER",
+    "result":           "RES",
+    "hypothesis":       "HYP",
+    "discussion":       "DSC",
+    "empirical":        "EMP",
+    "normative":        "NORM",
+    "derivation":       "PROOF",
+    "sketch":           "SKTCH",
+    "detail":           "DTL",
+    "worked-example":   "EX",
+    "proposed-schema":  "SCHMA",
+    "observation":      "OBS",
+    "derived + scope":  "DER",
+    "definition + discussion": "DEF",
+}
+
+
+def _title_case(slug):
+    """Convert a slug to Title Case: 'gain-sector-bridge' → 'Gain Sector Bridge'."""
+    return " ".join(word.capitalize() for word in slug.split("-"))
+
+
+def _short_label(slug, seg_type=None):
+    """Make a compact, title-cased label with type prefix from a slug."""
+    title = _title_case(slug)
+
+    # Add type prefix
+    prefix = ""
+    if seg_type:
+        seg_type_lower = seg_type.strip().lower()
+        prefix = TYPE_PREFIXES.get(seg_type_lower, seg_type_lower[:4].upper())
+        prefix = f"{prefix}: "
+
+    full = f"{prefix}{title}"
+
+    # Wrap at ~22 chars per line
+    words = full.split(" ")
     lines = []
-    current = parts[0]
-    for p in parts[1:]:
-        if len(current) + len(p) + 1 > 18:
+    current = words[0]
+    for w in words[1:]:
+        if len(current) + len(w) + 1 > 22:
             lines.append(current)
-            current = p
+            current = w
         else:
-            current += "-" + p
+            current += " " + w
     lines.append(current)
     return "\\n".join(lines)
 
@@ -256,26 +289,32 @@ def write_dot(entries, all_deps, slug_to_section, slug_to_meta, filepath, sectio
     # Determine which slugs to include
     if section_filter:
         include = {slug for sec, slug, _ in entries if sec == section_filter}
-        external = set()
+        # Track which nodes have external deps (for marking) but don't show them
+        has_external_deps = set()
         for slug in include:
             for dep in all_deps.get(slug, []):
                 if dep not in include:
-                    external.add(dep)
+                    has_external_deps.add(slug)
+        external = set()  # empty — don't render external nodes in section views
     else:
         include = {slug for _, slug, _ in entries}
+        has_external_deps = set()
         external = set()
         for slug in include:
             for dep in all_deps.get(slug, []):
                 if dep not in include:
                     external.add(dep)
 
+    # Desired section ordering for vertical layout
+    SECTION_ORDER = ["I", "II", "III", "A", "B"]
+
     with open(filepath, "w") as f:
         f.write("digraph ACT_Dependencies {\n")
-        f.write("  rankdir=LR;\n")
-        f.write("  newrank=true;\n")
+        f.write("  rankdir=TB;\n")
+        f.write("  compound=true;\n")
         f.write("  concentrate=true;\n")
         f.write("  splines=ortho;\n")
-        f.write("  ranksep=0.4;\n")
+        f.write("  ranksep=0.5;\n")
         f.write("  nodesep=0.2;\n")
         f.write('  node [shape=box fontsize=8 fontname="Helvetica" height=0.3 margin="0.06,0.04"];\n')
         f.write('  edge [color="#999999" arrowsize=0.5];\n\n')
@@ -305,7 +344,10 @@ def write_dot(entries, all_deps, slug_to_section, slug_to_meta, filepath, sectio
                 meta = slug_to_meta.get(slug, {})
                 stage = meta.get("stage", "draft")
                 seg_type = (meta.get("type") or "").strip().lower()
-                label = _short_label(slug)
+                label = _short_label(slug, meta.get("type"))
+                # Mark nodes with external dependencies
+                if slug in has_external_deps:
+                    label += " ↑"
 
                 # Color from type
                 fill = TYPE_COLORS.get(seg_type, "#cccccc")
@@ -343,10 +385,17 @@ def write_dot(entries, all_deps, slug_to_section, slug_to_meta, filepath, sectio
             f.write("  }\n\n")
 
         # External nodes
-        for slug in external:
-            f.write(f'  "{slug}" [style=dashed color="#cccccc" fontcolor="#999999" label="{_short_label(slug)}"];\n')
         if external:
-            f.write("\n")
+            # In per-section views, force external deps to the top rank
+            if section_filter:
+                f.write("  { rank=source;\n")
+                for slug in sorted(external):
+                    f.write(f'    "{slug}" [style=dashed color="#cccccc" fontcolor="#999999" label="{_short_label(slug, None)}"];\n')
+                f.write("  }\n\n")
+            else:
+                for slug in external:
+                    f.write(f'  "{slug}" [style=dashed color="#cccccc" fontcolor="#999999" label="{_short_label(slug, None)}"];\n')
+                f.write("\n")
 
         # Edges — classify backmatter vs intra-section
         for slug in include:
@@ -359,9 +408,10 @@ def write_dot(entries, all_deps, slug_to_section, slug_to_meta, filepath, sectio
                 # Backmatter edge: main body depends on appendix proof
                 if slug_sec in MAIN_SECTIONS and dep_sec in APPENDIX_SECTIONS:
                     f.write(f'  "{dep}" -> "{slug}" [style=dashed color="#cccccc" constraint=false];\n')
-                # Cross-section edge between main sections
+                # Cross-section edge between main sections — keep constraint
+                # so the dependency flow forces vertical section ordering
                 elif slug_sec != dep_sec and slug_sec in MAIN_SECTIONS and dep_sec in MAIN_SECTIONS:
-                    f.write(f'  "{dep}" -> "{slug}" [color="#aaaaaa" constraint=false];\n')
+                    f.write(f'  "{dep}" -> "{slug}" [color="#aaaaaa"];\n')
                 # Intra-appendix cross-reference
                 elif slug_sec in APPENDIX_SECTIONS and dep_sec in APPENDIX_SECTIONS and slug_sec != dep_sec:
                     f.write(f'  "{dep}" -> "{slug}" [color="#bbbbbb"];\n')
