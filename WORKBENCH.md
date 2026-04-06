@@ -152,12 +152,12 @@ Three independent frontier-model reviews (Claude Opus, OpenAI Codex, Google Gemi
 - `#m-preservation` — external memory as persistent $M_t$.
 - `#observation-ambiguity-modulation` — $\kappa \times$ ambiguity scope condition. **NEW from spike.**
 
-**Section III — Composition Dynamics (5 gaps from Miller bridge analysis):**
-- Latent structural diversity — correction-architecture variation invisible to persistence analysis. Source: `msc/spike-miller-act-bridge.md` §7, `msc/spike-neutral-drift-lyapunov.md`.
-- Endogenous coupling — γ as function of population composition. Source: `msc/spike-neutral-drift-lyapunov.md`.
-- Composition transition motif — Miller's 5-phase pattern in ACT terms. Source: `msc/spike-miller-act-bridge.md` §2.1.
-- Computational thresholds for social behavior — minimum agent complexity and interaction depth. Source: Miller (2022) Ch. 12, Table 12.2.
-- Communication as transitional phenomenon — communication gain most load-bearing during transitions. Source: Miller (2022) Ch. 11.
+**Section III — Composition Dynamics (5 gaps):**
+- Latent structural diversity — correction-architecture variation invisible to persistence analysis, consequential under regime change. Source: `msc/spike-neutral-drift-lyapunov.md`.
+- Endogenous coupling — γ as function of population composition, not exogenous parameter. Source: `msc/spike-neutral-drift-lyapunov.md`.
+- Composition transition dynamics — adopts Miller (2022) extreme transition motif: epochal stability → latent diversification → niche emergence → cascading restructuring → re-equilibration. Source: `msc/spike-miller-act-bridge.md`.
+- Computational thresholds for social behavior — adopts Miller (2022) ICE framework: minimum agent complexity and interaction depth. Grounds #strategy-complexity-cost. Source: Miller (2022) Ch. 12, Table 12.2.
+- Agent opacity — adopts Hafez et al. (2026) backward predictive uncertainty $H_b$: dual of observation quality; enters adversarial coupling and cooperative coordination. Source: `msc/spike-hafez-integration-audit.md`.
 
 **Appendices (3 missing):**
 - `#linear-ode-approximation` — pedagogical linear mismatch ODE (detail).

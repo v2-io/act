@@ -105,7 +105,7 @@ Every slug is linked to its intended `src/{slug}.md` file, even when that file d
 
 *Correlated observations as default; independence as the special case requiring justification. Adversarial dynamics are one end of a teleological unity spectrum, not a separate theory.*
 
-*Two sources: the simulation-validated adversarial dynamics from TFT (TF-11/Appendix F, track-b simulations), and the composition spike (`msc/spike-agent-composition.md`) which derives the requirement for composition consistency from the scope condition's level-independence. A third source — Miller's Coevolving Automata Model (Ex Machina, 2022) — provides constructive mechanisms for composition dynamics: how composites form, undergo phase transitions, and restructure through neutral drift and niche creation. The bridge analysis is in `msc/spike-miller-act-bridge.md`.*
+*Three primary sources: the simulation-validated adversarial dynamics from TFT (TF-11/Appendix F, track-b simulations); the composition spike (`msc/spike-agent-composition.md`) which derives composition consistency from the scope condition's level-independence; and Miller's Coevolving Automata Model (Ex Machina, 2022), which provides constructive mechanisms for composition dynamics — how composites form, undergo phase transitions, and restructure through neutral drift and niche creation. Agent opacity ($H_b$) is adopted from Hafez et al. (2026).*
 
 | § | Type | N | Tag | Claim | Stage |
 |---|------|---|-----|-------|-------|
@@ -124,13 +124,11 @@ Every slug is linked to its intended `src/{slug}.md` file, even when that file d
 | III | Observation | | [#adversarial-exponent-regimes](src/adversarial-exponent-regimes.md) | $\alpha = 2, 3/2, \text{or } {\sim}1$ | draft |
 | III | Observation | | [#observation-gates-advantage](src/observation-gates-advantage.md) | Obs noise gates advantage | draft |
 | III | Result | | [#per-dimension-persistence](src/per-dimension-persistence.md) | Weak dimension is bottleneck | draft |
-| | | | | | |
-| | *— Composition Dynamics (Miller bridge) —* | | | *Source: `msc/spike-miller-act-bridge.md` §7* | |
-| | --GAP-- | | | Latent structural diversity: variation in correction architectures invisible to persistence analysis under current conditions, consequential under regime change | |
+| | --GAP-- | | | Latent structural diversity: variation in correction architectures invisible to persistence analysis, consequential under regime change | |
 | | --GAP-- | | | Endogenous coupling: γ as function of population composition, not exogenous parameter; coupling emergence threshold | |
-| | --GAP-- | | | Composition transition motif: epochal stability → latent diversification → niche emergence → cascading restructuring → re-equilibration (Miller's 5-phase pattern in ACT terms) | |
-| | --GAP-- | | | Computational thresholds for social behavior: minimum agent complexity and interaction depth for composition dynamics (grounds #strategy-complexity-cost) | |
-| | --GAP-- | | | Communication as transitional phenomenon: communication gain most load-bearing during regime transitions, wanes during stable epochs | |
+| | --GAP-- | | | Composition transition dynamics: epochal stability → latent diversification → niche emergence → cascading restructuring → re-equilibration (adopts Miller 2022's extreme transition motif) | |
+| | --GAP-- | | | Computational thresholds for social behavior: minimum agent complexity and interaction depth for composition dynamics (adopts Miller 2022's ICE framework; grounds #strategy-complexity-cost) | |
+| | --GAP-- | | | Agent opacity (adopts Hafez et al. 2026's $H_b$): how legible/opaque an agent is to observers; dual of observation quality; enters adversarial coupling and cooperative coordination | |
 
 
 ---
