@@ -94,6 +94,7 @@ Every slug is linked to its intended `src/{slug}.md` file, even when that file d
 | II  | Definition      |     | [#strategic-tempo](src/strategic-tempo.md)                                             | Rate of useful $\Sigma_t$ revision                               | draft |
 | II  | Formulation     |     | [#strategy-complexity-cost](src/strategy-complexity-cost.md)                           | Complexity cost of maintaining $\Sigma_t$ (IB/MDL for DAGs)      | draft |
 | II  | Proposed schema |     | [#strategy-persistence-schema](src/strategy-persistence-schema.md)                     | Sector conditions for $\Sigma_t$                                 | draft |
+| II  | Derived         |     | [#causal-insufficiency-detection](src/causal-insufficiency-detection.md)               | Detecting latent common causes from structured residuals + interventional localization | draft |
 | II  | Discussion      |     | [#exploit-explore-deliberate](src/exploit-explore-deliberate.md)                       | Three-way exploit/explore/deliberate: extended deliberation threshold + conceptual framing | draft |
 
 
@@ -157,3 +158,4 @@ Every slug is linked to its intended `src/{slug}.md` file, even when that file d
 | B   | Worked example |     | [#worked-example-kalman](src/worked-example-kalman.md) | End-to-end Kalman instantiation (exact)          | draft |
 | B   | Worked example |     | [#worked-example-bandit](src/worked-example-bandit.md) | End-to-end RL bandit instantiation (approximate) | draft |
 | B   | Worked example |     | [#worked-example-strategy](src/worked-example-strategy.md) | Section II strategy DAG instantiation (3-arm bandit) | draft |
+| B   | Worked example |     | [#worked-example-L1](src/worked-example-L1.md) | L1 augmented DAG: common-cause node, sector condition, L0/L1 comparison | draft |

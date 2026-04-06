@@ -265,6 +265,60 @@ $$n \lt \frac{R_\Sigma}{2\rho_\Sigma} - 1$$
 The critical experience is halved relative to the single-edge case. Each additional OR-alternative further reduces the critical level by $1/k$.
 
 
+## Proposition B.6: Mixed AND/OR with Common-Cause Node (L1 Augmented DAG)
+
+**Setup.** Goal $G$ reachable via two alternative actions $A_1, A_2$ (an OR-node), but both actions require a shared condition $C$ (a common-cause node). The L1 DAG factors the common cause above the OR-structure: $G = \text{AND}(C, G_{\text{sub}})$ where $G_{\text{sub}} = \text{OR}(A_1, A_2)$. Three leaves: condition $C$ with true probability $\theta_C$, actions $A_1, A_2$ with true conditional probabilities $\theta_{1|C}, \theta_{2|C}$. Agent selects $\varepsilon$-greedy among $A_1, A_2$ (only testable when $C = 1$). Mismatch vector: $\boldsymbol\delta_\Sigma = (\delta_C, \delta_{A_1}, \delta_{A_2})^T$.
+
+Plan confidence: $\hat P_\Sigma = \hat p_C \cdot [1 - (1 - \hat p_{A_1})(1 - \hat p_{A_2})]$. Reference value: $\Phi = \theta_C \cdot [1 - (1 - \theta_{1|C})(1 - \theta_{2|C})]$. At truth, $\hat P_\Sigma = \Phi = $ actual plan success probability (L1 is unbiased).
+
+**Statement.** Under Beta-Bernoulli updating with observable condition $C$ and $\varepsilon$-greedy path selection, the expected correction function satisfies the sector condition globally with:
+
+*[Derived (Conditional on Beta-Bernoulli model, L1 augmented DAG)]*
+
+$$\alpha_\Sigma = \min\!\left(\frac{1}{n_C+1},\; \frac{\theta_C(1-\varepsilon)}{n_{A_1}+1},\; \frac{\theta_C \varepsilon}{n_{A_2}+1}\right)$$
+
+where $A_1$ is the greedy choice.
+
+**Proof.**
+
+Edge $C$ (condition leaf, observed every trial):
+
+$$\mathbb{E}[\Delta \hat p_C] = \frac{\theta_C - \hat p_C}{n_C + 1} = -\frac{\delta_C}{n_C+1}$$
+
+Edge $A_1$ (action leaf, tested when $C = 1$ and path 1 selected — probability $\theta_C(1-\varepsilon)$):
+
+$$\mathbb{E}[\Delta \hat p_{A_1}] = -\frac{\theta_C(1-\varepsilon)\,\delta_{A_1}}{n_{A_1}+1}$$
+
+Edge $A_2$ (action leaf, tested when $C = 1$ and path 2 selected — probability $\theta_C \varepsilon$):
+
+$$\mathbb{E}[\Delta \hat p_{A_2}] = -\frac{\theta_C \varepsilon\,\delta_{A_2}}{n_{A_2}+1}$$
+
+The expected correction function is diagonal:
+
+$$\mathbf{F}(\boldsymbol\delta_\Sigma) = \begin{pmatrix} \delta_C/(n_C+1) \\ \theta_C(1-\varepsilon)\,\delta_{A_1}/(n_{A_1}+1) \\ \theta_C \varepsilon\,\delta_{A_2}/(n_{A_2}+1) \end{pmatrix}$$
+
+**Verification of (SA1).** $\mathbf{F}(\mathbf{0}) = \mathbf{0}$. ✓
+
+**Sector product:**
+
+$$\boldsymbol\delta_\Sigma^T \mathbf{F} = \frac{\delta_C^2}{n_C+1} + \frac{\theta_C(1-\varepsilon)\,\delta_{A_1}^2}{n_{A_1}+1} + \frac{\theta_C\varepsilon\,\delta_{A_2}^2}{n_{A_2}+1} \;\geq\; \alpha_\Sigma \lVert\boldsymbol\delta_\Sigma\rVert^2 \quad\square$$
+
+**Three-way gating.** This is the first mixed AND/OR case. The sector parameter $\alpha_\Sigma$ is determined by three independent gating mechanisms:
+1. **Condition testing** ($1/(n_C+1)$): the common cause is the easiest component to calibrate — tested every trial, same as B.1.
+2. **Evidence starvation** ($\theta_C$ factor on action terms): both action edges are gated by the condition probability, same mechanism as B.2.
+3. **Exploration gating** ($(1-\varepsilon)$ and $\varepsilon$ factors): the two OR-alternatives compete for test opportunities, same mechanism as B.4.
+
+The bottleneck is typically the explore action behind the condition: $\theta_C \varepsilon / (n_{A_2}+1)$.
+
+**B.5b applies.** The Jacobian $\mathbf{J} = (s_{G_{\text{sub}}},\; \hat p_C(1 - \hat p_{A_2}),\; \hat p_C(1 - \hat p_{A_1}))^T$ is non-negative (monotone AND/OR). Corrections are componentwise (each leaf updates independently). Therefore $\alpha_s = \alpha_c = \alpha_\Sigma$ — the plan-confidence error inherits the sector condition with no penalty.
+
+**Optimal exploration.** Equalizing the action terms: $\varepsilon^\ast = (n_{A_1}+1)/(n_{A_1}+n_{A_2}+2)$, giving $\alpha_\Sigma^\ast = \min(1/(n_C+1),\;\theta_C/(n_{A_1}+n_{A_2}+2))$.
+
+**L0 comparison.** An L0 model of the same scenario (no $C$ node, marginal probabilities $\theta_k = \theta_C \cdot \theta_{k|C}$) has $\alpha_\Sigma^{L0} = \min((1-\varepsilon)/(n_1+1),\;\varepsilon/(n_2+1))$ and reference value $\Phi^{L0} = 1 - (1-\theta_1)(1-\theta_2)$. The L0 sector parameter is *higher* (no $\theta_C$ attenuation) but $\Phi^{L0}$ systematically overestimates actual plan success. L1 persistence is harder (lower $\alpha_\Sigma$) but calibration is honest ($\Phi^{L1}$ matches reality). The tradeoff: L0 is easier to maintain but calibrates to a biased target; L1 is harder to maintain but calibrates to truth.
+
+**The L1 construction principle.** The common-cause node $C$ must be factored *above* the OR-structure whose children it correlates. A naive construction (adding $C$ as a parent of both $A_1$ and $A_2$ while keeping them as OR-siblings) does not fix the overestimation because the OR-propagation formula treats siblings as marginally independent. Correct L1 construction makes $C$ an AND-prerequisite above the OR-structure, so the OR-children are conditionally independent given $C$. Full worked example with quantitative L0/L1 comparison: #worked-example-L1.
+
+
 ## Summary of Results
 
 | Case | Topology | $\alpha_\Sigma$ | SA1 | SA3 | Weakest link |
@@ -276,13 +330,16 @@ The critical experience is halved relative to the single-edge case. Each additio
 | **B.5a** Credence→value (linear) | Any | $\alpha_s = \alpha_c$ (Jacobian cancels) | — | — | None (exact transfer) |
 | **B.5b** Credence→value (nonlinear, componentwise) | Any | $\alpha_s = \alpha_c$ ($J_k \geq 0$ preserves bound) | — | — | None (exact transfer) |
 | **B.5b** Credence→value (coupled) | Any | $\alpha_s \geq \alpha_c / \kappa(\mathbf{J})^2$ | — | — | Inter-edge coupling |
+| **B.6** L1 augmented, mixed AND/OR | $G = \text{AND}(C, \text{OR}(A_1, A_2))$ | $\min(1/(n_C\!+\!1),\;\theta_C(1\!-\!\varepsilon)/(n_{A_1}\!+\!1),\;\theta_C\varepsilon/(n_{A_2}\!+\!1))$ | Yes | Required | Three-way gating |
 
 **Structural results across cases:**
 
-- **Gain as sector parameter.** In every case, $\alpha_\Sigma$ is determined by the edge update gain $\eta_k = 1/(n_k+1)$, modulated by observability ($\theta_1$ attenuation in B.2), credit-assignment (plan-level collapse in B.3), or action-selection policy ($\varepsilon$ in B.4). The structural parallel between epistemic and strategic persistence is not an analogy --- it is a mathematical identity at the sector-framework level.
+- **Gain as sector parameter.** In every case, $\alpha_\Sigma$ is determined by the edge update gain $\eta_k = 1/(n_k+1)$, modulated by observability ($\theta_1$ attenuation in B.2), credit-assignment (plan-level collapse in B.3), action-selection policy ($\varepsilon$ in B.4), or a combination of these (B.6). The structural parallel between epistemic and strategic persistence is not an analogy --- it is a mathematical identity at the sector-framework level.
 - **Evidence starvation (AND-chains).** Downstream edges in AND-chains have correction rates attenuated by the product of upstream success probabilities. Depth increases fragility: $\alpha_\Sigma$ decays exponentially with chain depth.
 - **Exploration gating (OR-nodes).** Unchosen OR-alternatives receive zero correction. The sector condition requires deliberate exploration (SA3) at a rate exceeding $\rho_\Sigma(n_{\max}+1)/R_\Sigma$. Pure greedy policies fail.
+- **Three-way gating (L1 augmented).** When a common cause gates OR-alternatives, calibration faces condition testing, evidence starvation, and exploration gating simultaneously (B.6). The bottleneck is the least-explored action behind the rarest condition.
 - **Gain-collapse threshold.** In all cases, increasing experience eventually violates persistence when the environment drifts. The critical experience level $n^\ast$ is inversely proportional to the drift rate $\rho_\Sigma$.
+- **L1 tradeoff.** L1 augmented DAGs have lower $\alpha_\Sigma$ (harder to persist) but honest calibration ($\Phi^{L1}$ matches reality). L0 is easier to maintain but calibrates to a biased target. The choice depends on whether accuracy or trackability is the binding constraint.
 
 
 ## Proposition B.5: Bridge from Credence Error to Value Residuals
@@ -387,7 +444,7 @@ Three regimes for the credence-to-value bridge:
 
 ## Epistemic Status
 
-*Conditional on the Beta-Bernoulli model.* Propositions B.1, B.2, and B.4 are *derived*: the sector-condition verification is exact algebra under the stated generative model. The persistence conditions follow by direct application of Proposition A.1 ( #sector-condition-derivation), which is independently established. Proposition B.3(a) (the SA1 violation) is also derived; B.3(b) reduces to B.1 by construction. Proposition B.5a (the credence-to-value bridge for linear correction) is *exact* — the Jacobian cancellation is algebraic, independent of DAG structure. Proposition B.5b (the nonlinear transfer) is *conditional on Jacobian regularity* — the condition-number bound requires $\sigma_{\min}(\mathbf{J}) \gt 0$, which holds for non-degenerate DAGs.
+*Conditional on the Beta-Bernoulli model.* Propositions B.1, B.2, B.4, and B.6 are *derived*: the sector-condition verification is exact algebra under the stated generative model. The persistence conditions follow by direct application of Proposition A.1 ( #sector-condition-derivation), which is independently established. Proposition B.3(a) (the SA1 violation) is also derived; B.3(b) reduces to B.1 by construction. Proposition B.5a (the credence-to-value bridge for linear correction) is *exact* — the Jacobian cancellation is algebraic, independent of DAG structure. Proposition B.5b (the nonlinear transfer) is *conditional on Jacobian regularity* — the condition-number bound requires $\sigma_{\min}(\mathbf{J}) \gt 0$, which holds for non-degenerate DAGs.
 
 All results use the *expected-value* sector condition. A full stochastic treatment (Foster-Lyapunov or supermartingale convergence) would give probability bounds rather than expected-value bounds. The expected-value analysis gives the correct asymptotic behavior (posterior concentration at $O(1/\sqrt{n})$) but does not prove almost-sure convergence. For the stationary Beta-Bernoulli case, almost-sure convergence is guaranteed by the standard Bayesian consistency theorem independently of this derivation.
 
@@ -395,10 +452,10 @@ The time-varying $\alpha_\Sigma$ issue remains: since $n_k$ increases with each 
 
 **What remains open:**
 
-1. *General DAG topology.* Only linear AND-chains and isolated OR-nodes are verified. Mixed AND/OR DAGs may exhibit interaction effects between evidence starvation and exploration gating.
+1. ~~*General DAG topology.*~~ **Partially resolved.** Proposition B.6 verifies the first mixed AND/OR case (L1 augmented DAG with common-cause node). The three-way gating structure (condition testing × evidence starvation × exploration gating) appears to be the general pattern. Remaining: arbitrary mixed AND/OR DAGs with multiple common causes and deeper nesting.
 2. *Continuous outcomes.* The Beta-Bernoulli model gives conjugate, closed-form updates. Non-conjugate cases (continuous signals, partial observability) require approximate inference, and the sector condition must be verified for the approximation.
 3. *Modified sector condition for biased correction.* The $O(1/n)$ bias in the unobservable case (B.3a) could be accommodated by a sector-condition variant tolerating asymptotically vanishing bias, potentially recovering per-edge results.
-4. *Correlated edges (L1/L2 scope).* All cases operate at L0 of the Correlation Hierarchy ( #strategy-dag) — independent edges under causal sufficiency. For L1 (augmented DAGs with common-cause nodes), the same propositions apply to the augmented graph because the augmented DAG is itself L0-compliant. The open question is whether the additional depth and structure introduced by common-cause nodes materially affects the sector parameter $\alpha_\Sigma$ — initial expectation is that it does not (common-cause nodes are condition nodes, not AND/OR combiners, so they add observable intermediates without changing the combination structure).
+4. ~~*Correlated edges (L1/L2 scope).*~~ **Partially resolved.** Proposition B.6 verifies the sector condition for an L1 augmented DAG and confirms that L0 results transfer — but only with correct L1 construction (common cause factored above the correlation). The $\theta_C$ attenuation of $\alpha_\Sigma$ is the quantitative cost of honest calibration. The main open question: strategies where the common cause cannot be cleanly factored above the correlation (requiring conditioning-based propagation at cost $O(2^k)$).
 5. *Adaptive exploration.* Proposition B.4 uses fixed $\varepsilon$. Adaptive strategies (UCB, Thompson sampling) allocate exploration based on current uncertainty and should yield tighter sector bounds.
 
 
