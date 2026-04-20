@@ -65,6 +65,22 @@ Both spikes independently found the linear-Gaussian/Kalman case gives $\varepsil
 
 This session contributes to the #3 HIGH priority from the 2026-03-13 feedback (composition-closure bridge lemma). The bridge lemma's contraction assumption was previously characterized for Tier 1 agents (`msc/spike-bridge-lemma-contraction.md`); today's work identifies both a rate-distortion characterization (IB) and a spectral-gap characterization (MZ) that would further clarify its structure. Neither closes the bridge lemma's remaining obstruction fully, but both narrow where the work is needed: the purposeful-agent non-stationarity, which is the same obstruction across both frameworks.
 
+### Follow-on: symbiogenic composition and $U_O$ as scope condition
+
+Later in the session, a careful reading of Miller's *Ex Machina* (Appendix B) revealed a composition mechanism genuinely missing from AAD: **social symbiogenesis** — hierarchical absorption / innovation-by-parts, distinct from peer coupling (current Section III) and from the extreme-transition motif (`spike-miller-act-bridge.md`). Simultaneously, Joseph observed that teleological unity $U_O$ may need to be treated as definitional or controlled, unlike the other unities. These findings converge: **symbiogenesis is the mechanism by which $U_O$ emerges from 0 to 1** — the creation of composite-agent identity.
+
+Proposal captured in `msc/spike-symbiogenic-composition.md`: treat $U_O$ as a composition scope condition (paralleling `#scope-condition` for single agents); recover the other unities and update-heterogeneity as quality metrics conditional on the scope passing. Three composition mechanisms distinguished:
+
+1. **Peer coupling** (current): sub-agents interact through environment, closure defect measures projection faithfulness — $U_O$ held fixed as quality given existence.
+2. **Extreme transition** (absorbed via Miller bridge): population-level restructuring through drift/niche/cascade — $U_O$ shifts across population.
+3. **Symbiogenesis** (**missing**): hierarchical absorption — $U_O$ crosses the scope condition from below.
+
+Proposed segments: `#composition-scope-condition`, `#symbiogenic-composition`. Revisions: `#unity-dimensions` (separate $U_O$ as scope; others as quality), `#structural-change-as-parametric-limit` (grafting label pointed to symbiogenesis).
+
+IB connection: if `spike-unity-closure-mapping.md` §6 conjecture holds, then $U_O$ as scope = existence of shared relevance variable. The three composition mechanisms are three ways relevance variables can combine. This suggests a unified IB-based theory of composition — a genuine *contraction* rather than expansion. Not attempted in full; the spike flags it as a natural next investigation.
+
+Pending: Joseph's decision on prioritization — promote `#composition-scope-condition` and `#symbiogenic-composition` immediately, or let the proposal settle? The finding is structurally significant (closes a real gap: AAD has no machinery for how composite agents *form*, only for how they are *projected*) so promotion is well-motivated, but touches four existing segments.
+
 
 ## Segment Status
 
@@ -247,6 +263,7 @@ This session contributes to the #3 HIGH priority from the 2026-03-13 feedback (c
 | SOC / composition speculation | `msc/speculation-soc-composition.md` | 2026-04-20. RG-style fixed-point argument: holonic composition + self-similarity → power-law tails. Inverse: scale-invariance constrains admissible composition, closure-as-consequence. "Optimal-at-critical" conjecture connects SOC to cognitive-cost framework. **Parked, speculation-grade.** |
 | Unity-to-closure mapping | `msc/spike-unity-closure-mapping.md` | 2026-04-20. **Reframes** unity-dimensions' direct-prediction claim to rate-distortion. Linear-Gaussian closed forms: $\varepsilon_o^2 \propto \sigma_o^2 (1-U_{\text{obs}})$, $\varepsilon_a^2 \propto (1-U_O)\cdot\kappa^2$. $(U_O, U_\Sigma)$ jointly control $\varepsilon_a$. §6: IB unification conjecture (seed). §10 addendum: non-degenerate Kalman shows **two-axis structure** — closure defect driven by sub-agent unity AND update-rule heterogeneity ($\Delta K$). Heterogeneity is a genuine gap in unity-dimensions. |
 | Mori-Zwanzig / composition | `msc/spike-mori-zwanzig-composition.md` | 2026-04-20. Target $\varepsilon^\ast \geq C\lVert K\rVert_{\ell^1}$ does NOT close (per-step vs trajectory type mismatch). What closes: zero-lag kernel bound $\varepsilon^\ast \geq \lVert Q_\Lambda U P_\Lambda\rVert_{\text{op}}$ when $f_c^{\text{MZ}} \notin \mathcal M_{\text{adm}}$. MZ-optimal $f_c^{\text{MZ}} = P_\Lambda U P_\Lambda$ gives concrete admissibility benchmark. Bridge-lemma contraction ↔ spectral gap of $Q_\Lambda U$. Stationarity fails for purposeful agents with diverging auxiliary state — bitter. |
+| Symbiogenic composition | `msc/spike-symbiogenic-composition.md` | 2026-04-20. Convergent finding from Miller's *Ex Machina* Appendix B reading + Joseph's "$U_O$ as definitional" insight. Three composition mechanisms distinguished: peer coupling (current Section III), extreme transition (Miller spike), **symbiogenesis** (hierarchical absorption, MISSING). Reframing proposal: teleological unity $U_O$ is a *scope condition* for composition (paralleling `#scope-condition` for single agents); other unities + update-heterogeneity are *quality metrics* given composition exists. Symbiogenesis IS the mechanism by which $U_O$ crosses the threshold from 0 to 1 — the creation of composite-agent identity. Proposes new segments `#composition-scope-condition` and `#symbiogenic-composition`, plus revisions to `#unity-dimensions` and `#structural-change-as-parametric-limit`. Connects to IB unification: $U_O$ = existence of shared relevance variable. |
 
 
 ## What's Settled
