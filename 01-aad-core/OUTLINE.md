@@ -124,6 +124,7 @@ Every slug is linked to its intended `src/{slug}.md` file, even when that file d
 | III | Sketch | | [#tempo-composition](src/tempo-composition.md) | Sub-additive tempo inequality | draft |
 | III | Hypothesis | | [#directed-separation-under-composition](src/directed-separation-under-composition.md) | Goal-blindness survives iff routing is goal-blind (two cases) | draft |
 | III | Discussion | | [#unity-dimensions](src/unity-dimensions.md) | 4 dimensions of coherence | draft |
+| III | Result | | [#unity-closure-mapping](src/unity-closure-mapping.md) | Unity parametrizes rate-distortion curves for closure defect; two-axis structure with update heterogeneity | draft |
 | III | Definition + Discussion | | [#shared-intent](src/shared-intent.md) | IB-compressed purpose | draft |
 | III | Hypothesis | | [#auftragstaktik-principle](src/auftragstaktik-principle.md) | Prioritize objective sharing | draft |
 | III | Hypothesis | | [#communication-gain](src/communication-gain.md) | Trust-weighted update gain for inter-agent channels | draft |
