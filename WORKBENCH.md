@@ -19,6 +19,53 @@ Three independent frontier-model reviews (Claude Opus, OpenAI Codex, Google Gemi
 **Editorial:** All three reviewers recommend splitting presentation into (a) core results, (b) conditional architecture, (c) empirical programs. This is the single highest-leverage presentation change.
 
 
+## Investigation Summary — 2026-04-20: Section III Composition Framing
+
+Substantive session on Section III composition, driven by the bridge-lemma priority (#3 above) and the conceptual question of whether Section III's machinery could be contracted rather than just extended. Three artifacts produced, detailed notes updated in segments and spike docs. Summary:
+
+### Three spikes produced
+
+1. **SOC / composition speculation** (`msc/speculation-soc-composition.md`) — speculation-grade. Renormalization-group-style argument: holonic composition + non-trivial self-similarity forces power-law statistics in composed-agent dynamics (fixed-point-of-rescaling argument). Inverse direction: demanding scale-invariance constrains the admissible composition operation — closure becomes a *consequence* of consistency rather than a separate theorem to prove. "Optimal-at-critical" conjecture connects SOC criticality to AAD's existing adaptation-gain/cognitive-cost balance. Parked; the math is serious RG/operad territory and requires either additional collaborator fluency or substantial focused time.
+
+2. **Unity-to-closure mapping** (`msc/spike-unity-closure-mapping.md`) — first-pass derivation. Formalizes the vague "high $U_d$ predicts low $\varepsilon_d$" claim in `#unity-dimensions`. Key findings:
+   - The literal claim is **wrong** under linear-Gaussian with linear projections — $\varepsilon_x \equiv 0$ regardless of $U_M$ when the projection preserves state-observation consistency.
+   - The correct framing is rate-distortion: unity parametrizes the achievable closure-defect curve as projection aggressiveness varies.
+   - Closed forms in linear-Gaussian: $\varepsilon_o^2(k_o=1) \propto \sigma_o^2(1 - U_{\text{obs}})$ (exact); $\varepsilon_a^2 \propto (1-U_O)\cdot\kappa^2$ under independent policies (exact, scalar targets); $(U_O, U_\Sigma)$ jointly control $\varepsilon_a$ (resolves the four-unity/three-closure puzzle).
+   - §6 logs a larger contraction conjecture: (P1) is structurally IB relevance-preservation with relevance variable "next observation given action," and (P1)+(P3) may be equivalent to "projection attains the IB frontier" — with (P2) Lipschitz as a separate regularity. If the conjecture holds, several currently-separate constructions (admissibility, shared intent, model compression, strategy cost) are IB instances with different relevance variables.
+   - §10 addendum runs the non-degenerate Kalman case (heterogeneous gains, 1D projection to $\hat\omega_+$). **Genuine finding**: closure defect has *two independent drivers* — sub-agent unity (via process correlation) and update-rule heterogeneity ($\Delta K \neq 0$). Update heterogeneity is NOT captured by any of the four unity dimensions as defined. This is a real gap in `#unity-dimensions`, not a framing issue.
+
+3. **Mori-Zwanzig connection** (`msc/spike-mori-zwanzig-composition.md`) — partial derivation (by agent). Attempted the MZ lower bound $\varepsilon^\ast \geq C\lVert K\rVert_{\ell^1}$ from the composition-closure Working Notes. Found:
+   - Target hypothesis does NOT close as stated. Type mismatch: $\varepsilon^\ast$ is per-step, $\lVert K\rVert_{\ell^1}$ is trajectory-accumulation. The full-kernel norm's natural home is the bridge-lemma trajectory-error bound, not $\varepsilon^\ast$ directly.
+   - What DOES close: zero-lag bound $\varepsilon^\ast \geq \lVert Q_\Lambda U P_\Lambda\rVert_{\text{op}}$ when $f_c^{\text{MZ}} \notin \mathcal M_{\text{adm}}$, under stationarity.
+   - The MZ-optimal Markovian macro-dynamics $f_c^{\text{MZ}} = P_\Lambda U P_\Lambda$ (conditional expectation given macro-state) gives a concrete admissibility benchmark previously missing.
+   - Bridge-lemma contraction (sector condition on $f_c$ in state space) corresponds conceptually to spectral gap of $Q_\Lambda U$ in observable space. Kalman case verifies numerically.
+   - Hard obstruction: MZ stationarity fails for purposeful agents with non-stationary auxiliary state (Beta-Bernoulli with diverging $n$) — exactly the cases where $\varepsilon^\ast > 0$ genuinely. Bitter; the most interesting cases are where the tool is weakest.
+
+### Convergence between the spikes
+
+IB (spike 2) and MZ (spike 3) give complementary framings of the same admissibility structure:
+- IB: variational. Admissible projections attain a rate-distortion frontier.
+- MZ: dynamical-systems. Projection-induced dynamics split as Markov + memory + noise; $f_c^{\text{MZ}}$ is the $L^2$-optimal Markovian reduction.
+
+Both spikes independently found the linear-Gaussian/Kalman case gives $\varepsilon^\ast = 0$ trivially at steady state — too clean. Both independently identified the same non-degenerate test (heterogeneous gains + 1D projection to $\hat\omega_+$) as the right way to exercise the frameworks. The test was run in the unity-closure spike §10 and confirms: the case produces genuine $\varepsilon_x > 0$, exposing the two-axis structure.
+
+### Notes updated
+
+- `01-aad-core/src/composition-closure.md` Working Notes: MZ entry promoted from "plausible but unworked" to "partially worked" with the zero-lag bound and four-obstruction summary; new IB entry added referencing unity-closure spike §6; two-axis driver of $\varepsilon_x$ noted.
+- `01-aad-core/src/unity-dimensions.md`: the "predicts" text replaced with the rate-distortion framing; $(U_O, U_\Sigma)$ joint action-error control clarified in the table; Working Notes updated with the update-heterogeneity gap (three resolution options logged), the four-unity/three-closure resolution, and explicit dependence on the companion (proposed) segment `#unity-closure-mapping`.
+
+### Pending decisions
+
+1. **Promote `#unity-closure-mapping` as a new segment** — the linear-Gaussian results are promotion-ready. This is the natural next step and consistent with the 3:1 promotion/creation ratio.
+2. **Resolve update-heterogeneity gap in `#unity-dimensions`** — three options: (A) add 5th unity dimension $U_f$, (B) reinterpret $U_\Sigma$ broadly, (C) accept two-axis closure structure. Option C is honest minimum.
+3. **Attempt IB unification** (spike 2 §6.4) — substantial effort; defer until `#unity-closure-mapping` is promoted and composition work is further along.
+4. **Extend MZ / IB framings to non-stationary purposeful agents** (Beta-Bernoulli with diverging $n$) — the hard case where both frameworks currently struggle. Substantial theoretical payoff but substantial effort; innovation-frame reformulation is the plausible path.
+
+### Relationship to existing priorities
+
+This session contributes to the #3 HIGH priority from the 2026-03-13 feedback (composition-closure bridge lemma). The bridge lemma's contraction assumption was previously characterized for Tier 1 agents (`msc/spike-bridge-lemma-contraction.md`); today's work identifies both a rate-distortion characterization (IB) and a spectral-gap characterization (MZ) that would further clarify its structure. Neither closes the bridge lemma's remaining obstruction fully, but both narrow where the work is needed: the purposeful-agent non-stationarity, which is the same obstruction across both frameworks.
+
+
 ## Segment Status
 
 ### Written — Section I (28 segments, all written)
@@ -197,6 +244,9 @@ Three independent frontier-model reviews (Claude Opus, OpenAI Codex, Google Gemi
 | Miller ↔ AAD bridge | `msc/spike-miller-act-bridge.md` | Maps Miller's *Ex Machina* (2022) to AAD. Five new Section III dynamics elements identified. FSA ↔ DAG relationship analyzed (orthogonal, not competing). Sector condition blind to neutral drift — new concept "latent structural diversity" needed. Paths C/D (automata foundations) ruled out; Path B (Section III dynamics) recommended. |
 | FSA ↔ strategy-DAG | `msc/spike-fsa-dag-relationship.md` | Moore machine = behavioral surface; strategy DAG = epistemic interior. Orthogonal representations. DAG→FSA is lossy (discards causal semantics). FSA composition exact for behavior only; agent-level composition still approximate (ε* from internal state projection). |
 | Neutral drift ↔ Lyapunov | `msc/spike-neutral-drift-lyapunov.md` | Phases 1,5 map cleanly; Phases 2-3 invisible to sector condition; Phase 4 partial (coupling emergence missing). Missing concept: latent structural diversity — correction-architecture variation invisible to persistence analysis. Endogenous γ needed. |
+| SOC / composition speculation | `msc/speculation-soc-composition.md` | 2026-04-20. RG-style fixed-point argument: holonic composition + self-similarity → power-law tails. Inverse: scale-invariance constrains admissible composition, closure-as-consequence. "Optimal-at-critical" conjecture connects SOC to cognitive-cost framework. **Parked, speculation-grade.** |
+| Unity-to-closure mapping | `msc/spike-unity-closure-mapping.md` | 2026-04-20. **Reframes** unity-dimensions' direct-prediction claim to rate-distortion. Linear-Gaussian closed forms: $\varepsilon_o^2 \propto \sigma_o^2 (1-U_{\text{obs}})$, $\varepsilon_a^2 \propto (1-U_O)\cdot\kappa^2$. $(U_O, U_\Sigma)$ jointly control $\varepsilon_a$. §6: IB unification conjecture (seed). §10 addendum: non-degenerate Kalman shows **two-axis structure** — closure defect driven by sub-agent unity AND update-rule heterogeneity ($\Delta K$). Heterogeneity is a genuine gap in unity-dimensions. |
+| Mori-Zwanzig / composition | `msc/spike-mori-zwanzig-composition.md` | 2026-04-20. Target $\varepsilon^\ast \geq C\lVert K\rVert_{\ell^1}$ does NOT close (per-step vs trajectory type mismatch). What closes: zero-lag kernel bound $\varepsilon^\ast \geq \lVert Q_\Lambda U P_\Lambda\rVert_{\text{op}}$ when $f_c^{\text{MZ}} \notin \mathcal M_{\text{adm}}$. MZ-optimal $f_c^{\text{MZ}} = P_\Lambda U P_\Lambda$ gives concrete admissibility benchmark. Bridge-lemma contraction ↔ spectral gap of $Q_\Lambda U$. Stationarity fails for purposeful agents with diverging auxiliary state — bitter. |
 
 
 ## What's Settled
