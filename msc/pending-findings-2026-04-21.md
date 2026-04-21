@@ -53,7 +53,21 @@ The repair changes a core definition in `#composition-closure`. Best executed wi
 
 ---
 
-## Finding B — `observation-ambiguity-modulation` is architecture-contaminated (from Codex)
+## Finding B — `observation-ambiguity-modulation` is architecture-contaminated (from Codex) — RESOLVED 2026-04-22
+
+**Resolution.** The definition of $\mathcal{A}(e_\tau)$ has been recast as an observation-stream property at the Bayesian-optimal level:
+
+$$\mathcal{A}(e_\tau) = \frac{I(G;\, \Omega_\tau \mid e_\tau, M_{\tau^-})}{H(\Omega_\tau \mid e_\tau, M_{\tau^-})}$$
+
+under a reference goal prior $P_{\text{ref}}(G)$. No reference to hypothetical $\kappa = 0$ or $\kappa = 1$ processors appears in the definition — both quantities are Bayesian-optimal properties of the observation-world joint distribution. The architectural $\kappa_{\text{processing}}$ enters only through the explicit scope-condition composition $\kappa_{\text{eff}} = \kappa \cdot \mathcal{A}$. The bias bound simplifies cleanly to $\lVert\Delta M_{\text{bias}}\rVert \leq C \cdot \kappa \cdot I(G;\Omega\mid e,M)$ — a strict refinement of the coarser bound in `#section-ii-survival`.
+
+**Operational estimator** rewritten to use a reference interpreter as a measurement instrument (probing the observation's interpretive latitude under different goal-primings), not as the subject of measurement. The processor-probing form of $\hat\kappa_{\text{processing}}$ (present the same observation to the *agent under test* under different goals) has moved to `#directed-separation`, where it belongs canonically as a processor property.
+
+**Holistic scan result.** Six other logogenic segments (`ai-agent-as-act-agent`, `coupled-update-dynamics`, `coupled-diagnostic-framework`, `section-ii-survival`, `m-preservation`, `context-turnover`) were checked for similar architecture-contamination patterns. None carry the same category error — they use $\kappa_{\text{processing}}$ legitimately as a scope-classification primitive or as a parameter in bias bounds. The contamination was localized to `observation-ambiguity-modulation`; the holistic pass-and-fix pattern recommended by the pending-findings note was not warranted. Downstream consumers (`section-ii-survival` line 75, `coupled-diagnostic-framework` line 87) use the product form $\kappa \cdot \mathcal{A}$ and are unaffected by the reformulation.
+
+The below Problem / Repair direction / Estimated effort / Why deferred sections are retained for historical record.
+
+### Original finding
 
 **Problem.** `03-logogenic-agents/src/observation-ambiguity-modulation.md` defines ambiguity $A(e)$ using *hypothetical* $\kappa = 1$ and $\kappa = 0$ processors, then uses that definition downstream. The same segment's §79 concedes that the product form is not derived and the operational definitions are only proposals. The issue: the present variable is *architecture-contaminated* — it is defined by reference to hypothetical agent architectures rather than to a property of the observation stream itself. This makes it operationally muddy and not cleanly identifiable from data.
 
@@ -78,7 +92,7 @@ Recast $A(e)$ as a property of the observation event itself — e.g., the condit
 ## Notes for the next agent
 
 - Both findings should probably be executed in a single session (they are independent and neither blocks the other).
-- Finding A was resolved on 2026-04-22 (see its top stanza). **Finding B** is the remaining open item.
-- Historical prioritization note (retained for context): Finding A was the more theoretically load-bearing because it corrected a real definitional bug in `#composition-closure` preventing the timescale abstraction that was always part of its intent. **Finding B** is a logogenic-framework hygiene issue.
+- Both findings resolved on 2026-04-22 (see each's top stanza). This file now serves as a historical record of the 2026-04-21 audit residue and the 2026-04-22 resolution.
+- Historical prioritization note (retained for context): Finding A was the more theoretically load-bearing because it corrected a real definitional bug in `#composition-closure` preventing the timescale abstraction that was always part of its intent. Finding B was a logogenic-framework hygiene issue that recast an architecture-contaminated definition as an observation-stream property.
 - `msc/spike-ib-unification-plan.md` is the IB scoping spike that informed `#compression-operations`. It remains as the record for any future push toward full IB unification (currently deferred per the synthesis-first recommendation).
 - `msc/opus-audit-2026-04-21.md` is the master audit that drove the 2026-04-21 work. Its findings §1–4 and bigger-picture synthesis §1, §2, §3, §4 (partial), §5 are all addressed in the segments. §6 is embodied in `#sector-persistence-template`. §7 ($G_t$ as single object) and §8 (continuous convention hierarchy) are deferred as foundational moves awaiting the right context.

@@ -11,13 +11,9 @@ Two theoretical findings that survived the 2026-04-21 audit and were explicitly 
 
 Option 3 (per-macro-step formulation) executed. `#composition-closure` now carries the timescale ratio $K_c \geq 1$ alongside admissibility, rewrites $\varepsilon_x, \varepsilon_a, \varepsilon_o$ over macro-steps with window-aware $\Lambda_o, \Lambda_a$, restates (P1) at macro granularity, adds an explicit unit-consistency note to the bridge lemma, and records $K_c = 1$ as the previous-formulation special case. The sector-persistence-template instantiation table updated to show $e_m$ (trajectory error at macro-boundaries). The two-Kalman worked example continues to live at $K_c = 1$. See `msc/pending-findings-2026-04-21.md` Finding A for the closed-out resolution note.
 
-### Finding B — `#observation-ambiguity-modulation` is architecture-contaminated (MEDIUM)
+### ~~Finding B — `#observation-ambiguity-modulation` is architecture-contaminated~~ — RESOLVED 2026-04-22
 
-`03-logogenic-agents/src/observation-ambiguity-modulation.md` defines ambiguity $\mathcal{A}(e_\tau)$ using *hypothetical* $\kappa = 1$ and $\kappa = 0$ processors, conflating observation properties with processor properties. The variable should be a property of the observation stream itself (e.g., conditional entropy of the generative process given the event) so that the downstream $\kappa \times \mathcal{A}$ product is an explicit composition rather than built into the definition.
-
-**Repair direction:** recast $\mathcal{A}(e)$ as a domain quantity using the $\kappa_{\text{selection}} / \kappa_{\text{processing}}$ split from `msc/spike-kappa-hb-operationalization.md`. Preserve cross-references from `section-ii-survival`'s error-structure analysis.
-
-**Effort:** 60–90 minutes. Consider scoping a broader logogenic consistency pass first — other logogenic segments may make similar architecture-contaminated moves.
+$\mathcal{A}(e_\tau)$ recast as an observation-stream property at the Bayesian-optimal level: $I(G;\Omega\mid e,M) / H(\Omega\mid e,M)$ under a reference goal prior $P_{\text{ref}}(G)$. No hypothetical processors appear in the definition; $\kappa_{\text{processing}}$ enters only through the explicit composition $\kappa_{\text{eff}} = \kappa \cdot \mathcal{A}$ in the scope condition. The bias bound simplifies to $\lVert\Delta M_{\text{bias}}\rVert \leq C \cdot \kappa \cdot I(G;\Omega\mid e,M)$. The operational estimator $\hat{\mathcal{A}}$ now uses a reference interpreter as a measurement instrument; the processor-probing form of $\hat\kappa_{\text{processing}}$ moved to `#directed-separation` where it belongs canonically. Holistic scan of the six other logogenic segments: no similar contamination — the pattern was localized. See `msc/pending-findings-2026-04-21.md` Finding B for the closed-out resolution note.
 
 
 ## Active — Tier-C Deferrals (Opus 2026-04-21 bigger-picture synthesis)
