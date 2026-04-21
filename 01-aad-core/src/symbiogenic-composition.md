@@ -12,7 +12,7 @@ stage: draft
 
 # Hypothesis: Symbiogenic Composition
 
-Symbiogenesis is an asymmetric composition mechanism in which one agent (the *host*) integrates another (the *endosymbiont*) as a specialized sub-component, with the endosymbiont's objective gradually subsumed into the host's. It is distinct from peer coupling ( #composition-closure) and from population-level restructuring (extreme transition motif, per `msc/spike-miller-act-bridge.md`): symbiogenesis is how composite agents *come into existence* by crossing the #composition-scope-condition from below. The mechanism is well-attested empirically (eukaryote formation, firm mergers, legal-precedent adoption, language families) but formally underspecified within AAD. This segment captures the phenomenon and flags the specific formalization gaps.
+Symbiogenesis is an asymmetric composition mechanism in which one agent (the *host*) integrates another (the *endosymbiont*) as a specialized sub-component, with the endosymbiont's objective gradually subsumed into the host's. It is distinct from peer coupling ( #composition-closure) and from population-level restructuring (the extreme transition motif drawn from Miller 2022, discussed in #structural-adaptation-necessity): symbiogenesis is how composite agents *come into existence* by crossing the #composition-scope-condition from below. The mechanism is well-attested empirically (eukaryote formation, firm mergers, legal-precedent adoption, language families) but formally underspecified within AAD. This segment captures the phenomenon and flags the specific formalization gaps.
 
 ## Formal Expression
 
@@ -69,16 +69,14 @@ What is *not* derived within AAD:
 - A precise characterization of autonomy reduction (S-3). Why does the endosymbiont retain some autonomy rather than becoming fully deterministic?
 - Quantitative predictions — e.g., when symbiogenesis is favored over peer coupling, what governs the timescale of consolidation, under what conditions it reverses.
 
-The three dynamics (S-1), (S-2), (S-3) are proposed schemas, not results. A follow-up spike developing an AAD-specific dynamical model is the natural next step.
-
-Full discussion: `msc/spike-symbiogenic-composition.md`.
+The three dynamics (S-1), (S-2), (S-3) are proposed schemas, not results. A follow-up development of an AAD-specific dynamical model is the natural next step.
 
 ## Discussion
 
 **The role of this mechanism in Section III.** Three distinct composition mechanisms are now in scope:
 
 1. **Peer coupling** ( #composition-closure, #team-persistence, #tempo-composition) — sub-agents interact through shared environment; closure defect measures faithfulness of projection. $U_O$ held fixed above the scope threshold.
-2. **Extreme transition motif** (absorbed via `msc/spike-miller-act-bridge.md`; pending segments `#composition-transition-dynamics`, `#latent-structural-diversity`, `#endogenous-coupling`) — population-level restructuring via neutral drift / niche creation / cascading displacement. $U_O$ shifts across a population as agent types replace one another.
+2. **Extreme transition motif** (Miller 2022; introduced in #structural-adaptation-necessity; pending dedicated segments for composition-transition dynamics, latent structural diversity, and endogenous coupling) — population-level restructuring via neutral drift / niche creation / cascading displacement. $U_O$ shifts across a population as agent types replace one another.
 3. **Symbiogenesis** (this segment) — hierarchical absorption. $U_O$ crosses the composition scope condition from below, creating a composite that did not previously exist.
 
 Before symbiogenesis, the sub-agents were a multi-agent system ( #multi-agent-scope) but not a composite. After, the resulting composite is subject to all of AAD's composition machinery. The symbiogenic transition is the specific dynamical process of composite-agent identity creation.

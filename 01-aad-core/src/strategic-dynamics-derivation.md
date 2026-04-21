@@ -269,7 +269,7 @@ The critical experience is halved relative to the single-edge case. Each additio
 
 **Setup.** Goal $G$ reachable via two alternative actions $A_1, A_2$ (an OR-node), but both actions require a shared condition $C$ (a common-cause node). The L1 DAG factors the common cause above the OR-structure: $G = \text{AND}(C, G_{\text{sub}})$ where $G_{\text{sub}} = \text{OR}(A_1, A_2)$. Three leaves: condition $C$ with true probability $\theta_C$, actions $A_1, A_2$ with true conditional probabilities $\theta_{1|C}, \theta_{2|C}$. Agent selects $\varepsilon$-greedy among $A_1, A_2$ (only testable when $C = 1$). Mismatch vector: $\boldsymbol\delta_\Sigma = (\delta_C, \delta_{A_1}, \delta_{A_2})^T$.
 
-Plan confidence: $\hat P_\Sigma = \hat p_C \cdot [1 - (1 - \hat p_{A_1})(1 - \hat p_{A_2})]$. Reference value: $\Phi = \theta_C \cdot [1 - (1 - \theta_{1|C})(1 - \theta_{2|C})]$. At truth, $\hat P_\Sigma = \Phi = $ actual plan success probability (L1 is unbiased).
+Plan confidence: $\hat P_\Sigma = \hat p_C \cdot [1 - (1 - \hat p_{A_1})(1 - \hat p_{A_2})]$. Reference value: $\Phi = \theta_C \cdot [1 - (1 - \theta_{1|C})(1 - \theta_{2|C})]$. At truth, $\hat P_\Sigma = \Phi =$ actual plan success probability (L1 is unbiased).
 
 **Statement.** Under Beta-Bernoulli updating with observable condition $C$ and $\varepsilon$-greedy path selection, the expected correction function satisfies the sector condition globally with:
 
@@ -363,11 +363,11 @@ $$\delta_s \approx \mathbf{J}^T \boldsymbol\delta_c$$
 
 *[Derived (value-residual sector condition, linear case)]*
 
-When the correction in credence space is linear — $\mathbf{F}_c(\boldsymbol\delta_c) = \boldsymbol\eta \odot \boldsymbol\delta_c$ where $\eta_k = 1/(n_k+1)$ and $\odot$ is elementwise product — consider the sector ratio directly. Since $\delta_s = \mathbf{J}^T \boldsymbol\delta_c$ and $F_s = \mathbf{J}^T \mathbf{F}_c$:
+When the correction in credence space is linear — $\mathbf F_c(\boldsymbol\delta_c) = \boldsymbol\eta \odot \boldsymbol\delta_c$ where $\eta_k = 1/(n_k+1)$ and $\odot$ is elementwise product — consider the sector ratio directly. Since $\delta_s = \mathbf{J}^T \boldsymbol\delta_c$ and $F_s = \mathbf{J}^T \mathbf F_c$:
 
 $$\delta_s \cdot F_s = (\mathbf{J}^T \boldsymbol\delta_c)^T (\mathbf{J}^T \mathbf{F}_c) = \boldsymbol\delta_c^T \mathbf{J} \mathbf{J}^T \mathbf{F}_c$$
 
-For the linear case $\mathbf{F}_c = \eta_{\min} \boldsymbol\delta_c$ (using the worst-case uniform gain for the bound):
+For the linear case $\mathbf F_c = \eta_{\min} \boldsymbol\delta_c$ (using the worst-case uniform gain for the bound):
 
 $$\delta_s \cdot F_s = \eta_{\min} \cdot \boldsymbol\delta_c^T \mathbf{J} \mathbf{J}^T \boldsymbol\delta_c = \eta_{\min} \cdot \lVert\mathbf{J}^T \boldsymbol\delta_c\rVert^2 = \eta_{\min} \cdot \delta_s^2$$
 
@@ -387,13 +387,13 @@ This holds because $\mathbf{J}\mathbf{J}^T$ appears in both numerator and denomi
 
 *[Derived (from per-component sector condition + Jacobian non-negativity)]*
 
-When the correction is nonlinear but **componentwise** — each edge corrects independently, so $(\mathbf{F}_c)_k$ depends only on $(\boldsymbol\delta_c)_k$ — and the plan-value Jacobian is **non-negative** ($J_k \geq 0$ for all $k$), the transfer is lossless regardless of nonlinearity.
+When the correction is nonlinear but **componentwise** — each edge corrects independently, so $(\mathbf F_c)_k$ depends only on $(\boldsymbol\delta_c)_k$ — and the plan-value Jacobian is **non-negative** ($J_k \geq 0$ for all $k$), the transfer is lossless regardless of nonlinearity.
 
 **The per-component sector condition** (from Props B.1-B.4): for each edge $k$,
 
 $$(\boldsymbol\delta_c)_k \cdot (\mathbf{F}_c)_k \geq \alpha_c \cdot (\boldsymbol\delta_c)_k^2$$
 
-which gives $(\mathbf{F}_c)_k / (\boldsymbol\delta_c)_k \geq \alpha_c$ (the correction-to-mismatch ratio exceeds $\alpha_c$ for each edge independently).
+which gives $(\mathbf F_c)_k / (\boldsymbol\delta_c)_k \geq \alpha_c$ (the correction-to-mismatch ratio exceeds $\alpha_c$ for each edge independently).
 
 **Jacobian non-negativity** holds for all well-formed AND/OR DAGs: increasing any edge credence $p_k$ never decreases plan value $P_\Sigma$ (monotonicity of AND/OR propagation). Therefore $J_k = \partial P_\Sigma / \partial p_k \geq 0$ for all $k$.
 
@@ -414,26 +414,71 @@ $$\alpha_s = \alpha_c$$
 **When does componentwise correction hold?** For all cases in Props B.1, B.2, and B.4 — the standard Beta-Bernoulli update on each edge, including the stochastic (nonlinear) single-step realization. The correction IS nonlinear (the actual per-step update $(y - \hat p)/(n+1)$ is random, not proportional to $\delta_k$), but it is componentwise (each edge updates from its own observation independently).
 
 **When does it fail?** When edge corrections are coupled — correcting one edge changes another's correction direction. This occurs for:
-- **Unobservable intermediates (B.3):** The marginal Bayesian update couples edge posteriors. The correction for edge 2 depends on the joint posterior over both edges, not just on $(\boldsymbol\delta_c)_2$ alone.
-- **Shared observations:** If testing one arm gives partial information about another (correlated arms), corrections couple across edges.
+- **Unobservable intermediates (B.3) under marginal Bayesian updates:** The marginal Bayesian update couples edge posteriors. The correction for edge 2 depends on the joint posterior over both edges, not just on $(\boldsymbol\delta_c)_2$ alone. *And — critically — Prop B.3(a) showed that this scheme violates SA1 with $O(1/n)$ bias: there is no valid $\alpha_c$ for the marginal Bayesian update on coupled edges in the first place.* The per-edge bound must therefore be re-established before the Jacobian transfer can be applied.
+- **Shared observations:** If testing one arm gives partial information about another (correlated arms), corrections couple across edges — with an SA1 status that depends on the specific attribution scheme used to project the shared observation onto per-edge updates.
 
-For coupled corrections, the general Cauchy-Schwarz bound gives:
+*[Scope (coupled-case-applicability)]*
 
-$$\alpha_s \geq \frac{\alpha_c}{\kappa(\mathbf{J})^2}$$
+**The coupled-case Cauchy-Schwarz bound presupposes a valid $\alpha_c$.** For the bound $\alpha_s \geq \alpha_c / \kappa(\mathbf{J})^2$ to apply meaningfully, the per-edge sector condition must hold — i.e., the attribution scheme must satisfy SA1. Marginal Bayesian updates on coupled edges do *not* satisfy this precondition (Prop B.3(a)). The resolution is to replace marginal Bayesian with **gradient-based attribution** (Prop B.5d below), which recovers SA1 and yields a valid per-edge sector parameter that admits the Jacobian transfer with the $\kappa^2$ penalty.
 
-where $\kappa(\mathbf{J})$ is the condition number of the Jacobian (ratio of maximum to minimum singular values). This is the bound from the earlier analysis but it now applies only to the coupled case, not to all nonlinear corrections.
+**Per-edge vs. plan-level routes through coupling.** Prop B.3(b) already established an alternative route for the two-edge unobservable case: tracking at the plan level ($\hat\Phi = \hat p_1 \hat p_2$) with a single Beta posterior recovers SA1 directly, yielding $\alpha_\Sigma = 1/(n_\Phi + 1)$. The plan-level route works *without* needing the Jacobian bridge because it sidesteps per-edge attribution entirely. The gradient-based per-edge route works *through* the Jacobian bridge, preserving per-edge credences at the cost of the $\kappa^2$ penalty. Both routes give valid sector parameters; the choice depends on whether per-edge diagnostics or aggregate efficiency matters more.
 
-**The refined picture: nonlinearity is not the problem; inter-edge coupling is.** A nonlinear but componentwise correction transfers losslessly through any non-negative Jacobian. A coupled correction — even a linear one — incurs the condition-number penalty because the coupling can redirect correction away from the value-relevant direction.
+**The refined picture: nonlinearity is not the problem; inter-edge coupling combined with the attribution scheme is.** A nonlinear but componentwise correction transfers losslessly through any non-negative Jacobian. A coupled correction under a scheme that preserves SA1 (gradient-based) incurs the condition-number penalty because the coupling can redirect correction away from the value-relevant direction. A coupled correction under a scheme that violates SA1 (marginal Bayesian) has no valid $\alpha_c$ to transfer at all and must be replaced before B.5 applies.
+
+### Proposition B.5d: Gradient-Based Attribution Restores SA1 on Coupled Edges
+
+**Setup.** Same two-edge AND topology as B.3: edges with true probabilities $\theta_1, \theta_2$, credences $\hat p_1, \hat p_2$, plan probability $\hat P_\Sigma = \hat p_1 \hat p_2$, observable plan outcome $y_G \in \{0, 1\}$ with $\mathbb E[y_G] = \Phi = \theta_1 \theta_2$. Intermediate is unobservable.
+
+**Gradient-based per-edge update.** Distribute plan-level surprise proportionally to the Jacobian component:
+
+*[Formulation (gradient-attribution)]*
+
+$$\Delta \hat p_k \;=\; \frac{1}{n_k + 1} \cdot J_k \cdot (y_G - \hat P_\Sigma), \qquad J_k = \frac{\partial \hat P_\Sigma}{\partial \hat p_k}$$
+
+For the two-edge AND case, $J_1 = \hat p_2$, $J_2 = \hat p_1$.
+
+**Verification of SA1.** At truth ($\hat p_k = \theta_k$):
+
+$$\mathbb E[\Delta \hat p_k]\big\rvert_{\hat{\mathbf p} = \boldsymbol\theta} \;=\; \frac{J_k}{n_k + 1} \cdot \mathbb E[y_G - \hat P_\Sigma]\big\rvert_{\hat{\mathbf p} = \boldsymbol\theta}$$
+
+The bracket evaluates as: $\mathbb E[y_G] = \Phi$ by definition of $y_G$ as a Bernoulli outcome with mean $\Phi$; and $\hat P_\Sigma\big\rvert_{\hat{\mathbf p} = \boldsymbol\theta} = \theta_1 \theta_2 = \Phi$. Therefore $\mathbb E[y_G - \hat P_\Sigma]\big\rvert_{\hat{\mathbf p} = \boldsymbol\theta} = 0$, and:
+
+$$\mathbb E[\Delta \hat p_k]\big\rvert_{\hat{\mathbf p} = \boldsymbol\theta} \;=\; 0 \quad \text{for all } k. \qquad \text{(SA1 satisfied)}$$
+
+The contrast with marginal Bayesian is precise: the marginal scheme suffers from a $\Phi$-vs-$\theta_k$ mismatch (the update treats each edge's marginal likelihood rather than the joint), producing the $O(1/n)$ bias derived in Prop B.3(a). The gradient scheme distributes surprise via the Jacobian, which aligns the per-edge update direction with the plan-level gradient — and this gradient is zero at truth by construction.
+
+**Sector parameter (SA2').** With the gradient-based scheme, the per-edge correction is:
+
+$$F_k(\boldsymbol\delta) \;=\; \frac{J_k}{n_k + 1} \cdot (\Phi - \hat P_\Sigma) \;\approx\; \frac{J_k}{n_k + 1} \cdot \mathbf J^T \boldsymbol\delta$$
+
+where the approximation uses the first-order expansion $\hat P_\Sigma - \Phi \approx \mathbf J^T \boldsymbol\delta$ valid near truth. The per-edge sector bound is:
+
+$$\boldsymbol\delta^T \mathbf F(\boldsymbol\delta) \;\approx\; \sum_k \frac{J_k^2}{n_k + 1} \cdot (\mathbf J^T \boldsymbol\delta)^2 / \lVert\boldsymbol\delta\rVert \;\geq\; \frac{\sigma_{\min}(\mathbf J)^2}{\max_k(n_k + 1)} \lVert\boldsymbol\delta\rVert^2$$
+
+giving:
+
+$$\alpha_c^{\text{grad}} \;\geq\; \frac{\sigma_{\min}(\mathbf J)^2}{\max_k(n_k + 1)}$$
+
+**Transfer through B.5c.** Applying the coupled-case Cauchy-Schwarz bound:
+
+$$\alpha_s \;\geq\; \frac{\alpha_c^{\text{grad}}}{\kappa(\mathbf J)^2} \;=\; \frac{\sigma_{\min}(\mathbf J)^2 / \max_k(n_k+1)}{\sigma_{\max}(\mathbf J)^2 / \sigma_{\min}(\mathbf J)^2} \;=\; \frac{\sigma_{\min}(\mathbf J)^4}{\sigma_{\max}(\mathbf J)^2 \cdot \max_k(n_k+1)}$$
+
+The $\sigma_{\min}(\mathbf J)^4 / \sigma_{\max}(\mathbf J)^2$ factor is the full cost of coupled per-edge attribution — a steep penalty compared to the componentwise case. The plan-level route (B.3(b)) avoids this penalty entirely by tracking $\Phi$ as a single quantity with $\alpha_\Sigma = 1/(n_\Phi + 1)$, at the cost of losing per-edge diagnostics.
+
+**Why not proportional-blame or other schemes?** Proportional-blame distributes surprise proportionally to current credences: $\Delta \hat p_k \propto \hat p_k \cdot (y_G - \hat P_\Sigma) / \sum_j \hat p_j$. This violates SA1 because the proportionality factor $\hat p_k / \sum_j \hat p_j$ is not the gradient direction, so the distribution over edges does not align with the plan-level surprise's actual attribution. Only schemes whose per-edge update aligns with the Jacobian direction preserve SA1 for coupled edges; gradient-based is the canonical such scheme.
+
+**Claim.** For coupled edges with unobservable intermediates, gradient-based attribution is the minimal scheme that (a) satisfies SA1, (b) yields a well-defined per-edge sector parameter, (c) admits the Cauchy-Schwarz Jacobian transfer, and (d) permits per-edge diagnostics. Its $\sigma_{\min}^4 / \sigma_{\max}^2$ scaling is inherent to the coupled case, not an artifact of the scheme. $\square$
 
 ### B.5c: Implications
 
-Three regimes for the credence-to-value bridge:
+Four regimes for the credence-to-value bridge, indexed by correction type and attribution scheme:
 
-| Correction type | Edge coupling | Transfer | $\alpha_s$ |
-|---|---|---|---|
-| Linear | Any | Exact (Jacobian cancels) | $\alpha_c$ |
-| Nonlinear, componentwise | Independent edges | Exact ($J_k \geq 0$ preserves bound) | $\alpha_c$ |
-| Nonlinear, coupled | Coupled edges | $\kappa(\mathbf{J})^2$ penalty | $\alpha_c / \kappa^2$ |
+| Correction type | Edge coupling | Attribution | SA1 | Transfer | $\alpha_s$ |
+|---|---|---|---|---|---|
+| Linear | Any | — | Yes | Exact (Jacobian cancels) | $\alpha_c$ |
+| Nonlinear, componentwise | Independent edges | Per-edge Bayesian | Yes | Exact ($J_k \geq 0$ preserves bound) | $\alpha_c$ |
+| Nonlinear, coupled | Coupled edges | Gradient-based (Jacobian distribution) | Yes | $\kappa(\mathbf{J})^2$ penalty | $\alpha_c^{\text{grad}} / \kappa^2$ |
+| Nonlinear, coupled | Coupled edges | Marginal Bayesian | **No** (O(1/n) bias) | — (Jacobian bridge does not apply) | plan-level alternative ( #strategy-dag) |
 
 **Componentwise correction closes the gap for all verified cases.** Props B.1, B.2, and B.4 all use componentwise edge updates with non-negative Jacobian. The operational diagnostic $\delta_{\text{strategic}}$ inherits the sector condition from credence error with no penalty — even for the nonlinear (stochastic) single-step realization. The derivation validates the operational mismatch, not merely a surrogate.
 
@@ -444,7 +489,7 @@ Three regimes for the credence-to-value bridge:
 
 ## Epistemic Status
 
-*Conditional on the Beta-Bernoulli model.* Propositions B.1, B.2, B.4, and B.6 are *derived*: the sector-condition verification is exact algebra under the stated generative model. The persistence conditions follow by direct application of Proposition A.1 ( #sector-condition-derivation), which is independently established. Proposition B.3(a) (the SA1 violation) is also derived; B.3(b) reduces to B.1 by construction. Proposition B.5a (the credence-to-value bridge for linear correction) is *exact* — the Jacobian cancellation is algebraic, independent of DAG structure. Proposition B.5b (the nonlinear transfer) is *conditional on Jacobian regularity* — the condition-number bound requires $\sigma_{\min}(\mathbf{J}) \gt 0$, which holds for non-degenerate DAGs.
+*Conditional on the Beta-Bernoulli model.* Propositions B.1, B.2, B.4, and B.6 are *derived*: the sector-condition verification is exact algebra under the stated generative model. The persistence conditions follow by direct application of Proposition A.1 ( #sector-condition-derivation), which is independently established. Proposition B.3(a) (the SA1 violation) is also derived; B.3(b) reduces to B.1 by construction. Proposition B.5a (the credence-to-value bridge for linear correction) is *exact* — the Jacobian cancellation is algebraic, independent of DAG structure. Proposition B.5b (the componentwise nonlinear transfer) is *exact under non-negative Jacobian* — algebraic, no condition-number penalty. The coupled-edge case of B.5b is *conditional on (i) Jacobian regularity* — the condition-number bound requires $\sigma_{\min}(\mathbf{J}) \gt 0$, which holds for non-degenerate DAGs — *and (ii) an SA1-preserving attribution scheme* (gradient-based, Prop B.5d); marginal Bayesian attribution on coupled edges does not admit the Cauchy-Schwarz bound because SA1 fails upstream. Proposition B.5d (gradient-based attribution) is *derived* — SA1 verification is algebraic and the sector-parameter bound follows from standard singular-value analysis of the Jacobian.
 
 All results use the *expected-value* sector condition. A full stochastic treatment (Foster-Lyapunov or supermartingale convergence) would give probability bounds rather than expected-value bounds. The expected-value analysis gives the correct asymptotic behavior (posterior concentration at $O(1/\sqrt{n})$) but does not prove almost-sure convergence. For the stationary Beta-Bernoulli case, almost-sure convergence is guaranteed by the standard Bayesian consistency theorem independently of this derivation.
 
@@ -454,7 +499,7 @@ The time-varying $\alpha_\Sigma$ issue remains: since $n_k$ increases with each 
 
 1. ~~*General DAG topology.*~~ **Partially resolved.** Proposition B.6 verifies the first mixed AND/OR case (L1 augmented DAG with common-cause node). The three-way gating structure (condition testing × evidence starvation × exploration gating) appears to be the general pattern. Remaining: arbitrary mixed AND/OR DAGs with multiple common causes and deeper nesting.
 2. *Continuous outcomes.* The Beta-Bernoulli model gives conjugate, closed-form updates. Non-conjugate cases (continuous signals, partial observability) require approximate inference, and the sector condition must be verified for the approximation.
-3. *Modified sector condition for biased correction.* The $O(1/n)$ bias in the unobservable case (B.3a) could be accommodated by a sector-condition variant tolerating asymptotically vanishing bias, potentially recovering per-edge results.
+3. ~~*Modified sector condition for biased correction.*~~ **Resolved via Prop B.5d (gradient-based attribution).** The $O(1/n)$ bias in the unobservable case (B.3a) under marginal Bayesian updates is eliminated by switching to gradient-based attribution, which satisfies SA1 exactly at truth. Per-edge results are recovered under the gradient scheme at the $\sigma_{\min}^4 / \sigma_{\max}^2$ scaling. Alternative route (plan-level tracking, B.3(b)) remains available without the condition-number penalty.
 4. ~~*Correlated edges (L1/L2 scope).*~~ **Partially resolved.** Proposition B.6 verifies the sector condition for an L1 augmented DAG and confirms that L0 results transfer — but only with correct L1 construction (common cause factored above the correlation). The $\theta_C$ attenuation of $\alpha_\Sigma$ is the quantitative cost of honest calibration. The main open question: strategies where the common cause cannot be cleanly factored above the correlation (requiring conditioning-based propagation at cost $O(2^k)$).
 5. *Adaptive exploration.* Proposition B.4 uses fixed $\varepsilon$. Adaptive strategies (UCB, Thompson sampling) allocate exploration based on current uncertainty and should yield tighter sector bounds.
 

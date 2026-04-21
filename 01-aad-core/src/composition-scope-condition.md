@@ -55,8 +55,6 @@ All three routes express a single underlying requirement: *teleological alignmen
 
 The three alternative routes are not exhaustive but cover the well-understood cases. Practical $\epsilon_{\text{comp}}$ thresholds, and the relationship between the routes (whether they partition or overlap), are open.
 
-Full discussion of the motivation and consequences: `msc/spike-symbiogenic-composition.md`.
-
 ## Discussion
 
 **Why this is a scope condition, not merely a quality metric.** The existing #composition-closure framework treats any group admitting a low-$\varepsilon^\ast$ projection as a composite. This is mechanically defensible but runs into a category problem: a composite's purposeful substate $G_c = (O_c, \Sigma_c)$ requires a well-defined composite objective $O_c$. If the sub-agents' objectives do not align under any common $O_c$, then $G_c$ is ill-defined and the composite is a fiction. Closure defect can be computed (as a projection property), but calling the result a "composite agent" strains the term. Making this a scope condition resolves the category issue: composition applies where $G_c$ is well-defined.

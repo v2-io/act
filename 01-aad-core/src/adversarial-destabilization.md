@@ -17,29 +17,49 @@ When two agents are coupled such that one's praxis contributes to the other's di
 
 *[Derived (adversarial-destabilization, from sector-condition-stability)]*
 
-**Setup.** Let both agents $A$ and $B$ satisfy the sector condition (A1, A2', A3 from #sector-condition-derivation) with respective parameters $(\alpha_A, R_A, \rho_{A,\text{base}})$ and $(\alpha_B, R_B, \rho_{B,\text{base}})$. The coupling:
+**Setup.** Let both agents $A$ and $B$ satisfy the sector condition (A1, A2', A3 from #sector-condition-derivation) with respective parameters $(\alpha_A, R_A)$ and $(\alpha_B, R_B)$. The disturbance structure depends on whether the adversarial coupling enters as deterministic drift (Model D) or stochastic noise (Model S) — see #adversarial-exponent-regimes for the full regime taxonomy. The destabilization threshold takes different forms in the two cases.
 
-*[Assumption (Coupling Model)]*
+### Model D: Deterministic drift coupling
+
+*[Assumption (Coupling Model D)]* The coupling enters $B$'s disturbance bound additively:
 
 $$\rho_B = \rho_{B,\text{base}} + \gamma_A \cdot \mathcal{T}_A$$
 
-where $\gamma_A \gt 0$ represents the effectiveness of $A$'s actions at disrupting $B$'s environment.
+where $\gamma_A \gt 0$ is the effectiveness of $A$'s actions at disrupting $B$'s environment, and $\rho_{B,\text{base}}$ is the background deterministic disturbance (GA-2).
 
-**Result.** $B$'s ultimately bounded radius under coupled dynamics is:
+**Result (Model D).** $B$'s ultimately bounded radius under coupled dynamics is:
 
-$$R^*_B = \frac{\rho_{B,\text{base}} + \gamma_A \cdot \mathcal{T}_A}{\alpha_B}$$
+$$R^\ast_B = \frac{\rho_{B,\text{base}} + \gamma_A \cdot \mathcal{T}_A}{\alpha_B}$$
 
-$B$ diverges (exits its sector-condition region) when $R^\ast_B \gt R_B$, i.e., when:
+$B$ diverges (exits its sector-condition region) when $R^\ast_B \gt R_B$, giving the Model D destabilization threshold:
 
-$$\gamma_A \cdot \mathcal{T}_A \gt \alpha_B R_B - \rho_{B,\text{base}} = \Delta\rho^*_B$$
+$$\boxed{\;\mathcal{T}_A \;\gt\; \frac{\alpha_B R_B - \rho_{B,\text{base}}}{\gamma_A}\;} \quad \text{(Model D)}$$
 
-That is:
+Denote $\Delta\rho^\ast_B = \alpha_B R_B - \rho_{B,\text{base}}$, the deterministic adaptive reserve. $\square$
 
-$$\mathcal{T}_A \gt \frac{\Delta\rho^*_B}{\gamma_A}$$
+### Model S: Stochastic noise coupling
 
-Symmetrically, $B$ destabilizes $A$ when $\mathcal{T}_B \gt \Delta\rho^\ast_A / \gamma_B$.
+*[Assumption (Coupling Model S)]* The coupling enters $B$'s noise scale additively:
 
-The adversarial outcome depends on whether either agent can push the other past its stability limit. $\square$
+$$\sigma_B = \sigma_{B,\text{base}} + \gamma_A \cdot \mathcal{T}_A$$
+
+where the adversary's tempo increases the unpredictability of disturbances, not their systematic direction. Background disturbance is Gaussian (GA-2S) with scale $\sigma_{B,\text{base}}$.
+
+**Result (Model S).** From Proposition A.1S in #sector-condition-derivation, $B$'s ultimately bounded RMS radius is $R^\ast_B = \sigma_B \sqrt{n/(2\alpha_B)}$ (scalar $n = 1$ for the per-agent case). Substituting the coupled noise scale:
+
+$$R^\ast_B = \frac{\sigma_{B,\text{base}} + \gamma_A \cdot \mathcal{T}_A}{\sqrt{2\alpha_B}}$$
+
+$B$ diverges when $R^\ast_B \gt R_B$, giving the Model S destabilization threshold:
+
+$$\boxed{\;\mathcal{T}_A \;\gt\; \frac{R_B \sqrt{2\alpha_B} - \sigma_{B,\text{base}}}{\gamma_A}\;} \quad \text{(Model S)}$$
+
+**Scaling difference.** The Model D threshold is linear in $\alpha_B$ (correction rate); the Model S threshold is linear in $\sqrt{\alpha_B}$. A faster-correcting $B$ gains proportionally more protection in Model D than in Model S — consistent with the $b = 2$ vs $b = 3/2$ exponent distinction in #adversarial-exponent-regimes. $\square$
+
+### Unified view
+
+Symmetrically, $B$ destabilizes $A$ when the analogous threshold on $\mathcal T_B$ is exceeded — using the parameters of whichever model describes $A$'s disturbance structure. The adversarial outcome depends on whether either agent can push the other past its stability limit.
+
+**Regime selection in practice.** Model D fits situations where adversarial action produces persistent positional shifts (military maneuvering, API changes propagating through dependents, doctrinal initiative). Model S fits situations where adversarial action produces unpredictable perturbations around a stationary level (feints, randomized probing, market volatility). Mixed cases are handled by decomposing the disturbance into drift and noise components and applying both bounds additively.
 
 **Interpretation.** "Getting inside the opponent's OODA loop" has a precise Lyapunov characterization: Agent $A$ destabilizes Agent $B$ when $A$'s praxis, multiplied by coupling effectiveness, generates aporia in $B$ faster than $B$'s epistrophe can resolve it — specifically, when $A$'s tempo times coupling exceeds $B$'s adaptive reserve $\Delta\rho^\ast_B$. This captures:
 
@@ -59,7 +79,7 @@ With $\gamma_A$ now an increasing function of $\Vert\delta_B\Vert$, the disturba
 
 ## Epistemic Status
 
-The destabilization threshold is *exact* under the coupling model (which treats $\mathcal{T}_A$ as exogenous). The coupling model itself is an *assumption* — it decouples the agents rather than modeling the fully coupled dynamical system where both agents' mismatch states co-evolve. The analysis therefore characterizes the *destabilization threshold* (the conditions under which $A$ *can* push $B$ past its stability boundary) rather than the full transient dynamics. This is a worst-case bound, treating $A$ as operating at its steady-state tempo.
+Both Model D and Model S destabilization thresholds are *exact* under their respective coupling assumptions (which treat $\mathcal{T}_A$ as exogenous). The Model D threshold follows from the deterministic sector-condition steady state $R^\ast = \rho/\alpha$ (Prop A.1); the Model S threshold follows from the stochastic sector-condition steady state $R^\ast_S = \sigma\sqrt{n/(2\alpha)}$ (Prop A.1S). Both coupling models (additive to $\rho$ in Model D, additive to $\sigma$ in Model S) are *assumptions* — they decouple the agents rather than modeling the fully coupled dynamical system where both agents' mismatch states co-evolve. The analysis therefore characterizes the *destabilization threshold* (the conditions under which $A$ *can* push $B$ past its stability boundary) rather than the full transient dynamics. This is a worst-case bound, treating $A$ as operating at its steady-state tempo.
 
 The effects spiral (corollary) is *discussion-grade* — the positive-feedback mechanism is qualitatively clear, but formalizing the $\gamma_A(\Vert\delta_B\Vert)$ functional form and proving instability under it requires specifying how an agent's degrading model affects its action quality, which the theory does not yet formalize.
 
@@ -73,7 +93,7 @@ A full coupled Lyapunov analysis with a joint function $V(\delta_A, \delta_B)$ w
 
 **Agent opacity and coupling effectiveness.** $\gamma_A$ is stated as a parameter but its determinants are not decomposed. One key factor is how *legible* or *opaque* the target agent $B$ is to the adversary $A$. We adopt from Hafez et al. (2026) the backward predictive uncertainty $H_b = H(S, A \mid S')$ as a measure of agent opacity — how many distinct (state, action) pairs produce indistinguishable environment transitions. High $H_b$ means the agent is opaque; low $H_b$ means it is legible. In adversarial settings, $B$'s opacity directly affects $A$'s ability to model $B$'s correction function: low $H_b^{(B)}$ (transparent target) enables targeted disruption that maximizes $\gamma_A$, while high $H_b^{(B)}$ forces $A$ to act against an uncertain model, reducing effective $\gamma_A$. Symmetrically, high $H_b^{(A)}$ (opaque adversary) degrades $B$'s ability to anticipate $A$'s disruptions — increasing the effective observation uncertainty $U_o$ in $B$'s model of $A$. The coupling effectiveness is thus modulated by opacity in both directions: $\gamma_A \propto 1/H_b^{(A)} \cdot 1/H_b^{(B)}$ is a qualitative relationship (precise functional form is open). $H_b$ is the formal dual of observation quality $U_o$: where $U_o$ characterizes how well the agent sees the world, $H_b$ characterizes how well the world sees the agent. See the planned #agent-opacity segment for the formal definition and its role in cooperative coordination ( #team-persistence), where low $H_b$ (legibility) enables allies to coordinate without explicit communication.
 
-**Connection to Miller's extreme transition motif.** The effects spiral has a constructive counterpart: in Miller's (2022) coevolving automata model, the same self-reinforcing coupling mechanism drives *regime transitions* rather than collapse. An environmentally neutral variant accumulates through drift, creating a niche that a mutant in the opposing population exploits — a positive-feedback cascade that rapidly transforms both populations. The Lyapunov coupling model applies to both: destructive coupling (this segment) increases $\rho$, constructive coupling ( #team-persistence) decreases it. The difference is sign, not structure. The endogenous emergence of coupling — where $\gamma$ changes as population composition shifts — is the critical extension needed to formalize the full transition motif. See `msc/spike-miller-act-bridge.md` §6.2 and `msc/spike-neutral-drift-lyapunov.md`.
+**Connection to extreme transition dynamics (Miller 2022).** The effects spiral has a constructive counterpart: the same self-reinforcing coupling mechanism that drives destabilization here can drive *regime transitions* rather than collapse when the coupling is constructive rather than destructive. An environmentally neutral variant accumulates through drift, creating a niche that a mutant in the opposing population exploits — a positive-feedback cascade that rapidly transforms both populations. The Lyapunov coupling model applies to both signs: destructive coupling (this segment) increases $\rho$; constructive coupling ( #team-persistence) decreases it. The difference is sign, not structure. The endogenous emergence of coupling — where $\gamma$ changes as population composition shifts — is the critical extension needed to formalize the full transition motif; it is flagged as a gap in Section III's dynamics (see #structural-adaptation-necessity for the single-agent analog and the dynamics-level gaps enumerated in the OUTLINE).
 
 ## Working Notes
 
