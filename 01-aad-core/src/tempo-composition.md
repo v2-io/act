@@ -4,6 +4,7 @@ type: sketch
 status: sketch
 depends:
   - composition-closure
+  - sector-persistence-template
   - adaptive-tempo
 stage: draft
 ---
@@ -13,6 +14,8 @@ stage: draft
 The adaptive tempo of a composite agent is bounded from above by the sum of its sub-agents' tempos. The gap between aggregate potential and realized composite tempo is the coordination overhead — tempo consumed by internal reconciliation rather than external mismatch correction.
 
 ## Formal Expression
+
+This segment instantiates the sector-persistence template ( #sector-persistence-template) at the composite level with state variable $\xi = \delta_c$ (composite mismatch) and a decomposed effective disturbance $\rho_{\text{eff}} = \rho_{\text{ext}} + \varepsilon^\ast \nu_c$ — external environment plus closure-defect contribution from #composition-closure's bridge lemma. The template supplies the Lyapunov machinery; this segment's distinctive content is the tempo-equivalent form of the coordination overhead lower bound $C_{\text{coord}} \geq \varepsilon^\ast \nu_c$.
 
 Let $\mathcal T_i$ be the adaptive tempo of sub-agent $i$ within a composite group of $N$ agents. Let $\mathcal T_c$ be the adaptive tempo of the composite macro-agent $A_c$ defined by an admissible coarse-graining $\Lambda$.
 

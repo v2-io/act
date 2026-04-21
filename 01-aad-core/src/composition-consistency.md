@@ -27,7 +27,7 @@ For any system $S$ satisfying the scope condition ( #scope-condition), and any d
 
 Cross-level compatibility requires three successively more specific conditions, each with its own segment in Section III:
 
-1. **Scope**: The decomposition is a *composite* (not merely a multi-agent system) when #composition-scope-condition is satisfied — teleological alignment $U_O \geq \epsilon_{\text{comp}}$. Below this threshold, level-compatibility is vacuous (composition quantities are not well-defined, so there is nothing to be consistent about).
+1. **Scope**: The decomposition is a *composite* (not merely a multi-agent system) when #composition-scope-condition is satisfied — teleological alignment via at least one of three disjunctive routes (shared objective, hierarchical derivation, or mutual benefit). Without scope-satisfaction via any route, level-compatibility is vacuous (composition quantities are not well-defined, so there is nothing to be consistent about).
 
 2. **Admissibility**: Given a composite, its macro-dynamics are well-posed when the closure admissibility conditions (A1)-(A4) hold ( #composition-closure). These require AAD-shaped macro-state, macro-mismatch, macro-tempo, and sector-bounded correction at the composite level.
 
@@ -47,7 +47,7 @@ the composite description is likely well-posed. This is a *heuristic sufficient 
 
 The operational consequences decompose into three layers with distinct epistemic statuses:
 
-- **Scope selection** ( #composition-scope-condition, robust-qualitative): which decompositions constitute composites. The scope condition is proposal-grade; the threshold $\epsilon_{\text{comp}}$ is not yet operationalized in closed form but the three alternative routes (shared objective, hierarchical derivation, mutual benefit) cover well-understood cases.
+- **Scope selection** ( #composition-scope-condition, robust-qualitative): which decompositions constitute composites. The scope condition is a disjunction of three qualitatively distinct routes (shared objective, hierarchical derivation, mutual benefit); whether they reduce to a common scalar threshold is open. Coverage of well-understood cases holds via the disjunction.
 
 - **Admissibility of composite dynamics** ( #composition-closure, conditional): the (A1)-(A4) conditions are stated formally; the bridge lemma is conditional on the incremental sector bound (DA2'-inc), strictly stronger than (A4) alone.
 

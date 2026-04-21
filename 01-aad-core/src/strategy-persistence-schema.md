@@ -4,6 +4,7 @@ type: proposed-schema
 status: sketch
 depends:
   - sector-condition-stability
+  - sector-persistence-template
   - strategic-calibration
   - strategy-dag
 stage: draft
@@ -11,23 +12,54 @@ stage: draft
 
 # Proposed-schema: Strategy Persistence Schema
 
-The sector-condition mathematics ( #sector-condition-stability, #sector-condition-derivation) proves bounded mismatch for any system with: a mismatch state, a correction function satisfying sector bounds, and bounded disturbance. This mathematics is domain-agnostic — it doesn't care whether the mismatch is epistemic or strategic. If the strategic update dynamics can be shown to satisfy the same structural conditions, strategy persistence follows by the same result.
+The sector-persistence template ( #sector-persistence-template) proves bounded state for any system with a state variable, a correction function satisfying the sector condition, and bounded disturbance. The template is domain-agnostic — it applies to any state variable meeting its preconditions (T1)–(T3). This schema is the strategic-layer instantiation: if strategic update dynamics satisfy the template's preconditions, strategy persistence follows as a direct instance. A key additional requirement — absent from the epistemic instantiation but load-bearing here — is **experience discounting**, because the strategic sector parameter $\alpha_\Sigma$ decays monotonically with experience and requires an explicit forgetting mechanism to remain bounded below.
 
 ## Formal Expression
 
-*[Proposed Schema (strategy-persistence-schema)]*
+*[Proposed Schema (strategy-persistence-schema, from sector-persistence-template)]*
 
-**If** strategic update dynamics satisfy:
-- **(SA1)** Zero correction at zero strategic mismatch: when the mismatch state is zero, no revision occurs
-- **(SA2')** Local sector condition on strategic correction: the correction function is appropriately bounded
+**If** strategic update dynamics satisfy the template preconditions (T1)–(T3) of #sector-persistence-template for $\xi = \delta_\Sigma$ (a strategic mismatch state), together with:
+
+- **(SA1)** Zero correction at zero strategic mismatch (the template's (T1)): when the mismatch state is zero, no revision occurs
+- **(SA2')** Local sector condition on strategic correction (the template's (T2) for $\xi = \delta_\Sigma$): the correction function points inward with baseline efficiency $\alpha_\Sigma$ within a strategic reserve $R_\Sigma$
 - **(SA3)** Sufficient exploration (OR-nodes only): the action selection policy allocates correction capacity to all OR alternatives at a rate exceeding the strategic disturbance-to-reserve ratio
-- Bounded strategic disturbance: the rate at which the environment invalidates causal links is bounded
+- Bounded strategic disturbance at rate $\rho_\Sigma$ (the template's (T3)): the rate at which the environment invalidates causal links is bounded
 
 **Then** $\Sigma_t$ persists iff:
 
 $$\alpha_\Sigma \gt \frac{\rho_\Sigma}{R_\Sigma}$$
 
-where $\alpha_\Sigma$ is the strategic correction rate, $\rho_\Sigma$ is the strategic disturbance rate, and $R_\Sigma$ is the strategic reserve (tolerance for strategic mismatch before performance degrades catastrophically).
+directly by the template's Model D result. Here $\alpha_\Sigma$ is the strategic correction rate, $\rho_\Sigma$ is the strategic disturbance rate, and $R_\Sigma$ is the strategic reserve (tolerance for strategic mismatch before performance degrades catastrophically). The Model S instantiation replaces $\rho_\Sigma$ with $\sigma_\Sigma$ and gives $\alpha_\Sigma \gt n\sigma_\Sigma^2/(2R_\Sigma^2)$ under the same template.
+
+### Forgetting as Prerequisite
+
+*[Formulation (forgetting-prerequisite)]*
+
+The schema form above is an **instantaneous persistence check at the current experience level**, not a trajectory guarantee. For Beta-Bernoulli edge updates (the canonical verified case; see #strategic-dynamics-derivation Props B.1–B.6), the sector parameter has the form:
+
+$$\alpha_\Sigma = \frac{1}{n+1}$$
+
+where $n$ is the edge's accumulated experience (pseudo-count). Without a forgetting mechanism, $n$ grows monotonically with each observation, so $\alpha_\Sigma \to 0$ for every edge asymptotically. For any fixed $(\rho_\Sigma, R_\Sigma)$ with $\rho_\Sigma \gt 0$, every agent eventually violates the threshold. The structural identity with #persistence-condition — where $\alpha$ can be stationary — holds for the strategic case only under an explicit forgetting mechanism.
+
+**Exponential forgetting.** Replace the raw Beta-Bernoulli update with a discounted update: at each step, shrink the pseudo-counts by a factor $\lambda \in (0,1)$:
+
+$$\alpha_k \mapsto \lambda\,\alpha_k + y_k, \qquad \beta_k \mapsto \lambda\,\beta_k + (1-y_k)$$
+
+The effective sample size stabilizes at $n_{\text{eff}} \approx 1/(1-\lambda)$, giving steady-state sector parameter:
+
+$$\alpha_\Sigma^{\text{ss}} \approx 1 - \lambda$$
+
+**The forgetting prerequisite.** Combining with the schema's persistence form:
+
+$$(1 - \lambda) \gt \frac{\rho_\Sigma}{R_\Sigma} \quad\Longleftrightarrow\quad \lambda \lt 1 - \frac{\rho_\Sigma}{R_\Sigma}$$
+
+This is a **prerequisite of the schema's trajectory guarantee, not a tunable heuristic**. An agent without forgetting has no long-run strategic persistence regardless of its initial $\alpha_\Sigma$. The forgetting rate $(1-\lambda)$ must exceed the disturbance-to-reserve ratio, or the instantaneous persistence check — no matter how comfortably it holds at any given time — eventually fails as experience accumulates.
+
+The strategic analog of #persistence-condition's linear operational form is therefore:
+
+$$(1 - \lambda) \gt \frac{\rho_\Sigma}{R_\Sigma}$$
+
+playing the role that $\mathcal{T} \gt \rho / \lVert\delta_{\text{critical}}\rVert$ plays for the epistemic case. The forgetting rate $(1-\lambda)$ is the strategic analog of adaptive tempo: faster forgetting means faster tracking but noisier estimates; slower forgetting means stable estimates but slower tracking. The optimal $\lambda$ balances bias and variance for the specific $\rho_\Sigma$ the environment presents.
 
 **Which mismatch state?** The schema applies to any mismatch state for which conditions (SA1)-(SA3) can be verified. Two candidates exist:
 
@@ -40,13 +72,13 @@ The verified instances below all use per-edge credence error $\boldsymbol\delta_
 
 *Sketch, with verified instances.* This is a **result schema**, not a proven result in the general case. The mathematical template (sector conditions → bounded mismatch) is derived ( #sector-condition-derivation). What was missing was instantiation — showing that specific strategic update dynamics satisfy the template's preconditions. Four cases have now been verified (full derivations in #strategic-dynamics-derivation):
 
-1. **Single edge, Beta-Bernoulli** ($A \to G$): Sector condition satisfied globally with $\alpha_\Sigma = 1/(n+1)$. The bound is tight (expected correction is exactly linear). (A1) satisfied. Persistence condition: $1/(n+1) > \rho_\Sigma / R_\Sigma$.
+1. **Single edge, Beta-Bernoulli** ($A \to G$): Sector condition satisfied globally with $\alpha_\Sigma = 1/(n+1)$. The bound is tight (expected correction is exactly linear). (A1) satisfied. Persistence condition: $1/(n+1) \gt \rho_\Sigma / R_\Sigma$.
 
 2. **Two-edge chain, observable intermediate** ($A \to B \to G$, $B$ observable): Sector condition satisfied globally with $\alpha_\Sigma = \min(1/(n_1+1), \theta_1/(n_2+1))$ — a weakest-link result. Correction function is diagonal (no cross-edge coupling). (A1) satisfied. The $\theta_1$ factor in edge 2's rate is the evidence-starvation effect.
 
 3. **Two-edge chain, unobservable intermediate** ($A \to B \to G$, $B$ not observable): Per-edge sector condition **fails** — the marginal Bayesian update violates (A1) with bias $O(1/n)$. But plan-level tracking (treating $\hat{\Phi} = p_1 p_2$ as a single Beta) recovers the sector condition with $\alpha_{\Sigma,\text{plan}} = 1/(n_\Phi + 1)$, at the cost of per-edge diagnostic resolution.
 
-4. **Two-arm OR-node, $\varepsilon$-greedy** ($A_1, A_2 \to G$, $G$ is OR): Sector condition satisfied with $\alpha_\Sigma = \min((1-\varepsilon)/(n_1+1),\; \varepsilon/(n_2+1))$ — an **exploration-gated** weakest-link, not depth-gated as in AND chains. (SA3) required: minimum exploration rate $\varepsilon > \rho_\Sigma(n_{\max}+1)/R_\Sigma$. Pure greedy ($\varepsilon = 0$) **fails** the sector condition. With optimal equal-rate allocation, $\alpha_\Sigma = 1/(n_1 + n_2 + 2)$ — the correction capacity is split across alternatives.
+4. **Two-arm OR-node, $\varepsilon$-greedy** ($A_1, A_2 \to G$, $G$ is OR): Sector condition satisfied with $\alpha_\Sigma = \min((1-\varepsilon)/(n_1+1),\; \varepsilon/(n_2+1))$ — an **exploration-gated** weakest-link, not depth-gated as in AND chains. (SA3) required: minimum exploration rate $\varepsilon \gt \rho_\Sigma(n_{\max}+1)/R_\Sigma$. Pure greedy ($\varepsilon = 0$) **fails** the sector condition. With optimal equal-rate allocation, $\alpha_\Sigma = 1/(n_1 + n_2 + 2)$ — the correction capacity is split across alternatives.
 
 The schema is no longer purely hypothetical. The sector parameter for strategic dynamics is the edge update gain $\eta_{\text{edge}}$ — the same quantity that governs epistemic persistence. The structural parallel between epistemic and strategic persistence is not an analogy but a mathematical identity at the sector-framework level.
 
@@ -64,7 +96,9 @@ The schema is no longer purely hypothetical. The sector parameter for strategic 
 
 5. ~~**Credit assignment / signal function**: needed for edge updates.~~ **Characterized at the theory level.** #credit-assignment-boundary shows persistence does not require credit assignment (Prop B.5), establishes directional fidelity as the minimal requirement, and provides a gradient-based default signal function. The specific update algorithm is domain engineering, not theory — the same way the gain *estimator* is domain engineering while the gain *principle* ($\eta^\ast = U_M/(U_M + U_o)$) is theory. Caveat: the default gradient signal inherits $\hat P_\Sigma$'s overestimation bias under correlated failures ( #strategy-dag, #credit-assignment-boundary).
 
-**The structural parallel is genuine.** This schema extends *structural persistence* (see Persistence in `LEXICON.md`) from the epistemic substate to the strategy substate — asking whether the strategy correction machinery can outpace the rate at which the environment invalidates the agent's causal theory. It inherits the same limitation: structural persistence of $\Sigma_t$ does not address operational persistence (how close $\lVert\delta_{\text{strategic}}\rVert$ is to $R_\Sigma$) or continuity persistence (whether the agent's strategic identity coheres through time). The persistence condition for $M_t$ ( #persistence-condition) says: adaptive tempo must exceed the ratio of disturbance to critical mismatch. If the same mathematics applies to $\Sigma_t$, then strategy persistence requires strategic tempo to exceed the ratio of strategic disturbance to critical strategic mismatch. The strategic analog of "the environment changes faster than the agent can learn" is "the world invalidates plans faster than the agent can revise them." Both lead to the same catastrophic outcome: the system cannot maintain bounded mismatch and begins to degrade.
+6. **Time-varying $\alpha_\Sigma$**: this is where the strategic case genuinely differs from the epistemic one. For Beta-Bernoulli edges, $\alpha_\Sigma = 1/(n+1)$ decays monotonically with experience, so the sector-persistence template's constant-$\alpha$ precondition cannot hold asymptotically under any raw Bayesian update. The resolution is the **forgetting prerequisite** promoted into the Formal Expression above: exponential forgetting with $(1-\lambda) \gt \rho_\Sigma / R_\Sigma$ stabilizes $\alpha_\Sigma$ at $1-\lambda$ and converts the schema's instantaneous check into a trajectory guarantee. This is structural, not heuristic — without forgetting, the schema's form holds only until the agent accumulates enough experience to cross below threshold.
+
+**The structural parallel is genuine, but conditional on forgetting.** This schema extends *structural persistence* (see Persistence in `LEXICON.md`) from the epistemic substate to the strategy substate — asking whether the strategy correction machinery can outpace the rate at which the environment invalidates the agent's causal theory. It inherits the same limitation: structural persistence of $\Sigma_t$ does not address operational persistence (how close $\lVert\delta_{\text{strategic}}\rVert$ is to $R_\Sigma$) or continuity persistence (whether the agent's strategic identity coheres through time). The persistence condition for $M_t$ ( #persistence-condition) says: adaptive tempo must exceed the ratio of disturbance to critical mismatch. If the same mathematics applies to $\Sigma_t$, then strategy persistence requires strategic tempo to exceed the ratio of strategic disturbance to critical strategic mismatch. The strategic analog of "the environment changes faster than the agent can learn" is "the world invalidates plans faster than the agent can revise them." Both lead to the same catastrophic outcome: the system cannot maintain bounded mismatch and begins to degrade.
 
 **What this would buy the theory.** If promoted to a result, strategy persistence would:
 - Provide a formal criterion for "when does a strategy remain viable?"
@@ -74,7 +108,8 @@ The schema is no longer purely hypothetical. The sector parameter for strategic 
 
 ## Working Notes
 
-- **Done.** Five cases verified: single-edge AND, two-edge AND (observable and unobservable intermediate), two-arm OR ($\varepsilon$-greedy), and mixed AND/OR with common-cause node (L1 augmented DAG). Full derivations in #strategic-dynamics-derivation (Props B.1–B.6). Key findings: AND-node persistence is depth-gated (evidence starvation); OR-node persistence is exploration-gated (action selection policy); L1 augmented DAGs exhibit three-way gating (condition testing × starvation × exploration). All satisfy the schema's form ($\alpha_\Sigma > \rho_\Sigma/R_\Sigma$). B.6 is the first mixed AND/OR case and confirms L1 results transfer from L0 with correct construction. The next step is deeper mixed topologies and multiple common causes.
-- **Strategic tempo now formalized.** #strategic-tempo defines $\mathcal{T}_\Sigma = \sum_{(i,j)} \nu_{ij} \cdot \eta_{\text{edge},ij}$ and verifies consistency with all four cases. The relationship to the schema's sector parameter: $\alpha_\Sigma \leq \mathcal{T}_\Sigma / |E|$ (persistence is bottleneck-limited, not throughput-limited). #strategy-complexity-cost provides the IB/MDL framework for strategy compression and derives max useful depth $d^\ast$.
+- **Done.** Five cases verified: single-edge AND, two-edge AND (observable and unobservable intermediate), two-arm OR ($\varepsilon$-greedy), and mixed AND/OR with common-cause node (L1 augmented DAG). Full derivations in #strategic-dynamics-derivation (Props B.1–B.6). Key findings: AND-node persistence is depth-gated (evidence starvation); OR-node persistence is exploration-gated (action selection policy); L1 augmented DAGs exhibit three-way gating (condition testing × starvation × exploration). All satisfy the schema's form ($\alpha_\Sigma \gt \rho_\Sigma/R_\Sigma$). B.6 is the first mixed AND/OR case and confirms L1 results transfer from L0 with correct construction. The next step is deeper mixed topologies and multiple common causes.
+- **Strategic tempo now formalized.** #strategic-tempo defines $\mathcal T_\Sigma = \sum_{(i,j)} \nu_{ij} \cdot \eta_{\text{edge},ij}$ and verifies consistency with all four cases. The relationship to the schema's sector parameter: $\alpha_\Sigma \leq \mathcal T_\Sigma / \lvert E\rvert$ (persistence is bottleneck-limited, not throughput-limited). #strategy-complexity-cost provides the IB/MDL framework for strategy compression and derives max useful depth $d^\ast$.
 - The strategic disturbance $\rho_\Sigma$ is qualitatively different from epistemic disturbance $\rho$. Epistemic disturbance is about the environment changing (physical state evolves). Strategic disturbance is about the agent's causal theory becoming invalid (the intervention-outcome mapping shifts). These can be correlated (a changing environment invalidates both model and strategy) but they're not the same quantity.
 - The stochastic treatment (from track-b simulations) suggests $\rho_\Sigma / \sqrt{\mathcal T_\Sigma}$ rather than $\rho_\Sigma / \mathcal T_\Sigma$ for the steady-state strategic mismatch. If this carries over from the epistemic domain, the persistence threshold is different in the stochastic case. Whether strategic disturbance is better modeled as deterministic or stochastic drift is domain-dependent.
+- The forgetting prerequisite transforms an organizational platitude ("stay adaptive") into a quantitative constraint: the rate at which an agent discounts old evidence must exceed the rate at which its environment invalidates plans. Institutional examples where this fails — long-running successful firms whose accumulated $n$ suppresses gain below the threshold set by a shifting competitive landscape — are the strategic analog of model-rigidity death spirals. The threshold is precisely $(1-\lambda) = \rho_\Sigma / R_\Sigma$, marking the point at which no amount of prior learning protects against a sufficiently volatile environment.

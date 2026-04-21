@@ -9,6 +9,7 @@ depends:
   - event-driven-dynamics
   - sector-condition-stability
   - sector-condition-derivation
+  - sector-persistence-template
   - persistence-condition
 stage: draft
 ---
@@ -116,7 +117,9 @@ This prevents the trivial identity projection, which achieves $\varepsilon^\ast 
 
 ### Bridge lemma: closure defect to trajectory error
 
-*[Derived (bridge-lemma, from sector-condition-derivation + A4 + contraction assumption)]*
+*[Derived (bridge-lemma, from sector-persistence-template + A4 + contraction assumption)]*
+
+This lemma instantiates the sector-persistence template ( #sector-persistence-template) with state variable $\xi = e_t$ (trajectory error), correction function $f_c(\cdot, o) - \tilde X_{c,t+1}$, and effective disturbance rate $\rho_\xi = \varepsilon^\ast \nu_c$ (closure defect injected per macro-step). The template's conclusion — bounded state $\lVert e_t\rVert \leq \varepsilon^\ast \nu_c / \alpha_c$ — is precisely the bridge bound below. What the bridge lemma adds beyond the template is the tier-specific **contraction assumption** strictly stronger than (T2): the macro-update map must be contracting in its state argument (incremental sector bound DA2'-inc), not just one-point sector-bounded. This is where the Tier 1/2/3 structure enters.
 
 If the macro-dynamics satisfy (A4) **and** the sector condition on the correction function implies contraction of the full update map $f_c(\cdot, o)$ in its state argument, then bounded closure defect implies bounded trajectory error.
 
@@ -142,7 +145,7 @@ As $t \to \infty$:
 
 $$\limsup_{t \to \infty} \lVert e_t \rVert \leq \frac{\varepsilon_x}{1 - \lambda} = \frac{\varepsilon_x \nu_c}{\alpha_c}$$
 
-Since the closure defect $\varepsilon^\ast$ is the per-step error and $\varepsilon^\ast \nu_c$ is the closure error rate (per-step error × steps per unit time), this bound has the same structure as $\rho / \alpha$ from #persistence-condition — a ratio of disturbance rate to correction rate.
+Since the closure defect $\varepsilon^\ast$ is the per-step error and $\varepsilon^\ast \nu_c$ is the closure error rate (per-step error × steps per unit time), this bound has the same structure as $\rho / \alpha$ from #persistence-condition — a ratio of disturbance rate to correction rate. This is the sector-persistence template ( #sector-persistence-template) applied with $\rho_\xi = \varepsilon^\ast \nu_c$, not a separate derivation.
 
 **Condition for meaningful composition.** The bound must fit within the sector-condition region:
 

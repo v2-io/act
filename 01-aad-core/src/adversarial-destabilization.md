@@ -5,6 +5,7 @@ status: conditional
 depends:
   - sector-condition-stability
   - sector-condition-derivation
+  - sector-persistence-template
   - adaptive-tempo
 stage: draft
 ---
@@ -15,7 +16,9 @@ When two agents are coupled such that one's praxis contributes to the other's di
 
 ## Formal Expression
 
-*[Derived (adversarial-destabilization, from sector-condition-stability)]*
+This segment is the sector-persistence template ( #sector-persistence-template) applied with coupling-amplified disturbance: $\rho_B = \rho_{B,\text{base}} + \gamma_A \mathcal T_A$ (Model D) or $\sigma_B = \sigma_{B,\text{base}} + \gamma_A \mathcal T_A$ (Model S). The destabilization threshold is the **negation** of the template's persistence condition for agent $B$: destabilization occurs precisely when the coupling-amplified disturbance violates $\alpha_B R_B \gt \rho_B$. Persistence and destabilization are the same inequality viewed in opposite directions. The superlinear adversarial scaling ( #adversarial-tempo-advantage) follows from the template's $1/\alpha$ (Model D) versus $1/\sqrt{\alpha}$ (Model S) scaling, not from separate derivation.
+
+*[Derived (adversarial-destabilization, from sector-persistence-template)]*
 
 **Setup.** Let both agents $A$ and $B$ satisfy the sector condition (A1, A2', A3 from #sector-condition-derivation) with respective parameters $(\alpha_A, R_A)$ and $(\alpha_B, R_B)$. The disturbance structure depends on whether the adversarial coupling enters as deterministic drift (Model D) or stochastic noise (Model S) — see #adversarial-exponent-regimes for the full regime taxonomy. The destabilization threshold takes different forms in the two cases.
 

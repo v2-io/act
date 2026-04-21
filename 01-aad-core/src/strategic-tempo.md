@@ -13,20 +13,31 @@ stage: draft
 
 # Definition: Strategic Tempo
 
-The effective rate at which an agent acquires useful revisions to its strategy $\Sigma_t$ --- the sum of per-edge correction capacities across the strategy DAG.
+The effective rate at which an agent acquires useful revisions to its strategy $\Sigma_t$ --- the sum of per-edge correction capacities across the strategy DAG, weighted by each edge's causal identifiability.
 
 ## Formal Expression
 
 *[Definition (strategic-tempo)]*
 
-$$\mathcal T_\Sigma = \sum_{(i,j) \in E} \nu_{ij} \cdot \eta_{\text{edge},ij}$$
+$$\mathcal T_\Sigma = \sum_{(i,j) \in E} \nu_{ij} \cdot \eta_{\text{edge},ij} \cdot \iota_{ij}$$
 
 where:
 - $(i,j)$ indexes the edges of the strategy DAG ( #strategy-dag)
 - $\nu_{ij}$ is the effective observation rate for edge $(i,j)$ --- how often the agent obtains evidence about the causal link $i \to j$
 - $\eta_{\text{edge},ij}$ is the per-edge update gain ( #edge-update-via-gain)
+- $\iota_{ij} \in [0, 1]$ is the identifiability coefficient ( #edge-update-causal-validity): the fraction of the evidence stream that genuinely identifies the edge's causal effect
 
-**Parallel with epistemic tempo.** The definition mirrors #adaptive-tempo's $\mathcal{T} = \sum_k \nu^{(k)} \cdot \eta^{(k)\ast}$, replacing observation channels with strategy edges and epistemic gain with edge gain. The structural parallel is exact: both are sums of (rate $\times$ quality) products over correction channels.
+**Regime contributions.** The identifiability coefficient captures the regime distinction from #edge-update-causal-validity:
+
+| Regime | $\iota_{ij}$ | Contribution to $\mathcal T_\Sigma$ | Example domain |
+|---|---|---|---|
+| **A** Intervention-rich | $\approx 1$ | Full: $\nu_{ij} \cdot \eta_{\text{edge},ij}$ | Software tests, laboratory experiments |
+| **B** Partial intervention | $\in (0, 1)$ | Reduced proportionally | Organizational actions with concurrent effects |
+| **C** Observation-only | $\approx 0$ | Near-zero: edges contribute negligibly | Passive monitoring, intelligence analysis |
+
+**An agent cannot improve the parts of its strategy that it cannot test interventionally.** This is the operational content of the $\iota$ factor: Regime-C edges contribute essentially nothing to $\mathcal T_\Sigma$ regardless of how fast the agent acts or how many observations it makes. Regime-A edges yield full strategic tempo at their observation rate. The $\iota$ factor is where edge-causal-validity ( #edge-update-causal-validity) enters the operational machinery of strategy revision.
+
+**Parallel with epistemic tempo.** The definition mirrors #adaptive-tempo's $\mathcal{T} = \sum_k \nu^{(k)} \cdot \eta^{(k)\ast}$, replacing observation channels with strategy edges and adding the $\iota$ modulation for causal identifiability. The structural parallel is exact for Regime-A edges (where $\iota = 1$ recovers the direct rate-times-gain form); in mixed regimes, $\iota$ carries the additional content distinguishing interventional evidence from associational proxy.
 
 **Key difference: endogenous edge rates.** Epistemic tempo's channel rates $\nu^{(k)}$ are largely exogenous --- the environment generates observations at its own pace. Strategic tempo's edge rates $\nu_{ij}$ are *endogenous*: they depend on the agent's action policy (which edges get tested) and on upstream success (downstream edges are tested only when upstream edges fire). This endogeneity is the source of the structural differences between epistemic and strategic persistence.
 
@@ -63,16 +74,6 @@ This converges to $\nu / ((n+1)(1-\theta))$ as $d \to \infty$ --- total strategi
 $$\nu_l = \begin{cases} \nu(1 - \varepsilon + \varepsilon/m) & l = l^\ast \text{ (greedy arm)} \\ \nu \cdot \varepsilon/m & l \neq l^\ast \text{ (exploratory arms)} \end{cases}$$
 
 The bottleneck is the least-explored alternative. Pure greedy ($\varepsilon = 0$) gives $\nu_l = 0$ for non-greedy arms, making those edges permanently uncorrectable.
-
-### Regime adjustment via identifiability
-
-By #edge-update-causal-validity, the effective gain on each edge is modulated by the identifiability coefficient $\iota_{ij} \in [0, 1]$:
-
-*[Definition (identifiability-adjusted strategic tempo)]*
-
-$$\mathcal T_\Sigma = \sum_{(i,j) \in E} \nu_{ij} \cdot \iota_{ij} \cdot \eta_{\text{edge},ij}$$
-
-where $\iota_{ij} = 1$ for directly intervened edges with attributable outcomes (Regime A in #edge-update-causal-validity), $\iota_{ij} \lt 1$ for edges requiring observational proxy or partial identification, and $\iota_{ij} = 0$ for edges that are causally unidentifiable. This ensures the tempo accounts for the quality of causal evidence, not just its quantity.
 
 ### Per-edge persistence
 

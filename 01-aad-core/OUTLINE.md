@@ -92,6 +92,7 @@ Every slug is linked to its intended `src/{slug}.md` file, even when that file d
 | II  | Definition      |     | [#satisfaction-gap](src/satisfaction-gap.md)                                           | Ideal vs best achievable                                         | claims-verified |
 | II  | Definition      |     | [#control-regret](src/control-regret.md)                                               | Best achievable vs current                                       | claims-verified |
 | II  | Definition      |     | [#strategic-calibration](src/strategic-calibration.md)                                 | Edge residuals ( #credit-assignment-boundary)                    | draft |
+| II  | Derived         |     | [#causal-insufficiency-detection](src/causal-insufficiency-detection.md)               | Detecting latent common causes from structured residuals + interventional localization | draft |
 | II  | Derived         |     | [#orient-cascade](src/orient-cascade.md)                                               | Resolution order by info dep                                     | deps-verified |
 | II  | Derived         |     | [#observability-dominance](src/observability-dominance.md)                             | Unobservable edges freeze                                        | draft |
 | II  | Hypothesis      |     | [#edge-update-via-gain](src/edge-update-via-gain.md)                                   | Gain extends to strategy edges                                   | draft |
@@ -101,7 +102,6 @@ Every slug is linked to its intended `src/{slug}.md` file, even when that file d
 | II  | Definition      |     | [#strategic-tempo](src/strategic-tempo.md)                                             | Rate of useful $\Sigma_t$ revision                               | draft |
 | II  | Formulation     |     | [#strategy-complexity-cost](src/strategy-complexity-cost.md)                           | Complexity cost of maintaining $\Sigma_t$ (IB/MDL for DAGs)      | draft |
 | II  | Proposed schema |     | [#strategy-persistence-schema](src/strategy-persistence-schema.md)                     | Sector conditions for $\Sigma_t$                                 | draft |
-| II  | Derived         |     | [#causal-insufficiency-detection](src/causal-insufficiency-detection.md)               | Detecting latent common causes from structured residuals + interventional localization | draft |
 | II  | Discussion      |     | [#exploit-explore-deliberate](src/exploit-explore-deliberate.md)                       | Three-way exploit/explore/deliberate: extended deliberation threshold + conceptual framing | draft |
 
 
@@ -153,6 +153,7 @@ Every slug is linked to its intended `src/{slug}.md` file, even when that file d
 | §   | Type       | N   | Tag                                                                    | Claim                                                                 | Stage   |
 | --- | ---------- | --- | ---------------------------------------------------------------------- | --------------------------------------------------------------------- | ------- |
 | A   | Derivation |     | [#sector-condition-derivation](src/sector-condition-derivation.md)     | Lyapunov derivations for bounded mismatch and adaptive reserve        | claims-verified |
+| A   | Result     |     | [#sector-persistence-template](src/sector-persistence-template.md)     | Abstract sector-persistence template; six AAD results as instances    | draft   |
 | A   | Derivation |     | [#gain-sector-derivation](src/gain-sector-derivation.md)               | Gain-sector bridge proofs: Kalman, gradient equivalence, verification | deps-verified |
 | A   | Derivation |     | [#recursive-update-derivation](src/recursive-update-derivation.md)     | Uniqueness derivation via three constraints + counterexamples         | claims-verified |
 | A   | Sketch     |     | [#multi-timescale-stability](src/multi-timescale-stability.md)         | N-timescale singular perturbation sketch                              | draft   |

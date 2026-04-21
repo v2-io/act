@@ -28,21 +28,32 @@ $$p_{ij}^{\text{new}} = p_{ij} + \eta_{\text{edge}} \cdot (\text{signal}(o_t, i,
 
 drives credences toward truth. The problem is trivial when all intermediates are observable (each edge updates from its own observation) and genuinely hard when intermediates are unobservable and the DAG has shared structure.
 
-### Default Signal Function (Gradient-Based Attribution)
+### Default Signal Function (Gradient-Based Attribution, Regime-Aware)
 
 *[Formulation (gradient-signal-function)]*
 
-AAD's default signal function for edge updates, analogous to $\eta^\ast = U_M/(U_M + U_o)$ being the default gain:
+Any edge-update signal function decomposes along three independent axes: *what happened* at the child node, *whether that outcome is attributable* to the specific edge being updated, and *how causal* the evidence is:
 
-$$\text{signal}_k(o_t) = p_k + \frac{J_k \cdot (y_G - \hat P_\Sigma)}{\lVert\mathbf{J}\rVert^2}$$
+$$\text{signal}(o_t, i, j) = f\bigl(\text{outcome}(o_t, j),\; \text{attribution}(o_t, i, j),\; \text{regime}(i, j)\bigr)$$
 
-where $\mathbf{J} = \nabla_\mathbf{p} P_\Sigma$ is the plan-value gradient (computable from status propagation in $O(\lvert V\rvert + \lvert E\rvert)$), $y_G$ is the observed root outcome, and $\hat P_\Sigma$ is the current plan-confidence score. The signal attributes the plan-level residual $(y_G - \hat P_\Sigma)$ to each edge in proportion to its sensitivity $J_k = \partial P_\Sigma / \partial p_k$.
+The outcome component answers "what was observed at $j$?" The attribution component answers "can we credit that outcome to edge $(i,j)$ specifically, or did other parents contribute?" The regime component answers "how causal is the evidence — is it interventional (Regime A), partially identified (Regime B), or observational (Regime C)?" This decomposition is derived from the regime-indexed edge semantics of #strategy-dag and #edge-update-causal-validity: the same signal pipeline must carry the regime distinction through to the update.
+
+AAD's default implementation, analogous to $\eta^\ast = U_M/(U_M + U_o)$ being the default gain:
+
+$$\text{signal}_k(o_t) = p_k + \iota_k \cdot \frac{J_k \cdot (y_G - \hat P_\Sigma)}{\lVert\mathbf{J}\rVert^2}$$
+
+where:
+- $\mathbf{J} = \nabla_\mathbf{p} P_\Sigma$ is the plan-value gradient (computable from status propagation in $O(\lvert V\rvert + \lvert E\rvert)$) — supplying the *attribution* component
+- $(y_G - \hat P_\Sigma)$ is the plan-level residual — the *outcome* component
+- $\iota_k \in [0, 1]$ is the edge's identifiability coefficient ( #edge-update-causal-validity) — the *regime* modulation, scaling the correction by the fraction of evidence that genuinely identifies this edge's causal effect
+
+For Regime-A edges ($\iota_k \approx 1$), the signal recovers the pure gradient-based form $\text{signal}_k = p_k + J_k(y_G - \hat P_\Sigma)/\lVert\mathbf{J}\rVert^2$. For Regime-C edges ($\iota_k \approx 0$), the signal is essentially $p_k$ — no meaningful update is made because no meaningful causal evidence is available. Regime-B edges receive proportionally reduced updates that honestly reflect the weaker identification.
 
 **Properties:**
-- **Directional fidelity (B1):** Satisfies $\mathbb{E}[\text{signal}_k - p_k] \propto J_k(\Phi - \hat P_\Sigma) \propto J_k \cdot \delta_s$. Since $J_k \geq 0$ for monotone AND/OR DAGs and $\delta_s = \Phi - \hat P_\Sigma$ has the correct sign, the expected signal pushes each edge toward truth.
-- **Sector parameter:** $\alpha_s = \eta_{\text{edge}}$ for componentwise corrections (Prop B.5b); $\alpha_s = \eta_{\text{edge}} / \kappa(\mathbf{J})^2$ for coupled corrections.
-- **Computational cost:** $O(\lvert V\rvert + \lvert E\rvert)$ — the same forward pass that computes $\hat P_\Sigma$ also yields $\mathbf{J}$.
-- **Relationship to RL:** This is the AAD analog of REINFORCE — the Jacobian $\mathbf{J}$ is the score function, and the signal attributes the plan-level return to each edge via the score-weighted residual.
+- **Directional fidelity (B1):** For $\iota_k \gt 0$, satisfies $\mathbb{E}[\text{signal}_k - p_k] \propto \iota_k \cdot J_k(\Phi - \hat P_\Sigma) \propto \iota_k \cdot J_k \cdot \delta_s$. Since $J_k \geq 0$ for monotone AND/OR DAGs and $\iota_k \geq 0$ by definition, the expected signal pushes each edge toward truth whenever evidence is available to push it.
+- **Sector parameter:** $\alpha_s = \iota_k \cdot \eta_{\text{edge}}$ for componentwise corrections (regime-adjusted Prop B.5b); $\alpha_s = \iota_k \cdot \eta_{\text{edge}} / \kappa(\mathbf{J})^2$ for coupled corrections. Regime-C edges have $\alpha_s \approx 0$, making them effectively frozen — consistent with #observability-dominance's treatment of unobservable edges.
+- **Computational cost:** $O(\lvert V\rvert + \lvert E\rvert)$ — the same forward pass that computes $\hat P_\Sigma$ also yields $\mathbf{J}$. The $\iota$ factors are per-edge domain parameters, not computed from the DAG structure.
+- **Relationship to RL:** This is the AAD analog of REINFORCE with a causal-identification weighting — the Jacobian $\mathbf{J}$ is the score function, $(y_G - \hat P_\Sigma)$ is the advantage, and $\iota_k$ is the causal-validity discount on each edge's update.
 
 **Correlated-failure interaction (L0 vs L1).** The gradient signal operates at L0 of the Correlation Hierarchy ( #strategy-dag). When the DAG is causally insufficient (the dominant real-world case), the residual $(y_G - \hat P_\Sigma)$ decomposes into per-edge miscalibration *plus* omitted correlation structure. $\hat P_\Sigma$ systematically overestimates success, making the residual systematically negative on failure. The gradient signal then attributes to individual edges what is actually causal insufficiency (missing common-cause nodes). The signal retains directional fidelity *on average* (it pushes edges downward when the plan is overconfident, which is the correct direction), but the per-edge attribution is contaminated. The principled fix is L1: add common-cause nodes to restore causal sufficiency, then apply gradient attribution to the augmented DAG. In the augmented DAG, the residual correctly decomposes into per-edge miscalibration because the correlation structure is explicitly represented.
 
@@ -74,7 +85,7 @@ Credit assignment is solved (exact, polynomial-time) when:
 
 *[Discussion (intractable-credit-assignment)]*
 
-Exact per-edge attribution in general AND/OR DAGs with partial observability faces three independent barriers (full analysis in `msc/spike-credit-assignment-boundaries.md`):
+Exact per-edge attribution in general AND/OR DAGs with partial observability faces three independent barriers:
 
 **1. Computational intractability (\#P-hardness).** The "contribution of edge $k$ to the observed outcome" has the form of a Shapley value over a cooperative game defined by the AND/OR propagation. Since AND/OR DAGs can represent any monotone Boolean function (including weighted threshold functions), and Shapley value computation for weighted voting games is \#P-complete (Deng and Papadimitriou, 1994), exact attribution is \#P-hard. *Caveat:* the reduction is to *exact* computation; approximate Shapley values are computable in polynomial time with sampling.
 
@@ -82,7 +93,7 @@ Exact per-edge attribution in general AND/OR DAGs with partial observability fac
 
 $$\dim(\mathcal{I}(\mathcal{V}_{\text{obs}})) \leq \lvert\mathcal{V}_{\text{obs}}\rvert$$
 
-When $\lvert\mathcal{V}_{\text{obs}}\rvert \lt \lvert E\rvert$ (fewer observable nodes than edges), some directions in $\boldsymbol\theta$-space are fundamentally unresolvable from the available data. Any attribution in the unidentifiable directions relies on prior beliefs, not evidence.
+When $\lvert\mathcal V_{\text{obs}}\rvert \lt \lvert E\rvert$ (fewer observable nodes than edges), some directions in $\boldsymbol\theta$-space are fundamentally unresolvable from the available data. Any attribution in the unidentifiable directions relies on prior beliefs, not evidence.
 
 **3. The posterior correlation barrier.** Even for approximately identifiable cases, any factored representation (independent Beta posteriors per edge) necessarily discards the correlation introduced by failure at multi-parent nodes. The exact posterior complexity grows exponentially with the number of observed failures. The factored representation is an approximation by construction — coupled corrections are inherent to the problem, not an artifact of a bad algorithm.
 
@@ -98,7 +109,7 @@ $$\mathbb{E}[(\text{signal}(o_t, i, j) - p_{ij}) \cdot (p_{ij} - \theta_{ij})] \
 
 (the expected correction is non-positively correlated with the current error). This is the per-component version of condition B1 from the bridge theorem. Any signal function satisfying this produces sector-satisfying corrections that transfer losslessly to value space (Prop B.5b, componentwise case).
 
-**Sufficient condition for persistence:** Per-component directional fidelity + bounded gain ($\eta_{\text{edge}} > 0$). The theory guarantees persistence when these hold, regardless of how the signals are computed.
+**Sufficient condition for persistence:** Per-component directional fidelity + bounded gain ($\eta_{\text{edge}} \gt 0$). The theory guarantees persistence when these hold, regardless of how the signals are computed.
 
 **What's NOT required:** Exact attribution, unbiased estimation, minimum-variance estimation, or optimality of any kind. The persistence guarantee is robust to approximation — a sloppy but directionally correct signal function still produces bounded strategic mismatch. The *quality* of the approximation affects the *tightness* of the persistence bound (how close $R^\ast_\Sigma$ is to zero), not whether persistence holds at all.
 

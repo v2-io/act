@@ -8,6 +8,8 @@ depends:
   - satisfaction-gap
   - control-regret
   - strategic-calibration
+  - strategy-dag
+  - causal-insufficiency-detection
 stage: deps-verified
 ---
 
@@ -34,9 +36,11 @@ For actuated agents, epistrophe (the corrective phase of the cycle) expands into
 
 4. **If $\delta_{\text{regret}}$ high, evaluate strategy calibration** — is the plan's causal model wrong?
 
-   **(4a) Plan-level calibration (default).** Evaluate plan-confidence error $\delta_s = \hat P_\Sigma - \Phi$ — the gap between the agent's plan-confidence score and the true plan value under the independence model. $\delta_s$ is credit-assignment-free (requires only status propagation), and its persistence is proved ( #strategy-persistence-schema, Prop B.5 in #strategic-dynamics-derivation). This is the **default operational signal**: AAD's formal guarantees require only plan-level tracking ( #credit-assignment-boundary, Level 0).
+   **(4a) Plan-level calibration (default within-L0).** Evaluate plan-confidence error $\delta_s = \hat P_\Sigma - \Phi$ — the gap between the agent's plan-confidence score and the independence-model plan value at true edge parameters. $\delta_s$ is credit-assignment-free (requires only status propagation), and its persistence is proved ( #strategy-persistence-schema, Prop B.5 in #strategic-dynamics-derivation). This is the cheapest operational signal, but its persistence guarantee is within the **independence model (L0)** of the Correlation Hierarchy ( #strategy-dag): $\delta_s \to 0$ means $\hat P_\Sigma$ has converged to $\Phi$, not to actual plan success probability. When the DAG is causally insufficient, $\Phi$ itself is a biased target. Step 4c checks whether this is the binding regime.
 
    **(4b) Edge-level localization (when credit assignment is available).** When sufficient observability and attribution quality exist (Level 1+ per #credit-assignment-boundary), the agent can compute per-edge residuals $\delta_{\text{strategic}}$ ( #strategic-calibration) to localize which edges need revision. $\delta_{\text{strategic}}$ provides finer-grained diagnostics but its persistence is open and it requires the credit-assignment machinery that $\delta_s$ avoids. Step 4b is optional — it improves diagnostic resolution but is not required for the cascade's corrective function.
+
+   **(4c) Causal-sufficiency check (L0→L1 escalation).** If persistent $\delta_s \approx 0$ coincides with persistent negative plan-outcome residuals ($y_G \lt \hat P_\Sigma$ on average, after edge credences have converged), this is evidence that the DAG is causally insufficient and L0 calibration is converging to a biased target. The diagnostic is pairwise sibling covariance under an augmented test ( #causal-insufficiency-detection): positive covariance among sibling edges, at timescales where each edge's individual credence has stabilized, localizes where a latent common cause is missing. When the signal for L1 augmentation is present, step 4c directs the agent to add common-cause nodes ( #strategy-dag Correlation Hierarchy) *before* escalating via 5a–5d. Running the cascade's exploitation recommendations under L0 when the signal for L1 is present compounds miscalibration — the agent acts confidently on a model whose own residual structure is telling it the model is wrong.
 
 5. **If $\delta_{\text{sat}} \gt 0$ persists** — escalate before revising $O_t$.
 
@@ -44,11 +48,11 @@ For actuated agents, epistrophe (the corrective phase of the cycle) expands into
 
    **(5a)** Check whether $M_t$ correction changes the feasibility assessment — a wrong model may make an achievable goal appear unattainable.
 
-   **(5b)** Check whether a richer policy class $\Pi$ would close the gap — structural $\Sigma_t$ adaptation (expanding the strategy space, not just revising edge credences).
+   **(5b)** Check whether a richer policy class $\Pi$ would close the gap — structural $\Sigma_t$ adaptation (expanding the strategy space, not just revising edge credences). This includes L1 augmentation of the strategy DAG ( #strategy-dag Correlation Hierarchy): if step 4c detected causal insufficiency, adding common-cause nodes here is the structural repair.
 
    **(5c)** Check whether convention escalation reveals recovery paths — evaluating under C2 (receding-horizon) may show $\delta_{\text{sat}}^{\text{RH}} \leq 0$ for a goal that appeared unattainable under C1.
 
-   **(5d)** If $\delta_{\text{sat}} \gt 0$ persists across $M_t$ correction, $\Pi$ expansion, and convention escalation — **revise $O_t$**.
+   **(5d)** If $\delta_{\text{sat}} \gt 0$ persists across $M_t$ correction, $\Pi$ expansion (including L1 augmentation), and convention escalation — **revise $O_t$**.
 
    The cascade's ordering ensures objective revision is the last resort, not the first response to unmet goals. The agent reaches step 5d only after exhausting the alternatives that the satisfaction-gap disambiguation table ( #satisfaction-gap) identifies: wrong $M_t$, narrow $\Pi$, short $N_h$, and only then genuinely infeasible goal.
 
@@ -56,9 +60,10 @@ For actuated agents, epistrophe (the corrective phase of the cycle) expands into
 - You cannot evaluate strategy quality with a broken reality model (step 3 requires step 1)
 - You cannot distinguish "locally bad strategy" from "locally unattainable goal" without both $\delta_{\text{sat}}$ and $\delta_{\text{regret}}$ (step 3 requires step 2)
 - You cannot localize strategy failures (4b) without first detecting plan-level miscalibration (4a)
-- You should not revise the objective until you've verified that improving $M_t$, $\Pi$, and $N_h$ cannot close the gap (step 5 requires steps 3-4 and the escalation substeps)
+- You cannot diagnose causal insufficiency (4c) until after edge credences have had time to converge (4a), because the diagnostic signal — persistent negative plan-outcome residuals — requires $\delta_s \approx 0$ to be separable from ordinary calibration error
+- You should not revise the objective until you've verified that improving $M_t$, $\Pi$ (including L1 augmentation when 4c signals it), and $N_h$ cannot close the gap (step 5 requires steps 3–4 and the escalation substeps)
 
-The ordering is forced by information dependency. The split of step 4 into 4a/4b reflects the hierarchy of credit-assignment quality ( #credit-assignment-boundary): persistence is guaranteed at Level 0 (plan-level tracking via $\delta_s$), while per-edge diagnostics require Level 1+ and remain discussion-grade. The escalation substeps in step 5 reflect the satisfaction-gap disambiguation ( #satisfaction-gap): multiple causes of $\delta_{\text{sat}} \gt 0$ must be ruled out before the agent concludes the goal itself is wrong.
+The ordering is forced by information dependency. The split of step 4 into 4a/4b/4c reflects three distinct diagnostic levels: 4a gives a within-L0 persistence signal (plan-level tracking via $\delta_s$), 4b gives within-L0 edge-level localization when credit assignment is available (Level 1+), and 4c exits L0 entirely when the independence model is the binding constraint. The escalation substeps in step 5 reflect the satisfaction-gap disambiguation ( #satisfaction-gap): multiple causes of $\delta_{\text{sat}} \gt 0$ must be ruled out before the agent concludes the goal itself is wrong. L1 augmentation ( #strategy-dag Correlation Hierarchy) enters 5b as a structural $\Sigma_t$ adaptation when 4c's signal is present.
 
 **Convention hierarchy and diagnostic power.** The 2×2 diagnostic and the inferences drawn from it are relative to the continuation convention in the value object ( #value-object), which defines a hierarchy of three conventions with a proved monotonicity result.
 
@@ -72,7 +77,7 @@ The monotonicity ( #value-object): $\delta_{\text{sat}}^{\text{B}} \leq \delta_{
 
 ## Epistemic Status
 
-The cascade **ordering** is *exact*: it is a logical consequence of which quantities appear in which formulas. Steps 1-2 (epistemic update, attainability assessment) rest on well-typed quantities ( #mismatch-signal, #satisfaction-gap) and exact derivation. Step 3 (control regret) is exact ( #control-regret). Step 4a (plan-level calibration via $\delta_s$) is grounded in a proved quantity — the sector condition transfers to $\delta_s$ (Prop B.5 in #strategic-dynamics-derivation). Step 4b (per-edge localization via $\delta_{\text{strategic}}$) inherits strategic-calibration's discussion-grade status — the credit-assignment problem and execution-fidelity requirement are acknowledged but unresolved ( #strategic-calibration, Epistemic Status). Step 5's escalation substeps (5a-5c) are derived from the satisfaction-gap disambiguation table ( #satisfaction-gap); step 5d (objective revision) is the residual case after alternatives are exhausted. The ordering of all steps is forced by information dependency (each step's input depends on prior steps' output). What is NOT derived is the *timing* — how long the agent should spend on each step before proceeding.
+The cascade **ordering** is *exact*: it is a logical consequence of which quantities appear in which formulas. Steps 1-2 (epistemic update, attainability assessment) rest on well-typed quantities ( #mismatch-signal, #satisfaction-gap) and exact derivation. Step 3 (control regret) is exact ( #control-regret). Step 4a (plan-level calibration via $\delta_s$) is grounded in a proved quantity — the sector condition transfers to $\delta_s$ (Prop B.5 in #strategic-dynamics-derivation) — but the formal guarantee is *within the L0 independence model*: $\delta_s \to 0$ means convergence to $\Phi$, which equals actual plan success only when the DAG is causally sufficient. Step 4b (per-edge localization via $\delta_{\text{strategic}}$) inherits strategic-calibration's discussion-grade status — the credit-assignment problem and execution-fidelity requirement are acknowledged but unresolved ( #strategic-calibration, Epistemic Status). Step 4c (causal-sufficiency check) is the mechanism for exiting L0 when L1 is the binding regime; it is *robust-qualitative* — the diagnostic logic is sound ( #causal-insufficiency-detection), but sensitivity depends on how cleanly the agent can separate sibling-covariance signal from edge-credence noise at convergence. Step 5's escalation substeps (5a-5c) are derived from the satisfaction-gap disambiguation table ( #satisfaction-gap); step 5d (objective revision) is the residual case after alternatives are exhausted. The ordering of all steps is forced by information dependency (each step's input depends on prior steps' output). What is NOT derived is the *timing* — how long the agent should spend on each step before proceeding, and how long $\delta_s \approx 0$ must persist before 4c's signal is trusted.
 
 The **convention hierarchy** ( #value-object) is *exact*: the three conventions (C1, C2, C3) are definitions, and the monotonicity result is a direct consequence of "better continuation policy yields higher expected value." The diagnostic implications table states what each convention's quantities mean by construction. The cascade's inferential force at steps 2-5 scales with the convention but the ordering is convention-independent.
 

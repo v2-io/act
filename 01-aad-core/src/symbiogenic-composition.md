@@ -26,7 +26,7 @@ The endosymbiont's objective $O_e$ transforms toward alignment with or derivatio
 
 $$O_e(\tau) \;\xrightarrow{\tau \to \tau_{\text{consolidated}}}\; \mathcal D_e(O_h)$$
 
-where $\mathcal D_e$ is a derivation functional (in the sense of route (C-ii) in #composition-scope-condition): $O_e$ becomes a sub-objective derived from $O_h$. Before: $O_h, O_e$ independent; $U_O \lt \epsilon_{\text{comp}}$. After: $O_e$ is a role within $O_h$; the composite $(A_h, A_e)$ satisfies the composition scope condition.
+where $\mathcal D_e$ is a derivation functional (in the sense of route (C-ii) in #composition-scope-condition): $O_e$ becomes a sub-objective derived from $O_h$. Before: $O_h$ and $O_e$ are independent objectives, no route of #composition-scope-condition applies, and the pair is a multi-agent system ( #multi-agent-scope) rather than a composite. After: $O_e$ is a role within $O_h$; route (C-ii) applies; the composite $(A_h, A_e)$ satisfies the composition scope condition.
 
 ### (S-2) Function transfer
 

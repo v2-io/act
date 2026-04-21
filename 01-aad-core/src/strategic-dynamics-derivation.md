@@ -31,6 +31,16 @@ The single-step update matches the gain-based form from #edge-update-via-gain wi
 
 Strategic mismatch per edge is $\delta_k = \hat p_k - \theta_k$. The sector-condition framework ( #sector-condition-derivation) requires: (SA1) $F(\mathbf{0}) = \mathbf{0}$, (SA2') $\boldsymbol{\delta}^T \mathbf{F}(\boldsymbol{\delta}) \geq \alpha_\Sigma \lVert\boldsymbol{\delta}\rVert^2$ within a region $\mathcal B_R$.
 
+### Regime-adjustment convention
+
+The propositions below state sector parameters $\alpha_\Sigma$ for the **canonical Regime-A case**, in which every edge's evidence is fully interventional and attributable (identifiability coefficient $\iota_{ij} = 1$ per #edge-update-causal-validity). For edges with $\iota_{ij} \lt 1$ (Regime B or C), each sector parameter carries an implicit $\iota_{ij}$ factor:
+
+$$\alpha_\Sigma^{\text{eff}} = \iota_{ij} \cdot \alpha_\Sigma^{\text{stated}}$$
+
+This commutes through every diagonal sector product in Props B.1–B.4 and B.6 because each edge's contribution to $\boldsymbol\delta_\Sigma^T \mathbf{F}$ is scaled by $\iota_{ij}$ independently: Regime-C edges ($\iota \approx 0$) contribute essentially nothing to the weakest-link minimum, and Regime-A edges ($\iota \approx 1$) recover the stated formulas exactly. The persistence condition $\alpha_\Sigma \gt \rho_\Sigma/R_\Sigma$ becomes $\iota_{ij} \cdot \alpha_\Sigma^{\text{stated}} \gt \rho_{\Sigma,ij}/R_{\Sigma,ij}$ per edge. The propositions below state everything in Regime-A form for clarity; the $\iota$-adjustment is uniform across cases and does not alter the structural results (evidence starvation, exploration gating, three-way gating) — only their quantitative thresholds per edge.
+
+For Prop B.3 (unobservable intermediate), the regime adjustment does not change the A1 violation result: the bias is structural to the marginal Bayesian update, not to the identifiability quality. The plan-level fallback still recovers the sector condition with an $\iota$-adjusted $\alpha_{\Sigma,\text{plan}}$ governed by the aggregate's identifiability.
+
 
 ## Proposition B.1: Single Edge ($A \to G$)
 

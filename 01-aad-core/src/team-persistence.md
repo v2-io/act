@@ -5,6 +5,7 @@ status: conditional
 depends:
   - persistence-condition
   - sector-condition-stability
+  - sector-persistence-template
   - communication-gain
   - adaptive-tempo
 stage: draft
@@ -15,6 +16,8 @@ stage: draft
 Teams persist where individuals cannot through two physically distinct cooperative mechanisms: communication (allies share observations that improve correction) and action (allies act in the shared environment to reduce disturbance at its source). These mechanisms enter the persistence condition at different points — tempo and disturbance respectively — and a given cooperative interaction contributes through one mechanism or the other, not both.
 
 ## Formal Expression
+
+This segment instantiates the sector-persistence template ( #sector-persistence-template) at the multi-agent level with state variable $\xi = \delta_i$ (sub-agent $i$'s mismatch) and a decomposed effective disturbance $\rho_i^{\text{eff}} = \rho_{i,\text{env}} + \sum_j \gamma_{j\to i}^{\text{adv}}\mathcal T_j - \sum_j \gamma_{j\to i}^{\text{coop}}\mathcal T_j$ that accounts for adversarial and cooperative coupling. The template supplies the Lyapunov machinery; this segment's distinctive content is the disturbance decomposition and the corresponding tempo extension.
 
 ### Distributed Tempo
 
