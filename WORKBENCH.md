@@ -1,6 +1,6 @@
 # WORKBENCH — AAD Theory Development
 
-Working notes for theory development. This is a thinking tool, not a reference document. For the canonical theory structure, see `01-aad-core/OUTLINE.md`.
+Working notes for theory development. This is a thinking tool, not a reference document. For the canonical theory structure, see `01-aad-core/OUTLINE.md`. For the current active work list, see `TODO.md` — the 2026-04-21 audit cycle landed four new Appendix segments (`#sector-persistence-template`, `#independence-audit`, `#approximation-tiering`, `#compression-operations`) and revised roughly a dozen others; the segment-status tables and §"Not Yet Written" counts further down this file reflect the pre-audit state and will be reconciled on the next substantive WORKBENCH edit. Pending findings are tracked in `msc/pending-findings-2026-04-21.md`.
 
 
 ## Review Feedback — 2026-03-13 (PRIORITY)
