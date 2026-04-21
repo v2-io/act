@@ -75,7 +75,7 @@ The three dynamics (S-1), (S-2), (S-3) are proposed schemas, not results. A foll
 
 **The role of this mechanism in Section III.** Three distinct composition mechanisms are now in scope:
 
-1. **Peer coupling** ( #composition-closure, #team-persistence, #tempo-composition) — sub-agents interact through shared environment; closure defect measures faithfulness of projection. $U_O$ held fixed above the scope threshold.
+1. **Peer coupling** ( #composition-closure, #team-persistence, #tempo-composition) — sub-agents interact through shared environment; closure defect measures faithfulness of projection. Presumes scope-satisfaction via at least one route of #composition-scope-condition (not a scalar $U_O$ threshold).
 2. **Extreme transition motif** (Miller 2022; introduced in #structural-adaptation-necessity; pending dedicated segments for composition-transition dynamics, latent structural diversity, and endogenous coupling) — population-level restructuring via neutral drift / niche creation / cascading displacement. $U_O$ shifts across a population as agent types replace one another.
 3. **Symbiogenesis** (this segment) — hierarchical absorption. $U_O$ crosses the composition scope condition from below, creating a composite that did not previously exist.
 

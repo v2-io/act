@@ -18,20 +18,20 @@ A concrete instantiation of the Correlation Hierarchy ( #strategy-dag) and Propo
 Two alternative paths to a goal $G$, sharing a common infrastructure dependency $C$:
 
 - Infrastructure up with probability $\theta_C = 0.8$
-- Path 1 succeeds with probability $\theta_{1|C} = 0.9$ when infrastructure is up, fails when down
-- Path 2 succeeds with probability $\theta_{2|C} = 0.7$ when infrastructure is up, fails when down
+- Path 1 succeeds with probability $\theta_{1\mid C} = 0.9$ when infrastructure is up, fails when down
+- Path 2 succeeds with probability $\theta_{2\mid C} = 0.7$ when infrastructure is up, fails when down
 - Goal succeeds if at least one path succeeds (OR)
 
 **Actual plan success probability** (from the generative model):
 
-$$P(G) = \theta_C \cdot [1 - (1-\theta_{1|C})(1-\theta_{2|C})] = 0.8 \cdot 0.97 = 0.776$$
+$$P(G) = \theta_C \cdot [1 - (1-\theta_{1\mid C})(1-\theta_{2\mid C})] = 0.8 \cdot 0.97 = 0.776$$
 
 
 ## L0 Analysis: The Independence Model
 
 The L0 DAG has two leaf nodes with marginal success probabilities:
 
-$$\theta_1 = \theta_C \cdot \theta_{1|C} = 0.72, \qquad \theta_2 = \theta_C \cdot \theta_{2|C} = 0.56$$
+$$\theta_1 = \theta_C \cdot \theta_{1\mid C} = 0.72, \qquad \theta_2 = \theta_C \cdot \theta_{2\mid C} = 0.56$$
 
 OR-propagation:
 
@@ -63,7 +63,7 @@ The correct L1 restructuring places $C$ as an AND-prerequisite *above* the OR-st
 
 Status propagation:
 
-$$s_{G_{\text{sub}}} = 1 - (1-\theta_{1|C})(1-\theta_{2|C}) = 1 - (0.1)(0.3) = 0.97$$
+$$s_{G_{\text{sub}}} = 1 - (1-\theta_{1\mid C})(1-\theta_{2\mid C}) = 1 - (0.1)(0.3) = 0.97$$
 
 $$s_G = \theta_C \cdot s_{G_{\text{sub}}} = 0.8 \cdot 0.97 = 0.776$$
 
@@ -119,18 +119,26 @@ Both models have $\delta_s = 0$ when credences are at truth. The difference is w
 
 ## When Correct L1 Construction Is Not Possible
 
-The factoring-above principle works when the common cause cleanly gates all correlated children through a single AND-relationship. When this is not structurally possible — for example, when some OR-alternatives share a common cause and others do not — a **conditioning-based propagation** is needed:
+The factoring-above principle works under two conjoint conditions: (a) the common cause cleanly gates all correlated children through a single AND-relationship (*topological*), and (b) the common cause is a *strict prerequisite* — $\theta_{\text{child} \mid \neg C} \approx 0$, so children cannot succeed when the common cause is absent (*semantic*). Both conditions must hold. The example above satisfies both: infrastructure gates all alternatives, and absent infrastructure forces failure ($\theta_{i \mid \neg C} = 0$).
+
+**Topological failure: mixed gating.** When some OR-alternatives share a common cause and others do not, the factoring-above construction cannot place $C$ above the full sub-plan. Conditioning-based propagation:
 
 $$P(G) = \sum_c P(C = c) \cdot P_\Sigma(G \mid C = c)$$
 
 where $P_\Sigma(G \mid C = c)$ is computed by standard AND/OR propagation with $C$ fixed. Cost: $O(2^k \cdot (\lvert V\rvert + \lvert E\rvert))$ where $k$ is the number of common-cause nodes. Tractable for small $k$; exponential in general.
 
-For strategies with many correlated common causes, this approaches L2 complexity, and the agent faces a practical choice: model the most important common causes at L1 (accepting residual L0 bias from unmodeled causes) or invest in richer propagation algorithms.
+**Semantic failure: soft facilitators.** When the common cause is a soft facilitator — $\theta_{\text{child} \mid \neg C} \gt 0$, so children can still succeed when $C$ is absent, just less reliably (favorable market conditions, a supportive environment, an enabling but non-essential resource) — the AND-prerequisite construction mathematically forces $P(\text{sub-plan} \mid \neg C) = 0$, which strictly understates actual success probability. This is a real failure mode even when the topology admits factoring-above. The natural repair at $O(1)$ cost per soft-facilitator node is the **mixture form (L1')**:
+
+$$\hat P_\Sigma^{L1'} = \theta_C \cdot P_\Sigma(G \mid C) + (1 - \theta_C) \cdot P_\Sigma(G \mid \neg C)$$
+
+where the two conditional sub-plans may share structure but carry separate edge credences $p_{ij \mid C}$ and $p_{ij \mid \neg C}$. The parametric cost per soft-facilitator-affected edge doubles; the propagation remains polynomial. This is the gap between L1 (strict prerequisites) and L2 (arbitrary joint): L1' handles soft facilitators without the $O(2^k)$ exponential blowup of L2's explicit conditioning. Sector-condition verification for L1' has not been derived (each conditional sub-plan is an L0 DAG whose sector parameters are known, but their weighted combination introduces a $\theta_C$-dependent factor analogous to Prop B.6's $\theta_C$ gating; the full transfer through B.5b is an open item).
+
+For strategies with many mixed or soft common causes, the agent faces a practical choice: model the most important common causes at L1 (for strict prerequisites) or L1' (for soft facilitators), accept residual L0 bias from unmodeled causes, or invest in richer propagation algorithms. See #strategy-dag Correlation Hierarchy for the higher-level treatment of L1 / L1' / L2.
 
 
 ## Detecting Latent Common Causes
 
-The detection of causal insufficiency and interventional localization of latent common causes is treated as a standalone result in #causal-insufficiency-detection. The key connection to this worked example: the L0 residual $\Phi^{L0} - \bar{y}_G$ converges to $+\rho$ (our example: $0.877 - 0.776 = 0.101$), providing a precise, quantitative detection signal. The agent does not need to know the common cause exists *a priori* — it discovers the need for L1 from persistent structured residuals after convergence.
+The detection of causal insufficiency and interventional localization of latent common causes is treated as a standalone result in #causal-insufficiency-detection. The key connection to this worked example: the L0 residual $\Phi^{L0} - \bar y_G$ converges to $+\rho$ (our example: $0.877 - 0.776 = 0.101$), providing a precise, quantitative detection signal. The agent does not need to know the common cause exists *a priori* — it discovers the need for L1 from persistent structured residuals after convergence.
 
 
 ## Epistemic Status

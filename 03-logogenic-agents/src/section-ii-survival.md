@@ -50,7 +50,7 @@ Each Section II result is classified by whether its statement or derivation refe
 |---|---------|-----------|
 | 1 | #agent-spectrum | Classifies by what information is maintained, not how it is processed |
 | 2 | #objective-functional | Defines evaluation interface $V_{O_t}$; no processing dependency |
-| 3 | #value-object | Conditional expectations given $(M_t, \pi)$; agnostic to how $M_t$ was produced |
+| 3 | #value-object (definitions only) | $V_O$ and $Q_O$ as conditional expectations are agnostic to how $M_t$ was produced. **Partial.** The *causal-validity* claim — that $Q_O$ depends on $M_t$ alone as a state variable — is conditional on directed separation ( #value-object Epistemic Status) and degrades for Class 2 agents because $M_t$ carries goal-conditioned bias. Definitions survive exactly; the causal-validity layer does not. Count this as half-exact, half-approximate. |
 | 4 | #strategy-dimension | Structural decomposition $G_t = (O_t, \Sigma_t)$; definitional, not dynamic |
 | 5 | #causal-hierarchy-requirement | Evaluating $Q_O$ requires Level 2 queries; property of the question type, not the processing |
 | 6 | #loop-interventional-access | The feedback loop provides interventional data by construction; architecture-independent |
@@ -92,7 +92,9 @@ Additionally, the DAG *structure* of #strategy-dag (acyclicity, propositional no
 
 ### Scorecard
 
-$$\text{Exact: } 16/24 \qquad \text{Approximate: } 5/24 \qquad \text{Modified: } 2/24 \qquad \text{Fails: } 1/24$$
+$$\text{Exact: } 15.5/24 \qquad \text{Approximate: } 5.5/24 \qquad \text{Modified: } 2/24 \qquad \text{Fails: } 1/24$$
+
+**Note on the fractional counts.** #value-object is counted as half-exact (its definitions survive) and half-approximate (its causal-validity layer is conditional on directed separation and degrades for Class 2 agents). Most segments split cleanly into one category; #value-object does not. The scorecard's total stays at 24 to match the segment count but the fractional count acknowledges that a clean integer bucketing understates the qualitative complexity for segments whose definitions and dynamics live at different tier levels.
 
 ### Structure of the approximate results
 
