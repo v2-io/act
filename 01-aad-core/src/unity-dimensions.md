@@ -12,7 +12,12 @@ stage: draft
 
 # Discussion: Unity Dimensions
 
-The quality of a composite agent's composition can be decomposed along four substantially independent dimensions: epistemic (shared model), teleological (shared objective), strategic (coordinated action), and perceptual (shared observations). These dimensions parametrize rate-distortion curves for the component closure defects ( #composition-closure, #unity-closure-mapping) — higher unity permits more aggressive compression at lower closure defect. Unity does not directly predict closure-defect magnitude; it controls the compressibility of the corresponding state, observation, or action component under projection.
+The quality of a composite agent's composition — *conditional on #composition-scope-condition being satisfied via at least one alignment route* — decomposes along four substantially independent *quality* dimensions: epistemic ($U_M$, shared model), teleological ($U_O$, shared objective), strategic ($U_\Sigma$, coordinated action), and perceptual ($U_{\text{obs}}$, shared observations). These dimensions parametrize rate-distortion curves for the component closure defects ( #composition-closure, #unity-closure-mapping) — higher unity permits more aggressive compression at lower closure defect. Unity does not directly predict closure-defect magnitude; it controls the compressibility of the corresponding state, observation, or action component under projection.
+
+**Scope and completeness caveats.** Two caveats apply and are developed in the Working Notes:
+
+- *Scope:* The decomposition applies to composites that satisfy #composition-scope-condition. $U_O$ plays a role in the (C-i) route of the scope condition via value-correlation, but the scope condition is a disjunction of three routes (shared objective, hierarchical derivation, mutual benefit), not a scalar threshold on $U_O$. Below scope-satisfaction (no route applies), the sub-agents are a multi-agent system per #multi-agent-scope and composition-level quantities are not well-defined.
+- *Completeness:* The four dimensions measure shared *content* (information, goals, policies, observations). They do not capture update-rule heterogeneity across sub-agents, which is an independent driver of closure defect identified in the non-degenerate two-Kalman case ( #unity-closure-mapping §Two-axis structure). The working position is to accept a two-axis structure (unity × update-homogeneity) rather than force update heterogeneity into the unity framework.
 
 ## Formal Expression
 

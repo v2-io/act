@@ -4,6 +4,7 @@ type: formulation
 status: conditional
 depends:
   - composition-consistency
+  - composition-scope-condition
   - multi-agent-scope
   - agent-environment
   - event-driven-dynamics
@@ -49,7 +50,7 @@ Where the expected component errors evaluated over true micro-trajectories $\tau
 - $\varepsilon_a = \mathbb E_\tau \Big[ \frac{1}{H} \sum_{t=1}^H \big\lVert \Lambda_a\big(\pi_{\text{micro}}(X_{\text{micro}, t})\big) - \pi_c\big(\Lambda_x(X_{\text{micro}, t})\big) \big\rVert_\mathcal{A} \Big]$
 - $\varepsilon_o = \mathbb E_\tau \Big[ \frac{1}{H} \sum_{t=1}^H \big\lVert \Lambda_o\big(E_{\text{obs}}(\Omega_t, a_{\text{micro}, t})\big) - E_{c, \text{obs}}\big(\Lambda_\Omega(\Omega_t), \Lambda_a(a_{\text{micro}, t})\big) \big\rVert_\mathcal{O} \Big]$
 
-A set of agents forms a meaningful composite agent when $\varepsilon^\ast \leq \varepsilon_{\text{max}}$.
+The closure-defect framework applies to sets that satisfy #composition-scope-condition — i.e., that form composites via at least one of the three alignment routes (shared objective, hierarchical derivation, mutual benefit). Given scope-satisfaction, a set forms a *meaningful* composite agent — distinguished from a multi-agent system whose low-$\varepsilon^\ast$ projection is a happenstance of the environment rather than a reflection of composite coherence — when $\varepsilon^\ast \leq \varepsilon_{\text{max}}$. Without scope-satisfaction, the $\varepsilon^\ast$ infimum is still well-defined as a projection property, but the resulting "composite" has ill-defined purposeful substate $G_c = (O_c, \Sigma_c)$ and composition-level machinery (team persistence, composite tempo) does not apply.
 
 ### Admissibility constraints on macro-dynamics
 
