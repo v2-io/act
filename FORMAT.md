@@ -143,6 +143,12 @@ Separate from content review — different cognitive mode.
 
 **Completion criterion:** all mechanical checks pass.
 
+### Spike-segment reverse check (apply at any gate)
+
+For each segment that was promoted from a spike in `msc/`, ask: *what did the spike establish that the segment does not say?* Not every difference is a bug — spike content is exploratory and rightly compressed during promotion — but the direction of compression should be inspected. Flag any claims where the spike's strongest or cleanest form was weakened during promotion, and judge whether the weakening reflects honest editorial compression (keep as-is), a lost promotion-blocking condition (restore to the segment), or a deferred concern that should be explicit in Working Notes.
+
+This is a standing check rather than a gate because spike→segment compression can only be evaluated relative to the source spike, which is a historical artifact. Run the check when touching a segment for other reasons, or when a new finding surfaces the segment's derivation chain.
+
 ### Gate 4: Working Notes disposition → `candidate`
 
 Every item in `## Working Notes` must be explicitly resolved:
