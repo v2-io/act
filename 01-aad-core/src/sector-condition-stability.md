@@ -6,6 +6,7 @@ depends:
   - adaptive-tempo
   - mismatch-signal
   - sector-condition-derivation
+  - sector-persistence-template
 stage: claims-verified
 ---
 
@@ -15,57 +16,40 @@ An agent's mismatch remains bounded if its correction function satisfies a secto
 
 ## Formal Expression
 
-Let $\delta(t) \in \mathbb{R}^n$ be the vector of model-reality mismatches. The mismatch dynamics:
+This segment is the **single-agent epistemic instantiation** of the sector-persistence template ( #sector-persistence-template). The template's state variable is $\xi = \delta(t) \in \mathbb{R}^n$ (model-reality mismatch); the correction function is $F(\mathcal{T}, \delta)$; the disturbance is environmental ($w(t)$); the region of validity $R$ is the model class capacity.
 
 *[Formulation]*
 
 $$\frac{d\delta}{dt} = -F(\mathcal{T}, \delta) + w(t)$$
 
-where $F$ is a (possibly nonlinear) correction function and $w(t)$ is environmental disturbance.
-
 *[Assumption (sector-condition)]*
 
-$F$ satisfies the **local sector condition** for $\Vert\delta\Vert \leq R$:
+$F$ satisfies the local sector condition (template condition (T2)) for $\lVert\delta\rVert \leq R$:
 
-$$\delta^T F(\mathcal{T}, \delta) \geq \alpha \Vert\delta\Vert^2$$
+$$\delta^T F(\mathcal{T}, \delta) \geq \alpha \lVert\delta\rVert^2$$
 
-where $\alpha \gt 0$ is the worst-case correction efficiency within the valid region of radius $R$ (the model class capacity). Disturbance is bounded: $\Vert w(t)\Vert \leq \rho$.
+with $\alpha \gt 0$. Disturbance is bounded: $\lVert w(t)\rVert \leq \rho$ (Model D, GA-2) or $\mathbb{E}[\lVert w(t)\rVert^2] = \sigma_w^2$ (Model S, GA-2S). Grounding of (T2) for gain-based agents: #gain-sector-bridge gives $\alpha = \eta^\ast \cdot c_{\min}$. The linear case $F = \mathcal{T} \cdot \delta$ yields $\alpha = \mathcal{T}$ exactly.
 
-*[Derived (bounded-mismatch, from Lyapunov analysis)]*
+*[Derived (from sector-persistence-template)]*
 
-**Model D (deterministic bounded disturbance, GA-2).** The mismatch $\delta(t)$ is ultimately bounded by $R^\ast = \rho / \alpha$. The agent persists (avoids divergence) iff:
+The template's Model D conclusion specializes to: $\delta(t)$ is ultimately bounded by $R^\ast = \rho/\alpha$, and the agent persists iff
 
-$$\alpha \gt \frac{\rho}{R}$$
+$$\alpha \gt \frac{\rho}{R}.$$
 
-**Model S (stochastic disturbance, GA-2S).** Under stochastic zero-mean disturbance with $\mathbb{E}[\lVert w(t)\rVert^2] = \sigma_w^2$, the steady-state RMS mismatch is:
+The adaptive reserve is $\Delta\rho^\ast = \alpha R - \rho$ — the additional disturbance the agent can absorb before $R^\ast$ exceeds the valid region.
 
-$$R^*_S = \sigma_w\sqrt{\frac{n}{2\alpha}}$$
+The template's Model S conclusion specializes to: the steady-state RMS mismatch is $R^\ast_S = \sigma_w\sqrt{n/(2\alpha)}$ (where $n = \dim(\delta)$), and mean-square persistence requires $\alpha \gt n\sigma_w^2/(2R^2)$. Model D scales as $1/\alpha$; Model S scales as $1/\sqrt{\alpha}$ — correction is less effective against noise than against drift.
 
-where $n = \dim(\delta)$. The agent persists in the mean-square sense iff $\alpha > n\sigma_w^2/(2R^2)$. The key difference: Model D scales as $1/\alpha$; Model S scales as $1/\sqrt{\alpha}$. See Prop A.1S in #sector-condition-derivation.
-
-*[Derived (adaptive-reserve)]*
-
-The agent's capacity to absorb additional disturbance before mismatch exceeds the valid region:
-
-$$\Delta\rho^* = \alpha R - \rho$$
-
-### Derivation
-
-1. Lyapunov function $V(\delta) = \frac{1}{2}\Vert\delta\Vert^2$.
-2. $\dot{V} = \delta^T(-F + w) \leq -\alpha\Vert\delta\Vert^2 + \rho\Vert\delta\Vert$.
-3. $\dot{V} \lt 0$ when $\Vert\delta\Vert \gt \rho/\alpha$, giving ultimate bound $R^\ast = \rho/\alpha$.
-4. Persistence requires $R^\ast \lt R$, i.e., $\alpha \gt \rho/R$. $\square$
-
-Full derivation in #sector-condition-derivation (Props A.1, A.1S, A.2).
+Full Lyapunov proofs: #sector-condition-derivation Props A.1, A.1S, A.2.
 
 ## Epistemic Status
 
-The Model D results ($R^* = \rho/\alpha$, persistence iff $\alpha > \rho/R$) are *exact* consequences of standard Lyapunov stability theory under the sector condition and bounded disturbance assumptions (GA-2, GA-3). The Model S results ($R^*_S = \sigma_w\sqrt{n/(2\alpha)}$, persistence iff $\alpha > n\sigma_w^2/(2R^2)$) are *exact* consequences of Itô-Lyapunov analysis under the sector condition and stochastic disturbance assumptions (GA-2S, GA-3). Both replace the linear ODE ($\dot{\delta} = -\mathcal{T}\delta + \rho$) with a rigorous nonlinear foundation. The linear ODE is recovered as a special case where $F(\mathcal{T}, \delta) = \mathcal{T}\delta$ and $\alpha = \mathcal{T}$. Which disturbance model applies is a domain question, not a theory question.
+*Exact.* Both results are direct instances of the sector-persistence template applied to the single-agent epistemic case. Template precondition (T1) is satisfied because no correction should be applied at zero mismatch; (T2) reduces to the local sector condition above and is grounded structurally by #gain-sector-bridge for gain-based agents; (T3) is the disturbance-model choice (D or S), a domain question. The linear ODE of #mismatch-dynamics is the special case where (T2) holds globally with $\alpha = \mathcal{T}$; the sector framework generalizes this to saturating, thresholded, and structurally-limited correction functions under the same persistence condition. Disturbance-model choice is a domain question, not a theory question.
 
 ## Discussion
 
 **Why the sector condition.** The linear ODE assumes correction scales linearly with mismatch forever. Real adaptive systems saturate, exhibit thresholding, or break down when the model class is exhausted. The sector condition captures the minimal structural requirement: the correction must point in the right direction with at least baseline efficiency $\alpha$.
 
-**Generalizing the persistence threshold.** In the linear case, $\alpha = \mathcal{T}$ (adaptive tempo). The general result $\alpha \gt \rho/R$ proves the persistence threshold ( #persistence-condition) is a structural necessity of any bounded-correction system, not an artifact of the linear approximation. Like the persistence condition itself, this result addresses *structural persistence* — the machinery's capacity to bound mismatch — not operational persistence (current proximity to $R$) or continuity persistence (identity through time). See Persistence in `LEXICON.md` for the full disambiguation.
+**Generalizing the persistence threshold.** In the linear case, $\alpha = \mathcal{T}$ (adaptive tempo). The general result $\alpha \gt \rho/R$ proves the persistence threshold ( #persistence-condition) is a structural necessity of any bounded-correction system, not an artifact of the linear approximation. This result addresses *structural persistence* — the machinery's capacity to bound mismatch — not operational persistence (current proximity to $R$) or continuity persistence (identity through time). See Persistence in `LEXICON.md` for the full disambiguation.
 
 **Connection to structural adaptation.** When $\rho/\alpha \gt R$, disturbance exceeds the model class's capacity. The sector condition fails — this is the dynamical trigger for structural adaptation ( #structural-adaptation-necessity), requiring a new model class with larger valid radius $R'$ or better efficiency $\alpha'$.

@@ -20,47 +20,27 @@ This segment is the sector-persistence template ( #sector-persistence-template) 
 
 *[Derived (adversarial-destabilization, from sector-persistence-template)]*
 
-**Setup.** Let both agents $A$ and $B$ satisfy the sector condition (A1, A2', A3 from #sector-condition-derivation) with respective parameters $(\alpha_A, R_A)$ and $(\alpha_B, R_B)$. The disturbance structure depends on whether the adversarial coupling enters as deterministic drift (Model D) or stochastic noise (Model S) — see #adversarial-exponent-regimes for the full regime taxonomy. The destabilization threshold takes different forms in the two cases.
+**Setup.** Both agents satisfy the single-agent sector-persistence template ( #sector-persistence-template) with parameters $(\alpha_A, R_A)$ and $(\alpha_B, R_B)$. Coupling amplifies $B$'s effective disturbance rate by $\gamma_A \cdot \mathcal{T}_A$; destabilization is the negation of the template's persistence condition $\alpha_B R_B \gt \rho_B^{\text{eff}}$ for $B$. See #adversarial-exponent-regimes for regime taxonomy.
 
-### Model D: Deterministic drift coupling
+### Model D: deterministic drift coupling
 
-*[Assumption (Coupling Model D)]* The coupling enters $B$'s disturbance bound additively:
-
-$$\rho_B = \rho_{B,\text{base}} + \gamma_A \cdot \mathcal{T}_A$$
-
-where $\gamma_A \gt 0$ is the effectiveness of $A$'s actions at disrupting $B$'s environment, and $\rho_{B,\text{base}}$ is the background deterministic disturbance (GA-2).
-
-**Result (Model D).** $B$'s ultimately bounded radius under coupled dynamics is:
-
-$$R^\ast_B = \frac{\rho_{B,\text{base}} + \gamma_A \cdot \mathcal{T}_A}{\alpha_B}$$
-
-$B$ diverges (exits its sector-condition region) when $R^\ast_B \gt R_B$, giving the Model D destabilization threshold:
+*[Assumption (Coupling Model D)]* $\rho_B = \rho_{B,\text{base}} + \gamma_A \cdot \mathcal{T}_A$. The template's Model D conclusion $R_B^\ast = \rho_B/\alpha_B$ applied with the coupling model yields $B$'s destabilization threshold $R_B^\ast \gt R_B$:
 
 $$\boxed{\;\mathcal{T}_A \;\gt\; \frac{\alpha_B R_B - \rho_{B,\text{base}}}{\gamma_A}\;} \quad \text{(Model D)}$$
 
-Denote $\Delta\rho^\ast_B = \alpha_B R_B - \rho_{B,\text{base}}$, the deterministic adaptive reserve. $\square$
+Denote $\Delta\rho_B^\ast = \alpha_B R_B - \rho_{B,\text{base}}$, $B$'s adaptive reserve — the template's reserve quantity applied with the baseline disturbance. $\square$
 
-### Model S: Stochastic noise coupling
+### Model S: stochastic noise coupling
 
-*[Assumption (Coupling Model S)]* The coupling enters $B$'s noise scale additively:
-
-$$\sigma_B = \sigma_{B,\text{base}} + \gamma_A \cdot \mathcal{T}_A$$
-
-where the adversary's tempo increases the unpredictability of disturbances, not their systematic direction. Background disturbance is Gaussian (GA-2S) with scale $\sigma_{B,\text{base}}$.
-
-**Result (Model S).** From Proposition A.1S in #sector-condition-derivation, $B$'s ultimately bounded RMS radius is $R^\ast_B = \sigma_B \sqrt{n/(2\alpha_B)}$ (scalar $n = 1$ for the per-agent case). Substituting the coupled noise scale:
-
-$$R^\ast_B = \frac{\sigma_{B,\text{base}} + \gamma_A \cdot \mathcal{T}_A}{\sqrt{2\alpha_B}}$$
-
-$B$ diverges when $R^\ast_B \gt R_B$, giving the Model S destabilization threshold:
+*[Assumption (Coupling Model S)]* $\sigma_B = \sigma_{B,\text{base}} + \gamma_A \cdot \mathcal{T}_A$ — the adversary's tempo increases unpredictability, not systematic direction. The template's Model S conclusion $R_B^\ast = \sigma_B \sqrt{n/(2\alpha_B)}$ (scalar $n = 1$) applied with the coupling yields the destabilization threshold:
 
 $$\boxed{\;\mathcal{T}_A \;\gt\; \frac{R_B \sqrt{2\alpha_B} - \sigma_{B,\text{base}}}{\gamma_A}\;} \quad \text{(Model S)}$$
 
-**Scaling difference.** The Model D threshold is linear in $\alpha_B$ (correction rate); the Model S threshold is linear in $\sqrt{\alpha_B}$. A faster-correcting $B$ gains proportionally more protection in Model D than in Model S — consistent with the $b = 2$ vs $b = 3/2$ exponent distinction in #adversarial-exponent-regimes. $\square$
+**Scaling difference.** The Model D threshold is linear in $\alpha_B$; the Model S threshold is linear in $\sqrt{\alpha_B}$ — the same $1/\alpha$ versus $1/\sqrt{\alpha}$ split the template gives for the two disturbance models, propagated through the destabilization negation. This is the direct origin of the $b = 2$ versus $b = 3/2$ exponent distinction in #adversarial-exponent-regimes, not a separate derivation. $\square$
 
 ### Unified view
 
-Symmetrically, $B$ destabilizes $A$ when the analogous threshold on $\mathcal T_B$ is exceeded — using the parameters of whichever model describes $A$'s disturbance structure. The adversarial outcome depends on whether either agent can push the other past its stability limit.
+Symmetrically, $B$ destabilizes $A$ when the analogous threshold on $\mathcal T_B$ is exceeded, using whichever model describes $A$'s disturbance. The adversarial outcome depends on whether either agent can push the other past its stability limit.
 
 **Regime selection in practice.** Model D fits situations where adversarial action produces persistent positional shifts (military maneuvering, API changes propagating through dependents, doctrinal initiative). Model S fits situations where adversarial action produces unpredictable perturbations around a stationary level (feints, randomized probing, market volatility). Mixed cases are handled by decomposing the disturbance into drift and noise components and applying both bounds additively.
 

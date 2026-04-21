@@ -22,25 +22,13 @@ This segment is the canonical single-agent instantiation of the sector-persisten
 
 *[Derived (structural-persistence, from sector-persistence-template)]*
 
-The correction machinery contains mismatch within its operating region:
+Applying the template to the single-agent epistemic case gives: the correction machinery bounds $\delta$ within the model class capacity iff
 
-**Model D** (deterministic bounded disturbance, GA-2):
+$$\alpha \gt \frac{\rho}{R} \quad \text{(Model D)} \qquad \alpha \gt \frac{n\sigma_w^2}{2R^2} \quad \text{(Model S)}$$
 
-$$\alpha \gt \frac{\rho}{R}$$
+with ultimate bound $R^\ast = \rho/\alpha$ (Model D) or $R^\ast_S = \sigma_w\sqrt{n/(2\alpha)}$ (Model S). See #sector-condition-stability for how (T1)–(T3) are verified in this instantiation, and #sector-condition-derivation for the proof. Structural persistence is a property of the adaptive architecture — the machinery's ability to contain mismatch — not of the task.
 
-**Model S** (stochastic disturbance, GA-2S):
-
-$$\alpha \gt \frac{n\sigma_w^2}{2R^2}$$
-
-where:
-- $\alpha$ is the worst-case correction efficiency (the sector-condition lower bound — see #sector-condition-stability)
-- $\rho$ is the disturbance bound (GA-2: $\lVert w(t)\rVert \leq \rho$); $\sigma_w^2 = \mathbb{E}[\lVert w(t)\rVert^2]$ for Model S
-- $R$ is the model class capacity (radius of the region where the sector condition holds)
-- $n = \dim(\delta)$
-
-Structural persistence is about the *machinery*, not the task. It says "the correction dynamics can keep mismatch bounded within the region where the Lyapunov guarantee holds." It is a property of the agent's adaptive architecture, not of its goals or domain. The ultimately bounded mismatch is $R^\ast = \rho / \alpha$ (Model D) or $R^\ast_S = \sigma_w\sqrt{n/(2\alpha)}$ (Model S), and structural persistence requires $R^\ast \lt R$.
-
-**In the linear case** ($F(\mathcal{T}, \delta) = \mathcal{T} \cdot \delta$), $\alpha = \mathcal{T}$ exactly and $R \to \infty$. Structural persistence is then satisfied trivially — any agent with $\mathcal{T} \gt 0$ is structurally persistent under linear correction. This is why the "linear operational form" below exists: when structural persistence is free, the binding constraint is task adequacy.
+**Linear case.** When $F(\mathcal{T}, \delta) = \mathcal{T}\delta$, $\alpha = \mathcal{T}$ and $R \to \infty$, so structural persistence is trivially satisfied whenever $\mathcal{T} \gt 0$. The binding constraint then becomes task adequacy (below).
 
 ### Task Adequacy
 
@@ -72,17 +60,9 @@ These are the forms used throughout the theory as the operational persistence co
 
 **Per-dimension (Model S):** $\eta_k \gt c \cdot \rho_k^2 / \delta_{\text{critical},k}^2$ where $c$ depends on the probability guarantee. See #per-dimension-persistence.
 
-### Common Properties
+### The relationship between $\alpha$ and $\mathcal{T}$
 
-**The relationship between $\alpha$ and $\mathcal{T}$:** #gain-sector-bridge shows that for agents with directional fidelity, $\alpha = \eta^\ast \cdot c_{\min}$ where $c_{\min}$ is the worst-case directional fidelity. For linear correction (Kalman, Beta-Bernoulli), $\alpha = \mathcal{T}$ exactly. For gradient descent on strongly convex losses, $\alpha = \eta \cdot \mu$ where $\mu$ is the strong convexity modulus — monotone in $\eta$ (and hence in $\mathcal{T}$) for fixed loss landscape. For nonlinear correction tested in simulation (saturating, sigmoid, threshold), $\alpha$ remains monotone increasing in $\mathcal{T}$: for a saturating function with capacity $R$, $\alpha \approx \mathcal{T} / 2$ (worst case at the capacity boundary); for sigmoid (tanh), $\alpha \approx 0.76 \cdot \mathcal{T}$. The qualitative conclusion — "faster adaptation improves persistence" — is structurally grounded for the important cases and empirically confirmed for all correction function classes tested.
-
-**Assumptions.** The Model D threshold assumes bounded disturbance (GA-2) and sector condition (GA-3). The Model S threshold assumes stochastic disturbance (GA-2S) and the same sector condition (GA-3). See #sector-condition-stability for the general nonlinear treatment from which both thresholds emerge.
-
-### Derivation
-
-**Structural.** Both forms follow from the sector-persistence template ( #sector-persistence-template) with $(\xi, F, \rho_\xi, R) = (\delta, F(\mathcal{T}, \cdot), \rho, R)$ for Model D and $(\delta, F(\mathcal{T}, \cdot), \sigma_w, R)$ for Model S. The template conditions (T1)–(T3) are verified by (A1), (A2'), and GA-2/GA-2S respectively; the Lyapunov proof is Prop A.1/A.1S of #sector-condition-derivation.
-
-**Operational:** Structural persistence gives ultimately bounded $R^\ast$. Task adequacy requires $R^\ast \lt \lVert\delta_{\text{critical}}\rVert$. Combining: $\alpha \gt \rho/\min(R, \lVert\delta_{\text{critical}}\rVert)$. In the linear case $R \to \infty$, so $\min(R, \lVert\delta_{\text{critical}}\rVert) = \lVert\delta_{\text{critical}}\rVert$. $\square$
+#gain-sector-bridge shows that for agents with directional fidelity, $\alpha = \eta^\ast \cdot c_{\min}$ where $c_{\min}$ is the worst-case directional fidelity. For linear correction (Kalman, Beta-Bernoulli), $\alpha = \mathcal{T}$ exactly. For gradient descent on strongly convex losses, $\alpha = \eta \cdot \mu$ where $\mu$ is the strong convexity modulus — monotone in $\eta$ (and hence in $\mathcal{T}$) for fixed loss landscape. For nonlinear correction tested in simulation (saturating, sigmoid, threshold), $\alpha$ remains monotone increasing in $\mathcal{T}$: for a saturating function with capacity $R$, $\alpha \approx \mathcal{T}/2$ (worst case at the capacity boundary); for sigmoid (tanh), $\alpha \approx 0.76 \cdot \mathcal{T}$. The qualitative conclusion — "faster adaptation improves persistence" — is structurally grounded for the important cases and empirically confirmed for all correction function classes tested.
 
 ### Per-Dimension Extension
 

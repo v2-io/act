@@ -119,41 +119,15 @@ This prevents the trivial identity projection, which achieves $\varepsilon^\ast 
 
 *[Derived (bridge-lemma, from sector-persistence-template + A4 + contraction assumption)]*
 
-This lemma instantiates the sector-persistence template ( #sector-persistence-template) with state variable $\xi = e_t$ (trajectory error), correction function $f_c(\cdot, o) - \tilde X_{c,t+1}$, and effective disturbance rate $\rho_\xi = \varepsilon^\ast \nu_c$ (closure defect injected per macro-step). The template's conclusion — bounded state $\lVert e_t\rVert \leq \varepsilon^\ast \nu_c / \alpha_c$ — is precisely the bridge bound below. What the bridge lemma adds beyond the template is the tier-specific **contraction assumption** strictly stronger than (T2): the macro-update map must be contracting in its state argument (incremental sector bound DA2'-inc), not just one-point sector-bounded. This is where the Tier 1/2/3 structure enters.
+The bridge lemma is the sector-persistence template ( #sector-persistence-template) applied with state variable $\xi = e_t = X_{c,t} - \Lambda_x(X_{\text{micro},t})$ (trajectory error between macro-evolved state and projected micro-state) and effective disturbance rate $\rho_\xi = \varepsilon^\ast \nu_c$ (closure defect injected per macro-step). The template yields directly:
 
-If the macro-dynamics satisfy (A4) **and** the sector condition on the correction function implies contraction of the full update map $f_c(\cdot, o)$ in its state argument, then bounded closure defect implies bounded trajectory error.
+$$\limsup_{t \to \infty} \lVert e_t \rVert \leq \frac{\varepsilon^\ast \nu_c}{\alpha_c}$$
 
-**Setup.** Let $\tilde X_{c,t} = \Lambda_x(X_{\text{micro},t})$ be the projected micro-state ("true" macro-state) and $X_{c,t}$ be the macro-state evolved by macro-dynamics. Define trajectory error $e_t = X_{c,t} - \tilde X_{c,t}$.
+This bound fits within the composite's sector-condition region iff $\varepsilon^\ast \lt \alpha_c R_c / \nu_c$, which is the persistence condition applied to the closure-error rate: if it fails, the macro-description diverges from micro-reality.
 
-**Per-step error evolution.** At step $t$, decompose the next-step error:
+**What the bridge lemma adds beyond the template.** The template's precondition (T2) is the one-point sector bound. For the trajectory-error instantiation, the bound propagation requires a *strictly stronger* condition: the macro-update map $f_c(\cdot, o)$ must be contracting in its state argument (**incremental sector bound**, DA2'-inc — strong monotonicity of $F_c$), not merely one-point sector-bounded at each state. The per-step contraction factor is $\lambda = 1 - \alpha_c/\nu_c \lt 1$ (automatic when $\alpha_c \lt \nu_c$, true for any realistic agent that doesn't fully correct in a single step). This stronger condition is where the tier structure enters; see Epistemic Status for the Tier 1/2/3 taxonomy.
 
-$$e_{t+1} = \underbrace{f_c(\tilde X_{c,t} + e_t, o_{c,t+1}) - f_c(\tilde X_{c,t}, o_{c,t+1})}_{\text{propagation of accumulated error}} + \underbrace{f_c(\tilde X_{c,t}, o_{c,t+1}) - \tilde X_{c,t+1}}_{\text{new closure error } \leq \varepsilon_x}$$
-
-The first term measures how the macro-update propagates existing error. **Contraction assumption:** The sector condition on the correction function (A4) implies that the full update map $f_c(\cdot, o)$ is contracting in its state argument — that is, the correction dominates the state update, so differences in state input shrink through the update. This holds when the correction is the primary mechanism by which the state responds to itself (as opposed to new information from $o$), which is the normal regime for adaptive agents. It can fail during structural adaptation when the state changes discontinuously, or when the observation-driven component of the update amplifies state differences. In discrete time, the sector condition with correction rate $\alpha_c$ and event rate $\nu_c$ gives a per-step contraction factor:
-
-$$\lambda = 1 - \alpha_c / \nu_c \quad (\lt 1 \text{ when } \alpha_c \lt \nu_c)$$
-
-The condition $\alpha_c \lt \nu_c$ means the agent doesn't fully correct in a single step — always true for realistic systems. Under this contraction:
-
-$$\lVert e_{t+1} \rVert \leq \lambda \lVert e_t \rVert + \varepsilon_x$$
-
-**Bound.** This is a standard linear recurrence. Starting from $e_0 = 0$:
-
-$$\lVert e_t \rVert \leq \varepsilon_x \sum_{k=0}^{t-1} \lambda^k = \varepsilon_x \frac{1 - \lambda^t}{1 - \lambda}$$
-
-As $t \to \infty$:
-
-$$\limsup_{t \to \infty} \lVert e_t \rVert \leq \frac{\varepsilon_x}{1 - \lambda} = \frac{\varepsilon_x \nu_c}{\alpha_c}$$
-
-Since the closure defect $\varepsilon^\ast$ is the per-step error and $\varepsilon^\ast \nu_c$ is the closure error rate (per-step error × steps per unit time), this bound has the same structure as $\rho / \alpha$ from #persistence-condition — a ratio of disturbance rate to correction rate. This is the sector-persistence template ( #sector-persistence-template) applied with $\rho_\xi = \varepsilon^\ast \nu_c$, not a separate derivation.
-
-**Condition for meaningful composition.** The bound must fit within the sector-condition region:
-
-$$\frac{\varepsilon^\ast \nu_c}{\alpha_c} \lt R_c \quad \Longleftrightarrow \quad \varepsilon^\ast \lt \frac{\alpha_c R_c}{\nu_c}$$
-
-This parallels the persistence condition: the closure error rate must not exceed the macro-agent's adaptive reserve. If it does, the macro-description diverges from micro-reality.
-
-**Why this is the persistence condition in disguise.** The trajectory error $e_t$ evolves under the same dynamics as mismatch $\delta_t$ — contraction from the correction function, perturbation from an external source. For mismatch, the source is environmental disturbance $\rho$. For trajectory error, the source is closure defect $\varepsilon^\ast \nu_c$. The Lyapunov argument is identical (cf. Prop A.1 in #sector-condition-derivation); only the labels change. The sector condition (A4) does double duty.
+**The sector condition (A4) does double duty — conditionally.** (A4) ensures the macro-agent corrects external mismatch (single-agent persistence) AND — under the incremental sector bound — that the macro-description tracks micro-reality (this bridge). Both are instances of the same template applied to different state variables with different effective disturbance rates.
 
 ## Epistemic Status
 

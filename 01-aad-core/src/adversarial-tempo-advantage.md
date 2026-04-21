@@ -15,81 +15,43 @@ Under adversarial coupling where one agent's actions contribute to the other's d
 
 ## Formal Expression
 
-*[Derived (adversarial-tempo-advantage, from mismatch-dynamics steady state and adversarial-destabilization coupling model)]*
+*[Derived (adversarial-tempo-advantage, from sector-persistence-template + adversarial-destabilization coupling model)]*
 
-**Setup.** Two agents $A$ and $B$ with adaptive tempos $\mathcal T_A$ and $\mathcal T_B$, coupled via the same model as #adversarial-destabilization:
+**Setup.** Two agents $A, B$ with adaptive tempos $\mathcal T_A, \mathcal T_B$, each instantiating #sector-persistence-template with linear correction ($\alpha = \mathcal{T}$). The adversarial coupling of #adversarial-destabilization enters each agent's effective disturbance:
 
-$$\rho_A = \rho_{\text{base}} + \gamma_B \cdot \mathcal{T}_B, \qquad \rho_B = \rho_{\text{base}} + \gamma_A \cdot \mathcal{T}_A$$
+$$\rho_A^{\text{eff}} = \rho_{\text{base}} + \gamma_B \cdot \mathcal{T}_B, \qquad \rho_B^{\text{eff}} = \rho_{\text{base}} + \gamma_A \cdot \mathcal{T}_A$$
 
-where $\gamma_A, \gamma_B \gt 0$ are the coupling effectivenesses and $\rho_{\text{base}}$ is the background disturbance rate (taken equal for both agents for clarity; the asymmetric case is a straightforward generalization).
+with $\gamma_A, \gamma_B \gt 0$ coupling effectivenesses and $\rho_{\text{base}}$ the shared background rate (asymmetric $\rho_{\text{base}}$ generalizes straightforwardly).
 
-**Steady-state mismatch ratio.** From the linear mismatch dynamics ( #mismatch-dynamics), $\Vert\delta\Vert_{ss} = \rho / \mathcal{T}$. Substituting the coupled disturbance rates:
+### Model D: Deterministic coupling, $b = 2$
 
-$$\Vert\delta_A\Vert_{ss} = \frac{\rho_{\text{base}} + \gamma_B \cdot \mathcal{T}_B}{\mathcal{T}_A}, \qquad \Vert\delta_B\Vert_{ss} = \frac{\rho_{\text{base}} + \gamma_A \cdot \mathcal{T}_A}{\mathcal{T}_B}$$
+*[Result (adversarial-tempo-advantage, Model D)]*
 
-Taking the ratio:
+The template's Model D conclusion $\lVert\delta\rVert_{ss} = \rho^{\text{eff}}/\mathcal{T}$ (linear case, $\alpha = \mathcal{T}$) applied to both agents and ratioed:
 
-$$\frac{\Vert\delta_B\Vert_{ss}}{\Vert\delta_A\Vert_{ss}} = \frac{\rho_{\text{base}} + \gamma_A \cdot \mathcal{T}_A}{\mathcal{T}_B} \cdot \frac{\mathcal{T}_A}{\rho_{\text{base}} + \gamma_B \cdot \mathcal{T}_B}$$
+$$\frac{\lVert\delta_B\rVert_{ss}}{\lVert\delta_A\rVert_{ss}} = \frac{(\rho_{\text{base}} + \gamma_A \mathcal{T}_A)\,\mathcal{T}_A}{(\rho_{\text{base}} + \gamma_B \mathcal{T}_B)\,\mathcal{T}_B}$$
 
-*[Result (adversarial-tempo-advantage)]*
+In the coupling-dominant limit ($\gamma \mathcal{T} \gg \rho_{\text{base}}$) with symmetric coupling ($\gamma_A = \gamma_B$):
 
-$$\frac{\Vert\delta_B\Vert_{ss}}{\Vert\delta_A\Vert_{ss}} = \frac{(\rho_{\text{base}} + \gamma_A \cdot \mathcal{T}_A) \cdot \mathcal{T}_A}{(\rho_{\text{base}} + \gamma_B \cdot \mathcal{T}_B) \cdot \mathcal{T}_B}$$
+$$\frac{\lVert\delta_B\rVert_{ss}}{\lVert\delta_A\rVert_{ss}} \to \left(\frac{\mathcal{T}_A}{\mathcal{T}_B}\right)^2$$
 
-### Coupling-Dominant Limit
+The exponent is $b = 2$: a **squared** tempo advantage. A 2:1 tempo ratio yields a 4:1 mismatch ratio. The faster agent both (a) corrects its own mismatch faster and (b) generates disturbance for the opponent faster — the two effects compound rather than add. $\square$
 
-In the coupling-dominant regime ($\gamma_A \cdot \mathcal T_A \gg \rho_{\text{base}}$ and $\gamma_B \cdot \mathcal T_B \gg \rho_{\text{base}}$), the base disturbance becomes negligible:
+### Model S: Stochastic coupling, $b = 3/2$
 
-$$\frac{\Vert\delta_B\Vert_{ss}}{\Vert\delta_A\Vert_{ss}} \to \frac{\gamma_A \cdot \mathcal{T}_A^2}{\gamma_B \cdot \mathcal{T}_B^2} = \frac{\gamma_A}{\gamma_B} \cdot \left(\frac{\mathcal{T}_A}{\mathcal{T}_B}\right)^2$$
+*[Derived (stochastic-tempo-advantage, from sector-persistence-template Model S + coupling)]*
 
-For symmetric coupling ($\gamma_A = \gamma_B$):
-
-$$\frac{\Vert\delta_B\Vert_{ss}}{\Vert\delta_A\Vert_{ss}} \to \left(\frac{\mathcal{T}_A}{\mathcal{T}_B}\right)^2$$
-
-The exponent is $b = 2$: a **squared** tempo advantage. A 2:1 tempo ratio yields a 4:1 mismatch ratio, not 2:1.
-
-### Derivation
-
-From #mismatch-dynamics, the steady-state condition $d\Vert\delta\Vert/dt = 0$ gives $\Vert\delta\Vert_{ss} = \rho / \mathcal{T}$.
-
-1. Substitute the coupling model into $B$'s steady state: $\Vert\delta_B\Vert_{ss} = (\rho_{\text{base}} + \gamma_A \cdot \mathcal T_A) / \mathcal T_B$.
-
-2. Substitute the coupling model into $A$'s steady state: $\Vert\delta_A\Vert_{ss} = (\rho_{\text{base}} + \gamma_B \cdot \mathcal T_B) / \mathcal T_A$.
-
-3. Form the ratio:
-
-$$\frac{\Vert\delta_B\Vert_{ss}}{\Vert\delta_A\Vert_{ss}} = \frac{(\rho_{\text{base}} + \gamma_A \cdot \mathcal{T}_A) / \mathcal{T}_B}{(\rho_{\text{base}} + \gamma_B \cdot \mathcal{T}_B) / \mathcal{T}_A} = \frac{(\rho_{\text{base}} + \gamma_A \cdot \mathcal{T}_A) \cdot \mathcal{T}_A}{(\rho_{\text{base}} + \gamma_B \cdot \mathcal{T}_B) \cdot \mathcal{T}_B}$$
-
-4. In the coupling-dominant limit, $\rho_{\text{base}} \to 0$ relative to $\gamma \cdot \mathcal{T}$:
-
-$$\frac{\Vert\delta_B\Vert_{ss}}{\Vert\delta_A\Vert_{ss}} \to \frac{\gamma_A \cdot \mathcal{T}_A \cdot \mathcal{T}_A}{\gamma_B \cdot \mathcal{T}_B \cdot \mathcal{T}_B} = \frac{\gamma_A}{\gamma_B} \cdot \left(\frac{\mathcal{T}_A}{\mathcal{T}_B}\right)^2$$
-
-$\square$
-
-### Regime 2: Stochastic Coupling ($b = 3/2$)
-
-*[Derived (stochastic-tempo-advantage, from Model S steady state and coupling model)]*
-
-When the adversarial coupling enters as zero-mean noise rather than persistent drift, the disturbance model is Model S (GA-2S). The coupling model: $\sigma_B = \sigma_{\text{base}} + \gamma_A \cdot \mathcal{T}_A$ (the adversary's tempo increases the unpredictability of disturbances, not their systematic direction).
-
-From the Model S steady state (Prop A.1S, scalar $n = 1$, linear $\alpha = \mathcal{T}$):
-
-$$\lVert\delta\rVert_{\text{rms}} = \frac{\sigma}{\sqrt{2\mathcal{T}}}$$
-
-Substituting the coupled noise scales:
-
-$$\lVert\delta_B\rVert_{\text{rms}} = \frac{\sigma_{\text{base}} + \gamma_A \mathcal{T}_A}{\sqrt{2\mathcal{T}_B}}, \qquad \lVert\delta_A\rVert_{\text{rms}} = \frac{\sigma_{\text{base}} + \gamma_B \mathcal{T}_B}{\sqrt{2\mathcal{T}_A}}$$
-
-Taking the ratio:
+Under Model S the coupling enters the noise scale: $\sigma_B^{\text{eff}} = \sigma_{\text{base}} + \gamma_A \mathcal T_A$. Adversary tempo increases unpredictability, not systematic direction. The template's Model S steady state $\lVert\delta\rVert_{\text{rms}} = \sigma/\sqrt{2\mathcal{T}}$ (linear $\alpha = \mathcal{T}$, scalar $n = 1$) applied to both agents:
 
 $$\frac{\lVert\delta_B\rVert_{\text{rms}}}{\lVert\delta_A\rVert_{\text{rms}}} = \frac{(\sigma_{\text{base}} + \gamma_A \mathcal{T}_A)\sqrt{\mathcal{T}_A}}{(\sigma_{\text{base}} + \gamma_B \mathcal{T}_B)\sqrt{\mathcal{T}_B}}$$
 
-In the coupling-dominant limit ($\gamma \mathcal{T} \gg \sigma_{\text{base}}$, symmetric coupling $\gamma_A = \gamma_B$):
+In the coupling-dominant, symmetric limit:
 
-$$\frac{\lVert\delta_B\rVert_{\text{rms}}}{\lVert\delta_A\rVert_{\text{rms}}} \to \frac{\gamma_A \mathcal{T}_A \sqrt{\mathcal{T}_A}}{\gamma_B \mathcal{T}_B \sqrt{\mathcal{T}_B}} = \frac{\gamma_A}{\gamma_B} \cdot \left(\frac{\mathcal{T}_A}{\mathcal{T}_B}\right)^{3/2}$$
+$$\frac{\lVert\delta_B\rVert_{\text{rms}}}{\lVert\delta_A\rVert_{\text{rms}}} \to \left(\frac{\mathcal{T}_A}{\mathcal{T}_B}\right)^{3/2}$$
 
 The exponent is $b = 3/2$. $\square$
 
-**Why 3/2, not 2.** The $1/\sqrt{\alpha}$ scaling of Model S (vs. $1/\alpha$ for Model D) removes one half-power from the denominator. The numerator contributes $\mathcal{T}_A^1$ from the coupling; the denominator contributes $\mathcal{T}_B^{1/2}$ from the noise averaging. Combined with the $A$-side denominator ($1/\mathcal{T}_A^{1/2}$): $\mathcal{T}_A^{3/2}/\mathcal{T}_B^{3/2}$.
+**Why 3/2, not 2.** The half-power difference between the template's Model D ($1/\alpha$) and Model S ($1/\sqrt{\alpha}$) scalings propagates through the ratio. Numerator contributes $\mathcal T_A^1$ from the coupling; denominator contributes $\mathcal T_B^{1/2}$ from noise averaging; combined with the $A$-side $1/\mathcal T_A^{1/2}$ gives $\mathcal T_A^{3/2}/\mathcal T_B^{3/2}$.
 
 ### Summary of Regime-Dependent Exponents
 
@@ -123,7 +85,7 @@ Max attainable: exact conditional on the disturbance model and coupling model. T
 
 ## Working Notes
 
-- **Channel-independence assumption.** The tempo ratio $\mathcal{T}_A / \mathcal{T}_B$ uses scalar tempo, which inherits the channel-independence assumption from #adaptive-tempo. When either agent's observation channels are correlated, the additive formula overcounts their tempo, inflating or deflating the ratio and the derived mismatch advantage. The superlinear exponents ($b = 2$, $b = 3/2$) are exact given the scalar tempos; the caveat concerns whether the scalar tempos themselves are accurate.
+- **Channel-independence assumption.** The tempo ratio $\mathcal T_A / \mathcal T_B$ uses scalar tempo, which inherits the channel-independence assumption from #adaptive-tempo. When either agent's observation channels are correlated, the additive formula overcounts their tempo, inflating or deflating the ratio and the derived mismatch advantage. The superlinear exponents ($b = 2$, $b = 3/2$) are exact given the scalar tempos; the caveat concerns whether the scalar tempos themselves are accurate.
 - The analysis treats each agent's tempo as exogenous — $\mathcal T_A$ does not change in response to $B$'s actions and vice versa. A fully coupled analysis where both agents' mismatch states co-evolve simultaneously (joint Lyapunov function over $(\delta_A, \delta_B)$) is the open extension. The decoupled result is a worst-case bound for the slower agent: in practice, the faster agent may divert adaptive capacity to generating disturbance rather than correcting its own mismatch, creating a self-limiting effect.
 - The stochastic exponent ($b = 3/2$) is now derived from both the AR(1) stationary variance (discrete) and the Itô-Lyapunov analysis (continuous, Prop A.1S). The continuous-time analog (Ornstein-Uhlenbeck) gives the same scaling, confirming the result is not a discretization artifact. The two models (D and S) are unified by the common sector-condition framework with different disturbance assumptions (GA-2 vs. GA-2S).
 - Asymmetric coupling ($\gamma_A \neq \gamma_B$) appears as a multiplicative prefactor $\gamma_A / \gamma_B$ that shifts the mismatch ratio without changing the exponent. An agent with lower tempo but higher coupling effectiveness ($\gamma$) can partially compensate — but the squared dependence on tempo dominates for large tempo ratios.
