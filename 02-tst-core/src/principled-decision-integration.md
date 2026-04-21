@@ -24,13 +24,19 @@ $$C^* = \operatorname{argmin}_{C \in \mathbf{C}} \; E[T \mid C]$$
 
 where total expected time given choice $C$ is:
 
-$$E[T \mid C] = t_0(C) + \sum_{i} P(F_i) \cdot \left[ t_{\text{comp}}(F_i \mid C) + t_{\text{impl}}(F_i \mid C) \right]$$
+$$E[T \mid C] = t_0(C) + \sum_{i} \lambda(F_i) \cdot \left[ t_{\text{comp}}(F_i \mid C) + t_{\text{impl}}(F_i \mid C) \right]$$
 
-This is the general form of #dual-optimization. Where dual-optimization uses a single "typical future feature" $F_{\text{typical}}$ with count $\hat n_{\text{future}}$, this integrates over the full distribution of possible future features $F_i$ with their individual probabilities $P(F_i)$.
+Here $\lambda(F_i)$ is the *expected count* of feature type $F_i$ over the relevant horizon — an intensity, not a probability. The total expected feature count is $\sum_i \lambda(F_i) = \hat n_{\text{future}}$ (the median prediction from #change-expectation-baseline), so $\hat n_{\text{future}}$ is an emergent property of the feature-type decomposition, not a separate multiplier.
+
+This is the general form of #dual-optimization. Where dual-optimization uses a single "typical future feature" $F_{\text{typical}}$ with count $\hat n_{\text{future}}$, this decomposes that count across feature types:
+
+$$\sum_i \lambda(F_i) \cdot t(F_i \mid C) \;=\; \hat n_{\text{future}} \cdot \mathbb E_{F \sim \lambda/\hat n_{\text{future}}}\big[\,t(F \mid C)\,\big]$$
+
+Dual-optimization is recovered in the single-type limit where $\lambda$ concentrates on $F_{\text{typical}}$ with mass $\hat n_{\text{future}}$. The integration gains information whenever feature types have heterogeneous cost profiles: heavy-tailed costs on rare feature types, different alignment sensitivities per type, or regime-dependent proximity structure.
 
 Substituting the proportional relationships from #conceptual-alignment, #changeset-size-principle, and #change-proximity-principle:
 
-$$E[T \mid C] = t_0(C) + \sum_{i} P(F_i) \cdot \left[ \frac{\alpha \cdot h(\text{disc}(F_i \mid C))}{\text{alignment}(C)} + \beta \cdot \lvert\text{cs}(F_i \mid C)\rvert \cdot g(\text{prox}(F_i \mid C)) \right]$$
+$$E[T \mid C] = t_0(C) + \sum_{i} \lambda(F_i) \cdot \left[ \frac{\alpha \cdot h(\text{disc}(F_i \mid C))}{\text{alignment}(C)} + \beta \cdot \lvert\text{cs}(F_i \mid C)\rvert \cdot g(\text{prox}(F_i \mid C)) \right]$$
 
 where $\alpha, \beta$ are empirical proportionality constants, $h$ and $g$ encode the (possibly exponential, per #exponential-cognitive-load) cost relationships, and $\text{disc}$, $\text{cs}$, $\text{prox}$ are the discontinuity count, changeset size, and proximity for feature $F_i$ under choice $C$.
 
@@ -52,9 +58,9 @@ Every pattern, practice, and paradigm can be re-evaluated through this lens. The
 
 1. Estimate the current implementation cost difference between options
 2. List the probable future changes and their rough probabilities
-3. Assess which option produces smaller changesets for those futures (#changeset-size-principle)
-4. Assess which option keeps future changes more proximate (#change-proximity-principle)
-5. Assess which option creates fewer comprehension discontinuities (#exponential-cognitive-load)
+3. Assess which option produces smaller changesets for those futures ( #changeset-size-principle)
+4. Assess which option keeps future changes more proximate ( #change-proximity-principle)
+5. Assess which option creates fewer comprehension discontinuities ( #exponential-cognitive-load)
 6. Choose the option that minimizes the weighted sum
 
 *[Discussion — this process is a heuristic approximation of the formal objective. Experienced developers do this intuitively. The framework's contribution is making the intuition explicit and auditable — when a decision feels wrong, the framework identifies which factor was misjudged.]*
@@ -76,7 +82,7 @@ The convergence is not an aesthetic claim. It follows from the dual-optimization
 ## Working Notes
 
 - TST T-11 includes a rich expanded form with empirical constants $\alpha$ and $\beta$ that convert proportionalities to equalities. These constants are codebase-specific and not derived. In practice, relative comparisons (architecture A vs B) may not need absolute constants — the proportionalities suffice for ordering.
-- The summation over $P(F_i)$ assumes the feature distribution is known or estimable. In practice, this is where the agent's $M_t$ does the real work — predicting not just *how many* future features ( #change-expectation-baseline) but *what kind*. The quality of this prediction is bounded by the agent's model quality, connecting back to #model-sufficiency.
+- The summation over $\lambda(F_i)$ assumes the feature intensity profile is known or estimable. In practice, this is where the agent's $M_t$ does the real work — predicting not just *how many* future features ($\hat n_{\text{future}}$ from #change-expectation-baseline) but *what kind*, decomposing the total count into per-type intensities. The quality of this prediction is bounded by the agent's model quality, connecting back to #model-sufficiency. The #change-expectation-baseline heavy-tailed prediction applies component-wise: each $\lambda(F_i)$ is itself a median prediction with Pareto-style tail behavior on the per-type count.
 - This segment might be better positioned as a discussion/synthesis rather than a standalone derived claim, since it mostly assembles previously stated results into a composite objective. Its independent contribution is the explicit per-feature probability weighting, which dual-optimization elides.
 
 *(Descended from TST T-11.)*

@@ -28,7 +28,17 @@ Definitional. The conditional probability is a standard quantity. Its value for 
 
 Coupling defined this way captures the *actual* change propagation in a system, which may differ from what static dependency analysis predicts. Two modules with no compile-time dependency can still be highly coupled if features routinely require changing both. Conversely, a module that imports another heavily may show low coupling if the interface is stable.
 
-In AAD terms, coupling is a property of the environment's causal structure as experienced by the agent: changing module $i$ (an intervention) tends to require changing module $j$ (a consequence). This is genuinely causal, not just correlational — the agent performs $do(\text{change}(m_i))$ and observes whether $m_j$ must also change. Git history provides the interventional data ( #causal-discovery-from-git).
+In AAD terms, coupling targets a property of the environment's causal structure as experienced by the agent: changing module $i$ (an intervention) tends to require changing module $j$ (a consequence). Two claims need to be distinguished — the first is secure, the second conditional:
+
+**Secured: individual commits are interventions.** Developers performing code changes are executing genuine $do$-operations on the codebase ( #software-epistemic-properties, P3). Each commit is an intervention in Pearl's sense, and git records the intervention-outcome pair (which module changed, which subsequent changes followed). This is not in dispute ( #causal-discovery-from-git Epistemic Status).
+
+**Conditional: aggregated co-change estimates are causal.** Whether $P(\text{change}(m_j) \mid \text{change}(m_i))$ estimated from git history approximates the true causal effect $P(\text{change}(m_j) \mid do(\text{change}(m_i)))$ depends on the confounder regime ( #causal-discovery-from-git identifies three classes of confounders: shared requirements, convention-driven bundling, developer knowledge state). The causal interpretation is strongest in specific regimes:
+
+- **Atomic commits with explicit feature scope**: feature-scoped atomic commits isolate the interventional signal from bundling confounders.
+- **Asymmetric co-change frequency**: $P(j \mid i) \gg P(i \mid j)$ survives common-cause confounding (which would produce symmetric co-change), giving evidence of directed causal linkage $i \to j$.
+- **Intervention contrast**: commits changing $i$ without $j$ vs. with $j$, conditioned on available confounders, provide weak-but-nonzero interventional contrast.
+
+Outside these regimes, the coupling estimate is better interpreted as a descriptive statistic of co-change — still useful for prediction, but not a secured causal parameter. See #causal-discovery-from-git for the full regime analysis and the research program for strengthening the causal interpretation via confounder adjustment.
 
 ## Working Notes
 
