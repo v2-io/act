@@ -35,14 +35,22 @@ The total scales as $O(\lvert E\rvert \log \lvert V\rvert)$ for moderate-precisi
 
 *[Formulation (strategy-IB-objective)]*
 
-The optimal strategy complexity balances parsimony against decision-relevance, by analogy with #information-bottleneck's compression-prediction trade-off for $M_t$:
+The optimal strategy complexity balances parsimony against decision-relevance. $\Sigma_t$ is the IB-compression of the interaction history $\mathcal C_t$ *for guidance*, parallel to $M_t$ as the IB-compression of $\mathcal C_t$ *for prediction* ( #compression-operations for the shared IB shape across AAD's compression operations, and for the relationship between the theoretical $I(\mathcal C_t; \Sigma_t)$ compression cost and the operational DL-based minimization below):
 
-$$\Sigma_t^\ast = \arg\min_{\Sigma_t} \left[\operatorname{DL}(\Sigma_t) - \beta_\Sigma \cdot I(\Sigma_t;\, \pi^\ast \mid M_t)\right]$$
+**Theoretical form.** The IB objective with $\mathcal C_t$ as source and $\pi^\ast \mid M_t$ as relevance variable:
+
+$$\Sigma_t^\ast = \arg\min_{\Sigma_t} \left[\, I(\mathcal C_t;\, \Sigma_t) - \beta_\Sigma \cdot I(\Sigma_t;\, \pi^\ast \mid M_t)\right]$$
+
+**Operational form.** Since $I(\mathcal C_t; \Sigma_t)$ is not computable in closed form for general DAG encodings, the operational minimization replaces the information cost with a description-length surrogate:
+
+$$\Sigma_t^\ast \approx \arg\min_{\Sigma_t} \left[\operatorname{DL}(\Sigma_t) - \beta_\Sigma \cdot I(\Sigma_t;\, \pi^\ast \mid M_t)\right]$$
 
 where:
-- $\operatorname{DL}(\Sigma_t)$: description length (complexity cost)
-- $I(\Sigma_t;\, \pi^\ast \mid M_t)$: mutual information between the strategy and the optimal policy, conditioned on the current model --- how much the strategy helps the agent choose good actions beyond what the model already provides
-- $\beta_\Sigma \gt 0$: trade-off parameter analogous to #information-bottleneck's $\beta$
+- $\operatorname{DL}(\Sigma_t)$: description length (coding-cost upper bound on $I(\mathcal C_t; \Sigma_t)$ for the given DAG encoding scheme — see §2.2 below)
+- $I(\Sigma_t;\, \pi^\ast \mid M_t)$: mutual information between the strategy and the optimal policy, conditioned on the current model — how much the strategy helps the agent choose good actions beyond what the model already provides
+- $\beta_\Sigma \gt 0$: trade-off parameter — cognitive cost per decision-relevant bit (the $\Sigma_t$ instance of the shared $\beta$ framework in #compression-operations)
+
+The two forms agree in the limit where the DAG encoding is rate-distortion optimal; the operational form is the one an agent actually runs. The theoretical form places the objective on the same IB frontier family as $M_t$, shared intent, and composition projection.
 
 When $\beta_\Sigma$ is low (high maintenance cost relative to decision value), the agent prefers simple strategies. When $\beta_\Sigma$ is high (strategy is cheap to maintain relative to its decision value), the agent can afford complex plans. The explicit strategy condition ( #explicit-strategy-condition) is the binary threshold: $\beta_\Sigma$ large enough that *any* $\Sigma_t$ is worth maintaining.
 
