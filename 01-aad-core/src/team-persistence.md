@@ -99,6 +99,8 @@ Max attainable: *robust-qualitative* for the persistence condition (it inherits 
 
 **Complement to #adversarial-destabilization.** That segment characterizes when an adversary can push an agent past its stability boundary. This segment characterizes the cooperative counterpart: when allies can pull an agent back from instability. The $\gamma$ coefficients have the same structure — coupling effectiveness — but opposite sign in the disturbance decomposition.
 
+**Composite-level complement: #critical-mass-composition.** This segment gives the *per-sub-agent* persistence condition within a team. #critical-mass-composition supplies the *composite-level* analog: a closed-form critical-mass inequality in the matched-symmetric-Tier-1 two-agent case, with the same signed-$\gamma$ coupling structure used here but applied to the joint Lyapunov on the concatenated mismatch state. The two are complementary: the team persists at the sub-agent level when each $i$ satisfies this segment's condition; the team persists at the composite level when #critical-mass-composition's (CM4) holds. Cooperative coupling ($\gamma \lt 0$) reduces $\rho_i^{\text{eff}}$ here and reduces $\rho + \gamma\mathcal T$ in (CM2) there — the same mechanism viewed at two scales.
+
 ## Working Notes
 
 - The topology-dependent analysis (F.4 in the source material — peer networks, ensemble architectures, hierarchical structures) and game-theoretic integration (F.5) are related but separate concerns, not covered here. They may warrant their own segments.

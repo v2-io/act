@@ -156,6 +156,7 @@ Every slug is linked to its intended `src/{slug}.md` file, even when that file d
 | --- | ---------- | --- | ---------------------------------------------------------------------- | --------------------------------------------------------------------- | ------- |
 | A   | Derivation |     | [#sector-condition-derivation](src/sector-condition-derivation.md)     | Lyapunov derivations for bounded mismatch and adaptive reserve        | claims-verified |
 | A   | Result     |     | [#sector-persistence-template](src/sector-persistence-template.md)     | Abstract sector-persistence template; six AAD results as instances    | draft   |
+| A   | Derivation |     | [#critical-mass-composition](src/critical-mass-composition.md)         | Closed-form composite sector-constant for symmetric-matched-Tier-1 dyad; (CM2)/(CM4) derive $\alpha_c$ from parent $(\alpha, R, \gamma, U_O, C)$; subsumes weakest-link bound; asymmetric limit formalizes #symbiogenic-composition (S-3) | draft |
 | A   | Derivation |     | [#gain-sector-derivation](src/gain-sector-derivation.md)               | Gain-sector bridge proofs: Kalman, gradient equivalence, verification | deps-verified |
 | A   | Derivation |     | [#recursive-update-derivation](src/recursive-update-derivation.md)     | Uniqueness derivation via three constraints + counterexamples         | claims-verified |
 | A   | Sketch     |     | [#multi-timescale-stability](src/multi-timescale-stability.md)         | N-timescale singular perturbation sketch                              | draft   |
