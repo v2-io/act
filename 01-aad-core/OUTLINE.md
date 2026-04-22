@@ -134,8 +134,9 @@ Every slug is linked to its intended `src/{slug}.md` file, even when that file d
 | III | Hypothesis | | [#communication-gain](src/communication-gain.md) | Trust-weighted update gain for inter-agent channels | draft |
 | III | Derived | | [#team-persistence](src/team-persistence.md) | Composite persistence condition | draft |
 | III | Derived | | [#adversarial-destabilization](src/adversarial-destabilization.md) | Inside opponent's loop; includes effects spiral corollary | draft |
+| III | Derived | | [#interaction-channel-classification](src/interaction-channel-classification.md) | Recipient-side four-regime classification (Informative / magnitude-shock / structural-shock / ambient-noise) with three independent boundaries in AAD-native quantities; regime-typed $\rho_B^{\text{eff}}$ decomposition with signed Regime-I term; Kalman-over-Kalman derivation | draft |
 | III | Result | | [#adversarial-tempo-advantage](src/adversarial-tempo-advantage.md) | Superlinear tempo advantage | draft |
-| | --GAP-- | | | Which strategy edges are most valuable to attack | |
+| | --GAP-- | | | Which strategy edges are most valuable to attack (pairs with #interaction-channel-classification as emitter-side optimizer to recipient-side classifier) | |
 | III | Observation | | [#adversarial-exponent-regimes](src/adversarial-exponent-regimes.md) | $\alpha = 2, 3/2, \text{or } {\sim}1$ | draft |
 | III | Observation | | [#observation-gates-advantage](src/observation-gates-advantage.md) | Obs noise gates advantage | draft |
 | III | Result | | [#per-dimension-persistence](src/per-dimension-persistence.md) | Weak dimension is bottleneck | draft |
