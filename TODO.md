@@ -1,8 +1,9 @@
 # TODO — Open Work Items
 
-**Last reconciled:** 2026-04-23 (post-cascading-strengthening + post-triple-audit). This file is the living action list.
+**Last reconciled:** 2026-04-23 (post-SP-2 landing + citation audit completion). This file is the living action list.
 
 **Cycle history (most recent first).**
+- **2026-04-23 SP-2 + citation audit cycle** (three commits: `7456ec3`, `6567914`, `f61e62f`). Executed Tier 1 item 1 (SP-2 meta-segment promotion) + partial Tier 1 item 2 (framing pass — CLAUDE.md §7 + OUTLINE preamble) + full citation audit project-wide. SP-2 landed as `#additive-coordinate-forcing` with the honest 1-anchor-plus-2-theorem characterization after in-flight verification narrowed Opus's 5-instance conjecture. Citation audit ran 4 parallel first-pass batches + 4 follow-up batches + 2 PDF-level Tier 1 verification agents + 1 missing-citation audit; produced 26 verified PDFs in `ref/` and zero confirmed attribution errors project-wide (reverse-KL's 20-25% rate was a local concentration in one spike, not a project-wide pattern). Segment count: 96 → 97.
 - **2026-04-23 triple audit** (Codex / Gemini / Opus, post-cycle). 10 consolidated findings (F22–F31) across the three audits plus 7 session-discovered architectural proposals (SP-2 through SP-8, extending SP-1 from the strengthening cycle). ~25% of candidate findings rejected as already-adequately-caveated. See `msc/pending-findings-2026-04-23.md` and `msc/architectural-proposals-2026-04-22.md` §"Post-2026-04-23-audit architectural extensions."
 - **2026-04-22/23 cascading strengthening cycle** (nine commits: `0a772d2`, `c1d9fcf`, `2980327`, `f70fb68`, `80b40d2`, `d0373fc`, `72ca532`, `e777f01`, `a39dfb7`; plus session-close `2fc829b`). Executed Phases 1–5 + 7; landed three Cauchy-functional-equation uniqueness theorems; discovered the three-layer additive-decomposition pattern (SP-1). See Archive for per-commit detail.
 - **2026-04-22 strengthening cycle** (commits `14a6095`, `b6134c2`, `4d050c8`, `b91493c`, `a14682e`). Executed strengthen-first repairs for Findings 1, 7, 10, 13 and the AI integration pass.
@@ -95,20 +96,21 @@ Segment count: 93 → 96 (added `#identifiability-floor` before this cycle; `#st
 - **F31** — `#orient-cascade` step 4c practical-sensitivity note (30 min).
 - **F21-follow-up / F24** — Promote `msc/spike-edge-semantics-resolution.md`'s "causal efficacy credence" framing to `#strategy-dag`; soften "DAG-forced" language to match `#graph-structure-uniqueness`'s sufficiency-only content (1 session).
 
-**Phase A — Citation audit project-wide (2–3 sessions).** The reverse-KL audit found a 3-wrong-out-of-~16 error rate. Prior strengthening cycles invoked Bareinboim/Khalil/Khasminskii/Friston/Tishby/Pearl/etc.; none has had the same audit scrutiny. Next session should run in batches (Section I derivations first; then Section III composition; then TST operational segments). Template is the reverse-KL audit work (commit `e777f01`).
+**Phase A — CLOSED 2026-04-23.** Project-wide citation audit completed across 3 commits (`7456ec3`, `6567914`, `f61e62f`). Zero confirmed attribution errors. 26 PDFs in `ref/`. 5 missing-citation gaps hardened. See §"Citations Audit — COMPLETE 2026-04-23" above for detail.
 
 **Phase B — CLOSED 2026-04-23.** The `#additive-coordinate-forcing` meta-segment landed with the honest 1-anchor-plus-2-theorem characterization. Opus's 5-instance conjecture was tested and narrowed: Lyapunov and IB Lagrangian are documented as *adjacent family members* rather than primary instances, with explicit reasoning (Lyapunov's quadratic coordinate is a formulation choice matched to the sector condition, not forced by it; IB is adopted from Tishby-Pereira-Bialek 1999 as applied external theorem rather than re-derived under AAD-internal axioms). Cross-refs added in five home segments; SP-1 entry in proposals doc promoted from truncated-table to promotion-pointer.
 
-**Phase C — Coordinated framing + reframe pass (2–3 sessions).** The convergent Codex/Gemini/Opus big-picture reframe (SP-7) + O-BP1 + O-BP10 + O-BP8 + SP-3 constitute a deepened framing pass that incorporates the audit trio's convergent observation. README + CLAUDE.md + OUTLINE preamble rewrite should be coordinated rather than fragmented. Specifically:
+**Phase C — Coordinated framing + reframe pass (PARTIAL 2026-04-23; 1-2 sessions remaining).** Part 1 landed in commit `7456ec3`: CLAUDE.md §7 expanded from "Honesty as architectural principle" to "Epistemic architecture as AAD's distinctive contribution" with the convergent Codex/Gemini/Opus reframe and the seven elements of AAD's epistemic architecture explicitly named; `01-aad-core/OUTLINE.md` acquired a new "Reading AAD" paragraph framing the theory at both integration and distinctive levels with the three meta-segments as cross-sectional structure.
 
-- **SP-7** (epistemic architecture foregrounding): AAD's distinctive value is its epistemic architecture (separability + identifiability-floor + calibration-lab + scope-honesty + additive-coordinate-forcing + agent-identity postulate), not the integration narrative. Partially closes F22.
-- **O-BP10** (projection-contraction slogan): "adaptive system = projection whose contraction exceeds target's drift." Sharpened by SP-1/SP-2 — contraction operates on disturbance expressed in whichever coordinate the additive-decomposition pattern forces.
-- **O-BP1** (template as organizing principle): reframe OUTLINE around disturbance decomposition at scales. Composes with O-BP10 and SP-1/SP-2.
-- **O-BP8** (explicit scope lattice): name the adaptive → agency → learning-purposeful → Class-1-modular → coupled/logogenic lattice once. Closes F16 and F30.
-- **SP-3** (calibration-laboratory template generalization): prescribe the transfer-assumption table format for all domain instantiations. Composes with O-BP8.
-- **SP-4** (agent identity to architectural postulate): elevate "AAD is a theory of token-level adaptation under causal embedding" to explicit postulate.
+**Part 2 (remaining) — segment-level moves:**
+- **SP-7** (epistemic architecture foregrounding): README.md public-facing reframe incorporating the convergent audit observation. Partially closes F22.
+- **O-BP10** (projection-contraction slogan): "adaptive system = projection whose contraction exceeds target's drift." Promote to segment-level content in `#sector-persistence-template` or a new organizing-principle segment.
+- **O-BP1** (template as organizing principle): OUTLINE preambles get refreshed framing around disturbance decomposition at scales. Composes with O-BP10 and the additive-coordinate-forcing meta-segment.
+- **O-BP8** (explicit scope lattice): name the adaptive → agency → learning-purposeful → Class-1-modular → coupled/logogenic lattice once as a scope-lattice segment or canonical paragraph in `#scope-condition`. Closes F16 and F30.
+- **SP-3** (calibration-laboratory template generalization): write `domain-instantiation-template.md` or FORMAT.md section prescribing the transfer-assumption table format. Composes with O-BP8.
+- **SP-4** (agent identity to architectural postulate): elevate `#agent-identity` frontmatter from scope to postulate; rewrite Formal Expression to state the commitment ("AAD is a theory of token-level adaptation under causal embedding, not type-level agent populations").
 
-This is a larger coordinated pass than the original Phase C. 2–3 sessions. Consider breaking into (i) README + CLAUDE.md reframe (1 session) + (ii) OUTLINE preambles + scope lattice + template-as-organizing-principle (1 session) + (iii) per-segment touches where the reframe cascades.
+Estimated 1-2 sessions for Part 2. Tracked as task #8.
 
 **Phase D — Composition-closure consolidation (SP-6; 2–3 sessions).** Repairs F26. Scope the bridge lemma explicitly to linear-Gaussian + exponential-family Tier-1 cases; adopt "composite agents are AAD agents iff effective dynamics admit an AAD-shaped reduction" as the honest general claim. Scoping spike valuable first. Downstream of Phase A (citation audit; especially on `#composition-closure`'s Khalil/Khasminskii citations).
 
@@ -140,17 +142,25 @@ The recommended next session should rebalance toward consolidation: Phase A (cit
 The pattern becoming visible: AAD's strengthening cycles alternate between *depth* (new theorems) and *breadth-compression* (consolidation and naming). This cycle was depth-heavy; the next should be breadth-compression-heavy. If this alternation continues, it may itself be a project-level discipline worth naming in CLAUDE.md.
 
 
-## Active — Citations Audit (project-wide)
+## Citations Audit — COMPLETE 2026-04-23
 
-Surfaced during the reverse-KL uniqueness spike: a specific citation (Amari 2009 for chain-rule uniqueness) was found to be incorrect — the paper proves f∩Bregman intersection uniqueness, not chain-rule uniqueness. The immediate fix is in flight as a background audit agent scoped to the reverse-KL work (`#strategy-cost-regret-bound`, `msc/spike-reverse-kl-uniqueness.md`, and downstream refs).
+**Result: zero confirmed attribution errors project-wide.** The reverse-KL audit's 3-wrong-out-of-16 rate was a local concentration in that one spike's citations; the broader corpus is clean. Three commits closed the audit project:
 
-The broader concern: *every* external-theorem citation across AAD and TST segments should be verified against the actual paper content. Prior strengthening cycles invoked external theorems (Bareinboim et al. 2022 Causal Hierarchy Theorem; Cramér-Rao; Pearl's do-calculus; Tishby-Pereira-Bialek 1999 IB; Khalil Lyapunov results; Friston et al. and Da Costa et al. active-inference references; Aguilera 2022; Bruineberg et al. 2022; etc.) that should have the same level of scrutiny applied.
+- `7456ec3` — SP-2 landing + framing-pass subset (initial SP-1 truncation fix in proposals doc)
+- `6567914` — Tier 1 verification: 3 framing refinements + Morozova-Chentsov completion + ref/ rename hygiene
+- `f61e62f` — Missing-citation hardening: Tikhonov / Chechik / Doob-Dynkin / Cox / Cramér added
 
-**Scope.** Every `*[Derived]*`, `*[Proved]*`, and `*[Derived (External theorem)]*` claim that invokes a specific paper. Include both AAD core segments and TST segments. Aim for two per-citation deliverables: (a) outcome of (A correct / B wrong paper / C unverified / D ghost); (b) PDF saved to `ref/` when open-access.
+**What was audited.** Four first-pass Explore batches covered every `*[Derived]*`, `*[Proved]*`, and external-theorem citation across 01-aad-core and 02-tst-core. Four follow-up agents with curl-into-ref/ workflow closed the E-verdict backlog. Two PDF-level Tier 1 verification agents confirmed the highest-risk attributions (Bruineberg's "Pearl-blanket vs Friston-blanket" terminology is VERBATIM, with credit to Martin Biehl in footnote 3; Bareinboim CHT = Theorem 1 p.22 of the 2022 ACM Books chapter; Aguilera's FEP-narrow-validity claim exactly matches AAD's usage).
 
-**Pattern to cascade.** The reverse-KL audit is the template for this work — self-contained audit of a single work's citations. For a project-wide audit, pursue in batches by segment cluster (e.g., first Section II derivations, then Section III composition results, then TST operational segments).
+**26 PDFs in `ref/`.** Canonically named (`{author}-{year}-{short}.pdf`). Load-bearing external theorems covered: Khalil 2002, Khasminskii 2012, Nesterov 2004, Pearl 2009, Lauritzen 1996, Spirtes-Glymour-Scheines 2000, Bareinboim 2022, Cover-Thomas 2006 (textbook), Tishby 1999, Chechik 2005, Csiszár 1991, Shore-Johnson 1980, Hobson 1969, Eguchi 1983, Aczél & Daróczy, Ay et al. 2017, all Friston lineage (2010/2013/2017/2019/2023), Da Costa 2020, Sajid 2021, Parr-Pezzulo 2022, Aguilera 2022, Bruineberg 2022, Sun-Firestone 2020, Clark 2013, Wiener 1948, Hafez 2026, Miller 2022. Amari 2009 and Amari-Cichocki 2010 already retained from the reverse-KL audit.
 
-**Parking until the reverse-KL audit completes** — that audit's findings will refine the per-citation procedure and surface which other segments need similar scrutiny.
+**Framing refinements landed** (commit `6567914`): (1) Eguchi 1983 attribution is now "the differential-geometric framework in Eguchi 1983" not "Eguchi's theorem" (Theorem 3 is about estimator efficiency; the f-divergence/Fisher-metric result is in §2 contrast-function machinery); (2) Sun & Firestone 2020 direction-of-inference clarified (they diagnose, AAD responds); (3) Friston 2023 labeled as the path-integral methodological extension; Friston 2019 named as the primary NESS source.
+
+**Missing-citation hardening landed** (commit `f61e62f`): Tikhonov 1952 + Khalil 2002 Ch 11 (singular perturbation) to `#temporal-nesting` and `#multi-timescale-stability`; Chechik 2005 full citation to `#compression-operations`; Kallenberg 2002 footnote in `#recursive-update-derivation` (Doob-Dynkin); Cox 1946 + Jaynes 2003 in `#graph-structure-uniqueness` and `#strategy-dag`; Cramér 1946 in `#identifiability-floor` and `#strategic-dynamics-derivation`.
+
+**Spike-to-segment promotion fix** (commit `6567914`): Morozova & Chentsov 1991 citation completed in `#strategy-cost-regret-bound` §6.2 by importing the full form from `msc/spike-reverse-kl-uniqueness.md` ("Markov invariant geometry on state manifolds," *Itogi Nauki i Tekhniki*, translated in *J. Sov. Math.* 56(5):2648-2669).
+
+**Residue (acceptable):** 3 emphasis-vulnerable linter warnings in `#strategic-dynamics-derivation` on dense table-row math (lines 346, 501, 507) — fixing requires math restructuring that exceeds citation-hardening scope. Miller 2022 `Ex_Machina` specific chapter/section/table loci (§3.3, Ch 1, Table 12.2) not independently PDF-verified; book is in `ref/miller-2022-ex-machina.pdf` if a future spot-check is desired.
 
 
 ## Active — Strategic Architectural Proposals

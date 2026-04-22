@@ -1,0 +1,6 @@
+# Reference PDFs are not redistributed with this repo.
+# Academic papers have varying copyright / redistribution rights;
+# keeping them out of version control respects those permissions.
+# The PDFs remain locally for audit and derivation-trace purposes;
+# they are re-acquired per agent/user when needed.
+*.pdf
