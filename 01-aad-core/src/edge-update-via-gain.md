@@ -6,6 +6,8 @@ depends:
   - strategy-dag
   - update-gain
   - mismatch-signal
+  - edge-update-natural-parameter
+  - chain-confidence-decay
 stage: draft
 ---
 
@@ -36,6 +38,14 @@ with:
 - Effective gain: $\eta_{\text{edge}} = 1/(n+1)$ where $n = \alpha + \beta$
 
 This is the standard Bayesian conjugate update, yielding $\Delta\hat p = (y - \hat p)/(n+1)$. The gain $1/(n+1)$ is the exact conjugate update rate — not a literal substitution into $\eta = U_{\text{edge}}/(U_{\text{edge}} + U_{\text{obs}})$, which is a structural principle (conservative updating proportional to relative uncertainty), not a universal algebraic formula. The Beta-Bernoulli gain satisfies the same principle: it decreases as posterior certainty increases, trusting accumulated evidence over individual observations. But the algebraic derivation is conjugate analysis, not Kalman-style variance ratios, because the Bernoulli observation model has different noise structure than the Gaussian case where the variance-ratio formula is exact. The sector-condition analysis in #strategic-dynamics-derivation (Props B.1-B.4) uses the exact Beta-Bernoulli gain $1/(n+1)$ directly.
+
+**Parallel log-odds presentation.** The same update is natively additive in the log-odds coordinate $\lambda_{ij} = \log(p_{ij}/(1 - p_{ij}))$:
+
+$$\lambda_{ij}^{\text{new}} = \lambda_{ij}^{\text{old}} + \ell(y)$$
+
+where $\ell(y) = \log[P(y \mid \text{edge true})/P(y \mid \text{edge false})]$ is the per-observation log-likelihood ratio. The log-odds coordinate is the unique (up to positive affine transformation) parameterization on which Bayesian independent-evidence accumulation is additive — forced by the evidential-additivity axiom derived in #edge-update-natural-parameter, which is the update-level analog of #chain-confidence-decay's chain-level additive log-confidence decomposition. The moment-parameter (probability-space) form $\Delta\hat p = (y - \hat p)/(n+1)$ is the projected image of the log-odds additive update under the sigmoid readout $p = \sigma(\lambda)$; the two coordinates carry equivalent content.
+
+The log-odds presentation matters for #credit-assignment-boundary's default signal function, where continuous-gradient updates can break the $[0, 1]$ domain in probability-space presentation but are well-posed globally on $\lambda \in \mathbb{R}$. For the per-edge Beta-Bernoulli derivation of Props B.1–B.4 in #strategic-dynamics-derivation, the moment-parameter form is retained because algebraic tightness (the gain $1/(n+1)$ is exact in probability space) is pedagogically cleaner; the sector-parameter content is Fisher-equivalent in either coordinate.
 
 ## Epistemic Status
 

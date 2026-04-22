@@ -128,6 +128,8 @@ All L0 formal results transfer to correctly constructed L1 DAGs *for strict-prer
 
 **Single-parameter edges.** Each edge carries one number ($p_{ij}$), not two. An earlier formalism attempt used $(p_{ij}, \theta_{ij})$ where $\theta$ was "contribution magnitude." This was dropped because the AND/OR combination rules at nodes absorb $\theta$'s role — the complexity budget goes to one bit per node ($\gamma$) instead of one float per edge.
 
+**Edge-credence presentation coordinates.** Each edge's single-number credence has two equivalent presentations: the *probability-space* coordinate $p_{ij} \in [0, 1]$ (convenient for AND/OR propagation and interpretation) and the *log-odds* coordinate $\lambda_{ij} = \log(p_{ij}/(1 - p_{ij})) \in \mathbb{R}$ (the unique additive-evidence coordinate forced by the evidential-additivity axiom; see #edge-update-natural-parameter). The two coordinates are related by the sigmoid $p_{ij} = \sigma(\lambda_{ij})$. AAD's AND/OR status propagation and Correlation Hierarchy algebra operate in probability space; the continuous-gradient update machinery in #credit-assignment-boundary operates natively in log-odds and projects back to $[0, 1]$ via sigmoid at the readout interface. Props B.1–B.7 of #strategic-dynamics-derivation are stated in moment-parameter (probability-space) form; their sector-parameter content is Fisher-equivalent in either coordinate.
+
 ### Acyclicity is Derived
 
 *[Derived (from causal-structure + finite planning horizon)]*
