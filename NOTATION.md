@@ -47,6 +47,7 @@ The cycle is: Prolepsis → Aisthesis → Aporia → Epistrophe → Praxis → (
 | Symbol | Type | Meaning |
 |--------|------|---------|
 | $\mathcal C_t$ | Sequence | Interaction history (*chronica*): $(o_1, a_1, \ldots, a_{t-1}, o_t)$ |
+| $\mathcal C_t^{\text{commit}}$ | Sequence | TST: committed-state subset of $\mathcal C_t$ — git-recorded codebase transitions with cryptographic immutability and authorship ( #software-epistemic-properties P5) |
 | $do(\cdot)$ | Operator | Pearl's intervention operator (Level 2) |
 | $\text{CIY}(a)$ | Scalar $\geq 0$ | Causal information yield of action $a$ ( #causal-information-yield) |
 
