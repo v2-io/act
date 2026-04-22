@@ -283,7 +283,7 @@ Plan confidence: $\hat P_\Sigma = \hat p_C \cdot [1 - (1 - \hat p_{A_1})(1 - \ha
 
 **Statement.** Under Beta-Bernoulli updating with observable condition $C$ and $\varepsilon$-greedy path selection, the expected correction function satisfies the sector condition globally with:
 
-*[Derived (Conditional on Beta-Bernoulli model, L1 augmented DAG)]*
+*[Derived (Conditional on Beta-Bernoulli model, L1 augmented DAG, observable common cause $C$, $\varepsilon$-greedy action selection)]*
 
 $$\alpha_\Sigma = \min\!\left(\frac{1}{n_C+1},\; \frac{\theta_C(1-\varepsilon)}{n_{A_1}+1},\; \frac{\theta_C \varepsilon}{n_{A_2}+1}\right)$$
 
@@ -370,7 +370,7 @@ Mismatch state: $\boldsymbol\xi = (\xi_C, \{\xi_{j\mid C}\}, \{\xi_{j\mid \neg C
 
 ### Statement
 
-*[Derived (Conditional on Beta-Bernoulli model, observable common cause, facilitator monotonicity)]*
+*[Derived (Conditional on Beta-Bernoulli model, observable common cause $C$, componentwise conditional-branch update, facilitator monotonicity)]*
 
 Under Beta-Bernoulli updating with observable common cause, componentwise updates per conditional branch, and *facilitator monotonicity* ($P_\Sigma(G_{\mid C}) \geq P_\Sigma(G_{\mid \neg C})$), the expected correction function on the joint state satisfies the sector condition globally with:
 
@@ -594,6 +594,49 @@ Four regimes for the credence-to-value bridge, indexed by correction type and at
 **Inter-edge coupling — not nonlinearity — is the fragility.** The $\kappa^2$ penalty arises only when correcting one edge changes another's correction direction (B.3's unobservable case, correlated observations). Deep or unbalanced DAGs have high $\kappa(\mathbf{J})$ when corrections couple, but the coupling, not the depth or imbalance per se, is what degrades the persistence guarantee.
 
 **Connection to credit assignment.** The Jacobian $\mathbf{J} = \nabla_\mathbf{p} P_\Sigma$ is computable from the DAG's status propagation formulas — it does not require solving the credit-assignment problem. The credit-assignment problem is about *decomposing observed value changes into per-edge contributions* (needed for the update rule). The Jacobian bridge is about *transferring a per-edge sector condition to the value-residual space* (needed for the persistence guarantee). These are different problems: the bridge works even when credit assignment is unsolved, because it only requires the sensitivity structure, not the causal attribution.
+
+
+## What Is Derived vs. What Is Chosen
+
+The segment carries derivations at three distinct strengths: (i) exact sector-parameter algebra for concrete Beta-Bernoulli topologies (B.1, B.2, B.4, B.6, B.7 under observable $C$ + facilitator monotonicity), (ii) two structural refutations that are *themselves* derivations of impossibility (B.3(a) SA1 bias; B.7 Cramér-Rao floor under unobservable $C$), and (iii) formulation choices (Beta-Bernoulli dynamics, componentwise conditional-branch updates, the particular $\varepsilon$-greedy policy family). The dividing line runs between the Beta-Bernoulli *model* (chosen) and the sector-parameter *algebra conditional on that model* (proved). B.7's positive transfer requires two load-bearing conditions — observability of $C$ *and* facilitator monotonicity $P_\Sigma(G\mid C) \geq P_\Sigma(G\mid \neg C)$ — either of which failing disqualifies the transfer.
+
+| Property | Source | Strength |
+|---|---|---|
+| Beta-Bernoulli edge dynamics ($\Delta\hat p_k = (y_k - \hat p_k)/(n_k+1)$) | Conjugate-prior model; matches #edge-update-via-gain | Formulation choice |
+| Regime-A adjustment: $\alpha_\Sigma^{\text{eff}} = \iota_{ij} \cdot \alpha_\Sigma^{\text{stated}}$ | Diagonal commutation across Props B.1–B.4, B.6; #edge-update-causal-validity | Derived |
+| **B.1** Single-edge sector parameter $\alpha_\Sigma = 1/(n+1)$ | Expected Beta-Bernoulli update + sector product algebra | Proved (tight, conditional on Beta-Bernoulli) |
+| **B.1** Stochastic ultimate bound $\lvert\delta\rvert \gt \sqrt{\theta(1-\theta)/(2n+1)}$ | Second-moment recursion + expected-Lyapunov decrement | Derived |
+| **B.2** Observable AND-chain sector parameter $\min(1/(n_1+1),\; \theta_1/(n_2+1))$ | Diagonal correction function; sector product algebra | Proved (conditional on Beta-Bernoulli + observable intermediate) |
+| **B.2** Depth-$d$ generalization $\alpha_\Sigma = \min_k \prod_{j \lt k}\theta_j/(n_k+1)$ | Iteration of B.2 pattern under observable intermediates | Derived |
+| **B.3(a)** Per-edge SA1 violation under marginal Bayesian attribution ($O(1/n)$ bias) | Exact marginal update + evaluation at truth | Derived as refutation (no valid $\alpha_c$ exists) |
+| **B.3(b)** Plan-level recovery $\alpha_{\Sigma,\text{plan}} = 1/(n_\Phi+1)$ | Reduction of aggregate $\hat\Phi$ tracking to B.1 | Derived (reduction) |
+| **B.3** Non-identifiability of $(\theta_1,\theta_2)$ from $y_G$ alone | Product $\Phi = \theta_1\theta_2$ symmetry in observation channel | Proved |
+| **B.4(a)** Pure-greedy OR ($\varepsilon=0$) violates sector condition | Counterexample at $\delta_1 = 0,\,\delta_2 \neq 0$ | Derived as refutation |
+| **B.4(b)** $\varepsilon$-greedy sector parameter $\min((1-\varepsilon)/(n_1+1),\; \varepsilon/(n_2+1))$ | Policy-weighted correction; sector product algebra | Proved (conditional on Beta-Bernoulli + $\varepsilon$-greedy) |
+| **B.4** Optimal exploration $\varepsilon^\ast = (n_1+1)/(n_1+n_2+2)$ | Term-equalization in $\min$ | Derived |
+| **B.4** Minimum exploration rate (SA3 requirement) $\varepsilon \gt \rho_\Sigma(n_{\max}+1)/R_\Sigma$ | Substitution into persistence threshold $\alpha_\Sigma \gt \rho_\Sigma/R_\Sigma$ | Derived |
+| **B.5a** Linear credence-to-value transfer $\alpha_s = \alpha_c$ (Jacobian cancels) | Algebraic cancellation of $\mathbf{J}\mathbf{J}^T$ | Proved (exact, DAG-structure independent) |
+| **B.5b** Componentwise nonlinear transfer $\alpha_s = \alpha_c$ | Per-component sector bound + monotone AND/OR ($\mathbf{J}\geq 0$) | Proved (conditional on componentwise update + non-negative Jacobian) |
+| **B.5b** Coupled-edge Cauchy-Schwarz bound $\alpha_s \geq \alpha_c/\kappa(\mathbf{J})^2$ | Cauchy-Schwarz on $\mathbf{J}^T\mathbf{F}_c$ and $\mathbf{J}^T\boldsymbol\delta_c$ | Derived (conditional on Jacobian regularity *and* an SA1-preserving attribution scheme) |
+| **B.5c** Four-regime classification of credence-to-value transfer | Combination of linear/nonlinear × componentwise/coupled × attribution type | Derived |
+| **B.5d** Gradient-based attribution restores SA1 on coupled edges | Jacobian-weighted surprise distribution; $\mathbb{E}[y_G - \hat P_\Sigma]\rvert_{\boldsymbol\theta} = 0$ | Derived |
+| **B.5d** Sector parameter under gradient attribution $\alpha_c^{\text{grad}} \geq \sigma_{\min}(\mathbf{J})^2/\max_k(n_k+1)$ | First-order expansion near truth + singular-value analysis | Derived |
+| **B.5d** Gradient-based as *minimal* SA1-preserving scheme for coupled edges | Argument excluding proportional-blame and other schemes | Derived qualitatively (not a uniqueness theorem) |
+| **B.6** L1 augmented-DAG sector parameter (three-way gating: condition / starvation / exploration) | Diagonal correction function over $(\delta_C, \delta_{A_1}, \delta_{A_2})$; sector product | Proved (conditional on Beta-Bernoulli + observable $C$ + $\varepsilon$-greedy) |
+| **B.6** L0-vs-L1 comparison: L1 is lower $\alpha_\Sigma$ but honestly calibrated | Direct $\Phi^{L0}$ vs $\Phi^{L1}$ computation at truth | Derived |
+| **B.6** L1-construction principle (common cause factored *above* OR-structure) | Requirement for conditional independence of OR-siblings given $C$ | Derived |
+| **B.7** L1' mixture-form sector parameter (five-way gating) | Diagonal correction function over $(\xi_C, \{\xi_{j\mid C}\}, \{\xi_{j\mid \neg C}\})$; sector product | Derived (conditional on Beta-Bernoulli + observable $C$ + componentwise conditional-branch update + *facilitator monotonicity* $P_\Sigma(G\mid C)\geq P_\Sigma(G\mid \neg C)$) |
+| **B.7** Componentwise update per conditional branch | Matches Beta-Bernoulli on the branch actually executed each trial | Formulation choice |
+| **B.7** Facilitator-monotonicity condition $P_\Sigma(G\mid C) \geq P_\Sigma(G\mid \neg C)$ | Required so the first Jacobian entry of $\hat P_\Sigma^{L1'}$ is non-negative, enabling the lossless B.5b transfer | Load-bearing scope condition |
+| **B.7** Reduction to B.6 under strict-prerequisite limit ($\theta_{j\mid\neg C}\to 0$) | Collapse of $\neg C$-branch terms in the sector inequality | Verification (algebraic consistency) |
+| **B.7** Refutation under unobservable $C$ (single-channel Fisher rank 1) | Cramér-Rao bound applied to rank-1 Fisher $\mathcal{F}(\phi) = uu^T/[\mu_j(1-\mu_j)]$ | Proved by external theorem (Cramér-Rao bound) — no unbiased online estimator admits $\alpha \gt 0$ |
+| **B.7** Repair route (i): augment $C$-observability | Recovers the positive B.7 derivation | Formulation / scope choice (maps to #loop-interventional-access) |
+| **B.7** Repair route (ii): $K\geq 2$ joint children under same $C$-realization | Fisher matrix rank reaches $2K+1$; local sector condition | Derived (sketch; applicability narrow) |
+| **B.7** Repair route (iii): plan-level fallback on marginal $\hat\mu_j$ | Reduction to B.1 on scalar marginal | Derived (at cost of per-conditional decomposition) |
+| Persistence thresholds (substitution of each $\alpha_\Sigma$ into $\alpha_\Sigma \gt \rho_\Sigma/R_\Sigma$) | Proposition A.1 of #sector-condition-derivation | Derived (each) |
+| Gain-collapse threshold $n^\ast \propto R_\Sigma/\rho_\Sigma$ common across cases | Direct inversion of persistence condition | Derived |
+| Expected-value (rather than almost-sure) sector analysis | Pedagogical simplification; a.s. convergence via standard Bayesian consistency | Formulation choice (scope) |
+| Constant-$\alpha$ assumption with experience-discounting ($\lambda$) stabilization | Instantaneous persistence check + forgetting-factor analysis | Derived (instantaneous only) |
 
 
 ## Epistemic Status

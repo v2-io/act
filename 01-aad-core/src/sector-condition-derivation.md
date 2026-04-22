@@ -5,7 +5,7 @@ status: exact
 depends:
   - adaptive-tempo
   - mismatch-signal
-stage: claims-verified
+stage: draft
 ---
 
 # Derivation: Sector Condition Stability — Lyapunov Derivation
@@ -151,7 +151,7 @@ $$\mathbb{E}[\lVert\delta(t)\rVert^2] \leq \lVert\delta(0)\rVert^2 e^{-2\alpha t
 
 for all $t$, where $n = \dim(\delta)$. The agent persists in the mean-square sense iff:
 
-$$\alpha > \frac{n\sigma_w^2}{2R^2}$$
+$$\alpha \gt \frac{n\sigma_w^2}{2R^2}$$
 
 **Proof.**
 
@@ -193,25 +193,49 @@ The RMS steady-state mismatch is:
 
 *[Derived (stochastic-steady-state)]*
 
-$$R^*_S \;=\; \lVert\delta\rVert_{\text{rms}} = \sigma_w\sqrt{\frac{n}{2\alpha}}$$
+$$R^\ast_S \;=\; \lVert\delta\rVert_{\text{rms}} = \sigma_w\sqrt{\frac{n}{2\alpha}}$$
 
-Persistence requires $R^*_S < R$, giving $\alpha > n\sigma_w^2 / (2R^2)$. $\square$
+Persistence requires $R^\ast_S \lt R$, giving $\alpha \gt n\sigma_w^2 / (2R^2)$. $\square$
 
-**Interpretation.** Model D (Prop A.1) gives $R^* = \rho/\alpha$, scaling as $1/\alpha$. Model S gives $R^*_S = \sigma_w\sqrt{n/(2\alpha)}$, scaling as $1/\sqrt{\alpha}$. Doubling the correction efficiency halves the deterministic steady-state mismatch but only reduces the stochastic steady-state by a factor of $\sqrt{2} \approx 1.41$. Correction is less effective against noise than against drift. This difference in scaling propagates into the adversarial exponent regimes ( #adversarial-exponent-regimes): $b = 2$ under Model D, $b = 3/2$ under Model S.
+**Interpretation.** Model D (Prop A.1) gives $R^\ast = \rho/\alpha$, scaling as $1/\alpha$. Model S gives $R^\ast_S = \sigma_w\sqrt{n/(2\alpha)}$, scaling as $1/\sqrt{\alpha}$. Doubling the correction efficiency halves the deterministic steady-state mismatch but only reduces the stochastic steady-state by a factor of $\sqrt{2} \approx 1.41$. Correction is less effective against noise than against drift. This difference in scaling propagates into the adversarial exponent regimes ( #adversarial-exponent-regimes): $b = 2$ under Model D, $b = 3/2$ under Model S.
 
-**Tail bound.** At steady state, Markov's inequality gives $P(\lVert\delta\rVert > R) \leq n\sigma_w^2/(2\alpha R^2)$. The agent stays within $R$ with probability $\geq 1 - \epsilon$ provided $\alpha \geq n\sigma_w^2/(2\epsilon R^2)$. For the linear case (Ornstein-Uhlenbeck), the stationary distribution is Gaussian and exact tail probabilities are available. The Markov bound is the general result holding under (A2') alone.
+**Tail bound.** At steady state, Markov's inequality gives $P(\lVert\delta\rVert \gt R) \leq n\sigma_w^2/(2\alpha R^2)$. The agent stays within $R$ with probability $\geq 1 - \epsilon$ provided $\alpha \geq n\sigma_w^2/(2\epsilon R^2)$. For the linear case (Ornstein-Uhlenbeck), the stationary distribution is Gaussian and exact tail probabilities are available. The Markov bound is the general result holding under (A2') alone.
 
 ## Summary of Results
 
 | Result | What it proves | Assumptions | Linear case recovery |
 |--------|---------------|-------------|---------------------|
 | **A.1** (Bounded Mismatch) | $R^\ast = \rho/\alpha$ | (A1), (A2'), bounded $\rho$ (GA-2) | $\alpha = \mathcal{T}$ gives $R^\ast = \rho/\mathcal{T}$ |
-| **A.1S** (Stochastic Bounded Mismatch) | $R^*_S = \sigma_w\sqrt{n/(2\alpha)}$ | (A1), (A2'), stochastic $w$ (GA-2S) | $\alpha = \mathcal{T}$ gives $R^*_S = \sigma_w\sqrt{n/(2\mathcal{T})}$ |
+| **A.1S** (Stochastic Bounded Mismatch) | $R^\ast_S = \sigma_w\sqrt{n/(2\alpha)}$ | (A1), (A2'), stochastic $w$ (GA-2S) | $\alpha = \mathcal{T}$ gives $R^\ast_S = \sigma_w\sqrt{n/(2\mathcal{T})}$ |
 | **A.2** (Stability Margin) | $\Delta\rho^\ast = \alpha R - \rho$ | Same as A.1 | $R \to \infty$ for linear (always stable if $\mathcal{T} \gt 0$) |
+
+### What Is Derived vs. What Is Chosen
+
+| Property | Source | Strength |
+|---|---|---|
+| Dynamics setup $\dot\delta = -F(\mathcal{T},\delta) + w(t)$ with $F$ as correction function and $w$ as disturbance | Definitional scope of the appendix; generalizes the linear hypothesis of #mismatch-dynamics | Definition |
+| (A1) $F(\mathcal{T},0) = 0$ | Qualitative property of any correction process by construction | Assumption (uncontroversial) |
+| (A2') Local sector condition $\delta^T F \geq \alpha\lVert\delta\rVert^2$ on $\mathcal{B}_R$ | Sector-condition framework (Lur'e 1957); derivable from gain-based updating via #gain-sector-bridge (then $\alpha = \eta^\ast \cdot c_{\min}$) | Derived (conditional on #gain-sector-bridge's directional-fidelity premise); otherwise Assumption |
+| (A3) Tempo-monotonicity of $\delta^T F$ | Qualitative requirement tying $\mathcal{T}$ to correction power | Assumption |
+| Quadratic Lyapunov candidate $V = \tfrac{1}{2}\lVert\delta\rVert^2$ | Canonical choice for norm-bounded stability in Euclidean state spaces (Khalil 2002 ch. 4) | Formulation choice |
+| **Prop A.1: ultimate bound $R^\ast = \rho/\alpha$** | $\dot V \leq -\lVert\delta\rVert(\alpha\lVert\delta\rVert - \rho)$ via A2' + Cauchy-Schwarz; standard Lyapunov ultimate-boundedness theorem (Khalil 2002 Thm 4.18) | **Proved (conditional on $R^\ast \lt R$)** |
+| Positive invariance of $\mathcal{B}_R$ under the persistence condition | Boundary-inward argument: at $\lVert\delta\rVert = R$, $\dot V \lt 0$ when $\alpha R \gt \rho$ | Proved |
+| Initial-condition scope (trajectory must start inside $\mathcal{B}_R$) | Direct consequence of A2' being local; trajectories outside are not covered | Derived (scope statement) |
+| Identification of structural-adaptation trigger ($\rho/\alpha \gt R$ forces exit from parametric regime) | Connects A.1's persistence threshold to #structural-adaptation-necessity's regime boundary | Derived |
+| **Prop A.2: adaptive reserve $\Delta\rho^\ast = \alpha R - \rho$** | Algebraic corollary of Prop A.1 under shock $\rho \to \rho + \Delta\rho$; requires $R$ fixed under shock | Proved (corollary of A.1) |
+| **Prop A.1S: mean-square bound $\mathbb{E}[\lVert\delta\rVert^2] \leq \lVert\delta(0)\rVert^2 e^{-2\alpha t} + n\sigma_w^2/(2\alpha)$** | Itô's formula on $V$ + A2' + Grönwall; standard Itô-Lyapunov argument (Khasminskii 2012; Khalil 2002 ch. 9) | Proved (conditional on A2' holding on a sufficiently large region, or on a stopping-time argument bounding excursions) |
+| Stochastic steady-state RMS $R^\ast_S = \sigma_w\sqrt{n/(2\alpha)}$ | Steady state of the Grönwall bound; scales as $1/\sqrt{\alpha}$ versus $1/\alpha$ deterministic | Derived |
+| Tail bound $P(\lVert\delta\rVert \gt R) \leq n\sigma_w^2/(2\alpha R^2)$ | Markov's inequality applied to steady-state second moment | Proved |
+| Linear-case recovery ($\alpha = \mathcal{T}$ reproduces #persistence-condition) | Substitution $F = \mathcal{T}\delta$ into A2' | Derived |
+| Adversarial-exponent scaling $b=2$ (Model D) vs $b=3/2$ (Model S) into #adversarial-exponent-regimes | Direct transfer of the $1/\alpha$ vs $1/\sqrt{\alpha}$ scalings | Derived (transfer claim) |
+| Bounded-disturbance model (GA-2) vs stochastic-disturbance model (GA-2S) as distinct environmental regimes, not approximations to each other | Discussion-section positioning; neither regime handles heavy tails | Discussion-grade |
+| Global sector condition would give $\Delta\rho^\ast = \infty$ | Limit analysis of A.2 as $R \to \infty$; rejected as unrealistic for finite model classes | Derived (scope-limit observation) |
+
+The dividing line: the two persistence results (ultimate bound, adaptive reserve) and the stochastic mean-square bound are **proved** within standard Lyapunov / Itô-Lyapunov theory — the appendix's contribution is the application to AAD's correction-function object, not the mathematics. What is **chosen** is the quadratic Lyapunov candidate (canonical for norm-bounded stability but not uniquely forced) and the bounded-vs-stochastic disturbance partition (two structurally distinct empirical regimes rather than a hierarchy). The **sector condition itself (A2')** is the load-bearing assumption: qualitative but not free — it is *derivable* from gain-based updating via #gain-sector-bridge under directional fidelity, and *assumed* otherwise; Prop A.1S additionally depends on A2' holding on a sufficiently large region (or on a stopping-time argument) to cover Wiener excursions, a standard subtlety of stochastic Lyapunov theory flagged explicitly in the Epistemic Status below.
 
 ## Epistemic Status
 
-The setup and assumptions are *definitions* — they specify what we mean by "correction function" and "disturbance." Propositions A.1 and A.2 are *exact* — they follow from the assumptions via standard Lyapunov theory (Khalil 2002[^khalil2002], Chapters 4 and 9). Proposition A.1S is *exact* under an implicit strengthening of A2': the Ito-Lyapunov proof uses the sector bound on the entire trajectory, but the Wiener process can push $\delta$ outside $\mathcal B_R$ where the local sector condition does not hold. The proof is valid when A2' holds in a sufficiently large region (or globally), or when a stopping-time argument bounds the contribution of excursions. For practical purposes the tail bound (Markov inequality) quantifies the excursion probability and the gap is higher-order when $R^*_S \ll R$. This is a standard subtlety in applied stochastic Lyapunov theory, not specific to AAD. The assumptions themselves (sector condition, bounded disturbance) are *empirical claims* about the qualitative behavior of real correction dynamics. The sector-condition framework originates with Lur'e (1957); the Lyapunov stability results are standard. The application to adaptive agents under the AAD framework is new but the mathematics is not.
+The setup and assumptions are *definitions* — they specify what we mean by "correction function" and "disturbance." Propositions A.1 and A.2 are *exact* — they follow from the assumptions via standard Lyapunov theory (Khalil 2002[^khalil2002], Chapters 4 and 9). Proposition A.1S is *exact* under an implicit strengthening of A2': the Ito-Lyapunov proof uses the sector bound on the entire trajectory, but the Wiener process can push $\delta$ outside $\mathcal B_R$ where the local sector condition does not hold. The proof is valid when A2' holds in a sufficiently large region (or globally), or when a stopping-time argument bounds the contribution of excursions. For practical purposes the tail bound (Markov inequality) quantifies the excursion probability and the gap is higher-order when $R^\ast_S \ll R$. This is a standard subtlety in applied stochastic Lyapunov theory, not specific to AAD. The assumptions themselves (sector condition, bounded disturbance) are *empirical claims* about the qualitative behavior of real correction dynamics. The sector-condition framework originates with Lur'e (1957); the Lyapunov stability results are standard. The application to adaptive agents under the AAD framework is new but the mathematics is not.
 
 ## Discussion
 

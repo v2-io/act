@@ -189,6 +189,35 @@ Definition, notation, and scope-narrowing files may use a simpler format than fu
 
 The `## Working Notes` section is for active development: open questions about the claim, sketches of how AAD machinery might strengthen or weaken it, unresolved issues, things to check. This is *our* working space — what we're thinking about, not what we're asserting. It should be removed or emptied when the segment reaches `candidate` stage. Unlike the Discussion section (which is part of the published theory), Working Notes are process artifacts.
 
+### Derivation-audit table *(optional; recommended for derivation-type segments)*
+
+Derivation segments, and any segment that carries multiple claims at distinct epistemic strengths, benefit from an executive-summary table that makes each claim's source and tier visible at a glance. The convention is modelled on `#graph-structure-uniqueness`'s "What Is Derived vs. What Is Chosen" table. It pre-empts the "is X derived or chosen?" ambiguity that fresh readers repeatedly stumble on, and serves as the segment-level counterpart to the claim-level equation tags (`*[Derived]*`, `*[Formulation]*`, etc.).
+
+**Location.** Near the end of `## Formal Expression`, before `## Epistemic Status`, under a `### What Is Derived vs. What Is Chosen` heading (exact title may vary — e.g., `### Derivation Audit`, `### Derived vs. Chosen vs. Assumed` — as long as the three columns are the same).
+
+**Format.** Three columns:
+
+| Property | Source | Strength |
+|---|---|---|
+| *(what the segment claims or defines)* | *(postulate, prior segment, external theorem, or formulation choice)* | *(tier label; see vocabulary below)* |
+
+**Strength vocabulary.** Prefer the TFT tier words already in use for equation-level tags (see §Equation-Level Tags below) so the table aligns with the Epistemic Status paragraph:
+
+- **Proved** — derived from stated priors with a closed-form argument in this segment. Reserve for clean theorem-like claims. Equivalent to *exact*-tier.
+- **Derived** — follows from priors, possibly under stated conditions. If conditions are load-bearing, use "Derived (conditional on *X*)".
+- **Robust qualitative** — the qualitative claim survives across modeling choices, though a specific functional form is approximate.
+- **Heuristic** — the claim is useful operational guidance; a formal tier is not in hand.
+- **Formulation choice** — a representational selection motivated by parsimony / domain fit / downstream tractability, not mathematical necessity.
+- **Hypothesis** — a claim offered for test, not yet derived.
+- **Discussion-grade** — a positional observation, not a derivation.
+- **Empirical** — the claim is about the world and awaits validation.
+
+**When to use the table.** Required by review practice only for `type: derivation` segments with three or more claims of mixed strength. Strongly recommended for appendix segments with load-bearing derivations that multiple downstream segments cite. Optional for other segments; a short Epistemic Status paragraph may suffice when only one or two claims are load-bearing.
+
+**What the table is not.** It is not a substitute for the `## Epistemic Status` paragraph. The paragraph explains *why* each claim sits at its tier and names the max attainable status; the table gives the reader a one-screen executive summary of the same content. Both should co-exist on derivation segments; each does work the other cannot.
+
+**Companion convention (C-BP4, if adopted).** Claim-level statuses inside equation tags (e.g., `*[Derived, status: exact]*`) would serve as the inline implementation; the derivation-audit table is the segment-level executive summary. The two compose — table is reader-facing overview; tags are proximate to the math.
+
 
 ## Epistemic Triage
 

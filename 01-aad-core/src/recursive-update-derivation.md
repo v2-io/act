@@ -8,7 +8,7 @@ depends:
   - causal-structure
   - scope-condition
   - observation-function
-stage: claims-verified
+stage: draft
 ---
 
 # Derivation: Recursive Update — Uniqueness Derivation
@@ -150,6 +150,23 @@ Could $f$ depend on the timestamp $\tau$ itself? Yes — consistently. The event
 ### Attack 7: Agents that store full history
 
 An agent with $M_{\tau^-} \supseteq \mathcal{C}_{\tau^-}$ is entirely consistent. The model space $\mathcal{M}$ is simply large enough to include the raw history. The #information-bottleneck argues compression is *wise* — but the recursive update form holds regardless of compression level.
+
+## What Is Derived vs. What Is Chosen
+
+| Property | Source | Strength |
+|---|---|---|
+| Constraint C1 (arrow of time: update depends on $\tau^-$, not future events) | Physical law — not a formulation choice | Postulate (physical) |
+| Constraint C2 (partial observability: update depends on $e_\tau$, not raw $\Omega_\tau$) | Scope definition of AAD | Postulate (scope-defining) |
+| Constraint C3 (state completeness: $M_{\tau^-}$ summarizes the agent's relevant past) | Analytical commitment — the definition of $M$ as complete | Definition |
+| Recursive form $M_\tau = f(M_{\tau^-}, e_\tau)$ | C1 + C2 + C3 | Proved (unique form compatible with the three constraints) |
+| Future-dependent updates eliminated | C1 alone | Derived (direct consequence) |
+| $\Omega_\tau$-dependent updates eliminated | C2 alone | Derived (direct consequence) |
+| Full-history-dependent updates reducible to recursive form | C3 + any choice of $M \supseteq \mathcal{C}_{\tau^-}$ | Proved (compatibility, not elimination) |
+| Markov property of the update | C3 (completeness) + recursive form | Proved (follows from C3 definition) |
+| Seven attack counterexamples (simultaneous events, continuous coupling, C3 circularity, shared state, external randomness, time-dependence, full history) | Case-by-case reduction to the recursive form | Proved (each) |
+| C3 is definitional, not eliminative | Analysis of what C3 asserts vs. what it rules out | Discussion-grade (clarifying observation) |
+
+The dividing line: C1 and C2 do genuine *eliminative* work — they rule out physically or scope-excluded update forms. C3 is a *definitional commitment* that forces the Markov structure by making $M$ complete by construction; it cannot be "violated" because any apparent violation means $M$ was misspecified. The recursive form's uniqueness is therefore conditional on the three-constraint set being accepted, not on the constraints being independently inescapable — C3 in particular could be refused (yielding non-Markovian analysis), at the cost of leaving AAD's scope.
 
 ## Epistemic Status
 

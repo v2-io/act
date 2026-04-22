@@ -143,6 +143,27 @@ $$\mathbb{E}_{\pi^\ast}[V] - \mathbb{E}_{Q_{\Sigma_t}}[V]$$
 
 with softmax-weighted $\pi^\ast$ also admits the Pinsker-KL step, with reverse-KL again the non-vacuous direction (forward-KL remains vacuous whenever $\pi^\ast$ has wider support than $Q_{\Sigma_t}$, and vice versa). Deferred for explicit treatment.
 
+### What Is Derived vs. What Is Chosen
+
+| Property | Source | Strength |
+|---|---|---|
+| Regret definition $R(Q_{\Sigma_t}) := V(a^\ast) - \mathbb{E}_{Q_{\Sigma_t}}[V]$ | Definitional; collapses to the three literature forms under deterministic $\pi^\ast$ | Definition |
+| TV-regret bound $R \leq V_{\max}\cdot\operatorname{TV}(\pi^\ast, Q_{\Sigma_t})$ | Bounded value range + deterministic $\pi^\ast$ | Proved (tight) |
+| Pinsker-KL bound $R \leq V_{\max}\sqrt{\tfrac{1}{2}D_{\mathrm{KL}}(\pi^\ast \Vert Q_{\Sigma_t})}$ | Pinsker's inequality applied to TV bound | Proved |
+| **KL direction forced** (reverse-KL, $\pi^\ast$-first) | Forward-KL is vacuous ($+\infty$) under deterministic $\pi^\ast$ whenever $Q_{\Sigma_t}$ has off-optimum mass | **Proved (direction uniquely forced)** |
+| Reverse-KL canonical among smooth divergences | Gradient-tractability + variational-inference alignment + Fisher geometry + MDL coding (§6) | Formulation choice (canonical-not-unique) |
+| Admissible family members (TV, Bretagnolle-Huber, $\chi^2$, Rényi-$\alpha$) | Each yields a valid regret bound; survey §6 | Derived (each) |
+| TV is tightest; Pinsker is loose by $\sqrt{\cdot}$ | Standard tightness analysis (Tsybakov 2009 §2.4) | Proved (comparison) |
+| $\beta_\Sigma \propto V_{\max}$ naturalization (square-root-KL form) | Direct identification from Pinsker bound | Derived (under square-root form) |
+| $\beta_\Sigma$ local interpretation (linear-KL form, segment-retained) | Differentiation of Pinsker bound at operating point | Derived (local only) |
+| Linear-KL form retained over square-root form | IB-shape alignment with #compression-operations | Formulation choice |
+| Vacuity regimes ($V_{\max}=\infty$, $Q_{\Sigma_t}(a^\ast)=0$, stochastic $\pi^\ast$) | Direct analysis of the bound | Proved (boundary) |
+| Tied-optimum extension | $\pi^\ast$ uniform on $\mathcal{A}^\ast$; bound adapts directly | Derived |
+| Softmax-smoothed $\pi^\ast$ extension | Sketched in §9 | Hypothesis (deferred) |
+| Uniqueness of reverse-KL in the smooth-divergence family | Would require an additional structural constraint (e.g., Amari-Nagaoka-style Fisher-manifold characterization) | Open |
+
+The dividing line: the KL **direction** is forced by the regret-bound derivation (strong result). The specific reverse-KL **form** within the admissible smooth-divergence family is a canonical formulation choice. The $\beta_\Sigma$ naturalization is partial — available globally only under the square-root form, locally under the linear form retained for IB-shape alignment.
+
 ## Epistemic Status
 
 *Robust qualitative.* The direction-forcing claim (§5) is derived under standard assumptions (bounded value, deterministic $\pi^\ast$ on the canonical AAD scope). The TV and Pinsker bounds (§§3–4) are textbook results (Tsybakov 2009; Cover & Thomas 2006). The admissible-divergence family characterization (§6) is a truthful survey; reverse-KL is identified as canonical-not-unique on four explicitly-stated non-uniqueness-theorem grounds. The $\beta_\Sigma$ naturalization (§7) is a trade-off analysis, not a derivation — the linear-vs-square-root choice is discussed honestly. The extensions (§9) are sketches, not derivations.

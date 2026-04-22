@@ -142,6 +142,44 @@ This bound fits within the composite's sector-condition region iff $\varepsilon^
 
 **The sector condition (A4) does double duty — conditionally.** (A4) ensures the macro-agent corrects external mismatch (single-agent persistence) AND — under the incremental sector bound — that the macro-description tracks micro-reality (this bridge). Both are instances of the same template applied to different state variables with different effective disturbance rates.
 
+### What Is Derived vs. What Is Chosen
+
+| Property | Source | Strength |
+|---|---|---|
+| Closure-defect quantity $\varepsilon^\ast$ as infimum over admissible classes | Definition built from (A1)-(A4), (P1)-(P3), and $K_c$ | Formulation choice |
+| Three-component decomposition into $\varepsilon_x, \varepsilon_a, \varepsilon_o$ | Match to the three arrows of the action-observation loop (state, action, observation) | Formulation choice |
+| Per-macro-step formulation; $\varepsilon^\ast$ has units of distance-per-macro-step | 2026-04-22 temporal coarse-graining repair (Finding A); forced by dimensional consistency with $\rho_\xi = \varepsilon^\ast \nu_c$ in #sector-persistence-template and #tempo-composition | Derived (dimensional consistency) |
+| Timescale ratio $K_c \geq 1$ as independent problem-specification parameter | Application-specific; $K_c = 1$ (synchronous) and $K_c \gg 1$ ( #temporal-nesting regime) both admissible | Formulation choice |
+| (A1) Macro AAD structure $X_c = (M_c, G_c)$ with recursive update | Import from #agent-environment + #recursive-update + #action-selection | Formulation choice (requirement) |
+| (A2) Well-defined macro-mismatch | Import from #mismatch-signal | Formulation choice (requirement) |
+| (A3) Well-defined macro-tempo | Import from #adaptive-tempo + #update-gain | Formulation choice (requirement) |
+| (A4) Sector-bounded macro-correction | Import from #sector-condition-stability | Formulation choice (requirement) |
+| (A1)-(A4) as a requirement *set* render the infimum non-trivial (exclude curve-fitting macro-dynamics) | Consequence of restricting $\mathcal M_{\text{adm}}$ to genuine AAD agents | Derived (under the chosen requirement set) |
+| (P1) Information-preservation constraint | IB Lagrangian-dual with source $X_{\text{micro}}$, relevance $o_{\text{micro}, t+1}$; formally connects to #compression-operations | Formulation choice (requirement) |
+| (P2) Lipschitz continuity of $\Lambda$ | Required for bridge-lemma trajectory-error bound (without it, bounded $\varepsilon^\ast$ does not imply bounded trajectory error) | Formulation choice (requirement) |
+| (P3) Strict dimensionality reduction | Rules out identity projection (which trivially achieves $\varepsilon^\ast = 0$ but is not abstraction) | Formulation choice (requirement) |
+| (P1)-(P3) independent of (A1)-(A4) | Spike analysis (`msc/spike-projection-admissibility.md` §5) — (A1) and (A4) constrain $\Lambda_x$ partially but do not fix information-preservation level | Derived |
+| Bridge lemma: $\limsup \lVert e_m \rVert \leq \varepsilon^\ast \nu_c / \alpha_c$ | Sector-persistence template ( #sector-persistence-template) applied with state $\xi = e_m$, disturbance rate $\rho_\xi = \varepsilon^\ast \nu_c$ | Derived (conditional on incremental sector bound DA2'a-inc) |
+| Persistence-as-closure-boundedness condition $\varepsilon^\ast \lt \alpha_c R_c / \nu_c$ | Sector-condition region fits the asymptotic error ball | Derived (under A4 + DA2'a-inc) |
+| Incremental sector bound (DA2'a-inc) is strictly stronger than (A4)'s one-point sector bound | Counterexample exhibited (oscillatory globally-inward, locally non-monotone corrections); `msc/spike-bridge-lemma-contraction.md` §4.1 | Proved |
+| Three-tier agent classification (Tier 1 / 2 / 3) for bridge-lemma applicability | Taxonomy induced by whether DA2'a-inc holds globally (T1), locally (T2), or must be verified per-domain (T3) | Formulation choice (classification) |
+| Tier 1: bridge lemma derived for Bayesian updaters on exponential families, gradient descent on strongly convex losses, linear correction with positive-definite gain-observation product | Standard monotone-operator / Kalman analysis; `msc/spike-bridge-lemma-contraction.md` | Derived (conditional on DA2'a-inc + linear prediction, i.e., C2) |
+| Tier 2: local contraction with factor degraded by $\kappa(D\hat o)^2$ | Extended-Kalman / locally-convex analysis | Derived (local) |
+| Tier 3: contraction must be verified per-domain | No general result available for non-convex / discontinuous / non-mismatch-driven components | Discussion-grade |
+| Composite (A4) from sub-agent properties: $\alpha_c \geq \min_i(\alpha_i - \Delta \mathcal T_i^{\text{cost}})$, $R_c \leq \min_i R_i$ | Weakest-link bound; `msc/working-composition-admissibility.md` §6.2 | Derived (conditional on bounded coordination cost per #team-persistence) |
+| Meta-machine exact composition ($\varepsilon^\ast = 0$) for finite-state Moore machines | Miller 2022 §3.3; product automaton is the micro-dynamics by construction | Derived (external theorem) |
+| Two-Kalman instantiation: $\varepsilon^\ast = 0$ at all $\rho_{\text{corr}}$ for the means-only projection at steady state | Analytic steady-state calculation; `msc/spike-composition-correlated-kalman.md` | Proved (closed form) |
+| $\varepsilon_x$ depends on both sub-agent unity *and* update-rule heterogeneity ($\Delta K$) | Heterogeneous-gain Kalman case; #unity-closure-mapping | Derived (specific closed form for the two-Kalman case) |
+| Mahalanobis norm as natural choice for estimation-type agents | Two-Kalman verification; Kalman gain minimizes expected squared Mahalanobis distance | Formulation choice (canonical for estimation; general-domain norm specification open) |
+| $N$-agent scaling of $\varepsilon^\ast$ (polynomial vs. exponential in team size) | Coupling-structure dependent; `msc/spike-composition-scaling-N.md` | Open |
+| Computability of (P1) for nonlinear / non-Gaussian systems | Requires Monte Carlo or variational bounds; closed-form only for linear-Gaussian | Open |
+| Principled setting of the $\epsilon_I$ threshold | No formal criterion currently; candidate tying to team size and coupling structure | Open |
+| Strategy-DAG projection under $\Lambda_x$ | Domain-specific; not resolved by (P1)-(P3) | Open |
+| Mori-Zwanzig zero-lag bound $\varepsilon^\ast \geq \lVert Q_\Lambda U P_\Lambda \rVert_{\text{op}}$ | Koopman/MZ projection (stationary coordinate-compatible case) | Derived (conditional on stationarity) |
+| Full-kernel MZ bound on $\varepsilon^\ast$ | Type mismatch (trajectory-accumulation vs. per-step) | Refuted at the $\varepsilon^\ast$-level; natural home is the bridge-lemma trajectory-error bound |
+
+The dividing line: (A1)-(A4) and (P1)-(P3) are *formulation choices of the requirement set* — alternative requirement sets are possible (e.g., entropy-preservation instead of MI-preservation; contraction bound in place of Lipschitz), and this one is chosen for parsimony, direct import from prior AAD segments, and downstream tractability. The *consequences* that follow under this requirement set — the non-triviality of the infimum, the bridge-lemma bound, the weakest-link composite-(A4) derivation, the two-Kalman $\varepsilon^\ast = 0$ result — are Derived, with bridge-lemma-level results carrying the additional DA2'a-inc condition (which is proved strictly stronger than (A4) alone). The Tier 1/2/3 classification is itself a formulation, but the per-tier results are derived under tier-specific conditions. Two classes of genuinely open questions remain: the computability / principled-setting questions for (P1) and $\epsilon_I$, and the $N$-agent scaling of $\varepsilon^\ast$ — the latter decides whether very large teams are representable as single AAD agents at all.
+
 ## Epistemic Status
 
 *Conditional.* Max attainable: conditional (formulation choice).
