@@ -550,3 +550,154 @@ Second Codex audit, after the morning audit trio. One finding duplicates Finding
 **Effort estimate:** 15–30 min.
 
 **Why deferred.** Low-priority; best handled as part of C-BP3 if that move is adopted.
+
+
+---
+
+## Post-strengthening evening batch (added 2026-04-22, after the strengthening cycle's commits)
+
+A second triple-audit cycle (Codex / Gemini / Opus) ran *after* the strengthening cycle (commits `14a6095`, `b6134c2`, `4d050c8`, `b91493c`, `a14682e`) had landed. The audits were de novo against the current repository state. Three distinct kinds of finding emerged:
+
+- **Integration gaps from prior cycles** — cross-segment updates that should have propagated when a result landed but did not. F18 (worked-example-L1 still says L1' is open) and F19 (section-ii-survival still has the entropy-form bias bound) are both in this class. Mechanical to fix.
+- **New scope/operational-extractability frictions** — F16 (Section II scope lattice underspecified) and F17 (coupled-diagnostic-framework operational-computability overclaim) surface as distinct from the existing 15-finding batch.
+- **Bugs introduced by the strengthening cycle itself** — F20 (KL direction degeneracy in the V-medium variational form) is a substantive theoretical issue introduced by commit `a14682e`. F21 (identifiability-floor frontmatter contradicts internal text) is a drafting artifact in the segment created by commit `b91493c`.
+
+Six new findings logged below. The seven candidate findings rescinded by the new audits (Gemini Findings 4 + 5; Opus's Section III explore-agent items; Opus's six rescinded candidates) are listed in `msc/spike-active-inference-vs-aad.md`-style transparency tables in their respective audit transcripts; they do not appear here.
+
+---
+
+## Finding 16 — Section II scope lattice underspecified across segments
+
+**Source:** Codex audit 2026-04-22 (post-strengthening evening), Finding 1. **Confidence:** high.
+
+**Problematic passages.**
+
+- `01-aad-core/src/scope-condition.md` line 14: "Adding causal action unlocks the interventional and purposeful results of Sections II and III."
+- `01-aad-core/src/agent-spectrum.md` line ~30: actuated agents are "the full scope of AAD."
+
+**Strongest counterevidence in `src/`.**
+
+- `01-aad-core/src/causal-hierarchy-requirement.md` line 30 narrows to "learning purposeful agents" (a strict sub-scope of agency).
+- `01-aad-core/src/directed-separation.md` line ~84 says exact Section II results apply to Class 1 architectures only; Class 2 requires the coupled formulation.
+
+**Why this stands.** The caveats exist but are scattered. No segment carries the full intersection statement: agency-scope ∩ learning-agent-scope ∩ Class-1-architecture. A reader following the headline scope claims in `#scope-condition` and `#agent-spectrum` over-generalizes; a reader following the per-segment narrowings has to assemble the intersection themselves.
+
+**Repair direction.** Two options: (a) Add the intersection statement to `#scope-condition` Discussion as the canonical Section II scope statement; (b) Promote a small meta-segment `#section-ii-scope-lattice` (or equivalent) that names the lattice once and is referenced from the Section II preamble in `01-aad-core/OUTLINE.md`. Option (b) is structurally cleaner and supports O-BP8 (scope-lattice naming) below.
+
+**Subsumed by:** O-BP8 (explicit scope lattice). Partially subsumed by O-BP1 if the template-as-organizing-principle reframing happens to surface the lattice.
+
+**Effort estimate:** 30–60 min for option (a); 1–2 sessions if pursued as a meta-segment.
+
+---
+
+## Finding 17 — `#coupled-diagnostic-framework` operational-computability overclaim
+
+**Source:** Codex audit 2026-04-22 (post-strengthening evening), Finding 4. **Confidence:** high.
+
+**Problematic passages.**
+
+- `03-logogenic-agents/src/coupled-diagnostic-framework.md` line 18: diagnostic quantities "can be computed *after* each coupled update."
+- Same segment around line 40: "From $X^{(\text{post})}$, compute …" presents a runtime-recipe phrasing.
+
+**Strongest counterevidence in `src/`.**
+
+- `03-logogenic-agents/src/section-ii-survival.md` line 127: statement-level survival is not "operational extractability"; separate instrumentation is required.
+- `03-logogenic-agents/src/coupled-update-dynamics.md` line 66: the M/G decomposition is "post-hoc and analytical, not generally computable."
+
+**Why this stands.** The recipe-style phrasing in `#coupled-diagnostic-framework` reads as runtime-extractable. The same logogenic layer's other segments correctly mark the M/G decomposition as analytical reconstruction. A fresh reader of the diagnostic-framework segment would think the framework is operational; a reader of the companion segments would conclude it requires instrumentation. The repo says both.
+
+**Repair direction.** Reframe the segment's phrasing to acknowledge the M/G decomposition as analytical reconstruction, not runtime recipe. Cite `#coupled-update-dynamics` for the post-hoc-analytical-not-architectural distinction. Reference `msc/agentic-tft-evaluation-framework.md` and `msc/agentic-tft-cognitive-loop-spec.md` for the better framing (these quantities are estimated in language with explicit tracking/instrumentation, not directly read out from an internal state object). 30–45 min.
+
+**Subsumed by:** C-BP1 (three-layer epistemic separation). The defined / causally valid / operationally extractable framework would force the segment to mark the diagnostic recipe explicitly at the operational layer, exposing the gap.
+
+---
+
+## Finding 18 — `#worked-example-L1` still says L1' transfer is "open" — STALE after F13 strengthening
+
+**Source:** Gemini audit 2026-04-22 (post-strengthening evening), Finding 1. **Confidence:** high.
+
+**Problematic passage.**
+
+- `01-aad-core/src/worked-example-L1.md` line ~134: "Sector-condition verification for L1' has not been derived (each conditional sub-plan is an L0 DAG whose sector parameters are known, but their weighted combination introduces a $\theta_C$-dependent factor analogous to Prop B.6's $\theta_C$ gating; the full transfer through B.5b is an open item)."
+
+**Strongest counterevidence in `src/`.**
+
+- `01-aad-core/src/strategic-dynamics-derivation.md` Prop B.7 (added 2026-04-22 commit `4d050c8`): derives the L1' sector transfer for observable common cause with explicit five-way-gating $\alpha_{L1'}$ formula.
+- `01-aad-core/src/strategy-dag.md` Correlation Hierarchy (updated same commit): four-row table with L1' sector status now "Derived."
+
+**Why this stands.** Mechanical integration gap: F13 strengthening landed Prop B.7 but the cross-segment update to `#worked-example-L1` was queued (per `msc/spike-finding-13-strengthening.md` §8.4) and not performed. The "open" language is now stale; the example is structurally a B.7 instance (the worked example uses observable $C$, satisfying B.7's scope condition).
+
+**Repair direction.** Update the relevant paragraph in `#worked-example-L1` to reflect Prop B.7's status: "Sector-condition verification for L1' is derived in Prop B.7 ( #strategic-dynamics-derivation) for the observable-$C$ case the example operates within (five-way gating $\alpha_{L1'}$ formula, with explicit reduction to B.6 in the strict-prerequisite limit). Under unobservable $C$, L1' is *refuted* by the Cramér-Rao floor (mixture identifiability obstruction; see B.7 §'Refuted Under Unobservable $C$' and #identifiability-floor)." 10–15 min.
+
+**Subsumed by:** not directly. Pure cross-segment update.
+
+---
+
+## Finding 19 — `#section-ii-survival` bias bound in entropy form, stale after 2026-04-21 Finding B resolution
+
+**Source:** Gemini audit 2026-04-22 (post-strengthening evening), Finding 3. **Confidence:** high.
+
+**Problematic passage.**
+
+- `03-logogenic-agents/src/section-ii-survival.md` line 109: $\lVert\Delta M_{\text{bias}}\rVert \leq C \cdot \kappa_{\text{processing}} \cdot H(G_t \mid e_\tau, M_{\tau^-})$
+- Same segment line 136 (Working Notes): "The bound … deserves formal derivation … Without this, the bound is order-of-magnitude guidance, not a theorem."
+
+**Strongest counterevidence in `src/`.**
+
+- The 2026-04-21 Finding B resolution recast `#observation-ambiguity-modulation`'s definition and downstream bias bound as $\lVert\Delta M_{\text{bias}}\rVert \leq C \cdot \kappa \cdot I(G; \Omega \mid e, M)$ — a strict refinement (mutual information of the goal-conditional posterior given the observation, not entropy of the goal alone). Documented in `msc/pending-findings-2026-04-21.md` Finding B resolution and absorbed into `#observation-ambiguity-modulation`.
+- `#section-ii-survival` still serves the older entropy form and the Working Note's "order-of-magnitude" disclaimer about it.
+
+**Why this stands.** Cross-segment update gap from the 2026-04-21 cycle. The tighter MI form is a strict refinement (entropy is an upper bound on conditional MI; using MI gives a tighter bias bound). The integration touch on `#section-ii-survival` was not performed.
+
+**Repair direction.** Replace the entropy form with the MI form on line 109; update the Working Note at line 136 to acknowledge the refinement and the source segment (`#observation-ambiguity-modulation` carries the canonical recasting). 15–25 min.
+
+**Subsumed by:** not directly. Cross-segment update from prior cycle.
+
+---
+
+## Finding 20 — KL-direction degeneracy in `#strategy-complexity-cost` variational form (introduced by 2026-04-22 V-medium)
+
+**Source:** Opus audit 2026-04-22 (post-strengthening evening), Finding 1. **Confidence:** medium-high. **Severity: high — affects the load-bearing G-BP2 V-medium move.**
+
+**Problematic passage.**
+
+- `01-aad-core/src/strategy-complexity-cost.md` line ~42:
+$$\Sigma_t^\ast = \arg\min_{\Sigma_t} \left[\, I(\mathcal C_t;\, \Sigma_t) \;+\; \beta_\Sigma \cdot D_{\mathrm{KL}}\bigl(Q_{\Sigma_t}(\pi \mid M_t) \,\big\Vert\, \pi^\ast(\cdot \mid M_t)\bigr)\right]$$
+- And the Epistemic Status text (line ~123) claiming "the KL form does not have this degeneracy."
+
+**Why this stands.** When $\pi^\ast$ is deterministic given $M_t$ (the standard scope) — i.e., $\pi^\ast(\cdot \mid M_t) = \delta_{a^\ast(M_t)}$ — the forward KL $D_{\mathrm{KL}}(Q \Vert \delta_{a^\ast})$ is *infinite* unless $Q$'s support is contained in $\{a^\ast\}$. Equivalently: the divergence is binary (0 if $Q$ is exactly the optimum point mass, $+\infty$ otherwise) rather than graded. The original Shannon-MI degeneracy was zero (always uninformative); the KL-form degeneracy is a hard constraint (any sub-optimal $Q$ is infinitely penalized). The V-medium move resolved one degeneracy by introducing a structurally parallel one.
+
+The mathematically clean fix: **reverse the KL direction.** $D_{\mathrm{KL}}(\pi^\ast \Vert Q_{\Sigma_t}) = -\log Q_{\Sigma_t}(a^\ast \mid M_t)$ is finite whenever $Q$ places positive mass on $a^\ast$ and grades continuously in that mass — exactly the "how close is the strategy to the optimum" measurement intended.
+
+**Strongest counterevidence in `src/`.** Line 44 of the same segment says "well-defined when $\pi^\ast$ is deterministic-from-$M_t$." This is mathematically true (the extended-real value exists) but the segment uses it to justify "the degeneracy is avoided," conflating well-defined-value with graded-optimization-target.
+
+The companion spike `msc/spike-active-inference-vs-aad.md` lines ~296–299 reproduces the same direction and same framing; the issue is genuinely absent from the working documents, not just the segment. The fix needs to land in both.
+
+**Repair direction (three options).**
+
+- **(a) Reverse the KL direction** to $D_{\mathrm{KL}}(\pi^\ast \Vert Q_{\Sigma_t})$, which equals $-\log Q_{\Sigma_t}(a^\ast \mid M_t)$ for deterministic $\pi^\ast$ — finite, graded, and the natural "negative log-likelihood of the optimal action." This is the recommended option.
+- **(b) Treat $\pi^\ast$ as a Boltzmann-softmax over $V_{O_t}$.** Both KL directions become finite. Closer to active-inference's actual practice (policy posteriors are typically softmax-over-EFE in AI). Adds a temperature parameter.
+- **(c) Acknowledge multiple admissible variational shapes.** Present the forward-KL as one option with the deterministic-$\pi^\ast$ caveat explicit; reverse-KL as another; let the segment be agnostic.
+
+Recommended: option (a), with a brief Discussion paragraph noting the directional choice and crediting the active-inference literature's convention (forward KL with approximation first) while explaining why the AAD setting (deterministic $\pi^\ast$) requires the reverse direction for graded optimization.
+
+**Effort estimate:** 30–45 min for the segment edit + spike repair + Epistemic Status update + cross-segment mention check.
+
+**Subsumed by:** not directly. Theoretical-correction repair within the V-medium move.
+
+---
+
+## Finding 21 — `#identifiability-floor` frontmatter status conflicts with internal text
+
+**Source:** Opus audit 2026-04-22 (post-strengthening evening), Finding 3. **Confidence:** medium. **Severity: low (drafting artifact).**
+
+**Problematic passages.**
+
+- `01-aad-core/src/identifiability-floor.md` line 4: `status: robust-qualitative`.
+- Same segment Epistemic Status (line ~95): "*Robust qualitative.* The meta-pattern itself is a *discussion-grade* observation … Whether the pattern is a *generative principle* … is a *hypothesis* …"
+
+**Why this stands.** The single Epistemic Status paragraph labels the meta-pattern three different ways (robust-qualitative, discussion-grade, hypothesis). The frontmatter chooses (i). Each phrasing is defensible on its own; the missing piece is a single non-contradictory statement.
+
+**Repair direction.** Probable best resolution: change frontmatter to `status: discussion-grade` (the weakest of the three labels — honest about the meta-observation tier) and add a sentence in Epistemic Status making explicit that the *two derived instances* (Instance 1: exact for shallow / robust-qualitative for general; Instance 2: exact) are at higher tier than the meta-pattern itself. The segment's status reflects the meta-observation; the instances retain their own. 10–15 min.
+
+**Subsumed by:** not directly. Drafting cleanup in segment created by commit `b91493c`.

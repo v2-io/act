@@ -539,3 +539,210 @@ From smallest-payoff-to-effort to largest, rough ordering for planning:
 13. **O-BP7 (structural absences)** — research agenda; individual scoping spikes over time.
 
 This ordering is a sketch, not a commitment. Decisions about which proposals to scope or execute are Joseph's, tracked in `TODO.md`.
+
+
+---
+
+## Post-strengthening evening additions (2026-04-22)
+
+A second triple-audit cycle (Codex / Gemini / Opus) ran *after* the strengthening cycle had landed. Several of the bigger-picture moves restate or extend proposals already in the portfolio above; the substantive extensions are captured immediately below before the genuinely new proposals (O-BP8 through O-BP16).
+
+### Extensions to existing proposals (from 2026-04-22 evening audits)
+
+**G-BP1 (natural-parameter / logit reparameterization) — Gemini reaffirms with Riemannian framing.**
+Gemini's evening-audit bigger-picture §4 reaffirms G-BP1 and adds explicit framing: shifting the strategy DAG update rules entirely into log-odds (natural parameter space) and defining mismatch $\delta$ via KL-divergence collapses sector condition, update gain, and tempo into "natural gradient descent on a Riemannian manifold." This phrasing makes the G-BP1 + G-BP3 cluster's deep unity even more visible than the original characterization: G-BP1 supplies the parameter space, G-BP3 supplies the metric, and together they yield natural gradient descent. Gemini specifically notes this would address the $O(1/n)$ bias observed in the spikes — a concrete defect-driven motivation beyond the original "correctness/concision" merits.
+
+**G-BP3 (Fisher-information unification) — Gemini reaffirms (Riemannian manifold framing).**
+Same Gemini §4 — the natural-gradient-on-Riemannian-manifold form is exactly G-BP3's content. The evening-audit framing makes G-BP1 + G-BP3 read as a single move (parameter + metric together) rather than two independent proposals, sharpening the cluster recommendation.
+
+**O-BP2 (four compressions as one hierarchy) — Codex reframes via "predictive relevance under bounded loss"; Gemini explicitly dissolves Class 2 problem.**
+
+- *Codex bigger-picture (evening) §4 phrasing:* "the same projection/compression shape recurs: $M_t$, $\Sigma_t$, shared intent, and macro-projection all preserve predictive relevance under bounded loss. That feels like the deepest available simplification without overclaiming." This adds a precise epistemic-tier qualifier ("without overclaiming") that O-BP2's original characterization lacked — specifically pointing at the U-medium ceiling found in `msc/spike-ib-unification-plan.md`. Codex's framing is consonant with `#compression-operations` already at U-medium and explicitly cautions against the U-strong overreach.
+- *Gemini bigger-picture (evening) §2 phrasing:* The strict separation between $M_t$ and $\Sigma_t$ "forces immense complexity (like the L1 common-cause node repair). If an agent is viewed purely as a collection of compression maps over its causal history, $M_t$ and $\Sigma_t$ are not distinct objects, but merely two projections of the same causal source tuned to different relevance variables (prediction vs. guidance). This perspective elegantly dissolves the Class 2 Agent problem: an LLM's forward pass is simply one holistic compression producing both projections simultaneously, making logogenic agents native to the theory rather than a scope-violating exception." Gemini's evening framing adds a major motivation O-BP2's original entry only hinted at: under O-BP2, the Class 2 logogenic-agent scope-exit ceases to be a scope violation and becomes a natural special case (one compression producing all projections at once). This substantially strengthens the case for O-BP2 by promising to dissolve, not just relabel, a long-standing open scope problem.
+
+**O-BP3 (continuous-parameter approximation tiering) — Gemini explicit parameter form.**
+
+Gemini bigger-picture (evening) §1 makes the continuous-parameter form concrete: "treating correlation depth, replanning horizons, and contraction tightness as continuous variables ($\lambda, N_r, \mu \in [0,1]$), the 'tier switches' simply become gradient descent over a rate-distortion tradeoff." This adds (a) explicit parameter naming for what O-BP3 had only schematically described, and (b) the observation that tier-switch *detection* (a known open question in the existing tiered framework) becomes gradient-descent on the parameter space — which would absorb the "tier-switching policy" sub-item of O-BP7.
+
+**C-BP1 (three-layer epistemic separation) — Codex restates with slightly different layer naming.**
+
+Codex bigger-picture (evening): "one explicit three-layer contract for every major claim: `object exists`, `exact theorem transfers`, `quantity is operationally extractable`. Several current seams are really layer-collapses, not mathematical contradictions." Compare to C-BP1's original: defined / causally valid / operationally extractable. The two layer-set choices differ slightly:
+
+- *C-BP1's "defined":* The formal object exists and is well-typed.
+- *Codex evening "object exists":* Same content; minor rephrasing.
+- *C-BP1's "causally valid":* The definition supports the causal claims made about it.
+- *Codex evening "exact theorem transfers":* Subtly different — focuses on whether a downstream theorem applies to the object, rather than whether the object's definition is causally well-grounded. The evening framing is more procedural; C-BP1's is more ontological. Both are defensible; choice between them is a presentational decision that affects whether the layer-separation reads as epistemic-foundations work or as theorem-transfer-checking work.
+- *C-BP1's "operationally extractable" / Codex evening's "operationally extractable":* Identical content.
+
+**Recommended absorption:** Update C-BP1's characterization to acknowledge both phrasings as admissible and note the presentational tradeoff. The Codex evening framing is sometimes the more useful one (specifically when the question at hand is "does this segment's downstream theorem apply to its definitional object?"), while C-BP1's original is the more useful one when the question is "is the definition itself causally well-grounded?" Both suggest C-BP4 (claim-level epistemic statuses) as the implementation mechanism.
+
+**C-BP2 (master separability pattern) — Opus expands ladder list and adds the positive-half observation.**
+
+Opus bigger-picture (evening) §B identifies six ladders (not four), all sharing the same "separable-core → structured-repair → general-open" shape:
+
+1. L0/L1/L1'/L2 (correlation)
+2. C1/C2/C3 (convention)
+3. Class 1/2/3 (architecture, directed-separation topology)
+4. Tier 1/2/3 (contraction)
+5. **A/B/C (identification regime, from `#edge-update-causal-validity`)** — added by Opus
+6. **adaptive / agency / composite (scope hierarchy)** — added by Opus
+
+Opus's additional observation: "The #identifiability-floor segment has named half of this pattern (the no-go half). The positive half is implicit everywhere and named nowhere." C-BP2 + #identifiability-floor would together name both halves of the meta-pattern: positive (separable-core / structured-repair / general-open) and negative (information-theoretic floors that prevent escape from the general-open case).
+
+**Recommended absorption:** Update C-BP2's characterization to (a) list the six ladders rather than four, (b) note the explicit complementarity with `#identifiability-floor`, and (c) flag that the meta-pattern's positive and negative halves together would constitute a stronger organizing principle than either alone.
+
+**O-BP1 (sector-persistence template as organizing principle) — Opus §F adds the composition-as-third-application path.**
+
+Opus bigger-picture (evening) §F observes: "There's a natural move that could pull Section III up: composition closure is the sector-persistence template applied to a projection defect, which is itself a compression operation, which has the same IB shape as $M_t$, $\Sigma_t$, and shared intent ( #compression-operations gets close to this). If the four compressions are unified under one variational problem, and the six persistence results are unified under one Lyapunov template, then composition emerges as a third application of the same machinery rather than new theory."
+
+This identifies an O-BP1 + O-BP2 composition path that the original entries did not articulate: pursued together, they would lift Section III from "promising structure" to "third instance of the same machinery already present in Sections I and II." This is the cleanest available path to the Section-III asymmetry that the OUTLINE preamble currently acknowledges as the theory's main weakness.
+
+**Recommended absorption:** Add a cross-reference in O-BP1 noting the O-BP1 + O-BP2 → Section III pull-up path. Same in O-BP2.
+
+---
+
+The genuinely new proposals (not extensions of existing ones) are listed below.
+
+### O-BP8 — Explicit scope lattice as named-once-and-reused object
+
+**Source:** Codex bigger-picture (2026-04-22 evening).
+
+**Thesis.** AAD's scope is a five-tier lattice: **adaptive → agency → learning-purposeful → exact Section II modular (Class 1) → coupled/logogenic**. Each layer narrows the prior. Currently distributed across `#scope-condition`, `#agent-spectrum`, `#causal-hierarchy-requirement`, `#directed-separation`, and the Section II preamble — a reader has to assemble the full intersection statement themselves. Named once (e.g., as a meta-segment `#section-ii-scope-lattice` or as the canonical scope statement in `#scope-condition`), the lattice serves as a single referent that all downstream segments can invoke.
+
+**Merits.** Approachability (very high), concision (high), correctness (medium — closes the headline-vs-actual-scope friction). Subsumes Finding 16 (Section II scope lattice underspecified). Strengthens the case for several of the existing proposals: O-BP1 (template-as-organizing-principle) acquires a clean scope referent; C-BP1 (three-layer separation) composes naturally because each lattice layer has its own "defined / causally valid / operationally extractable" pattern.
+
+**Effort shape.** Scoping spike worthwhile (1 session) to decide whether to promote a new meta-segment or add a canonical statement to existing segments. Application: 30–60 min for option (a); 1–2 sessions for the meta-segment route.
+
+**Status:** unexamined.
+
+### O-BP9 — Typed admissibility for composition (model-only / goal-bearing / strategy-bearing × Tier)
+
+**Source:** Codex bigger-picture (2026-04-22 evening).
+
+**Thesis.** Replace the blanket "composite agent" with typed admissibility: **model-only composites** (no $G_c$, only $M_c$ and joint dynamics — currently absent from segments), **goal-bearing composites** (with thin $O_c$ but no full $\Sigma_c$ — what (C-iii) actually supplies under positive-sum coupling), **strategy-bearing composites** (full $G_c = (O_c, \Sigma_c)$, currently the only kind the closure framework formally handles). Each crossed with Tier 1/2/3 contraction status.
+
+**Merits.** Correctness (high — closes Finding 8/F8 cleanly by giving (C-iii) a proper destination type that doesn't require full $G_c$). Approachability (medium — adds a partition that has to be learned but resolves ambiguity once internalized). Subsumes Finding 8; partially supports Finding 17 (coupled-diagnostic-framework's M/G decomposition is post-hoc analytical — the typed composition lets goal-bearing composites be the right scope for that diagnostic without forcing the strategy-bearing apparatus).
+
+**Scope.** `#composition-scope-condition` (extends route table), `#composition-closure` (adds typed admissibility before requirements), `#multi-agent-scope` (adds composite-type-distinction). Possibly a new meta-segment `#composition-types`.
+
+**Effort shape.** Scoping spike valuable (1–2 sessions). Substantial editorial pass to reframe `#composition-closure`'s (A1)–(A4) as type-conditional rather than universal.
+
+**Status:** unexamined. Strong companion to G-BP1's typed-admissibility instinct.
+
+### O-BP10 — Projection-contraction framing of the sector-persistence template
+
+**Source:** Opus bigger-picture (2026-04-22 evening), §A.
+
+**Thesis.** Generalize the sector-persistence template to a single organizing slogan: **"An adaptive system is a projection whose contraction rate exceeds its target's drift rate."** Every named defect in AAD is a projection-fidelity measurement: epistemic mismatch is $\Omega$-projected-to-$M$, strategic mismatch is truth-projected-to-edge-credences, closure defect is micro-projected-to-macro, adversarial destabilization is target-projected-to-observable, IB compression cost is history-projected-to-state. The template's $\xi$ is always a projection defect; the disturbance is always the rate at which the projection target shifts faster than the projection can track.
+
+**Merits.** Beauty (high), concision (high — single slogan replaces extensive scaffolding), fundamentality (medium-high — surfaces what AAD actually is at the deepest level). Composes with O-BP1 (template as organizing principle): O-BP1 names the *result-level* organizing principle; O-BP10 names the *object-level* organizing principle. Both compose with C-BP2 (master separability pattern) which names the *epistemic-posture-level* organizing principle.
+
+**Scope.** OUTLINE.md preamble rewrite (replace "AAD" elevator pitch with the projection-contraction form); introductory passage in `#sector-persistence-template`; potentially a top-level naming pass across all defect-named segments.
+
+**Effort shape.** Substantial editorial reframing. 2–3 sessions if comprehensive; 1 session for a preamble + template-segment touch.
+
+**Status:** unexamined. **One of the most concise potential restatements of the entire theory available.**
+
+### O-BP11 — Observability as a master variable across the theory
+
+**Source:** Opus bigger-picture (2026-04-22 evening), §C.
+
+**Thesis.** Observability appears repeatedly as a recurring master variable across distinct AAD machinery, currently presented as separate machinery in each instance. The unifying observation: **every structural AAD move is ultimately about what's observable to whom, at what cost, with what identification strength.** Specific instances:
+
+- L1' refutation under unobservable $C$ (Prop B.7's identifiability obstruction → instance of #identifiability-floor)
+- P4 in `#graph-structure-uniqueness` (observable intermediates as a structural property)
+- P6 in `#software-epistemic-properties` (agent-controlled $U_o$)
+- B.2 vs B.3 in `#strategic-dynamics-derivation` (observable vs unobservable intermediate as the structural pivot)
+- `#observability-dominance` (unobservable edges freeze)
+- Directed-separation's $\kappa_{\mathrm{processing}}$ (observability of $G_t$ to $f_M$, forbidden in Class 1)
+- Loop-interventional-access (observability of causal structure via action-contrast)
+- `#shared-intent` (observability of composite $O_c$ to sub-agents)
+- TST P6 + code-quality-as-observation-infrastructure (observability of intent to future developers)
+
+A single segment (or reorganization around) **"Observability: what can be seen, by whom, at what cost, with what identification strength"** could re-center the theory. It would subsume parts of `#edge-update-causal-validity` (regime A/B/C), `#observability-dominance`, parts of `#scope-condition`, `#directed-separation`'s $\kappa_{\mathrm{processing}}$, the identifiability-floor instances — all currently presented as distinct machinery.
+
+**Merits.** Fundamentality (very high), concision (high — would subsume many segments' scaffolding into one variable's parameterization), beauty (high). Subsumes parts of Finding 5, F11, and the identifiability-floor segment's adjacency claims. Could be a much larger reorganization than any other proposal in the portfolio if pursued seriously.
+
+**Effort shape.** Substantial. Scoping spike essential; multi-session if pursued in segment form. Probably 4–6 sessions for the full re-centering. **The largest available reorganization.**
+
+**Risks.** Observability is genuinely a master variable, but the current segment-distributed treatment may have advantages (each instance can be reasoned about with its specific dynamics). A premature unification could lose the per-instance specificity that makes the theory tractable. Scoping spike must validate that the unified treatment preserves what's currently usable per-instance.
+
+**Status:** unexamined. **Probably the deepest available structural insight from the audit cycle.**
+
+### O-BP12 — Resource budget $B_t$ as master variable for bounded rationality
+
+**Source:** Opus bigger-picture (2026-04-22 evening), §D.
+
+**Thesis.** Bounded rationality currently appears piecewise: cognitive cost of $\Sigma_t$ (IB/MDL); deliberation cost; update gain's implicit dependence on agent capacity; context window constraints for LLMs; description length limits for strategies. There's no single $B_t$ (budget) variable that the agent allocates across $(M_t, \Sigma_t, O_t)$ maintenance. Introducing one would let you derive — rather than separately postulate — quantities like $d^\ast$, $\eta^\ast$'s dependence on capacity, $\beta_\Sigma$'s calibration, and the compression ratios across the four IB instances.
+
+**Pragmatic form.** A `#resource-budget` segment with $B_t$ as the master variable, from which $\mathrm{DL}(\Sigma_t) + \mathrm{DL}(M_t) + \mathrm{DL}(O_t) \leq B_t$ is a constraint, and the three (or four, with shared intent) compressions are a joint allocation problem.
+
+**Merits.** Fundamentality (medium-high), concision (medium), correctness (medium). Adjacent to O-BP7's known structural absences (specifically the tier-switching policy). Provides a unified frame for the four $\beta$ values currently calibrated independently in `#compression-operations`.
+
+**Effort shape.** Scoping spike valuable (1–2 sessions). 2–3 sessions to execute as a new segment with the joint-allocation derivation.
+
+**Risks.** The unification may over-promise: in practice, the four $\beta$s in compression-operations are calibrated separately because they live in different cognitive sub-systems. A master $B_t$ might be a presentational device rather than a derivation engine.
+
+**Status:** unexamined.
+
+### O-BP13 — Cox-parallel necessity for `#graph-structure-uniqueness`
+
+**Source:** Opus bigger-picture (2026-04-22 evening), §E.
+
+**Thesis.** `#graph-structure-uniqueness` proves sufficiency: P1–P4 + causal sufficiency → DAG with Markov property. The necessity direction is open: any non-DAG structure satisfying P1–P4 + causal sufficiency is isomorphic to a DAG. Reachable via Lauritzen's characterization of Markov properties on different graph classes (factor graphs, junction trees, chain graphs encode different independence relations; the question is whether the specific independence relation forced by P1–P4 + causal sufficiency requires DAG semantics).
+
+**Merits.** Fundamentality (high — elevates from sufficiency-only Cox-analog to full Cox-style theorem). Worth a dedicated spike to assess tractability.
+
+**Effort shape.** Dedicated scoping spike (1–2 sessions). If tractable, 2–3 sessions to derive and integrate.
+
+**Status:** unexamined.
+
+### O-BP14 — Per-segment "what's derived vs. chosen vs. assumed" table convention
+
+**Source:** Opus bigger-picture (2026-04-22 evening), §G(1).
+
+**Thesis.** `#graph-structure-uniqueness` lines 154–165 carry a compact "what's derived vs. chosen vs. assumed" table that is the clearest epistemic signal in the entire repo. A compact version in every derivation-type segment would save future agents (and reviewers) hours of careful reading.
+
+**Merits.** Approachability (very high), correctness (medium — pre-empts the "is X derived or chosen?" ambiguity that fresh readers repeatedly stumble on). Pairs naturally with C-BP4 (claim-level epistemic statuses) — C-BP4 is the inline tagging system; O-BP14 is the segment-level executive summary.
+
+**Scope.** FORMAT.md convention addition (declare the table as a recommended optional section for derivation-type segments). Per-segment application — incremental, low-risk.
+
+**Effort shape.** Convention change in FORMAT.md: 30 min. Per-segment application: ~10 min each, roughly 40 segments touched over time. Total: 1–2 sessions for the convention + first batch of high-value segments (the Section I derivations, B.5–B.7 in `#strategic-dynamics-derivation`, the composition-closure segment).
+
+**Status:** unexamined. **Potentially highest-payoff-to-effort move in this batch.**
+
+### O-BP15 — Comprehensive "minimal proof of viability" worked example
+
+**Source:** Opus bigger-picture (2026-04-22 evening), §G(2).
+
+**Thesis.** Build a single concrete worked example that hits *every* major Section I/II result. Candidate domain: a literal two-service deployment with specified $\rho$, $\mathcal{T}$, $\Sigma_t$ — something a software engineer can run mentally without the formal apparatus. The example threads through `#mismatch-signal`, `#update-gain`, `#adaptive-tempo`, `#sector-condition`, `#satisfaction-gap`, `#control-regret`, `#orient-cascade`, `#strategy-dag`, the L0/L1 calibration, and Prop B.6 + B.7. Crystallizes "this is a theory of real agents, not a formal game."
+
+**Merits.** Approachability (very high), correctness (medium — running the example end-to-end exposes any unspecified parameters or formal gaps), beauty (medium — a single concrete instantiation showing the whole machinery in action). Subsumes nothing directly but removes the friction of fragmentary worked examples (`#worked-example-kalman`, `#worked-example-bandit`, `#worked-example-strategy`, `#worked-example-L1` each demonstrate one slice).
+
+**Scope.** New worked-example segment. Choosing the right domain matters (software is a strong candidate per TST, but the example should demonstrate AAD generality, not just TST). Pre-existing worked examples could be cross-referenced or partially absorbed.
+
+**Effort shape.** Major content effort: 3–4 sessions for the example itself + cross-reference integration. Best done after O-BP1 + O-BP2 framing has stabilized so the example reflects the cleanest theoretical framing.
+
+**Status:** unexamined.
+
+### O-BP16 — Population-level Lyapunov dynamics (Gemini bigger-picture)
+
+**Source:** Gemini bigger-picture (2026-04-22 evening), §3.
+
+**Thesis.** The sector condition successfully proves persistence for individual agents but acts as a behavioral black box at the population level. To complete Section III for multi-agent and composition dynamics, the Lyapunov machinery should be elevated from agent-level to population-level — tracking the *distribution* of correction architectures and endogenous coupling coefficients ($\gamma$) rather than just static bounds. `msc/spike-neutral-drift-lyapunov.md` already noted that the sector condition is blind to "neutral drift" (agents that behave identically now but will fail differently later), which is exactly the population-level missing structure.
+
+**Merits.** Fundamentality (medium-high — closes a known Section III gap), correctness (medium). Maps onto the existing Section III gaps in TODO ("Latent structural diversity," "Endogenous coupling," "Composition transition dynamics") — population-Lyapunov is the apparatus that would let those gaps be addressed coherently rather than as separate ad-hoc extensions.
+
+**Scope.** New segments in Section III. Substantial multi-session work.
+
+**Effort shape.** Major. Scoping spike essential; 4–6 sessions if pursued.
+
+**Status:** unexamined. Adjacent to O-BP7 (structural absences) — could be added there as a fifth absence.
+
+### Closing meta-observation (Opus, §"One closing observation")
+
+> "The framework's honesty is load-bearing… The theory's conservatism is not a limitation — it is the theory's architectural principle."
+
+This is not a proposal but an observation about the project's character. The strengthen-first feedback memory captures part of this; the identifiability-floor segment's structural-impossibility-as-positive-content reframe captures another part. Worth surfacing in the OUTLINE.md preamble or CLAUDE.md "Theory Character" section as an explicit principle: AAD makes its scope and limits visible at the segment level rather than burying them; this is what gives the theory its load-bearing posture against critical scrutiny.
+
+This deserves a small CLAUDE.md addition — not a full proposal but a one-paragraph principle statement under "Theory Character."

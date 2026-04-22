@@ -95,6 +95,8 @@ Do NOT use "Solid," "Confident," or "Plausible" as tier labels — these are not
 
 6. **Math in conversation vs files.** In terminal chat responses, use Unicode for math (α, δ, Σ, →, ≥, etc.) — there is no LaTeX rendering in the terminal. In markdown files written to disk, use proper inline LaTeX per FORMAT.md. Joseph may respond in whatever notation is easiest to type — interpret generously.
 
+7. **Honesty as architectural principle.** AAD's posture is to make scope and limits visible at the segment level rather than buried in caveats. The framework's conservatism is not a limitation — it is the theory's load-bearing architecture. Specific instantiations: the directed-separation Class 1/2/3 partition with explicit Class 2 scope exit; the regime-indexed (A/B/C) edge interpretation; the strengthen-first-then-soften posture (`feedback_strengthen_before_soften.md`); and `#identifiability-floor`'s reframing of negative results as structural features that strengthen the machinery that escapes the floor. Per Opus's audit observation (2026-04-22 evening): "the framework's honesty is load-bearing." When considering new content or repair, prefer the form that surfaces scope and limits rather than the form that overclaims and is later forced to caveat.
+
 ## What's Settled vs. Open
 
 The summary below is the architectural snapshot — settled load-bearing results and the open structural questions. For live work-in-flight (pending findings, tier-C deferrals, open MEDIUM items, missing segments), see `TODO.md`. For the spike trail that produced these, see `msc/SPIKES.md`.

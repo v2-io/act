@@ -1,6 +1,17 @@
 # TODO — Open Work Items
 
-**Last reconciled:** 2026-04-22 (post-strengthening-cycle). This file is the living action list. For the 2026-04-21 master audit and the 2026-04-22 four-audit batch that seeded this cycle, see the historical pointers in the Archive section. The 2026-04-22 strengthening cycle (commits `14a6095`, `b6134c2`, `4d050c8`, `b91493c`, `a14682e`) executed strengthen-first repairs for Findings 1, 7, 10, 13 and the AI integration pass; see Archive for the per-commit summary.
+**Last reconciled:** 2026-04-22 (post-strengthening + post-evening-audits). This file is the living action list. For the 2026-04-21 master audit and the 2026-04-22 morning four-audit batch, see the historical pointers in the Archive section. The 2026-04-22 strengthening cycle (commits `14a6095`, `b6134c2`, `4d050c8`, `b91493c`, `a14682e`) executed strengthen-first repairs for Findings 1, 7, 10, 13 and the AI integration pass. A second triple-audit cycle (Codex / Gemini / Opus) ran *after* the strengthening cycle and surfaced six new findings (F16–F21) plus nine new architectural proposals (O-BP8 through O-BP16); see `msc/pending-findings-2026-04-22.md` "Post-strengthening evening batch" and `msc/architectural-proposals-2026-04-22.md` "Post-strengthening evening additions."
+
+## Highest-priority cleanups (immediately actionable)
+
+Three of the six new findings are integration gaps from cycles already completed; one is a bug introduced by the strengthening cycle. All four are mechanical or near-mechanical and should land before pursuing further architectural work.
+
+- **F18 — `#worked-example-L1` says L1' transfer is "open"** but Prop B.7 was derived in commit `4d050c8`. The F13 strengthening spike's §8.4 explicitly queued this cross-segment update; not landed. Mechanical edit. **10–15 min.**
+- **F19 — `#section-ii-survival` bias bound still in entropy form** ($H(G \mid e, M)$) but the 2026-04-21 Finding B resolution refined it to the tighter MI form ($I(G; \Omega \mid e, M)$) in `#observation-ambiguity-modulation`. Cross-segment update gap. **15–25 min.**
+- **F20 — KL-direction degeneracy in `#strategy-complexity-cost` variational form** (introduced by AI integration commit `a14682e`). The forward-KL form is infinite (not graded) under deterministic $\pi^\ast$ — same shape of degeneracy as the Shannon-MI form it replaced, just binary 0/∞ instead of always-zero. Recommended fix: reverse the KL direction to $D_{\mathrm{KL}}(\pi^\ast \Vert Q_{\Sigma_t}) = -\log Q_{\Sigma_t}(a^\ast \mid M_t)$ (finite and graded). Affects segment + companion spike `msc/spike-active-inference-vs-aad.md`. **30–45 min.** **High-severity** because it affects the load-bearing G-BP2 V-medium move.
+- **F21 — `#identifiability-floor` frontmatter status conflicts with internal text** (drafting artifact in segment created by commit `b91493c`). Probably change frontmatter from `robust-qualitative` to `discussion-grade` and add one sentence in Epistemic Status making the per-instance higher tier explicit. **5–10 min.**
+
+These four are independent of any architectural-proposal decision and should land as a small cleanup commit.
 
 
 ## Active — Strategic Architectural Proposals
@@ -41,6 +52,41 @@ Architectural moves remaining from the 2026-04-22 portfolio (`msc/architectural-
 - C-BP1 + C-BP4 (three-layer framework + claim-level implementation)
 - O-BP1 + C-BP2 (result-level + epistemic-posture organizing principles)
 
+### Post-strengthening evening additions (2026-04-22)
+
+A second triple-audit cycle surfaced nine genuinely new architectural proposals plus several substantive *extensions* to existing proposals. The extensions to existing proposals — Gemini's Riemannian-manifold framing of G-BP1+G-BP3, Codex's "predictive relevance under bounded loss" framing of O-BP2, Gemini's Class 2 dissolution under O-BP2, Gemini's explicit $\lambda, N_r, \mu \in [0,1]$ form of O-BP3, Codex's alternative three-layer phrasing for C-BP1, Opus's six-ladder expansion of C-BP2 and the positive-half complementarity with `#identifiability-floor`, and Opus's O-BP1 + O-BP2 → Section III pull-up path — are documented in `msc/architectural-proposals-2026-04-22.md` "Extensions to existing proposals." When considering whether to scope or execute any of those existing proposals, read the extensions first — they substantially expand the case for several of them. The genuinely new proposals are below.
+
+**Smaller / approachable (high payoff per effort):**
+
+- **O-BP14 — Per-segment "what's derived vs. chosen vs. assumed" table convention.** `#graph-structure-uniqueness` lines 154–165 already carries this and it's the clearest epistemic signal in the repo. FORMAT.md convention extension + incremental per-segment application. **Probably highest-payoff-to-effort move in this batch.** Pairs with C-BP4. 30 min for convention + ~10 min per segment.
+- **O-BP8 — Explicit scope lattice as named-once-and-reused object.** Adaptive → agency → learning-purposeful → exact Section II modular → coupled/logogenic. State once, reference everywhere. Subsumes Finding 16. 1-session scoping spike + 30–60 min application.
+- **O-BP10 — Projection-contraction framing of sector-persistence template.** "An adaptive system is a projection whose contraction rate exceeds its target's drift rate." Composes with O-BP1 (result-level) and C-BP2 (posture-level) as the three-tier organizing-principle stack. **One of the most concise potential restatements of the entire theory available.** 1–3 sessions for preamble + template touch + comprehensive naming pass.
+- **O-BP9 — Typed admissibility for composition** (model-only / goal-bearing / strategy-bearing × Tier). Subsumes Finding 8 cleanly; partial on Finding 17. 1–2 session scoping spike.
+
+**Larger / scoping required:**
+
+- **O-BP11 — Observability as master variable across the theory.** Across L1' refutation, P4, P6, B.2/B.3, observability-dominance, directed-separation κ_processing, loop-interventional-access, shared-intent, TST P6 — observability appears as a recurring master variable currently presented as separate machinery in each instance. **Probably the deepest available structural insight from the audit cycle.** Substantial: scoping spike essential, 4–6 sessions if pursued in segment form. **Largest available reorganization** in the current portfolio.
+- **O-BP12 — Resource budget $B_t$ as master variable for bounded rationality.** Currently piecewise (DL of Σ_t, deliberation cost, η* capacity-dependence, context-window limits, β_Σ calibration); a single $B_t$ would let those derive rather than be separately postulated. Adjacent to O-BP7. 1–2 session scoping spike + 2–3 sessions if pursued.
+- **O-BP13 — Cox-parallel necessity for `#graph-structure-uniqueness`.** Currently sufficiency-only; necessity direction probably reachable via Lauritzen's characterization of Markov properties on different graph classes. 1–2 session dedicated spike.
+- **O-BP15 — Comprehensive "minimal proof of viability" worked example.** Single concrete instantiation hitting every Section I/II result. Should follow O-BP1 + O-BP2 framing stabilization. 3–4 session content effort.
+- **O-BP16 — Population-level Lyapunov dynamics** (for Section III). Tracks distribution of correction architectures and endogenous coupling rather than per-agent static bounds. Closes "neutral drift" blindness flagged by `msc/spike-neutral-drift-lyapunov.md`. Adjacent to existing Section III gaps (latent structural diversity, endogenous coupling). Major: scoping spike essential, 4–6 sessions if pursued.
+
+### Updated recommended ordering (post-evening-audit)
+
+Smallest-payoff-to-effort, with the four immediate cleanups above pre-required:
+
+1. **F18 + F19 + F20 + F21 cleanup** (highest-priority cleanups section). 1–2 hrs total.
+2. **O-BP14** (derivation-table convention) — 30 min convention + first batch.
+3. **O-BP1** (template as organizing principle) — framing touch, low risk.
+4. **O-BP10** (projection-contraction framing) — composes with O-BP1; can land in same pass.
+5. **O-BP6** (identity promotion) — one session, localized.
+6. **O-BP8** (scope lattice naming) — composes with O-BP1; closes F16.
+7. **C-BP3** (software calibration laboratory) — 45–90 min editorial.
+8. **C-BP2** (master separability pattern) — pairs with O-BP1 + O-BP10.
+9. **G-BP1** (logit reparameterization) — fixes Finding 2's residual gradient issue.
+
+The larger reorganizations (O-BP11 observability-master, O-BP12 resource-budget, O-BP13 Cox-necessity, O-BP15 comprehensive-worked-example, O-BP16 population-Lyapunov, G-BP2 V-strong, G-BP3 Fisher-unification, O-BP3 continuous-tiering, O-BP4 continuous-DAG, O-BP5 recursive-AAD, O-BP2 four-compressions full) remain longer-term scoping work. **O-BP11 (observability as master variable) deserves first attention among these** as the deepest available structural insight — even if not pursued, the scoping spike would surface what AAD's observability machinery actually is across the theory.
+
 
 ## Active — Pending Findings
 
@@ -72,6 +118,21 @@ The 2026-04-22 batch had 15 findings; the strengthening cycle resolved 4 directl
 - **Finding 6** — composition-consistency scope-narrowing. 30–45 min.
 - **Finding 8** — (C-iii) Option A vs Option B decision needed before edit.
 - **Finding 14 Option A** — `#developer-as-act-agent` status downgrade. 15–30 min.
+
+### 2026-04-22 evening batch — six new findings
+
+Three independent de novo audits (Codex, Gemini, Opus) ran *after* the strengthening cycle. Three categories of finding emerged: integration gaps from prior cycles, new scope/operational-extractability frictions, and bugs introduced by the strengthening cycle itself.
+
+| # | Finding | Source | Severity | Subsumed by |
+|---|---------|--------|----------|-------------|
+| 16 | Section II scope lattice underspecified across segments | Codex F1 (evening) | Medium | O-BP8 (scope-lattice naming); partial O-BP1 |
+| 17 | `#coupled-diagnostic-framework` operational-computability overclaim | Codex F4 (evening) | Medium-high | C-BP1; partial O-BP9 |
+| 18 | `#worked-example-L1` says L1' transfer "open" — STALE after F13 strengthening | Gemini F1 (evening) | Medium | — (cross-segment update) |
+| 19 | `#section-ii-survival` bias bound in entropy form, stale after 2026-04-21 Finding B | Gemini F3 (evening) | Medium | — (cross-segment update) |
+| 20 | KL-direction degeneracy in `#strategy-complexity-cost` variational form (introduced by V-medium) | Opus F1 (evening) | High | — (theoretical-correction repair) |
+| 21 | `#identifiability-floor` frontmatter status conflicts with internal text | Opus F3 (evening) | Low | — (drafting cleanup) |
+
+**Reaffirmed (not new):** Codex F2 evening reaffirms F6 (composition timescale heuristic); Codex F3 evening reaffirms F8 ((C-iii) gap); Opus F2 evening reaffirms F14 (developer-as-act-agent status). Several other candidate findings were *rescinded* by the audits themselves on in-segment counterevidence — see `msc/pending-findings-2026-04-22.md` and the audit transcripts for the transparency tables.
 
 ### 2026-04-21 batch — both RESOLVED 2026-04-22 (historical, from earlier in the day)
 
