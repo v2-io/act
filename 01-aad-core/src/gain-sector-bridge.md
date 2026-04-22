@@ -7,7 +7,7 @@ depends:
   - mismatch-signal
   - sector-condition-derivation
   - gain-sector-derivation
-stage: claims-verified
+stage: draft
 ---
 
 # Derived: Gain–Sector Bridge
@@ -74,17 +74,31 @@ The bridge fails precisely in five cases:
 
 ## Epistemic Status
 
-*Conditional derivation.* The bridge theorem is exact for all cases where B1 (directional fidelity) holds:
+*Conditional derivation.* The bridge theorem is exact for all cases where B1 (directional fidelity) holds. The resulting sub-scope structure of A2' in #sector-condition-derivation is:
 
-- **For optimal Bayesian updates** (Kalman, conjugate, exponential family): B1 holds by construction — the posterior update minimizes expected loss, ensuring the correction aligns with the mismatch. The sector parameter equals the gain: $\alpha = \eta^\ast$.
+**Sub-scope $\alpha$ (B1 structural, A2' derived):**
 
-- **For gradient descent on differentiable losses**: B1 is equivalent to local strong convexity — a well-characterized property with an extensive optimization theory literature. The sector parameter factors as $\alpha = \eta \cdot \mu$ (learning rate $\times$ curvature).
+- **Optimal Bayesian updates** (Kalman, conjugate, exponential family): B1 holds by construction — the posterior update minimizes expected loss, ensuring the correction aligns with the mismatch. The sector parameter equals the gain: $\alpha = \eta^\ast$ (scalar) or $\alpha = \lambda_{\min}^+(KH)$ (matrix Kalman, observable subspace).
+- **Gradient descent on (locally) strongly convex losses**: B1 is *equivalent* to strong convexity (Prop B.4) — a well-characterized property with an extensive optimization theory literature. The sector parameter factors as $\alpha = \eta \cdot \mu$ (learning rate × curvature).
+- **L2-regularized convex losses**: the regularization parameter $\lambda$ provides a global floor $\mu \geq \lambda$, so $\alpha \geq \eta \lambda$ globally.
+- **Exponential families in natural parameters**: Fisher information matrix is PD on the interior; $\alpha = \eta \cdot \lambda_{\min}(\text{Fisher})$ globally.
+- **Linear corrections with PD gain–observation product**: $\alpha = \lambda_{\min}^+(KH)$.
 
-- **For non-gradient agents** (PID controllers, rule-based systems, human judgment): B1 remains an empirical claim. The bridge covers the important special cases but does not eliminate GA-3 as an assumption for all agents.
+Within sub-scope $\alpha$, A2' is written down by inspection of the update rule — no independent posit is required. This is what `#sector-condition-derivation` "Grounding of GA-3 — sub-scope $\alpha$" names.
+
+**Sub-scope $\beta$ (B1 not structural, A2' assumed per-agent):**
+
+- **Non-gradient agents** (PID controllers, rule-based systems, human judgment): B1 remains an empirical claim. Well-tuned PID has B1 empirically; badly-tuned PID may violate it.
+- **Severely misspecified agents** (FM-5 below): proper-gradient updates can aim at the wrong target.
+- **Variational / approximate posteriors**: B1 not guaranteed by optimality — approximation-direction error can rotate the correction.
+- **Non-convex gradient agents beyond the basin** (FM-3 + basin boundary): A2' fails where the loss curvature goes non-positive; the structural-adaptation-necessity trigger.
+- **Stochastic gradients, per-step**: A2' holds in expectation; per-step noise enters as effective disturbance under Prop A.1S.
+
+The bridge covers sub-scope $\alpha$ rigorously and characterizes the boundary to sub-scope $\beta$ via the five failure modes. It does *not* eliminate GA-3 as an assumption for all AAD-in-scope agents — some agent classes genuinely require A2' as a primitive posit, and the honest architectural statement is scope narrowing rather than universal derivation (see `msc/spike-a2-prime-strengthening.md` for the analysis).
 
 The gradient equivalence is validated by simulation across quadratic, logistic, exponential-family, and non-convex losses. The Kalman case is verified analytically. Full derivations and simulation results in #gain-sector-derivation.
 
-**Max attainable:** *conditional* — the condition (B1 or strong convexity) is inherent, not removable. Pathological update rules exist that violate B1.
+**Max attainable:** *conditional* — the condition (B1 or strong convexity) is inherent, not removable. Pathological update rules exist that violate B1 (FM-1 provides a counterexample that satisfies every AAD postulate and the gain-based update form but has $\delta^T g(\delta) = 0$ identically). Scope + gain structure alone does not force B1; some optimality / coherence / rationality constraint (Bayesian coherence, gradient-of-a-convex-loss, etc.) is required.
 
 **Weighted-norm subtlety.** In the matrix Kalman case, the sector condition holds in the $(P^-)^{-1}$-weighted inner product, not the Euclidean norm. For fully observable systems with bounded condition number $\kappa(P^-)$, the norms are equivalent up to $\kappa(P^-)$. The Lyapunov proofs in #sector-condition-derivation use the Euclidean norm, which remains valid with the quantitative adjustment $\alpha_{\text{Euclidean}} \geq \alpha_{\text{weighted}} / \kappa(P^-)$.
 

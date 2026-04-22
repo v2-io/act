@@ -77,6 +77,10 @@ The breadth difference is not rhetorical: where the FEP-flow argument's paramete
 
 *Exact.* The template is the abstract form of the Lyapunov result proved in #sector-condition-derivation (Props A.1, A.1S, A.2). The proofs transfer without modification whenever (T1)–(T3) hold; the template's contribution is the recognition that AAD's persistence-flavored results are instances of a single pattern and the enumeration of what each instantiation must verify.
 
+**On (T2) and A2' sub-scoping.** (T2) is the local sector condition A2' transcribed to a generic state variable $\xi$. Within the state-variable spaces relevant to AAD's instantiations (epistemic mismatch $\delta$, strategic mismatch $\delta_\Sigma$, sub-agent mismatch $\delta_i$, composite trajectory error $e_m$, composite mismatch $\delta_c$, target-agent mismatch $\delta_B$), the update rules are overwhelmingly sub-scope $\alpha$ in the #sector-condition-derivation / #gain-sector-bridge sense — Bayesian, exponential-family, strongly-convex-gradient, or linear-PD. For these, (T2) is *derived* from the update-rule structure under B1 directional fidelity. For sub-scope $\beta$ instantiations (e.g., a team where some sub-agent runs a rule-based update), (T2) must be verified per-instantiation. This is not a weakening — it is the honest sub-scope labeling inherited from #sector-condition-derivation.
+
+**On Prop A.1S region-awareness.** The Model S case uses the region-aware form of Prop A.1S (stopped bound + non-exit probability under the mean-square persistence condition). Instantiations that rely on the Model S result automatically inherit the stopping-time localization — no extra work is required at the template level.
+
 Max attainable: *exact*. The result is as strong as Lyapunov stability theory. Additional work could extend the template (state-dependent noise, time-varying $\alpha$, non-quadratic Lyapunov functions) but would not strengthen it within its stated scope.
 
 **What the template does not establish:**

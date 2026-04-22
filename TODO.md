@@ -48,6 +48,19 @@ The pattern emerging from the 2026-04-21 → 2026-04-22 cycle is that AAD benefi
 This is consistent with CLAUDE.md's "convergent depth over generative breadth" principle (3:1 ratio of promoting to creating). The 2026-04-22 cycles were 3:1 in the right direction (one new derivation in F1, one in F13, one new meta-segment, plus extensive framing/integration work). The same ratio should hold in the next cycle: derivation-table convention + O-BP1/10/8 framing pass + cleanups, with at most one substantive spike (probably O-BP11 scoping) thrown in.
 
 
+## Active — Citations Audit (project-wide)
+
+Surfaced during the reverse-KL uniqueness spike: a specific citation (Amari 2009 for chain-rule uniqueness) was found to be incorrect — the paper proves f∩Bregman intersection uniqueness, not chain-rule uniqueness. The immediate fix is in flight as a background audit agent scoped to the reverse-KL work (`#strategy-cost-regret-bound`, `msc/spike-reverse-kl-uniqueness.md`, and downstream refs).
+
+The broader concern: *every* external-theorem citation across AAD and TST segments should be verified against the actual paper content. Prior strengthening cycles invoked external theorems (Bareinboim et al. 2022 Causal Hierarchy Theorem; Cramér-Rao; Pearl's do-calculus; Tishby-Pereira-Bialek 1999 IB; Khalil Lyapunov results; Friston et al. and Da Costa et al. active-inference references; Aguilera 2022; Bruineberg et al. 2022; etc.) that should have the same level of scrutiny applied.
+
+**Scope.** Every `*[Derived]*`, `*[Proved]*`, and `*[Derived (External theorem)]*` claim that invokes a specific paper. Include both AAD core segments and TST segments. Aim for two per-citation deliverables: (a) outcome of (A correct / B wrong paper / C unverified / D ghost); (b) PDF saved to `ref/` when open-access.
+
+**Pattern to cascade.** The reverse-KL audit is the template for this work — self-contained audit of a single work's citations. For a project-wide audit, pursue in batches by segment cluster (e.g., first Section II derivations, then Section III composition results, then TST operational segments).
+
+**Parking until the reverse-KL audit completes** — that audit's findings will refine the per-citation procedure and surface which other segments need similar scrutiny.
+
+
 ## Active — Strategic Architectural Proposals
 
 Architectural moves remaining from the 2026-04-22 portfolio (`msc/architectural-proposals-2026-04-22.md`). G-BP2 was partially executed in V-medium form during the 2026-04-22 strengthening cycle (variational form of strategy IB; see #strategy-complexity-cost and #compression-operations). The remaining proposals are evaluated on their own merits — beauty, concision, correctness, approachability, fundamentality.

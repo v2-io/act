@@ -51,7 +51,7 @@ No correction is applied when the model perfectly matches reality.
 
 There exists a region $\mathcal B_R = \{\delta : \Vert\delta\Vert \leq R\}$ and $\alpha \gt 0$ such that (following the sector-condition framework of Lur'e[^lure1957]):
 
-*[Assumption A2' (sector-condition)]*
+*[Assumption A2' (sector-condition) — derived in sub-scope $\alpha$, assumed in sub-scope $\beta$ (see below)]*
 
 $$\delta^T F(\mathcal{T}, \delta) \geq \alpha \Vert\delta\Vert^2 \quad \forall \delta \in \mathcal{B}_R$$
 
@@ -59,7 +59,27 @@ The correction function always points "inward" (reducing mismatch), and its magn
 
 The local form allows the correction to break down outside $\mathcal B_R$ — the structural adaptation regime of #structural-adaptation-necessity.
 
-**Grounding of GA-3.** The sector condition (A2') is not an irreducible assumption for well-designed agents. #gain-sector-bridge shows that gain-based updating ( #update-gain) with directional fidelity produces correction functions satisfying A2', with $\alpha = \eta^\ast \cdot c_{\min}$. For gradient-based agents, A2' is equivalent to local strong convexity of the loss function, with $\alpha = \eta \cdot \mu$ where $\mu$ is the strong convexity modulus. The Lyapunov proofs below are unchanged — they operate downstream of A2' regardless of whether it is assumed or derived.
+**Grounding of GA-3 — sub-scope $\alpha$ (A2' derived).** For a characterized class of AAD-in-scope agents, A2' is a *derived* consequence of the update rule, not a primitive assumption. #gain-sector-bridge (Prop B.3) shows that the gain-based update $M_t = M_{t-1} + \eta^\ast g(\delta_t)$ ( #update-gain) induces a correction function satisfying A2' whenever the update rule has **directional fidelity (B1)** — $\delta^T H g(\delta) \geq c_{\min} \lVert\delta\rVert^2$ on $\mathcal B_R$. Sub-scope $\alpha$ — the agent classes where B1 holds structurally — includes:
+
+- *Optimal Bayesian updates* (Kalman, conjugate families): B1 holds by Bayes-risk minimization. $\alpha = \eta^\ast \cdot c_{\min}$, reducing to $\alpha = \eta^\ast$ in the scalar case.
+- *Exponential families in natural parameters*: the Hessian is the Fisher information matrix, PD on the interior. $\alpha = \eta \cdot \lambda_{\min}(\text{Fisher})$.
+- *Gradient descent on locally strongly convex losses* (Prop B.4): B1 is *equivalent* to strong convexity via the gradient-monotonicity characterization (Nesterov 2004[^nesterov2004], Thm 2.1.10). $\alpha = \eta \cdot \mu$ where $\mu$ is the strong convexity modulus.
+- *L2-regularized convex losses*: regularization provides a floor $\mu \geq \lambda$, so $\alpha \geq \eta \lambda$ globally.
+- *Linear corrections with positive-definite gain–observation product*: $\alpha = \lambda_{\min}^+(KH)$ (matrix Kalman, restricted to the observable subspace).
+
+Within sub-scope $\alpha$, A2' is written down by inspection of the update rule; no independent posit is required.
+
+**Grounding of GA-3 — sub-scope $\beta$ (A2' assumed as empirical claim).** For the remaining AAD-in-scope agents, A2' stands as a well-scoped empirical claim about the agent's correction geometry. Sub-scope $\beta$ includes:
+
+- *PID controllers with fixed gains* — no gradient / optimality structure; B1 is a tuning question, not a structural consequence.
+- *Rule-based systems* — no continuous update rule; A2' is domain-specific.
+- *Human judgment / organizational learning* — structural analogy in #update-gain; no formal B1 guarantee.
+- *Severely misspecified agents* (FM-5 in #gain-sector-bridge) — proper-gradient rules can aim at the wrong target.
+- *Variational / approximate posteriors* — B1 not guaranteed by optimality because approximation error can rotate the correction.
+- *Non-convex gradient agents beyond the basin* — A2' fails at basin boundary; this IS the #structural-adaptation-necessity trigger.
+- *Stochastic gradients (per-step)* — A2' holds in expectation; per-step noise enters as effective disturbance under Prop A.1S.
+
+Within sub-scope $\beta$, A2' must be verified per-system — the claim is stronger than what AAD's postulates + gain structure alone can force (an agent with $g(\delta) = R_{90°}\delta$ satisfies every AAD postulate but violates B1 trivially; see #gain-sector-bridge FM-1). The Lyapunov proofs below are unchanged — they operate downstream of A2' regardless of whether it is assumed or derived.
 
 ### (A3) Tempo Monotonicity
 
@@ -143,15 +163,23 @@ without mismatch diverging (where $R$ is the radius of the sector-condition regi
 
 ## Proposition A.1S: Bounded Mismatch Under Stochastic Disturbance
 
-**Statement.** Under (A1), (A2'), (A3), with stochastic disturbance (GA-2S: $w(t)$ is zero-mean with $\mathbb{E}[\lVert w(t)\rVert^2] = \sigma_w^2$), the mismatch $\delta(t)$ satisfies:
+**Statement (region-aware form).** Under (A1), (A2') on $\mathcal B_R$, (A3), with stochastic disturbance (GA-2S: $w(t)$ is zero-mean with $\mathbb{E}[\lVert w(t)\rVert^2] = \sigma_w^2$), let $\tau_R = \inf\{t : \lVert\delta(t)\rVert \gt R\}$ be the first-exit time from the sector-condition region. Then:
 
-*[Derived (stochastic-bounded-mismatch, from Itô-Lyapunov analysis)]*
+*[Derived (stochastic-bounded-mismatch, stopping-time localization, Khasminskii 2012 ch. 5)]*
 
-$$\mathbb{E}[\lVert\delta(t)\rVert^2] \leq \lVert\delta(0)\rVert^2 e^{-2\alpha t} + \frac{n\sigma_w^2}{2\alpha}$$
+(i) *Stopped bound* — the stopped process satisfies for all $t \geq 0$:
 
-for all $t$, where $n = \dim(\delta)$. The agent persists in the mean-square sense iff:
+$$\mathbb{E}[\lVert\delta(t \wedge \tau_R)\rVert^2] \leq \lVert\delta(0)\rVert^2 e^{-2\alpha t} + \frac{n\sigma_w^2}{2\alpha}$$
+
+(ii) *Mean-square persistence condition* — when $R^\ast_S := \sigma_w\sqrt{n/(2\alpha)} \lt R$, equivalently
 
 $$\alpha \gt \frac{n\sigma_w^2}{2R^2}$$
+
+the ultimately-bounded RMS radius fits inside the sector-condition region.
+
+(iii) *Non-exit probability* — under the mean-square persistence condition (ii), at steady state the Markov tail bound gives $P(\tau_R \lt \infty) \leq n\sigma_w^2/(2\alpha R^2)$, so the unstopped bound $\mathbb{E}[\lVert\delta(t)\rVert^2] \leq \lVert\delta(0)\rVert^2 e^{-2\alpha t} + n\sigma_w^2/(2\alpha)$ holds with the same right-hand side up to a higher-order correction scaling as $n\sigma_w^2/(2\alpha R^2)$ — negligible when $R^\ast_S \ll R$.
+
+The proof below establishes the Grönwall-type bound first, then the stopping-time localization at the end.
 
 **Proof.**
 
@@ -195,7 +223,9 @@ The RMS steady-state mismatch is:
 
 $$R^\ast_S \;=\; \lVert\delta\rVert_{\text{rms}} = \sigma_w\sqrt{\frac{n}{2\alpha}}$$
 
-Persistence requires $R^\ast_S \lt R$, giving $\alpha \gt n\sigma_w^2 / (2R^2)$. $\square$
+Persistence requires $R^\ast_S \lt R$, giving $\alpha \gt n\sigma_w^2 / (2R^2)$.
+
+**Stopping-time localization.** The Itô-Lyapunov step above used A2' ($\delta^T F \geq \alpha\lVert\delta\rVert^2$) on the entire trajectory, but A2' is posited only on $\mathcal B_R$. Replacing $t$ with the stopped time $t \wedge \tau_R$ makes the argument valid: on $[0, t \wedge \tau_R]$, $\delta(s) \in \mathcal B_R$ almost surely, so A2' applies. The Itô integral $\int_0^{t \wedge \tau_R} \delta^T \sigma_w\,dW_s$ remains a martingale with zero expectation (optional stopping for $L^2$-bounded martingales). The stopped Grönwall bound (i) follows. For (iii), standard tail estimates on the supermartingale $V(\delta(t)) \mathbb{1}_{\{t \leq \tau_R\}}$ yield the non-exit probability. $\square$
 
 **Interpretation.** Model D (Prop A.1) gives $R^\ast = \rho/\alpha$, scaling as $1/\alpha$. Model S gives $R^\ast_S = \sigma_w\sqrt{n/(2\alpha)}$, scaling as $1/\sqrt{\alpha}$. Doubling the correction efficiency halves the deterministic steady-state mismatch but only reduces the stochastic steady-state by a factor of $\sqrt{2} \approx 1.41$. Correction is less effective against noise than against drift. This difference in scaling propagates into the adversarial exponent regimes ( #adversarial-exponent-regimes): $b = 2$ under Model D, $b = 3/2$ under Model S.
 
@@ -206,7 +236,7 @@ Persistence requires $R^\ast_S \lt R$, giving $\alpha \gt n\sigma_w^2 / (2R^2)$.
 | Result | What it proves | Assumptions | Linear case recovery |
 |--------|---------------|-------------|---------------------|
 | **A.1** (Bounded Mismatch) | $R^\ast = \rho/\alpha$ | (A1), (A2'), bounded $\rho$ (GA-2) | $\alpha = \mathcal{T}$ gives $R^\ast = \rho/\mathcal{T}$ |
-| **A.1S** (Stochastic Bounded Mismatch) | $R^\ast_S = \sigma_w\sqrt{n/(2\alpha)}$ | (A1), (A2'), stochastic $w$ (GA-2S) | $\alpha = \mathcal{T}$ gives $R^\ast_S = \sigma_w\sqrt{n/(2\mathcal{T})}$ |
+| **A.1S** (Stochastic Bounded Mismatch, region-aware) | $R^\ast_S = \sigma_w\sqrt{n/(2\alpha)}$ (stopped bound); non-exit probability $\geq 1 - n\sigma_w^2/(2\alpha R^2)$ under $R^\ast_S \lt R$ | (A1), (A2') on $\mathcal B_R$, stochastic $w$ (GA-2S) | $\alpha = \mathcal{T}$ gives $R^\ast_S = \sigma_w\sqrt{n/(2\mathcal{T})}$ |
 | **A.2** (Stability Margin) | $\Delta\rho^\ast = \alpha R - \rho$ | Same as A.1 | $R \to \infty$ for linear (always stable if $\mathcal{T} \gt 0$) |
 
 ### What Is Derived vs. What Is Chosen
@@ -215,7 +245,7 @@ Persistence requires $R^\ast_S \lt R$, giving $\alpha \gt n\sigma_w^2 / (2R^2)$.
 |---|---|---|
 | Dynamics setup $\dot\delta = -F(\mathcal{T},\delta) + w(t)$ with $F$ as correction function and $w$ as disturbance | Definitional scope of the appendix; generalizes the linear hypothesis of #mismatch-dynamics | Definition |
 | (A1) $F(\mathcal{T},0) = 0$ | Qualitative property of any correction process by construction | Assumption (uncontroversial) |
-| (A2') Local sector condition $\delta^T F \geq \alpha\lVert\delta\rVert^2$ on $\mathcal{B}_R$ | Sector-condition framework (Lur'e 1957); derivable from gain-based updating via #gain-sector-bridge (then $\alpha = \eta^\ast \cdot c_{\min}$) | Derived (conditional on #gain-sector-bridge's directional-fidelity premise); otherwise Assumption |
+| (A2') Local sector condition $\delta^T F \geq \alpha\lVert\delta\rVert^2$ on $\mathcal{B}_R$ | Sector-condition framework (Lur'e 1957); sub-scope $\alpha$ (Kalman/conjugate Bayesian, exponential family in natural params, gradient descent on strongly convex losses, L2-regularized convex, linear with PD $KH$) derived via #gain-sector-bridge Prop B.3 under B1 directional fidelity (then $\alpha = \eta^\ast \cdot c_{\min}$); sub-scope $\beta$ (PID, rule-based, human judgment, severely misspecified, variational approximations, non-convex beyond basin, per-step SGD) requires independent verification | **Derived in sub-scope $\alpha$**; **Assumption in sub-scope $\beta$** (sub-scopes named explicitly in the Grounding paragraphs) |
 | (A3) Tempo-monotonicity of $\delta^T F$ | Qualitative requirement tying $\mathcal{T}$ to correction power | Assumption |
 | Quadratic Lyapunov candidate $V = \tfrac{1}{2}\lVert\delta\rVert^2$ | Canonical choice for norm-bounded stability in Euclidean state spaces (Khalil 2002 ch. 4) | Formulation choice |
 | **Prop A.1: ultimate bound $R^\ast = \rho/\alpha$** | $\dot V \leq -\lVert\delta\rVert(\alpha\lVert\delta\rVert - \rho)$ via A2' + Cauchy-Schwarz; standard Lyapunov ultimate-boundedness theorem (Khalil 2002 Thm 4.18) | **Proved (conditional on $R^\ast \lt R$)** |
@@ -223,7 +253,7 @@ Persistence requires $R^\ast_S \lt R$, giving $\alpha \gt n\sigma_w^2 / (2R^2)$.
 | Initial-condition scope (trajectory must start inside $\mathcal{B}_R$) | Direct consequence of A2' being local; trajectories outside are not covered | Derived (scope statement) |
 | Identification of structural-adaptation trigger ($\rho/\alpha \gt R$ forces exit from parametric regime) | Connects A.1's persistence threshold to #structural-adaptation-necessity's regime boundary | Derived |
 | **Prop A.2: adaptive reserve $\Delta\rho^\ast = \alpha R - \rho$** | Algebraic corollary of Prop A.1 under shock $\rho \to \rho + \Delta\rho$; requires $R$ fixed under shock | Proved (corollary of A.1) |
-| **Prop A.1S: mean-square bound $\mathbb{E}[\lVert\delta\rVert^2] \leq \lVert\delta(0)\rVert^2 e^{-2\alpha t} + n\sigma_w^2/(2\alpha)$** | Itô's formula on $V$ + A2' + Grönwall; standard Itô-Lyapunov argument (Khasminskii 2012; Khalil 2002 ch. 9) | Proved (conditional on A2' holding on a sufficiently large region, or on a stopping-time argument bounding excursions) |
+| **Prop A.1S (region-aware): stopped bound $\mathbb{E}[\lVert\delta(t\wedge\tau_R)\rVert^2] \leq \lVert\delta(0)\rVert^2 e^{-2\alpha t} + n\sigma_w^2/(2\alpha)$ + non-exit probability $\geq 1 - n\sigma_w^2/(2\alpha R^2)$ under mean-square persistence** | Itô's formula on $V$ + A2' on $\mathcal B_R$ + Grönwall + stopping-time localization at $\tau_R$ (Khasminskii 2012 ch. 5; Khalil 2002 ch. 9) | **Proved** (region condition now part of the proposition statement, not deferred) |
 | Stochastic steady-state RMS $R^\ast_S = \sigma_w\sqrt{n/(2\alpha)}$ | Steady state of the Grönwall bound; scales as $1/\sqrt{\alpha}$ versus $1/\alpha$ deterministic | Derived |
 | Tail bound $P(\lVert\delta\rVert \gt R) \leq n\sigma_w^2/(2\alpha R^2)$ | Markov's inequality applied to steady-state second moment | Proved |
 | Linear-case recovery ($\alpha = \mathcal{T}$ reproduces #persistence-condition) | Substitution $F = \mathcal{T}\delta$ into A2' | Derived |
@@ -231,11 +261,17 @@ Persistence requires $R^\ast_S \lt R$, giving $\alpha \gt n\sigma_w^2 / (2R^2)$.
 | Bounded-disturbance model (GA-2) vs stochastic-disturbance model (GA-2S) as distinct environmental regimes, not approximations to each other | Discussion-section positioning; neither regime handles heavy tails | Discussion-grade |
 | Global sector condition would give $\Delta\rho^\ast = \infty$ | Limit analysis of A.2 as $R \to \infty$; rejected as unrealistic for finite model classes | Derived (scope-limit observation) |
 
-The dividing line: the two persistence results (ultimate bound, adaptive reserve) and the stochastic mean-square bound are **proved** within standard Lyapunov / Itô-Lyapunov theory — the appendix's contribution is the application to AAD's correction-function object, not the mathematics. What is **chosen** is the quadratic Lyapunov candidate (canonical for norm-bounded stability but not uniquely forced) and the bounded-vs-stochastic disturbance partition (two structurally distinct empirical regimes rather than a hierarchy). The **sector condition itself (A2')** is the load-bearing assumption: qualitative but not free — it is *derivable* from gain-based updating via #gain-sector-bridge under directional fidelity, and *assumed* otherwise; Prop A.1S additionally depends on A2' holding on a sufficiently large region (or on a stopping-time argument) to cover Wiener excursions, a standard subtlety of stochastic Lyapunov theory flagged explicitly in the Epistemic Status below.
+The dividing line: the two persistence results (ultimate bound, adaptive reserve) and the stochastic mean-square bound are **proved** within standard Lyapunov / Itô-Lyapunov theory — the appendix's contribution is the application to AAD's correction-function object, not the mathematics. What is **chosen** is the quadratic Lyapunov candidate $V = \tfrac{1}{2}\lVert\delta\rVert^2$ (canonical for norm-bounded stability but not uniquely forced; see Path 3 note below) and the bounded-vs-stochastic disturbance partition (two structurally distinct empirical regimes rather than a hierarchy). The **sector condition itself (A2')** now carries its sub-scope explicitly: **derived in sub-scope $\alpha$** (optimal Bayesian / exponential-family / strongly-convex-gradient / L2-regularized / linear-PD corrections, via #gain-sector-bridge Prop B.3 under B1), **assumed in sub-scope $\beta$** (PID / rule-based / human-judgment / severely-misspecified / variational / non-convex-beyond-basin / per-step SGD). Prop A.1S's region condition is no longer deferred to Epistemic Status — the proposition statement is region-aware via a standard stopping-time localization (Khasminskii 2012 ch. 5), with the non-exit probability bound quantifying the cost of Wiener excursions beyond $\mathcal B_R$.
 
 ## Epistemic Status
 
-The setup and assumptions are *definitions* — they specify what we mean by "correction function" and "disturbance." Propositions A.1 and A.2 are *exact* — they follow from the assumptions via standard Lyapunov theory (Khalil 2002[^khalil2002], Chapters 4 and 9). Proposition A.1S is *exact* under an implicit strengthening of A2': the Ito-Lyapunov proof uses the sector bound on the entire trajectory, but the Wiener process can push $\delta$ outside $\mathcal B_R$ where the local sector condition does not hold. The proof is valid when A2' holds in a sufficiently large region (or globally), or when a stopping-time argument bounds the contribution of excursions. For practical purposes the tail bound (Markov inequality) quantifies the excursion probability and the gap is higher-order when $R^\ast_S \ll R$. This is a standard subtlety in applied stochastic Lyapunov theory, not specific to AAD. The assumptions themselves (sector condition, bounded disturbance) are *empirical claims* about the qualitative behavior of real correction dynamics. The sector-condition framework originates with Lur'e (1957); the Lyapunov stability results are standard. The application to adaptive agents under the AAD framework is new but the mathematics is not.
+The setup and assumptions are *definitions* — they specify what we mean by "correction function" and "disturbance." Propositions A.1 and A.2 are *exact* — they follow from the assumptions via standard Lyapunov theory (Khalil 2002[^khalil2002], Chapters 4 and 9). Proposition A.1S is *exact* in its region-aware form — the stopping-time localization at $\tau_R$ (Khasminskii 2012[^khasminskii2012], ch. 5) handles Wiener excursions beyond $\mathcal B_R$ cleanly: the stopped Grönwall bound (i) is exact, the mean-square persistence condition (ii) is exact, and the non-exit probability (iii) follows from a Markov tail estimate on the supermartingale $V(\delta)$. No implicit strengthening of A2' is required.
+
+**Sub-scope $\alpha$ / $\beta$ status of A2'.** The sector condition A2' is *derived* within sub-scope $\alpha$ (the five agent classes named in the Grounding paragraph — Bayesian / exponential family / strongly-convex gradient / L2-regularized / linear-PD corrections) via #gain-sector-bridge Prop B.3 under B1 directional fidelity. Within sub-scope $\alpha$ the magnitude $\alpha$ is computable from the update-rule parameters. Within sub-scope $\beta$ (PID, rule-based, human judgment, severely misspecified, variational approximations, non-convex beyond basin, per-step SGD), A2' stands as an empirical claim that must be verified per-agent. The Lyapunov proofs above apply to both sub-scopes — they operate downstream of A2' regardless of how it is established. This is *scope narrowing*, not scope retreat: the honest landing after strengthening attempts (see `msc/spike-a2-prime-strengthening.md`).
+
+**Why Euclidean A2' specifically.** The A2' form $\delta^T F \geq \alpha \lVert\delta\rVert^2$ is the sector condition *matched to the quadratic Lyapunov candidate* $V = \tfrac{1}{2}\lVert\delta\rVert^2$. A converse-Lyapunov argument (Khalil 2002, Thm 4.17) gives: if persistence holds under the dynamics $\dot\delta = -F(\delta)$ on $\mathcal B_R$, then there exists a quadratic-equivalent Lyapunov function $V_\ast(\delta)$ with $c_1\lVert\delta\rVert^2 \leq V_\ast \leq c_2\lVert\delta\rVert^2$ — but $V_\ast$ may not be the Euclidean norm itself. Under a weighted Lyapunov candidate $V(\delta) = \tfrac{1}{2}\delta^T P \delta$, the natural sector condition is $\delta^T P F(\delta) \geq \alpha\, \delta^T P \delta$; the matrix-Kalman case of #gain-sector-bridge is exactly this in the $(P^-)^{-1}$-weighted inner product, with a norm-equivalence transfer to Euclidean A2' degraded by the condition number $\kappa(P^-)$. Euclidean A2' is therefore not the unique sector form — it is the canonical one matched to the canonical $V$. An agent that persists under a non-Euclidean metric satisfies a weighted-sector A2' that transfers to Euclidean A2' only up to norm equivalence.
+
+The assumptions themselves (sector condition on a region, bounded disturbance) are *empirical claims* about the qualitative behavior of real correction dynamics. The sector-condition framework originates with Lur'e (1957); the Lyapunov stability results are standard. The application to adaptive agents under the AAD framework is new but the mathematics is not.
 
 ## Discussion
 
@@ -253,7 +289,9 @@ The setup and assumptions are *definitions* — they specify what we mean by "co
 
 ---
 
-[^khalil2002]: Khalil, H. K. (2002). *Nonlinear Systems* (3rd ed.). Prentice Hall. Chapters 4 (Lyapunov stability), 9 (input-output stability).
-[^lure1957]: Lur'e, A. I. (1957). *Some Nonlinear Problems in the Theory of Automatic Control*. Original sector-condition framework for absolute stability.
+[^khalil2002]: Khalil, H. K. (2002). *Nonlinear Systems* (3rd ed.). Prentice Hall. Chapters 4 (Lyapunov stability), 9 (input-output stability); Thm 4.17 (converse Lyapunov), Thm 4.18 (ultimate boundedness).
+[^khasminskii2012]: Khasminskii, R. (2012). *Stochastic Stability of Differential Equations* (2nd ed.). Springer. Chapter 5: Lyapunov functions and stochastic stability; stopping-time localization for diffusion processes.
+[^lure1957]: Lur'e, A. I. (1957). *Some Nonlinear Problems in the Theory of Automatic Control*. Gostekhizdat. Original sector-condition framework for absolute stability.
+[^nesterov2004]: Nesterov, Y. (2004). *Introductory Lectures on Convex Optimization*. Springer. Theorem 2.1.10 (strong convexity characterized by gradient monotonicity).
 
 *(Descended from TFT Appendix A, Props A.1–A.2.)*
