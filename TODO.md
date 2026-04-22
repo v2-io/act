@@ -13,6 +13,42 @@ Three of the six new findings are integration gaps from cycles already completed
 
 These four are independent of any architectural-proposal decision and should land as a small cleanup commit.
 
+## Recommendations for next session (from 2026-04-22 close-out review)
+
+What follows is one agent's prioritization, not a binding commitment. Joseph's call which to follow.
+
+### Recommended sequence
+
+**Phase 1 — Cleanups (1–2 hrs total).** Land F18, F19, F20, F21 as a small cleanup commit. These are all known issues from prior work, they don't entangle with any architectural decision, and F20 in particular is a substantive bug in load-bearing recently-landed work. Recommended order within the phase: F21 first (5 min, builds confidence), F18 second (10 min, mechanical), F19 third (20 min, mechanical), F20 last (30–45 min, requires the small theoretical decision on KL direction).
+
+For F20 specifically: prefer Option (a) (reverse KL direction to $D_{\mathrm{KL}}(\pi^\ast \Vert Q_{\Sigma_t}) = -\log Q_{\Sigma_t}(a^\ast \mid M_t)$) over Option (b) (Boltzmann-smoothing of $\pi^\ast$). Reason: Option (a) preserves the V-medium move's original spirit (the strategy's distance from the optimum, measured via KL) while fixing the deterministic-$\pi^\ast$ degeneracy with a cleaner mathematical object (negative log-likelihood of the optimal action under the agent's strategy). Option (b) requires introducing a temperature parameter that has no AAD-internal justification. The fix needs to land in `#strategy-complexity-cost`, the companion spike `msc/spike-active-inference-vs-aad.md` §E.6, the `#compression-operations` variational note, and a one-line acknowledgment in `#exploit-explore-deliberate` and `#ciy-unified-objective`. Worth a small `msc/spike-finding-20-kl-direction.md` to document the choice and the reasoning, parallel to how F1 / F7 / F13 strengthening work was documented.
+
+**Phase 2 — Derivation-table convention (O-BP14, 30 min + incremental).** Add the convention to FORMAT.md, then apply to 3–5 high-value derivation-type segments first (`#sector-condition-derivation`, `#strategic-dynamics-derivation` Props B.5–B.7, `#composition-closure`, `#graph-structure-uniqueness`). The remaining segments can be touched as they're next visited. Rationale: this is the highest payoff-to-effort move in the entire portfolio. The derivation-table format itself surfaces what's chosen vs. derived in each segment — which is exactly the kind of clarity that later architectural proposals (O-BP1, O-BP10, C-BP2) need to land cleanly. The tables become scoping artifacts for those moves, not just reader-friendly scaffolding.
+
+**Phase 3 — Coordinated framing pass: O-BP1 + O-BP10 + O-BP8 (1–3 sessions).** Three composable framing moves, all editorial rather than structural:
+
+- **O-BP10** (projection-contraction framing): "an adaptive system is a projection whose contraction rate exceeds its target's drift rate." Goes in OUTLINE.md preamble + `#sector-persistence-template` introductory passage.
+- **O-BP1** (template as organizing principle): reframe the OUTLINE around disturbance decomposition at scales. Composes with O-BP10 — O-BP10 is the object-level slogan, O-BP1 is the result-level organizing principle.
+- **O-BP8** (explicit scope lattice): name the adaptive → agency → learning-purposeful → exact-Section-II-modular → coupled/logogenic lattice once. Closes Finding 16 and supports both O-BP1 and the eventual C-BP1 three-layer separation.
+
+These three together would constitute a complete elevator-pitch reframing of AAD. They close several of the §H underclaim findings from the morning's AI-positioning spike (especially the persistence-template's broader-validity-than-FEP-flow positioning, which gets sharper under O-BP10's "what AAD actually is" framing). Risk: low — all three are presentational, not structural.
+
+**Phase 4 — Then choose:** Either (a) continue editorial/positioning work with O-BP6 (identity promotion, 1 session), C-BP3 (software calibration laboratory, 45–90 min), C-BP2 (master separability pattern naming, 1–2 sessions); or (b) launch the O-BP11 (observability as master variable) scoping spike as the next substantive structural investigation. Recommendation: do (a) first if the goal is consolidation; do (b) first if the goal is to scope the largest available reorganization while the strengthening cycle's intuitions are fresh.
+
+### What to defer
+
+- **G-BP1, G-BP3, O-BP3** (natural parameters + Fisher geometry + continuous tiering) — large coordinated cluster; defer until project capacity allows multi-session investment. Gemini's Riemannian-manifold reaffirmation strengthened the case but did not change the scoping cost.
+- **G-BP2 V-strong** (full reformulation as variational free energy) — paper-writing-time decision per `msc/spike-active-inference-vs-aad.md` §I action 5. Not theoretical-development work.
+- **O-BP4, O-BP5, O-BP15, O-BP16** — substantial structural work each. Worth scoping spikes individually when their specific motivation becomes more pressing than the smaller framing moves.
+- **O-BP12 (resource budget $B_t$)** — interesting and adjacent to O-BP7, but the framework currently handles bounded rationality piecewise without obvious dysfunction. Defer until the piecewise treatment shows specific friction.
+- **O-BP13 (Cox-necessity)** — would elevate `#graph-structure-uniqueness` from sufficiency-only to full Cox-style. Worth a 1–2 session spike but not high-priority unless reviewers raise the necessity question.
+
+### Strategic observation
+
+The pattern emerging from the 2026-04-21 → 2026-04-22 cycle is that AAD benefits more from **concise framing moves** than from major theoretical reorganization. The sector-Lyapunov template factoring, the strengthening cycle, the AI integration positioning, the identifiability-floor meta-segment — all are framing / integration moves with isolated genuinely-new content (F1's no-go theorem, F13's Prop B.7). The Phase 2 + 3 recommendations above continue this pattern. Major structural reorganization (O-BP11, O-BP4, G-BP3) should probably wait until the framing layer has stabilized and the genuine remaining structural friction is more visible.
+
+This is consistent with CLAUDE.md's "convergent depth over generative breadth" principle (3:1 ratio of promoting to creating). The 2026-04-22 cycles were 3:1 in the right direction (one new derivation in F1, one in F13, one new meta-segment, plus extensive framing/integration work). The same ratio should hold in the next cycle: derivation-table convention + O-BP1/10/8 framing pass + cleanups, with at most one substantive spike (probably O-BP11 scoping) thrown in.
+
 
 ## Active — Strategic Architectural Proposals
 
