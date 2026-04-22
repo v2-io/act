@@ -408,3 +408,125 @@ Reinforced by `#observation-ambiguity-modulation`: in low-ambiguity domains, app
 **Effort estimate:** 30–45 min combined with Finding 1; absorbed in part if O-BP3 adopted.
 
 **Why deferred.** Compound-with-Finding-1 decision; not independent.
+
+---
+
+## Codex round-2 findings (added 2026-04-22 late)
+
+Second Codex audit, after the morning audit trio. One finding duplicates Finding 1 (third independent confirmation of the L0 residual issue). Four findings are new; logged below as Findings 12–15. Codex's four bigger-picture items are documented in `msc/architectural-proposals-2026-04-22.md` as C-BP1 through C-BP4.
+
+---
+
+## Finding 12 — Section II survival claim slides from statement-level to operationally extractable
+
+**Source:** Codex audit 2026-04-22 round-2, Finding 2. **Confidence:** high.
+
+**Problematic passages.**
+
+- `03-logogenic-agents/src/section-ii-survival.md` line 37 opens with "16 survive exactly."
+- `03-logogenic-agents/src/coupled-diagnostic-framework.md` line 18 says the diagnostic quantities "can be computed after each coupled update."
+
+**Strongest counterevidence in `src/`.**
+
+- `03-logogenic-agents/src/section-ii-survival.md` line 127 explicitly states this is *statement-level*, not operational extractability.
+- `03-logogenic-agents/src/coupled-update-dynamics.md` line 66 says the $M / G$ decomposition is *post-hoc and analytical*, not architectural or computable.
+
+**Why this stands.** The logogenic layer slides from formal well-definedness ("these quantities are defined in the Class 2 setting") to runtime measurability ("these quantities can be computed after each update") before the instrumentation layer has been published into `src/`. Readers who stop at the headline of `section-ii-survival.md` come away thinking LLM agents can run the 2×2 diagnostic directly; readers who continue to line 127 find out they can't without additional instrumentation. Similar issue in the opening of `coupled-diagnostic-framework.md`.
+
+**msc/ lineage.** The missing operational layer for Class 2 agents already exists in `msc/agentic-tft-evaluation-framework.md` (measurement of $M_t$ / $\Sigma_t$ quality) and `msc/spike-hafez-integration-audit.md` (modular sidecar monitoring via IDT — bi-predictability $P$, entropy change $\Delta H$ monitored independently of LLM attention). The issue is not conceptual absence in the spike corpus; it is under-integration into `03-logogenic-agents/src/`.
+
+**Repair direction (two options).**
+
+- **Option A (local):** tighten the opening framing in both segments to lead with "statement-level" qualifiers and make the instrumentation-layer dependency explicit up front, not at line 127. 30–45 min. Fixes the headline slide without changing what the theory provides.
+- **Option B (substantive):** publish the operational layer as new segments in `03-logogenic-agents/src/` — an evaluation-framework segment and an IDT-sidecar segment — drawing from the existing spike material. Substantially more work but closes the gap rather than masking it. 3–5 sessions.
+
+**Subsumed by:** C-BP1 (three-layer separation of defined / causally valid / operationally extractable). If that framing is adopted systematically, the statement-level-vs-operational slide is prevented by convention rather than patched per-segment.
+
+**Effort estimate:** 30–45 min for Option A; 3–5 sessions for Option B.
+
+**Why deferred.** Option A vs Option B decision pending. Option B is closer to the honest response given the msc material already exists; Option A is the scope-hygiene repair that works regardless of how Option B proceeds.
+
+---
+
+## Finding 13 — `#strategy-dag` L1-as-default overgeneralizes beyond strict-prerequisite regime
+
+**Source:** Codex audit 2026-04-22 round-2, Finding 3. **Confidence:** high.
+
+**Problematic passages.**
+
+- `01-aad-core/src/strategy-dag.md` line 20: "L1 ... is the practical default in complex domains," and that L0 results transfer exactly to correctly constructed L1 DAGs.
+- Line 122: "The default assumption in complex environments should be L1, not L0."
+
+**Strongest counterevidence in the same segment.**
+
+- Line 105: L1 is the sweet spot only for **strict-prerequisite** common causes (the case formalized in `msc/spike-L1-worked-example.md`).
+- Line 107: soft facilitators require L1' (mixture form), not L1 proper.
+- Line 118: formal transfer for L1' is still open.
+
+**Why this stands.** The right caveat now exists in the Correlation Hierarchy discussion, but the headline/default framing generalizes "use L1 by default" beyond the regime actually supported by the segment. A reader who takes the default at face value will apply L1 to soft-facilitator cases (common in real domains) where it is known to under-repair, missing the L1' regime entirely.
+
+**msc/ lineage.** The L1 repair already exists in `msc/spike-L1-worked-example.md` (line 276) and is cataloged in `msc/SPIKES.md` (line 43). Integration gap: make "factor the common cause above the correlation it creates" *and* the strict-vs-soft split part of the front-door claim, not only the deep-discussion caveat.
+
+**Repair direction.** Narrow the default framing: "L1 is the practical default **for strict-prerequisite common causes**; soft facilitators require L1' (formal transfer open) or direct L2 modeling." Move the strict-vs-soft distinction into the Formal Expression or opening discussion rather than leaving it in the deep-discussion paragraphs. 30–45 min.
+
+**Subsumed by:** not directly, though the spirit of C-BP2 (master separability pattern) would make explicit that "L0/L1/L1'/L2" is one of several instances of the separability-plus-repair pattern, and the segment's presentation would align with that canonical framing.
+
+**Effort estimate:** 30–45 min.
+
+**Why deferred.** Standard prioritization.
+
+---
+
+## Finding 14 — `#developer-as-act-agent` tagged `status: exact` but mapping collapses human and AI developer regimes
+
+**Source:** Codex audit 2026-04-22 round-2, Finding 4. **Confidence:** high.
+
+**Problematic passages.**
+
+- `02-tst-core/src/developer-as-act-agent.md` frontmatter line 4: `status: exact`.
+- Line 160 (Epistemic Status): each AAD quantity has a concrete, identifiable software counterpart.
+
+**Strongest counterevidence in the same segment.**
+
+- Line 63: AI agents are "more explicitly representable" than human developers.
+- Line 182 (Working Note): explicit DAG applicability to implicit human planning is an open question.
+
+**Why this stands.** The segment collapses two distinct regimes — human developer (with implicit, non-externalized planning structures) and AI developer (with externalized planning artifacts: commits, PRs, reasoning traces, explicit DAGs) — into one `exact`-tagged mapping. The segment's own Working Note identifies that explicit-DAG applicability to implicit human planning is open; an `exact` status is inconsistent with this.
+
+**msc/ lineage.** No mature msc repair for the human-developer exactness claim. Adjacent: `msc/feedback.md` (line 43) discusses software as the privileged high-identifiability domain, which suggests the cleaner framing (C-BP3 below) but does not itself address the human/AI regime split.
+
+**Repair direction (two options).**
+
+- **Option A (status downgrade):** downgrade status from `exact` to `robust-qualitative` with an explicit scope condition — "exact for AI developers with externalized planning artifacts; approximate for human developers where planning is implicit." 15–30 min.
+- **Option B (segment split):** split into two segments — `developer-as-act-agent` (human regime, robust-qualitative) and `ai-developer-as-act-agent` (AI regime with externalized planning, exact). Stronger but requires more surgery, including updating dependencies. 45–60 min.
+
+**Subsumed by:** partial by C-BP4 (claim-level epistemic statuses). Under C-BP4, the segment would carry one status for the definitional core and separate statuses for the transfer claims per regime, avoiding the "umbrella status tag forced to cover distinct regimes" failure mode.
+
+**Effort estimate:** 15–30 min for Option A; 45–60 min for Option B.
+
+**Why deferred.** Option A vs. Option B decision.
+
+---
+
+## Finding 15 — Software "richest operationalization domain" headline overclaims (already largely caveated)
+
+**Source:** Codex audit 2026-04-22 round-2, Finding 5. **Confidence:** medium-high. Codex explicitly notes this is "already caveated" and "would not count as a deep theory defect."
+
+**Problematic passage.**
+
+- `02-tst-core/src/software-epistemic-properties.md` line 15: software's six properties "collectively make it the richest operationalization domain for AAD."
+
+**Strongest counterevidence in the same segment.**
+
+- Line 27 (scope block): major advantages are narrowed to codebase-only or code-internal regimes.
+- Line 70 (Epistemic Status): the comparative claim is harder to verify and not systematic.
+
+**Why this is low-severity.** The segment itself honestly narrows the claim in its body; only the headline/opening retains the strongest version. Codex explicitly says "would not count as a deep theory defect." Logged here for completeness and because C-BP3 (software as calibration laboratory not universal exemplar) would reframe it at the proposal level.
+
+**Repair direction.** Tighten the headline to "highest identifiability / intervention access / logging among operationalization domains" or "software is the privileged high-identifiability calibration domain for AAD." Preserves the substantive claim (software is uniquely tractable) without the "richest" comparative framing that the segment's own body does not defend. 15–30 min.
+
+**Subsumed by:** C-BP3 (software as calibration laboratory). Adopting C-BP3 closes this by changing the positioning of TST at the framework level, not just the headline of one segment.
+
+**Effort estimate:** 15–30 min.
+
+**Why deferred.** Low-priority; best handled as part of C-BP3 if that move is adopted.

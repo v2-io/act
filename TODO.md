@@ -5,13 +5,18 @@
 
 ## Active — Strategic Architectural Proposals (HIGHEST IMPLIED PRIORITY)
 
-Ten architectural proposals surfaced in the 2026-04-22 audits, each characterized in `msc/architectural-proposals-2026-04-22.md` as an *independent structural investment option* — evaluated on its own merits (beauty / concision / correctness / approachability / fundamentality), not primarily as machinery for subsuming findings. These are at the top of TODO because the project's governing purpose (CLAUDE.md) makes those virtues first-class. Some of these moves are more important than any individual finding; some will subsume several findings as a side-effect.
+Fourteen architectural proposals surfaced across the four 2026-04-22 audits (Gemini, Codex round-1, Opus, Codex round-2), each characterized in `msc/architectural-proposals-2026-04-22.md` as an *independent structural investment option* — evaluated on its own merits (beauty / concision / correctness / approachability / fundamentality), not primarily as machinery for subsuming findings. These are at the top of TODO because the project's governing purpose (CLAUDE.md) makes those virtues first-class. Some of these moves are more important than any individual finding; some will subsume several findings as a side-effect.
 
 **Read `msc/architectural-proposals-2026-04-22.md`** for the full portfolio. One-line summaries below.
+
+### Gemini bigger-picture
 
 - **G-BP1 — Natural-parameter / logit reparameterization.** All beliefs in natural exponential-family parameters; additive gradient updates in $\mathbb{R}^n$; link functions at the interface. Merits: **correctness (high)**, concision, fundamentality. Subsumes Finding 2 (unbounded gradient). 2–3 sessions; scoping spike optional.
 - **G-BP2 — Variational free-energy framing of strategy IB.** $\Sigma_t$ as a variational approximation of $\pi^\ast$; KL-divergence replaces Shannon MI; variational free energy replaces IB Lagrangian. Merits: **correctness (high)**, fundamentality, beauty. Subsumes Finding 3 (degenerate MI). Scoping spike essential; multi-session.
 - **G-BP3 — Fisher-information unification of tempo and gain.** $\delta$ as KL-divergence; $\alpha$, $\eta^\ast$, $\mathcal{T}$ collapse into natural gradient descent; per-dimension becomes the anisotropic special case. Merits: **fundamentality (very high)**, concision, beauty. The largest single move in the portfolio. Major rewrite; scoping spike essential.
+
+### Opus bigger-picture
+
 - **O-BP1 — Sector-persistence template as organizing principle.** Reframe OUTLINE preamble around "AAD decomposes disturbance for bounded-correction dynamics at each scale." Merits: **approachability (very high)**, beauty, concision. Subsumes Finding 9 (Section II preamble). 1–2 sessions, framing touch, low risk. **Natural first move.**
 - **O-BP2 — Four compression operations as one hierarchy.** Agent as portfolio of compression maps with different relevance variables; $M_t$, $\Sigma_t$, shared intent, $\Lambda$ become projections not distinct objects. Merits: **fundamentality (high)**, approachability, beauty. Subsumes Finding 10 (IB status); strengthens existing $G_t$-single-object item. Scoping spike valuable.
 - **O-BP3 — Continuous-parameter approximation tiering.** L0/L1/L2, C1/C2/C3, Tier 1/2/3 as points in continuous parameter spaces; results live in 3D operating-regime space. Merits: fundamentality, **beauty (high)**, concision. Subsumes the existing continuous-convention tier-C item; partial on Finding 11.
@@ -20,16 +25,30 @@ Ten architectural proposals surfaced in the 2026-04-22 audits, each characterize
 - **O-BP6 — Identity promotion (`#agent-identity` to formal scope statement).** AAD applies to agents on singular causal trajectories; grounds why loop Level-2 access is interventional. Merits: **fundamentality (medium-high)**. Partial on Finding 5 (loop framing). Small (one session); no scoping spike needed.
 - **O-BP7 — Known structural absences (meta-proposal).** Four gaps: tier-switching policy, misspecification cost quantification, cross-hierarchy monotonicity, CIY/EIG gap. Each candidate for future scoping spike. Long-term research agenda.
 
-**Proposal clusters.** G-BP1 + G-BP3 + O-BP3 (natural parameters + Fisher geometry + continuous tiering); G-BP1 + O-BP4 (logit + continuous DAG); G-BP2 vs O-BP2 (alternative unifying framings); O-BP1 + O-BP5 + O-BP6 (template + recursion + identity, the "recursive persistence on singular trajectories" picture).
+### Codex round-2 bigger-picture
 
-**Recommended first moves** (from rough smallest-payoff-to-effort ordering in the portfolio doc): **O-BP1** (framing touch, high payoff, low risk) → **O-BP6** (one session, localized) → **G-BP1** (fixes a real finding with groundwork in spike).
+- **C-BP1 — Three-layer epistemic separation (defined / causally valid / operationally extractable).** Most live frictions are places where three distinct epistemic layers get collapsed. Separate them systematically at segment and claim level. Merits: **approachability (high)**, correctness, fundamentality. Subsumes Finding 12; partial on Findings 9 and 14. Scoping spike worthwhile; multi-session application.
+- **C-BP2 — Master separability pattern as explicit organizing principle.** AAD already runs one pattern — exact core under separability assumption, structured repair when it fails, general case expensive/open — across four hierarchies (L0/L1/L1'/L2, Class 1/2/3, Tier 1/2/3, C1/C2/C3). Name the meta-pattern. Merits: **approachability (very high)**, beauty, concision. Composes with O-BP1. 1–2 sessions.
+- **C-BP3 — Software as calibration laboratory, not universal exemplar.** Reframe TST as "privileged high-identifiability calibration domain where $\Sigma_t$ edges can sometimes be genuinely interventional," with other domains as exports under additional assumptions. Merits: **correctness (high)**, approachability, concision. Subsumes Finding 15; strengthens Findings 7 and 14. 45–90 min editorial reframing.
+- **C-BP4 — Claim-level epistemic statuses.** Extend equation-level tags with per-claim status labels (`*[Derived, status: exact]*`, etc.) rather than one segment-level umbrella. Merits: approachability, correctness. Partial on Findings 10 and 14. Pairs with C-BP1 (C-BP1 is the framework; C-BP4 is the implementation). FORMAT.md convention change + incremental segment pass.
+
+**Proposal clusters.**
+
+- G-BP1 + G-BP3 + O-BP3 (natural parameters + Fisher geometry + continuous tiering)
+- G-BP1 + O-BP4 (logit + continuous DAG)
+- G-BP2 vs O-BP2 (alternative unifying framings — pick one)
+- O-BP1 + O-BP5 + O-BP6 (template + recursion + identity — "recursive persistence on singular trajectories")
+- C-BP1 + C-BP4 (three-layer framework + claim-level implementation — half-measures separately)
+- O-BP1 + C-BP2 (result-level + epistemic-posture organizing principles — compose cleanly)
+
+**Recommended first moves** (smallest-payoff-to-effort): **O-BP1** (framing touch, high payoff, low risk) → **O-BP6** (one session, localized) → **C-BP3** (software positioning, 45–90 min, closes Finding 15) → **C-BP2** (master pattern naming, pairs with O-BP1) → **G-BP1** (fixes Finding 2, groundwork in spike).
 
 
 ## Active — Pending Findings
 
 Local findings — scope bugs, mechanical breaks, framing issues. Full characterizations in `msc/pending-findings-2026-04-22.md`. Each finding notes its "subsumed by" architectural proposal (if any); the choice between local repair and architectural move is Joseph's.
 
-### 2026-04-22 batch — 11 findings (1 from pre-audit Gemini, 2 Gemini, 4 Codex, 4 Opus — Opus F1 deduplicated with Gemini pre-audit)
+### 2026-04-22 batch — 15 findings (1 pre-audit Gemini + 2 Gemini + 4 Codex r1 + 4 Opus + 4 Codex r2; Opus F1 and Codex r2 F1 both deduplicate with Gemini pre-audit on Finding 1)
 
 | # | Finding | Severity | Subsumed by |
 |---|---------|----------|-------------|
@@ -44,21 +63,29 @@ Local findings — scope bugs, mechanical breaks, framing issues. Full character
 | 9 | Section II preamble framing understates survival | Medium-high | O-BP1 |
 | 10 | `#information-bottleneck` status mismatches unification role | Low-medium | O-BP2 |
 | 11 | Orient cascade step 4c convergence in non-stationary envs | Medium | Partial by O-BP3; compounds with F1 |
+| 12 | Section II survival slides from statement-level to operational | High | C-BP1 |
+| 13 | `#strategy-dag` L1-as-default overgeneralizes beyond strict-prerequisite | High | — |
+| 14 | `#developer-as-act-agent` exact-status mismatch (human vs AI regimes) | High | Partial by C-BP4 |
+| 15 | Software "richest operationalization domain" headline overclaims | Low | C-BP3 |
 
 **Actionable now (independent of portfolio decisions):**
 
 - **Finding 1** — already characterized; repair ready. 60–90 min. Covariance test stays as primary; residual demoted to exploration-rate-gated secondary.
 - **Finding 7** — git claims; sharp and contained. 30–45 min.
 - **Finding 10** — IB status reclassification; 15 min.
+- **Finding 13** — strategy-dag L1-default narrowing; 30–45 min. Independent of portfolio.
 
 **Coordinated passes (multiple findings close together):**
 
 - Findings 4 + 9 — both touch Section II scope framing at different layers. 60–90 min combined. Finding 9 absorbed if O-BP1 is adopted.
 - Findings 1 + 11 — both concern step 4c mechanism under different failure modes. 30–45 min combined with Finding 1's repair.
+- Findings 14 + 10 — both are umbrella-status-tag mismatches; coordinated pass with C-BP4 convention adoption is cleaner than two independent fixes.
 
 **Holding for portfolio decisions:**
 
 - Findings 2, 3 — subsumed by G-BP1 / G-BP2 respectively. Local repairs are wasted work if the architectural moves are pursued.
+- Findings 12, 15 — subsumed by C-BP1 / C-BP3 respectively.
+- Finding 14 — Option A (status downgrade, 15–30 min) is straightforward regardless of C-BP4; Option B (segment split, 45–60 min) depends on C-BP4 being adopted.
 
 ### 2026-04-21 batch — both RESOLVED 2026-04-22
 

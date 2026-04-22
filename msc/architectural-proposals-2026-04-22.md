@@ -1,6 +1,8 @@
 # Architectural Proposals — 2026-04-22
 
-**Status:** Working document. Ten architectural proposals surfaced in the three de novo audits of 2026-04-22 (Gemini, Codex, Opus). Each is documented here as an *independent architectural investment option*, evaluated on its own merits — not as machinery for subsuming local findings.
+**Status:** Working document. Fourteen architectural proposals surfaced across the four de novo audits of 2026-04-22 (Gemini, Codex round-1, Opus, Codex round-2). Each is documented here as an *independent architectural investment option*, evaluated on its own merits — not as machinery for subsuming local findings.
+
+**Identifier conventions:** G-BP = Gemini bigger-picture; O-BP = Opus bigger-picture; C-BP = Codex round-2 bigger-picture. Codex round-1 did not have a bigger-picture section.
 
 ## How to read this
 
@@ -364,6 +366,141 @@ Decisions about whether to pursue, scope, or defer a proposal are made by Joseph
 
 ---
 
+## C-BP1 — Three-layer epistemic separation: defined / causally valid / operationally extractable
+
+**Source:** Codex round-2 audit bigger-picture §1 (2026-04-22).
+
+**Thesis.** Most of AAD's live frictions are not raw contradictions; they are places where three distinct epistemic layers get collapsed: (1) **defined** — the formal object exists and is well-typed; (2) **causally valid** — the definition is grounded in reality and supports the causal claims made about it; (3) **operationally extractable** — a real agent can actually compute the quantity at runtime. Segments frequently assert one layer and readers silently import the other two. Codex Finding 12 is the clearest instance: `section-ii-survival.md`'s "16 survive exactly" is a *defined*-layer claim that readers take as *operationally extractable*, and only three documents deep does the survival analysis distinguish them.
+
+**Merits.**
+
+- **Approachability (high).** Makes segments' actual assertions unambiguous to readers.
+- **Correctness (medium).** Prevents over-promotion of formal claims to operational claims — a systematic failure mode the repo has repeatedly fallen into (Findings 12 and 14 this round; Finding 9 prior round).
+- **Fundamentality (medium).** Not a new mathematical object, but a crisp epistemic framework for what segments can and cannot claim.
+- **Concision (medium).** Replaces ad-hoc "this is defined but not computable" caveats with a shared convention.
+
+**Scope.** Meta-level change touching: (a) `FORMAT.md` conventions (see C-BP4 for the mechanical implementation), (b) systematic pass across segments to apply the three-layer convention, (c) affected segments' Epistemic Status blocks.
+
+**Findings subsumed.**
+
+- **Finding 12** (Section II survival slides from statement-level to operational) — direct.
+- **Partial Finding 14** (developer-as-act-agent exact-status mismatch) — the segment's status collapse is an instance of layer-collapse; separating layers makes the mismatch visible.
+- **Partial Finding 9** (Section II preamble framing) — the preamble's slippage between "exact scope" and "operational applicability" is another layer-collapse.
+- Makes other scope-mismatch findings easier to spot and repair.
+
+**Interactions.**
+
+- **Strong with C-BP4** (claim-level epistemic statuses). C-BP1 is the conceptual framework; C-BP4 is the mechanical implementation. Adopting one without the other is possible but half-measures.
+- **Supports C-BP2** (master separability pattern). The separability/repair pattern fits within the three-layer framework naturally: separability is about when a definition remains causally valid; the repair is about when the definition becomes operationally extractable in practice.
+- **Supports G-BP2** (variational framing): the variational objective explicitly bounds operational extractability by representational complexity, which is the three-layer framework applied to strategy.
+
+**Effort shape.** Convention change plus multi-session application pass. Scoping spike worthwhile — the spike should identify the cleanest way to label the three layers without cluttering every Epistemic Status block, and should pilot on 2–3 segments where layer-collapse is acute (Finding 12 and 14 segments are obvious candidates).
+
+**Risks.** Could become a convention-bureaucracy move if overspecified. Segments that genuinely only make one of the three kinds of claim (e.g., a pure definition with no causal-validity or operational claims) should not be forced to produce empty labels for the other two. The spike must establish the "when a layer doesn't apply, say so once or omit" convention up front.
+
+**Status:** unexamined.
+
+---
+
+## C-BP2 — Master separability pattern as explicit organizing principle
+
+**Source:** Codex round-2 audit bigger-picture §2 (2026-04-22).
+
+**Thesis.** A lot of AAD already runs on one master pattern: **exact core under a separability assumption; structured repair when separability fails; general case expensive or open.** L0 / L1 / L1' / L2 (correlation hierarchy) is one instance. Class 1 / Class 2 / Class 3 (directed separation topology) is another. Tier 1 / Tier 2 / Tier 3 (bridge-lemma contraction) is another. C1 / C2 / C3 (value convention) is a fourth. Making the master pattern explicit — as a meta-segment or OUTLINE-level organizing principle — would reveal that AAD is a single theoretical posture (name the clean case, name the failure mode, name the repair, name what remains open) applied to several structurally distinct state-spaces.
+
+**Merits.**
+
+- **Approachability (very high).** Single organizing pattern replaces four parallel hierarchies each presented with its own specific language. Readers who learn the pattern once can navigate any instance.
+- **Beauty (high).** Reveals shared structure. This is the naming-what-was-implicit move that strong theories eventually make.
+- **Concision (high).** The pattern itself is short; each instance becomes an instantiation rather than a freshly-motivated architecture.
+- **Fundamentality (medium).** Reframing rather than new derivation; but the reframing shifts AAD's identity from "a control theory with many tierings" to "a theoretical posture for managing separability and its failure."
+
+**Scope.** New meta-segment (or substantial preamble addition) stating the master pattern and enumerating the current instances. Small per-segment touches to align each instance's framing with the master pattern's vocabulary.
+
+**Findings subsumed.**
+
+- Not directly. Strengthens several findings' repairs by providing shared framing. Finding 13's "L1 is the default but only for strict-prerequisite; L1' for soft" becomes a direct instance of the master pattern ("L0 is the separable case; L1 is the repair for strict-prerequisite non-separability; L1' is the repair for soft-facilitator non-separability; full L2 is expensive/open").
+
+**Interactions.**
+
+- **Strong with O-BP1** (template as organizing principle). O-BP1 names the *result-level* organizing principle (sector-persistence template); C-BP2 names the *epistemic-posture-level* organizing principle (separability → repair → open). They compose: the theory has one result (persistence template) applied under one posture (separability management) across multiple state spaces.
+- **Strong with O-BP3** (continuous-parameter tiering). If the tierings become continuous parameters (O-BP3), C-BP2 still holds as the conceptual framework — each continuous parameter indexes the separability-to-repair path.
+- **Supports C-BP1** (three-layer separation). Both are epistemic-posture moves; they are complementary conventions rather than competitors.
+
+**Effort shape.** 1–2 sessions for the meta-segment; framing touches across the four hierarchy-instantiating segments. No scoping spike needed — the content is already there; only the explicit naming is new.
+
+**Risks.** Low. Could be dismissed as "just naming the obvious," but naming the obvious is what lets readers transfer understanding across instances. Main risk: the naming becomes a *rigid* convention and segments start contorting to fit the master-pattern template rather than stating themselves naturally.
+
+**Status:** unexamined.
+
+---
+
+## C-BP3 — Software as calibration laboratory, not universal exemplar
+
+**Source:** Codex round-2 audit bigger-picture §3 (2026-04-22).
+
+**Thesis.** TST's current positioning ("richest operationalization domain") overclaims. The tighter and more defensible claim is: **software is the privileged high-identifiability domain where $\Sigma_t$ edges can sometimes be genuinely interventional** (tests, deploys, git bisect) and where the chronica is partially exteriorized. This makes software a *calibration laboratory* for AAD: the domain where quantitative claims can be grounded, where ambiguity modulation can be measured, where bridge-lemma contraction can be tested against Tier-1 reality. Other domains export the calibrated results under *stronger or additional assumptions*, making the transfer claims explicit rather than left to the reader.
+
+**Merits.**
+
+- **Correctness (high).** Resolves Finding 15 (richest-domain headline) and, more broadly, the rhetorical asymmetry between TST's self-presentation and its actual evidential base.
+- **Approachability (high).** A clear "rule for what transfers outward, under which additional assumptions" replaces the current "TST is rich, see if your domain is similar" framing.
+- **Concision (high).** Removes the low-grade back-and-forth between "TST is the richest domain" (in headlines) and "TST's claims are scoped to identifiable-edge regimes" (in bodies).
+- **Fundamentality (medium).** Repositions TST's role in the framework without changing its content.
+
+**Scope.** `02-tst-core/OUTLINE.md` preamble; `#software-epistemic-properties` headline and scope block; possibly a short new segment or appendix stating the "calibration laboratory + exports under assumptions" framework explicitly. Optional: a "domain-transfer assumptions" table that names the specific additional assumptions needed to export TST's quantitative claims to non-software domains.
+
+**Findings subsumed.**
+
+- **Finding 15** (software richest-domain headline) — direct.
+- Partially strengthens Finding 7 / Finding 14 (TST overclaims on git and on developer mapping) — both are made cleaner by positioning TST as calibration-lab-with-domain-limits rather than universal-exemplar.
+
+**Interactions.**
+
+- **Strong with C-BP1** (three-layer separation). Software is where the three layers can all be established; other domains export to those layers under additional assumptions.
+- **Neutral** toward others.
+
+**Effort shape.** 45–90 min. Mostly editorial reframing; does not require new theory. A brief scoping pass to identify which TST claims are "calibration-laboratory grade" (software-native) vs. "domain-transfer grade" (exports under assumptions) would tighten execution.
+
+**Risks.** Low. Could feel like a demotion of TST's ambition — but the repositioning actually *strengthens* TST's claims by making them defensible and transferable rather than unbounded.
+
+**Status:** unexamined.
+
+---
+
+## C-BP4 — Claim-level epistemic statuses
+
+**Source:** Codex round-2 audit bigger-picture §4 (2026-04-22).
+
+**Thesis.** Move from segment-level `status:` tags to **claim-level** statuses. A single segment often makes three different kinds of claim — the definitional core (what's being defined), the transfer result (how it connects to other segments / domains), and the operationalization layer (how to measure or compute it) — each with different epistemic strength. Current segment-level tags force an umbrella label that over-promotes the weakest claim or under-sells the strongest. Claim-level statuses (already partially supported via equation-level tags per FORMAT.md) would be promoted to a first-class convention: segments explicitly label each load-bearing claim with its own status.
+
+**Merits.**
+
+- **Approachability (medium-high).** Readers can see at a glance which parts of a segment are *exact*, which are *robust-qualitative*, which are *discussion-grade*, rather than reading an umbrella tag that obscures the mix.
+- **Correctness (medium).** Directly addresses Finding 14 (the `exact` tag on developer-as-act-agent forced over-promotion across distinct regimes) and prevents similar failures.
+- **Concision (medium).** The extra labels are offset by the removal of apologetic "this claim is X but this other claim is Y" prose.
+- **Fundamentality (low).** A workflow/convention change, not a theoretical move.
+
+**Scope.** `FORMAT.md` convention addition. Equation-level tags already exist (`*[Definition]*`, `*[Derived]*`, `*[Hypothesis]*`, etc.); the move here is to extend them with explicit status qualifiers (`*[Derived, status: exact]*`, `*[Formulation, status: conditional]*`). Then a systematic pass across segments to apply the new convention to load-bearing claims. Segment frontmatter `status:` retains a meaning as the "weakest load-bearing claim's status" or similar aggregate — or is dropped entirely.
+
+**Findings subsumed.**
+
+- **Partial Finding 14** (developer-as-act-agent status mismatch) — direct; the segment's "exact" umbrella fails precisely because it forces one label across claims of different strengths.
+- **Partial Finding 10** (IB status mismatch with unification role) — also a single-label-forced-to-cover-multiple-claims problem.
+
+**Interactions.**
+
+- **Strong with C-BP1** (three-layer separation). C-BP1 is the conceptual framework (defined / causally valid / operationally extractable); C-BP4 is the mechanical implementation (each layer's claim carries its own status). Both adopted together gives a clean convention; C-BP1 alone is philosophy without enforcement; C-BP4 alone is bureaucracy without purpose.
+- **Neutral** toward others.
+
+**Effort shape.** Small convention change in FORMAT.md. Application pass across segments is multi-session, but each segment's pass is quick (10–20 min typically). Could be executed incrementally — applied first to the segments where umbrella-status-tags are actively misleading (Finding 14 segments + Finding 10 segment), then propagated as segments are next touched.
+
+**Risks.** Could become a bureaucratic overhead if applied mechanically to segments that make only one load-bearing claim. The convention must include "when only one kind of claim is present, segment-level status suffices" as a first principle.
+
+**Status:** unexamined.
+
+---
+
 ## Cross-proposal interaction summary
 
 The strongest inter-proposal couplings, for planning purposes:
@@ -372,6 +509,9 @@ The strongest inter-proposal couplings, for planning purposes:
 - **G-BP1 + O-BP4 form a cluster** (logit parameterization + continuous strategy DAG). These almost demand being done together.
 - **G-BP2 + O-BP2 are alternatives** (variational vs. IB-as-shared-shape). Picking one affects the other.
 - **O-BP1 + O-BP5 + O-BP6 form a cluster** (template as principle + recursion + identity). Together they articulate the theory as "recursive persistence template applied on singular trajectories at every scale."
+- **C-BP1 + C-BP4 form a cluster** (three-layer separation as framework + claim-level statuses as implementation). Adopting one without the other is half-measures — C-BP1 alone is philosophy without enforcement; C-BP4 alone is bureaucracy without purpose.
+- **C-BP1 + C-BP2 are complementary epistemic-posture moves** (three-layer separation + separability-pattern naming). They share the "name what the theory is already doing, systematically" spirit.
+- **O-BP1 + C-BP2 compose** (result-level organizing principle + epistemic-posture organizing principle). Together: "AAD is one persistence result applied under one epistemic posture (separability → repair → open) across multiple state spaces."
 
 ## Ordering suggestions
 
@@ -379,13 +519,16 @@ From smallest-payoff-to-effort to largest, rough ordering for planning:
 
 1. **O-BP1 (template as organizing principle)** — framing touch, high payoff, low risk. Natural first move.
 2. **O-BP6 (identity promotion)** — one session, localized. Good second move.
-3. **G-BP1 (logit reparameterization)** — fixes a real finding, groundwork in spike. 2–3 sessions. Third.
-4. **G-BP2 (variational reframing)** — fixes a real finding, requires scoping. Possible fourth, or parallel to G-BP1.
-5. **O-BP3 (continuous tiering)** — requires scoping, multi-session execution.
-6. **O-BP2 (compressions-as-projections)** — requires scoping, substantial.
-7. **O-BP5 (recursive AAD)** — requires scoping, substantial; natural after O-BP1.
-8. **O-BP4 (continuous strategy DAG)** — requires dedicated spike before any portfolio decision.
-9. **G-BP3 (Fisher unification)** — largest single move; requires the most careful scoping.
-10. **O-BP7 (structural absences)** — research agenda; individual scoping spikes over time.
+3. **C-BP3 (software as calibration laboratory)** — 45–90 min, mostly editorial. Closes Finding 15; strengthens Finding 7/14. Good third.
+4. **C-BP2 (master separability pattern)** — 1–2 sessions for meta-segment + framing touches. No new theory. Pairs well with O-BP1.
+5. **G-BP1 (logit reparameterization)** — fixes a real finding, groundwork in spike. 2–3 sessions.
+6. **G-BP2 (variational reframing)** — fixes a real finding, requires scoping.
+7. **C-BP1 + C-BP4 (three-layer separation + claim-level statuses)** — conceptual framework + mechanical convention. Scoping spike worthwhile. Multi-session application but each segment's pass is quick.
+8. **O-BP3 (continuous tiering)** — requires scoping, multi-session execution.
+9. **O-BP2 (compressions-as-projections)** — requires scoping, substantial.
+10. **O-BP5 (recursive AAD)** — requires scoping, substantial; natural after O-BP1.
+11. **O-BP4 (continuous strategy DAG)** — requires dedicated spike before any portfolio decision.
+12. **G-BP3 (Fisher unification)** — largest single move; requires the most careful scoping.
+13. **O-BP7 (structural absences)** — research agenda; individual scoping spikes over time.
 
 This ordering is a sketch, not a commitment. Decisions about which proposals to scope or execute are Joseph's, tracked in `TODO.md`.
