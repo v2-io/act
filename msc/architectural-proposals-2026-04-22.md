@@ -764,3 +764,178 @@ The strengthening cycle ran after the audit-derived proposals above and surfaced
 |---|---|---|---|---|
 | **Chain** | Confidence along causal chains | Additive log-confidence decay | $\log P(	ext{chain}) = \sum_i \log P(E_i \mid E_{\lt i})$ | #chain-confidence-decay |
 | **Divergence** | Policy mismatch between $\pi^st$ and $Q_{\Sigma_t}$ | Chain-rule additivity over conditional factorizations | $f(t) = c 
+
+---
+
+## Post-2026-04-23-audit architectural extensions (SP-2 through SP-8)
+
+Three de novo audits (Codex, Gemini, Opus) ran after the 2026-04-22/23 cascading strengthening cycle closed. Their big-picture observations include seven session-discovered structural proposals, numbered SP-2 through SP-8 in continuation of SP-1 (the three-layer additive-decomposition pattern discovered during the cycle). These are not audit-surfaced *findings* (those are in `msc/pending-findings-2026-04-23.md`) but audit-surfaced *architectural suggestions*, distinguished the same way the G-BP / O-BP / C-BP portfolio is. The S-prefix marks "session-or-post-session discovered" to preserve the provenance distinction.
+
+### SP-2 — Additive-coordinate-forcing meta-pattern (5–6 instances, not 3)
+
+**Source:** Opus Big Picture §1 (2026-04-23 audit).
+
+**Thesis.** SP-1 named three instances of the Cauchy-functional-equation additive-decomposition pattern (chain-confidence-decay, reverse-KL chain-rule, log-odds evidential-additivity). Opus argues the pattern has at least two more instances already in the theory:
+
+- **Sector-condition-stability (Lyapunov)** is the same shape — quadratic candidate forced by inner-product structure, with the sector condition as the local additivity-of-correction axiom. The Lyapunov function $V = \tfrac{1}{2}\lVert\delta\rVert^2$ is the "natural coordinate" on which $\dot V$ decomposes additively under the sector condition.
+- **IB Lagrangian** in `#compression-operations` decomposes information-theoretic objectives into (compression cost) − $\beta$·(predictive relevance) — the rate-distortion additive form, with $\beta$ as the Lagrange multiplier on the additivity constraint.
+
+**The deeper claim.** AAD repeatedly forces additive decompositions on log/quadratic coordinates because all four of its core operations (model update, strategy update, persistence, compression) face the same structural problem — independent factors composing to a measure on which the optimization-to-be-derived is convex. Two more instances extend SP-1 to a five-instance pattern, plausibly the framework's deepest organizing principle.
+
+**Proposed meta-segment name.** `#additive-coordinate-forcing` — sits in the same architectural row as `#identifiability-floor` and `#separability-pattern`, plausibly the most fundamental of the three.
+
+**Merits.** Fundamentality (very high — would elevate the pattern from discovered-by-one-cycle to architecturally-central); beauty (high — five-instance symmetry); concision (medium-high — same move, five quantities). Supersedes the three-instance promotion already considered for Phase B of the next session.
+
+**Scope.** New meta-segment (or promotion of the three-instance version to five-instance). Low risk — math is already in five source segments.
+
+**Effort shape.** 1–2 sessions. Verification work: confirm that the Lyapunov quadratic candidate is genuinely forced (not chosen) by a principle parallel to the three-layer axioms — most likely via `#gain-sector-bridge`'s directional fidelity or its Fisher-geometric generalization. Similarly for IB Lagrangian — is $\beta$'s role genuinely a Lagrange multiplier on an additivity axiom, or is the rate-distortion form a convention-of-information-theory choice?
+
+**Risks.** If the Lyapunov / IB Lagrangian "instances" turn out to be structurally different (e.g., the Lyapunov additivity is at the level of the *derivative* $\dot V$, while the three primary instances' additivity is at the level of the *function value*), the five-instance claim overreaches. Honest alternative: document the three-instance primary + two adjacent family-members observation, not a five-instance theorem.
+
+**Status:** unexamined; supersedes Phase B as originally proposed (three-instance promotion). Recommendation: do the verification spike as part of Phase B, with the possibility of promoting to five-instance.
+
+### SP-3 — Calibration-laboratory template generalization
+
+**Source:** Opus Big Picture §2 (2026-04-23 audit).
+
+**Thesis.** The transfer-assumption table in `#software-epistemic-properties` (the calibration-lab framing landed in Phase 4, commit `d0373fc`) is one of the most structurally distinctive moves in the framework. The pattern: name the AAD-core quantity, the identification condition, the software configuration that satisfies it, and the non-software transfer requirement.
+
+This pattern could be prescribed for *every* AAD instantiation. A `domain-instantiation-template.md` (or a FORMAT.md section) would require: any new domain instantiation produces a transfer-assumption table with rows for each AAD-core identification condition. This makes TST less of an exception and more of an exemplar; logogenic and logozoetic instantiations could then be evaluated against the same template.
+
+**Merits.** Concision (high — one template prescribes the shape of all domain work); approachability (very high — readers comparing domains have uniform scaffolding); fundamentality (medium — reframing, not new content); correctness (medium — making transfer assumptions uniformly explicit pre-empts latent overclaim in new domains).
+
+**Scope.** New document at root level (`domain-instantiation-template.md`) or a new FORMAT.md section. Apply to `03-logogenic-agents/` and `04-logozoetic-agents/` as a forward-looking scaffold; the software instance already satisfies it.
+
+**Effort shape.** 1 session for template + first application to a logogenic subdomain.
+
+**Risks.** Low. Template may force uniform structure on domains where the AAD-core identification conditions don't map cleanly — but identifying this failure mode per-domain would itself be valuable scope-mapping work.
+
+**Status:** unexamined. Pairs with Phase A (citation audit) and Phase B (three-layer meta-segment) as consolidation moves.
+
+### SP-4 — Agent identity: elevation from "scope" to architectural postulate
+
+**Source:** Opus Big Picture §3 (2026-04-23 audit).
+
+**Thesis.** `#agent-identity` was promoted from discussion-grade to type:scope / status:robust-qualitative in Phase 3 (commit `2980327`). Opus observes that the segment's content does more architectural work than "scope" suggests: the interventional reading of loop data, rejection of cross-trajectory model merging, and sub-scoping of logogenic agents all rest on the singular-trajectory commitment. It deserves elevation from scope statement to **architectural postulate**:
+
+> **AAD is a theory of token-level adaptation under causal embedding, not type-level agent populations.**
+
+This framing explicitly clarifies why type-level claims about "the model" require additional machinery (population dynamics, statistical aggregation) that AAD doesn't supply natively. It also sharpens logogenic agent scope (each session is token-level; the "same LLM" across sessions is type-level and out of formal scope).
+
+**Merits.** Fundamentality (high — commits the framework to a specific ontological stance); approachability (medium-high — the token/type distinction is canonical in philosophy of language and AI); beauty (medium-high — clean statement of what's in and out of formal scope).
+
+**Scope.** `#agent-identity` frontmatter type: scope → postulate (or similar); Formal Expression rewritten to state the architectural commitment explicitly. Downstream consumers already cross-reference appropriately (per Phase 3 work); only the segment itself and its OUTLINE.md row change.
+
+**Effort shape.** 1 session; no scoping spike needed — the content is already in the segment.
+
+**Risks.** "Postulate" vs "scope" is a status-level question; "architectural postulate" is slightly heavier language than the segment carries. Alternative: keep type:scope but add an explicit "Architectural Role" subsection stating the postulate-like consequence.
+
+**Status:** unexamined; natural continuation of the Phase 3 O-BP6 work.
+
+### SP-5 — Two-tier "Reader's Path" presentation
+
+**Source:** Opus Big Picture §4 (2026-04-23 audit).
+
+**Thesis.** AAD's honesty discipline (equation tags, scope conditions, epistemic-status, derivation-audit tables) produces heavy reading load. A reader trying to *understand the framework's shape* must process substantial qualification before reaching load-bearing content. Proposal: each segment carries a 1–2 sentence "Reader's Path" preamble that states load-bearing content without qualification, with the formal apparatus following.
+
+This does not replace the honesty discipline — only adds an entry ramp. The cost is mild redundancy; the benefit is teachability.
+
+**Merits.** Approachability (very high); concision (low — adds redundancy); correctness (neutral — doesn't change content); beauty (depends on execution — could be crisp or could feel padded).
+
+**Scope.** FORMAT.md convention addition; incremental per-segment application. Pairs naturally with O-BP14 (derivation-audit table) as the "entry-level" and "exit-level" counterparts of the segment-reading experience — O-BP14 tables are the summary *after* the formal content; SP-5 Reader's Paths are the orientation *before*.
+
+**Effort shape.** 30 min convention + ~5 min per segment (~40 segments → ~4 sessions total if comprehensive; can be incremental as segments are next visited).
+
+**Risks.** Pressure to write a tight Reader's Path may push authors toward overclaiming-for-concision, against the scope-honesty discipline. Convention must explicitly require "load-bearing but not overclaiming" in the Reader's Path.
+
+**Status:** unexamined. TST's calibration-laboratory preamble already demonstrates the pattern (Phase 4, commit `d0373fc`).
+
+### SP-6 — Composition-closure consolidation pass
+
+**Source:** Opus Big Picture §5 (2026-04-23 audit), backed by F26 (this-cycle composition-closure finding).
+
+**Thesis.** The composition-closure machinery is lifted to a generality the proofs don't underwrite. The bridge lemma requires DA2'-inc (strictly stronger than (A4)), only Tier 1 (estimation-flavored composites) has a clean theorem, and the weakest-link bound implies most practical composites are Tier 3. The central transferability result is unavailable in exactly the regime where composition is empirically most interesting.
+
+Proposed consolidation: scope the bridge lemma machinery *explicitly* to the linear-Gaussian and exponential-family cases where it delivers a clean theorem. State the general claim at honest generality: "composite agents are AAD agents iff their effective dynamics admit an AAD-shaped reduction." Most of the (A1)–(A4), (P1)–(P3), $K_c$, Mahalanobis-norm apparatus stays but is scoped as Tier-1 machinery, not universal.
+
+**Merits.** Correctness (high — removes latent overclaim); concision (high — substantial simplification); beauty (medium — trading apparent generality for honest focus); fundamentality (medium — scope adjustment, not new theory). Repairs F26.
+
+**Scope.** `#composition-closure` restructured; `#team-persistence`, `#composition-consistency`, `#tempo-composition` may need corresponding scope adjustments. Three to five segments touched.
+
+**Effort shape.** 2–3 sessions. Scoping spike valuable to identify the exact boundary of linear-Gaussian/exponential-family Tier-1 coverage before executing.
+
+**Risks.** Loss of apparent generality may read as a demotion of Section III ambition. The honest repair reads as a strengthening of Section III's defensibility (per CLAUDE.md honesty-as-architecture principle) but requires careful framing.
+
+**Status:** unexamined. Repairs F26; downstream of Phase A (citation audit — the Khalil / Khasminskii citations throughout `#composition-closure` deserve audit verification). Sequence: Phase A → SP-6 → further composition work.
+
+### SP-7 — Epistemic architecture as the distinctive contribution
+
+**Source:** Opus Big Picture §6 (2026-04-23 audit), convergent with Codex's "bigger picture" §1 and Gemini's "invert the foundation."
+
+**Thesis.** CLAUDE.md and the README emphasize "integration" — connecting control theory, causal inference, information theory, and agent architecture. But the genuinely novel structural moves are epistemic-architectural:
+
+- The **separability pattern + identifiability-floor** pair (positive/negative halves of scope) — structurally distinctive to AAD; not obvious from source disciplines.
+- The **scope-honesty-as-load-bearing-architecture** posture (methodological commitment; Opus 2026-04-22 evening observation).
+- The **calibration-laboratory framing** for domain instantiation (SP-3).
+- The **derivation-audit-table convention** (O-BP14) as systematic epistemic transparency.
+- The **additive-coordinate-forcing meta-pattern** (SP-1/SP-2).
+- The **agent-identity-as-token-level commitment** (SP-4).
+
+The integration narrative ("connecting four disciplines") is true but downplays the strongest contribution. AAD's distinctive value may be its *epistemic architecture* (how it organizes claims, scopes, repairs, and meta-patterns) more than the specific results it integrates. A future README or paper introduction could foreground this — "what's distinctive about AAD is not which results it imports but how it organizes the conditions under which results apply."
+
+Gemini's convergent framing: "By embracing the entanglement as the starting point, AAD wouldn't just be a theory of idealized agents with a list of exceptions; it would be a unified thermodynamics of purposeful systems."
+
+Codex's convergent framing: "the cleanest simplification is to foreground AAD as a theory of bounded correction under decomposed disturbance, not as a stack of partly separate mini-theories."
+
+**Merits.** Fundamentality (very high — would reposition the framework's value proposition); approachability (very high — gives new readers the right expectation); beauty (high — aligns the framework's self-presentation with its genuinely distinctive work).
+
+**Scope.** README.md rewrite (partly closes F22); CLAUDE.md "Theory Character" expansion; potentially new introductory material in OUTLINE.md. Paper introduction work is downstream.
+
+**Effort shape.** 1–2 sessions for README + CLAUDE.md; paper introduction is paper-writing-time work.
+
+**Risks.** Low — reframing, not structural change. The "epistemic architecture" framing may be less immediately legible to readers who come from domain disciplines expecting new results; the repair is careful dual framing ("AAD both integrates and organizes").
+
+**Status:** unexamined. Composes with O-BP1, O-BP10, O-BP8, SP-3, SP-4 as an entry-point-and-framing cluster. Partially closes F22.
+
+### SP-8 — Dual-edged reading of the identifiability-floor pattern
+
+**Source:** Opus Big Picture §7 (2026-04-23 audit).
+
+**Thesis.** `#identifiability-floor` instances are presented with strengthened-machinery framing: "the floor strengthens machinery X as the unique escape." This is honest and load-bearing. But the dual reading is equally true: each floor *bounds the framework's reach*. The current presentation emphasizes the positive (X is necessary; AAD provides X) over the negative (without X, AAD is forbidden from inferring this). Both are accurate; foregrounding both might produce more complete scope-mapping.
+
+Same applies to `#separability-pattern`'s "general open" column — presented as honest scope-marking but equally readable as "territory AAD cannot enter."
+
+**Merits.** Fundamentality (medium — dual reading is already semantically present); approachability (medium); correctness (medium — strengthens by surfacing what's bounded, not just what's unlocked); beauty (medium).
+
+**Scope.** `#identifiability-floor` + `#separability-pattern` Epistemic Status + Discussion sections extended with the dual reading. 45–90 min editorial.
+
+**Effort shape.** Framing touch. 1 session or less.
+
+**Risks.** Low. The dual reading is consistent with AAD's scope-honesty principle; the risk is narrative balance — too much negative-half emphasis could read as defeatism, while the framework's intention is to make scope visible rather than lament it.
+
+**Status:** unexamined. Composes with SP-7 (epistemic architecture foregrounding).
+
+---
+
+## Convergent big-picture observations (Codex + Gemini + Opus)
+
+Across the three audits, big-picture observations converge on a shared reframe:
+
+**Codex:** "the cleanest simplification is to foreground AAD as a theory of bounded correction under decomposed disturbance, not as a stack of partly separate mini-theories."
+
+**Gemini:** "start with the coupled, fully entangled dynamics as the base reality... Treat things like the 'closure defect', the 'processing coupling', and the 'redundancy penalty' not as caveats, but as primary geometric variables... a unified thermodynamics of purposeful systems, where perfect modularity is just the absolute zero of cognitive friction."
+
+**Opus:** "what's distinctive about AAD is not which results it imports but how it organizes the conditions under which results apply."
+
+These are not the same proposal but they are on the same axis: move the framework's center of mass from "integration of results" to "organized treatment of scope and coupling under a master principle" (Codex: bounded correction; Gemini: friction thermodynamics; Opus: epistemic architecture).
+
+**Integration suggestion for next session:** SP-7 + SP-3 + O-BP10 together would constitute the framework's reframed self-presentation. The README + CLAUDE.md + OUTLINE preamble rewrite should be coordinated rather than fragmented across phases. This is a Phase C+ move — downstream of citation audit but potentially ahead of SP-2 meta-segment promotion.
+
+---
+
+## Summary: what this audit cycle added
+
+- **10 consolidated findings** (F22–F31) across three audits, with cross-audit agreement on 5 of them.
+- **7 session-discovered structural proposals** (SP-2 through SP-8), two extending earlier work (SP-2 extends SP-1; SP-4 extends Phase 3 O-BP6) and five genuinely new.
+- **1 convergent big-picture reframe** on three independent axes — suggesting the framework's center of mass should shift from integration-of-results to organization-of-scope.
+- **High rejection rate** (~25% of candidate findings rejected as already-caveated) — evidence that the scope-honesty discipline is load-bearing and working.

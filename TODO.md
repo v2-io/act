@@ -1,6 +1,14 @@
 # TODO — Open Work Items
 
-**Last reconciled:** 2026-04-22 (post-strengthening + post-evening-audits). This file is the living action list. For the 2026-04-21 master audit and the 2026-04-22 morning four-audit batch, see the historical pointers in the Archive section. The 2026-04-22 strengthening cycle (commits `14a6095`, `b6134c2`, `4d050c8`, `b91493c`, `a14682e`) executed strengthen-first repairs for Findings 1, 7, 10, 13 and the AI integration pass. A second triple-audit cycle (Codex / Gemini / Opus) ran *after* the strengthening cycle and surfaced six new findings (F16–F21) plus nine new architectural proposals (O-BP8 through O-BP16); see `msc/pending-findings-2026-04-22.md` "Post-strengthening evening batch" and `msc/architectural-proposals-2026-04-22.md` "Post-strengthening evening additions."
+**Last reconciled:** 2026-04-23 (post-cascading-strengthening + post-triple-audit). This file is the living action list.
+
+**Cycle history (most recent first).**
+- **2026-04-23 triple audit** (Codex / Gemini / Opus, post-cycle). 10 consolidated findings (F22–F31) across the three audits plus 7 session-discovered architectural proposals (SP-2 through SP-8, extending SP-1 from the strengthening cycle). ~25% of candidate findings rejected as already-adequately-caveated. See `msc/pending-findings-2026-04-23.md` and `msc/architectural-proposals-2026-04-22.md` §"Post-2026-04-23-audit architectural extensions."
+- **2026-04-22/23 cascading strengthening cycle** (nine commits: `0a772d2`, `c1d9fcf`, `2980327`, `f70fb68`, `80b40d2`, `d0373fc`, `72ca532`, `e777f01`, `a39dfb7`; plus session-close `2fc829b`). Executed Phases 1–5 + 7; landed three Cauchy-functional-equation uniqueness theorems; discovered the three-layer additive-decomposition pattern (SP-1). See Archive for per-commit detail.
+- **2026-04-22 strengthening cycle** (commits `14a6095`, `b6134c2`, `4d050c8`, `b91493c`, `a14682e`). Executed strengthen-first repairs for Findings 1, 7, 10, 13 and the AI integration pass.
+- **2026-04-22 triple audit (evening)**. Six findings F16–F21 (all resolved by the cascading cycle) plus nine new architectural proposals O-BP8 through O-BP16 (four of which — O-BP14, O-BP6, C-BP3, C-BP2 — landed in the cascading cycle; C-BP3 and C-BP2 were added to the portfolio in the evening batch).
+
+The three audit cycles together mark the transition from finding-driven repair work to consolidation-and-reframing work. See §"Recommendations for next session" below for the post-2026-04-23 recommended ordering.
 
 ## Highest-priority cleanups — LANDED (Phase 1 of strengthen-first cycle)
 
@@ -11,9 +19,60 @@ All four cleanups landed. F20 strengthened rather than softened; the others were
 - ~~**F20** — KL-direction degeneracy in `#strategy-complexity-cost` variational form~~ — **LANDED as strengthening** (not softening). New appendix segment **#strategy-cost-regret-bound** hosts the full derivation: TV bound via bounded value range, Pinsker-KL bound, direction-forcing argument (forward-KL is vacuous under deterministic $\pi^\ast$), admissible-divergence family analysis (TV tight but non-differentiable; reverse-KL canonical-not-unique on gradient-tractability + variational-inference + Fisher-geometry + MDL-coding grounds), and the linear-vs-square-root $\beta_\Sigma$ trade-off (linear preserves IB-shape alignment; square-root would give $\beta_\Sigma \propto V_{\max}$ global naturalization). Segment-level cross-refs updated in `#compression-operations`, `#exploit-explore-deliberate`, `#ciy-unified-objective`. `msc/spike-f20-kl-direction-strengthening.md` retained as the reasoning trail only; framework is complete without it.
 - ~~**F21** — `#identifiability-floor` frontmatter status conflicts with internal text~~ — **LANDED.** Frontmatter `status:` changed to `discussion-grade`; Epistemic Status rewritten to cleanly separate the meta-pattern (discussion-grade presentational principle) from individual instances (F1's no-go: *exact* for shallow / *robust qualitative* for general; F13's L1' refutation: *exact*).
 
-## Recommendations for next session (from 2026-04-22/23 close-out review)
+## Active — 2026-04-23 triple audit findings and session-discovered proposals
 
-What follows is one agent's prioritization after the 2026-04-22/23 strengthening cycle. Joseph's call which to follow.
+**10 consolidated findings** from three independent de novo audits (Codex 5 + Gemini 4 + Opus 6, with cross-audit overlap on 5 of them). Full detail in `msc/pending-findings-2026-04-23.md`. Summary table:
+
+| # | Finding | Source(s) | Severity | Subsumption |
+|---|---------|-----------|----------|-------------|
+| 22 | README-level scope framing outruns Section II exact theorem scope | Codex 1 + Gemini 4 partial | High | Partial by O-BP8 + SP-7 |
+| 23 | "16/24 exact survival" headline compresses three distinct layer-claims | Codex 2 | High | Partial by C-BP1 |
+| 24 | Strategy-edge semantics not harmonized with identifiability machinery; DAG-forced framing overclaims | Codex 3 + Opus F + Gemini 2 | High | msc/spike-edge-semantics-resolution.md "causal efficacy credence" framing is the integration target |
+| 25 | `#coupled-diagnostic-framework` slides from defined to runtime-computable | Codex 4 | High | Directly by C-BP1 |
+| 26 | Section III composition-closure reads more closed than self-aware status supports; Tier 3 prevalence not characterized | Codex 5 + Gemini 1 + Opus D | Medium-high | SP-6 (composition-closure consolidation) |
+| 27 | Scalar tempo overcounting — foundational metric structurally additive | Gemini 3 | (already caveated; retained for visibility) | Partial by O-BP3 |
+| 28 | $\rho_\Sigma$ is unmeasurable threshold parameter on which trajectory guarantee depends | Opus A | High (gap); medium (substantive vs. honest-open) | None — genuinely unaddressed |
+| 29 | Update-rule heterogeneity integration debt in `#unity-dimensions` | Opus B | High (pure integration debt) | None — mechanical work |
+| 30 | Stacked scope narrowings (Class 1 + learning-agent) only Class 1 visible at OUTLINE | Opus C | High | Directly by O-BP8 |
+| 31 | Orient cascade 4c's signal-to-noise sensitivity not surfaced where step prescribed | Opus E | Medium | None — 30min editorial fix |
+
+**7 session-discovered architectural proposals** (SP-2 through SP-8) in `msc/architectural-proposals-2026-04-22.md` §"Post-2026-04-23-audit architectural extensions":
+
+- **SP-2** — Additive-coordinate-forcing meta-pattern, 5-instance (not 3). Opus adds Lyapunov + IB Lagrangian as two more instances to SP-1's chain-confidence-decay + reverse-KL + log-odds. Supersedes the three-instance promotion-to-meta-segment originally proposed for Phase B.
+- **SP-3** — Calibration-laboratory template as prescription. Generalize #software-epistemic-properties' transfer-assumption table to a `domain-instantiation-template.md` for all domains.
+- **SP-4** — Agent identity elevation from scope to architectural postulate: "AAD is a theory of token-level adaptation under causal embedding, not type-level agent populations."
+- **SP-5** — Two-tier "Reader's Path" presentation. Short load-bearing preamble per segment, preceding the formal apparatus.
+- **SP-6** — Composition-closure consolidation pass. Scope bridge lemma explicitly to linear-Gaussian + exponential-family cases; adopt "AAD-shaped reduction" as the honest general claim. Repairs F26.
+- **SP-7** — Epistemic architecture as the framework's distinctive contribution. All three audits converge on this reframe: AAD's value is in how it organizes scope, not in which results it integrates. Partially closes F22; composes with SP-3, SP-4, O-BP10, O-BP8 as the framework-reframing cluster.
+- **SP-8** — Dual-edged identifiability-floor + separability-pattern reading. Both meta-segments present the positive half (strengthened machinery); foreground the negative half (bounded reach) equally.
+
+**Convergent big-picture reframe** (Codex + Gemini + Opus): move the framework's center of mass from "integration of four disciplines" to "organization-of-scope under a master principle" — Codex's "bounded correction under decomposed disturbance," Gemini's "thermodynamics of purposeful systems with coupling as primary geometric variable," Opus's "epistemic architecture as distinctive contribution." These are not the same proposal but they are on the same axis.
+
+### Actionable from the audit batch
+
+- **F29** (unity-dimensions two-axis integration) — **pure mechanical work**, 45–90 min. Should land first in next session as a confidence-building cleanup.
+- **F31** (orient cascade 4c sensitivity note) — 30 min editorial. Small cleanup.
+- **F25** (coupled-diagnostic-framework runtime vs. analytical) — 60–90 min editorial *or* wait for C-BP1 landing and handle together.
+- **F30** (OUTLINE scope lattice) — 20–40 min editorial; composes naturally with O-BP8 if Phase C framing pass is pursued.
+
+### Requires scoping or substantive work
+
+- **F22 + SP-7** — README + CLAUDE.md + OUTLINE preamble rewrite as a coordinated framing pass. 1–2 sessions. Incorporates the convergent big-picture reframe.
+- **F24** — Promote `msc/spike-edge-semantics-resolution.md`'s "causal efficacy credence" framing to segments; soften `#strategy-dag`'s "DAG-forced" language; foreground causal sufficiency as scope condition. 1 session.
+- **F26 + SP-6** — Composition-closure consolidation pass. 2–3 sessions + optional scoping spike.
+- **F28** ($\rho_\Sigma$) — Strengthen-first spike attempting to derive $\rho_\Sigma$ from observable quantities; honest scope-narrowing fallback if strengthening fails. 1–2 sessions.
+- **F23** — "16/24 exact survival" per-layer breakdown. Coordinate with C-BP1 three-layer separation to avoid redoing work. 1 session.
+
+### Supersedes prior planning
+
+SP-2 supersedes the three-instance meta-segment promotion (Phase B in the prior recommended sequence). The updated Phase B: verify the 5-instance claim (Lyapunov + IB additional instances), then promote at the appropriate generality (3 or 5).
+
+SP-7 + SP-3 together partially fulfill Phase C (framing pass), which is now deepened rather than replaced — the OUTLINE/CLAUDE.md rewrite should incorporate the convergent reframe at the same time as it adds the scope lattice (O-BP8) and the template-as-organizing-principle (O-BP1) content.
+
+
+## Recommendations for next session (updated post-2026-04-23 audit)
+
+What follows is one agent's prioritization after the 2026-04-23 audit. Joseph's call which to follow.
 
 ### Session gains (what landed; refresh of session character)
 
@@ -29,22 +88,39 @@ The 2026-04-22/23 cycle ran Phases 1–5 + 7 of the proposed sequence, plus two 
 
 Segment count: 93 → 96 (added `#identifiability-floor` before this cycle; `#strategy-cost-regret-bound`, `#separability-pattern`, `#edge-update-natural-parameter` this cycle). Stage distribution: ~13 claims-verified, ~23 deps-verified, ~59 draft.
 
-### Recommended sequence for next session
+### Recommended sequence for next session (updated 2026-04-23)
 
-**Phase A — Citation audit project-wide (2–3 sessions; see "Active — Citations Audit" below).** The reverse-KL audit found a 3-wrong-out-of-~16 error rate. Prior strengthening cycles invoked Bareinboim/Khalil/Khasminskii/Khasminskii/Friston/Tishby/Pearl/etc.; none has had the same audit scrutiny. Next session should run the audit in batches (Section I derivations first; then Section III composition; then TST operational segments).
+**Phase α — Quick wins first (1 session total).** Confidence-builders and pure integration debts:
+- **F29** — `#unity-dimensions` two-axis integration (45–90 min). Pure mechanical work landing `msc/spike-unity-closure-mapping.md`'s Option C into Formal Expression.
+- **F31** — `#orient-cascade` step 4c practical-sensitivity note (30 min).
+- **F21-follow-up / F24** — Promote `msc/spike-edge-semantics-resolution.md`'s "causal efficacy credence" framing to `#strategy-dag`; soften "DAG-forced" language to match `#graph-structure-uniqueness`'s sufficiency-only content (1 session).
 
-**Phase B — Promote the three-layer additive-decomposition pattern as a meta-segment (1–2 sessions).** New segment `#additive-decomposition-pattern` (or `#logarithmic-coordinate-forcing`) naming the pattern across the three current instances, with a candidate-extensions section flagging composition-closure / tempo-composition / communication-gain / continuous-$M_t$ update as open extension questions. Takes its place alongside `#identifiability-floor`, `#separability-pattern`, `#approximation-tiering`, `#independence-audit` as the fifth meta-segment in AAD's scope-characterization family. Low risk — framing touch; the math is already in the three source segments.
+**Phase A — Citation audit project-wide (2–3 sessions).** The reverse-KL audit found a 3-wrong-out-of-~16 error rate. Prior strengthening cycles invoked Bareinboim/Khalil/Khasminskii/Friston/Tishby/Pearl/etc.; none has had the same audit scrutiny. Next session should run in batches (Section I derivations first; then Section III composition; then TST operational segments). Template is the reverse-KL audit work (commit `e777f01`).
 
-**Phase C — Coordinated framing pass: O-BP1 + O-BP10 + O-BP8 (1–3 sessions).** Three composable framing moves, all editorial:
+**Phase B — Promote the additive-coordinate-forcing meta-pattern (1–2 sessions).** *SP-2 supersedes the original three-instance promotion.* Verify the 5-instance claim (Lyapunov + IB Lagrangian as two more instances of the Cauchy-functional-equation additive-decomposition pattern). Promote at whatever generality the verification supports — 3 instances (honest minimum) or 5 (if Lyapunov / IB each have an AAD-internally-motivated additivity axiom parallel to the three primary instances). New meta-segment `#additive-coordinate-forcing`.
 
-- **O-BP10** (projection-contraction framing): "an adaptive system is a projection whose contraction rate exceeds its target's drift rate." Goes in OUTLINE.md preamble + `#sector-persistence-template` introductory passage. **Note added 2026-04-23:** the three-layer pattern sharpens O-BP10's scope — the "contraction" works on disturbance expressed in whichever coordinate makes the underlying decomposition additive. Under G-BP1's log-odds coordinate, edge-level contraction is natural; under the reverse-KL coordinate, divergence-level contraction is natural. The slogan is cleaner once the additive-decomposition pattern is visible.
-- **O-BP1** (template as organizing principle): reframe the OUTLINE around disturbance decomposition at scales. Composes with O-BP10 and SP-1.
-- **O-BP8** (explicit scope lattice): name the adaptive → agency → learning-purposeful → exact-Section-II-modular → coupled/logogenic lattice once. Closes Finding 16.
+**Phase C — Coordinated framing + reframe pass (2–3 sessions).** The convergent Codex/Gemini/Opus big-picture reframe (SP-7) + O-BP1 + O-BP10 + O-BP8 + SP-3 constitute a deepened framing pass that incorporates the audit trio's convergent observation. README + CLAUDE.md + OUTLINE preamble rewrite should be coordinated rather than fragmented. Specifically:
 
-**Phase D — Then choose:**
-- **(i) O-BP11 observability master-variable scoping spike** (deepest remaining structural insight from the audit cycle; should be explicitly falsification-designed per the prior recommendation).
-- **(ii) Phase 2.5 B.5d uniqueness spike** (parallel to the other three Cauchy-functional-equation uniqueness results; potential fourth instance of the pattern).
-- **(iii) Phase 9 C-BP1 + C-BP4 epistemic separation** (three-layer separation + claim-level statuses; composes with O-BP14 tables).
+- **SP-7** (epistemic architecture foregrounding): AAD's distinctive value is its epistemic architecture (separability + identifiability-floor + calibration-lab + scope-honesty + additive-coordinate-forcing + agent-identity postulate), not the integration narrative. Partially closes F22.
+- **O-BP10** (projection-contraction slogan): "adaptive system = projection whose contraction exceeds target's drift." Sharpened by SP-1/SP-2 — contraction operates on disturbance expressed in whichever coordinate the additive-decomposition pattern forces.
+- **O-BP1** (template as organizing principle): reframe OUTLINE around disturbance decomposition at scales. Composes with O-BP10 and SP-1/SP-2.
+- **O-BP8** (explicit scope lattice): name the adaptive → agency → learning-purposeful → Class-1-modular → coupled/logogenic lattice once. Closes F16 and F30.
+- **SP-3** (calibration-laboratory template generalization): prescribe the transfer-assumption table format for all domain instantiations. Composes with O-BP8.
+- **SP-4** (agent identity to architectural postulate): elevate "AAD is a theory of token-level adaptation under causal embedding" to explicit postulate.
+
+This is a larger coordinated pass than the original Phase C. 2–3 sessions. Consider breaking into (i) README + CLAUDE.md reframe (1 session) + (ii) OUTLINE preambles + scope lattice + template-as-organizing-principle (1 session) + (iii) per-segment touches where the reframe cascades.
+
+**Phase D — Composition-closure consolidation (SP-6; 2–3 sessions).** Repairs F26. Scope the bridge lemma explicitly to linear-Gaussian + exponential-family Tier-1 cases; adopt "composite agents are AAD agents iff effective dynamics admit an AAD-shaped reduction" as the honest general claim. Scoping spike valuable first. Downstream of Phase A (citation audit; especially on `#composition-closure`'s Khalil/Khasminskii citations).
+
+**Phase E — Substantive spikes (choose by priority):**
+- **F28 strengthening spike** ($\rho_\Sigma$ operationalization, 1–2 sessions). Attempt to derive $\rho_\Sigma$ from observable quantities; honest scope-narrowing fallback if strengthening fails. Addresses the deepest substantive finding in this audit batch.
+- **O-BP11 observability master-variable falsification spike** (deepest structural insight from the earlier cycle; not yet attempted).
+- **Phase 2.5 B.5d uniqueness spike** (potential additional instance of SP-2 pattern).
+- **Phase 9 C-BP1 + C-BP4 epistemic separation** (three-layer separation + claim-level statuses; partially addresses F23 and F25; composes with O-BP14 tables).
+
+**Phase F — SP-5 "Reader's Path" two-tier presentation (1–4 sessions).** After Phase C framing pass stabilizes. Short load-bearing preamble per segment; incremental application.
+
+**Phase G — SP-8 dual-edged floor/separability reading (1 session).** Framing touch on `#identifiability-floor` + `#separability-pattern`. Composes with SP-7.
 
 ### What to defer
 
