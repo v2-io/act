@@ -2,6 +2,13 @@
 
 **Status:** Working document. Fourteen architectural proposals surfaced across the four de novo audits of 2026-04-22 (Gemini, Codex round-1, Opus, Codex round-2). Each is documented here as an *independent architectural investment option*, evaluated on its own merits — not as machinery for subsuming local findings.
 
+**Execution status (2026-04-22 strengthening cycle, post-AI-integration):**
+
+- **G-BP2 V-medium — EXECUTED** (commit `a14682e`). Variational form of the strategy IB objective: KL-divergence to the optimal-policy posterior replaces Shannon-MI relevance term in `#strategy-complexity-cost`, with cross-references in `#compression-operations`, `#exploit-explore-deliberate`, `#ciy-unified-objective`. Closes Gemini Findings 2 (Shannon-zero degeneracy) and 3. **V-strong remains open** as a paper-writing-time decision per `msc/spike-active-inference-vs-aad.md` §I action 5 — V-medium does not preclude either V-strong or V-weak; both options stay open.
+- **O-BP2 partially executed.** The synthesis-segment route landed in 2026-04-21 (`#compression-operations`); the §H Overlap-2 honest credit landed in commit `a14682e`. Full four-segment rewrite remains open per `msc/spike-ib-unification-plan.md`.
+- **AI engagement at the segment level — EXECUTED** for the §H Underclaim 1+2+3 positioning moves and §H Overlap 1+2 honest credits (commit `a14682e`). See `msc/spike-active-inference-vs-aad.md` §I and `msc/spike-ai-integration-pass.md` for the per-segment proposed text.
+- All other proposals (G-BP1, G-BP3, O-BP1, O-BP3, O-BP4, O-BP5, O-BP6, O-BP7, C-BP1, C-BP2, C-BP3, C-BP4) remain in the original characterization below; see `TODO.md` for current status and recommended ordering.
+
 **Identifier conventions:** G-BP = Gemini bigger-picture; O-BP = Opus bigger-picture; C-BP = Codex round-2 bigger-picture. Codex round-1 did not have a bigger-picture section.
 
 ## How to read this

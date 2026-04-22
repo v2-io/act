@@ -2,6 +2,20 @@
 
 **Status:** Working note. Local findings (scope bugs, mechanical breaks, framing issues) from three de novo audits conducted on 2026-04-22 plus one earlier Gemini flag. Architectural proposals from the same audits — independent structural moves that advance the theory's beauty/concision/correctness/approachability/fundamentality — are documented separately in `msc/architectural-proposals-2026-04-22.md`.
 
+**Resolution status (2026-04-22 strengthening cycle, commits `14a6095`, `b6134c2`, `4d050c8`, `b91493c`, `a14682e`):**
+
+- **Finding 1 — RESOLVED.** No-go theorem strengthening; predecessor softening at `msc/spike-finding-1-l0-residual-repair.md`, strengthening at `msc/spike-finding-1-strengthening.md`, both in commit `14a6095`. The covariance test is now framed as the unique broadly-available violation of the no-go's scope, not a chosen primary; `#causal-insufficiency-detection` rewritten end-to-end.
+- **Finding 3 — RESOLVED** (subsumed) by G-BP2 V-medium in commit `a14682e`. KL-form replaces Shannon-MI in `#strategy-complexity-cost`; degeneracy fixed by construction.
+- **Finding 5 — PARTIALLY RESOLVED** by AI integration commit `a14682e`. `#loop-interventional-access` now distinguishes "data generated under intervention" from "cleanly identified do-estimates" via the three distinctive AAD moves and Bruineberg-blanket positioning. Full closure requires O-BP6 identity promotion.
+- **Finding 7 — RESOLVED.** Per-quantity exactness audit + conditional maximality strengthening; predecessor at `msc/spike-finding-7-git-chronica-narrowing.md`, strengthening at `msc/spike-finding-7-strengthening.md`, both in commit `b6134c2`. $\mathcal{C}_t^{\text{commit}}$ added to NOTATION.md.
+- **Finding 10 — RESOLVED.** Status reclassified discussion-grade → exact (applied external theorem). Spike at `msc/spike-finding-10-ib-status.md`; commit `a14682e`.
+- **Finding 11 — PARTIALLY RESOLVED** by F1 strengthening. Step 4c is now reframed as the unique broadly-available diagnostic given the no-go (rather than as one diagnostic among several). Optional step-4c sanity edit in `#orient-cascade` itself remains as cleanup.
+- **Finding 13 — RESOLVED.** Prop B.7 derived for L1' observable-$C$ + Cramér-Rao refutation for unobservable case. Predecessor softening at `msc/spike-finding-13-l1-default-narrowing.md`, strengthening at `msc/spike-finding-13-strengthening.md`, both in commit `4d050c8`. `#strategy-dag` headline + Correlation Hierarchy table updated; `#strategic-dynamics-derivation` open item #4 marked Resolved.
+
+**Remaining open:** Findings 2 (partial — V-medium G-BP2 fixed Shannon-zero degeneracy in #strategy-complexity-cost; the unbounded-gradient pathology in #credit-assignment-boundary remains), 4, 6, 8, 9, 12, 14, 15. See `TODO.md` for current actionability and subsumption-by-architectural-proposal status.
+
+**New meta-segment from this cycle:** `#identifiability-floor` collects the F1+F13 no-go pattern as an emerging structural commitment of the theory, with three open extensions (causal-IB, misspecification-cost quantification, tier-switching policy cost) added as new active items.
+
 **Origins:**
 
 - Gemini pre-audit review flagged the L0 residual mechanism on 2026-04-22 (post-promotion, pre-audit-batch).

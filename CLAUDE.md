@@ -19,7 +19,7 @@ This is theoretical research, not software engineering. The primary artifacts ar
 
 ## Current Priority
 
-**Read `TODO.md` first.** The active work is at the top of the file: the two pending findings from the 2026-04-21 audit (`msc/pending-findings-2026-04-21.md`) are the next substantive moves — Finding A (composition-closure temporal coarse-graining) being the more load-bearing. The 2026-04-21 session plan (sector-Lyapunov template factoring, Cox-analog reframing, IB-compression synthesis, promotion-honesty fixes) has been executed; see `TODO.md` §"Archive" for what landed. The master audit driving those moves is `msc/opus-audit-2026-04-21.md` — read it if you are touching anything in Section II/III persistence machinery, the orient cascade, or composition scope.
+**Read `TODO.md` first.** The active work is at the top of the file. The 2026-04-22 strengthening cycle (commits `14a6095`, `b6134c2`, `4d050c8`, `b91493c`, `a14682e`) executed strengthen-first repairs for Findings 1, 7, 10, 13 from the 2026-04-22 audit-trio batch, plus the AI integration pass that addressed §H Overlap+Underclaim findings from `msc/spike-active-inference-vs-aad.md`. Among the substantive theoretical contributions: a no-go theorem for on-policy L0-insufficiency detection (Pearl/Bareinboim CHT applied), a derived L1' sector transfer for soft-facilitators under observable common cause (Prop B.7) plus Cramér-Rao refutation for the unobservable case, a per-quantity exactness audit for git-derived TST estimators with conditional maximality, and the new `#identifiability-floor` meta-segment naming the structural-no-go pattern. The remaining strategic moves and open findings are listed in TODO; see `TODO.md` §"Archive" for what landed in this and prior cycles.
 
 **For broader orientation**, read `msc/2026-03-13-feedback.md` — the earlier consolidated review from three independent frontier-model reviews (Claude Opus, OpenAI Codex, Google Gemini) that framed the theory's structural priorities. Historical top-priority items from that review: (1) the directed-separation scope decision (resolved as architectural classification — modular/merged/partially modular), (2) the α/T relationship (fixed 2026-03-14), (3) resolving the composition-closure bridge lemma (tier-specific contraction structure promoted; the remaining structural moves — IB unification and sector-Lyapunov template factoring — landed in the 2026-04-21 audit cycle).
 
@@ -106,28 +106,38 @@ The summary below is the architectural snapshot — settled load-bearing results
 - Orient cascade structure (derived from information dependency)
 - Additive log-confidence decay (generalizes $p^n$)
 - Observability as strategy enablement
-- Directed separation (with architectural classification, not κ-scalar)
+- Directed separation (with architectural classification, not κ-scalar). 2026-04-22: positioned as the **Pearl-blanket conservative form** of the Markov blanket per Bruineberg et al. 2022 — AAD adopts the conditional-independence statement with explicit Class 2 scope exit, refuses the Friston-blanket metaphysical reading.
 - $G_t = (O_t, \Sigma_t)$ split (definitional)
-- Satisfaction gap / control regret split
+- Satisfaction gap / control regret split — 2x2 disambiguation table is the working **decision-theory diagnostic** that AI's preferences-as-priors form collapses (per `#satisfaction-gap`, contrasted with EFE pragmatic/epistemic; Sun & Firestone 2020 dark-room cite)
 - DAG acyclicity derived from temporal ordering
 - Composition consistency required by scope condition's level-independence
 - α/T relationship verified for all correction function classes (α proportional to T)
 - Strategic tempo $\mathcal{T}_\Sigma$ (defined, verified against four topologies)
-- Cognitive cost of $\Sigma_t$ (IB/MDL framework, max useful depth $d^\ast$)
+- Cognitive cost of $\Sigma_t$ (IB/MDL framework, max useful depth $d^\ast$). 2026-04-22: G-BP2 V-medium executed — variational form with KL-divergence to optimal-policy posterior replaces Shannon-MI relevance term (closes Gemini Finding 2/3's Shannon-zero degeneracy), aligned with active-inference variational machinery without committing to preferences-as-priors or EFE-as-master
 - Three-way exploit/explore/deliberate: extended deliberation threshold derived; two-stage decomposition and dominance regimes are discussion-grade (simulation shows unified objective outperforms two-stage; deliberation rarely chosen by oracle)
 - P3→Markov proved via Causal Markov Condition theorem (conditional on causal sufficiency; P3 is now consequence, not premise)
-- Correlation Hierarchy (L0/L1/L2) in strategy-dag — correlated failure first-class, independence as tractable special case
+- Correlation Hierarchy (L0/L1/L1'/L2) in strategy-dag — correlated failure first-class, independence as tractable special case. 2026-04-22: L1' formal transfer derived for soft-facilitator regime under observable common cause (Prop B.7, five-way gating); refuted under unobservable common cause via Cramér-Rao floor (Fisher rank-1)
 - Convention hierarchy (C1/C2/C3) in value-object with monotonicity result — diagnostics scale from local heuristic to global
+- Sector-persistence template factored out as shared lemma; six AAD persistence-flavored results re-expressed as instances. 2026-04-22: positioned as **broader-validity** apparatus than FEP-flow (Aguilera et al. 2022 narrows the FEP-flow argument's parameter regime; AAD's Lyapunov/sector machinery applies wherever (T1)–(T3) hold — Khalil 2002 ch. 4)
+- **Identifiability-floor pattern** (added 2026-04-22): structural no-go results derived from external information-theoretic theorems strengthen the load-bearing role of AAD machinery that supplies the unique escape. Two derived instances: F1's on-policy detection no-go (CHT) sharpens `#loop-interventional-access`; F13's L1' mixture-identifiability obstruction (Cramér-Rao) elevates observability-as-information-augmentation. Three open extensions: causal-IB, misspecification cost, tier-switching cost
+- Loop interventional access — sharpened 2026-04-22 with three distinctive AAD moves named (Bareinboim hierarchy connection, regime-indexed identification, scope honesty per Bruineberg et al. 2022) and honest credit to broader action-perception-loop lineage (Friston 2017, Parr & Pezzulo 2022, Wiener 1948, Conant & Ashby 1970)
+- TST $\mathcal{C}_t^{\text{commit}}$ subset (added to NOTATION.md 2026-04-22) with conditional maximality result (under cryptographic immutability, cryptographic authorship, standard universal retrieval, mainline-bounded scope) and per-quantity exactness audit identifying ~14 EXACT estimators
 
 ### Open
 - Edge identifiability conditions (resolved in software, open in general)
 - Composition laws (specific forms are sketches; existence is required)
-- Coupled formulation for logogenic agents (Section V scope decision)
+- Coupled formulation for logogenic agents
+- Causal-IB extension for interventional relevance variables (open per #identifiability-floor)
+- Misspecification-cost quantification under finite information budget (open per #identifiability-floor)
+- Tier-switching policy cost (open per #identifiability-floor; overlaps with O-BP7)
+- V-strong G-BP2 — paper-writing-time decision on whether to ever present AAD as control-theoretic specialization of active inference (deferred per `msc/spike-active-inference-vs-aad.md` §I action 5)
 
 ### Known Fragilities
 - ~~Edge semantics claim interventional but update from observational~~ — resolved 2026-04-02 as regime-indexed interpretation (causal efficacy estimate with A/B/C regime classification)
 - Missing commitment/resource/temporal structure in the DAG
 - Directed separation violated by goal-conditioned agents (LLMs) — resolved as architectural scope, not approximation
+- ~~L0 residual mechanism collapses on-policy~~ — resolved 2026-04-22 by F1 strengthening: converted to a no-go theorem; the covariance test is now framed as the unique broadly-available violation of the no-go's scope, not a chosen primary
+- ~~L1' formal transfer is "open"~~ — resolved 2026-04-22 by F13 strengthening: derived for observable-$C$ (Prop B.7); refuted for unobservable single-channel via Cramér-Rao floor
 
 ## File Organization
 
