@@ -99,6 +99,8 @@ Do NOT use "Solid," "Confident," or "Plausible" as tier labels — these are not
 
 The summary below is the architectural snapshot — settled load-bearing results and the open structural questions. For live work-in-flight (pending findings, tier-C deferrals, open MEDIUM items, missing segments), see `TODO.md`. For the spike trail that produced these, see `msc/SPIKES.md`.
 
+**Note on settled vs. under-review.** Several items in the Settled list below have *architectural proposals under review* in `msc/architectural-proposals-2026-04-22.md` — moves that would reframe or generalize the item rather than overturn it. Notable examples: the $G_t = (O_t, \Sigma_t)$ decomposition would become a *property* rather than axiomatic under O-BP2 (compressions-as-projections); the AND/OR single-parameter-edge commitment would be generalized under O-BP4 (continuous-valued DAG); directed separation's classification would sit inside a continuous tiering under O-BP3. "Settled" here means "the current working commitment"; portfolio moves may change them. See `TODO.md` §"Strategic Architectural Proposals" for the current set.
+
 ### Settled (from convergence testing + spikes)
 - Single-parameter edges with AND/OR nodes
 - Orient cascade structure (derived from information dependency)

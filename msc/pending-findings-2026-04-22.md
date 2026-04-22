@@ -30,6 +30,10 @@
 | 9 | Section II preamble framing understates survival | Opus F3 | Medium-high | O-BP1 |
 | 10 | `#information-bottleneck` status mismatches unification role | Opus F4 | Low-medium | O-BP2 |
 | 11 | Orient cascade step 4c convergence in non-stationary envs | Opus F5 | Medium | Partial by O-BP3; compound with F1 |
+| 12 | Section II survival slides from statement-level to operationally extractable | Codex r2 F2 | High | C-BP1 |
+| 13 | `#strategy-dag` L1-as-default overgeneralizes beyond strict-prerequisite | Codex r2 F3 | High | — |
+| 14 | `#developer-as-act-agent` exact-status mismatch (human vs AI regimes) | Codex r2 F4 | High | Partial by C-BP4 |
+| 15 | Software "richest operationalization domain" headline overclaims | Codex r2 F5 | Low | C-BP3 |
 
 **Actionable-now callouts** (lowest-effort / highest-clarity, if doing local repairs):
 
@@ -37,6 +41,8 @@
 - **Finding 7** (git claims) — sharp and contained, 30–45 min.
 - **Finding 9** (Section II preamble) — 30 min rewrite, or subsumed by O-BP1 framing pass.
 - **Finding 10** (IB status) — 15 min reclassification, or subsumed by O-BP2.
+- **Finding 13** (strategy-dag L1-default narrowing) — 30–45 min, independent of portfolio.
+- **Finding 15** (software richest-domain headline) — 15–30 min, or subsumed by C-BP3.
 
 ---
 

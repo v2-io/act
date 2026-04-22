@@ -1,6 +1,6 @@
 # TODO — Open Work Items
 
-**Last reconciled:** 2026-04-22. This file is the living action list. For the 2026-04-21 master audit that seeded some current items, see `msc/opus-audit-2026-04-21.md`. For the 2026-04-22 three-audit batch (Gemini, Codex, Opus), local findings live in `msc/pending-findings-2026-04-22.md` and architectural proposals in `msc/architectural-proposals-2026-04-22.md`. For the 2026-04-02 round, see `msc/analysis-2026-04-02-comprehensive.md` — its concrete fixes are done and archived at the bottom of this file.
+**Last reconciled:** 2026-04-22. This file is the living action list. For the 2026-04-21 master audit that seeded some current items, see `msc/opus-audit-2026-04-21.md`. For the 2026-04-22 four-audit batch (Gemini, Codex round-1, Opus, Codex round-2), local findings live in `msc/pending-findings-2026-04-22.md` and architectural proposals in `msc/architectural-proposals-2026-04-22.md`. For the 2026-04-02 round, see `msc/analysis-2026-04-02-comprehensive.md` — its concrete fixes are done and archived at the bottom of this file.
 
 
 ## Active — Strategic Architectural Proposals (HIGHEST IMPLIED PRIORITY)
