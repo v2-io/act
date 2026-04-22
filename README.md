@@ -65,7 +65,7 @@ The cycle is: **Prolepsis → Aisthesis → Aporia → Epistrophe → Praxis →
 
 - **Aporia** is not "error" or "mismatch." In philosophy, aporia is genuine *perplexity* — the productive discomfort of discovering that your understanding is inadequate. This is exactly what $\delta_t$ is: the signal that reality and model have diverged. Calling it "error" implies the agent did something wrong. Calling it "mismatch" is accurate but clinical. Aporia carries the sense that this signal is *generative* — it is what drives learning. An agent without aporia is an agent that has stopped adapting.
 
-- **Aporia and adversarial dynamics** *(brainstorm — see WORKBENCH.md Open Questions #12)*: For composite agents (agents composed of sub-agents), aporia may be structurally equivalent to adversarial dynamics at the sub-agent level. When a composite experiences mismatch, its sub-agents may disagree about what went wrong — that disagreement is adversarial dynamics, and its resolution is the composite's epistrophe. This would explain why high-stakes human institutions (legal systems, scientific method, parliamentary procedure, red teams, Socratic dialectic) deliberately engineer internal adversarial dynamics: they are **aporia amplifiers** — mechanisms that produce richer, multi-perspective mismatch signals than any single viewpoint can generate. Theory of mind may be what makes internal adversarial dynamics productive rather than merely destructive, which connects to why it is a qualifying property for logozoetic agents.
+- **Aporia and adversarial dynamics** *(brainstorm — see `msc/brainstorm-aporia-sub-agent-adversarial.md`)*: For composite agents (agents composed of sub-agents), aporia may be structurally equivalent to adversarial dynamics at the sub-agent level. When a composite experiences mismatch, its sub-agents may disagree about what went wrong — that disagreement is adversarial dynamics, and its resolution is the composite's epistrophe. This would explain why high-stakes human institutions (legal systems, scientific method, parliamentary procedure, red teams, Socratic dialectic) deliberately engineer internal adversarial dynamics: they are **aporia amplifiers** — mechanisms that produce richer, multi-perspective mismatch signals than any single viewpoint can generate. Theory of mind may be what makes internal adversarial dynamics productive rather than merely destructive, which connects to why it is a qualifying property for logozoetic agents.
 
 - **Epistrophe** is not "update." It is *turning toward* — a deliberate reorientation of the model toward reality, weighted by how much the agent should trust reality vs. its own prior understanding (the uncertainty ratio $\eta^\ast$). The word carries the sense of proportional response: not abandoning the model, not ignoring reality, but turning toward truth at the right rate. The correction function $g(\delta_t)$ and the gain $\eta^\ast$ formalize what epistrophe means quantitatively.
 
@@ -427,9 +427,11 @@ This gradient — from exact core through principled architecture to open formul
 - **[`OUTLINE.md`](OUTLINE.md)** — Top-level assembly index across all parts.
 - **[`01-aad-core/OUTLINE.md`](01-aad-core/OUTLINE.md)** — The AAD mathematical core, claim by claim.
 - **[`LEXICON.md`](LEXICON.md)** — Prose vocabulary: cycle phases, agent classes, key terms.
-- **[`WORKBENCH.md`](WORKBENCH.md)** — Development state: what's settled, what's open, known fragilities.
-- **[`FORMAT.md`](FORMAT.md)** — Segment file conventions.
+- **[`TODO.md`](TODO.md)** — Active work items: pending findings, tier-C deferrals, open MEDIUM items, missing segments.
+- **[`FORMAT.md`](FORMAT.md)** — Segment file conventions; includes Epistemic Triage (three questions + three rings of segment content).
 - **[`NOTATION.md`](NOTATION.md)** — Symbol reference.
+- **[`MIGRATION-MAP.md`](MIGRATION-MAP.md)** — TFT → AAD and TST → AAD absorption tracking; live while `old-*` files remain.
+- **[`msc/SPIKES.md`](msc/SPIKES.md)** — Index of spikes (exploration, parked hypotheses, superseded directions).
 
 
 ## Project Layout
@@ -453,9 +455,11 @@ OUTLINE.md              Top-level assembly index
 LEXICON.md              Prose vocabulary (spans whole project)
 NOTATION.md             Symbol reference (spans all sections)
 FORMAT.md               Segment file and general md conventions
-WORKBENCH.md            Development state
+TODO.md                 Active work items
+MIGRATION-MAP.md        Prior-work (TFT, TST) absorption tracking
 
 msc/                    Working documents, spikes, derivation attempts
+  SPIKES.md             Spike index (status of each exploration)
 ref/                    Reference papers
 bin/                    Build and lint tools
 

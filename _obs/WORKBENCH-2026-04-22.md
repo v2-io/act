@@ -1,6 +1,25 @@
-# WORKBENCH — AAD Theory Development
+# WORKBENCH — AAD Theory Development (archived 2026-04-22)
 
-Working notes for theory development. This is a thinking tool, not a reference document. For the canonical theory structure, see `01-aad-core/OUTLINE.md`. For the current active work list, see `TODO.md` — the 2026-04-21 audit cycle landed four new Appendix segments (`#sector-persistence-template`, `#independence-audit`, `#approximation-tiering`, `#compression-operations`) and revised roughly a dozen others; the segment-status tables and §"Not Yet Written" counts further down this file reflect the pre-audit state and will be reconciled on the next substantive WORKBENCH edit. Pending findings are tracked in `msc/pending-findings-2026-04-21.md`.
+## Archive preamble
+
+This file was retired on 2026-04-22. It had accumulated across many sessions as a "thinking tool" capturing development state, but most of its content became redundant with authoritative sources elsewhere in the project (segment frontmatter, `01-aad-core/OUTLINE.md`, `CLAUDE.md`, `TODO.md`, spike files) while its segment-status tables and "Not Yet Written" counts drifted out of sync with the actual tree. Keeping it active was a maintenance tax without matching value.
+
+The retirement extracted four pieces of uniquely-valuable content to proper homes before archiving:
+
+- **Theory Core three-ring classification** (inevitability / canonical / empirical) → extended into `FORMAT.md` §"Epistemic Triage > Three rings of segment content." Now canonical guidance rather than working notes.
+- **Prior Work Migration Map** (TFT→AAD, TST→AAD, TST-via-TFT bridge) → `MIGRATION-MAP.md` at project root. Live document while `old-*` files remain in the component `src/` directories.
+- **"Internal aporia as sub-agent adversarial dynamics" brainstorm** → `msc/brainstorm-aporia-sub-agent-adversarial.md`. Preserved as a standalone speculative note; the `README.md` cycle-phase section cross-references it.
+- **Key Spikes table** → `msc/SPIKES.md`. Spike index with status annotations; linked from `CLAUDE.md` and `README.md`.
+
+Everything else in this file below was redundant with one of: segment frontmatter, `01-aad-core/OUTLINE.md`, `CLAUDE.md` (Key Architectural Decisions + What's Settled vs Open), `TODO.md` (active items + archive), individual spike files, or `msc/2026-03-13-feedback.md`. The redundant content is retained below for archaeological access, not for active reference.
+
+Future agents: if you're looking for current development state, read `TODO.md` for active work, `01-aad-core/OUTLINE.md` for segment status (via the `stage` column and `bin/lint-outline` output), `CLAUDE.md` for architectural decisions, and `msc/SPIKES.md` for the trail of exploration that produced the current segments. Do not re-create this file.
+
+---
+
+## Historical content follows
+
+Working notes for theory development. This is a thinking tool, not a reference document. For the canonical theory structure, see `01-aad-core/OUTLINE.md`. For the current active work list, see `TODO.md` — the 2026-04-21 audit cycle landed four new Appendix segments (`#sector-persistence-template`, `#independence-audit`, `#approximation-tiering`, `#compression-operations`) and revised roughly a dozen others; the segment-status tables and §"Not Yet Written" counts further down this file reflect the pre-audit state. Pending findings are tracked in `msc/pending-findings-2026-04-21.md`.
 
 
 ## Review Feedback — 2026-03-13 (PRIORITY)

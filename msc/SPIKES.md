@@ -1,0 +1,53 @@
+# Spike Index
+
+Index of the spikes in `msc/`, with location and current status. Spikes are process artifacts — they explore an idea before it's ready to be a segment. They are NOT canon; the segments they promote to are. When a spike is fully absorbed into segments, it becomes archaeology.
+
+This index was extracted from WORKBENCH.md when that file was retired on 2026-04-22. Updates happen informally — a spike added, promoted, or parked should ideally be reflected here, but the authoritative state is always the spike file itself and the segments it feeds.
+
+| Spike | Location | Status |
+|-------|----------|--------|
+| Purposeful agent derivation (v3) | `msc/spike-v3-purposeful-agent.md` | Section II porting **COMPLETE** — all 20 segments in src/ |
+| Agent composition / holon | `msc/spike-agent-composition.md` | Core insight strong; composition laws are sketches |
+| Composition closure | `msc/spike-composition-closure.md` | Formalized closure defect $\varepsilon^\ast$; promoted to #composition-closure + #tempo-composition |
+| Graph structure uniqueness | `msc/spike-graph-uniqueness.md` | Acyclicity derived; P3→Markov via CMC |
+| Intent DAG consolidated | `msc/04-intent-dag-consolidated.md` | Canonical DAG reference; converged |
+| Prior art assessment | `msc/02-prior-art-assessment.md` | Hafez/IBM/BDI/active-inference positioning |
+| Discrete-time sector condition | `msc/spike-discrete-time-sector.md` | Closes GA-5 (Section I formal chain complete). **Promoted to segment.** |
+| Strategy tempo + cognitive cost | `msc/spike-strategy-tempo-cost.md` | $\mathcal{T}_\Sigma$ defined; IB/MDL cost framework; max depth $d^\ast$ derived. **Promoted to segments.** |
+| Coupled survival analysis | `msc/spike-coupled-survival-analysis.md` | Maps Section II for Class 2 agents: 16/24 survive exactly, 5 approximately, 2 need modification. 7-segment roadmap for `03-logogenic-agents/`. |
+| Correlated Kalman composition | `msc/spike-composition-correlated-kalman.md` | Full derivation: $\varepsilon^\ast = 0$ for all $\rho$. $\Delta_{\text{perf}} \propto \rho^2$ is optimality, not representability. First $\varepsilon^\ast \gt 0$ from purposeful substates. |
+| Edge semantics resolution | `msc/spike-edge-semantics-resolution.md` | Resolves observational/interventional tension: regime-indexed causal efficacy estimate. **Applied to segments.** |
+| LLM causal access note | `msc/llm-causal-access-note.md` | Pearl reconciliation; potential intro/paper/blog |
+| DAG boundary type closure | `msc/spike-dag-type-closure.md` | v2; reviewed by Codex; ready for porting |
+| Single-edge strategic dynamics | `msc/spike-single-edge-strategic-dynamics.md` | **Sector condition verified** for Beta-Bernoulli. $\alpha_\Sigma = \eta_{\text{edge}} = 1/(n+1)$. **PROMOTED** to segments. |
+| Two-edge strategic dynamics | `msc/spike-two-edge-strategic-dynamics.md` | Observable: weakest-link $\alpha_\Sigma$ with evidence starvation. Unobservable: per-edge fails (A1 violation), plan-level recovers. **PROMOTED** to segments. |
+| Disturbance model split | `msc/spike-disturbance-model-split.md` | Model D vs Model S. Derives $b=3/2$ analytically. Resolves regime mixing. **PROMOTED** to 9 segments + NOTATION.md. |
+| Projection admissibility | `msc/spike-projection-admissibility.md` | $\mathcal P_{\text{adm}} = (P1, P2, P3)$. Two-Kalman exact instantiation. Mahalanobis norms. **PROMOTED** to composition-closure + tempo-composition. |
+| Scalar objective scope | `msc/spike-scalar-objective-scope.md` | Scalar is load-bearing for diagnostics, not structural results. Revealed-preference argument. AND-node workaround documented. **PROMOTED** to objective-functional + satisfaction-gap. |
+| Track-b simulations | `msc/track-b-nonlinear-sims/` | 6 variants, all validated |
+| Miller ↔ AAD bridge | `msc/spike-miller-act-bridge.md` | Maps Miller's *Ex Machina* (2022) to AAD. Five new Section III dynamics elements identified. FSA ↔ DAG relationship analyzed (orthogonal, not competing). Sector condition blind to neutral drift — new concept "latent structural diversity" needed. Paths C/D (automata foundations) ruled out; Path B (Section III dynamics) recommended. |
+| FSA ↔ strategy-DAG | `msc/spike-fsa-dag-relationship.md` | Moore machine = behavioral surface; strategy DAG = epistemic interior. Orthogonal representations. DAG→FSA is lossy (discards causal semantics). FSA composition exact for behavior only; agent-level composition still approximate ($\varepsilon^\ast$ from internal state projection). |
+| Neutral drift ↔ Lyapunov | `msc/spike-neutral-drift-lyapunov.md` | Phases 1,5 map cleanly; Phases 2-3 invisible to sector condition; Phase 4 partial (coupling emergence missing). Missing concept: latent structural diversity — correction-architecture variation invisible to persistence analysis. Endogenous $\gamma$ needed. |
+| SOC / composition speculation | `msc/speculation-soc-composition.md` | 2026-04-20. RG-style fixed-point argument: holonic composition + self-similarity → power-law tails. Inverse: scale-invariance constrains admissible composition, closure-as-consequence. "Optimal-at-critical" conjecture connects SOC to cognitive-cost framework. **Parked, speculation-grade.** |
+| Unity-to-closure mapping | `msc/spike-unity-closure-mapping.md` | 2026-04-20. **Reframes** unity-dimensions' direct-prediction claim to rate-distortion. Linear-Gaussian closed forms. §6: IB unification conjecture (seed). §10 addendum: non-degenerate Kalman shows **two-axis structure** — closure defect driven by sub-agent unity AND update-rule heterogeneity ($\Delta K$). |
+| Mori-Zwanzig / composition | `msc/spike-mori-zwanzig-composition.md` | 2026-04-20. Target $\varepsilon^\ast \geq C\lVert K\rVert_{\ell^1}$ does NOT close (per-step vs trajectory type mismatch). What closes: zero-lag kernel bound $\varepsilon^\ast \geq \lVert Q_\Lambda U P_\Lambda\rVert_{\text{op}}$ when $f_c^{\text{MZ}} \notin \mathcal M_{\text{adm}}$. MZ-optimal $f_c^{\text{MZ}} = P_\Lambda U P_\Lambda$ gives concrete admissibility benchmark. Stationarity fails for purposeful agents with diverging auxiliary state. |
+| Symbiogenic composition | `msc/spike-symbiogenic-composition.md` | 2026-04-20. Three composition mechanisms distinguished: peer coupling (current Section III), extreme transition (Miller spike), **symbiogenesis** (hierarchical absorption, MISSING). Reframing proposal: teleological unity $U_O$ is a *scope condition* for composition; other unities + update-heterogeneity are *quality metrics*. Symbiogenesis IS the mechanism by which $U_O$ crosses the threshold from 0 to 1. **PROMOTED** to composition-scope-condition + symbiogenic-composition. |
+| IB unification plan | `msc/spike-ib-unification-plan.md` | 2026-04-21. Scoping spike for the full IB unification move. Execution happened in `#compression-operations` segment + three integration edits; this spike remains the record for any future deeper unification push. |
+| Bridge-lemma contraction | `msc/spike-bridge-lemma-contraction.md` | Three-tier taxonomy (Tier 1 proved, Tier 2 local, Tier 3 domain-specific). Incremental sector bound (DA2'-inc) identified as the precise additional condition. **Absorbed** into #composition-closure Epistemic Status and Working Notes. |
+| Credit assignment boundaries | `msc/spike-credit-assignment-boundaries.md` | L0/L1/L2 correlation hierarchy; posterior correlation barrier for factored Beta. **PROMOTED** to #credit-assignment-boundary + #strategy-dag Correlation Hierarchy. |
+| $\kappa$ topology insight / synthesis / hb-operationalization | `msc/spike-kappa-topology-insight.md`, `msc/spike-kappa-synthesis.md`, `msc/spike-kappa-hb-operationalization.md` | Resolved the $\kappa$-as-scalar category error → architectural classification (Class 1/2/3). **PROMOTED** to #directed-separation. Also split $\kappa_{\text{selection}}$ / $\kappa_{\text{processing}}$. |
+| Hafez integration audit | `msc/spike-hafez-integration-audit.md` | IDT pattern as modular sidecar within Class 2 systems. Bi-predictability $P$, $H_b$ agent opacity. **Partially absorbed** into #directed-separation Working Notes; $H_b$ remains for future Section III extension. |
+| Three-way tradeoff | `msc/spike-three-way-tradeoff.md`, `msc/sim-three-way-tradeoff.py` | Adversarial spike on exploit-explore-deliberate. Finding: unified objective outperforms two-stage; deliberation rarely chosen by oracle. Segment ( #exploit-explore-deliberate) may need rewrite to reflect this. |
+| $\kappa$ regimes / $\kappa$ session-residual | `msc/spike-kappa-regimes.md`, `msc/spike-kappa-session-residual.md` | Absorbed into architectural classification and coupled-update-dynamics; historical record. |
+| L1 worked example | `msc/spike-L1-worked-example.md` | Strict-prerequisite common-cause factoring; L1.5 / L1' soft-facilitator case flagged as gap. Addressed in 2026-04-21 Gemini L1-soft-facilitator batch. |
+| Attention governance / causal graphs | `msc/spike-attention-governance.md`, `msc/spike-attention-causal-graphs.md` | Attention as causal mechanism; governance framing. Exploratory; not yet promoted. |
+| Causal Level 4 | `msc/spike-causal-level-4.md`, `msc/spike-causal-level-4-formal.md` | Beyond Pearl's three levels; exploratory. Not promoted. |
+| Composition bridge 2-agent | `msc/spike-composition-bridge-2agent.md` | 2-agent sketch of bridge lemma; absorbed into `#composition-closure` bridge-lemma derivation. |
+| Coupled survival analysis | `msc/spike-coupled-survival-analysis.md` | See above; the 7-segment roadmap for logogenic agents. **All 7 promoted.** |
+| Disturbance model split | `msc/spike-disturbance-model-split.md` | See above. |
+| Gain-sector-bridge / nonlinear | `msc/spike-gain-sector-bridge.md`, `msc/spike-gain-sector-bridge-nonlinear.md` | Derives the $\eta^\ast$-to-sector-$\alpha$ mapping. **Absorbed** into #gain-sector-bridge. |
+| OR-node strategic dynamics | `msc/spike-or-node-strategic-dynamics.md` | Beta-Bernoulli persistence for OR-nodes. **Absorbed** into #strategic-dynamics-derivation. |
+| Purposeful agent derivation | `msc/spike-purposeful-agent-derivation.md` | Precursor to v3 spike; archaeology. |
+| Speculation SOC composition | `msc/speculation-soc-composition.md` | See above. |
+
+Parked, absorbed, or archaeological spikes are retained for record — their discovery paths, ruled-out directions, and "what does not close" notes are independently valuable.

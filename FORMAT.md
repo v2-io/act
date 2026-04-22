@@ -154,7 +154,7 @@ This is a standing check rather than a gate because spike→segment compression 
 Every item in `## Working Notes` must be explicitly resolved:
 
 - **Resolved.** The answer is now incorporated into the segment's Formal Expression or Discussion. Delete the note.
-- **Deferred.** The question is real but out of scope for this segment. Move it to `WORKBENCH.md` or a relevant spike document with rationale. Delete the note from the segment.
+- **Deferred.** The question is real but out of scope for this segment. Move it to `TODO.md` (if it's concrete open work) or a relevant spike document in `msc/` (if it's exploratory), with rationale. Delete the note from the segment.
 - **Promoted.** The question warrants its own segment or is a known gap in the outline. Add cross-reference, delete the note.
 
 A segment with unresolved Working Notes is not a candidate. The `## Working Notes` section should be empty or absent at `candidate` stage.
@@ -216,6 +216,42 @@ Three questions to ask when writing or reviewing any segment. These determine th
 Each segment has a ceiling — the strongest epistemic status it could ever reach, no matter how much work is invested. A segment whose functional form is inherently empirical (e.g., #conceptual-alignment) will never become `exact`; investing effort to "prove" it is wasted. A segment that's discussion-grade because it hasn't been worked yet (e.g., a sketch with a clear proof path) may have `exact` as its ceiling.
 
 When the ceiling is clear, note it in the segment's Epistemic Status paragraph: *"Max attainable: [status]. Currently [status] because [reason]."* This prevents wasted effort and focuses energy where promotion is possible.
+
+### Three rings of segment content
+
+The triage above classifies individual segments; applied across the theory, it produces a coarse structure of three concentric rings. Knowing which ring a segment sits in determines how to review it, what to invest in, and when to stop pushing.
+
+**Inevitability core (~15 segments).** Segments where the goal is "given the prior objects, this is the *only* compatible form." Mathematical inevitability is the ceiling. Review focus: tightening the derivation until no alternative formulation escapes.
+
+The current inevitability-core members, with why inevitability is plausible:
+
+| Segment | Why inevitability is plausible |
+|---------|-------------------------------|
+| #recursive-update + #recursive-update-derivation | Three constraints → unique recursive form. Strongest result in the theory. |
+| #mismatch-decomposition | Bias-variance decomposition: mathematical identity once mismatch is defined. |
+| #chain-confidence-decay | log(product) = sum(logs). Pure algebraic identity. |
+| #persistence-condition | Given sector conditions, the threshold follows by Lyapunov. |
+| #sector-condition-stability + #sector-condition-derivation | Lyapunov stability result applied to mismatch dynamics. |
+| #sector-persistence-template | Abstract Lyapunov argument; six AAD results instantiate it. |
+| #structural-adaptation-necessity | Parametric update converges within model class; wrong class forces structural change. |
+| #orient-cascade | Resolution order forced by information dependency ( $M_t$ before $\Sigma_t$ before $O_t$ ). |
+| #satisfaction-gap / #control-regret | Arithmetic once $V_{\text{ideal}}, A_O, V_{\text{current}}$ are defined. Diagnostic value is the insight. |
+| #causal-hierarchy-requirement | Application of Bareinboim et al.'s causal hierarchy result to $Q_O$ evaluation. |
+| #loop-interventional-access | Feedback loop generates interventional data by construction. |
+| #directed-separation | $f_M$ independence from $G_t$ follows from the update structure, given scope condition. |
+| #deliberation-cost | Think-vs-act threshold from information-theoretic argument. |
+| #composition-consistency | If scope condition doesn't restrict level, predictions at different levels must be compatible. |
+| #graph-structure-uniqueness | Four operational postulates + causal sufficiency force a Markov-factorized DAG (Cox-analog). |
+
+**Canonical formulations (second ring).** Good representational choices that are motivated but not forced. Triage question 2 ("what competing formulation would also fit?") answers "at least one alternative exists." Review focus: explaining the choice, noting alternatives, and guarding against drift toward inevitability claims that aren't there.
+
+Current members include: #complete-agent-state, #objective-functional, #value-object, #strategy-dimension, #strategy-dag, #and-or-scope, #agent-model, #information-bottleneck, #event-driven-dynamics, #adaptive-tempo, #structural-change-as-parametric-limit, #explicit-strategy-condition (normative, not derived), #composition-closure (operationalizes #composition-consistency but is one formulation among several possible ones), most definitions.
+
+**Empirical, heuristic, discussion (third ring).** Claims whose ceiling is empirical or heuristic — testable against the world but not derivable from the formalism. This is *not* a demotion: these are where AAD becomes falsifiable and useful. Review focus: stating falsifiable predictions, connecting to validation, resisting the temptation to dress empirical claims as derivations.
+
+Current members include: #update-gain, #mismatch-dynamics, #edge-update-via-gain, #strategic-calibration, #communication-gain, #conceptual-alignment, #exponential-cognitive-load, #changeset-size-principle, most TST and logogenic-agent segments, simulation observations.
+
+**Usage.** When developing or reviewing a segment, first locate its ring. If it's inevitability-core, the goal is tightening the proof. If it's a canonical formulation, the goal is explaining the choice and noting alternatives. If it's empirical/heuristic, the goal is stating falsifiable predictions and connecting to validation. Don't push segments upward beyond their ceiling; don't leave core segments at sketch status when a proof is within reach. The ring assignment is not part of segment frontmatter — it's an analytical stance the reviewer takes.
 
 
 ## Equation-Level Tags

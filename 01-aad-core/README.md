@@ -26,4 +26,6 @@ Domain instantiations ([`02-tst-core/`](../02-tst-core/OUTLINE.md)), logogenic a
 - [`NOTATION.md`](../NOTATION.md) — Symbol reference
 - [`FORMAT.md`](../FORMAT.md) — Segment file conventions
 - [`LEXICON.md`](../LEXICON.md) — Prose vocabulary (cycle phases, agent classes)
-- [`WORKBENCH.md`](../WORKBENCH.md) — Development state
+- [`TODO.md`](../TODO.md) — Active work items
+- [`MIGRATION-MAP.md`](../MIGRATION-MAP.md) — Prior-work (TFT) absorption tracking
+- [`msc/SPIKES.md`](../msc/SPIKES.md) — Spike index

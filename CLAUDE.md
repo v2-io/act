@@ -31,7 +31,7 @@ This is theoretical research, not software engineering. The primary artifacts ar
 
 **Read `NOTATION.md`** for the symbol reference. For the full original TFT conventions and epistemic system, see `_obs/old-tf-00-notation-conventions.md`.
 
-**See `WORKBENCH.md`** for theory development state: what's settled, what's open, spike status, and reorganization notes.
+**See `TODO.md`** for active work items and `msc/SPIKES.md` for the spike index. What's settled/architectural belongs here in CLAUDE.md (below); what's in-flight belongs in TODO.md; what's been explored belongs in `msc/` with SPIKES.md as the entry point.
 
 ## Theory Structure
 
@@ -97,7 +97,7 @@ Do NOT use "Solid," "Confident," or "Plausible" as tier labels — these are not
 
 ## What's Settled vs. Open
 
-See `WORKBENCH.md` for the full development state. Summary:
+The summary below is the architectural snapshot — settled load-bearing results and the open structural questions. For live work-in-flight (pending findings, tier-C deferrals, open MEDIUM items, missing segments), see `TODO.md`. For the spike trail that produced these, see `msc/SPIKES.md`.
 
 ### Settled (from convergence testing + spikes)
 - Single-parameter edges with AND/OR nodes
@@ -131,11 +131,11 @@ See `WORKBENCH.md` for the full development state. Summary:
 
 **Root level (Agentic Systems):**
 - `OUTLINE.md` — **Top-level assembly index** across all parts.
-- `WORKBENCH.md` — **Development state.** What's done, open, fragile.
-- `FORMAT.md` — **Segment file conventions.** How to write claim files.
+- `TODO.md` — **Active work items.** Pending findings, tier-C deferrals, open MEDIUM items, missing segments, and an Archive section for completed cycles. Live; read first when picking up work.
+- `FORMAT.md` — **Segment file conventions.** How to write claim files. Includes the Epistemic Triage (three questions + three rings of segment content).
 - `NOTATION.md` — **Symbol reference.** All math notation defined here.
 - `LEXICON.md` — **Prose vocabulary.** Cycle phases, agent classes, key terms.
-- `TODO.md` — **Deferred organizational items.**
+- `MIGRATION-MAP.md` — **Prior-work absorption tracking.** TFT → AAD and TST → AAD tables. Live while `old-*` files remain in the component `src/` directories; retires when absorption is complete.
 
 **Components:**
 - `01-aad-core/OUTLINE.md` — **AAD canonical outline.** Sections I, II, III + Appendices.
@@ -146,10 +146,11 @@ See `WORKBENCH.md` for the full development state. Summary:
 - `04-logozoetic-agents/OUTLINE.md` — **Logozoetic framework outline.**
 
 **Supporting:**
-- `bin/` — Build and lint tools (`build`, `lint-md`)
+- `bin/` — Build and lint tools (`build`, `lint-md`, `lint-outline`)
 - `_obs/` — Superseded docs. Preserved for archaeology.
 - `ref/` — Reference papers
 - `msc/` — Working documents, spikes, historical artifacts
+- `msc/SPIKES.md` — **Spike index.** Every spike, its location, and current status (promoted, parked, archaeology).
 - `msc/reflections/` — Author's philosophical/theoretical journal
 - `msc/agentic-tft-*.md` — Prior bridge work (TFT → AI agents, Feb 2026, pre-AAD). Eight documents absorbed from `~/src/agentic-tft/`: cognitive loop spec, evaluation framework, crèche concept, ontology unification, foundational premises, narrative-as-implementation, experiential training design, and review response. These are source material for `03-logogenic-agents/` and `04-logozoetic-agents/` gaps. Superseded synthesis docs (00-02, 05, slide deck) are in `_obs/agentic-tft-*`.
 

@@ -48,8 +48,6 @@ These are foundational moves identified in `msc/opus-audit-2026-04-21.md` §"Big
 
 ### Section III — Composition Dynamics gaps (from Miller + Hafez integration)
 
-Per `WORKBENCH.md` §"Not Yet Written":
-
 - Latent structural diversity (`msc/spike-neutral-drift-lyapunov.md`)
 - Endogenous coupling — $\gamma$ as function of population composition
 - Composition transition dynamics (Miller 2022 extreme-transition motif)
@@ -66,34 +64,34 @@ Per `WORKBENCH.md` §"Not Yet Written":
 
 ### No longer open (tracked for cleanup elsewhere)
 
-- ~~`prior-art-positioning`~~ — superseded; prior art integrated into individual segment Discussions. Noted in `WORKBENCH.md` §"Not Yet Written".
+- ~~`prior-art-positioning`~~ — superseded; prior art integrated into individual segment Discussions.
 - ~~`linear-ode-approximation`~~, ~~`exploit-explore-deliberate`~~ — written.
-- ~~TST missing four segments (`software-epistemic-properties`, `developer-as-act-agent`, `code-quality-as-observation-infrastructure`, `causal-discovery-from-git`)~~ — written (verified 2026-04-22). WORKBENCH still reflects old state; update on next substantial WORKBENCH touch.
+- ~~TST missing four segments (`software-epistemic-properties`, `developer-as-act-agent`, `code-quality-as-observation-infrastructure`, `causal-discovery-from-git`)~~ — written (verified 2026-04-22).
 
 
 ## Active — Presentation
 
 - **Three-way presentation split.** All reviewers recommend: (a) core results, (b) conditional architecture, (c) empirical programs. Single highest-leverage presentation change. Not yet executed.
 
-- **Prior-art positioning synthesis.** Active inference/FEP, POMDP, BDI relationships now in individual segments (per WORKBENCH). A synthesis pass that surfaces the pattern across segments may still be valuable. Source: `msc/02-prior-art-assessment.md`.
+- **Prior-art positioning synthesis.** Active inference/FEP, POMDP, BDI relationships now in individual segments. A synthesis pass that surfaces the pattern across segments may still be valuable. Source: `msc/02-prior-art-assessment.md`.
 
 
 ## Active — Editorial Hygiene
 
 - **Spike-to-segment reverse-check.** Per the 2026-04-21 cross-cutting pattern: spike-to-segment compression consistently runs one direction (spike stronger than segment). Add to `FORMAT.md` promotion workflow as a standing Gate 2 check: "What did the spike establish that the segment does not say?" — added in Session C.5; verify it's still present and visible.
 
-- **CLAUDE.md / WORKBENCH.md drift.** Stage and segment-count tables in `WORKBENCH.md` lag actual tree state (§"Segment Status" still says "Section III 14 segments", "TST 4 missing", etc.; actual is higher and complete). Touch on next substantial WORKBENCH edit.
+- **Segment counts in CLAUDE.md "What's Settled" summary** could drift as new segments land; refresh opportunistically. (WORKBENCH.md retired 2026-04-22; live state now lives in OUTLINE.md + segment frontmatter + `bin/lint-outline` output.)
 
 
 ## Active — Promotion Pipeline
 
-**Current state (2026-04-22):** 92 AAD core segments (excluding `old-*` bridges); all at `draft` stage per most-recent frontmatter scans. Gate 1 (deps-verified) and Gate 2 (claims-verified) work was in flight before the 2026-04-21 audit cycle; the audit's repairs mostly preserved `draft` status. Recommended next promotion candidates remain the ones from the prior round: `sector-condition-derivation`, `recursive-update-derivation`, `mismatch-decomposition`, `chain-confidence-decay`, `persistence-condition`, `gain-sector-bridge`, `worked-example-kalman`, `discrete-sector-condition`, `satisfaction-gap`, `control-regret`, `graph-structure-uniqueness`. Reconcile stages across `OUTLINE.md`, `WORKBENCH.md`, and segment frontmatter on the next promotion pass.
+**Current state (2026-04-22):** 92 AAD core segments (excluding `old-*` bridges). Per `bin/lint-outline`: 16 claims-verified, 29 deps-verified, 46 draft, 1 unknown. Gate 1 (deps-verified) and Gate 2 (claims-verified) work was in flight before the 2026-04-21 audit cycle; the audit's repairs mostly preserved `draft` status. Recommended next promotion candidates remain the ones from the prior round: `sector-condition-derivation`, `recursive-update-derivation`, `mismatch-decomposition`, `chain-confidence-decay`, `persistence-condition`, `gain-sector-bridge`, `worked-example-kalman`, `discrete-sector-condition`, `satisfaction-gap`, `control-regret`, `graph-structure-uniqueness`. Reconcile stages across `OUTLINE.md` and segment frontmatter on the next promotion pass.
 
 
 ## Active — Lower Priority
 
 - **Observability-dominance product formula.** $\text{conf}_{\text{obs}} = \text{conf} \cdot \text{obs}$ posited, not derived. Label as formulation choice or derive.
-- **Strategy-complexity-cost IB operationalization.** $I(\Sigma_t; \pi^* \mid M_t)$ undefined in practice.
+- **Strategy-complexity-cost IB operationalization.** $I(\Sigma_t; \pi^\ast \mid M_t)$ undefined in practice.
 - **Strategic calibration aggregation.** $L^2$ norm unjustified. Label as design choice.
 - **Scope architecture.** "Within AAD's scope" ambiguous between adaptive and agency scope.
 - **`loop-interventional-access` status.** "exact" defensible; opening claim could be softened.
