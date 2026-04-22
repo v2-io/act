@@ -100,6 +100,8 @@ The per-dimension extension is *empirically exact* for Model S (matches AR(1) pr
 
 **Adaptive reserve.** The quantity $\Delta\rho^\ast = \alpha R - \rho$ (Prop A.2) measures how much additional disturbance the agent can absorb before persistence fails. Positive reserve means the agent has margin; zero reserve means it is at the threshold.
 
+**Persistence has a cost, not just a threshold.** The inequality above says mismatch is bounded; it does not say what rate of effort the agent expends to hold that bound. #persistence-cost establishes the complementary *information-rate* bound: under Model S with Gaussian-OU signal, the sustained Shannon information rate the agent must acquire from observations to maintain the ultimate bound satisfies $\dot R \geq n\alpha/2$ nats/time — a Landauer-analog floor that Kalman-Bucy saturates. The corollary is a channel-capacity prerequisite $C \geq \mathcal T/2$ that the threshold condition alone does not name. Two agents with identical persistence guarantees can face wildly different sustained demands because the cost scales linearly with $\alpha$; the threshold alone cannot distinguish dormant from running-hot.
+
 ### Connections
 
 The persistence condition appears in multiple downstream contexts:
