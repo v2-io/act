@@ -1,7 +1,7 @@
 ---
 slug: identifiability-floor
 type: discussion
-status: robust-qualitative
+status: discussion-grade
 depends:
   - causal-insufficiency-detection
   - strategic-dynamics-derivation
@@ -92,11 +92,15 @@ Approximation tiering ( #approximation-tiering) enumerates AAD's tiered approxim
 
 ## Epistemic Status
 
-*Robust qualitative.* The meta-pattern itself is a *discussion-grade* observation: two derived instances exist (Instance 1 at *exact* for shallow cases / *robust qualitative* for general; Instance 2 at *exact*); each is a legitimate no-go via external theorem. Whether the pattern is a *generative principle* — whether future AAD work will systematically encounter and derive more instances — is a *hypothesis* that the adjacent open floors test.
+*Discussion-grade* at the meta-pattern level. The segment is a presentational organizing principle — it names a shared shape across separately-derived results, not a theorem in its own right. What is derivative here is the recognition that two independent AAD findings share the pattern (setting → external theorem → no-go → boundary characterization → strengthened consequence); the pattern itself is not derived and has no identification claim of its own.
 
-The strongest epistemic claim this segment makes is the meta-observation that AAD's machinery (loop-interventional access, observability-as-augmentation) acquires sharper load-bearing roles when read through the floors that motivate them. This is *robust qualitative*: the claim is structurally clear once the instances are stated, but is not itself a theorem.
+*Individual instances retain their own, higher, epistemic status.* Instance 1 (on-policy L0 insufficiency detection, via the Causal Hierarchy Theorem) is *exact* for shallow strict-prerequisite cases and *robust qualitative* for general DAG topology, derived in #causal-insufficiency-detection. Instance 2 (L1' under unobservable common cause, via the Cramér-Rao bound on Fisher information) is *exact* under the Fisher rank-1 calculation in #strategic-dynamics-derivation Prop B.7 refutation. Readers citing this segment for a specific no-go should cite the instance's own derivation, not the meta-pattern.
 
-Max attainable: *robust qualitative* for the meta-pattern (it is a presentational organizing principle, not a derivation). The individual instances retain their own epistemic status (Instance 1: *exact* / *robust qualitative*; Instance 2: *exact*).
+The segment makes one additional claim: that AAD's machinery (loop-interventional access, observability-as-information-augmentation) acquires sharper load-bearing roles when read through the floors that motivate them. This is a *discussion-grade* observation about the theory's architecture — it is visible once the instances are assembled, but is not itself a theorem.
+
+*Whether the pattern is a generative principle* — whether future AAD work will systematically encounter and derive more instances — is a *hypothesis* that the adjacent open floors test.
+
+Max attainable: *discussion-grade* for the meta-pattern (it is a presentational organizing principle, not a derivation). The individual instances retain their own epistemic status as derived above.
 
 ## Discussion
 

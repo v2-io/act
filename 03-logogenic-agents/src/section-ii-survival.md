@@ -104,13 +104,13 @@ For the five approximately surviving results, the fundamental error source is go
 
 $$\Delta M_{\text{bias}} = f_X^M(X_{\tau^-}, e_\tau) - f_M(M_{\tau^-}, e_\tau)$$
 
-where $f_X^M$ denotes the epistemic component of the coupled update. This bias is bounded (in expectation) by:
+where $f_X^M$ denotes the epistemic component of the coupled update. This bias is bounded (in expectation) by the mutual-information form derived in #observation-ambiguity-modulation (equation at line 43):
 
-$$\lVert\Delta M_{\text{bias}}\rVert \leq C \cdot \kappa_{\text{processing}} \cdot H(G_t \mid e_\tau, M_{\tau^-})$$
+$$\lVert\Delta M_{\text{bias}}\rVert \leq C \cdot \kappa_{\text{eff}}(e_\tau) \cdot H(\Omega_\tau \mid e_\tau, M_{\tau^-}) = C \cdot \kappa_{\text{processing}} \cdot I(G;\, \Omega_\tau \mid e_\tau, M_{\tau^-})$$
 
-where $C$ is a domain-dependent constant. The bias is zero when $\kappa = 0$ (modular), maximal when $\kappa \approx 1$ and the goal state is highly informative given the event and prior model.
+where $C$ is a domain-dependent constant and $\kappa_{\text{eff}}(e_\tau) = \kappa_{\text{processing}} \cdot \mathcal{A}(e_\tau)$. This is a strict refinement of the coarser form $C \cdot \kappa_{\text{processing}} \cdot H(G_t \mid e_\tau, M_{\tau^-})$, since $I(G;\Omega_\tau \mid e_\tau, M_{\tau^-}) \leq H(G_t \mid e_\tau, M_{\tau^-})$: only the portion of the residual world-state uncertainty that is *goal-resolvable given the observation* can be channeled into epistemic bias. The bias is zero when $\kappa = 0$ (modular), zero when $\mathcal{A}(e_\tau) = 0$ (the observation's residual uncertainty is goal-neutral or absent), and maximal when $\kappa \approx 1$ *and* the observation is interpretively goal-resolvable.
 
-The impact of $\kappa$ on approximation quality is **modulated by observation ambiguity** — binary, verifiable observations carry minimal goal-conditioning bias regardless of $\kappa$. See #observation-ambiguity-modulation for the full treatment.
+The impact of $\kappa$ on approximation quality is therefore **modulated by observation ambiguity** — binary, verifiable observations carry minimal goal-conditioning bias regardless of $\kappa$. See #observation-ambiguity-modulation for the full treatment, including the definition of $\mathcal{A}(e_\tau)$ and the operationalization of $\hat{\mathcal{A}}$.
 
 ## Epistemic Status
 
@@ -133,5 +133,5 @@ So: Section II's *conceptual architecture* applies to Class 2 agents (16/24 exac
 ## Working Notes
 
 - The classification counts #strategy-dag twice (once for the structure, which survives exactly, and once for the credence mechanism, which requires modification). The scorecard counts these as contributing to both categories. One could instead count #strategy-dag once as "survives approximately" (the weakest classification applying to any part of the result). The two-part count is more informative.
-- The bound $\lVert\Delta M_{\text{bias}}\rVert \leq C \cdot \kappa \cdot H(G_t \mid e_\tau, M_{\tau^-})$ deserves formal derivation. The constant $C$ relates information-theoretic coupling (in bits) to state-space error (in the norm on $\mathcal{M}$). This requires an assumption about the geometry of $\mathcal{M}$ — e.g., that $M_t$ is parameterized such that mutual information and state-space distance are locally proportional. Without this, the bound is order-of-magnitude guidance, not a theorem.
+- The bound $\lVert\Delta M_{\text{bias}}\rVert \leq C \cdot \kappa_{\text{processing}} \cdot I(G;\Omega_\tau \mid e_\tau, M_{\tau^-})$ (the tighter MI form now primary, per #observation-ambiguity-modulation and the 2026-04-21 Finding B resolution) still deserves formal derivation of the constant $C$, which relates information-theoretic coupling (in bits) to state-space error (in the norm on $\mathcal{M}$). This requires an assumption about the geometry of $\mathcal{M}$ — e.g., that $M_t$ is parameterized such that mutual information and state-space distance are locally proportional. What has been established by the refinement to the MI form is *which* mutual information appears: residual goal-world MI after the observation, not bare goal entropy. What remains for $C$ to be pinned down is the information-geometric link between that MI and the chosen norm on $\mathcal{M}$ — feasible in principle (see #observation-ambiguity-modulation Epistemic Status, "Max attainable") but not attempted here. Without the constant, the bound is order-of-magnitude guidance, not a theorem.
 - The "fails" category contains only #directed-separation itself. One might argue this is not a "failure" but a "scope exit" — the result defines the boundary, and Class 2 agents are outside it. The classification is stated as "fails" for symmetry with the other categories, but the semantic content is "inapplicable by design."

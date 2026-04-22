@@ -287,21 +287,30 @@ The pattern: AAD's most defensible move is to absorb AI's machinery selectively 
 
 ### E.6 Specific implementation sketch for V-medium
 
-**Single segment touch: `#strategy-complexity-cost`.** Replace the Strategy IB Objective subsection's mutual-information form with a variational form:
+**Single segment touch: `#strategy-complexity-cost`.** Replace the Strategy IB Objective subsection's mutual-information form with a variational form *with KL direction forced by a regret-bound derivation* (F20 strengthening, commit following 2026-04-22 evening audit; the derivation now lives in appendix segment #strategy-cost-regret-bound; see `msc/spike-f20-kl-direction-strengthening.md` for the strengthening-cycle reasoning trail):
 
 ```
 Theoretical form (variational). Σ_t is a tractable variational approximation of the
 optimal-policy posterior Q*(π | M_t). The strategy-cost objective:
 
-  Σ_t* = arg min_Σ [ DL(Σ_t) + β_Σ · D_KL( Σ_t || π* | M_t ) ]
+  Σ_t* = arg min_Σ [ DL(Σ_t) + β_Σ · D_KL( π* || Σ_t | M_t ) ]
 
-where β_Σ trades description-length cost against approximation quality. When π* is
-deterministic-from-M_t, D_KL is well-defined (degenerate-MI degeneracy avoided).
+The KL direction with π* first is forced by a regret-bound derivation: strategy-induced
+regret R(Q_Σ) = V(a*) - E_Q[V(a)] is bounded above by V_max · sqrt(0.5 · D_KL(π* || Q_Σ))
+via Pinsker under bounded value range. Forward-KL (Q_Σ || π*) is +∞ under deterministic π*
+whenever Q_Σ has off-optimum mass — a vacuous bound. The π*-first direction is graded and
+finite; under deterministic π*, D_KL(π* || Q_Σ) = -log Q_Σ(a*). This closes the Shannon-MI
+zero degeneracy AND the forward-KL infinity degeneracy simultaneously.
+
 This variational form is the strategy-layer analog of variational free energy
 minimization in the active-inference literature (Friston 2017; Da Costa et al.
 2020; Sajid et al. 2021), without committing to preferences-as-priors or to EFE
-as master objective.
+as master objective. The direction alignment is convergent: AAD derives reverse-KL
+from the regret bound, AI from the free-energy-gradient argument; both arrive at
+π*-first KL.
 ```
+
+**Initial V-medium footnote (2026-04-22 evening correction).** The initial V-medium move (commit `a14642e`) used $D_{\mathrm{KL}}(Q_{\Sigma_t} \Vert \pi^\ast)$ (forward-KL), which has a *different* degeneracy under deterministic $\pi^\ast$: it is $+\infty$ whenever $Q_{\Sigma_t}$ places any off-optimum mass. Opus evening audit (F20) flagged this; the F20 strengthening spike derived the correct direction from the regret bound. Current segment uses reverse-KL ($\pi^\ast$-first), with direction defended by derivation rather than selected by convenience.
 
 **Synthesis segment touch: `#compression-operations`.** Add a paragraph noting that the strategy-compression instance can be read either as Shannon-IB (current discussion) or as variational-policy-approximation (the V-medium move). Both are admissible bindings under the master IB shape — the second resolves the Shannon-zero degeneracy.
 
