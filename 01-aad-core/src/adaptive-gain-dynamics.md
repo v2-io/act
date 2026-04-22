@@ -10,8 +10,6 @@ depends:
   - sector-condition-stability
   - sector-persistence-template
   - recursive-update
-  - multi-timescale-stability
-  - identifiability-floor
 stage: draft
 ---
 

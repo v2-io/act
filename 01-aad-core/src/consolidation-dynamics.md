@@ -10,7 +10,6 @@ depends:
   - information-bottleneck
   - compression-operations
   - structural-adaptation-necessity
-  - strategy-persistence-schema
 stage: draft
 ---
 

@@ -6,10 +6,7 @@ depends:
   - edge-update-natural-parameter
   - credit-assignment-boundary
   - strategy-persistence-schema
-  - identifiability-floor
   - strategic-dynamics-derivation
-  - structural-adaptation-necessity
-  - exploit-explore-deliberate
 stage: draft
 ---
 

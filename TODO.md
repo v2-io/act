@@ -51,6 +51,19 @@ This is a candidate meta-segment if the pattern firms up — naming the augmenta
 - **Variance-additive reframe for Spike E** — prerequisite for Path 2 promotion of internal-external decomposition.
 - **EWC tensor-valued gain extension of `#adaptive-gain-dynamics`** — stability-weighted per-parameter gain per Kirkpatrick et al. 2017. Adapts MG-1-MG-4 to tensor form.
 
+### Reverse-check flagged (FORMAT.md Gate-3-sidebar)
+
+Per FORMAT.md's standing spike-to-segment reverse-check convention: the six brainstorm-cycle promotions should be verified against the original spike content to confirm no over-aggressive compression. Each spike remains in `msc/spike-*.md` as reasoning trail per `feedback_math_lives_in_segments.md`. Specific items to check on next touch:
+
+- **Spike A / `#persistence-cost`** — did the "channel-capacity as biggest architectural opening" framing survive? (Retained in Working Notes.) Did the Model-D-adversarial-analog flag survive? (Yes, in Working Notes.)
+- **Spike B / `#critical-mass-composition`** — did the (UO-mult) discussion-grade labeling survive? (Yes, per derivation-audit table.) Did the obstruction analysis §6 survive? (Yes, in Working Notes + derivation-audit rows.)
+- **Spike C / `#interaction-channel-classification`** — did the Regime-I-with-adversarial-content attack survive? (Yes, in Discussion.) Did the $\mathcal I_{\max}$ heuristic caveat survive? (Yes, in Working Notes with sufficient-statistics-span alternative.)
+- **Spike D / `#adaptive-gain-dynamics`** — did the honest "imported machinery" acknowledgment survive? (Yes, in Epistemic Status.) Did the MAML case's honest classification-not-derivation label survive? (Yes, in derivation-audit table.)
+- **Spike F / `#consolidation-dynamics`** — did the R2 sub-case (C1 blindness under model-class inadequacy) survive? (Flagged as discussion-level in Working Notes.) Did the stability-upper-bound "pending derivation" flag survive? (Yes, in Epistemic Status + Working Notes.)
+- **Spike G / `#detection-latency`** — did the R2/R3 sub-cases survive compression? (R2 as Working Notes one-evening-spike flag; R3 as reference to #identifiability-floor Instance 1 without re-deriving.) Did the IDT-bypass prediction survive? (Yes, in Discussion.) Did the honest "not novel mathematically; novelty is AAD-framing" survive? (Yes, in Epistemic Status.)
+
+Probably ~30 minutes of focused reading per spike; can be done in a dedicated editorial pass at next session start.
+
 ## Highest-priority cleanups — LANDED (Phase 1 of strengthen-first cycle)
 
 All four cleanups landed. F20 strengthened rather than softened; the others were mechanical cross-segment updates. Detail in Archive section below.
