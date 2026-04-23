@@ -55,6 +55,8 @@ depends:
 | `sketch` | Outlines an approach or framework; direction identified, rigor pending |
 | `aside` | Tangential observation or connection; informative but not load-bearing |
 
+**Why these labels.** The terminology emphasizes that AAD is a *theoretical framework* using existing mathematics, not a pure-mathematics unification project. `postulate` (not `axiom`), `result` (not `theorem`), and `derivation` (not `proof`) avoid the framing that AAD claims foundational mathematical originality where it does not. References to external theorems keep their original names — Cox's theorem, Causal Hierarchy Theorem, Tikhonov's theorem — these are other authors' terms and renaming them would obscure provenance. Segment headings follow suit: `### Derivation`, not `### Proof Sketch`. Equation-level tags use `*[Postulate (slug)]*` and `*[Result (slug)]*`. Historical files (`_obs/`, `msc/`) are not retroactively updated — they preserve the terminology of their era.
+
 ### `status` — epistemic strength
 
 | Status | Meaning |
@@ -149,6 +151,19 @@ For each segment that was promoted from a spike in `msc/`, ask: *what did the sp
 
 This is a standing check rather than a gate because spike→segment compression can only be evaluated relative to the source spike, which is a historical artifact. Run the check when touching a segment for other reasons, or when a new finding surfaces the segment's derivation chain.
 
+### Math lives in segments, not spikes
+
+Math derived in a spike must land in a segment — never reside only in `msc/spike-*.md`. Two destinations:
+
+1. **An existing segment**, if the new math tightens, replaces, or extends that segment's content.
+2. **A new appendix segment** (more likely for novel derivations with their own claim identity) — added to `01-aad-core/src/` (typically `appendix-*` or a similarly named slug) and recorded in `01-aad-core/OUTLINE.md` under the appendix section.
+
+Spikes record the *attempt*, the *failed branches*, the *reasoning trail*, and pointers to where the resulting math lives. They are not the home for load-bearing derivations. The project's canonical form is the segment set: future agents and reviewers find results by looking at segments, not by archaeology through spikes; math that stays only in a spike cannot be cross-referenced, is not validated by `bin/lint-outline`, does not appear in OUTLINE.md, and is invisible to the theory.
+
+When briefing a spike-agent, include an explicit deliverable: *"if any novel math is derived, land it in segment X (edit existing) or create appendix segment Y (new slug, added to OUTLINE.md)."* When reviewing a spike's output, verify the math has a segment destination — if it lives only in the spike, the work is not yet done.
+
+Appendix segments are the right home for: regret-bound derivations, Fisher-information calculations, sector-condition algebra specific to a result, Cramér-Rao floor calculations, and similar derivation-heavy content that supports a main-section claim.
+
 ### Gate 4: Working Notes disposition → `candidate`
 
 Every item in `## Working Notes` must be explicitly resolved:
@@ -188,6 +203,21 @@ Definition, notation, and scope-narrowing files may use a simpler format than fu
 ### Working Notes
 
 The `## Working Notes` section is for active development: open questions about the claim, sketches of how AAD machinery might strengthen or weaken it, unresolved issues, things to check. This is *our* working space — what we're thinking about, not what we're asserting. It should be removed or emptied when the segment reaches `candidate` stage. Unlike the Discussion section (which is part of the published theory), Working Notes are process artifacts.
+
+### Voice and provenance
+
+**Segment voice, not diff voice.** Formal Expression, Epistemic Status, and Discussion present the current state of the theory. Avoid phrasing like "landed 2026-04-23", "the prior version of this segment treated X as...", "the msc/spike-Y.md cycle lifted...", or "promoted from spike Z" in those sections — that voice positions the content *against* the theory rather than presenting the segment *as* the theory. State what the theory **is**, not what changed: "Instance 3 of #identifiability-floor derives..." rather than "Instance 3 (landed 2026-04-23 from spike X) derives..."; "the four instances of the meta-pattern..." rather than "the meta-pattern was extended to four instances after the 2026-04-23 cycle...".
+
+A segment is read by future agents and reviewers who have no context for the chronicle of changes; diff voice forces them to imagine the prior state in order to parse the new state, dates the segment, and positions the content as contingent. Date / commit / spike references belong only in `## Working Notes`.
+
+**Spike references only in Working Notes, only for unfinished work.** Once promoted, a derivation's validity is established by the segment's own argument, not by "see spike X for the full derivation." No spike-X citations in Formal Expression / Epistemic Status / Discussion. If a derivation is promoted, state the derivation; if a result has Monte Carlo verification, state the verification's parameters and outcome in the segment itself.
+
+Spike references in `## Working Notes` are permitted in two narrow forms:
+
+1. **Pointer to unfinished follow-on work.** "The N-agent scaling is unresolved; framing lives in `msc/spike-composition-scaling-N.md`." Once the follow-on lands, the Working Note is replaced by segment content and the spike reference comes out with it.
+2. **Brief landing-context provenance.** "Derived in the 2026-04 Gap-cycle work trail (`spike-X.md`)." Permissible, but preferred lean over verbose — the segment's `depends` list and citations carry most of what a future reviewer needs.
+
+Cross-references between segments (`#other-segment`) are unrestricted in any section — they are the normal way segments interoperate. The rule is specifically about spike references, which are transient artifacts. The test: a reader with no knowledge of which spike produced which segment should be able to read any segment as a coherent piece of theory; spike files can vanish without invalidating it.
 
 ### Derivation-audit table *(optional; recommended for derivation-type segments)*
 
