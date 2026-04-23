@@ -10,7 +10,7 @@
 - **2026-04-23 brainstorm-cycle promotion sequence** (commits `591e8b6`, `13fe242`, `b48cdee`, `77a9bde`, `0bd859e`). Five promotions landed from the 2026-04-23 brainstorm cycle: `#interaction-channel-classification` (recipient-side four-regime theory closing the `#adversarial-edge-targeting` GAP); `#consolidation-dynamics` (Section I regime naming with stability-plasticity feasibility window); `#persistence-cost` (sustained information rate $\dot R \geq n\alpha/2$ with channel-capacity $\geq \mathcal T/2$ prerequisite); `#adaptive-gain-dynamics` (A2' sub-scope refinement $\alpha_1/\alpha_2/\beta$ via augmented-state Lyapunov); `#detection-latency` (R1 $\Omega((n_{\min}+1)/\varepsilon)$ bound sharpening forgetting prerequisite). Spike H (ρ-factorization) completed with outcome (C) honest obstruction — the multiplicative factorization $\rho = \rho_{\text{external}} \cdot f(\mathcal M) \cdot g(\pi)$ is NOT derivable; native structure is variance-additive. Segment count: 98 → 103. Spike E (internal-external decomposition) deferred pending variance-additive reframe.
 - **2026-04-23 critical-mass composition promotion + brainstorm-spike landing** (commit `0d7b987`). Seven parallel research spikes launched from an external-framework comparison prompt (GAA Baigozin 2025) as a brainstorming exercise. One closed cleanly and promoted: `#critical-mass-composition` derives the composite sector constant in closed form for the symmetric-matched-Tier-1 dyad, subsuming the weakest-link bound, recovering `#team-persistence` and `#adversarial-destabilization` as signed special cases, and formalizing `#symbiogenic-composition` (S-3) as an asymmetric-parameter limit. Cross-segment strengthening to `#composition-closure`, `#team-persistence`, `#symbiogenic-composition`, `#unity-closure-mapping`, `#sector-persistence-template`. Six companion spikes landed in `msc/` ready-for-review (persistence-cost; interaction-channel classification; adaptive-gain dynamics; internal-external decomposition; consolidation dynamics; stability-induced myopia). Segment count: 97 → 98.
 - **2026-04-23 SP-2 + citation audit cycle** (three commits: `7456ec3`, `6567914`, `f61e62f`). Executed Tier 1 item 1 (SP-2 meta-segment promotion) + partial Tier 1 item 2 (framing pass — CLAUDE.md §7 + OUTLINE preamble) + full citation audit project-wide. SP-2 landed as `#additive-coordinate-forcing` with the honest 1-anchor-plus-2-theorem characterization after in-flight verification narrowed Opus's 5-instance conjecture. Citation audit ran 4 parallel first-pass batches + 4 follow-up batches + 2 PDF-level Tier 1 verification agents + 1 missing-citation audit; produced 26 verified PDFs in `ref/` and zero confirmed attribution errors project-wide (reverse-KL's 20-25% rate was a local concentration in one spike, not a project-wide pattern). Segment count: 96 → 97.
-- **2026-04-23 triple audit** (Codex / Gemini / Opus, post-cycle). 10 consolidated findings (F22–F31) across the three audits plus 7 session-discovered architectural proposals (SP-2 through SP-8, extending SP-1 from the strengthening cycle). ~25% of candidate findings rejected as already-adequately-caveated. See `msc/pending-findings-2026-04-23.md` and `msc/architectural-proposals-2026-04-22.md` §"Post-2026-04-23-audit architectural extensions."
+- **2026-04-23 triple audit** (Codex / Gemini / Opus, post-cycle). 10 consolidated findings (F22–F31) across the three audits plus 7 session-discovered architectural proposals (SP-2 through SP-8, extending SP-1 from the strengthening cycle). ~25% of candidate findings rejected as already-adequately-caveated. See `msc/pending-findings-2026-04-23.md` and `_obs/architectural-proposals-2026-04-22.md` §"Post-2026-04-23-audit architectural extensions."
 - **2026-04-22/23 cascading strengthening cycle** (nine commits: `0a772d2`, `c1d9fcf`, `2980327`, `f70fb68`, `80b40d2`, `d0373fc`, `72ca532`, `e777f01`, `a39dfb7`; plus session-close `2fc829b`). Executed Phases 1–5 + 7; landed three Cauchy-functional-equation uniqueness theorems; discovered the three-layer additive-decomposition pattern (SP-1). See Archive for per-commit detail.
 - **2026-04-22 strengthening cycle** (commits `14a6095`, `b6134c2`, `4d050c8`, `b91493c`, `a14682e`). Executed strengthen-first repairs for Findings 1, 7, 10, 13 and the AI integration pass.
 - **2026-04-22 triple audit (evening)**. Six findings F16–F21 (all resolved by the cascading cycle) plus nine new architectural proposals O-BP8 through O-BP16 (four of which — O-BP14, O-BP6, C-BP3, C-BP2 — landed in the cascading cycle; C-BP3 and C-BP2 were added to the portfolio in the evening batch).
@@ -85,7 +85,7 @@ All six items landed in commit `b76ee67`. See cycle-history entry at top of file
 
 ### Tier 3 (architectural proposals)
 
-- **`#additive-coordinate-forcing` Fenchel-Bregman reframe**: move from "1-anchor + 3 theorems" to "one geometric object + four independently-motivated axioms converging on it + four segment manifestations." Seven-item rewrite per Fenchel spike §7.3. Preserves axiom-independence while naming geometric convergence. Substantial; deserves architectural-proposal entry in `msc/architectural-proposals-2026-04-22.md`.
+- **`#additive-coordinate-forcing` Fenchel-Bregman reframe**: move from "1-anchor + 3 theorems" to "one geometric object + four independently-motivated axioms converging on it + four segment manifestations." Seven-item rewrite per Fenchel spike §7.3. Preserves axiom-independence while naming geometric convergence. Substantial. **Now tracked as SP-9 in [`PROPOSALS.md`](PROPOSALS.md) §E.3** (wait-gated on Amari-Nagaoka 2000 PDF verification + Bundle 1 framework-face reframe landing first).
 - **`#posterior-displacement-template` extraction (Option B)**: narrow template on Otto-Villani + Lipschitz-posterior cascade. Contingent on `#bias-bound-derivation` landing + ≥1 forward-looking client materializing.
 - **Spike 1 §7.3 `#iISS-contraction`**: global Tier-2M lift under uniform Jacobian conditioning. Optional; lower urgency than §7.1 / §7.2.
 
@@ -94,7 +94,7 @@ All six items landed in commit `b76ee67`. See cycle-history entry at top of file
 - **Kalman-Ho closed-form for Instance 4** — ~1 page. Gates Instance 4 promotion.
 - **ρ-factorization no-go tightening** — ~1 page Kalman algebra for Scenarios A/B counterexample. Gates Instance-4-sub-statement cleanup.
 - **Mechanism-design Instance 5 formalization** — under broad reading; clean citations.
-- **Fenchel-Bregman reframe architectural proposal write-up** — for `msc/architectural-proposals-2026-04-22.md`.
+- ~~**Fenchel-Bregman reframe architectural proposal write-up**~~ — **DONE 2026-04-24**: landed as SP-9 in [`PROPOSALS.md`](PROPOSALS.md) §E.3.
 
 
 ## Active — Pending-Review Spikes (2026-04-23 brainstorm cycle — five promoted, one deferred)
@@ -258,7 +258,7 @@ All four cleanups landed. F20 strengthened rather than softened; the others were
 | 30 | Stacked scope narrowings (Class 1 + learning-agent) only Class 1 visible at OUTLINE | Opus C | High | Directly by O-BP8 |
 | 31 | Orient cascade 4c's signal-to-noise sensitivity not surfaced where step prescribed | Opus E | Medium | None — 30min editorial fix |
 
-**7 session-discovered architectural proposals** (SP-2 through SP-8) in `msc/architectural-proposals-2026-04-22.md` §"Post-2026-04-23-audit architectural extensions":
+**7 session-discovered architectural proposals** (SP-2 through SP-8) in `_obs/architectural-proposals-2026-04-22.md` §"Post-2026-04-23-audit architectural extensions":
 
 - ~~**SP-2** — Additive-coordinate-forcing meta-pattern, 5-instance (not 3).~~ **LANDED 2026-04-23** as `#additive-coordinate-forcing` meta-segment (`01-aad-core/src/additive-coordinate-forcing.md`, `type: discussion`, `status: discussion-grade`). The 5-instance conjecture was tested and narrowed to a **1-anchor-plus-2-theorem** characterization: chain layer is a mathematical identity (not a Cauchy-FE theorem); divergence and update layers are the two theorems conditional on AAD-internally-motivated axioms. Lyapunov and IB Lagrangian classified as *adjacent family members* with explicit reasoning (Lyapunov coordinate matched not forced; IB adopted from external theorem not re-derived). Cross-refs added in instance and adjacent segments. SP-1 entry in proposals doc was silently truncated; it has been replaced with a promotion pointer.
 - **SP-3** — Calibration-laboratory template as prescription. Generalize #software-epistemic-properties' transfer-assumption table to a `domain-instantiation-template.md` for all domains.
@@ -392,88 +392,13 @@ The pattern becoming visible: AAD's strengthening cycles alternate between *dept
 
 ## Active — Strategic Architectural Proposals
 
-Architectural moves from the 2026-04-22 portfolio (`msc/architectural-proposals-2026-04-22.md`). Six proposals from the portfolio have now landed (O-BP14, O-BP6, C-BP3, C-BP2, G-BP1 partial, G-BP2 V-medium); the three-layer additive-decomposition pattern was discovered as a by-product and is now documented in the proposals doc (§SP-1 "Discovered structural patterns"). Remaining proposals are evaluated on their own merits.
+**See [`PROPOSALS.md`](PROPOSALS.md) at the repository root.** The 2026-04-22/23/24 portfolio was consolidated 2026-04-24 from 33 enumerated proposals into a banded, verified structure with cross-cutting bundles (framework-face reframe; Section III completion), ~6 newly-surfaced candidates from segment Working Notes, and per-proposal independence-of-execution markers. The prior portfolio doc is in `_obs/architectural-proposals-2026-04-22.md` for provenance.
 
-### Landed in the 2026-04-22/23 strengthening cycle
+**Top-of-file pointers for immediate decision-making:**
 
-- **O-BP14 — Derivation-audit-table convention.** **LANDED** (commit c1d9fcf). FORMAT.md carries the convention; tables applied to #strategy-cost-regret-bound, #recursive-update-derivation, #sector-condition-derivation, #strategic-dynamics-derivation, #composition-closure. Surfaced A2' α/β ambiguity (→ A2' strengthening spike) and B.5d minimal-scheme claim (→ Phase 2.5 parked).
-- **O-BP6 — Identity promotion.** **LANDED** (commit 2980327). #agent-identity promoted to type:scope / status:robust-qualitative; three consequences named; #loop-interventional-access + #model-sufficiency carry cross-refs. Closes Finding 5 end-to-end.
-- **C-BP3 — Software as calibration laboratory.** **LANDED** (commit d0373fc). #software-epistemic-properties + 02-tst-core/OUTLINE preamble reframed; transfer-assumption table for five AAD-core quantities. Closes Finding 15.
-- **C-BP2 — Master separability pattern.** **LANDED** (commit 72ca532). New meta-segment #separability-pattern (positive-half complement to #identifiability-floor, six ladders enumerated). Three-part characterization of AAD scope: #independence-audit + #approximation-tiering + #separability-pattern. Composes with future O-BP1 + O-BP10.
-- **G-BP1 — Logit reparameterization (partial).** **PARTIALLY EXECUTED** (commit a39dfb7). Scoping confirmed narrow scope (only #credit-assignment-boundary required substantive work); Path B strengthening yielded the **evidential-additivity uniqueness theorem** in new appendix segment #edge-update-natural-parameter (log-odds forced via Cauchy functional equation, AAD-internally motivated as the update-level analog of #chain-confidence-decay). Finding 2 resolved by restating default signal in log-odds (domain = ℝ, no mechanical break). Interface notes in #strategy-dag + #edge-update-via-gain. Props B.1-B.7 retained in moment-parameter form (Fisher-equivalent). Full sweep deferred to future G-BP3 Fisher-unification session.
-- **G-BP2 V-medium** (prior cycle, commit a14642e). KL-form in #strategy-complexity-cost; this cycle added the **regret-bound derivation of KL direction** (commit 0a772d2, new appendix #strategy-cost-regret-bound) and the **chain-rule uniqueness theorem** (commit f70fb68; citations corrected in commit e777f01). V-strong still an open paper-writing-time decision.
-
-### Not yet landed — smaller / approachable
-
-- **O-BP1 — Sector-persistence template as organizing principle.** Reframe OUTLINE preamble around "AAD decomposes disturbance for bounded-correction dynamics at each scale." Subsumes Finding 9 (Section II preamble). 1–2 sessions, framing touch, low risk. Now sharpened by the three-layer additive-decomposition pattern (§SP-1): O-BP1's "disturbance decomposition at scales" reads cleanly once readers know AAD has a forced-logarithmic-coordinate move at three layers. **Natural next move after Phase B (SP-1 meta-segment).**
-
-### Not yet landed — larger / scoping required
-
-- **G-BP3 — Fisher-information unification of tempo and gain.** The largest single move in the portfolio. Major rewrite; scoping spike essential. The 2026-04-22 AAD-vs-AI positioning spike increased the case for keeping AAD's Lyapunov/sector-condition machinery distinct from the FEP-flow apparatus. G-BP1 partial-execution shrinks the remaining scope somewhat (log-odds coordinate already landed).
-- **O-BP3 — Continuous-parameter approximation tiering.** L0/L1/L1'/L2, C1/C2/C3, Tier 1/2/3 as continuous parameter spaces. Partial on Finding 11 (now closed by F1's no-go strengthening).
-- **O-BP4 — Continuous-valued strategy DAG.** Dedicated scoping spike recommended.
-- **O-BP5 — Orient cascade as recursive adaptive cycle.** Strengthens composition-consistency.
-- **O-BP7 — Known structural absences (meta-proposal).** Treat alongside #identifiability-floor §"Adjacent Floors" as parallel research agendas.
-
-### Larger / scoping required
-
-- **G-BP1 — Natural-parameter / logit reparameterization.** Fixes Finding 2 (unbounded gradient). **Partially executed 2026-04-22** (`msc/spike-gbp1-logit-scoping.md`): scoping confirmed narrow scope (only `#credit-assignment-boundary` required substantive work); Path B strengthening yielded the evidential-additivity uniqueness theorem in new appendix segment `#edge-update-natural-parameter` (update-level analog of #chain-confidence-decay, parallel to reverse-KL uniqueness under chain-rule axiom); `#credit-assignment-boundary` default signal restated in log-odds (domain = ℝ, no mechanical break); interface-notes added to `#strategy-dag` and `#edge-update-via-gain`; Props B.1-B.7 retained in moment-parameter form (Fisher-equivalent). Full sweep (restating Props B.1-B.7 in log-odds) still open but motivated by G-BP3 Fisher unification rather than Finding 2.
-- **G-BP3 — Fisher-information unification of tempo and gain.** The largest single move in the portfolio. Major rewrite; scoping spike essential. The 2026-04-22 AAD-vs-AI positioning spike (`msc/spike-active-inference-vs-aad.md` §C.1, §H Underclaim 1) increased the case for keeping AAD's Lyapunov/sector-condition machinery distinct from the FEP-flow apparatus — G-BP3 needs to engage that.
-- **O-BP3 — Continuous-parameter approximation tiering.** L0/L1/L1'/L2, C1/C2/C3, Tier 1/2/3 as continuous parameter spaces. Subsumed continuous-convention tier-C item. Partial on Finding 11 (now mostly closed by F1's no-go strengthening, since L0→L1 escalation is now derived).
-- **O-BP4 — Continuous-valued strategy DAG.** Edges carry expected-progress rates; nodes aggregate progress fields. Dedicated scoping spike recommended.
-- **O-BP5 — Orient cascade as recursive adaptive cycle.** Strengthens composition-consistency. No findings directly subsumed.
-- **O-BP7 — Known structural absences (meta-proposal).** Tier-switching policy, misspecification cost, cross-hierarchy monotonicity, CIY/EIG. The 2026-04-22 #identifiability-floor segment's §"Adjacent Floors" partially restates these; treat O-BP7 and §"Adjacent Floors" as parallel research agendas.
-
-### Layered with C-BP1 + C-BP4
-
-- **C-BP1 — Three-layer epistemic separation (defined / causally valid / operationally extractable).** Subsumes Finding 12; partial on 9 and 14. Scoping spike worthwhile.
-- **C-BP4 — Claim-level epistemic statuses.** Convention extension. Pairs with C-BP1.
-
-### Conceptually executed (but not in segment form)
-
-- **G-BP2 V-medium executed.** The variational form of the strategy IB objective landed in `#strategy-complexity-cost` (KL-divergence replacing Shannon-MI; closes Gemini Finding 2/3) plus a paragraph in `#compression-operations` plus Discussion-level cross-refs in `#exploit-explore-deliberate` and `#ciy-unified-objective`. V-strong (full reformulation as VFE master objective) was deliberately not pursued and remains an open paper-writing-time decision per `msc/spike-active-inference-vs-aad.md` §E.
-- **O-BP2 partially executed.** The synthesis-segment route was taken in 2026-04-21 (`#compression-operations` is the result). Full four-segment rewrite remains open; `msc/spike-ib-unification-plan.md` remains the record. The §H Overlap 2 honest credit landed in the 2026-04-22 AI integration commit.
-
-### Proposal clusters (from original portfolio)
-
-- G-BP1 + G-BP3 + O-BP3 (natural parameters + Fisher geometry + continuous tiering)
-- G-BP1 + O-BP4 (logit + continuous DAG)
-- O-BP1 + O-BP5 + O-BP6 (template + recursion + identity — "recursive persistence on singular trajectories")
-- C-BP1 + C-BP4 (three-layer framework + claim-level implementation)
-- O-BP1 + C-BP2 (result-level + epistemic-posture organizing principles)
-
-### Post-strengthening evening additions (2026-04-22)
-
-A second triple-audit cycle surfaced nine genuinely new architectural proposals plus several substantive *extensions* to existing proposals. The extensions to existing proposals — Gemini's Riemannian-manifold framing of G-BP1+G-BP3, Codex's "predictive relevance under bounded loss" framing of O-BP2, Gemini's Class 2 dissolution under O-BP2, Gemini's explicit $\lambda, N_r, \mu \in [0,1]$ form of O-BP3, Codex's alternative three-layer phrasing for C-BP1, Opus's six-ladder expansion of C-BP2 and the positive-half complementarity with `#identifiability-floor`, and Opus's O-BP1 + O-BP2 → Section III pull-up path — are documented in `msc/architectural-proposals-2026-04-22.md` "Extensions to existing proposals." When considering whether to scope or execute any of those existing proposals, read the extensions first — they substantially expand the case for several of them. The genuinely new proposals are below.
-
-**Smaller / approachable (high payoff per effort):**
-
-- **O-BP14 — Per-segment "what's derived vs. chosen vs. assumed" table convention.** `#graph-structure-uniqueness` lines 154–165 already carries this and it's the clearest epistemic signal in the repo. FORMAT.md convention extension + incremental per-segment application. **Probably highest-payoff-to-effort move in this batch.** Pairs with C-BP4. 30 min for convention + ~10 min per segment.
-- **O-BP8 — Explicit scope lattice as named-once-and-reused object.** Adaptive → agency → learning-purposeful → exact Section II modular → coupled/logogenic. State once, reference everywhere. Subsumes Finding 16. 1-session scoping spike + 30–60 min application.
-- **O-BP10 — Projection-contraction framing of sector-persistence template.** "An adaptive system is a projection whose contraction rate exceeds its target's drift rate." Composes with O-BP1 (result-level) and C-BP2 (posture-level) as the three-tier organizing-principle stack. **One of the most concise potential restatements of the entire theory available.** 1–3 sessions for preamble + template touch + comprehensive naming pass.
-- **O-BP9 — Typed admissibility for composition** (model-only / goal-bearing / strategy-bearing × Tier). Subsumes Finding 8 cleanly; partial on Finding 17. 1–2 session scoping spike.
-
-**Larger / scoping required:**
-
-- **O-BP11 — Observability as master variable across the theory.** Across L1' refutation, P4, P6, B.2/B.3, observability-dominance, directed-separation κ_processing, loop-interventional-access, shared-intent, TST P6 — observability appears as a recurring master variable currently presented as separate machinery in each instance. **Probably the deepest available structural insight from the audit cycle.** Substantial: scoping spike essential, 4–6 sessions if pursued in segment form. **Largest available reorganization** in the current portfolio.
-- **O-BP12 — Resource budget $B_t$ as master variable for bounded rationality.** Currently piecewise (DL of Σ_t, deliberation cost, η* capacity-dependence, context-window limits, β_Σ calibration); a single $B_t$ would let those derive rather than be separately postulated. Adjacent to O-BP7. 1–2 session scoping spike + 2–3 sessions if pursued.
-- **O-BP13 — Cox-parallel necessity for `#graph-structure-uniqueness`.** Currently sufficiency-only; necessity direction probably reachable via Lauritzen's characterization of Markov properties on different graph classes. 1–2 session dedicated spike.
-- **O-BP15 — Comprehensive "minimal proof of viability" worked example.** Single concrete instantiation hitting every Section I/II result. Should follow O-BP1 + O-BP2 framing stabilization. 3–4 session content effort.
-- **O-BP16 — Population-level Lyapunov dynamics** (for Section III). Tracks distribution of correction architectures and endogenous coupling rather than per-agent static bounds. Closes "neutral drift" blindness flagged by `msc/spike-neutral-drift-lyapunov.md`. Adjacent to existing Section III gaps (latent structural diversity, endogenous coupling). Major: scoping spike essential, 4–6 sessions if pursued.
-
-### Updated recommended ordering (post-evening-audit)
-
-Smallest-payoff-to-effort, with the four immediate cleanups above pre-required:
-
-1. **F18 + F19 + F20 + F21 cleanup** (highest-priority cleanups section). 1–2 hrs total.
-2. **O-BP14** (derivation-table convention) — 30 min convention + first batch.
-3. **O-BP1** (template as organizing principle) — framing touch, low risk.
-4. **O-BP10** (projection-contraction framing) — composes with O-BP1; can land in same pass.
-5. **O-BP6** (identity promotion) — one session, localized.
-6. **O-BP8** (scope lattice naming) — composes with O-BP1; closes F16.
-7. **C-BP3** (software calibration laboratory) — 45–90 min editorial.
-8. **C-BP2** (master separability pattern) — pairs with O-BP1 + O-BP10.
-9. **G-BP1** (logit reparameterization) — fixes Finding 2's residual gradient issue.
+- **Bundle 1 — Framework-face reframe** (SP-7 + O-BP1 + O-BP10 + O-BP8 + SP-3 + SP-4 + SP-8). Highest-leverage single move: **+9 framework / +10 paper**. 2–3 coordinated sessions. README still reads integration-first; segment-level infrastructure already landed. See PROPOSALS.md §Cross-cutting view.
+- **Bundle 2 — Section III completion** (O-BP16 + O-BP9 + SP-6-residue + SP-11 + SP-17). Closes all four named Section III OUTLINE GAPs + F26 + F8. **+7 framework completeness.** 6–10 sessions as a program; SP-11 (newly-surfaced meta-segment) is the shortest entry point.
+- **Ready-now independent items:** O-BP13 (Cox-necessity win/win theorem spike), C-BP1+C-BP4 bundle (epistemic separation framework), SP-14 (channel-capacity notation), O-BP15 (comprehensive worked example — soon after Bundle 1 stabilizes).
 
 The larger reorganizations (O-BP11 observability-master, O-BP12 resource-budget, O-BP13 Cox-necessity, O-BP15 comprehensive-worked-example, O-BP16 population-Lyapunov, G-BP2 V-strong, G-BP3 Fisher-unification, O-BP3 continuous-tiering, O-BP4 continuous-DAG, O-BP5 recursive-AAD, O-BP2 four-compressions full) remain longer-term scoping work. **O-BP11 (observability as master variable) deserves first attention among these** as the deepest available structural insight — even if not pursued, the scoping spike would surface what AAD's observability machinery actually is across the theory.
 
@@ -627,7 +552,7 @@ Detailed historical items moved out of the active list. Kept here so that future
 
 ### 2026-04-22/23 strengthening cycle — COMPLETE (commits `0a772d2`, `c1d9fcf`, `2980327`, `f70fb68`, `80b40d2`, `d0373fc`, `72ca532`, `e777f01`, `a39dfb7`)
 
-Nine commits delivering six proposal executions, three Cauchy-functional-equation uniqueness theorems, and one citation-audit cleanup. The cycle's distinctive pattern: three independent strengthenings all forced logarithmic coordinates via Cauchy-functional-equation arguments, which on retrospect comprise a three-layer additive-decomposition pattern (documented as §SP-1 in `msc/architectural-proposals-2026-04-22.md`).
+Nine commits delivering six proposal executions, three Cauchy-functional-equation uniqueness theorems, and one citation-audit cleanup. The cycle's distinctive pattern: three independent strengthenings all forced logarithmic coordinates via Cauchy-functional-equation arguments, which on retrospect comprise a three-layer additive-decomposition pattern (documented as §SP-1 in `_obs/architectural-proposals-2026-04-22.md`).
 
 - **Phase 1 cleanups (F18-F21) + F20 regret-bound strengthening** (commit `0a772d2`). F18 (worked-example-L1 stale L1' open claim), F19 (section-ii-survival entropy→MI bias bound), F21 (identifiability-floor frontmatter). F20 strengthened as regret-bound derivation: the π*-first KL direction is forced because forward-KL is vacuous under deterministic π*. New appendix segment `#strategy-cost-regret-bound`.
 - **Phase 2: O-BP14 derivation-table convention** (commit `c1d9fcf`). FORMAT.md convention + tables applied to 5 derivation segments. Surfaced A2' α/β ambiguity (→ A2' strengthening spike) and B.5d minimal-scheme claim (parked Phase 2.5).
@@ -638,7 +563,7 @@ Nine commits delivering six proposal executions, three Cauchy-functional-equatio
 - **Phase 7: C-BP2 separability pattern** (commit `72ca532`). New meta-segment `#separability-pattern` (six ladders enumerated; positive-half complement to `#identifiability-floor`). Three-part meta-segment family: #independence-audit + #approximation-tiering + #separability-pattern.
 - **Citation audit of reverse-KL work** (commit `e777f01`). Three wrong attributions corrected (Csiszár 1972, Amari 2009 Theorem 1, Amari-Cichocki 2010 Prop 3.2 do not contain the claimed chain-rule uniqueness theorem); Eguchi 1983 venue corrected. Audit trail preserved in-segment. Three PDFs saved to `ref/`.
 - **Phase 5: G-BP1 logit scoping — partial execution** (commit `a39dfb7`). Third Cauchy-functional-equation uniqueness theorem: under the evidential-additivity axiom (Bayesian independent-evidence updates add in a fixed coordinate), log-odds is uniquely forced up to positive affine. Axiom AAD-internally motivated as update-level analog of #chain-confidence-decay. New appendix segment `#edge-update-natural-parameter`. Finding 2 (unbounded gradient mechanical break in #credit-assignment-boundary) resolved by restating default signal in log-odds (domain ℝ, no mechanical break). Props B.1-B.7 retained in moment-parameter form (Fisher-equivalent); full restatement deferred to future G-BP3.
-- **New meta-pattern discovered** (cascaded observation, commit `a39dfb7` and prior). Three independent uniqueness theorems (chain-confidence-decay, reverse-KL, log-odds) share structural shape: Cauchy-functional-equation argument on an AAD-internally-motivated additivity axiom forces logarithmic coordinates. Documented as §SP-1 in `msc/architectural-proposals-2026-04-22.md`; candidate for promotion to explicit meta-segment (`#additive-decomposition-pattern`) in a future session.
+- **New meta-pattern discovered** (cascaded observation, commit `a39dfb7` and prior). Three independent uniqueness theorems (chain-confidence-decay, reverse-KL, log-odds) share structural shape: Cauchy-functional-equation argument on an AAD-internally-motivated additivity axiom forces logarithmic coordinates. Documented as §SP-1 in `_obs/architectural-proposals-2026-04-22.md`; candidate for promotion to explicit meta-segment (`#additive-decomposition-pattern`) in a future session.
 
 ### 2026-04-22 strengthening cycle — COMPLETE (commits `14a6095`, `b6134c2`, `4d050c8`, `b91493c`, `a14682e`)
 
@@ -662,7 +587,7 @@ Followed Joseph's strengthen-first-before-soften posture (`feedback_strengthen_b
 
 ### 2026-04-22 audit-trio + Codex round-2 cycle — COMPLETE (commits before strengthening)
 
-The morning's audit trio (Gemini, Codex round-1, Opus) and the afternoon Codex round-2 audit produced the 15-finding pending list and 14 architectural proposals (`msc/architectural-proposals-2026-04-22.md`). The strengthening cycle resolved 4 directly + 3 partially + 1 by V-medium G-BP2; remaining are listed in the Pending Findings section above.
+The morning's audit trio (Gemini, Codex round-1, Opus) and the afternoon Codex round-2 audit produced the 15-finding pending list and 14 architectural proposals (`_obs/architectural-proposals-2026-04-22.md`). The strengthening cycle resolved 4 directly + 3 partially + 1 by V-medium G-BP2; remaining are listed in the Pending Findings section above.
 
 ### 2026-04-21 audit cycle — COMPLETE (commits `6d3f219`, `98179f9`, `70c306d`, `ba2597c`, `499afa3`, `1c3a2d9`, `853888c`)
 

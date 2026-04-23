@@ -1,4 +1,10 @@
-# Architectural Proposals — 2026-04-22
+# Architectural Proposals — 2026-04-22 *(SUPERSEDED 2026-04-24)*
+
+> **SUPERSEDED.** This document was the portfolio navigator from 2026-04-22 through 2026-04-24. Three depth-heavy strengthening cycles (2026-04-22/23 cascading strengthening; 2026-04-23 Gap A/B; 2026-04-24 Gemini pressure-point) accumulated ~30+ proposals and extensions in a single 1034-line document that was no longer navigable. A consolidation audit on 2026-04-24 produced a replacement at top-level `PROPOSALS.md` with proposals banded by execution readiness, bundled into cross-cutting work-items where converging, and supplemented with ~6 newly-surfaced candidates from segment Working Notes that this document never captured. See `LOG.md` §"2026-04-24 — Architectural-Proposals Consolidation Audit" for the cycle narrative.
+>
+> **This file is retained for provenance only.** Do not update it. Do not link to it from new work. Pointers from segment Working Notes that cite this file are acceptable if they were correct at the time the segment was written; new citations should reference `PROPOSALS.md`.
+
+---
 
 **Status:** Working document. Fourteen architectural proposals surfaced across the four de novo audits of 2026-04-22 (Gemini, Codex round-1, Opus, Codex round-2). Each is documented here as an *independent architectural investment option*, evaluated on its own merits — not as machinery for subsuming local findings.
 
