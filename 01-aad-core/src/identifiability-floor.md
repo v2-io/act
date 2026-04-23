@@ -66,6 +66,29 @@ The pattern is *not* a negative posture. AAD does not say "many things are impos
 
 **Tier.** *Exact* (Cramér-Rao bound is exact for unbiased online estimators).
 
+### Instance 3 — Composite Contraction Certification from Component Data ( #critical-mass-composition, #contraction-template)
+
+**Setting.** Certify $\kappa_c > 0$ (composite contracting in a combined metric) for $N$ sub-agents each verified at its own level (individual sector conditions with parameters $(\alpha_i, R_i)$, individual Tier 1 classifications per `msc/spike-bridge-lemma-contraction.md`, individual modularity per `#directed-separation`), using only component-level data: per-sub-agent trajectories, mismatch observations, update rules — no observation of the coupling topology (sign pattern of cross-agent influence), no common contraction metric chosen across sub-agents, no passivity certificate on the coupling channels, no shared Lyapunov function.
+
+**External theorem.** Common-Lyapunov nonexistence for switched linear systems — Liberzon 2003, *Switching in Systems and Control*, Theorem 2.1; explicit $2 \times 2$ counterexample in Dayawansa & Martin 1999, "A converse Lyapunov theorem for a class of dynamical systems which undergo switching," *IEEE Trans. Automat. Control* 44:751; systematic review in Shorten, Wirth, Mason, Wulff & King 2007, "Stability criteria for switched and hybrid systems," *SIAM Review* 49:545. Complementary anchor: small-gain contrapositive — Jiang, Teel & Praly 1994, "Small-gain theorem for ISS systems and applications," *Math. Control Signals Syst.* 7:95; if interconnection gain is unbounded or not observable from component data, no composite-ISS certificate from that data. The Liberzon/Shorten common-Lyapunov result is the sharper anchor for AAD's setting.
+
+**No-go.** There exist pairs of coupled systems $(\Sigma_1, \Sigma_2)$ and $(\Sigma_1, \Sigma_2')$ with **identical marginal component-level observation distributions** but opposite composite-contraction signs ($\kappa_c > 0$ in the cooperative regime per `#critical-mass-composition` (CM2) with $\gamma < 0$; $\kappa_c < 0$ in the adversarial regime per `#adversarial-destabilization` with $\gamma > 0$ past the destabilization threshold). Concretely, take two symmetric-matched-Tier-1 scalar agents with coupling term $\gamma\mathcal T \cdot \text{sign}(\delta_{\bar i})$. Each sub-agent in isolation sees $\dot\delta_i = -\alpha\delta_i + w_i^{\text{total}}$ with total disturbance bound $\rho + |\gamma|\mathcal T$ — consistent with both $\gamma = +\gamma_0$ (adversarial) and $\gamma = -\gamma_0$ (cooperative) since the cross-term is absorbed into bounded-disturbance regardless of sign. Only observation of the *joint* dynamics (or structural knowledge of the coupling sign) distinguishes them. **The single bit of coupling-sign distinguishing cooperative from adversarial regimes is unidentifiable from component marginals, and that bit is exactly what flips composite persistence.**
+
+**Boundary characterization.** Four structural escapes:
+
+- (a) **Observable coupling topology** via composite-extended `#loop-interventional-access` — interventions on sub-agent $A_j$ reveal $A_i$'s cross-coupling response, which is a $do(\cdot)$-data distinction between the two coupled constructions.
+- (b) **Matched Tier at the composite level** — shared architecture (matched Tier 1, same norm/metric) admits a joint quadratic Lyapunov $V = \sum V_i$, yielding `#critical-mass-composition`'s (CM2) closed form. Under `#contraction-template`'s topology-indexed closure results, this extends to heterogeneous composites via (CM2-M) for matched contraction-metric structure across agents.
+- (c) **Passivity / storage-function certificate** on the coupling channel (Willems 1972 *Arch. Ration. Mech. Anal.* 45:321). Adjacent machinery not currently in an AAD segment.
+- (d) **Common contraction metric** (Lohmiller & Slotine 1998). Operationalized in `#contraction-template`: composite metric $M_c$ constructed compositionally from sub-agent metrics per topology (parallel / cascade / negative-feedback), with rate $\lambda_c$ from Slotine 2003.
+
+**Strengthened consequence.** The no-go elevates three pieces of AAD machinery from "useful" to "structurally required":
+
+1. `#critical-mass-composition` moves from "closed-form result in a special case" to **the unique broadly-available composition-contraction certificate under the matched-Tier structural escape (b)**; without (CM2) or its contraction-metric generalization (CM2-M) in `#contraction-template`, the weakest-link bound (WL) in `#composition-closure` cannot see coupling sign and so cannot distinguish the two coupled constructions.
+2. **Composite-extended `#loop-interventional-access`** becomes the unique coupling-sign identifier under heterogeneous Tier structures — the composite-layer analog of the single-agent interventional-access-escape for Instance 1.
+3. `#composition-scope-condition` acquires **load-bearing enabling status**: scope-satisfaction (one of C-i, C-ii, C-iii) is what positions the composite within a regime where one of (a)–(d) can operate. Without scope-satisfaction, the composite might not be a composite, and the escapes have no coherent target.
+
+**Tier.** *Exact* for the symmetric-matched-Tier-1-scalar construction exhibited above. *Robust qualitative* for general heterogeneous composites, inheriting the common-Lyapunov-nonexistence structure from Liberzon / Shorten / Dayawansa-Martin without a closed-form AAD-level counterexample.
+
 ## Adjacent Floors (Open Research Directions)
 
 ### Causal-IB Extension for Interventional Relevance Variables
@@ -79,6 +102,10 @@ Structural adaptation ( #structural-adaptation-necessity) names *when* to switch
 ### Tier-Switching Policy Cost
 
 Approximation tiering ( #approximation-tiering) enumerates AAD's tiered approximations (L0/L1/L1'/L2 in correlation, C1/C2/C3 in convention, Tier 1/2/3 in contraction). The cost of switching tiers — when should the agent move from L0 to L1, or from C1 to C2 — is itself a deliberation-cost problem. Under finite computation budget, the optimal switching policy faces an identifiability floor on its own switching diagnostics. Open.
+
+### Mechanism-Design Impossibility (candidate 4th instance from #strategic-composition)
+
+Under the mechanism-design framing of strategic composition ( #strategic-composition §Discussion), an outside designer may be able to shape sub-agents' objectives $\{O_t^{(i)}\}$ so that the induced strategic equilibrium coincides with a desired joint state. Impossibility results from social-choice theory — **Gibbard-Satterthwaite** 1973-75 (no dominant-strategy non-dictatorial Pareto-efficient voting mechanism for ≥3 alternatives); **Myerson-Satterthwaite** 1983 (no efficient, individually-rational, incentive-compatible bilateral-trade mechanism without subsidies); **Arrow** 1951 (no social welfare function satisfying unrestricted-domain + Pareto-efficient + IIA + non-dictatorial simultaneously) — establish that certain mechanism-design goals are **structurally unachievable** under stated constraints. This matches the meta-pattern shape: setting (composite-design task under specific-constraint regime) → external theorem (social-choice impossibility) → no-go → boundary characterization (relaxation of constraints: Bayes-Nash in place of dominant-strategy; randomized allocations; subsidy injection; strategy-space restriction) → strengthened consequence (the AAD machinery of `#strategic-composition`'s sub-scope α' potential-game conditions becomes a load-bearing target for mechanism design). Candidate fourth instance; would require a dedicated formalization of the AAD-machinery escape route specifically rather than the general social-choice escape. Open.
 
 ## Why This Pattern Matters
 

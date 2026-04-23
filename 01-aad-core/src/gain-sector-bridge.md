@@ -57,6 +57,7 @@ $$\text{GA-3 holds with } (\alpha, R) \iff L \text{ is locally } (\alpha/\eta)\t
 | Gradient on strongly convex loss | Derived | $\eta \cdot \mu$ | Global ($R = \infty$) |
 | Gradient on locally convex loss | Derived | $\eta \cdot \mu_{\text{local}}$ | Basin of attraction |
 | Gradient on non-convex loss | Fails at basin boundary | N/A beyond $R$ | Finite $R$ |
+| SPR-tuned PID on positive-real plant with anti-windup | Derived | $\alpha_{\text{PID}} = \omega_c \sin(\varphi_m) / \kappa(P)$ (phase margin as sector constant; crossover frequency as tempo; KYP-certificate condition number as degradation) | Classical linear regime + Lur'e sector-bounded nonlinearity within specified plant-Lipschitz threshold |
 
 ### Failure Modes
 
@@ -101,6 +102,15 @@ The gradient equivalence is validated by simulation across quadratic, logistic, 
 **Max attainable:** *conditional* — the condition (B1 or strong convexity) is inherent, not removable. Pathological update rules exist that violate B1 (FM-1 provides a counterexample that satisfies every AAD postulate and the gain-based update form but has $\delta^T g(\delta) = 0$ identically). Scope + gain structure alone does not force B1; some optimality / coherence / rationality constraint (Bayesian coherence, gradient-of-a-convex-loss, etc.) is required.
 
 **Weighted-norm subtlety.** In the matrix Kalman case, the sector condition holds in the $(P^-)^{-1}$-weighted inner product, not the Euclidean norm. For fully observable systems with bounded condition number $\kappa(P^-)$, the norms are equivalent up to $\kappa(P^-)$. The Lyapunov proofs in #sector-condition-derivation use the Euclidean norm, which remains valid with the quantitative adjustment $\alpha_{\text{Euclidean}} \geq \alpha_{\text{weighted}} / \kappa(P^-)$.
+
+**Fisher-metric cases under parameterization-invariance.** The exponential-family-in-natural-parameters row and the matrix-Kalman row of Verified Instances both have natural statements in a Fisher-metric inner product rather than the Euclidean one. Under the **(PI) parameterization-invariance** axiom named in #agent-identity (AAD's theorems should not depend on arbitrary choice of coordinates on $M_t$), Čencov's 1982 uniqueness theorem (*Statistical Decision Rules and Optimal Inference*, AMS; subsequent Ay-Jost-Lê-Schwachhöfer 2017 extensions) forces the Fisher information metric uniquely on statistical-manifold sub-cases of $M_t$. Two consequences:
+
+- *The matrix-Kalman sector constant is natively stated in the information metric $M = (P^-)^{-1}$* — under (PI), this is not a choice but forced. The $\kappa(P^-)$ Euclidean-transfer penalty in the paragraph above vanishes; the derivation is AAD-internally *forced*, not AAD-internally *preferred*.
+- *The exponential-family-natural-parameter sector constant is natively stated in the Fisher metric* $\mathbf I(\theta)$ — under (PI), this is forced; the contraction rate equals $\eta$ globally on the interior of the natural-parameter domain (Fisher-conditioning degradation removed).
+
+Under (PI), these two rows of Verified Instances upgrade from *derived (conditional on choice of inner product)* to *derived (AAD-internally forced)* via Čencov. Under non-adoption of (PI), they remain at the Euclidean-transferred statement with the $\kappa(P^-)$ / $\lambda_{\min}(\text{Fisher})$ penalty. This is the Fisher-layer analog of the chain-rule-additivity axiom that grounds the divergence-layer uniqueness theorem in #strategy-cost-regret-bound and the evidential-additivity axiom that grounds the update-layer uniqueness theorem in #edge-update-natural-parameter — in each case an AAD-internal axiom combined with a uniqueness theorem forces a coordinate. The structural positioning is named in #additive-coordinate-forcing.
+
+The remaining Verified Instances rows (scalar Kalman, Beta-Bernoulli, gradient on strongly convex, L2-regularized, linear-PD-symmetric) live in Euclidean metric naturally; no Fisher-metric choice is at issue, so (PI) has no effect on them beyond transparency.
 
 ## Discussion
 

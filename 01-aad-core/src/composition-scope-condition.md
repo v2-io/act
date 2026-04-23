@@ -43,21 +43,30 @@ $$\exists\, Y : \;\forall i,\; \mathbb E[Y \mid \text{joint}] \gt \mathbb E[Y \m
 
 Weakest route. No explicit common objective, but interactions are positive-sum in some dimension. Symbiotic coexistence; commensal ecologies; trading partners who share no goals beyond mutual benefit.
 
+### (C-iv) Equilibrium-convergent strategic interaction
+
+There exists an equilibrium concept $\mathcal E$ (Nash, correlated, or coarse correlated) such that coupled best-response dynamics of $\{A_i\}$ converge to (or cycle within the support of) $\mathcal E$:
+
+$$\exists\, \mathcal E : \; \text{coupled best-response dynamics converge to the support of } \mathcal E.$$
+
+Qualitatively distinct from (C-i)–(C-iii): requires neither shared objectives, nor hierarchical derivation, nor mutual benefit. Requires only **structural convergence** of the strategic interaction in the game-theoretic sense. The sub-agents' objectives may be partially opposing, but the interaction admits a stable joint behaviour. Composites satisfying (C-iv) are **strategic composites**, distinguished from alignment composites (C-i, C-ii) and mutual-benefit composites (C-iii). The composite's macro-state is defined relative to the equilibrium structure $\mathcal E$ rather than relative to a shared target state. See `#strategic-composition` for the A2'-analog transfer of `#sector-persistence-template` under potential-game (Monderer-Shapley 1996) or monotone-game (Rosen 1965) conditions, the (SC-1)–(SC-3) existence/stability/convergence decomposition, and the honest sub-scope $\beta'$ scope exit for non-potential non-monotone games (VI existence + regret-minimization CCE set-convergence only).
+
 ### Disjunctive form
 
 *[Scope (composition-scope-condition, disjunctive)]*
 
-The scope condition is satisfied when **any** of (C-i), (C-ii), or (C-iii) applies. The three routes are progressively weaker qualitative requirements for what "teleological alignment sufficient to define a coherent composite purpose" means, and they are *not* shown to reduce to a common scalar threshold. Each route carries its own operationalization and its own $N$-agent aggregation:
+The scope condition is satisfied when **any** of (C-i), (C-ii), (C-iii), or (C-iv) applies. (C-i)–(C-iii) are progressively weaker qualitative requirements for what "teleological alignment sufficient to define a coherent composite purpose" means; (C-iv) covers strategic interaction with partially-opposing objectives via equilibrium convergence rather than alignment. The routes are *not* shown to reduce to a common scalar threshold. Each route carries its own operationalization and its own $N$-agent aggregation:
 
 - (C-i) uses a value-function divergence $D(\pi_i, \pi^{O_c}_i)$ aggregated across sub-agents.
 - (C-ii) uses decomposition consistency of a parent objective $O_c$ — a structural check, not a scalar.
 - (C-iii) uses the existence of a relevance variable on which each sub-agent's marginal contribution is positive — a per-pair existential check, not a magnitude.
+- (C-iv) uses existence of an equilibrium structure $\mathcal E$ under coupled best-response dynamics — a fixed-point check (Nash / VI / regret-minimization CCE), structurally distinct from the alignment checks in (C-i)–(C-iii).
 
 The teleological unity measure $U_O$ from #unity-dimensions (pairwise value-correlation aggregated to the group) tracks one projection of alignment — primarily route (C-i) — but is not a reduction of all three routes to a single scalar. Downstream segments ( #unity-closure-mapping, #symbiogenic-composition, #team-persistence) describe quality *conditional on scope-satisfaction* without assuming a common threshold: they presume the scope condition holds via at least one route, then analyze composite quantities within that regime.
 
 (C-i) gives the strongest alignment; (C-iii) gives the weakest that still qualifies. A composite may satisfy multiple routes simultaneously; only one is required for scope.
 
-**What fails the scope condition:** sub-agents with orthogonal objectives (no shared or derivable $O_c$, no relevance variable providing mutual benefit), adversarial objectives (actively opposed purposes), or unclassifiable objective-structure coupling. Such systems remain within #multi-agent-scope but not #composition-scope-condition.
+**What fails the scope condition:** sub-agents with orthogonal objectives that also fail to admit equilibrium convergence (no shared or derivable $O_c$, no relevance variable providing mutual benefit, no equilibrium structure the strategic dynamics converge to — e.g., cyclic games with no pure Nash), or unclassifiable objective-structure coupling. Such systems remain within #multi-agent-scope but not #composition-scope-condition. Adversarial pairs that admit Nash / CCE convergence via (C-iv) DO satisfy composition-scope-condition as strategic composites; adversarial pairs in cyclic / non-convergent regimes do not.
 
 ## Epistemic Status
 
@@ -77,7 +86,9 @@ The three alternative routes are not exhaustive but cover the well-understood ca
 
 **Miller's IAM definition.** Miller (2022, *Ex Machina*, Ch 1) proposes that social behavior requires Interaction, Agency, and Mutual benefit (IAM). The mutual-benefit requirement in (C-iii) is the AAD analog of Miller's third element. Miller treats IAM as the definition of social behavior; the proposal here treats alignment as the scope condition for composite-agent analysis. The two align substantively: Miller's mutual benefit is a minimum teleological unity.
 
-**Multi-agent systems without composite status.** Adversarial pairs ( #adversarial-destabilization, #adversarial-tempo-advantage) are a central example: they satisfy #multi-agent-scope but fail #composition-scope-condition. The existing segments for adversarial dynamics correctly treat them as multi-agent-level phenomena, not as composite phenomena. Making this scope distinction explicit clarifies what was previously implicit.
+**Multi-agent systems with and without composite status.** Adversarial pairs partition along a finer line than alignment / non-alignment. Adversarial pairs that admit equilibrium convergence (potential or monotone strategic games per `#strategic-composition`) satisfy the scope condition via (C-iv) as strategic composites; adversarial pairs in cyclic or non-convergent regimes do not satisfy any of (C-i)–(C-iv) and remain within `#multi-agent-scope` only. The asymmetric case — one agent as exogenous attacker, one as target — is a `#multi-agent-scope` phenomenon handled by `#adversarial-destabilization`; it does not form a composite in either (C-i)–(C-iii) or (C-iv) senses because the attacker is treated as a parameter rather than a sub-agent running its full AAD loop. Symmetric strategic composition under partially-opposing objectives is covered by (C-iv) and forms a strategic composite with equilibrium-based macro-state.
+
+**Load-bearing enabling role under `#identifiability-floor` Instance 3.** The composition-layer identifiability-floor instance establishes a no-go: composite contraction $\kappa_c > 0$ is not in general certifiable from component-level data alone — the coupling-sign bit distinguishing cooperative from adversarial regimes is unidentifiable from component marginals. Four structural escapes are available (observable coupling topology; matched Tier at composite level; passivity certificate; common contraction metric). Scope-satisfaction via at least one of (C-i)–(C-iv) in this segment is the **enabling condition** for any of these escapes: without scope-satisfaction, the "composite" is ill-defined ($O_c$ does not exist under (C-i)–(C-iii); equilibrium structure $\mathcal E$ does not exist under (C-iv); $R_c$ is ill-typed), and the escapes have no coherent target to certify. The scope condition is therefore load-bearing apparatus that the composition-layer floor depends on — scope-satisfaction is what distinguishes a composite whose contraction or equilibrium convergence can be certified (under some escape) from a multi-agent system whose "composite contraction" is not a well-defined object.
 
 **How composites come into being: symbiogenesis.** The formal mechanism by which a group passes from failing all three routes to satisfying at least one is described in #symbiogenic-composition. Briefly: in biological and social symbiogenesis, a host integrates an endosymbiont; the endosymbiont's objective is subsumed into the host's; the combined entity's objective $O_c$ emerges where two independent objectives stood. After the transition, (C-ii) applies: the endosymbiont's objective is a sub-objective of $O_c$. This is the dynamical process of composite-agent identity creation; the scope condition here describes its result.
 

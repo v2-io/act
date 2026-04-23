@@ -86,6 +86,14 @@ Two consequences worth surfacing for reviewers. First: the question "isn't direc
 - **Class 2**: Requires coupled formulation from the start — $X_{\tau^+} = f_X(X_{\tau^-}, e_\tau)$ without decomposition. This is the scope of `03-logogenic-agents/`.
 - **Class 3**: The sequential cascade is an approximation. Approximation quality depends on $\kappa_{\text{processing}}$ and requires per-architecture error analysis.
 
+**Composite-level class inheritance (from #strategic-composition).** The Class 1 / 2 / 3 partition above applies to individual agents based on *within-agent* coupling between $f_M$ and $G_t$. Composition introduces a second form of coupling — *across-agent* coupling through the shared environment and cross-agent observation. `#strategic-composition` provides the structural refinement:
+
+- *Composite of Class 1 sub-agents with aligned objectives* (scope route C-i / C-ii / C-iii): Class 1 composite. Within-agent modularity + cross-agent alignment preserve directed separation at the composite level. Standard `#composition-closure` applies.
+- *Composite of Class 1 sub-agents with partially-opposing objectives* (scope route C-iv — strategic composition): **Class 3 composite from Class 1 sub-agents**. Each sub-agent individually is modular (its own $f_M^{(i)}$ remains goal-blind with respect to its own $G_t^{(i)}$), but the composite's $(M_c, G_c)$ acquires intrinsic coupling because each sub-agent's $M_t^{(i)}$ includes a model of other sub-agents' policies — which are themselves goal-dependent. Composite-level directed separation fails through across-agent coupling, not within-agent coupling. Strategic composition is the canonical Class 1-sub-agents → Class 3-composite case.
+- *Composite of Class 2 sub-agents*: Class 2 composite. Inherits logogenic-agent status; `03-logogenic-agents/` territory regardless of scope route.
+
+Class membership is therefore a property of composites, not just of individual agents, and composite class is a function of sub-agent class **plus** the scope route (alignment vs. strategic). The classification is load-bearing for downstream claims: Class 3 composites from strategic composition need equilibrium-theoretic analysis (see `#strategic-composition`), not the sequential orient cascade.
+
 ## Epistemic Status
 
 *Conditional* on the scope condition above. The conditional claim (IF epistemic update is goal-blind, THEN the separation holds) is exact. Whether a particular agent satisfies the condition is determined by its processing architecture (Class 1/2/3).
