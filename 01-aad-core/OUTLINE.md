@@ -32,9 +32,9 @@ Every slug is linked to its intended `src/{slug}.md` file, even when that file d
 | I   | Definition  |     | [#action-transition](src/action-transition.md)                             | Actions affect environment                     | deps-verified   |
 | I   | Scope       |     | [#scope-condition](src/scope-condition.md)                                 | Where AAD applies                              | claims-verified |
 | I   | Postulate   |     | [#composition-consistency](src/composition-consistency.md)                 | Agent/subagent scale invariance                | deps-verified   |
+| I   | Definition  |     | [#chronica](src/chronica.md)                                               | Complete interaction history                   | deps-verified   |
 | I   | Postulate   |     | [#causal-structure](src/causal-structure.md)                               | Irreducible causal structure                   | deps-verified   |
 | I   | Definition  |     | [#pearl-causal-hierarchy](src/pearl-causal-hierarchy.md)                   | Three levels of causal reasoning               | deps-verified   |
-| I   | Definition  |     | [#chronica](src/chronica.md)                                               | Complete interaction history                   | deps-verified   |
 | I   | Formulation |     | [#agent-model](src/agent-model.md)                                         | Compressed history as state                    | deps-verified   |
 | I   | Formulation |     | [#information-bottleneck](src/information-bottleneck.md)                   | Optimal model compression                      | draft           |
 | I   | Definition  |     | [#model-sufficiency](src/model-sufficiency.md)                             | Predictive information retained                | deps-verified   |
@@ -96,7 +96,6 @@ Every slug is linked to its intended `src/{slug}.md` file, even when that file d
 | II  | Definition      |     | [#control-regret](src/control-regret.md)                                               | Best achievable vs current                                       | draft |
 | II  | Definition      |     | [#strategic-calibration](src/strategic-calibration.md)                                 | Edge residuals ( #credit-assignment-boundary)                    | draft |
 | II  | Derived         |     | [#causal-insufficiency-detection](src/causal-insufficiency-detection.md)               | Detecting latent common causes from structured residuals + interventional localization | draft |
-| II  | Derived         |     | [#orient-cascade](src/orient-cascade.md)                                               | Resolution order by info dep                                     | deps-verified |
 | II  | Derived         |     | [#observability-dominance](src/observability-dominance.md)                             | Unobservable edges freeze                                        | draft |
 | II  | Hypothesis      |     | [#edge-update-via-gain](src/edge-update-via-gain.md)                                   | Gain extends to strategy edges                                   | draft |
 | II  | Scope           |     | [#edge-update-causal-validity](src/edge-update-causal-validity.md)                     | When edge updates are causally valid                             | deps-verified |
@@ -105,6 +104,7 @@ Every slug is linked to its intended `src/{slug}.md` file, even when that file d
 | II  | Definition      |     | [#strategic-tempo](src/strategic-tempo.md)                                             | Rate of useful $\Sigma_t$ revision                               | draft |
 | II  | Formulation     |     | [#strategy-complexity-cost](src/strategy-complexity-cost.md)                           | Complexity cost of maintaining $\Sigma_t$ (IB/MDL for DAGs)      | draft |
 | II  | Proposed schema |     | [#strategy-persistence-schema](src/strategy-persistence-schema.md)                     | Sector conditions for $\Sigma_t$                                 | draft |
+| II  | Derived         |     | [#orient-cascade](src/orient-cascade.md)                                               | Resolution order by info dep                                     | deps-verified |
 | II  | Discussion      |     | [#exploit-explore-deliberate](src/exploit-explore-deliberate.md)                       | Three-way exploit/explore/deliberate: extended deliberation threshold + conceptual framing | draft |
 
 
@@ -181,6 +181,7 @@ Every slug is linked to its intended `src/{slug}.md` file, even when that file d
 | A   | Derivation |     | [#variational-sector-condition](src/variational-sector-condition.md)   | ε-fidelity B1 under $\mathrm{KL}(q\Vert p) \leq \varepsilon$ via Pinsker's inequality; $O(\sqrt\varepsilon)$ sector-constant degradation; Regime A/B decomposition; sub-scope α' tier for controlled-KL variational agents; natural-gradient VI recovers full α | draft |
 | A   | Derivation |     | [#l1-update-bias](src/l1-update-bias.md)                               | Closed-form bias formula $B_k(\rho)$ for log-odds update under L1' common cause; Cramér-Rao floor under forgetting; dual forgetting-rate requirement; Monte Carlo validation; quantitative numerical-floor companion to `#identifiability-floor` Instance 2 | draft |
 | A   | Derivation |     | [#fisher-whitened-update-rule](src/fisher-whitened-update-rule.md)     | Fisher-whitened edge update under correlated evidence; AAD-internal derivation under (PI)/Čencov axiom; log-odds angle ≤ 45° at any finite ρ (direction preserved, magnitude degraded by √(1−r²)); sub-scope α₃ and connection to `#adaptive-gain-dynamics` as degenerate meta-gain instance | draft |
+| A   | Derivation |     | [#bias-bound-derivation](src/bias-bound-derivation.md)                 | Class-2 observation-ambiguity bias-bound constant $C$; Track 1 transport-inequality ($C_{W_2}^2 = 2L_{\text{post}}^2/\rho_{\text{LSI}}$ linear in $I$ under LSI + Lipschitz-posterior); Track 2 Fisher-Rao ($C_{FR} = \sqrt{2}$ universal dimension-free under (PI)+Čencov + small-$I$); no-go for universal $C$ under Euclidean-parameter norm justifies (PI) as load-bearing | draft |
 | A   | Detail     |     | [#simulation-results](src/simulation-results.md)                       | 6 variants validating claims                                          | draft   |
 
 

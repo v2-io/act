@@ -6,7 +6,6 @@ depends:
   - objective-functional
   - agent-model
   - directed-separation
-  - causal-hierarchy-requirement
   - model-sufficiency
 stage: deps-verified
 ---

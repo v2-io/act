@@ -6,7 +6,6 @@ depends:
   - agent-environment
   - observation-function
   - action-transition
-  - causal-structure
 stage: deps-verified
 ---
 
