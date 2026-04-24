@@ -15,6 +15,16 @@ Do not hard-wrap lines. Let renderers (GitHub, Obsidian, editors) handle wrappin
 - **Canonical ordering** lives in each component's `OUTLINE.md` (e.g., `01-aad-core/OUTLINE.md`), not in filenames. The ordering will change as the theory develops; the slug is the stable identity.
 - **Cross-references** use `#slug-name` — everywhere, always.
 
+### Segment-set principle (load-bearing for tooling)
+
+**Every non-`old-*` file in a component's `src/` directory is a segment and conforms to the cadence below.** This holds even for drafts, missing-stage entries, or segments orphaned from `OUTLINE.md`. The various stages (`missing`, `old`, `draft`, `deps-verified`, `claims-verified`, `format-clean`, `candidate`) describe progress *within* FORMAT, not exemptions from it.
+
+The `old-*` filename prefix is the *only* mechanism for placing a file in `src/` that is exempt from FORMAT. Those are prior-work staging files awaiting absorption per `MIGRATION-MAP.md`; they retain their original frontmatter (often with non-AAD `type:` tokens like `Definition`, `Theorem`) until their content is converted. Tooling skips them.
+
+Other working material — notes, drafts, READMEs, scratch — does **not** belong in `src/`. It lives in `msc/` or at the component root.
+
+Tools that need the canonical segment set (`bin/align-slug --all`, `bin/lint-outline`, `bin/build`) rely on this principle: they treat `{component}/src/*.md` minus `old-*.md` as authoritative. Adding a non-conforming file to `src/` will silently break these tools, so don't.
+
 
 ## YAML Frontmatter
 

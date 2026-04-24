@@ -171,9 +171,18 @@ def align_one(slug, passthrough)
 end
 
 def every_segment_slug
+  # Each segment's slug is its filename stem; we walk the four component
+  # src/ dirs rather than scanning the repo for hashtag references because
+  # the slug ↔ file mapping is the project's source of truth (per
+  # FORMAT.md / CLAUDE.md "Filename = slug"). `old-*.md` files are excluded
+  # — they are prior-work staging awaiting absorption (see MIGRATION-MAP.md),
+  # often carry stale-vocabulary `type:` tokens (`Definition` with capital D,
+  # `Theorem`, etc.), and are not eligible for the role-prefix discipline
+  # until their content is converted to AAD format.
   COMPONENT_SRCS.flat_map do |dir|
     next [] unless dir.exist?
-    dir.glob('*.md').map { |p| p.basename('.md').to_s }
+    dir.glob('*.md').reject { |p| p.basename.to_s.start_with?('old-') }
+       .map { |p| p.basename('.md').to_s }
   end.sort
 end
 
