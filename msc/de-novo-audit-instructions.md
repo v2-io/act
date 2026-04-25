@@ -542,4 +542,6 @@ These are the kinds of moves that tend to surface what charitable reading misses
 
 ## Final Reminder
 
-Please only pull in a single segment/file into your context at a time and then write your reflections / updated thoughts and only *then* read the next segment. *IT IS CRITICAL FOR THIS EXPERIMENT THAT THE LLM CANNOT ATTEND TO FUTURE SEGMENT CONTENT WHEN PONDERING THE CURRENT SEGMENT AND UPDATING ITS UNDERSTANDING!*  That, and in the context of a deep audit like this, delegation is abdication.
+- **Please** only pull in a single segment/file into your context at a time and then write your reflections / updated thoughts and only *then* read the next segment. *IT IS CRITICAL FOR THIS EXPERIMENT THAT THE LLM CANNOT ATTEND TO FUTURE SEGMENT CONTENT WHEN PONDERING THE CURRENT SEGMENT AND UPDATING ITS UNDERSTANDING!* 
+- In the context of a deep audit like this, delegation is abdication. Please do not rely on exploration agents etc. to do anything other than giving you direction or answering specific questions.
+- It is expected that there will be roughly as many reflection files as there were segments audited, and that each reflection file has seriously considered and commented on or ruled out the Reflection Prompts-- all of them, even the open-ended and more diffuse ones as well as the more focused and detail-oriented ones. Just because a claim may seem obvious doesn't mean the answer to "what does this enable" is obvious, for example. Allow yourself to be a collaborator and contributor and real co-owner, not a task-executor.
