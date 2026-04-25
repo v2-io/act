@@ -4,7 +4,7 @@ type: scope
 status: axiomatic
 depends:
   - def-agent-environment
-  - def-function
+  - def-observation-function
 stage: claims-verified
 ---
 
@@ -20,7 +20,7 @@ $$\mathcal S_\text{adaptive} = \left\{(\text{Agent}, \Omega) \;:\; \mathcal O \n
 
 Two conditions:
 
-1. **Observations exist**: $\mathcal O \neq \emptyset$ — the system has some perceptual channel to the environment ( #def-function)
+1. **Observations exist**: $\mathcal O \neq \emptyset$ — the system has some perceptual channel to the environment ( #def-observation-function)
 2. **Residual uncertainty persists**: $H(\Omega_t \mid \mathcal C_t) \gt 0$ — the environment is not fully determined by the interaction history
 
 This is sufficient for the mismatch signal ( #def-mismatch-signal), update gain ( #emp-update-gain), adaptive tempo ( #def-adaptive-tempo), the persistence condition ( #result-persistence-condition), and all of Section I's adaptive dynamics. A Kalman filter estimating a passive signal, a passive Bayesian learner, and any system that observes and updates a model under uncertainty are within this scope.

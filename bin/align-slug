@@ -157,8 +157,22 @@ end
 STRIPPABLE_PREFIXES = (KNOWN_TYPES + TYPE_TO_PREFIX.keys + TYPE_TO_PREFIX.values)
                       .uniq.sort_by { |t| -t.length }.freeze
 
-def bare_subject(slug)
-  STRIPPABLE_PREFIXES.each do |pre|
+# Strip a leading `{type}-` (or `{mapped-prefix}-`) only when it matches
+# the SEGMENT'S OWN type forms — not arbitrary type-vocabulary words. This
+# is critical: subject-nouns can naturally contain words that overlap
+# with type vocabulary ("observation-function" defines the observation-
+# function map; the slug must keep "observation" as part of the subject,
+# not strip it because "observation" is also a type token). Loose strip
+# (any-known-type) caused silent subject-noun corruption — `def-function`
+# instead of `def-observation-function`.
+#
+# The cost: a segment whose `type:` was changed (so the OLD slug carries
+# the OLD type's prefix) no longer auto-corrects via `align-slug SLUG`.
+# That's the right trade — type-changes are rare and the user can resolve
+# manually with `bin/rename-slug OLD NEW`.
+def bare_subject(slug, type)
+  candidates = [type, TYPE_TO_PREFIX[type]].compact.uniq.sort_by { |t| -t.length }
+  candidates.each do |pre|
     prefix = "#{pre}-"
     return slug[prefix.length..] if slug.start_with?(prefix)
   end
@@ -189,7 +203,7 @@ end
 
 def target_slug(current_slug, type)
   prefix = effective_prefix(type)
-  subject = bare_subject(current_slug)
+  subject = bare_subject(current_slug, type)
   subject = strip_trailing_type(subject, type)
   "#{prefix}-#{subject}"
 end

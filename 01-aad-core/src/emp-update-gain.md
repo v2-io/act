@@ -4,7 +4,7 @@ type: empirical
 status: robust-qualitative
 depends:
   - def-mismatch-signal
-  - def-function
+  - def-observation-function
 stage: claims-verified
 ---
 

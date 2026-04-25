@@ -4,7 +4,7 @@ type: definition
 status: axiomatic
 depends:
   - form-agent-model
-  - def-function
+  - def-observation-function
 stage: deps-verified
 ---
 
@@ -36,7 +36,7 @@ which points in the direction the model should move to increase the likelihood o
 
 ## Epistemic Status
 
-This is *definitional*. Given any model that predicts ( #form-agent-model) and any observation that arrives ( #def-function), their difference exists. The mismatch signal is not an additional assumption but a consequence of having a predictive model in an uncertain world. The score-function form is the natural generalization when $\mathcal{O}$ is not a vector space or when the model's predictive distribution is the natural object.
+This is *definitional*. Given any model that predicts ( #form-agent-model) and any observation that arrives ( #def-observation-function), their difference exists. The mismatch signal is not an additional assumption but a consequence of having a predictive model in an uncertain world. The score-function form is the natural generalization when $\mathcal{O}$ is not a vector space or when the model's predictive distribution is the natural object.
 
 ## Discussion
 

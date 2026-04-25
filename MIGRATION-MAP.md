@@ -10,7 +10,7 @@ This file retires when the last `old-*` file is archived.
 |----------|---------|------------|
 | ~~old-tf-readme~~ | ~~TFT overview~~ | **Archived.** Superseded by CLAUDE.md, FORMAT.md. |
 | old-tf-00-notation-conventions | Symbol tables, conventions, adaptive loop phases, global assumptions, units, claim registry | **Partially absorbed.** Notation referenced by FORMAT.md. Adaptive loop phases, global assumptions table, claim registry format — AAD should have its own. |
-| ~~old-tf-01-scope~~ | ~~Scope definitions~~ | **Archived.** → #def-agent-environment, #def-function, #def-action-transition, #scope-adaptive-system, #scope-agency. Coupling spectrum now in #post-causal-structure. |
+| ~~old-tf-01-scope~~ | ~~Scope definitions~~ | **Archived.** → #def-agent-environment, #def-observation-function, #def-action-transition, #scope-adaptive-system, #scope-agency. Coupling spectrum now in #post-causal-structure. |
 | ~~old-tf-02-causal-structure~~ | ~~Temporal arrow, chronica, Pearl's 3 levels, recursive update~~ | **Archived.** → #post-causal-structure, #def-pearl-causal-hierarchy, #def-chronica, #der-recursive-update. |
 | ~~old-tf-03-model~~ | ~~Model, IB, sufficiency~~ | **Archived.** → #form-agent-model, #form-information-bottleneck, #def-model-sufficiency. |
 | ~~old-tf-04-event-driven-dynamics~~ | ~~Event types, channels, rates~~ | **Archived.** → #form-event-driven-dynamics. |

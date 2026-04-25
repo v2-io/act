@@ -1,5 +1,5 @@
 ---
-slug: scope-ambiguity-modulation
+slug: scope-observation-ambiguity-modulation
 type: scope
 status: conditional
 depends:

@@ -7,7 +7,7 @@ depends:
   - form-event-driven-dynamics
   - post-causal-structure
   - scope-adaptive-system
-  - def-function
+  - def-observation-function
 stage: draft
 ---
 
@@ -39,7 +39,7 @@ $$M_{\tau^+} \text{ cannot depend on } \{e_{\tau'}\}_{\tau' \gt \tau}$$
 
 This is a physical constraint — the most primitive one. In a classical universe, information from the future is simply not available. Even if the agent can *predict* future events, those predictions are part of $M_{\tau^-}$ (they are internal computations, not future information).
 
-**Constraint 2 — Partial observability ( #scope-adaptive-system).** The agent cannot access $\Omega_\tau$ directly. Its only interface with the environment is through the event $e_\tau$, which is a lossy function of $\Omega_\tau$ (via #def-function):
+**Constraint 2 — Partial observability ( #scope-adaptive-system).** The agent cannot access $\Omega_\tau$ directly. Its only interface with the environment is through the event $e_\tau$, which is a lossy function of $\Omega_\tau$ (via #def-observation-function):
 
 $$M_{\tau^+} \text{ cannot depend on } \Omega_\tau \text{ except through } e_\tau$$
 

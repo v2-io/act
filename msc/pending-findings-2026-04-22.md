@@ -360,13 +360,13 @@ Either option resolves the logical gap; the choice depends on whether (C-iii) sh
 
 > Exact: 15.5/24, Approximate: 5.5/24, Modified: 2/24, Fails: 1/24 ... Section II's *conceptual architecture* applies to Class 2 agents (16/24 exact survival is a claim about this), but Section II's *operational deployment* on Class 2 agents requires additional instrumentation.
 
-Reinforced by `#scope-ambiguity-modulation`: in low-ambiguity domains, approximate-surviving results become *good approximations*.
+Reinforced by `#scope-observation-ambiguity-modulation`: in low-ambiguity domains, approximate-surviving results become *good approximations*.
 
 **Why this stands.** The preamble's "falls outside Section II's exact scope" and "requires work beyond Section II" are literally correct but read as if Section II is non-applicable to LLM agents. The survival analysis + ambiguity modulation together say the opposite: the bulk of Section II's statement-level architecture transfers, and in low-ambiguity domains the approximate results become quantitatively tight. OUTLINE framing is the first thing a reader sees; the nuanced picture lives three documents deep.
 
 **msc/ lineage.** `msc/spike-coupled-survival-analysis.md` contains the full 24-result classification, absorbed into `section-ii-survival.md`. Not back-propagated to the Section II preamble.
 
-**Repair direction.** Rewrite the Section II preamble to lead with the survival classification: "Class 2 agents retain the bulk of Section II's architecture exactly (16/24), approximately in low-ambiguity domains, with specific modifications in the rest. See `#result-section-ii-survival` for the classification and `#scope-ambiguity-modulation` for the ambiguity-gated degradation." Preserve the fact of the Class 2 scope distinction; reframe its significance. 30 min.
+**Repair direction.** Rewrite the Section II preamble to lead with the survival classification: "Class 2 agents retain the bulk of Section II's architecture exactly (16/24), approximately in low-ambiguity domains, with specific modifications in the rest. See `#result-section-ii-survival` for the classification and `#scope-observation-ambiguity-modulation` for the ambiguity-gated degradation." Preserve the fact of the Class 2 scope distinction; reframe its significance. 30 min.
 
 **Subsumed by:** O-BP1 (template-as-organizing-principle). If the whole OUTLINE is reframed around disturbance decomposition at scales, "Class 2 is a scope exit" becomes "Class 2 is one more scale with a coupled update rule; the template applies." Natural absorption.
 
@@ -644,12 +644,12 @@ Six new findings logged below. The seven candidate findings rescinded by the new
 
 **Strongest counterevidence in `src/`.**
 
-- The 2026-04-21 Finding B resolution recast `#scope-ambiguity-modulation`'s definition and downstream bias bound as $\lVert\Delta M_{\text{bias}}\rVert \leq C \cdot \kappa \cdot I(G; \Omega \mid e, M)$ — a strict refinement (mutual information of the goal-conditional posterior given the observation, not entropy of the goal alone). Documented in `msc/pending-findings-2026-04-21.md` Finding B resolution and absorbed into `#scope-ambiguity-modulation`.
+- The 2026-04-21 Finding B resolution recast `#scope-observation-ambiguity-modulation`'s definition and downstream bias bound as $\lVert\Delta M_{\text{bias}}\rVert \leq C \cdot \kappa \cdot I(G; \Omega \mid e, M)$ — a strict refinement (mutual information of the goal-conditional posterior given the observation, not entropy of the goal alone). Documented in `msc/pending-findings-2026-04-21.md` Finding B resolution and absorbed into `#scope-observation-ambiguity-modulation`.
 - `#result-section-ii-survival` still serves the older entropy form and the Working Note's "order-of-magnitude" disclaimer about it.
 
 **Why this stands.** Cross-segment update gap from the 2026-04-21 cycle. The tighter MI form is a strict refinement (entropy is an upper bound on conditional MI; using MI gives a tighter bias bound). The integration touch on `#result-section-ii-survival` was not performed.
 
-**Repair direction.** Replace the entropy form with the MI form on line 109; update the Working Note at line 136 to acknowledge the refinement and the source segment (`#scope-ambiguity-modulation` carries the canonical recasting). 15–25 min.
+**Repair direction.** Replace the entropy form with the MI form on line 109; update the Working Note at line 136 to acknowledge the refinement and the source segment (`#scope-observation-ambiguity-modulation` carries the canonical recasting). 15–25 min.
 
 **Subsumed by:** not directly. Cross-segment update from prior cycle.
 

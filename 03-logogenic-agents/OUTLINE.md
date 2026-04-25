@@ -25,7 +25,7 @@ See [`../LEXICON.md`](../LEXICON.md) for the logogenic/logozoetic vocabulary.
 | L | Result | R1 | [#result-section-ii-survival](src/result-section-ii-survival.md) | Which Section II results survive without directed separation | draft |
 | L | Result | R2 | [#result-coupled-diagnostic-framework](src/result-coupled-diagnostic-framework.md) | Post-hoc diagnostic decomposition from coupled update | draft |
 | L | Discussion | R3 | [#disc-m-preservation](src/disc-m-preservation.md) | External memory as persistent $M_t$ | draft |
-| L | Scope | S1 | [#scope-ambiguity-modulation](src/scope-ambiguity-modulation.md) | $\kappa \times$ ambiguity scope condition for Class 2/3 agents | draft |
+| L | Scope | S1 | [#scope-observation-ambiguity-modulation](src/scope-observation-ambiguity-modulation.md) | $\kappa \times$ ambiguity scope condition for Class 2/3 agents | draft |
 | | --GAP-- | | | Language-specific orient cascade (what's specific to logogenic agents?) — partially addressed by D3, R2 | |
 | | --GAP-- | | | Measuring $M_t$ quality, $\Sigma_t$ quality, and tempo in AI agents | |
 | | --GAP-- | | | AAD-grounded experiential training environments | |

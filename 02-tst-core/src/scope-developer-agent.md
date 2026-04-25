@@ -7,7 +7,7 @@ depends:
   - obs-software-epistemic-properties
   - def-agent-environment
   - form-agent-model
-  - def-function
+  - def-observation-function
   - def-action-transition
   - form-complete-agent-state
   - emp-update-gain

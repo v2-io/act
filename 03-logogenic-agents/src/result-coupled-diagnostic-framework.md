@@ -9,7 +9,7 @@ depends:
   - def-control-regret
   - def-strategic-calibration
   - der-orient-cascade
-  - scope-ambiguity-modulation
+  - scope-observation-ambiguity-modulation
 stage: draft
 ---
 
@@ -84,7 +84,7 @@ $$\lvert\delta_{\text{sat}}^{(\text{coupled})} - \delta_{\text{sat}}^{(\text{cle
 
 $$\lvert\delta_{\text{regret}}^{(\text{coupled})} - \delta_{\text{regret}}^{(\text{clean})}\rvert \leq 2 L_A \cdot \lVert\Delta M_{\text{bias}}\rVert$$
 
-where $L_A$ is the Lipschitz constant of the attainability function $A_O(\cdot; \Pi, N_h)$ with respect to $M_t$ (the factor of 2 for regret arises because it depends on both $A_O$ and $V_O$, each contributing $L_A$ sensitivity). The error is bounded by the epistemic bias, which in turn is bounded by $O(\kappa \cdot \text{ambiguity})$ per #scope-ambiguity-modulation.
+where $L_A$ is the Lipschitz constant of the attainability function $A_O(\cdot; \Pi, N_h)$ with respect to $M_t$ (the factor of 2 for regret arises because it depends on both $A_O$ and $V_O$, each contributing $L_A$ sensitivity). The error is bounded by the epistemic bias, which in turn is bounded by $O(\kappa \cdot \text{ambiguity})$ per #scope-observation-ambiguity-modulation.
 
 **Consequence:** For low-ambiguity observations (test pass/fail, deployment success/failure, measurable metrics), the post-hoc diagnostics are accurate even for fully merged agents ($\kappa \approx 1$), because the epistemic bias from goal-conditioning is small when the observation's meaning is unambiguous. For high-ambiguity observations (code quality assessments, strategic evaluations, user feedback interpretation), the diagnostics may be systematically biased.
 

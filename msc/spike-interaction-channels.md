@@ -8,7 +8,7 @@
 
 This spike proposes the classification boundary and checks it against AAD's existing machinery.
 
-**Depends on**: #def-function, #def-mismatch-signal, #result-mismatch-decomposition, #emp-update-gain, #def-adaptive-tempo, #def-model-class-fitness, #def-model-sufficiency, #result-structural-adaptation-necessity, #result-persistence-condition, #result-sector-persistence-template, #der-adversarial-destabilization, #result-adversarial-tempo-advantage, #obs-gates-advantage, #hyp-symbiogenic-composition, #hyp-communication-gain, #der-team-persistence, #disc-identifiability-floor, #scope-agent-identity.
+**Depends on**: #def-observation-function, #def-mismatch-signal, #result-mismatch-decomposition, #emp-update-gain, #def-adaptive-tempo, #def-model-class-fitness, #def-model-sufficiency, #result-structural-adaptation-necessity, #result-persistence-condition, #result-sector-persistence-template, #der-adversarial-destabilization, #result-adversarial-tempo-advantage, #obs-gates-advantage, #hyp-symbiogenic-composition, #hyp-communication-gain, #der-team-persistence, #disc-identifiability-floor, #scope-agent-identity.
 
 ---
 
@@ -20,7 +20,7 @@ Let $A$ and $B$ be two purposeful agents coupled through a shared environment. $
 
 On $B$'s side, the event is processed by the standard AAD machinery:
 
-- $B$'s observation function $h_B$ maps the $A$-induced environment state and $B$'s own prior action to an observation $o_\tau^B$ ( #def-function).
+- $B$'s observation function $h_B$ maps the $A$-induced environment state and $B$'s own prior action to an observation $o_\tau^B$ ( #def-observation-function).
 - $B$'s model $M_B$ yields a prediction $\hat o_\tau^B$; the mismatch is $\delta_\tau^B = o_\tau^B - \hat o_\tau^B$ ( #def-mismatch-signal).
 - $B$'s update rule $f_B$ absorbs $\delta_\tau^B$ with gain $\eta_B^\ast$ ( #emp-update-gain).
 - $B$'s strategy $\Sigma_B$ re-evaluates through the orient cascade.
@@ -396,7 +396,7 @@ Recommend a new appendix-or-Section-III segment `#der-interaction-channel-classi
 - **Type**: *derived* — the classification is derivable from existing AAD quantities.
 - **Status**: *conditional* — conditional on the per-case boundary derivations (§4).
 - **Location**: Section III appendix or late-Section III segment, positioned between `#der-adversarial-destabilization` and the `#adversarial-edge-targeting` GAP. It is a companion to the emitter-side segments, not a replacement.
-- **Depends on**: #def-function, #def-mismatch-signal, #emp-update-gain, #def-adaptive-tempo, #def-model-class-fitness, #result-structural-adaptation-necessity, #result-persistence-condition, #result-sector-persistence-template, #der-adversarial-destabilization, #result-adversarial-tempo-advantage, #obs-gates-advantage, #hyp-symbiogenic-composition, #hyp-communication-gain, #der-team-persistence, #disc-credit-assignment-boundary.
+- **Depends on**: #def-observation-function, #def-mismatch-signal, #emp-update-gain, #def-adaptive-tempo, #def-model-class-fitness, #result-structural-adaptation-necessity, #result-persistence-condition, #result-sector-persistence-template, #der-adversarial-destabilization, #result-adversarial-tempo-advantage, #obs-gates-advantage, #hyp-symbiogenic-composition, #hyp-communication-gain, #der-team-persistence, #disc-credit-assignment-boundary.
 - **Cross-referenced by**: #der-adversarial-destabilization (recipient-side perspective of $\gamma_A \mathcal T_A$), #hyp-symbiogenic-composition (asymmetric classification read), #der-team-persistence (Regime I as the cooperative-action term), #obs-gates-advantage (rate-boundary is the recipient-side expression).
 
 ### 8.2 Satellite moves

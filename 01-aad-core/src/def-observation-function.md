@@ -1,5 +1,5 @@
 ---
-slug: def-function
+slug: def-observation-function
 type: definition
 status: axiomatic
 depends:

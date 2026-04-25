@@ -99,7 +99,7 @@ Three features the original definition does not carry explicitly:
 
 AAD's forward uncertainty has two layers:
 
-- **Observation-side:** $U_{o,B}$ quantifies how ambiguously $B$'s observation channel maps environment state to observation (`#def-function`, `#emp-update-gain`).
+- **Observation-side:** $U_{o,B}$ quantifies how ambiguously $B$'s observation channel maps environment state to observation (`#def-observation-function`, `#emp-update-gain`).
 - **Model-side:** $U_{M,B}$ quantifies $B$'s predictive uncertainty about the environment *given* its model $M_t^B$ (`#def-model-sufficiency`, `#def-model-class-fitness`).
 
 The recipient-side classification in `#der-interaction-channel-classification` organizes the forward-direction flow: events arrive, get filtered by $h_B$ against $U_{o,B}$, get absorbed by $\eta_B^\ast = U_{M,B} / (U_{M,B} + U_{o,B})$, and land in one of four regimes.
@@ -487,7 +487,7 @@ $$\arg\max_k \; p_k(1-p_k) \cdot J_k^2 \cdot \iota_k \cdot \sigma_k^B \cdot (1 -
 
 This factors cleanly into:
 
-- **$B$-interior factors** ($p_k$, $J_k$, $\iota_k$, $\sigma_k^B$) — the value of the edge for a perfectly-informed adversary. Known from `#def-strategy-dag` + `#scope-edge-update-causal-validity` + `#disc-credit-assignment-boundary` + `#def-function`.
+- **$B$-interior factors** ($p_k$, $J_k$, $\iota_k$, $\sigma_k^B$) — the value of the edge for a perfectly-informed adversary. Known from `#def-strategy-dag` + `#scope-edge-update-causal-validity` + `#disc-credit-assignment-boundary` + `#def-observation-function`.
 - **Mutual-information factor** ($1 - H_b^{B \mid A}/H_b^{\max}$) — $A$'s targeting fidelity. This is the $H_b$ contribution.
 
 Under full legibility of $B$ to $A$ (low $H_b^{B \mid A}$), the optimization is fully exploitable; the adversary targets the specific high-value edge. Under full opacity (high $H_b^{B \mid A}$), the adversary must broadcast-attack — the optimization degrades to $\arg\max_k p_k(1-p_k) J_k^2$ (most-valuable edges in expectation), essentially a non-targeted load-bearing-edge-attack.
@@ -594,7 +594,7 @@ Promote a new segment `#der-agent-opacity` with:
 
 - **Type.** Derived.
 - **Status.** Conditional (sub-scope $\alpha$ exact; sub-scope $\beta$ robust qualitative).
-- **Depends on.** `#scope-agent-identity`, `#der-directed-separation`, `#def-model-class-fitness`, `#def-function`, `#emp-update-gain`, `#def-adaptive-tempo`, `#der-team-persistence`, `#der-adversarial-destabilization`, `#result-adversarial-tempo-advantage`, `#der-interaction-channel-classification`, `#disc-identifiability-floor`, `#disc-separability-pattern`.
+- **Depends on.** `#scope-agent-identity`, `#der-directed-separation`, `#def-model-class-fitness`, `#def-observation-function`, `#emp-update-gain`, `#def-adaptive-tempo`, `#der-team-persistence`, `#der-adversarial-destabilization`, `#result-adversarial-tempo-advantage`, `#der-interaction-channel-classification`, `#disc-identifiability-floor`, `#disc-separability-pattern`.
 - **Contents.**
   1. The AAD-internal definition (§2.2) with reduction to Hafez's original (§2.3) and the three AAD-specific features (observer-indexing, horizon-indexing, trajectory-indexing, §2.4).
   2. The duality with forward uncertainty (§3) — the $U_{\pi, B\to A}$ + $U_{a, A}$ decomposition as backward analog of $U_M$ + $U_o$.

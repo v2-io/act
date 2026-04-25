@@ -3,7 +3,7 @@ slug: der-interaction-channel-classification
 type: derived
 status: conditional
 depends:
-  - def-function
+  - def-observation-function
   - def-mismatch-signal
   - result-mismatch-decomposition
   - emp-update-gain
@@ -26,7 +26,7 @@ The same signal from agent $A$ lands on recipient $B$ as one of four qualitative
 
 ### Setup and Notation
 
-Two purposeful agents $A$ and $B$ coupled through a shared environment. $A$'s praxis produces an event $e_\tau^A$ that enters $B$'s observation channel. On $B$'s side the event is processed by the standard AAD machinery: $h_B$ maps the $A$-induced environment state to observation $o_\tau^B$ ( #def-function); mismatch is $\delta_\tau^B = o_\tau^B - \hat o_\tau^B$; update absorbs $\delta_\tau^B$ with gain $\eta_B^\ast = U_{M,B}/(U_{M,B} + U_{o,B})$ ( #emp-update-gain).
+Two purposeful agents $A$ and $B$ coupled through a shared environment. $A$'s praxis produces an event $e_\tau^A$ that enters $B$'s observation channel. On $B$'s side the event is processed by the standard AAD machinery: $h_B$ maps the $A$-induced environment state to observation $o_\tau^B$ ( #def-observation-function); mismatch is $\delta_\tau^B = o_\tau^B - \hat o_\tau^B$; update absorbs $\delta_\tau^B$ with gain $\eta_B^\ast = U_{M,B}/(U_{M,B} + U_{o,B})$ ( #emp-update-gain).
 
 Two event-level quantities enter the classification and must not be conflated:
 

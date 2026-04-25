@@ -4,7 +4,7 @@ type: formulation
 status: robust-qualitative
 depends:
   - def-agent-environment
-  - def-function
+  - def-observation-function
   - def-chronica
 stage: deps-verified
 ---

@@ -4,7 +4,7 @@ type: formulation
 status: robust-qualitative
 depends:
   - post-causal-structure
-  - def-function
+  - def-observation-function
   - def-action-transition
 stage: deps-verified
 ---

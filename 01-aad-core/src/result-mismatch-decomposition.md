@@ -4,7 +4,7 @@ type: result
 status: exact
 depends:
   - def-mismatch-signal
-  - def-function
+  - def-observation-function
   - form-agent-model
   - scope-adaptive-system
 stage: claims-verified

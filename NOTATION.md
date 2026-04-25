@@ -25,7 +25,7 @@ One complete traversal of the agent-environment feedback loop — the unit of ad
 The cycle is: Prolepsis → Aisthesis → Aporia → Epistrophe → Praxis → (Prolepsis).
 
 
-## Primitives ( #def-agent-environment, #def-function, #def-action-transition)
+## Primitives ( #def-agent-environment, #def-observation-function, #def-action-transition)
 
 | Symbol | Type | Meaning |
 |--------|------|---------|

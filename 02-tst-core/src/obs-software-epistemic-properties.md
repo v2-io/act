@@ -5,7 +5,7 @@ status: discussion-grade
 depends:
   - scope-software
   - def-pearl-causal-hierarchy
-  - def-function
+  - def-observation-function
   - def-adaptive-tempo
 stage: draft
 ---
