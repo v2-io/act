@@ -351,33 +351,6 @@ In RL and evolutionary computation, "fitness" typically bundles persistence into
 A future scope narrowing ("fitness-conditioned agents" or similar) might formalize agents whose $O_t$ explicitly includes a persistence component — where the agent's objective functional $V_{O_t}$ assigns value to trajectories that include the agent's own continued operation. This would sit between the general actuated agent (Section II, no assumption about $O_t$ content) and the logozoetic agent (`04-logozoetic-agents/`, persistence is morally weighted). The scope condition would be: $V_{O_t}$ is sensitive to trajectory length, not just trajectory quality.
 
 
-## Novel Results
-
-These are AAD's genuine mathematical contributions — results that emerge from the integration and can be stated independently.
-
-**Persistence condition.** A single inequality governing adaptive system viability: the correction efficiency must exceed the disturbance rate relative to model class capacity (α > ρ/R). Derived from sector-condition Lyapunov analysis; generalizes across correction function classes. This is the theory's central result — it connects control theory's stability analysis to the question of when any adaptive system (a thermostat, a development team, a learning agent) can maintain coherent function.
-
-**Acyclicity from temporal ordering.** Strategy graphs over finite planning horizons must be acyclic — derived from the irreversibility of time, not assumed as a structural convenience. Any directed graph whose edges represent "X causally precedes Y" over a finite set with real-valued timestamps is forced to be a DAG.
-
-**Satisfaction gap / control regret split.** Decomposes the gap between desired and actual outcomes into two orthogonal diagnostics: "the world doesn't permit it" (satisfaction gap: objective exceeds attainability) versus "you're not doing it well enough" (control regret: current policy underperforms the best available). The 2×2 diagnostic disambiguates four corrective-action regimes.
-
-**Adversarial tempo exponents.** When two coupled agents compete, the faster agent's advantage scales with a regime-dependent exponent: b = 2 (deterministic drift, coupling-dominant), b = 3/2 (stochastic noise, coupling-dominant), b → 1 (non-coupling-dominant). Both coupling-dominant exponents are now derived analytically — b = 2 from the deterministic steady-state scaling (∝ 1/α), b = 3/2 from the stochastic scaling (∝ 1/√α). The b = 3/2 derivation was originally empirical from simulation; the analytical result came from formalizing the deterministic/stochastic disturbance distinction (Model D vs. Model S).
-
-**Orient cascade as forced ordering.** The resolution order within the adaptive cycle (epistemic update → attainability assessment → regret computation → strategic calibration → objective revision) is not a design recommendation but a mathematical consequence of information dependency: each step's input requires the previous step's output.
-
-**Composition bridge lemma.** Bounded closure defect between individual and composite dynamics implies bounded trajectory error, via the same Lyapunov contraction argument that grounds Section I — conditional on the assumption that sector-bounded correction implies contraction of the full update map (verified for Kalman-type agents, open in general). This connects the composition story to the persistence machinery.
-
-**Feedback loop as Level 2 causal engine.** Any agent in a feedback loop generates interventional data by construction — the agent's action causally precedes the next observation. This connects control theory's feedback structure to Pearl's causal hierarchy without requiring the agent to explicitly perform experiments.
-
-**Observability dominance.** Unobservable strategy edges freeze at their prior (the gain principle drives update rate to zero). Paths through unobservable nodes become "epistemically dead" — an absorbing state the agent cannot escape without structural change. This connects the information-theoretic gain principle to strategic planning.
-
-**Structural adaptation necessity.** When model class fitness is insufficient, no parametric adaptation can close the mismatch floor — the agent must change its model class, not just its parameters. Derived from the information bottleneck applied to model sufficiency.
-
-**Evidence starvation in deep strategies.** Downstream edges in a strategy chain are tested only when all upstream edges succeed. Edge k's effective correction rate is attenuated by ∏_{j<k} θ_j — an exponential depth penalty on calibration that compounds independently with chain-confidence decay. Deep plans suffer a double penalty: they are less confident AND harder to calibrate.
-
-**Directed separation as architectural classification.** Whether epistemic updates are goal-blind is determined by processing topology, not by a tunable coupling parameter. Three classes: modular (separation by construction), fully merged (fails by construction), partially modular. This resolved a major open issue — the earlier κ-as-scalar framing was a category error.
-
-
 ## Cross-Domain Joining
 
 The framework's power is that the same formal objects appear with concrete instantiations across domains. Results proved in one domain automatically have consequences in the others:
@@ -394,19 +367,6 @@ The framework's power is that the same formal objects appear with concrete insta
 | Structural adaptation | Model switching | Architecture search | Organizational restructuring | Major refactoring |
 
 The persistence condition, for example, tells you that a software team must iterate fast enough, with good enough feedback, relative to how fast requirements are changing and how complex the codebase is. The same inequality, with different instantiations of α, ρ, and R, governs whether a Kalman filter tracks a maneuvering target, whether an RL agent converges in a nonstationary environment, and whether a military unit maintains situational awareness under adversarial deception.
-
-
-## Convergent Choices
-
-A category between "derived from first principles" and "arbitrary framework decision" — representational choices where all investigated alternatives fail or converge to the same structure:
-
-**AND/OR node types for strategy.** Three independent formalism attempts (general CPT, noisy-OR, weighted combination) converged on AND/OR as the only workable basis. Noisy-OR was rejected for non-identifiability; weighted combination for parameter explosion (2^k vs. k). A parsimony theorem (AND/OR as the unique minimal complete basis under the theory's constraints) would promote this to "derived."
-
-**Single-parameter edges.** Alternatives (multi-parameter credences, edge-specific distributions) were tried and abandoned. The convergence suggests this is not arbitrary but forced by the interaction between the uncertainty ratio principle and the chain-confidence identity.
-
-**P3→Markov condition.** The postulate that strategy must be locally revisable, combined with temporal ordering and causal sufficiency, appears to force the Markov property on the strategy DAG. Currently conditional on causal sufficiency (which is guaranteed for agent-constructed strategies). If the conditioning can be removed, this promotes to a derived result — analogous to how acyclicity was once assumed and is now derived.
-
-These sit between "we chose this" and "this is the only option." Tracking them separately from pure framework choices tells the reader: *we didn't just pick this; we tried everything else and it didn't work.*
 
 
 ## Maturity Gradient
@@ -451,17 +411,24 @@ This gradient — from exact core through principled architecture to open formul
 04-logozoetic-agents/   Language-living agents (future work)
   OUTLINE.md            Logozoetic framework outline
 
+CLAUDE.md               Auto-loaded context for AI agents (slim — audit-safe)
+CLAUDE-2.md             Deep architectural detail (read only when not auditing)
 OUTLINE.md              Top-level assembly index
 LEXICON.md              Prose vocabulary (spans whole project)
 NOTATION.md             Symbol reference (spans all sections)
 FORMAT.md               Segment file and general md conventions
 TODO.md                 Active work items
+PROPOSALS.md            Architectural proposal portfolio
+CHANGELOG.md            Forward-going cycle record (2026-04-24 onward)
+LOG.md                  Pre-2026-04-24 cycle archaeology (frozen)
 MIGRATION-MAP.md        Prior-work (TFT, TST) absorption tracking
 
 msc/                    Working documents, spikes, derivation attempts
   SPIKES.md             Spike index (status of each exploration)
 ref/                    Reference papers
-bin/                    Build and lint tools
+bin/                    Build, lint, and slug tools (align-slug, build,
+                        build-tex, lint-md, lint-outline, md2context,
+                        naming-aggregate.rb, rename-slug)
 
 _obs/                   Superseded materials
 ```

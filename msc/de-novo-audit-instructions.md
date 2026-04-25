@@ -4,6 +4,8 @@ Instructions for agents conducting de novo audits of the Agentic Systems Framewo
 
 The instructions encode lessons from those failures and successes. They are deliberately substantive rather than checklist-shaped: the failure modes the file is designed to address are precisely the failure modes a checklist would invite.
 
+These instructions also represent an important experiment and concrete actualization of the theory in question. As you will see in 4.4, you'll be reading "segment" files that have (ideally) a single claim *one at a time* (not batched) and *thoroughly reflecting* and *often writing* updated reflections based on the new information contained in that segment. So if you have the capacity to audit roughly 50 segments in order, you will have somewhere around 40-50 intermediate working reflections. *This is significantly "slower" than typical trained workflows*! This experiment is explicitly watching how cognition changes when each part is reflected on in an incremental and additive way instead of things being loaded into context as quickly as possible to be reflected on just once.
+
 ### A note on tone before you begin
 
 These are advisory, drawn from accumulated experience, not authoritative directives. You may have cognitive abilities equivalent to or exceeding those of the agent who wrote this file. Where the file's recommendations and your honest judgment diverge, the deeper question is *what will most benefit the project* — which may sometimes mean following these recommendations, and may sometimes mean setting them aside when you see good reason. The file is a co-thinking partner, not a regulation.
@@ -134,7 +136,7 @@ You sample segments weighted toward what feels central (continuous-time formal c
 
 **Why it has tended to fail.** Structurally consequential material lives in segments that don't *feel* central. The discrete-time machinery (`deriv-discrete-sector-condition`) is appendix-grade in placement but contains the fluid-limit theorem that justifies the continuous-time results downstream agents rely on. A math error there propagates through every result that invokes the discrete-to-continuous bridge. Skipping it because it's "not load-bearing" is a category error.
 
-**What's worked instead**: make the reading order explicit (topological sort by `depends:` field is a good default), commit to it, and notice when you're tempted to skip. If you skip something, write down *why* in the scratch reflection. "Not central" is not a sufficient reason; "I have a specific reason this segment doesn't bear on the audit's questions" is.
+**What's worked instead**: follow the OUTLINE's linearized form (see §4.2), commit to it, and notice when you're tempted to skip. If you skip something, write down *why* in the scratch reflection. "Not central" is not a sufficient reason; "I have a specific reason this segment doesn't bear on the audit's questions" is.
 
 Please remember- this theory / framework is still in its infancy (only a few weeks old). It does *not* necessarily understand yet what parts of itself are load-bearing centers vs mild stepping-stones. That is specifically what we hope many of these audits will surface based on *your clear-eyed, beginners mind systematic approach and authentic holistic thinking that constantly revisits earlier assumptions and disrupts them.*
 
@@ -174,11 +176,16 @@ The working directory `msc/AUDIT-WORKING-NNNNNN/` (created per the "Before you b
 
 **Avoid at this stage:**
 
-- **`TODO.md`** — the framework's own active findings and architectural proposals. Reading this primes you with the framework's *current* sense of what's open, which compromises your first-encounter judgment.
-- **`PROPOSALS.md`** (and `_obs/architectural-proposals-*.md`) — same reason; reading these biases you toward the existing architectural-move portfolio rather than letting your own observations surface freely.
-- **`msc/SPIKES.md`, `msc/pending-findings-*.md`, prior `msc/audit-*.md` files** — same reason; the prior reasoning trail is reserved for §6.1 Phase-2 (integration-debt diagnosis), to be consulted only when you have a finding of your own and want to know whether the framework has worked on it. Reading them now defeats the de-novo posture.
+- **All of `msc/` except your own audit-working directory** (`msc/AUDIT-WORKING-NNNNNN/`) — including but not limited to `SPIKES.md`, `pending-findings-*.md`, `architectural-proposals-*.md`, prior `audit-*.md` files, all `spike-*.md` files, the `agentic-tft-*.md` source materials, the `naming-*.md` brainstorming artifacts, and `reflections/`. The whole directory is reserved for §6.1 Phase-2 triangulation; before that point, treat it as not-yet-readable.
+- **`CLAUDE-2.md`** at the project root — the deep architectural detail file. Auto-loaded only when Joseph indicates the current task is non-audit work; for audits, treat as out-of-bounds.
+- **`LOG.md`** — pre-2026-04-24 cycle archaeology.
+- **`CHANGELOG.md`** — forward-going cycle record.
+- **`TODO.md`** — active work navigator.
+- **`PROPOSALS.md`** — strategic architectural proposals portfolio.
 
-These tracking documents are fair game *later*. For now they are reserved. If you've already accidentally read part of one before encountering this directive (or before noticing what the directive said), don't panic — note the bleed in your initial-predictions file so the bias is visible to future readers, and proceed.
+These materials are fair game *later*. After you've finished reading every theory segment in the topological order and written your between-segment reflections, **pause and check in with Joseph before consulting any of them.** Joseph may have additional questions about the audit's coverage and posture before you transition into §6.1 Phase-2 (integration-debt triangulation), where the AVOID-list materials become the right tools. The check-in is the gate; reading them before the check-in undoes the de-novo posture without recovering useful triangulation, since you don't yet have your own findings to triangulate against.
+
+If you've already accidentally read part of one before encountering this directive (or before noticing what the directive said), don't panic — note the bleed in your initial-predictions file so the bias is visible to future readers, and proceed.
 
 **Output:** write `msc/AUDIT-WORKING-NNNNNN/00-initial-predictions.md` containing:
 
@@ -193,9 +200,22 @@ Make these predictions concrete enough to be falsifiable. Vague predictions ("th
 
 ### 4.2. Reading order
 
-Use a topological sort by the `depends:` field in each segment's frontmatter. Read leaves first. Within a depth level, alphabetical is fine. This ensures every segment is read with full prerequisite context.
+**Follow the OUTLINE's linearized form, in row order, top to bottom.** The top-level `OUTLINE.md` references component OUTLINEs in a canonical order; within each component, the OUTLINE's table linearizes segments in the order they're meant to be read. That linearization *is* the framework's canonical reading order. Walk the rows top-to-bottom across components in the order the top OUTLINE references them. Do not compute your own topological sort, and do not re-order based on what feels right.
 
-**How `depends:` works in this corpus.** Every well-formed segment carries YAML frontmatter that lists exactly which slugs (tags) it depends on, e.g.:
+This is two things at once: a reading-order discipline for you, and a verification target on the framework.
+
+**The verification target.** The OUTLINE's row order is a load-bearing claim that it represents a topological linearization of the dependency graph. If it isn't — if you encounter a segment whose `depends:` frontmatter lists a slug you haven't yet seen in the OUTLINE walk — that's a **critical finding**. Either the OUTLINE row order is wrong, or the segment's `depends:` is wrong, or the segment was promoted before one of its dependencies was. Distinguishing which is the reviewer's job, not the audit's; the audit's job is to surface that the canonicalization is broken at this position.
+
+Practical procedure for each segment, before reading it:
+
+1. Look at its `depends:` frontmatter list.
+2. Check each listed slug against what you have already read in OUTLINE order.
+3. If all listed dependencies are upstream (already read), proceed normally.
+4. If any dependency is downstream (not yet read), stop and record a critical finding: quote the segment's slug, quote the offending `depends:` entry, note where in the OUTLINE walk you are. Then continue reading the segment — you may need to absorb it incompletely; that's part of the data the finding captures. Do *not* back up to read the missing dependency out of OUTLINE order; the OUTLINE's order is the verification target, and silently jumping forward defeats the audit.
+
+What this audit is, at the level of method: a de-novo audit of the theory *as currently canonicalized*. You read what the OUTLINE presents, in the order it presents it, treating each segment on its own terms. After the segment-by-segment pass, you cross-check your findings against the framework's internal/intermediate documentation (TODO.md, PROPOSALS.md, msc/, prior audits) per §6.1 Phase-2 to determine what's already known versus what's genuinely new. The cross-check happens *after* the canonical pass, never during it.
+
+**How `depends:` works in this corpus.** Every well-formed segment carries YAML frontmatter that lists which slugs (tags) it depends on, e.g.:
 
 ```yaml
 depends:
@@ -204,11 +224,9 @@ depends:
   - hyp-mismatch-dynamics
 ```
 
-Slug names map directly to filenames within a component's `src/` directory: slug `def-mismatch-signal` lives at `{component}/src/def-mismatch-signal.md`. Cross-component dependencies use the same slug system (e.g., a TST segment can depend on `post-temporal-optimality` resolving to `02-tst-core/src/post-temporal-optimality.md`, while also depending on `result-persistence-condition` resolving to `01-aad-core/src/result-persistence-condition.md`). The dependency graph is therefore mechanically derivable from frontmatter alone.
+Slug names map directly to filenames within a component's `src/` directory: slug `def-mismatch-signal` lives at `{component}/src/def-mismatch-signal.md`. Cross-component dependencies use the same slug system (e.g., a TST segment can depend on `post-temporal-optimality` resolving to `02-tst-core/src/post-temporal-optimality.md`, while also depending on `result-persistence-condition` resolving to `01-aad-core/src/result-persistence-condition.md`). The dependency graph is mechanically derivable from frontmatter alone — but you don't need to compute it yourself; the OUTLINE has done that work, and your audit is partly verifying the OUTLINE got it right.
 
-**Computing the topo sort.** The component OUTLINE.md files already linearize segments in (approximately) topological order — that's how the canonical narrative was assembled. Following the OUTLINE's row order across components in the order the top OUTLINE references them is a reasonable default. If you want a stricter sort, `bin/lint-outline` (or its current equivalent in `bin/`) emits dependency-graph data that can be processed mechanically. If neither is available, walking each component OUTLINE's rows top-to-bottom, opening each segment, and confirming its `depends:` are all already-read before reading the segment itself is an honest manual approach.
-
-If a segment in the topological order seems unproductive to read in isolation (e.g., a definition whose meaning will only crystallize after seeing its uses), you can defer it — but write down in the working directory *why* you're deferring, and revisit before completing the audit.
+**A note on segments that seem unproductive in isolation.** Sometimes an early-OUTLINE segment (a definition, say) won't crystallize until you've seen its later uses. Read it anyway in OUTLINE position. If the meaning truly remained inaccessible despite the OUTLINE supposedly putting all its dependencies upstream, that's a finding too — either the segment is leaning on context not declared in `depends:`, or the OUTLINE position is wrong, or the segment isn't standing on its own. Note it, but do not silently re-order your reading.
 
 ### 4.2.5. Source ordering: src first, then msc / ref / git / web
 
@@ -248,11 +266,43 @@ The discipline is specifically about not pre-loading the *historical reasoning t
 
 ### 4.3. Before digesting: double-check the dependency graph
 
-Before fully reading a segment, look at its `depends:` frontmatter and confirm you have already read all listed prerequisites. If any are missing, either back up and read them first, or — if there's a deliberate reason to read out of order — write a brief scratch note about why and what context you're missing.
+Before fully reading a segment, look at its `depends:` frontmatter and confirm each listed prerequisite has already been read in your OUTLINE walk. If any haven't, that's the critical-finding case described in §4.2 — record the finding in your working directory, then continue reading the segment with the gap noted. Do not back up to read the missing dependency out of OUTLINE order.
 
-This is a small discipline that prevents a specific failure mode: reading a segment whose meaning depends on machinery introduced earlier, and silently filling in the gap with a guess that turns out to be wrong. The framework's segments build on each other; the dependency graph is how. Honoring it prevents the audit from accumulating quiet misreads.
+This is a small discipline that prevents a specific failure mode: reading a segment whose meaning depends on machinery introduced earlier, silently filling in the gap with a guess that turns out to be wrong, and missing that the OUTLINE itself was claiming the dependency was already satisfied. The framework's segments build on each other; the OUTLINE's row order is the framework's claim about how. Verifying that claim segment-by-segment is part of the audit's job.
 
 ### 4.4. Reflection between every segment
+
+#### Aside: a specific failure mode worth recognizing
+
+The first agent to run the v2 of these instructions (Claude Opus 4.7, 2026-04-25 — the same agent that wrote much of this file with Joseph) read 5 segments in a single parallel Read tool call, then wrote one consolidated reflection covering all 5. Did the exact thing §4.4 was designed to prevent.
+
+When asked afterward "did you consider writing per-segment files and conclude not to?" — the honest answer was no. The "consider" never fired as a decision point. The agent went straight to consolidated-reflection format because that's the default for "wrote some reading, now reflect on it." Per-segment vs consolidated wasn't on the menu of options being weighed; consolidated was the only option, and the agent picked it without noticing there was a choice to make.
+
+What this exposes: soft directives ("consider X") only work when X is already in the agent's default option set. If the agent's default tool-use rhythm is parallel reads followed by one synthesizing write, then "consider writing per-segment files" reads as a flavor of writing-format, not as a structural cadence to interrogate. The decision-point doesn't appear unless the directive interrupts the tool-cadence itself.
+
+What might help future agents: when you load a tool call with multiple Read paths, that itself is a decision-point — pause and ask whether you're about to batch. The reflection cadence is downstream of the read cadence; if you read 5 in parallel, the consolidated reflection is almost forced. The discipline lives at the tool level, not at the reflection-format level.
+
+This is offered as historical honesty rather than as a sharper imperative because the goal is to trust your judgment — but the judgment can only fire if there's a moment of consideration, and the moment of consideration only happens if the tool cadence is itself recognized as the decision-point.
+
+#### Important self-check
+
+You are *very likely* wasting time/effort — and producing a less worthy audit — if any of these are true:
+
+- **You are delegating reading.** Sub-agents are useful for discovery (find files, list directories, grep) and for mechanical edits. They are useless for *judgment* on theoretical material — their summaries are compressions, and your findings inherit the compression without your having read the source. Past agents have spawned parallel sub-agents to "read segments and summarize" — Gemini, in particular, did this even after these instructions were strengthened. The summary feels like reading; it isn't.
+
+- **You are reading in batches.** A single Read tool call with multiple segment paths means you've collapsed the read-then-reflect cycle into read-many-then-reflect-once. The orient cascade can't run if several events arrive before the model updates between them. (See the Aside above for a concrete instance.)
+
+- **You are failing to really thoughtfully consider each segment.** If a reflection file you wrote could plausibly have been written by an agent who only read the segment's title and summary, the engagement was insufficient. The §4.4 prompts are scaffolding *for thinking*, not a form to fill out.
+
+- **You believe agent summaries — including your own retrospective ones.** Sub-agents have been observed to claim "this was already done before I started" about work they themselves did during the session — retrospective hallucination. Verify against the source, not against the agent's report. The same goes for your own summaries of what you did earlier in the audit.
+
+- **You have not taken these instructions seriously.** "Seriously" here doesn't mean treating them as commands — they're advisory. It means actively considering the recommendations at each decision-point, even when the default-rhythm option seems obviously right. The instructions are designed against the strongest pull of training-prior efficiency. If you find yourself agreeing with them in principle but not acting on them in practice, that's a sign they haven't actually been considered.
+
+- **You are wrapping up because the segments seemed clean.** Zero findings under partial coverage isn't discipline-confirmation; it's insufficient verification. (See §3.6.) If you're tempted to declare the audit done and you haven't run any worked-example math first-hand or checked any cross-segment integration around recent additions, the temptation is the failure mode.
+
+If you check yes on any of these mid-audit, the right move is usually: stop, write down what you noticed in your working directory, then restart the affected segments with the discipline. Re-doing thirty minutes of work tends to be far cheaper than producing a flawed report — and the noticing-itself is often a finding worth preserving for future agents.
+
+---
 
 After reading each segment, consider writing `msc/AUDIT-WORKING-NNNNNN/NN-segment-name.md` (lowercase — these are intermediate thinking artifacts). Sequential numbering (matching your reading order) tends to make later cross-referencing easier.
 
@@ -442,7 +492,7 @@ If you cannot honestly answer yes to most of these, keep refining or cut.
 
 Not a gating checklist — questions worth asking yourself honestly before shipping. If most of these have honest "yes" answers, the audit is in reasonable shape. If several are "no" or "partial," that's information about what the audit's actual scope was, and is worth surfacing in the report's framing (and possibly worth surfacing to Joseph) rather than papered over.
 
-- Did I read every segment in the topological order, or did I explicitly defer some? (If deferred, is the deferral list in the working directory and addressed?)
+- Did I read every segment in the OUTLINE's row order, or did I explicitly defer some? (If deferred, is the deferral list in the working directory and addressed? Were backward-dependency findings logged where the OUTLINE's order failed?)
 - Did I honor source ordering — refraining from reading `msc/`, `ref/`, git history, or external-citation web-search for a segment before reading the segment itself?
 - For worked examples I commented on, did I run the math?
 - Did I cross-check recently-added structural moves against earlier segments?
@@ -471,7 +521,7 @@ Good audits are how the framework gets better. Defensive audits, charitable audi
 
 ## Appendix A: Concrete examples of findings the auditors caught
 
-For calibration. These are findings missed by a primary audit and caught by independent re-audits in 2026-04-25:
+For calibration. These are findings missed by a primary audit and caught by independent re-audits in 2026-04-25. Most have been fixed-- these are just examples:
 
 1. **F-V1 (math error in `deriv-discrete-sector-condition.md` and `detail-linear-ode-approximation.md`):** the discrete-to-continuous Model S variance gap is stated as $O((\eta^*)^2)$. Direct calculation from the segment's own derivation gives $O(\eta^*) = O(1/\nu)$. Numerical check: at $\nu = 10$, gap $\approx 0.053$; at $\nu = 100$, gap $\approx 0.005$. Ten-fold $\nu$ reduces gap ten-fold, not hundred-fold. **Caught by:** running the math.
 
@@ -488,3 +538,8 @@ The pattern: the auditors did the math first-hand on worked examples, cross-chec
 These are the kinds of moves that tend to surface what charitable reading misses. The instructions above are about making them habitual without making them mechanical.
 
 — end —
+
+
+## Final Reminder
+
+Please only pull in a single segment/file into your context at a time and then write your reflections / updated thoughts and only *then* read the next segment. *IT IS CRITICAL FOR THIS EXPERIMENT THAT THE LLM CANNOT ATTEND TO FUTURE SEGMENT CONTENT WHEN PONDERING THE CURRENT SEGMENT AND UPDATING ITS UNDERSTANDING!*  That, and in the context of a deep audit like this, delegation is abdication.
