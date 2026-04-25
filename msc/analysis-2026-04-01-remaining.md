@@ -110,7 +110,7 @@ The recursive-update segment defines g_M(M_τ) for between-event evolution but t
 
 ### TST Bridge Formalization
 
-The git → Lyapunov operationalization remains analogical, not formal. The chain git data → Q → comprehension time → developer tempo → α has empirical hypothesis steps. Either formalize the bridge or be explicit that it's an empirical research program. The missing segment #causal-discovery-from-git is the most prominent gap.
+The git → Lyapunov operationalization remains analogical, not formal. The chain git data → Q → comprehension time → developer tempo → α has empirical hypothesis steps. Either formalize the bridge or be explicit that it's an empirical research program. The missing segment #hyp-causal-discovery-from-git is the most prominent gap.
 
 
 ## Priority Order for Remaining Work

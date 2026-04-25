@@ -2,9 +2,9 @@
 
 **Status**: Exploratory derivation — characterizing the gap, attempting proof, establishing boundary
 **Date**: 2026-04-06
-**Motivation**: The bridge lemma in #composition-closure requires that bounded closure defect implies bounded trajectory error. The argument needs the full update map $f_c(\cdot, o)$ to be a contraction in its state argument. Currently, (A4) constrains only the *correction component* of $f_c$, not the full map. This is verified for Kalman-type agents but remains an independent assumption for general agents. This spike attempts to close the gap — or, failing that, to characterize exactly what additional conditions are needed and for what agent classes they hold.
+**Motivation**: The bridge lemma in #form-composition-closure requires that bounded closure defect implies bounded trajectory error. The argument needs the full update map $f_c(\cdot, o)$ to be a contraction in its state argument. Currently, (A4) constrains only the *correction component* of $f_c$, not the full map. This is verified for Kalman-type agents but remains an independent assumption for general agents. This spike attempts to close the gap — or, failing that, to characterize exactly what additional conditions are needed and for what agent classes they hold.
 
-**Depends on**: #composition-closure, #sector-condition-derivation, #discrete-sector-condition, #gain-sector-bridge, `msc/spike-composition-bridge-2agent.md`, `msc/spike-composition-correlated-kalman.md`
+**Depends on**: #form-composition-closure, #deriv-sector-condition, #deriv-discrete-sector-condition, #der-gain-sector-bridge, `msc/spike-composition-bridge-2agent.md`, `msc/spike-composition-correlated-kalman.md`
 
 ---
 
@@ -44,7 +44,7 @@ where $\delta_{c,t} = o_{t+1} - \hat{o}_{c,t+1}(X_{c,t})$ and $F_d$ is the discr
 2. The corrections differ accordingly: $F_d(\delta(X)) \neq F_d(\delta(X'))$.
 3. Any observation-driven term that depends on the state may amplify or attenuate the difference $X - X'$.
 
-The sector condition guarantees that the correction *component* acts contractively (under the discrete-sector-Lipschitz conditions from #discrete-sector-condition). The question is whether other components of the update can amplify state differences enough to overwhelm the correction's contraction.
+The sector condition guarantees that the correction *component* acts contractively (under the discrete-sector-Lipschitz conditions from #deriv-discrete-sector-condition). The question is whether other components of the update can amplify state differences enough to overwhelm the correction's contraction.
 
 ---
 
@@ -52,7 +52,7 @@ The sector condition guarantees that the correction *component* acts contractive
 
 ### 2.1 General AAD update structure
 
-The general discrete-time AAD update for the macro-agent has the form (from #event-driven-dynamics and #recursive-update):
+The general discrete-time AAD update for the macro-agent has the form (from #form-event-driven-dynamics and #der-recursive-update):
 
 *[Definition (general-update-decomposition)]*
 
@@ -66,7 +66,7 @@ For a mismatch-driven agent, the update is driven entirely by the innovation $\d
 
 $$f_c(X, o) = X + \eta_c \cdot g(\delta(X))$$
 
-where $g$ is the state-space correction induced by the mismatch (incorporating the observation-to-state mapping $H$ from #gain-sector-bridge). The correction function in observation space is $F(\delta) = -H g(\delta)$, so $\delta^T F(\delta) = -\delta^T H g(\delta) \geq \alpha \lVert\delta\rVert^2$ by the sector condition.
+where $g$ is the state-space correction induced by the mismatch (incorporating the observation-to-state mapping $H$ from #der-gain-sector-bridge). The correction function in observation space is $F(\delta) = -H g(\delta)$, so $\delta^T F(\delta) = -\delta^T H g(\delta) \geq \alpha \lVert\delta\rVert^2$ by the sector condition.
 
 ### 2.2 The state-difference expansion
 
@@ -98,7 +98,7 @@ For the scalar Kalman filter with $H = 1$: $\lambda = |1 - K| = 1 - K^\ast < 1$ 
 
 For the matrix case: $\lambda = \rho(I - KH)$ (spectral radius), which is $< 1$ whenever the Kalman filter is stable (standard result from estimation theory).
 
-**Why the Kalman case works.** The update map $f_c(X, o) = (I - KH)X + Ko$ is affine in $X$. The matrix $(I - KH)$ is the *complement* of the gain-observation product. The sector condition with $\alpha = \lambda_{\min}^+(KH)$ and the Lipschitz bound with $c_{\max} = \lVert KH \rVert$ together imply $\lambda_{\text{eff}}^2 = 1 - 2\alpha + c_{\max}^2 \eta^2 < 1$ (by the DA2' stability condition from #discrete-sector-condition). But this *is* the contraction of the full update map, because the full update map IS the correction step — there are no additional observation-driven terms independent of the mismatch.
+**Why the Kalman case works.** The update map $f_c(X, o) = (I - KH)X + Ko$ is affine in $X$. The matrix $(I - KH)$ is the *complement* of the gain-observation product. The sector condition with $\alpha = \lambda_{\min}^+(KH)$ and the Lipschitz bound with $c_{\max} = \lVert KH \rVert$ together imply $\lambda_{\text{eff}}^2 = 1 - 2\alpha + c_{\max}^2 \eta^2 < 1$ (by the DA2' stability condition from #deriv-discrete-sector-condition). But this *is* the contraction of the full update map, because the full update map IS the correction step — there are no additional observation-driven terms independent of the mismatch.
 
 **The key insight from the Kalman case:** The contraction property holds trivially when the entire state update is mismatch-driven. The gap arises only when $f_c$ contains state-dependent terms that are not mediated by the mismatch.
 
@@ -202,7 +202,7 @@ $$v^T (Dg \cdot D\hat{o}) \, v \geq \mu \lVert v \rVert^2 \quad \forall v$$
 
 **Connection to the sector condition.** The sector condition says $\delta^T F_d(\delta) \geq c_{\min} \lVert \delta \rVert^2$ (DA2'a). For differentiable $F_d$, this means $\delta^T (DF_d) \delta \geq c_{\min} \lVert \delta \rVert^2$, i.e., $DF_d$ is positive definite with eigenvalues $\geq c_{\min}$.
 
-Now $F_d(\delta) = H g(\delta)$ where $H$ maps state corrections to observation-space mismatch reduction (#gain-sector-bridge). So $DF_d = H \cdot Dg$, and the sector condition gives:
+Now $F_d(\delta) = H g(\delta)$ where $H$ maps state corrections to observation-space mismatch reduction (#der-gain-sector-bridge). So $DF_d = H \cdot Dg$, and the sector condition gives:
 
 $$\delta^T H \, Dg \, \delta \geq c_{\min} \lVert \delta \rVert^2$$
 
@@ -400,7 +400,7 @@ This is a much tighter step-size restriction than the linear case (extra factor 
 
 ## 5. The Discrete-Time Connection
 
-### 5.1 Using $\lambda_{\text{eff}}$ from #discrete-sector-condition
+### 5.1 Using $\lambda_{\text{eff}}$ from #deriv-discrete-sector-condition
 
 The discrete-sector-condition segment defines:
 
@@ -412,11 +412,11 @@ for the mismatch dynamics $\delta_{k+1} = \delta_k - \eta^\ast F_d(\delta_k) + w
 
 **Answer: Yes, when C1-C3 hold (Theorem 2).** The proof of Theorem 2 shows that the full update map's contraction factor (in the $H^TH$-norm) is exactly $\lambda_{\text{eff}}$ from the discrete sector condition. The contraction of the full map IS the contraction of the mismatch dynamics, viewed through the lens of the observation operator $H$.
 
-This is not a coincidence — it reflects the structural identity noted in #composition-closure's Discussion: "The trajectory error $e_t$ evolves under the same dynamics as mismatch $\delta_t$." When the update is purely mismatch-driven and the prediction is linear, the trajectory error IS a mismatch — the error $e_t$ generates a "virtual mismatch" $He_t$ that is contracted by the same mechanism that contracts actual mismatch.
+This is not a coincidence — it reflects the structural identity noted in #form-composition-closure's Discussion: "The trajectory error $e_t$ evolves under the same dynamics as mismatch $\delta_t$." When the update is purely mismatch-driven and the prediction is linear, the trajectory error IS a mismatch — the error $e_t$ generates a "virtual mismatch" $He_t$ that is contracted by the same mechanism that contracts actual mismatch.
 
 ### 5.2 The discrete bridge lemma with explicit contraction
 
-Combining Theorem 2 with the bridge lemma from #composition-closure:
+Combining Theorem 2 with the bridge lemma from #form-composition-closure:
 
 *[Derived (Conditional on C1-C3)]*
 
@@ -434,7 +434,7 @@ $$\varepsilon_x < \frac{(1 - \lambda_{\text{eff}}) R_c}{\kappa(H)^2}$$
 
 When $H = I$ (direct observation), $\kappa(H) = 1$ and the bound recovers the original bridge lemma exactly: $\limsup \lVert e_t \rVert \leq \varepsilon_x / (1 - \lambda_{\text{eff}}) = \varepsilon_x \nu_c / \alpha_c$ (using $1 - \lambda_{\text{eff}} \approx \eta^\ast c_{\min} = \alpha_c / \nu_c$ in the fluid limit).
 
-**Proof.** Combine the contraction bound from Theorem 2 (in Euclidean norm via the condition number) with the standard linear recurrence argument from #composition-closure. The per-step evolution:
+**Proof.** Combine the contraction bound from Theorem 2 (in Euclidean norm via the condition number) with the standard linear recurrence argument from #form-composition-closure. The per-step evolution:
 
 $$\lVert e_{t+1} \rVert \leq \kappa(H)^2 \lambda_{\text{eff}} \lVert e_t \rVert + \varepsilon_x$$
 
@@ -465,7 +465,7 @@ These agents satisfy C1-C3 and the contraction property follows from Theorem 2:
 - Gradient descent on strongly convex losses with linear observation models
 - Any linear correction function with positive definite gain-observation product
 
-For these agents, the bridge lemma is exact. The contraction factor $\lambda_{\text{eff}}$ from #discrete-sector-condition bounds the full update map. **The bridge lemma can be promoted from "conditional" to "derived (conditional on sector-Lipschitz DA2')" for this class.**
+For these agents, the bridge lemma is exact. The contraction factor $\lambda_{\text{eff}}$ from #deriv-discrete-sector-condition bounds the full update map. **The bridge lemma can be promoted from "conditional" to "derived (conditional on sector-Lipschitz DA2')" for this class.**
 
 **Tier 2: Contraction holds LOCALLY (additional conditions checkable per domain).**
 
@@ -519,13 +519,13 @@ The bridge lemma's contraction assumption decomposes into three checkable condit
 
 **The genuine gap is C1 (incremental monotonicity).** C2 and C3 are either already assumed or checkable. The incremental sector bound is the structural condition that separates "sector-bounded correction" from "contracting update map."
 
-### 7.2 Recommendation for #composition-closure
+### 7.2 Recommendation for #form-composition-closure
 
 The bridge lemma should be restated with the condition hierarchy:
 
 *[Formulation (revised bridge lemma conditions)]*
 
-**For Tier 1 agents** (linear prediction, incremental sector-Lipschitz correction): the bridge lemma is derived from (A4) + C1 + C2. The contraction factor equals $\lambda_{\text{eff}}$ from #discrete-sector-condition. No independent contraction assumption needed.
+**For Tier 1 agents** (linear prediction, incremental sector-Lipschitz correction): the bridge lemma is derived from (A4) + C1 + C2. The contraction factor equals $\lambda_{\text{eff}}$ from #deriv-discrete-sector-condition. No independent contraction assumption needed.
 
 **For Tier 2 agents** (nonlinear prediction, incremental sector-Lipschitz correction): the bridge lemma holds locally, with contraction factor degraded by $\kappa(D\hat{o})^2$. The meaningful-composition condition is tighter.
 
@@ -537,7 +537,7 @@ The key theoretical contribution of this spike is identifying **incremental mono
 
 This is a well-studied property in optimization and monotone operator theory. Strong monotonicity of the gradient is equivalent to strong convexity of the objective. The AAD connection: *an agent whose correction function is strongly monotone has the property that perturbations to its state are always reduced by the correction mechanism* — not just perturbations from the origin (the one-point sector bound), but perturbations between any two states.
 
-For the working notes in #composition-closure, the characterization is:
+For the working notes in #form-composition-closure, the characterization is:
 
 > The contraction assumption holds when the correction function $F_d$ is strongly monotone (incremental sector bound, DA2'a-inc). This is satisfied by: (i) all linear corrections with positive definite gain-observation product, (ii) all Bayesian updates on exponential-family models, (iii) all gradient updates on strongly convex losses. It fails for non-convex optimization and discontinuous correction rules. When the prediction model is additionally linear, the full update map is a contraction with the same factor $\lambda_{\text{eff}}$ as the mismatch dynamics. When the prediction model is nonlinear, the contraction factor degrades by the condition number of the prediction Jacobian squared.
 
@@ -545,9 +545,9 @@ For the working notes in #composition-closure, the characterization is:
 
 1. **Global (non-local) contraction for nonlinear prediction models.** Proposition 5 is local. A global result would require uniform bounds on the prediction Jacobian's condition number over the entire operating region — available for specific systems but not in general.
 
-2. **Mixed-type composite agents.** When the epistemic substate ($M_c$) is Tier 1 (Kalman) but the purposeful substate ($G_c$) is Tier 2 or 3, the composite contraction factor depends on the coupling between $M$ and $G$ updates. The directed-separation assumption (#directed-separation) simplifies this by decoupling the substates, but Section III composites may violate directed separation (#directed-separation-under-composition).
+2. **Mixed-type composite agents.** When the epistemic substate ($M_c$) is Tier 1 (Kalman) but the purposeful substate ($G_c$) is Tier 2 or 3, the composite contraction factor depends on the coupling between $M$ and $G$ updates. The directed-separation assumption (#der-directed-separation) simplifies this by decoupling the substates, but Section III composites may violate directed separation (#hyp-directed-separation-under-composition).
 
-3. **The Beta-Bernoulli edge update's incremental sector bound.** The update $p \mapsto p + (x - p)/(n+1)$ is linear in $p$ for fixed $n$, so DA2'a-inc holds at each step. But $n$ increases over time, changing $c_{\min} = 1/(n+1)$ — the incremental sector constant is time-varying and converges to zero. The bridge lemma for agents with decaying gain requires time-varying contraction analysis (noted in #discrete-sector-condition Working Notes).
+3. **The Beta-Bernoulli edge update's incremental sector bound.** The update $p \mapsto p + (x - p)/(n+1)$ is linear in $p$ for fixed $n$, so DA2'a-inc holds at each step. But $n$ increases over time, changing $c_{\min} = 1/(n+1)$ — the incremental sector constant is time-varying and converges to zero. The bridge lemma for agents with decaying gain requires time-varying contraction analysis (noted in #deriv-discrete-sector-condition Working Notes).
 
 4. **Connection to incremental input-to-state stability (iISS).** The contraction property (CP) is closely related to the concept of *incremental input-to-state stability* in nonlinear systems theory (Angeli 2002). An iISS system has the property that the distance between any two trajectories is bounded by a function of the distance between the corresponding inputs. Theorem 2 proves incremental stability for the class of mismatch-driven agents with monotone corrections and linear predictions. The full iISS theory may provide tools for extending to the nonlinear-prediction case.
 
@@ -566,6 +566,6 @@ For the working notes in #composition-closure, the characterization is:
 **Confidence.** Theorems 2 and 3 are correct and the proofs are complete (conditional on C1-C3). The three-tier classification is well-grounded. The counterexample is valid. The main uncertainty is whether the Tier 2 local result can be made global under reasonable additional conditions.
 
 **Recommendation.** This spike provides enough to:
-1. Restate the bridge lemma in #composition-closure with explicit conditions rather than a blanket "contraction assumption."
+1. Restate the bridge lemma in #form-composition-closure with explicit conditions rather than a blanket "contraction assumption."
 2. Promote the bridge lemma to "derived (conditional on DA2'-inc + C2)" for Tier 1 agents.
-3. Close the open item in #composition-closure's Working Notes about "proving it from (A4) alone" with the answer: "It cannot be proved from (A4) alone. The incremental sector bound DA2'a-inc is the minimal additional condition. It holds for all Bayesian and convex-gradient agents."
+3. Close the open item in #form-composition-closure's Working Notes about "proving it from (A4) alone" with the answer: "It cannot be proved from (A4) alone. The incremental sector bound DA2'a-inc is the minimal additional condition. It holds for all Bayesian and convex-gradient agents."

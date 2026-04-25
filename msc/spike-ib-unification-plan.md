@@ -4,7 +4,7 @@
 
 **Date**: 2026-04-21
 
-**Depends on**: `#information-bottleneck`, `#strategy-complexity-cost`, `#shared-intent`, `#composition-closure` (admissibility conditions P1-P3), `#unity-closure-mapping`, `msc/spike-unity-closure-mapping.md` §6, `msc/opus-audit-2026-04-21.md` "Bigger-picture synthesis §4", `TODO-04-21.md` Session D.
+**Depends on**: `#form-information-bottleneck`, `#form-strategy-complexity-cost`, `#def-shared-intent`, `#form-composition-closure` (admissibility conditions P1-P3), `#result-unity-closure-mapping`, `msc/spike-unity-closure-mapping.md` §6, `msc/opus-audit-2026-04-21.md` "Bigger-picture synthesis §4", `TODO-04-21.md` Session D.
 
 **Deliverable**: decision input for whether to invest 3-5 sessions rewriting the four segments above as instances of a master IB schema.
 
@@ -36,7 +36,7 @@ Honest default: (U-medium) is almost certainly true (the IB shape is already vis
 
 ### 1.3 What (U-strong) would require
 
-For each instance, the substitution $(X, T, Y, \beta) \mapsto$ (instance-specific objects) must be well-typed, and the minimizer of the master objective must coincide with the minimizer currently attributed to the instance. If the instance-specific optimization has additional constraints not present in the master schema — e.g., regularity, discreteness, causal structure — those must be either (a) derivable from the IB form with the stated $(X, T, Y, \beta)$, or (b) explicitly parked as *supplementary* conditions separate from the IB core. (P2) Lipschitz continuity in `#composition-closure` is a known example of (b) — it is a regularity condition that the IB objective does not impose and must remain separate.
+For each instance, the substitution $(X, T, Y, \beta) \mapsto$ (instance-specific objects) must be well-typed, and the minimizer of the master objective must coincide with the minimizer currently attributed to the instance. If the instance-specific optimization has additional constraints not present in the master schema — e.g., regularity, discreteness, causal structure — those must be either (a) derivable from the IB form with the stated $(X, T, Y, \beta)$, or (b) explicitly parked as *supplementary* conditions separate from the IB core. (P2) Lipschitz continuity in `#form-composition-closure` is a known example of (b) — it is a regularity condition that the IB objective does not impose and must remain separate.
 
 ---
 
@@ -46,7 +46,7 @@ Each instance is stated in the form in which it currently appears in the segment
 
 ### 2.1 Model compression ($M_t$) — the canonical case
 
-Current form (from `#information-bottleneck`):
+Current form (from `#form-information-bottleneck`):
 
 $$\phi^\ast = \arg\min_\phi \bigl[\, I(M_t;\; \mathcal C_t) \;-\; \beta \cdot I(M_t;\; o_{t+1:\infty} \mid a_{t:\infty}) \,\bigr]$$
 
@@ -56,16 +56,16 @@ $$\phi^\ast = \arg\min_\phi \bigl[\, I(M_t;\; \mathcal C_t) \;-\; \beta \cdot I(
 |---|---|
 | $X$ | $\mathcal C_t$ (chronica — interaction history) |
 | $T$ | $M_t$ (compressed model state) |
-| $Y$ | $o_{t+1:\infty} \mid a_{t:\infty}$ (future observations conditional on future actions — the prediction target, policy-conditioned per `#information-bottleneck` Discussion) |
+| $Y$ | $o_{t+1:\infty} \mid a_{t:\infty}$ (future observations conditional on future actions — the prediction target, policy-conditioned per `#form-information-bottleneck` Discussion) |
 | $\beta$ | $\beta(\rho, \pi)$ — volatility- and policy-dependent trade-off |
 
 *[Fit]* Clean. The instance matches the master schema verbatim. The conditional mutual information $I(T; Y \mid a_{t:\infty})$ instead of $I(T; Y)$ is a mild schema extension that the IB literature admits (conditional IB, Chechik et al. 2005).
 
-**Tension.** None at the formulation level. The "source" $\mathcal C_t$ grows without bound as $t \to \infty$; the IB frontier for such a non-stationary source is time-varying, but this is already acknowledged in `#information-bottleneck` (and handled in practice by forgetting).
+**Tension.** None at the formulation level. The "source" $\mathcal C_t$ grows without bound as $t \to \infty$; the IB frontier for such a non-stationary source is time-varying, but this is already acknowledged in `#form-information-bottleneck` (and handled in practice by forgetting).
 
 ### 2.2 Strategy compression ($\Sigma_t$)
 
-Current form (from `#strategy-complexity-cost`):
+Current form (from `#form-strategy-complexity-cost`):
 
 $$\Sigma_t^\ast = \arg\min_{\Sigma_t} \bigl[\, \operatorname{DL}(\Sigma_t) \;-\; \beta_\Sigma \cdot I(\Sigma_t;\; \pi^\ast \mid M_t) \,\bigr]$$
 
@@ -92,7 +92,7 @@ This puts $\Sigma_t$ as a compression of $\mathcal C_t$ *for* decision-relevance
 
 ### 2.3 Shared intent ($G_t^{\text{shared}}$)
 
-Current form (from `#shared-intent`):
+Current form (from `#def-shared-intent`):
 
 $$G_t^{\text{shared}} = \arg\min_{G_s} \bigl[\, I(G_t^{\text{full}}; G_s) \;-\; \beta \cdot I(G_s; a_t^{\text{coordinated}}) \,\bigr]$$
 
@@ -107,11 +107,11 @@ $$G_t^{\text{shared}} = \arg\min_{G_s} \bigl[\, I(G_t^{\text{full}}; G_s) \;-\; 
 
 *[Fit]* **Direct and clean** — this instance is already written in IB form, cites Tishby, and identifies the relevance variable explicitly. It is the cleanest of the four.
 
-**Tension.** The relevance variable $a_t^{\text{coordinated}}$ is not observed by the sender (computing it requires knowing partners' states); see `#shared-intent` Epistemic Status for the honest caveat. This is a practical issue for instantiation, not a schema-fit issue — the IB setup permits any $Y$ the compressor is trying to preserve, whether or not the compressor has direct access to $Y$. The Working Note about multi-dimensional relevance (coordination plus conflict resolution plus replanning) is a substantive extension but not a schema violation: IB with a vector-valued relevance variable is standard.
+**Tension.** The relevance variable $a_t^{\text{coordinated}}$ is not observed by the sender (computing it requires knowing partners' states); see `#def-shared-intent` Epistemic Status for the honest caveat. This is a practical issue for instantiation, not a schema-fit issue — the IB setup permits any $Y$ the compressor is trying to preserve, whether or not the compressor has direct access to $Y$. The Working Note about multi-dimensional relevance (coordination plus conflict resolution plus replanning) is a substantive extension but not a schema violation: IB with a vector-valued relevance variable is standard.
 
-### 2.4 Composition projection admissibility (P1 in `#composition-closure`)
+### 2.4 Composition projection admissibility (P1 in `#form-composition-closure`)
 
-Current form (from `#composition-closure` (P1)):
+Current form (from `#form-composition-closure` (P1)):
 
 $$I\bigl(\Lambda_x(X_{\text{micro},t});\; \Lambda_o(o_{\text{micro},t+1}) \mid \Lambda_a(a_{\text{micro},t})\bigr) \geq (1 - \epsilon_I) \cdot I\bigl(X_{\text{micro},t};\; o_{\text{micro},t+1} \mid a_{\text{micro},t}\bigr)$$
 
@@ -156,30 +156,30 @@ Concrete consequences. This section lists what would change, not what would be g
 
 ### 3.1 New segments (creation)
 
-- **`#master-compression-principle`** (or rename `#information-bottleneck`): a single formulation segment stating the master IB objective, with explicit instance-binding template. This becomes the definitional home for the schema. Type: `formulation`. Depends on `#agent-model` and standard information theory.
+- **`#master-compression-principle`** (or rename `#form-information-bottleneck`): a single formulation segment stating the master IB objective, with explicit instance-binding template. This becomes the definitional home for the schema. Type: `formulation`. Depends on `#form-agent-model` and standard information theory.
 
 ### 3.2 Segments that simplify
 
-- **`#information-bottleneck`**: becomes instance #1 (model compression). Current Discussion paragraphs about policy-relativity, volatility-dependence, and broader applicability can be consolidated — they become properties of the master schema that happen to specialize here.
-- **`#strategy-complexity-cost`**: the IB-objective subsection becomes a pointer to the master schema with the $\Sigma_t$ binding. The DL formulation remains (as an operational cost measure), but the "analogy with `#information-bottleneck`" framing becomes "the $\Sigma_t$ instance of the master schema." The max-depth derivation ($d^\ast$) is independent of the unification; it stays as-is.
-- **`#shared-intent`**: same treatment — the formulation is already in IB form; the Discussion becomes "this is the instance with relevance variable $a_t^{\text{coordinated}}$."
-- **`#composition-closure`** (P1): explicitly presented as the IB constraint form, with cross-reference to the master schema. The Working Note "Open: Information Bottleneck unification" becomes resolved. The bridge lemma discussion is unaffected — it operates downstream of admissibility.
+- **`#form-information-bottleneck`**: becomes instance #1 (model compression). Current Discussion paragraphs about policy-relativity, volatility-dependence, and broader applicability can be consolidated — they become properties of the master schema that happen to specialize here.
+- **`#form-strategy-complexity-cost`**: the IB-objective subsection becomes a pointer to the master schema with the $\Sigma_t$ binding. The DL formulation remains (as an operational cost measure), but the "analogy with `#form-information-bottleneck`" framing becomes "the $\Sigma_t$ instance of the master schema." The max-depth derivation ($d^\ast$) is independent of the unification; it stays as-is.
+- **`#def-shared-intent`**: same treatment — the formulation is already in IB form; the Discussion becomes "this is the instance with relevance variable $a_t^{\text{coordinated}}$."
+- **`#form-composition-closure`** (P1): explicitly presented as the IB constraint form, with cross-reference to the master schema. The Working Note "Open: Information Bottleneck unification" becomes resolved. The bridge lemma discussion is unaffected — it operates downstream of admissibility.
 
 ### 3.3 Scattered quantities that unify
 
-- **Four separate $\beta$ parameters** (`#information-bottleneck`'s $\beta$, `#strategy-complexity-cost`'s $\beta_\Sigma$, `#shared-intent`'s $\beta$, `#composition-closure`'s implicit $\beta(\epsilon_I)$) become one schematic trade-off parameter whose *interpretation* is instance-specific (volatility, cognitive cost, bandwidth, rate constraint) but whose *role* is identical.
-- **Four separate "relevance variables"** become explicit instance-level objects, promoting what is currently implicit to the level of formal specification. `#shared-intent` makes this explicit; the others do not.
-- **Four separate rate-distortion curves** (implicit in each segment) become specializations of one curve-generating principle. `#unity-closure-mapping` already takes this view for (P1); it would extend naturally.
+- **Four separate $\beta$ parameters** (`#form-information-bottleneck`'s $\beta$, `#form-strategy-complexity-cost`'s $\beta_\Sigma$, `#def-shared-intent`'s $\beta$, `#form-composition-closure`'s implicit $\beta(\epsilon_I)$) become one schematic trade-off parameter whose *interpretation* is instance-specific (volatility, cognitive cost, bandwidth, rate constraint) but whose *role* is identical.
+- **Four separate "relevance variables"** become explicit instance-level objects, promoting what is currently implicit to the level of formal specification. `#def-shared-intent` makes this explicit; the others do not.
+- **Four separate rate-distortion curves** (implicit in each segment) become specializations of one curve-generating principle. `#result-unity-closure-mapping` already takes this view for (P1); it would extend naturally.
 
 ### 3.4 Currently-separate conditions that become instances
 
-- The claim that "(P1) is structurally an IB relevance-preservation condition" (currently flagged in `#composition-closure` Working Notes and `spike-unity-closure-mapping.md` §6.1) becomes derivable.
-- `#unity-closure-mapping`'s suggestion that unity dimensions parametrize rate-distortion curves becomes concrete: unity dimensions are *rate-distortion curve parameters* for the $\Lambda$ instance.
-- `#model-sufficiency` $S(M_t)$ becomes a *diagnostic* on the $M_t$-instance IB frontier — how close the actual $M_t$ is to the frontier-optimal $T$ at a given rate.
+- The claim that "(P1) is structurally an IB relevance-preservation condition" (currently flagged in `#form-composition-closure` Working Notes and `spike-unity-closure-mapping.md` §6.1) becomes derivable.
+- `#result-unity-closure-mapping`'s suggestion that unity dimensions parametrize rate-distortion curves becomes concrete: unity dimensions are *rate-distortion curve parameters* for the $\Lambda$ instance.
+- `#def-model-sufficiency` $S(M_t)$ becomes a *diagnostic* on the $M_t$-instance IB frontier — how close the actual $M_t$ is to the frontier-optimal $T$ at a given rate.
 
 ### 3.5 What does NOT change
 
-- The sector-condition machinery (`#persistence-condition`, `#strategy-persistence-schema`, etc.) is untouched. The unification is about compression, not dynamics.
+- The sector-condition machinery (`#result-persistence-condition`, `#schema-strategy-persistence`, etc.) is untouched. The unification is about compression, not dynamics.
 - The strategy-DAG structure (AND/OR nodes, edge semantics, correlation hierarchy) is untouched.
 - The directed-separation scope (modular/merged/partial) is untouched.
 - The orient cascade structure is untouched.
@@ -199,7 +199,7 @@ The biggest concrete wins, ranked by how load-bearing they are:
 Weak cases:
 
 - Cross-instance *results* that only become available after unification are not obvious. There is no visible theorem of the form "because these are all IB, property X holds across instances." The master schema doesn't produce cross-instance deductions for free.
-- The unification does not resolve any currently-open question in the theory. `#composition-closure`'s Working Notes about nonlinear (P1) computability, $\epsilon_I$ calibration, and $N$-agent scaling are not addressed by the IB reformulation.
+- The unification does not resolve any currently-open question in the theory. `#form-composition-closure`'s Working Notes about nonlinear (P1) computability, $\epsilon_I$ calibration, and $N$-agent scaling are not addressed by the IB reformulation.
 
 ---
 
@@ -209,7 +209,7 @@ Weak cases:
 
 *[Established]*
 
-The Lipschitz regularity condition is not an IB constraint. IB does not impose any continuity condition on the compressor — arbitrary stochastic maps with discontinuous realizations are IB-admissible as long as they preserve relevance. The bridge lemma in `#composition-closure` requires (P2) for an independent reason: to propagate bounded closure defect into bounded trajectory error (an analytic, not information-theoretic, requirement).
+The Lipschitz regularity condition is not an IB constraint. IB does not impose any continuity condition on the compressor — arbitrary stochastic maps with discontinuous realizations are IB-admissible as long as they preserve relevance. The bridge lemma in `#form-composition-closure` requires (P2) for an independent reason: to propagate bounded closure defect into bounded trajectory error (an analytic, not information-theoretic, requirement).
 
 Under the unification, (P2) remains a separate admissibility condition. The segment's presentation becomes:
 
@@ -233,11 +233,11 @@ Two possibilities:
 
 ### 4.3 Other things that resist the unification
 
-**Edge-level semantics in $\Sigma_t$.** The DAG's edge confidences $p_{ij}$, the AND/OR combination rules $\gamma(v)$, the correlation hierarchy (L0/L1/L2), and the regime indexing ($\iota_{ij}$) are structural properties of the strategy representation, not IB content. The IB objective says "find a compressed $\Sigma_t$ that retains decision-relevant information"; it does not say "the compressed $\Sigma_t$ is a DAG with single-parameter edges." The DAG-uniqueness result (`#graph-structure-uniqueness`) operates at a different level — it derives the *shape* of the representation, not its compression level. Under the unification, the DAG-uniqueness argument supplies the structural constraint that $\Sigma_t$ must be a DAG; the IB argument supplies the rate-distortion trade-off for how richly that DAG is populated.
+**Edge-level semantics in $\Sigma_t$.** The DAG's edge confidences $p_{ij}$, the AND/OR combination rules $\gamma(v)$, the correlation hierarchy (L0/L1/L2), and the regime indexing ($\iota_{ij}$) are structural properties of the strategy representation, not IB content. The IB objective says "find a compressed $\Sigma_t$ that retains decision-relevant information"; it does not say "the compressed $\Sigma_t$ is a DAG with single-parameter edges." The DAG-uniqueness result (`#deriv-graph-structure-uniqueness`) operates at a different level — it derives the *shape* of the representation, not its compression level. Under the unification, the DAG-uniqueness argument supplies the structural constraint that $\Sigma_t$ must be a DAG; the IB argument supplies the rate-distortion trade-off for how richly that DAG is populated.
 
 **Recursion/temporal structure.** The update rule $M_t = f(M_{t-1}, o_t, a_{t-1})$ is a recursion; the IB objective is an optimization at a fixed $t$. The IB-optimal $\phi$ need not be recursively computable; finding recursive agents that approximate the IB frontier is a separate problem (the "variational IB" literature). Under the unification, the recursive structure of $M_t$ is orthogonal to the IB characterization of what $M_t$ ideally contains. Same point applies to $\Sigma_t$'s edge-update dynamics and the shared-intent update-and-transmission loop.
 
-**Communication channel properties.** `#shared-intent` cleanly maps to IB in form but omits channel noise, delay, and misinterpretation (acknowledged in Epistemic Status). These are the communication-theoretic problems Shannon separated from source compression; the unification inherits this separation. The IB reformulation does not, by itself, give a theory of noisy inter-agent communication — it gives the source-compression half.
+**Communication channel properties.** `#def-shared-intent` cleanly maps to IB in form but omits channel noise, delay, and misinterpretation (acknowledged in Epistemic Status). These are the communication-theoretic problems Shannon separated from source compression; the unification inherits this separation. The IB reformulation does not, by itself, give a theory of noisy inter-agent communication — it gives the source-compression half.
 
 **Level 2 / intervention-relative relevance.** All four instances use mutual information (Level 1, associational). Strategy in particular wants interventional relevance — "what the edge $i \to j$ predicts *under $do(i)$*". IB's relevance variable $Y$ is observational. The regime-indexed interpretation of edge semantics (A/B/C) can be partially absorbed — A-regime edges have $Y = o \mid do(i)$, C-regime edges have $Y = o$ — but this is a per-edge story, not a single master-schema move. Under (U-strong) this is a real obstruction; under (U-medium) it is a known extension direction.
 
@@ -336,10 +336,10 @@ For these, the IB frontier exists as a definition but computing it requires vari
 
 **Which relevance variable?** Each instance names a candidate $Y$, but several could be defensible:
 
-- $M_t$: $Y$ could be next observation ($o_{t+1}$), future trajectory ($o_{t+1:\infty}$), or future reward. Different choices yield different IB frontiers and different optimal $M_t$. `#information-bottleneck` selects $o_{t+1:\infty}$; this choice is not derived from first principles.
-- $\Sigma_t$: $Y$ could be optimal policy ($\pi^\ast$), optimal action ($a^\ast_t$), or action-value ($Q(\cdot, \cdot)$). `#strategy-complexity-cost` selects $\pi^\ast$; this is a choice.
-- Shared intent: $Y$ could be coordinated action, team value, or joint strategy. `#shared-intent` selects coordinated action.
-- Composition (P1): $Y$ could be next observation, macro-trajectory, or macro-reward. `#composition-closure` (P1) selects next observation.
+- $M_t$: $Y$ could be next observation ($o_{t+1}$), future trajectory ($o_{t+1:\infty}$), or future reward. Different choices yield different IB frontiers and different optimal $M_t$. `#form-information-bottleneck` selects $o_{t+1:\infty}$; this choice is not derived from first principles.
+- $\Sigma_t$: $Y$ could be optimal policy ($\pi^\ast$), optimal action ($a^\ast_t$), or action-value ($Q(\cdot, \cdot)$). `#form-strategy-complexity-cost` selects $\pi^\ast$; this is a choice.
+- Shared intent: $Y$ could be coordinated action, team value, or joint strategy. `#def-shared-intent` selects coordinated action.
+- Composition (P1): $Y$ could be next observation, macro-trajectory, or macro-reward. `#form-composition-closure` (P1) selects next observation.
 
 **The unification as currently stated commits the theory to these four specific relevance variables.** This is a substantive commitment — choosing a different $Y$ changes what "compression-optimal" means. The theory should either (a) defend each choice, or (b) allow the relevance variable to be a parameter of the compression operation. Currently the segments are silent on this. Under the unification, the silence becomes visible as an explicit choice — which is both a clarity gain and a commitment the theory takes on.
 
@@ -379,9 +379,9 @@ Effort in sessions (Joseph's unit of account; Session A.1 is one session, Sessio
 
 **Integration path A — minimal.**
 
-1. **Session D.1 (1 session).** Rewrite `#information-bottleneck` as the master-compression formulation with explicit $(X, T, Y, \beta)$ schema. Add instance-binding table showing the four cases. Update `#notation.md` if needed for schema-level $X/T/Y$ variables.
-2. **Session D.2 (0.5 session).** Update `#strategy-complexity-cost` and `#shared-intent` to reference the master schema, with explicit instance bindings. Walk back any duplication of IB formulation.
-3. **Session D.3 (0.5 session).** Update `#composition-closure` (P1) to reference the master schema; promote `#composition-closure`'s "Open: Information Bottleneck unification" Working Note to a cross-reference in Discussion. Keep (P2), (P3) as separate admissibility conditions with explicit notes about why they are not IB.
+1. **Session D.1 (1 session).** Rewrite `#form-information-bottleneck` as the master-compression formulation with explicit $(X, T, Y, \beta)$ schema. Add instance-binding table showing the four cases. Update `#notation.md` if needed for schema-level $X/T/Y$ variables.
+2. **Session D.2 (0.5 session).** Update `#form-strategy-complexity-cost` and `#def-shared-intent` to reference the master schema, with explicit instance bindings. Walk back any duplication of IB formulation.
+3. **Session D.3 (0.5 session).** Update `#form-composition-closure` (P1) to reference the master schema; promote `#form-composition-closure`'s "Open: Information Bottleneck unification" Working Note to a cross-reference in Discussion. Keep (P2), (P3) as separate admissibility conditions with explicit notes about why they are not IB.
 
 Total minimal: **2 sessions after the scoping spike.**
 
@@ -389,8 +389,8 @@ Total minimal: **2 sessions after the scoping spike.**
 
 Path A plus:
 
-4. **Session D.4 (1 session).** Complete the Gaussian IB derivation for the two-Kalman case (§5.4 conjecture). Verify the means-sum projection attains the frontier in the symmetric case; compute the IB-optimal projection in the heterogeneous case and compare $\varepsilon_x$ to the means-sum. Promote this to `#unity-closure-mapping` as a derived result (currently discussion-grade).
-5. **Session D.5 (0.5 session).** Update `#unity-closure-mapping` to state (P1) as IB-frontier attainment (with explicit derivation), and walk back the "conjecture" language in Discussion.
+4. **Session D.4 (1 session).** Complete the Gaussian IB derivation for the two-Kalman case (§5.4 conjecture). Verify the means-sum projection attains the frontier in the symmetric case; compute the IB-optimal projection in the heterogeneous case and compare $\varepsilon_x$ to the means-sum. Promote this to `#result-unity-closure-mapping` as a derived result (currently discussion-grade).
+5. **Session D.5 (0.5 session).** Update `#result-unity-closure-mapping` to state (P1) as IB-frontier attainment (with explicit derivation), and walk back the "conjecture" language in Discussion.
 
 Total minimal + verification: **3.5 sessions after scoping.**
 
@@ -415,9 +415,9 @@ The basis for the recommendation:
 
 **In favor.**
 
-- The pattern is real. Three of the four instances already write their objectives in IB form; the fourth (`#composition-closure` (P1)) is in IB-constraint form. The cross-reference table in §2.5 does not require creative reinterpretation — it just names what is already there.
+- The pattern is real. Three of the four instances already write their objectives in IB form; the fourth (`#form-composition-closure` (P1)) is in IB-constraint form. The cross-reference table in §2.5 does not require creative reinterpretation — it just names what is already there.
 - The "relevance variable as first-class" move is the biggest substantive gain. It converts theory-level rhetoric ("compression preserves decision-relevant information") into formal content (specific $Y$, with specific $\beta$).
-- The unification subsumes two currently-open Working Notes (`#composition-closure` IB unification note; `#unity-closure-mapping`'s IB connection paragraph). Those Notes currently block segment promotion; resolving them is a concrete workflow win.
+- The unification subsumes two currently-open Working Notes (`#form-composition-closure` IB unification note; `#result-unity-closure-mapping`'s IB connection paragraph). Those Notes currently block segment promotion; resolving them is a concrete workflow win.
 - The sector-Lyapunov template factoring (Session A.1) is the highest-leverage concision move; IB unification is the highest-leverage *generalization* move. They are complementary, not competing.
 
 **Against.**
@@ -425,9 +425,9 @@ The basis for the recommendation:
 - The unification is not a theorem engine. It does not deliver cross-instance results; it is a reframing that makes an implicit pattern explicit. The segments will not become dramatically shorter or proofier.
 - (P2), (P3), and the Level-2 extension remain outside the IB frame. The "all compression is IB" slogan overclaims; the accurate slogan is weaker.
 - The Gaussian IB closed form is local. Beyond linear-Gaussian, the unification loses computational bite, though it retains conceptual bite.
-- **Alternative consideration.** The same clarity gain could be achieved more cheaply by a single `#compression-operations` synthesis segment (like the proposed `#independence-audit` and `#approximation-tiering` in Session B) that lists the four instances with their $(X, T, Y, \beta)$ bindings as a cross-cutting reference, without rewriting the four instance segments. This would take 1 session instead of 3.5 and would deliver most of the clarity with less risk. Under this alternative, the four segments keep their current formulations; the new synthesis segment supplies the unifying view.
+- **Alternative consideration.** The same clarity gain could be achieved more cheaply by a single `#disc-compression-operations` synthesis segment (like the proposed `#disc-independence-audit` and `#disc-approximation-tiering` in Session B) that lists the four instances with their $(X, T, Y, \beta)$ bindings as a cross-cutting reference, without rewriting the four instance segments. This would take 1 session instead of 3.5 and would deliver most of the clarity with less risk. Under this alternative, the four segments keep their current formulations; the new synthesis segment supplies the unifying view.
 
-**Strongest version of the "against" case.** If the alternative synthesis segment achieves the clarity goal at 1/4 the cost, the full unification is a net loss. The full unification's marginal value over the synthesis segment is (a) the (P1) derivation (moderate — already most of the way there in `#unity-closure-mapping`) and (b) the explicit commitment to shared vocabulary for future segments (compounding but deferred).
+**Strongest version of the "against" case.** If the alternative synthesis segment achieves the clarity goal at 1/4 the cost, the full unification is a net loss. The full unification's marginal value over the synthesis segment is (a) the (P1) derivation (moderate — already most of the way there in `#result-unity-closure-mapping`) and (b) the explicit commitment to shared vocabulary for future segments (compounding but deferred).
 
 **Final judgment.** Execute the *synthesis segment first* (1 session — roughly Session B.2/B.3 scale). Evaluate whether it resolves the clarity gap to Joseph's satisfaction. Proceed to the full Path A + B unification (2.5 additional sessions) only if the synthesis segment reveals that the four instance segments are individually pulling in inconsistent directions — which is what the full unification would correct. If the four instance segments are already pointing the same way with the synthesis segment as a pointer, the full unification is overbuilt.
 
@@ -440,7 +440,7 @@ The basis for the recommendation:
 - **Open: synthesis-segment-first vs full-unification.** The Path A + B plan above assumes Joseph wants the full unification. The §8 recommendation suggests trying the synthesis segment first. The final decision is Joseph's; the spike is neutral between paths.
 - **Open: the $\beta$-coordination problem.** Section 6.5's "cognitive resource allocation across $M, \Sigma, \text{comm}, \Lambda$" is a real research question the unification surfaces. It is out of scope for the IB unification itself but may merit its own spike if the theory wants to address it.
 - **Open: interventional IB for regime-A edges.** Section 6.4's Level-2 compression variant is a genuine research direction. There is a small literature on causal IB (Wieczorek-Roth 2017 and follow-ups); adapting it to AAD's regime-indexed edges is a separate spike.
-- **Cross-check with `#graph-structure-uniqueness`.** The DAG-uniqueness argument derives the *shape* of $\Sigma_t$ from operational postulates. The IB unification supplies the *compression level* of $\Sigma_t$. These should be independent; if they interact (e.g., if IB compresses $\Sigma_t$ into a non-DAG), the unification has a structural conflict. Informal check: IB compressed $\Sigma_t$ retains the most decision-relevant *parts of the DAG* — it prunes nodes and edges, not the DAG structure — so the two arguments appear compatible. Worth verifying in the integration session.
+- **Cross-check with `#deriv-graph-structure-uniqueness`.** The DAG-uniqueness argument derives the *shape* of $\Sigma_t$ from operational postulates. The IB unification supplies the *compression level* of $\Sigma_t$. These should be independent; if they interact (e.g., if IB compresses $\Sigma_t$ into a non-DAG), the unification has a structural conflict. Informal check: IB compressed $\Sigma_t$ retains the most decision-relevant *parts of the DAG* — it prunes nodes and edges, not the DAG structure — so the two arguments appear compatible. Worth verifying in the integration session.
 - **The choice of relevance variable as a theory-level commitment.** This is the subtlest point of the spike. Currently each segment picks a $Y$ in isolation and the picks are defensible individually. Under unification, the four picks become a *system of commitments* the theory makes about what each compression operation is for. A reviewer could challenge any pick; under the unification, the challenge propagates. This is a feature of explicit commitment, not a bug, but it does mean the unification takes on visibility risk that the scattered formulations avoid.
 - **What I did *not* investigate.** Whether the IB unification admits a "composite IB" where all four instances share a single joint objective (e.g., an agent's total cognitive cost across model, strategy, communication, and projection). This would be the strongest possible form of the unification — not just shared shape but shared optimization problem — and is implausibly strong. Not pursued. The synthesis-segment approach is the weaker but achievable target.
 - **On the audit framing.** `msc/opus-audit-2026-04-21.md` "Bigger-picture synthesis §4" states that IB unification is "the biggest available unification in the theory." On closer examination it may be more accurate to say it is *the most legible* unification — the pattern is obviously there and a synthesis segment would capture it cleanly. The "biggest" claim suggests cross-instance results would follow; §3.6 and §6.6 argue they do not. This spike walks back the "biggest" framing to "most legible, worth capturing."

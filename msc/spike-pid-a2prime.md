@@ -7,7 +7,7 @@ date: 2026-04-22
 
 # Spike: A2' for PID Controllers — Promoting PID from Sub-Scope β to Sub-Scope α
 
-**Trigger:** `#sector-condition-derivation`'s A2' sub-scope partition lists PID controllers in sub-scope $\beta$ ("A2' assumed per-system; no structural B1 guarantee"). PID is the dominant industrial controller class by orders of magnitude — by some estimates $> 90\%$ of industrial feedback loops. If A2' can be *derived* for PID under explicitly scoped plant-and-tuning conditions, a vast industrial deployment class inherits AAD's derived persistence guarantees through `#sector-persistence-template`, rather than relying on an empirical posit. This is the strengthen-first move on PID.
+**Trigger:** `#deriv-sector-condition`'s A2' sub-scope partition lists PID controllers in sub-scope $\beta$ ("A2' assumed per-system; no structural B1 guarantee"). PID is the dominant industrial controller class by orders of magnitude — by some estimates $> 90\%$ of industrial feedback loops. If A2' can be *derived* for PID under explicitly scoped plant-and-tuning conditions, a vast industrial deployment class inherits AAD's derived persistence guarantees through `#result-sector-persistence-template`, rather than relying on an empirical posit. This is the strengthen-first move on PID.
 
 **Posture:** Real derivation using classical positive-real / passivity machinery. The mathematics is known (Lur'e 1957, Popov 1961, Khalil 2002 ch. 6, Åström & Murray 2008 ch. 10–11); the value is in *(a)* casting the classical result in AAD's directional-fidelity B1 language, *(b)* making the scope conditions visible at segment granularity per AAD's scope-honesty-as-architecture posture, and *(c)* extracting the explicit sector constant $\alpha$ in AAD parameters so downstream template instantiations can use it.
 
@@ -28,7 +28,7 @@ Stated inside AAD's current machinery:
 
 Three sub-questions:
 
-- **Q1.** For linear plants, when does classical closed-loop stability of the PID loop translate directly to A2' in the directional-fidelity B1 form of `#gain-sector-bridge`?
+- **Q1.** For linear plants, when does classical closed-loop stability of the PID loop translate directly to A2' in the directional-fidelity B1 form of `#der-gain-sector-bridge`?
 - **Q2.** For nonlinear plants satisfying a sector bound (Lur'e system), does the circle / Popov criterion give A2' for PID?
 - **Q3.** When does anti-windup preserve the derivation under saturation, and when does saturation push PID into sub-scope $\beta$?
 
@@ -37,7 +37,7 @@ Three sub-questions:
 
 ### 2.1 Casting PID in AAD language
 
-PID does not fit AAD's "gain-based update" $M_t = M_{t-1} + \eta^\ast g(\delta_t)$ pattern directly — its "state" is not a model estimate $M_t$ but a controller internal state $(I_t, D_t) = (\int \delta, \dot\delta)$ plus the plant state $x_t$. Map PID to `#sector-condition-derivation`'s generic-$F$ setup:
+PID does not fit AAD's "gain-based update" $M_t = M_{t-1} + \eta^\ast g(\delta_t)$ pattern directly — its "state" is not a model estimate $M_t$ but a controller internal state $(I_t, D_t) = (\int \delta, \dot\delta)$ plus the plant state $x_t$. Map PID to `#deriv-sector-condition`'s generic-$F$ setup:
 
 *[Formulation (PID-as-correction)]*
 
@@ -98,22 +98,22 @@ Under SPR-compatible PID tuning on an SPR-compatible plant, there exists a quadr
 
 $$\dot V \leq -\epsilon\,(\lVert\delta\rVert^2 + \lVert\xi\rVert^2) + \delta^T\,w(t)$$
 
-for some $\epsilon \gt 0$. This is **exactly** the sector-condition stability result of `#sector-condition-derivation` Prop A.1 applied to the augmented state $(\delta, \xi)$, with sector constant $\alpha = \epsilon$ (in the $P$-weighted norm).
+for some $\epsilon \gt 0$. This is **exactly** the sector-condition stability result of `#deriv-sector-condition` Prop A.1 applied to the augmented state $(\delta, \xi)$, with sector constant $\alpha = \epsilon$ (in the $P$-weighted norm).
 
-**Translation to Euclidean A2'.** By the same weighted-norm argument as `#gain-sector-bridge` §Weighted-norm subtlety:
+**Translation to Euclidean A2'.** By the same weighted-norm argument as `#der-gain-sector-bridge` §Weighted-norm subtlety:
 
 $$\alpha_{\text{Euclidean}} \geq \epsilon / \kappa(P)$$
 
 where $\kappa(P) = \lambda_{\max}(P)/\lambda_{\min}(P)$ is the condition number of the Lyapunov-certificate matrix.
 
-*[Discussion]* This is Angle 1's central result: PID under SPR-compatible tuning *is* in sub-scope $\alpha$. The converse-Lyapunov observation from `#sector-condition-derivation` Path 3 manifests concretely — the quadratic Lyapunov witness is delivered by the KYP lemma, and A2' follows by norm-equivalence.
+*[Discussion]* This is Angle 1's central result: PID under SPR-compatible tuning *is* in sub-scope $\alpha$. The converse-Lyapunov observation from `#deriv-sector-condition` Path 3 manifests concretely — the quadratic Lyapunov witness is delivered by the KYP lemma, and A2' follows by norm-equivalence.
 
 
 ## 4. Angle 2 — PID A2' in B1 directional-fidelity form
 
 ### 4.1 Recast: PID implements directional fidelity
 
-The spike's crucial theoretical move: show that the SPR-tuned-PID computation *is* an instance of `#gain-sector-bridge`'s B1 property, not just a parallel stability story.
+The spike's crucial theoretical move: show that the SPR-tuned-PID computation *is* an instance of `#der-gain-sector-bridge`'s B1 property, not just a parallel stability story.
 
 Working in a discrete-time setting matched to AAD's event-driven formulation. Let the sampled plant be
 
@@ -296,14 +296,14 @@ Let two PID loops be cascaded: inner loop on fast variable $y_1$ (plant $P_1$, c
 
 ### 9.2 Composition-closure instantiation
 
-From `#sector-persistence-template` and `#composition-closure`:
+From `#result-sector-persistence-template` and `#form-composition-closure`:
 
 *[Derived (PID-cascade-A2', from per-loop PID-A2' + composition closure)]*
 
 1. Inner loop: if $(P_1, C_1)$ is in $\alpha_{\text{PID}}$ with sector constant $\alpha_1$, A2' holds for the inner-loop mismatch $\delta_1 = r_1 - y_1$.
 2. Outer loop: the outer-loop plant is $P_2 \circ T_1$ where $T_1$ is the inner-loop closed-loop transfer function. Under timescale separation ($\omega_{c,2} \ll \omega_{c,1}$), $T_1 \approx 1$ at outer-loop frequencies, so the outer-loop PID sees effectively $P_2$ alone.
 3. If $(P_2, C_2)$ is in $\alpha_{\text{PID}}$ under this approximation, A2' holds for the outer-loop mismatch $\delta_2$ with sector constant $\alpha_2$.
-4. The cascade composite satisfies `#sector-persistence-template` with $(\alpha_c, R_c)$ where $\alpha_c \geq \min(\alpha_1, \alpha_2) - \Delta\mathcal T^{\text{coord}}$ (weakest-link from `#composition-closure` §Deriving composite (A4)), with coordination cost $\Delta\mathcal T^{\text{coord}}$ reflecting the inner-loop tracking-error's contribution to the outer-loop disturbance.
+4. The cascade composite satisfies `#result-sector-persistence-template` with $(\alpha_c, R_c)$ where $\alpha_c \geq \min(\alpha_1, \alpha_2) - \Delta\mathcal T^{\text{coord}}$ (weakest-link from `#form-composition-closure` §Deriving composite (A4)), with coordination cost $\Delta\mathcal T^{\text{coord}}$ reflecting the inner-loop tracking-error's contribution to the outer-loop disturbance.
 5. The closure defect $\varepsilon^\ast$ arises from the timescale-separation residual (inner-loop transients during outer-loop corrections). It scales as $O(\omega_{c,2}/\omega_{c,1})$ — small when separation is clean.
 
 **Inner-loop closure.** When $\omega_{c,2}/\omega_{c,1} \lt 1/10$ (standard cascade-control rule of thumb), $\varepsilon^\ast \nu_c / \alpha_c$ is small compared to $R_c$, and the composite meets the composition-closure persistence condition. This is the classical-control cascade rule restated in AAD language.
@@ -321,7 +321,7 @@ The A2' derivation for PID does NOT cover:
 
 2. **Time-varying plants without gain scheduling.** A plant $P(t)$ that drifts in parameters (process drift, component aging, temperature effects) beyond the robustness margin of the fixed-gain PID exits sub-scope $\alpha$ dynamically — the loop is in $\alpha$ at nominal but drifts into $\beta$ at the edge of the robustness region. Formally: A2' holds with a time-varying $\alpha(t)$ whose infimum over the operational envelope may be zero. Gain scheduling (Angle 6) or self-tuning recovers $\alpha$; otherwise, sub-scope $\beta$.
 
-3. **Stochastic plants without Kalman-like state estimation.** PID is a static (state-feedback-shape) controller on the output $y$; it does not form an internal model of the plant. For stochastic plants with unobserved state, the classical Kalman-plus-LQR decomposition (separation principle) gives A2' via the Kalman half of `#gain-sector-bridge`'s sub-scope $\alpha$; a stand-alone PID without state estimation on a high-dimensional stochastic plant leaves A2' not derivable. Explicit sub-scope $\beta$ in this case.
+3. **Stochastic plants without Kalman-like state estimation.** PID is a static (state-feedback-shape) controller on the output $y$; it does not form an internal model of the plant. For stochastic plants with unobserved state, the classical Kalman-plus-LQR decomposition (separation principle) gives A2' via the Kalman half of `#der-gain-sector-bridge`'s sub-scope $\alpha$; a stand-alone PID without state estimation on a high-dimensional stochastic plant leaves A2' not derivable. Explicit sub-scope $\beta$ in this case.
 
 4. **Hard nonlinearities beyond the Popov/circle bound.** Step nonlinearities, rate limits with small limits, backlash, relay controllers. Circle criterion fails at large sector extent; PID+hard-nonlinearity is sub-scope $\beta$.
 
@@ -336,11 +336,11 @@ Each of these is a named scope-exit and belongs in the "Honest scope" section of
 
 Two honest options; recommend option A (minimal surgical edit) with option B (new appendix) as stretch.
 
-### 11.1 Option A — Update to `#sector-condition-derivation` A2' α list
+### 11.1 Option A — Update to `#deriv-sector-condition` A2' α list
 
-**Segment edit.** In `#sector-condition-derivation`'s "Grounding of GA-3 — sub-scope $\alpha$" paragraph, add a sixth bullet point:
+**Segment edit.** In `#deriv-sector-condition`'s "Grounding of GA-3 — sub-scope $\alpha$" paragraph, add a sixth bullet point:
 
-> - *PID controllers under SPR-compatible tuning with anti-windup* (`msc/spike-pid-a2prime.md`): under plant-class scope condition (SISO LTI minimum-phase, relative degree $\leq 2$) and tuning-region scope condition (phase margin $\varphi_m \geq \varphi_{m,\min}$, gain margin $g_m \geq g_{m,\min}$), A2' is derived via the KYP lemma with $\alpha_{\text{PID}} = \omega_c \sin(\varphi_m) / \kappa(P)$ for the KYP certificate matrix $P$. Anti-windup (back-calculation or conditional integration) required to preserve A2' under actuator saturation. See `#sector-condition-derivation` §"Honest PID scope" for exclusions (RHP-zero, time-varying, stochastic-without-state-estimation, hard nonlinearities, deadtime-dominant, coupled MIMO).
+> - *PID controllers under SPR-compatible tuning with anti-windup* (`msc/spike-pid-a2prime.md`): under plant-class scope condition (SISO LTI minimum-phase, relative degree $\leq 2$) and tuning-region scope condition (phase margin $\varphi_m \geq \varphi_{m,\min}$, gain margin $g_m \geq g_{m,\min}$), A2' is derived via the KYP lemma with $\alpha_{\text{PID}} = \omega_c \sin(\varphi_m) / \kappa(P)$ for the KYP certificate matrix $P$. Anti-windup (back-calculation or conditional integration) required to preserve A2' under actuator saturation. See `#deriv-sector-condition` §"Honest PID scope" for exclusions (RHP-zero, time-varying, stochastic-without-state-estimation, hard nonlinearities, deadtime-dominant, coupled MIMO).
 
 And in the "Grounding of GA-3 — sub-scope $\beta$" list, change the PID entry to:
 
@@ -352,7 +352,7 @@ And in the derivation-audit table row for A2', extend the sub-scope $\alpha$ lis
 
 ### 11.2 Option B — New appendix segment `#pid-sector-derivation`
 
-**Rationale for a dedicated segment.** The PID derivation is substantive — six sub-cases (SISO-LTI, Lur'e, anti-windup, gain-scheduled, cascade, MIMO-diagonal), explicit sector constants, and non-trivial scope conditions. If PID is the dominant industrial controller, having a named `#pid-sector-derivation` segment (parallel to `#gain-sector-derivation`'s Kalman treatment) makes the result discoverable by readers looking for industrial-control grounding of AAD.
+**Rationale for a dedicated segment.** The PID derivation is substantive — six sub-cases (SISO-LTI, Lur'e, anti-windup, gain-scheduled, cascade, MIMO-diagonal), explicit sector constants, and non-trivial scope conditions. If PID is the dominant industrial controller, having a named `#pid-sector-derivation` segment (parallel to `#deriv-gain-sector`'s Kalman treatment) makes the result discoverable by readers looking for industrial-control grounding of AAD.
 
 **Proposed frontmatter:**
 
@@ -362,16 +362,16 @@ slug: pid-sector-derivation
 type: derivation
 status: conditional
 depends:
-  - sector-condition-derivation
-  - gain-sector-bridge
-  - sector-persistence-template
+  - deriv-sector-condition
+  - der-gain-sector-bridge
+  - result-sector-persistence-template
 stage: draft
 ---
 ```
 
 **Proposed content structure:**
 
-1. Motivation — industrial prevalence of PID; gap in `#gain-sector-bridge`'s Verified Instances table (which lists Kalman / gradient / exponential-family but not PID).
+1. Motivation — industrial prevalence of PID; gap in `#der-gain-sector-bridge`'s Verified Instances table (which lists Kalman / gradient / exponential-family but not PID).
 2. Proposition C.1 (SPR Linear PID) — derivation via KYP, sector constant $\alpha_{\text{PID}} = \omega_c \sin\varphi_m / \kappa(P)$.
 3. Proposition C.2 (Lur'e PID) — circle + Popov criteria; nonlinearity threshold.
 4. Proposition C.3 (Anti-windup PID) — back-calculation preserves A2'.
@@ -380,13 +380,13 @@ stage: draft
 7. Honest scope exclusions (the six items in §10 above).
 8. Sub-scope taxonomy: $\alpha_{\text{PID}} \subset \alpha$ where the subscript names the plant-and-tuning constraints.
 
-**Why Option B is worth considering despite the overhead.** The result is what makes AAD's industrial-agent claim non-vacuous. The `#gain-sector-bridge` Verified Instances table currently reads as if only Kalman / gradient / exponential-family agents are covered; PID's absence misrepresents the theory's scope. A named segment fixes this asymmetry.
+**Why Option B is worth considering despite the overhead.** The result is what makes AAD's industrial-agent claim non-vacuous. The `#der-gain-sector-bridge` Verified Instances table currently reads as if only Kalman / gradient / exponential-family agents are covered; PID's absence misrepresents the theory's scope. A named segment fixes this asymmetry.
 
 ### 11.3 Recommendation
 
-**Do both.** Option A lands the bullet + table-row update for `#sector-condition-derivation` immediately; Option B creates the appendix segment that hosts the full derivation and the honest scope exclusions. The two compose — A is the one-line summary that `#sector-persistence-template`'s inheritance chain uses; B is the reference for anyone asking "why is PID in sub-scope $\alpha$?"
+**Do both.** Option A lands the bullet + table-row update for `#deriv-sector-condition` immediately; Option B creates the appendix segment that hosts the full derivation and the honest scope exclusions. The two compose — A is the one-line summary that `#result-sector-persistence-template`'s inheritance chain uses; B is the reference for anyone asking "why is PID in sub-scope $\alpha$?"
 
-`#gain-sector-bridge`'s Verified Instances table should also be updated: add a row for SPR-tuned PID pointing at `#pid-sector-derivation`.
+`#der-gain-sector-bridge`'s Verified Instances table should also be updated: add a row for SPR-tuned PID pointing at `#pid-sector-derivation`.
 
 
 ## 12. Epistemic assessment
@@ -397,7 +397,7 @@ stage: draft
 - Angle 2: recasting as B1 directional fidelity — the key novel move in this spike. Mechanical once the discrete-time KYP analog is invoked. The sector constant $\alpha_{\text{PID}} = \omega_c \sin\varphi_m / \kappa(P)$ is explicit and matches AAD's $\alpha \sim \mathcal T$ identification.
 - Angle 4: back-calculation anti-windup as a sector-embedding of saturation. Also textbook (Åström & Hägglund 1995 §3.4). AAD translation direct.
 - Angle 5: tuning-region scope characterization. Purely classical; the value is in making the PID-tuning-choice / sub-scope-membership relationship explicit.
-- Angle 7: cascade composition. Standard inner/outer-loop theory mapped to `#sector-persistence-template`.
+- Angle 7: cascade composition. Standard inner/outer-loop theory mapped to `#result-sector-persistence-template`.
 
 **What's derivable with more care (Tier 2, proof structure clear).**
 
@@ -406,28 +406,28 @@ stage: draft
 
 **What's honestly limited (explicit scope exclusions).**
 
-- The six exclusions in §10 are real; A2' genuinely does not derive for (a) RHP-zero-dominated plants outside a small operating region, (b) uncontrolled time-varying plants, (c) high-dim stochastic plants without state estimation, (d) hard nonlinearities exceeding Popov bound, (e) deadtime-dominant plants without delay compensation, (f) coupled MIMO-PID without decoupling. The segment should enumerate these visibly — per `#discussion-identifiability-floor`'s pattern of treating scope-exits as architectural, not as caveats.
+- The six exclusions in §10 are real; A2' genuinely does not derive for (a) RHP-zero-dominated plants outside a small operating region, (b) uncontrolled time-varying plants, (c) high-dim stochastic plants without state estimation, (d) hard nonlinearities exceeding Popov bound, (e) deadtime-dominant plants without delay compensation, (f) coupled MIMO-PID without decoupling. The segment should enumerate these visibly — per `#disc-identifiability-floor`'s pattern of treating scope-exits as architectural, not as caveats.
 
 **What's NOT attempted and why.**
 
-- Nonlinear PID-like controllers (e.g., fuzzy PID with nonlinear gain surfaces, neural-PID hybrids): these are sub-scope $\beta$ by the rule-based / severely-nonlinear argument of `#sector-condition-derivation` — no derivation in this spike. Appropriate; these controllers are not what "PID" means in industrial usage.
-- Nonlinear or discrete-time-optimal tuning (LQG, H-infinity syntheses): LQG is sub-scope $\alpha$ through the Kalman half of `#gain-sector-bridge` (already covered); H-infinity has its own positive-real / small-gain structure that would deserve its own spike. Not attempted here.
+- Nonlinear PID-like controllers (e.g., fuzzy PID with nonlinear gain surfaces, neural-PID hybrids): these are sub-scope $\beta$ by the rule-based / severely-nonlinear argument of `#deriv-sector-condition` — no derivation in this spike. Appropriate; these controllers are not what "PID" means in industrial usage.
+- Nonlinear or discrete-time-optimal tuning (LQG, H-infinity syntheses): LQG is sub-scope $\alpha$ through the Kalman half of `#der-gain-sector-bridge` (already covered); H-infinity has its own positive-real / small-gain structure that would deserve its own spike. Not attempted here.
 - Infinite-dimensional plants (PDEs): not in AAD's operational scope per the Section-I-plant convention. Not attempted.
 
-**Honest claim that survives:** PID under *(i)* SPR-compatible plant and tuning, *(ii)* anti-windup on saturated actuators, *(iii)* standard industrial margins ($\varphi_m \geq 30°$, $g_m \geq 2$) admits an A2' derivation via the KYP lemma with explicit $\alpha_{\text{PID}} = \omega_c \sin\varphi_m / \kappa(P)$. This sub-sub-scope $\alpha_{\text{PID}} \subset \alpha$ covers the bulk of industrial PID deployments — process control loops, servo loops with anti-windup, cascade-control structures — all of which now inherit AAD's derived persistence guarantees through `#sector-persistence-template`. Outside the sub-sub-scope, PID returns to sub-scope $\beta$ with per-system A2' verification required.
+**Honest claim that survives:** PID under *(i)* SPR-compatible plant and tuning, *(ii)* anti-windup on saturated actuators, *(iii)* standard industrial margins ($\varphi_m \geq 30°$, $g_m \geq 2$) admits an A2' derivation via the KYP lemma with explicit $\alpha_{\text{PID}} = \omega_c \sin\varphi_m / \kappa(P)$. This sub-sub-scope $\alpha_{\text{PID}} \subset \alpha$ covers the bulk of industrial PID deployments — process control loops, servo loops with anti-windup, cascade-control structures — all of which now inherit AAD's derived persistence guarantees through `#result-sector-persistence-template`. Outside the sub-sub-scope, PID returns to sub-scope $\beta$ with per-system A2' verification required.
 
-**What this accomplishes for AAD.** (a) The `#sector-condition-derivation` sub-scope $\alpha$ list now includes the dominant industrial controller class, not just theoretically-privileged agents. AAD's derived-guarantee coverage expands from "Kalman, Bayesian, and gradient-descent agents" to "Kalman, Bayesian, gradient-descent, and PID-with-proper-tuning-and-anti-windup agents" — an order-of-magnitude expansion in the applicable agent population. (b) The three AAD meta-patterns compose on this result: scope-honesty (the sub-sub-scope definition), the `#discussion-separability-pattern` ladder (sub-scope $\alpha$ vs $\beta$ now has four classes instead of two), and the `#discussion-identifiability-floor` framing of exclusions (the six scope-exits are architectural, not caveats). (c) Composition-closure for PID-cascade agents now has concrete sector constants and tempo relationships, not just existence guarantees — useful for downstream TST and industrial-control-system applications.
+**What this accomplishes for AAD.** (a) The `#deriv-sector-condition` sub-scope $\alpha$ list now includes the dominant industrial controller class, not just theoretically-privileged agents. AAD's derived-guarantee coverage expands from "Kalman, Bayesian, and gradient-descent agents" to "Kalman, Bayesian, gradient-descent, and PID-with-proper-tuning-and-anti-windup agents" — an order-of-magnitude expansion in the applicable agent population. (b) The three AAD meta-patterns compose on this result: scope-honesty (the sub-sub-scope definition), the `#disc-separability-pattern` ladder (sub-scope $\alpha$ vs $\beta$ now has four classes instead of two), and the `#disc-identifiability-floor` framing of exclusions (the six scope-exits are architectural, not caveats). (c) Composition-closure for PID-cascade agents now has concrete sector constants and tempo relationships, not just existence guarantees — useful for downstream TST and industrial-control-system applications.
 
 
 ## 13. Post-promotion followups
 
 If Option A+B lands:
 
-- `#gain-sector-bridge` Verified Instances table gains a row for SPR-tuned PID.
-- `#sector-persistence-template` Working Notes should reference PID as a template-instantiation example (the Lur'e case specifically — it's the most different from Kalman/gradient).
+- `#der-gain-sector-bridge` Verified Instances table gains a row for SPR-tuned PID.
+- `#result-sector-persistence-template` Working Notes should reference PID as a template-instantiation example (the Lur'e case specifically — it's the most different from Kalman/gradient).
 - TST segments that mention PID controllers (if any — check `02-tst-core/src/`) inherit the derived A2' and can cite it.
 - `msc/spike-adaptive-gain-dynamics.md` §5 (IMM) notes a link to gain-scheduled PID; Angle 6 here closes the pointer.
-- `#agent-spectrum` currently places PID controllers in the "blind pursuer" region — this is still valid *structurally* (PID is not epistemic-in-the-Bayesian-sense), but the A2' derivation makes clear that the "blind pursuer" region is not automatically sub-scope $\beta$ for persistence purposes.
+- `#def-agent-spectrum` currently places PID controllers in the "blind pursuer" region — this is still valid *structurally* (PID is not epistemic-in-the-Bayesian-sense), but the A2' derivation makes clear that the "blind pursuer" region is not automatically sub-scope $\beta$ for persistence purposes.
 
 ---
 
@@ -451,4 +451,4 @@ PID-specific analyses:
 - Bristol, E. H. (1966). "On a new measure of interaction for multivariable process control." *IEEE Trans. Autom. Control* 11:133–134. RGA for MIMO.
 - Goodwin, G. C., Graebe, S. F. & Salgado, M. E. (2001). *Control System Design*. Prentice Hall. Anti-windup analyses.
 
-No PDFs in `ref/` need acquiring for this spike — all citations are to standard control-theory textbooks + two canonical papers (Lur'e 1957 and Popov 1961 already referenced in `#sector-condition-derivation`; Kalman 1963 and Zames 1966 are standard references not currently in `ref/INDEX.md` but would be minor additions if Option B lands).
+No PDFs in `ref/` need acquiring for this spike — all citations are to standard control-theory textbooks + two canonical papers (Lur'e 1957 and Popov 1961 already referenced in `#deriv-sector-condition`; Kalman 1963 and Zames 1966 are standard references not currently in `ref/INDEX.md` but would be minor additions if Option B lands).

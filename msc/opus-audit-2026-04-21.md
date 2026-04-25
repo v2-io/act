@@ -24,7 +24,7 @@ Four findings survive. Several candidate issues dissolved under the burden-of-pr
 
 `orient-cascade.md` step 4a:
 
-> $\delta_s$ is credit-assignment-free (requires only status propagation), and its persistence is proved ( #strategy-persistence-schema, Prop B.5 in #strategic-dynamics-derivation). This is the **default operational signal**: AAD's formal guarantees require only plan-level tracking ( #credit-assignment-boundary, Level 0).
+> $\delta_s$ is credit-assignment-free (requires only status propagation), and its persistence is proved ( #schema-strategy-persistence, Prop B.5 in #deriv-strategic-dynamics). This is the **default operational signal**: AAD's formal guarantees require only plan-level tracking ( #disc-credit-assignment-boundary, Level 0).
 
 `credit-assignment-boundary.md`, the hierarchy-of-quality table:
 
@@ -126,7 +126,7 @@ The integration gap is not "the spike addresses this but hasn't been propagated.
 
 `composition-scope-condition.md` Unified form:
 
-> All three routes express a single underlying requirement: *teleological alignment sufficient to define a coherent composite purpose*. The teleological unity measure $U_O$ introduced in #definition-unity-dimensions provides a convenient unified scalar — the scope condition can be restated as $U_O \geq \epsilon_{\text{comp}}$ for an appropriate route-dependent operationalization.
+> All three routes express a single underlying requirement: *teleological alignment sufficient to define a coherent composite purpose*. The teleological unity measure $U_O$ introduced in #def-unity-dimensions provides a convenient unified scalar — the scope condition can be restated as $U_O \geq \epsilon_{\text{comp}}$ for an appropriate route-dependent operationalization.
 
 `unity-dimensions.md` gives $U_O$ a pairwise form ($\text{corr}(V_{O_t^{(i)}}, V_{O_t^{(j)}})$) and then asserts "The composite teleological unity is an aggregation over all pairs" without specifying the aggregation.
 
@@ -172,7 +172,7 @@ Repair: walk back the Unified form paragraph in `composition-scope-condition.md`
 
 `strategy-dag.md`, Edge semantics:
 
-> The identifiability coefficient $\iota_{ij}$ ( #edge-update-causal-validity) quantifies the strength of the causal interpretation for each edge. When $\iota_{ij} \approx 1$, the agent's credence is well-identified causally. When $\iota_{ij} \approx 0$, the credence is associational.
+> The identifiability coefficient $\iota_{ij}$ ( #scope-edge-update-causal-validity) quantifies the strength of the causal interpretation for each edge. When $\iota_{ij} \approx 1$, the agent's credence is well-identified causally. When $\iota_{ij} \approx 0$, the credence is associational.
 
 `edge-update-causal-validity.md` proposes:
 
@@ -264,13 +264,13 @@ After this audit, some intuitions about where the theory could be more beautiful
 
 ### One engine, applied five times
 
-Every persistence-flavored result in AAD — single-agent epistemic (§I), strategic (§II), team (§III), composite (§III bridge lemma), coordination overhead (`tempo-composition`) — has the form "correction rate / effective disturbance rate > tolerance," proven via a Lyapunov function and sector-bounded correction. The theory would be dramatically more concise, and its scope more legible, if it stated this template once as a lemma (`#sector-persistence-template`) and each instantiation were a two-paragraph segment specifying $(\delta, \alpha, \rho, R)$ for that context.
+Every persistence-flavored result in AAD — single-agent epistemic (§I), strategic (§II), team (§III), composite (§III bridge lemma), coordination overhead (`tempo-composition`) — has the form "correction rate / effective disturbance rate > tolerance," proven via a Lyapunov function and sector-bounded correction. The theory would be dramatically more concise, and its scope more legible, if it stated this template once as a lemma (`#result-sector-persistence-template`) and each instantiation were a two-paragraph segment specifying $(\delta, \alpha, \rho, R)$ for that context.
 
 Currently the same result is rebuilt five times with slightly different notations and different caveats. The reconstruction obscures that *the theory is one result about bounded-correction dynamics applied to five different state spaces*. Factoring the template out is the single biggest available concision move. It would cut perhaps 40% of the Lyapunov boilerplate across the core and make the scope conditions for each instantiation visible rather than inherited.
 
 ### Three approximation hierarchies, one pattern
 
-L0/L1/L2 (correlation, in `strategy-dag.md`), C1/C2/C3 (value-convention, in `value-object.md`), Tier 1/2/3 (bridge-lemma contraction, in `composition-closure.md`) all share the same structure: sacrifice fidelity for tractability, with proved monotonicity and graceful degradation. These are three instances of a single meta-principle — AAD parameterizes its results by approximation level, and the diagnostic framework lets you ascend the ladder on demand. An explicit `#approximation-tiering` segment in the Appendices would make this visible and suggest where other ad-hoc simplifications (scalar tempo, channel independence, single-parameter edges, AND/OR completeness) might fit as additional hierarchies.
+L0/L1/L2 (correlation, in `strategy-dag.md`), C1/C2/C3 (value-convention, in `value-object.md`), Tier 1/2/3 (bridge-lemma contraction, in `composition-closure.md`) all share the same structure: sacrifice fidelity for tractability, with proved monotonicity and graceful degradation. These are three instances of a single meta-principle — AAD parameterizes its results by approximation level, and the diagnostic framework lets you ascend the ladder on demand. An explicit `#disc-approximation-tiering` segment in the Appendices would make this visible and suggest where other ad-hoc simplifications (scalar tempo, channel independence, single-parameter edges, AND/OR completeness) might fit as additional hierarchies.
 
 ### Independence assumptions are the theory's dominant modeling move, and they are scattered
 
@@ -280,7 +280,7 @@ This would also clarify what is *not* an independence assumption (the DAG acycli
 
 ### Information Bottleneck is the unifying compression framework
 
-The `unity-closure-mapping` spike notes this for (P1) and unity dimensions, but the pattern is broader: `#information-bottleneck` for $M_t$, `#strategy-complexity-cost` for $\Sigma_t$, `#shared-intent` for inter-agent communication, and (P1)-(P2)-(P3) for projections are four IB instances with different relevance variables. `spike-unity-closure-mapping.md` §1 is explicit that the rate-distortion shape *is the IB shape* in the linear-Gaussian case, and §6 conjectures that (P1)-(P3) reduce to "projection attains the IB frontier plus Lipschitz regularity."
+The `unity-closure-mapping` spike notes this for (P1) and unity dimensions, but the pattern is broader: `#form-information-bottleneck` for $M_t$, `#form-strategy-complexity-cost` for $\Sigma_t$, `#def-shared-intent` for inter-agent communication, and (P1)-(P2)-(P3) for projections are four IB instances with different relevance variables. `spike-unity-closure-mapping.md` §1 is explicit that the rate-distortion shape *is the IB shape* in the linear-Gaussian case, and §6 conjectures that (P1)-(P3) reduce to "projection attains the IB frontier plus Lipschitz regularity."
 
 If one committed to stating AAD's compression operations uniformly as IB problems parameterized by a relevance variable, one would lose nothing and gain: (a) a single master compression principle; (b) explicit mapping of each relevance variable to the substate it serves; (c) a natural explanation of why (P1)-(P3) are "independent" — they are IB constraints for different relevance variables. This looks like the biggest available *unification* in the theory. The linear-Gaussian derivations that would support it are already in the spikes.
 

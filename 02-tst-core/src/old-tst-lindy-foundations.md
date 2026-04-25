@@ -2,7 +2,7 @@
 
 > **Origin**: `~/src/_core/tst/vault/04-workspace/1-inbox/lindy-mathematical-foundations.md` (2025). Mathematical grounding for the change-expectation-baseline claim.
 >
-> **Relevance**: Provides rigorous Bayesian derivation for `02-tst-core/src/change-expectation-baseline.md`. Key results: Jeffreys prior $\rho(t) \propto 1/t$ yields the Lindy prediction, maximum entropy justification, uncertainty over hazard rates converging to power law with $\alpha=1$, and connection to Laplace's Law of Succession. The current segment references the Pareto(1) pathology but should incorporate this fuller derivation.
+> **Relevance**: Provides rigorous Bayesian derivation for `02-tst-core/src/der-change-expectation-baseline.md`. Key results: Jeffreys prior $\rho(t) \propto 1/t$ yields the Lindy prediction, maximum entropy justification, uncertainty over hazard rates converging to power law with $\alpha=1$, and connection to Laplace's Law of Succession. The current segment references the Pareto(1) pathology but should incorporate this fuller derivation.
 
 Based on extensive research, there are indeed several mathematical justifications for the Lindy Effect in terms of Bayesian statistics, particularly involving scale-invariant priors and maximum entropy principles. Here are the key mathematical foundations:
 

@@ -78,7 +78,7 @@ The discrete-to-continuous gap. The mismatch ODE is valid when η* ≪ 1, but th
 
 **QF1. Fix do(.) notation in causal-hierarchy-requirement.** One equation edit: `a_t = a` → `do(a_t = a)`.
 
-**QF2. Fix stale blocker in directed-separation-under-composition.** Update line 55 to acknowledge that (A1)-(A4) and (P1)-(P3) are now specified. Change "remain placeholders" to "are specified in #composition-closure."
+**QF2. Fix stale blocker in directed-separation-under-composition.** Update line 55 to acknowledge that (A1)-(A4) and (P1)-(P3) are now specified. Change "remain placeholders" to "are specified in #form-composition-closure."
 
 **QF3. Fix model-sufficiency status.** `exact` → `axiomatic` (it's a definition).
 
@@ -163,7 +163,7 @@ Two spikes completed, investigating the theory's softest structural joint:
 - Non-convex (mixtures, neural nets): GA-3 LOCAL only, R = basin of attraction
 - Quasi-convex: technically local, α decays to zero
 
-**Key insight:** The structural-adaptation trigger (#structural-adaptation-necessity) IS the loss landscape's inflection surface (basin boundary). When mismatch exceeds R, the agent has been pushed out of its convexity basin and needs structural change — exactly what the theory predicts.
+**Key insight:** The structural-adaptation trigger (#result-structural-adaptation-necessity) IS the loss landscape's inflection surface (basin boundary). When mismatch exceeds R, the agent has been pushed out of its convexity basin and needs structural change — exactly what the theory predicts.
 
 ### Combined Assessment
 
@@ -177,7 +177,7 @@ GA-3 transforms from "opaque global assumption" to "derivable conditional result
 
 ## Promotion Plan: Gain-Sector Bridge → Segment
 
-### Step 1: Write the segment (`01-aad-core/src/gain-sector-bridge.md`)
+### Step 1: Write the segment (`01-aad-core/src/der-gain-sector-bridge.md`)
 
 A new segment combining the results of both spikes:
 - **Type:** derived
@@ -189,7 +189,7 @@ A new segment combining the results of both spikes:
 ### Step 2: Reclassify GA-3 in NOTATION.md
 
 Change GA-3 from "Global Assumption" to:
-> GA-3: Sector condition. Derived from the gain principle when the update rule has directional fidelity (B1); see #gain-sector-bridge. For gradient-based agents, equivalent to local strong convexity of the loss. Remains an independent assumption for non-gradient agents.
+> GA-3: Sector condition. Derived from the gain principle when the update rule has directional fidelity (B1); see #der-gain-sector-bridge. For gradient-based agents, equivalent to local strong convexity of the loss. Remains an independent assumption for non-gradient agents.
 
 ### Step 3: Update sector-condition-derivation.md
 

@@ -18,7 +18,7 @@ This enables the sequential orient cascade ($M_t$ first, then $G_t$) and cleanly
 
 Class 2 agents (fully merged, like LLM-based agents) violate directed separation by construction. Their processing is goal-conditioned: the prompt includes the task objective, attention processes goals and observations together, and the forward pass simultaneously updates beliefs and revises strategy. The question: which Section II results are still valid when directed separation fails?
 
-The #directed-separation segment itself says: "Class 2: Requires coupled formulation from the start — $X_{\tau^+} = f_X(X_{\tau^-}, e_\tau)$ without decomposition." This spike is the analysis that statement calls for.
+The #der-directed-separation segment itself says: "Class 2: Requires coupled formulation from the start — $X_{\tau^+} = f_X(X_{\tau^-}, e_\tau)$ without decomposition." This spike is the analysis that statement calls for.
 
 ---
 
@@ -35,7 +35,7 @@ Four categories, ordered by severity of impact:
 
 ## 2. Section I Floor
 
-Before analyzing Section II, note what Section I already provides regardless of directed separation. The #directed-separation segment explicitly states: "Section I's $M_t$-side quantities — $\delta$, $\eta^\ast$, $\mathcal{T}$, the persistence condition — remain well-defined on $M_t$ regardless of whether directed separation holds."
+Before analyzing Section II, note what Section I already provides regardless of directed separation. The #der-directed-separation segment explicitly states: "Section I's $M_t$-side quantities — $\delta$, $\eta^\ast$, $\mathcal{T}$, the persistence condition — remain well-defined on $M_t$ regardless of whether directed separation holds."
 
 However, for Class 2 agents, there is a subtlety: $M_t$ is not cleanly separable from $G_t$ in the processing. The Section I quantities are well-*defined* on the epistemic substate, but the epistemic substate itself is not independently *identifiable* in the agent's processing. The definitions remain valid; the *estimation* of these quantities from observing the agent's behavior becomes harder because you cannot isolate the epistemic update from the strategic update.
 
@@ -52,7 +52,7 @@ However, for Class 2 agents, there is a subtlety: $M_t$ is not cleanly separable
 
 ## 3. Segment-by-Segment Classification
 
-### 3.1 #agent-spectrum — SURVIVES EXACTLY
+### 3.1 #def-agent-spectrum — SURVIVES EXACTLY
 
 **Type**: Definition. **Depends on**: agent-environment, agent-model.
 
@@ -62,7 +62,7 @@ The agent spectrum (±model × ±objective quadrants) is a classification of age
 
 ---
 
-### 3.2 #complete-agent-state — SURVIVES APPROXIMATELY
+### 3.2 #form-complete-agent-state — SURVIVES APPROXIMATELY
 
 **Type**: Formulation. **Depends on**: agent-model, scope-condition, recursive-update.
 
@@ -82,7 +82,7 @@ becomes approximate, with error depending on $\kappa_{\text{processing}}$.
 
 ---
 
-### 3.3 #objective-functional — SURVIVES EXACTLY
+### 3.3 #form-objective-functional — SURVIVES EXACTLY
 
 **Type**: Formulation. **Depends on**: complete-agent-state.
 
@@ -92,7 +92,7 @@ $O_t$ induces $V_{O_t}: \text{trajectories} \to \mathbb{R}$. This is a definitio
 
 ---
 
-### 3.4 #value-object — SURVIVES EXACTLY
+### 3.4 #def-value-object — SURVIVES EXACTLY
 
 **Type**: Definition. **Depends on**: objective-functional, agent-model.
 
@@ -104,7 +104,7 @@ $V_O(M_t, \pi; N_h) = \mathbb{E}[V_{O_t}(\tau) \mid M_t, \pi]$ and the action-va
 
 ---
 
-### 3.5 #strategy-dimension — SURVIVES EXACTLY
+### 3.5 #def-strategy-dimension — SURVIVES EXACTLY
 
 **Type**: Definition. **Depends on**: complete-agent-state, objective-functional.
 
@@ -114,7 +114,7 @@ $G_t = (O_t, \Sigma_t)$. This is a definitional decomposition of the purposeful 
 
 ---
 
-### 3.6 #causal-hierarchy-requirement — SURVIVES EXACTLY
+### 3.6 #der-causal-hierarchy-requirement — SURVIVES EXACTLY
 
 **Type**: Derived. **Depends on**: value-object, pearl-causal-hierarchy, scope-condition.
 
@@ -126,7 +126,7 @@ Evaluating $Q_O$ requires Level 2 (interventional) queries. This is a direct app
 
 ---
 
-### 3.7 #loop-interventional-access — SURVIVES EXACTLY
+### 3.7 #der-loop-interventional-access — SURVIVES EXACTLY
 
 **Type**: Derived. **Depends on**: causal-hierarchy-requirement, recursive-update, causal-structure.
 
@@ -136,7 +136,7 @@ The feedback loop provides interventional data by construction: $(a_t, o_{t+1})$
 
 ---
 
-### 3.8 #ciy-observational-proxy — SURVIVES EXACTLY
+### 3.8 #scope-ciy-observational-proxy — SURVIVES EXACTLY
 
 **Type**: Scope. **Depends on**: causal-information-yield, loop-interventional-access.
 
@@ -146,7 +146,7 @@ The admissibility regimes (A/B/C) for CIY estimation are domain properties, not 
 
 ---
 
-### 3.9 #ciy-unified-objective — SURVIVES EXACTLY
+### 3.9 #disc-ciy-unified-objective — SURVIVES EXACTLY
 
 **Type**: Discussion. **Depends on**: causal-information-yield, ciy-observational-proxy, value-object, action-selection.
 
@@ -156,7 +156,7 @@ The unified policy objective (exploit + explore) is a structural claim about opt
 
 ---
 
-### 3.10 #explicit-strategy-condition — SURVIVES EXACTLY
+### 3.10 #norm-explicit-strategy-condition — SURVIVES EXACTLY
 
 **Type**: Normative. **Depends on**: temporal-optimality, strategy-dimension, causal-hierarchy-requirement.
 
@@ -166,7 +166,7 @@ The condition $C_{\text{plan}} + C_{\text{maintain}} < C_{\text{explore}} + C_{\
 
 ---
 
-### 3.11 #chain-confidence-decay — SURVIVES EXACTLY
+### 3.11 #der-chain-confidence-decay — SURVIVES EXACTLY
 
 **Type**: Derived. **Depends on**: strategy-dimension.
 
@@ -176,7 +176,7 @@ $\log P(\text{chain}) = \sum_i \log P(E_i \mid E_{<i})$ — this is a mathematic
 
 ---
 
-### 3.12 #and-or-scope — SURVIVES EXACTLY
+### 3.12 #scope-and-or — SURVIVES EXACTLY
 
 **Type**: Scope. **Depends on**: strategy-dimension, chain-confidence-decay.
 
@@ -186,7 +186,7 @@ The AND/OR combination restriction is a scope narrowing on strategy representati
 
 ---
 
-### 3.13 #strategy-dag — SURVIVES EXACTLY (structure), REQUIRES MODIFICATION (leaf credence mechanism)
+### 3.13 #def-strategy-dag — SURVIVES EXACTLY (structure), REQUIRES MODIFICATION (leaf credence mechanism)
 
 **Type**: Definition. **Depends on**: and-or-scope, causal-structure, pearl-causal-hierarchy, objective-functional, strategy-dimension.
 
@@ -204,7 +204,7 @@ For Class 2 agents, the epistemic substate is not separable from the purposeful 
 
 ---
 
-### 3.14 #directed-separation — FAILS (by definition)
+### 3.14 #der-directed-separation — FAILS (by definition)
 
 **Type**: Derived + Scope. **Depends on**: complete-agent-state, recursive-update, scope-condition.
 
@@ -214,7 +214,7 @@ This is the result that defines the scope boundary. It holds for Class 1 agents 
 
 ---
 
-### 3.15 #satisfaction-gap — SURVIVES EXACTLY
+### 3.15 #def-satisfaction-gap — SURVIVES EXACTLY
 
 **Type**: Definition. **Depends on**: value-object, objective-functional.
 
@@ -226,7 +226,7 @@ $\delta_{\text{sat}} = V_{O_t}^{\min} - A_O(M_t; \Pi, N_h)$. This is a mathemati
 
 ---
 
-### 3.16 #control-regret — SURVIVES EXACTLY
+### 3.16 #def-control-regret — SURVIVES EXACTLY
 
 **Type**: Definition. **Depends on**: value-object, satisfaction-gap.
 
@@ -236,7 +236,7 @@ The 2x2 diagnostic table ($\delta_{\text{sat}} \times \delta_{\text{regret}}$) a
 
 ---
 
-### 3.17 #strategic-calibration — SURVIVES APPROXIMATELY
+### 3.17 #def-strategic-calibration — SURVIVES APPROXIMATELY
 
 **Type**: Definition. **Depends on**: strategy-dag, value-object.
 
@@ -248,7 +248,7 @@ The edge residual $r_{ij} = \mathbb{E}[\Delta V_O \mid \text{edge traversed}, M_
 
 ---
 
-### 3.18 #orient-cascade — REQUIRES MODIFICATION
+### 3.18 #der-orient-cascade — REQUIRES MODIFICATION
 
 **Type**: Derived. **Depends on**: directed-separation, mismatch-signal, satisfaction-gap, control-regret, strategic-calibration.
 
@@ -280,7 +280,7 @@ where $k$ indexes iterations of the coupled update (which, for an LLM, may corre
 
 ---
 
-### 3.19 #observability-dominance — SURVIVES EXACTLY
+### 3.19 #der-observability-dominance — SURVIVES EXACTLY
 
 **Type**: Derived. **Depends on**: strategy-dag, update-gain.
 
@@ -290,7 +290,7 @@ where $k$ indexes iterations of the coupled update (which, for an LLM, may corre
 
 ---
 
-### 3.20 #edge-update-via-gain — SURVIVES APPROXIMATELY
+### 3.20 #hyp-edge-update-via-gain — SURVIVES APPROXIMATELY
 
 **Type**: Hypothesis. **Depends on**: strategy-dag, update-gain, mismatch-signal.
 
@@ -306,7 +306,7 @@ The edge update rule $p_{ij}^{\text{new}} = p_{ij} + \eta_{\text{edge}} \cdot (\
 
 ---
 
-### 3.21 #edge-update-causal-validity — SURVIVES EXACTLY
+### 3.21 #scope-edge-update-causal-validity — SURVIVES EXACTLY
 
 **Type**: Scope. **Depends on**: edge-update-via-gain, causal-information-yield, loop-interventional-access, strategic-calibration, strategy-dag.
 
@@ -318,7 +318,7 @@ The identifiability coefficient $\iota_{ij}$ and identifiability-adjusted gain s
 
 ---
 
-### 3.22 #credit-assignment-boundary — SURVIVES EXACTLY
+### 3.22 #disc-credit-assignment-boundary — SURVIVES EXACTLY
 
 **Type**: Discussion. **Depends on**: strategy-dag, edge-update-via-gain, strategic-calibration, observability-dominance, gain-sector-bridge, strategic-dynamics-derivation.
 
@@ -330,7 +330,7 @@ The credit-assignment boundary characterization — tractable cases, intractabil
 
 ---
 
-### 3.23 #structural-change-as-parametric-limit — SURVIVES EXACTLY
+### 3.23 #form-structural-change-as-parametric-limit — SURVIVES EXACTLY
 
 **Type**: Formulation. **Depends on**: strategy-dag, structural-adaptation-necessity.
 
@@ -340,7 +340,7 @@ The six operations on $\Sigma_t$ (reweighting, $\gamma$ reclassification, prunin
 
 ---
 
-### 3.24 #strategy-persistence-schema — SURVIVES APPROXIMATELY
+### 3.24 #schema-strategy-persistence — SURVIVES APPROXIMATELY
 
 **Type**: Proposed-schema. **Depends on**: sector-condition-stability, strategic-calibration, strategy-dag.
 
@@ -368,36 +368,36 @@ The persistence threshold $\alpha_\Sigma > \rho_\Sigma / R_\Sigma$ requires a la
 
 | # | Segment | Classification | Key Dependency on Directed Separation |
 |---|---------|---------------|--------------------------------------|
-| 1 | #agent-spectrum | **SURVIVES EXACTLY** | None |
-| 2 | #complete-agent-state | **SURVIVES APPROX** | Factorized update dynamics |
-| 3 | #objective-functional | **SURVIVES EXACTLY** | None |
-| 4 | #value-object | **SURVIVES EXACTLY** | None |
-| 5 | #strategy-dimension | **SURVIVES EXACTLY** | None |
-| 6 | #causal-hierarchy-requirement | **SURVIVES EXACTLY** | None |
-| 7 | #loop-interventional-access | **SURVIVES EXACTLY** | None |
-| 8 | #ciy-observational-proxy | **SURVIVES EXACTLY** | None |
-| 9 | #ciy-unified-objective | **SURVIVES EXACTLY** | None |
-| 10 | #explicit-strategy-condition | **SURVIVES EXACTLY** | None |
-| 11 | #chain-confidence-decay | **SURVIVES EXACTLY** | None |
-| 12 | #and-or-scope | **SURVIVES EXACTLY** | None |
-| 13 | #strategy-dag | **SURVIVES EXACTLY** (structure); **REQUIRES MOD** (credence conditioning) | Leaf credences conditioned on $M_t$ alone |
-| 14 | #directed-separation | **FAILS** | This IS the result |
-| 15 | #satisfaction-gap | **SURVIVES EXACTLY** | None (definition) |
-| 16 | #control-regret | **SURVIVES EXACTLY** | None (definition) |
-| 17 | #strategic-calibration | **SURVIVES APPROX** | Residual conflated with $M_t$ bias |
-| 18 | #orient-cascade | **REQUIRES MODIFICATION** | Sequential ordering derived from unidirectional dependency |
-| 19 | #observability-dominance | **SURVIVES EXACTLY** | None |
-| 20 | #edge-update-via-gain | **SURVIVES APPROX** | Signal function goal-conditioned |
-| 21 | #edge-update-causal-validity | **SURVIVES EXACTLY** | None (domain property) |
-| 22 | #credit-assignment-boundary | **SURVIVES EXACTLY** | None |
-| 23 | #structural-change-as-parametric-limit | **SURVIVES EXACTLY** | None |
-| 24 | #strategy-persistence-schema | **SURVIVES APPROX** | Sector parameter degraded |
+| 1 | #def-agent-spectrum | **SURVIVES EXACTLY** | None |
+| 2 | #form-complete-agent-state | **SURVIVES APPROX** | Factorized update dynamics |
+| 3 | #form-objective-functional | **SURVIVES EXACTLY** | None |
+| 4 | #def-value-object | **SURVIVES EXACTLY** | None |
+| 5 | #def-strategy-dimension | **SURVIVES EXACTLY** | None |
+| 6 | #der-causal-hierarchy-requirement | **SURVIVES EXACTLY** | None |
+| 7 | #der-loop-interventional-access | **SURVIVES EXACTLY** | None |
+| 8 | #scope-ciy-observational-proxy | **SURVIVES EXACTLY** | None |
+| 9 | #disc-ciy-unified-objective | **SURVIVES EXACTLY** | None |
+| 10 | #norm-explicit-strategy-condition | **SURVIVES EXACTLY** | None |
+| 11 | #der-chain-confidence-decay | **SURVIVES EXACTLY** | None |
+| 12 | #scope-and-or | **SURVIVES EXACTLY** | None |
+| 13 | #def-strategy-dag | **SURVIVES EXACTLY** (structure); **REQUIRES MOD** (credence conditioning) | Leaf credences conditioned on $M_t$ alone |
+| 14 | #der-directed-separation | **FAILS** | This IS the result |
+| 15 | #def-satisfaction-gap | **SURVIVES EXACTLY** | None (definition) |
+| 16 | #def-control-regret | **SURVIVES EXACTLY** | None (definition) |
+| 17 | #def-strategic-calibration | **SURVIVES APPROX** | Residual conflated with $M_t$ bias |
+| 18 | #der-orient-cascade | **REQUIRES MODIFICATION** | Sequential ordering derived from unidirectional dependency |
+| 19 | #der-observability-dominance | **SURVIVES EXACTLY** | None |
+| 20 | #hyp-edge-update-via-gain | **SURVIVES APPROX** | Signal function goal-conditioned |
+| 21 | #scope-edge-update-causal-validity | **SURVIVES EXACTLY** | None (domain property) |
+| 22 | #disc-credit-assignment-boundary | **SURVIVES EXACTLY** | None |
+| 23 | #form-structural-change-as-parametric-limit | **SURVIVES EXACTLY** | None |
+| 24 | #schema-strategy-persistence | **SURVIVES APPROX** | Sector parameter degraded |
 
 **Scorecard**:
-- SURVIVES EXACTLY: 16 of 24 (including the exact part of #strategy-dag)
-- SURVIVES APPROXIMATELY: 5 of 24 (#complete-agent-state, #strategic-calibration, #edge-update-via-gain, #strategy-persistence-schema, and the credence conditioning part of #strategy-dag)
-- REQUIRES MODIFICATION: 2 of 24 (#orient-cascade, credence conditioning in #strategy-dag)
-- FAILS: 1 of 24 (#directed-separation — by definition)
+- SURVIVES EXACTLY: 16 of 24 (including the exact part of #def-strategy-dag)
+- SURVIVES APPROXIMATELY: 5 of 24 (#form-complete-agent-state, #def-strategic-calibration, #hyp-edge-update-via-gain, #schema-strategy-persistence, and the credence conditioning part of #def-strategy-dag)
+- REQUIRES MODIFICATION: 2 of 24 (#der-orient-cascade, credence conditioning in #def-strategy-dag)
+- FAILS: 1 of 24 (#der-directed-separation — by definition)
 
 **The majority of Section II's architecture survives.** The damage from dropping directed separation is concentrated in the *processing dynamics* — the orient cascade ordering and the accuracy of individual update steps — not in the *definitional and structural* results.
 
@@ -421,22 +421,22 @@ where $C$ is a domain-dependent constant relating information-theoretic coupling
 
 ### 5.2 Per-Result Error Characterization
 
-**#complete-agent-state** (factorized dynamics):
+**#form-complete-agent-state** (factorized dynamics):
 - Error: $\lVert f_X(X, e) - (f_M(M, e), f_G(G, f_M(M, e), e)) \rVert$
 - Behavior: Grows monotonically with $\kappa$. At $\kappa = 0$, zero. At $\kappa = 1$, can be $O(1)$ (order of the state change itself).
 - For Class 2: The factorized form is not a useful approximation. Use $f_X$ directly.
 
-**#strategic-calibration** (residual conflation):
+**#def-strategic-calibration** (residual conflation):
 - Error: The residual $r_{ij}$ gains an additive bias term $b_{ij}(\kappa)$ reflecting goal-conditioned $M_t$ bias.
 - Behavior: $b_{ij} = O(\kappa \cdot \text{ambiguity}(e_\tau))$, where ambiguity measures how much the observation's interpretation depends on goals. Unambiguous observations (test passes/fails) have low bias regardless of $\kappa$. Ambiguous observations (code review assessments, strategic intelligence) have bias proportional to $\kappa$.
 - Implication: In software domains (high-ambiguity-free observations), strategic calibration remains useful even for Class 2 agents. In organizational domains (high ambiguity), the residual is unreliable.
 
-**#edge-update-via-gain** (goal-conditioned signal):
+**#hyp-edge-update-via-gain** (goal-conditioned signal):
 - Error: The effective signal becomes $\text{signal}_{\text{eff}} = \text{signal}_{\text{clean}} + \epsilon(\kappa, G_t)$, where $\epsilon$ is a goal-dependent bias.
 - Behavior: The gain formula's *form* is unaffected. The *signal* fed into it carries bias $O(\kappa)$. The bias has a consistent direction: toward confirming the current strategy (optimism about $G_t$-aligned evidence).
 - Consequence: The Beta-Bernoulli equivalence remains exact for binary observations (test pass/fail is not goal-conditioned). It degrades for continuous or interpreted observations.
 
-**#strategy-persistence-schema** (degraded sector parameter):
+**#schema-strategy-persistence** (degraded sector parameter):
 - Error: $\alpha_\Sigma^{\text{eff}} \leq \alpha_\Sigma^{\text{clean}} - O(\kappa^2)$ (the squared dependence arises because the bias must both enter the signal and survive the sector-condition averaging).
 - Behavior: Persistence still holds at a stricter threshold. The required tempo increases as $1/(1 - O(\kappa^2))$.
 - Consequence: Class 2 agents need faster correction rates to achieve the same persistence guarantees, or equivalently, they tolerate lower strategic disturbance rates.
@@ -503,7 +503,7 @@ Based on this analysis, the minimum new content needed for `03-logogenic-agents/
 
 **D1: Logogenic agent as AAD agent** (#scope-logogenic-agent — already planned). Define the LLM-in-loop as an actuated agent. Map: context window → $X_t$, prompt → $e_\tau$, response → $a_t$, tool results → $o_{t+1}$.
 
-**D2: Context turnover** (#context-turnover — already planned). Formalize the 100% $M_t$ reset per session. The LLM agent has no persistent internal state between sessions; $M_t$ is reconstructed from external memory and the current prompt.
+**D2: Context turnover** (#obs-context-turnover — already planned). Formalize the 100% $M_t$ reset per session. The LLM agent has no persistent internal state between sessions; $M_t$ is reconstructed from external memory and the current prompt.
 
 **D3: Coupled update dynamics** (NEW). The logogenic-specific formulation:
 
@@ -517,7 +517,7 @@ where $\text{prompt}(\cdot)$ assembles the context window from the prior state a
 
 **R2: Coupled diagnostic framework.** Formalize the post-hoc diagnostic decomposition: given the coupled update output, how to extract $\delta_{\text{sat}}$, $\delta_{\text{regret}}$, and $\delta_{\text{strategic}}$ and apply the $2 \times 2$ diagnostic. State the conditions under which the sequential cascade is a good approximation of the coupled resolution (low ambiguity, low $\kappa$).
 
-**R3: External memory as persistent $M_t$** (#m-preservation — already planned). The mechanism by which $M_t$ survives context turnover: file-backed memory, retrieval-augmented generation, structured state stores. This is the logogenic analog of the persistence condition — not "does $M_t$ remain bounded?" but "can $M_t$ be reconstructed after a context reset?"
+**R3: External memory as persistent $M_t$** (#disc-m-preservation — already planned). The mechanism by which $M_t$ survives context turnover: file-backed memory, retrieval-augmented generation, structured state stores. This is the logogenic analog of the persistence condition — not "does $M_t$ remain bounded?" but "can $M_t$ be reconstructed after a context reset?"
 
 ### 7.3 New Scope Conditions (1 segment)
 
@@ -525,7 +525,7 @@ where $\text{prompt}(\cdot)$ assembles the context window from the prior state a
 
 ### 7.4 Total: 7 segments minimum
 
-Three definitions (D1, D2, D3), three results (R1, R2, R3), one scope condition (S1). This is a minimal skeleton, not a complete theory. It would fill the three named gaps (#scope-logogenic-agent, #context-turnover, #m-preservation) plus four new segments addressing the coupled formulation.
+Three definitions (D1, D2, D3), three results (R1, R2, R3), one scope condition (S1). This is a minimal skeleton, not a complete theory. It would fill the three named gaps (#scope-logogenic-agent, #obs-context-turnover, #disc-m-preservation) plus four new segments addressing the coupled formulation.
 
 ---
 

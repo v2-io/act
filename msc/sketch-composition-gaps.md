@@ -16,7 +16,7 @@ Gap 1 is more fundamental — it concerns whether a core structural property of 
 
 ### The question, precisely stated
 
-Directed separation (#directed-separation) says: for a single agent, $M_{\tau^+} = f_M(M_{\tau^-}, e_\tau)$ — no $G_t$ argument. The epistemic update is goal-blind conditional on the realized event.
+Directed separation (#der-directed-separation) says: for a single agent, $M_{\tau^+} = f_M(M_{\tau^-}, e_\tau)$ — no $G_t$ argument. The epistemic update is goal-blind conditional on the realized event.
 
 For a composite of agents $A_1, \ldots, A_N$ interacting through a shared environment: does the composite macro-agent $A_c$ satisfy directed separation? That is, is $f_M^c$ independent of $G_t^c$?
 
@@ -33,7 +33,7 @@ At the composite level: the macro-observation $o_c$ includes the inter-agent inf
 
 ### The key distinction: processing vs. selection
 
-Directed separation is about **processing**, not **selection** (#directed-separation's scope condition makes this explicit). An individual agent's goals affect which events it seeks (through action selection), but not how it processes events that arrive.
+Directed separation is about **processing**, not **selection** (#der-directed-separation's scope condition makes this explicit). An individual agent's goals affect which events it seeks (through action selection), but not how it processes events that arrive.
 
 In a composite, the same distinction applies at a different level:
 - The macro-agent's goals (composite objective) may affect which *internal communications* occur (information routing)
@@ -58,7 +58,7 @@ Formally: $o_c = h^c(\Omega, a_{\text{micro}}, G_t^c, \xi)$ — the composite ob
 **Case 3: Emergent goal-conditioning.** No explicit goal-dependent routing, but agents' goal-driven actions create statistical dependencies between the composite's observations and goals. Agent $A$ acting on its objective creates environmental changes that are correlated with $A$'s goal content. $B$ observes these changes. Over time, $B$'s model $M_B$ accumulates information about $A$'s goals — not because $B$ sought it, but because it leaked through the environment.
 
 *Result*: Directed separation holds **approximately** at the composite level, with a quantifiable goal-contamination term. The contamination depends on:
-- Coupling strength ($\gamma_A$ from #adversarial-destabilization)
+- Coupling strength ($\gamma_A$ from #der-adversarial-destabilization)
 - Observability of $A$'s goal-driven behavior to $B$
 - Number of agents (more agents → more contamination sources, but also more averaging)
 
@@ -86,11 +86,11 @@ This is structurally parallel to the single-agent case:
 - Class 2 (merged) agents violate directed separation by construction → composed agents with goal-dependent routing violate it at the composite level
 - Class 3 (partially modular) → composed agents with fixed routing but environmental coupling approximately satisfy it
 
-The architectural classification (#directed-separation, working notes) **lifts to composition**. This is satisfying — the same structural distinction applies at every level, consistent with #postulate-composition-consistency's requirement.
+The architectural classification (#der-directed-separation, working notes) **lifts to composition**. This is satisfying — the same structural distinction applies at every level, consistent with #post-composition-consistency's requirement.
 
 ### Implications for Section III
 
-Segments in Section III (#multi-agent-scope through #per-dimension-persistence) should be understood as:
+Segments in Section III (#scope-multi-agent through #result-per-dimension-persistence) should be understood as:
 - **Exact** for Case 1 composites (fixed-routing, modular sub-agents)
 - **Approximate** for Case 3 composites (the approximation quality depends on $\mathcal{L}$)
 - **Inapplicable in their current form** for Case 2 composites (need coupled formulation)
@@ -105,7 +105,7 @@ The three-case classification: **robust qualitative**. The reasoning is structur
 
 1. **Is there a useful bound on $\mathcal{L}$ as a function of $N$ (number of agents)?** More agents means more goal-leakage sources, but also more noise (each agent's goal signal is diluted). The scaling may be sub-linear — or it may be linear in adversarial settings where an opponent deliberately amplifies goal leakage.
 
-2. **Does trust estimation (#communication-gain's $U_{\text{align}}$) compensate?** If $B$ explicitly models its uncertainty about $A$'s intentions, and discounts observations accordingly, this reduces the effective $\mathcal{L}$ in $B$'s update. Trust-adjusted gain may be a natural mechanism for maintaining approximate directed separation.
+2. **Does trust estimation (#hyp-communication-gain's $U_{\text{align}}$) compensate?** If $B$ explicitly models its uncertainty about $A$'s intentions, and discounts observations accordingly, this reduces the effective $\mathcal{L}$ in $B$'s update. Trust-adjusted gain may be a natural mechanism for maintaining approximate directed separation.
 
 3. **Case 2 composites: can they be treated as "merged" architectures?** If goal-dependent routing makes the composite structurally similar to a single merged agent (Class 2), then the logogenic treatment (coupled formulation from the start) may be the right approach for these composites too.
 
@@ -121,13 +121,13 @@ Agent $A$ is trying to degrade agent $B$'s strategy $\Sigma_B$. $B$'s strategy i
 
 ### Two qualitatively distinct attack modes
 
-The theory already provides the key ingredients. #observability-dominance says unobservable edges are frozen. #adversarial-destabilization says tempo advantage destabilizes. Combining them reveals two attack modes:
+The theory already provides the key ingredients. #der-observability-dominance says unobservable edges are frozen. #der-adversarial-destabilization says tempo advantage destabilizes. Combining them reveals two attack modes:
 
 **Mode 1: Visible sabotage.** Attack highly observable, critical edges. $B$ detects the failure quickly (high $\sigma_v$ → fast feedback). The value to $A$: force $B$ to revise strategy, consuming $B$'s strategic tempo on repair instead of progress. This is a tempo-drain attack — it doesn't necessarily break $B$'s plan permanently, but it forces $B$ to spend maintenance resources.
 
 **Mode 2: Silent undermining.** Attack poorly observable, critical edges. $B$ does not detect the failure (low $\sigma_v$ → frozen credence, no update). $B$ continues executing a plan that no longer works, wasting effort on a path that will fail. This is a confidence-corruption attack — $B$'s plan-confidence score $\hat{P}_\Sigma$ remains high while actual success probability drops.
 
-Mode 2 is structurally more dangerous. It exploits #observability-dominance: $B$ literally cannot learn that the edge has been degraded because the update gain $\eta_{\text{edge}} \to 0$. $B$ will only discover the problem when it reaches the corrupted part of the plan and experiences unexpected failure — possibly after irreversible commitments.
+Mode 2 is structurally more dangerous. It exploits #der-observability-dominance: $B$ literally cannot learn that the edge has been degraded because the update gain $\eta_{\text{edge}} \to 0$. $B$ will only discover the problem when it reaches the corrupted part of the plan and experiences unexpected failure — possibly after irreversible commitments.
 
 ### Edge vulnerability analysis
 
@@ -143,7 +143,7 @@ This is the sensitivity of the plan-confidence score to changes in edge credence
 
 **2. Observability inversion ($1 - \sigma_{ij}$)**: How hard is it for $B$ to detect that this edge has been compromised?
 
-$\sigma_{ij} = \min_{v \in \text{path}(i,j)} \sigma_v$ is the path observability from #observability-dominance. The *inversion* measures attack concealment — higher is better for the attacker.
+$\sigma_{ij} = \min_{v \in \text{path}(i,j)} \sigma_v$ is the path observability from #der-observability-dominance. The *inversion* measures attack concealment — higher is better for the attacker.
 
 **3. Coupling effectiveness ($\gamma_{ij}^A$)**: Can $A$ actually degrade this edge?
 
@@ -167,17 +167,17 @@ Given a resource budget $\epsilon_A$ and a set of edges with vulnerability score
 
 Under Mode 2 (silent undermining), the attacker's resource expenditure per edge is proportional to the effort needed to reduce $p_{ij}^{\text{true}}$ (the actual causal strength) below some threshold — without reducing $p_{ij}^{B}$ ($B$'s belief about the edge). The gap between actual and believed edge strength is the **confidence corruption**: $p_{ij}^B - p_{ij}^{\text{true}}$.
 
-Under Mode 1 (visible sabotage), the attacker's expenditure buys tempo-drain for $B$. The value is $B$'s repair time per unit of disruption: the more revision $B$ must do (from #structural-change-as-parametric-limit), the more tempo $B$ loses.
+Under Mode 1 (visible sabotage), the attacker's expenditure buys tempo-drain for $B$. The value is $B$'s repair time per unit of disruption: the more revision $B$ must do (from #form-structural-change-as-parametric-limit), the more tempo $B$ loses.
 
 ### Strategic implications
 
 **Defense against Mode 2 is an observability problem.** $B$'s best defense is to *increase observability* of critical, low-observability edges — instrument them, add monitoring, create early warning signals. This transforms Mode 2 attacks into Mode 1 attacks, which are less dangerous because $B$ can adapt.
 
-This connects to #observability-dominance's core message: unobservable regions are absorbing. In the adversarial context, they're also *targetable*. An agent that invests in observability of its critical strategy edges is both better at learning and harder to undermine silently.
+This connects to #der-observability-dominance's core message: unobservable regions are absorbing. In the adversarial context, they're also *targetable*. An agent that invests in observability of its critical strategy edges is both better at learning and harder to undermine silently.
 
 **The attacker's dilemma.** Attacking Mode 2 (silent) is more effective but requires the attacker to avoid triggering $B$'s detection. The attacker must model $B$'s observability landscape — which requires $A$ to have a model of $B$'s model. This is a higher-order epistemic requirement. If $A$ doesn't know which edges $B$ can observe, $A$ risks triggering Mode 1 when aiming for Mode 2.
 
-**Correlated vs. independent edge attacks.** The #strategy-dag edge-independence caveat notes that real systems have correlated failures. An attacker exploiting correlations — attacking a shared infrastructure that multiple edges depend on — can degrade many edges with a single action. This is why attacks on infrastructure (shared libraries, communication channels, supply chains) are disproportionately effective: they induce correlated failure across multiple strategy edges.
+**Correlated vs. independent edge attacks.** The #def-strategy-dag edge-independence caveat notes that real systems have correlated failures. An attacker exploiting correlations — attacking a shared infrastructure that multiple edges depend on — can degrade many edges with a single action. This is why attacks on infrastructure (shared libraries, communication channels, supply chains) are disproportionately effective: they induce correlated failure across multiple strategy edges.
 
 ### Connection to Gap 1
 
@@ -193,7 +193,7 @@ The two attack modes (visible sabotage vs. silent undermining): **robust qualita
 
 1. **Can $B$ defend by randomizing its strategy?** If $B$ occasionally changes which edges are critical (by maintaining multiple strategies and switching between them), the attacker's vulnerability assessment becomes stale. This is the strategic analog of defensive deception.
 
-2. **Cascade effects.** When a critical edge fails, does it trigger cascading failure downstream? The #strategy-dag status propagation is a forward pass — a failed edge at depth $k$ corrupts all downstream estimates. Does this mean shallow edges are more valuable to attack (more downstream impact) or deep edges (harder to detect)?
+2. **Cascade effects.** When a critical edge fails, does it trigger cascading failure downstream? The #def-strategy-dag status propagation is a forward pass — a failed edge at depth $k$ corrupts all downstream estimates. Does this mean shallow edges are more valuable to attack (more downstream impact) or deep edges (harder to detect)?
 
 3. **Is there a game-theoretic equilibrium?** If both agents can observe each other's vulnerability landscapes, does the interaction converge to a Nash equilibrium? Or is the advantage always with the attacker (because silent undermining is structurally harder to detect)?
 

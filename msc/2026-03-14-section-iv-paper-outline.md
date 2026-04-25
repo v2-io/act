@@ -15,19 +15,19 @@ Software development decisions are implicitly dual-optimization problems: minimi
 ### 1. Introduction: The Time Problem in Software
 - Software systems that expect change ($P(\text{change}) > \varepsilon$) face a fundamental tradeoff between optimizing for the current change and for all future ones
 - This is not a new observation (technical debt, YAGNI, over-engineering) — but it lacks formal treatment
-- **Source**: #software-scope, #temporal-optimality (simplified, without Greek terminology)
+- **Source**: #scope-software, #post-temporal-optimality (simplified, without Greek terminology)
 
 ### 2. Background: Adaptive Systems Meet Software
 - Brief: software development as an adaptive system (developer has a model of the codebase, updates it through observation, acts through changesets)
 - The key variables: mismatch (developer understanding vs. code reality), tempo (rate of learning), gain (how much each observation teaches)
-- **Source**: Stripped-down #agent-model, #mismatch-signal, #adaptive-tempo — enough to define the formal objects, not the full AAD apparatus
+- **Source**: Stripped-down #form-agent-model, #def-mismatch-signal, #def-adaptive-tempo — enough to define the formal objects, not the full AAD apparatus
 - **Omit**: Full Section I derivation chain, persistence condition, adversarial dynamics, the cycle phase names
 
 ### 3. Feature Time Decomposition
 - Comprehension time: cost of constructing local understanding of the code to be changed
 - Implementation time: cost of making the change once understanding is achieved
 - The decomposition is multiplicatively different under turnover: comprehension cost is per-reader, implementation cost is per-feature
-- **Source**: #comprehension-time, #implementation-time
+- **Source**: #def-comprehension-time, #def-implementation-time
 - **Omit**: Connection to M_t sufficiency (too theoretical for SE audience)
 
 ### 4. The Change-Expectation Baseline
@@ -35,7 +35,7 @@ Software development decisions are implicitly dual-optimization problems: minimi
 - This is a default prior for local reasoning, not a strong theorem of software evolution
 - The mean is undefined (Pareto α=1) — the median-case optimization is conservative
 - Note stationarity assumption
-- **Source**: #change-expectation-baseline
+- **Source**: #der-change-expectation-baseline
 - **Gap**: Need to present the Pareto derivation accessibly, without assuming control theory background
 
 ### 5. The Dual Optimization
@@ -43,15 +43,15 @@ Software development decisions are implicitly dual-optimization problems: minimi
 - The turnover multiplier: comprehension cost compounds per reader
 - Under 100% context turnover (AI agents): comprehension cost dominates overwhelmingly
 - Practical implications: explicit code, linear control flow, local comprehensibility are *temporal optimizations*, not style preferences
-- **Source**: #dual-optimization
+- **Source**: #der-dual-optimization
 - **Gap**: Need concrete worked examples (a refactoring decision, a DRY vs. explicit decision, an abstraction decision) with quantified costs
 
 ### 6. Supporting Results
-- **Change investment threshold**: when extra time now pays off (#change-investment)
-- **Coherence and coupling**: measurable from git (#coherence-coupling-measurement, #system-coupling, #system-coherence)
-- **Changeset size principle**: time proportional to changeset size (#changeset-size-principle)
-- **Change proximity**: co-located changes are cheaper (#change-proximity-principle)
-- **Conceptual alignment**: code-domain alignment reduces comprehension time (#conceptual-alignment)
+- **Change investment threshold**: when extra time now pays off (#der-change-investment)
+- **Coherence and coupling**: measurable from git (#meas-coherence-coupling, #def-system-coupling, #def-system-coherence)
+- **Changeset size principle**: time proportional to changeset size (#emp-changeset-size-principle)
+- **Change proximity**: co-located changes are cheaper (#der-change-proximity-principle)
+- **Conceptual alignment**: code-domain alignment reduces comprehension time (#hyp-conceptual-alignment)
 
 ### 7. Empirical Operationalization Program (IMPORTANT: frame as program, not as proven bridge)
 - How git data maps to the framework's variables
@@ -59,7 +59,7 @@ Software development decisions are implicitly dual-optimization problems: minimi
 - Module structure approximates coherence
 - These are *promising empirical mappings*, not secured causal bridges
 - **DO NOT claim git data is "genuinely causal"** — this was flagged by all three reviewers
-- **Source**: #coherence-coupling-measurement, #causal-discovery-from-git (if written by then)
+- **Source**: #meas-coherence-coupling, #hyp-causal-discovery-from-git (if written by then)
 - **Gap**: Need preliminary empirical results from 5-10 open-source repos
 
 ### 8. Related Work
@@ -75,7 +75,7 @@ Software development decisions are implicitly dual-optimization problems: minimi
 - Pointer to positioning preprint (if available by then)
 
 ### 10. Threats to Validity
-- Stationarity assumption (#change-expectation-baseline assumes uniform feature rate)
+- Stationarity assumption (#der-change-expectation-baseline assumes uniform feature rate)
 - Pareto prior — a default, not a data-fitted distribution
 - Comprehension-implementation decomposition may not be clean in practice
 - Git-based operationalization is analogical, not formally grounded

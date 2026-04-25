@@ -4,32 +4,32 @@ type: spike
 status: investigatory
 date: 2026-04-22
 depends-on:
-  - sector-persistence-template
-  - sector-condition-derivation
-  - gain-sector-bridge
-  - credit-assignment-boundary
-  - edge-update-natural-parameter
-  - discrete-sector-condition
-  - strategic-dynamics-derivation
-  - adaptive-gain-dynamics
-  - discussion-identifiability-floor
+  - result-sector-persistence-template
+  - deriv-sector-condition
+  - der-gain-sector-bridge
+  - disc-credit-assignment-boundary
+  - deriv-edge-update-natural-parameter
+  - deriv-discrete-sector-condition
+  - deriv-strategic-dynamics
+  - deriv-adaptive-gain-dynamics
+  - disc-identifiability-floor
 ---
 
 # Spike: Sector Condition on the Update Operator (Log-Odds Credit-Assignment Iteration)
 
-**Status:** Spike (investigatory). Recasts the log-odds credit-assignment update as a discrete dynamical system on the evidence-accumulation sequence and asks whether an A2'-like sector condition can be placed on the *update operator itself* (not on the underlying plant). If yes, the A2' α/β partition transfers to the update layer, Gaps A and B land under one template, and the discrete contraction work in `#discrete-sector-condition` extends from mismatch dynamics to credit-assignment dynamics.
+**Status:** Spike (investigatory). Recasts the log-odds credit-assignment update as a discrete dynamical system on the evidence-accumulation sequence and asks whether an A2'-like sector condition can be placed on the *update operator itself* (not on the underlying plant). If yes, the A2' α/β partition transfers to the update layer, Gaps A and B land under one template, and the discrete contraction work in `#deriv-discrete-sector-condition` extends from mismatch dynamics to credit-assignment dynamics.
 
 **Date:** 2026-04-22.
 
-**Motivation.** AAD's persistence machinery is continuous-time ODE / Lyapunov, with the discrete-time bridge in `#discrete-sector-condition` (DA2'/DA.1/DA.1S) covering the mismatch ODE only. The log-odds edge update in `#credit-assignment-boundary` is a discrete iteration on $\lambda_k$ whose contraction toward $\lambda_k^\ast$ is neither stated as a sector problem nor covered by the existing discrete apparatus. We write the update as a one-step operator $T$ and ask whether a sector condition of the form
+**Motivation.** AAD's persistence machinery is continuous-time ODE / Lyapunov, with the discrete-time bridge in `#deriv-discrete-sector-condition` (DA2'/DA.1/DA.1S) covering the mismatch ODE only. The log-odds edge update in `#disc-credit-assignment-boundary` is a discrete iteration on $\lambda_k$ whose contraction toward $\lambda_k^\ast$ is neither stated as a sector problem nor covered by the existing discrete apparatus. We write the update as a one-step operator $T$ and ask whether a sector condition of the form
 
 $$(T\lambda - \lambda^\ast)^\top (\cdot)(\lambda - \lambda^\ast) \leq \gamma \lVert\lambda - \lambda^\ast\rVert^2, \qquad \gamma \lt 1$$
 
 can be derived from structural properties of the gradient Jacobian $J$, the identifiability coefficient $\iota$, and the gain schedule $\eta_k$.
 
-**Headline outcome (summary, then derivations).** Under log-odds presentation with linear-in-log-odds dynamics and a step-size floor, the credit-assignment iteration admits an A2'-analog `(O-A2')` contraction condition whose sector constant is the Fisher-weighted product $\iota \cdot \eta_k \cdot \lambda_{\min}(J^\top J / \lVert J\rVert^2)$ on the log-odds coordinate. The stochastic-approximation analog (Robbins-Monro under unbiased gradient estimator) inherits the same contraction in mean-square under a standard step-size schedule. Sub-scope α of `#gain-sector-bridge` transfers structurally: Bayesian and exponential-family updates satisfy `(O-A2')` by construction. Sub-scope β fails structurally: non-Bayesian, non-exponential-family updates generally fail `(O-A2')` — and AAD's `#discussion-identifiability-floor` machinery already accounts for the failure mode via `#edge-update-causal-validity` (regime-C edges have $\iota \approx 0$, hence $\alpha_{\text{op}} \approx 0$, hence frozen credence per `#observability-dominance`). The discrete step-size condition of `#discrete-sector-condition` lifts: under `O-DA2'` (additive Lipschitz bound on $J$) the operator iterates as a Banach contraction with contraction factor derived from `(O-A2')` via Cauchy-Schwarz.
+**Headline outcome (summary, then derivations).** Under log-odds presentation with linear-in-log-odds dynamics and a step-size floor, the credit-assignment iteration admits an A2'-analog `(O-A2')` contraction condition whose sector constant is the Fisher-weighted product $\iota \cdot \eta_k \cdot \lambda_{\min}(J^\top J / \lVert J\rVert^2)$ on the log-odds coordinate. The stochastic-approximation analog (Robbins-Monro under unbiased gradient estimator) inherits the same contraction in mean-square under a standard step-size schedule. Sub-scope α of `#der-gain-sector-bridge` transfers structurally: Bayesian and exponential-family updates satisfy `(O-A2')` by construction. Sub-scope β fails structurally: non-Bayesian, non-exponential-family updates generally fail `(O-A2')` — and AAD's `#disc-identifiability-floor` machinery already accounts for the failure mode via `#scope-edge-update-causal-validity` (regime-C edges have $\iota \approx 0$, hence $\alpha_{\text{op}} \approx 0$, hence frozen credence per `#der-observability-dominance`). The discrete step-size condition of `#deriv-discrete-sector-condition` lifts: under `O-DA2'` (additive Lipschitz bound on $J$) the operator iterates as a Banach contraction with contraction factor derived from `(O-A2')` via Cauchy-Schwarz.
 
-The honest break-test is where Gaps A and B differ: the Fisher metric is in general *non-diagonal under L1' correlation*, so the sector condition transforms rather than breaks — whitening inverts the off-diagonal via `(O-A2'-whit)`. But L1' with unobservable common cause hits `#discussion-identifiability-floor`'s Cramér-Rao refutation (rank-1 Fisher per `#strategic-dynamics-derivation` Prop B.7 refutation): no sector-positive operator exists, so `(O-A2')` fails structurally rather than gracefully. This gives the composition argument a first non-trivial obstruction to absorb.
+The honest break-test is where Gaps A and B differ: the Fisher metric is in general *non-diagonal under L1' correlation*, so the sector condition transforms rather than breaks — whitening inverts the off-diagonal via `(O-A2'-whit)`. But L1' with unobservable common cause hits `#disc-identifiability-floor`'s Cramér-Rao refutation (rank-1 Fisher per `#deriv-strategic-dynamics` Prop B.7 refutation): no sector-positive operator exists, so `(O-A2')` fails structurally rather than gracefully. This gives the composition argument a first non-trivial obstruction to absorb.
 
 ---
 
@@ -37,7 +37,7 @@ The honest break-test is where Gaps A and B differ: the Fisher metric is in gene
 
 ### 1.1 The log-odds credit-assignment update as a map
 
-Fix an edge $k \in E$ of the strategy DAG. Let $\lambda_k \in \mathbb{R}$ be the log-odds credence, $\iota_k \in [0, 1]$ the regime identifiability coefficient (`#edge-update-causal-validity`), $J_k = \partial P_\Sigma / \partial p_k \geq 0$ the per-edge Jacobian at $\hat{p}$, and $\eta_k = 1/(n_k + 1)$ the Beta-Bernoulli edge gain. The `#credit-assignment-boundary` default signal function reads:
+Fix an edge $k \in E$ of the strategy DAG. Let $\lambda_k \in \mathbb{R}$ be the log-odds credence, $\iota_k \in [0, 1]$ the regime identifiability coefficient (`#scope-edge-update-causal-validity`), $J_k = \partial P_\Sigma / \partial p_k \geq 0$ the per-edge Jacobian at $\hat{p}$, and $\eta_k = 1/(n_k + 1)$ the Beta-Bernoulli edge gain. The `#disc-credit-assignment-boundary` default signal function reads:
 
 *[Definition (credit-assignment operator, log-odds)]*
 
@@ -61,7 +61,7 @@ Define the expected-value operator $\overline T(\boldsymbol\lambda) = \mathbb{E}
 
 $$\overline T_k(\boldsymbol\lambda) \;=\; \lambda_k + \eta_k \cdot \iota_k \cdot \frac{J_k \cdot (\Phi(\boldsymbol\theta^\ast) - \hat P_\Sigma(\boldsymbol\lambda))}{\lVert \mathbf{J} \rVert^2}$$
 
-Fixed points of $\overline T$ satisfy $\hat P_\Sigma(\boldsymbol\lambda) = \Phi(\boldsymbol\theta^\ast)$ on the identifiable subspace ($\iota_k J_k \neq 0$) — i.e., the plan-level confidence matches the ground-truth plan-level success. Off-identifiable coordinates ($\iota_k = 0$ or $J_k = 0$) leave $\lambda_k$ fixed at its prior, consistent with `#observability-dominance`.
+Fixed points of $\overline T$ satisfy $\hat P_\Sigma(\boldsymbol\lambda) = \Phi(\boldsymbol\theta^\ast)$ on the identifiable subspace ($\iota_k J_k \neq 0$) — i.e., the plan-level confidence matches the ground-truth plan-level success. Off-identifiable coordinates ($\iota_k = 0$ or $J_k = 0$) leave $\lambda_k$ fixed at its prior, consistent with `#der-observability-dominance`.
 
 **Target.** Let $\boldsymbol\lambda^\ast$ denote *any* fixed point of $\overline T$ in the identifiable subspace. Uniqueness of $\boldsymbol\lambda^\ast$ requires the plan-level success function $\Phi$ to be strictly monotone and the identifiable subspace to be dimension-full — conditions satisfied for monotone AND/OR DAGs with all regime-A edges but not in general.
 
@@ -137,8 +137,8 @@ Reading off the ingredients:
 
 | Factor | Source | Failure mode |
 |---|---|---|
-| $1/(n_k+1)$ | `#edge-update-via-gain` Beta-Bernoulli gain | Gain collapse as $n \to \infty$ (Prop B.3 weakening) |
-| $\iota_k \in [0,1]$ | `#edge-update-causal-validity` regime coefficient | Regime C sets $\iota \approx 0$ — frozen edge |
+| $1/(n_k+1)$ | `#hyp-edge-update-via-gain` Beta-Bernoulli gain | Gain collapse as $n \to \infty$ (Prop B.3 weakening) |
+| $\iota_k \in [0,1]$ | `#scope-edge-update-causal-validity` regime coefficient | Regime C sets $\iota \approx 0$ — frozen edge |
 | $J_k^2 / \lVert \mathbf{J}\rVert^2 \in [0,1]$ | Jacobian attribution fraction | Path-dominated DAG: one $J_k$ large, others near zero |
 | $\sigma'(\lambda_k^\ast) \in (0, 1/4]$ | Log-odds-to-probability sensitivity | Saturated edges ($\lambda_k^\ast \to \pm\infty$) |
 
@@ -150,13 +150,13 @@ Each factor is bounded, positive, and structurally tied to AAD quantities. The s
 
 ### 3.1 Exponential-family / Bayesian sub-scope
 
-`#gain-sector-bridge` sub-scope α (Kalman, conjugate Bayesian, exponential family in natural parameters) is the sub-scope in which A2' is *derived* from B1 directional fidelity. The question is whether `(O-A2')` inherits the same sub-scoping.
+`#der-gain-sector-bridge` sub-scope α (Kalman, conjugate Bayesian, exponential family in natural parameters) is the sub-scope in which A2' is *derived* from B1 directional fidelity. The question is whether `(O-A2')` inherits the same sub-scoping.
 
 *[Derived (α-sub-scope inheritance, from Bayesian coherence + evidential-additivity uniqueness)]*
 
-**Claim.** For agent classes in sub-scope α of `#gain-sector-bridge`, `(O-A2')` holds with $\alpha_{\text{op}}^{\text{comp}}$ as derived above.
+**Claim.** For agent classes in sub-scope α of `#der-gain-sector-bridge`, `(O-A2')` holds with $\alpha_{\text{op}}^{\text{comp}}$ as derived above.
 
-**Argument.** Within sub-scope α, the update is Bayesian in the log-odds coordinate by `#edge-update-natural-parameter`'s evidential-additivity uniqueness theorem:
+**Argument.** Within sub-scope α, the update is Bayesian in the log-odds coordinate by `#deriv-edge-update-natural-parameter`'s evidential-additivity uniqueness theorem:
 
 $$\lambda_k^{\text{post}} - \lambda_k^{\text{prior}} = \ell(y)$$
 
@@ -168,19 +168,19 @@ with strict inequality away from $\boldsymbol\lambda^\ast$. This gives B1-analog
 
 $$\alpha_{\text{op}}^{\text{Bayes}} \;\propto\; \mathbb{E}[\ell(y)^2] = \mathcal{I}(\theta^\ast) \quad (\text{Fisher information at truth})$$
 
-This is the operator-level analog of the `#gain-sector-bridge` factoring $\alpha = \eta \cdot c_{\min}$: the sector constant factors into a gain term ($\eta_k / \lVert \mathbf J \rVert^2$) and a Fisher/attribution term ($\iota_k J_k^2 \sigma'(\lambda^\ast) \cdot \mathcal{I}$).
+This is the operator-level analog of the `#der-gain-sector-bridge` factoring $\alpha = \eta \cdot c_{\min}$: the sector constant factors into a gain term ($\eta_k / \lVert \mathbf J \rVert^2$) and a Fisher/attribution term ($\iota_k J_k^2 \sigma'(\lambda^\ast) \cdot \mathcal{I}$).
 
 ### 3.2 Variational / β sub-scope — structural failure mode
 
-Sub-scope β of `#gain-sector-bridge` includes variational approximate posteriors (B1 not guaranteed by optimality because approximation-direction error can rotate the correction), non-Bayesian rule-based updates, and severely misspecified agents (FM-5). For these:
+Sub-scope β of `#der-gain-sector-bridge` includes variational approximate posteriors (B1 not guaranteed by optimality because approximation-direction error can rotate the correction), non-Bayesian rule-based updates, and severely misspecified agents (FM-5). For these:
 
 *[Derived (β-sub-scope failure, from non-Bayesian evidential-additivity + Jacobian misalignment)]*
 
 **Claim.** For agents in sub-scope β, `(O-A2')` fails structurally unless the correction-direction rotation is bounded.
 
-**Argument.** Without evidential additivity in log-odds (`#edge-update-natural-parameter` scope), the update $\lambda_k^{\text{post}} - \lambda_k^{\text{prior}}$ is not the log-likelihood ratio. The expected update $\mathbb{E}[\boldsymbol\lambda^{\text{post}} - \boldsymbol\lambda^{\text{prior}}]$ can rotate by up to the approximation angle $\theta_{\text{var}}$ of the variational posterior — specifically, for reverse-KL variational approximations, the rotation is bounded by the chain-rule additivity defect per `#strategy-cost-regret-bound` §6.1. If $\theta_{\text{var}} \lt \pi/2$, `(O-A2')` holds with an attenuated sector constant $\alpha_{\text{op}} \cdot \cos \theta_{\text{var}}$. If $\theta_{\text{var}} \geq \pi/2$, the expected update projects *away* from truth and the operator diverges.
+**Argument.** Without evidential additivity in log-odds (`#deriv-edge-update-natural-parameter` scope), the update $\lambda_k^{\text{post}} - \lambda_k^{\text{prior}}$ is not the log-likelihood ratio. The expected update $\mathbb{E}[\boldsymbol\lambda^{\text{post}} - \boldsymbol\lambda^{\text{prior}}]$ can rotate by up to the approximation angle $\theta_{\text{var}}$ of the variational posterior — specifically, for reverse-KL variational approximations, the rotation is bounded by the chain-rule additivity defect per `#deriv-strategy-cost-regret-bound` §6.1. If $\theta_{\text{var}} \lt \pi/2$, `(O-A2')` holds with an attenuated sector constant $\alpha_{\text{op}} \cdot \cos \theta_{\text{var}}$. If $\theta_{\text{var}} \geq \pi/2$, the expected update projects *away* from truth and the operator diverges.
 
-This is the operator-level analog of `#gain-sector-bridge` FM-1 (directional infidelity). The rotation-tolerance characterization is new.
+This is the operator-level analog of `#der-gain-sector-bridge` FM-1 (directional infidelity). The rotation-tolerance characterization is new.
 
 ### 3.3 Summary: Operator-level A2' sub-scope partition
 
@@ -190,7 +190,7 @@ This is the operator-level analog of `#gain-sector-bridge` FM-1 (directional inf
 | **β-op conservative** | Variational posteriors with bounded rotation $\theta_{\text{var}} \lt \pi/2$ | Derived (attenuated) | $\alpha_{\text{op}} \cos \theta_{\text{var}}$ |
 | **β-op breaking** | Rule-based, severely misspecified, $\theta_{\text{var}} \geq \pi/2$ | Fails | No positive sector constant |
 
-The α-op / β-op partition is structurally parallel to `#gain-sector-bridge` α / β — and transfers the same member classes.
+The α-op / β-op partition is structurally parallel to `#der-gain-sector-bridge` α / β — and transfers the same member classes.
 
 ---
 
@@ -198,7 +198,7 @@ The α-op / β-op partition is structurally parallel to `#gain-sector-bridge` α
 
 ### 4.1 Fisher metric under L1' correlation
 
-Under Correlation Hierarchy L1' (`#strategy-dag`), the per-trial Fisher information matrix is non-diagonal — edge credences share variance through the common-cause structure. Write the joint Fisher matrix as:
+Under Correlation Hierarchy L1' (`#def-strategy-dag`), the per-trial Fisher information matrix is non-diagonal — edge credences share variance through the common-cause structure. Write the joint Fisher matrix as:
 
 $$\mathcal{F}(\boldsymbol\lambda^\ast) \;=\; \mathcal{F}_0 + \Delta_{L1'}$$
 
@@ -220,9 +220,9 @@ The correlation enters through $\lambda_{\min}(\mathcal{F})$, which is bounded b
 
 *[Derived (`(O-A2')` breaks under unobservable L1', from Cramér-Rao rank-1 floor)]*
 
-When $C$ is unobservable, the marginalized Fisher is rank-1 (`#strategic-dynamics-derivation` Prop B.7 refutation, `#discussion-identifiability-floor`). Then $\lambda_{\min}(\mathcal{F}) = 0$ and `(O-A2')` fails structurally — no positive sector constant exists along the unidentifiable direction. This is *not* graceful degradation; it is the same no-go pattern as `#causal-insufficiency-detection` (on-policy L0-vs-L1 via CHT) but at the update-operator layer.
+When $C$ is unobservable, the marginalized Fisher is rank-1 (`#deriv-strategic-dynamics` Prop B.7 refutation, `#disc-identifiability-floor`). Then $\lambda_{\min}(\mathcal{F}) = 0$ and `(O-A2')` fails structurally — no positive sector constant exists along the unidentifiable direction. This is *not* graceful degradation; it is the same no-go pattern as `#der-causal-insufficiency-detection` (on-policy L0-vs-L1 via CHT) but at the update-operator layer.
 
-**Interpretation.** The update operator $T$ has the same identifiability-floor structure as the underlying plant: gradual degradation under soft identifiability loss, structural break under hard identifiability loss. The Fisher-whitened repair (multi-channel joint observation per Prop B.7 repair route ii) is the operator-level analog of `#observability-dominance`'s augmentation: observability buys back rank and rank buys back sector constant.
+**Interpretation.** The update operator $T$ has the same identifiability-floor structure as the underlying plant: gradual degradation under soft identifiability loss, structural break under hard identifiability loss. The Fisher-whitened repair (multi-channel joint observation per Prop B.7 repair route ii) is the operator-level analog of `#der-observability-dominance`'s augmentation: observability buys back rank and rank buys back sector constant.
 
 ### 4.4 Connection to spike-fisher-whitened-update and spike-l1-update-bias
 
@@ -234,7 +234,7 @@ A Fisher-whitened operator $T_{\text{whit}}(\boldsymbol\lambda) = \boldsymbol\la
 
 ### 5.1 The gap
 
-`#discrete-sector-condition` (DA2'/DA.1/DA.1S) handles mismatch dynamics discretization under a Lipschitz bound on $F_d$ and a step-size constraint $\eta^\ast \lt 2c_{\min}/c_{\max}^2$. The operator formulation here is already discrete (one operator application per observation), so no time-discretization is needed. What we need instead is the analog: under what operator-Lipschitz bound on $J$, $\iota$, and $\eta_k$ does iterated $T$ converge as a Banach contraction?
+`#deriv-discrete-sector-condition` (DA2'/DA.1/DA.1S) handles mismatch dynamics discretization under a Lipschitz bound on $F_d$ and a step-size constraint $\eta^\ast \lt 2c_{\min}/c_{\max}^2$. The operator formulation here is already discrete (one operator application per observation), so no time-discretization is needed. What we need instead is the analog: under what operator-Lipschitz bound on $J$, $\iota$, and $\eta_k$ does iterated $T$ converge as a Banach contraction?
 
 ### 5.2 Operator-Lipschitz condition `(O-DA2')`
 
@@ -270,7 +270,7 @@ $$\alpha_{\text{op}} \;\gt\; \tfrac{1}{128}$$
 
 This is always satisfied in the identifiable regime — $\alpha_{\text{op}}$ is set by structural constants (see §2.3) that stay well above $1/128$ unless identifiability collapses. The step-size condition *lifts structurally* from the continuous case, not as a separate tuning parameter.
 
-**Steady-state bound.** The stochastic analog (mean-square contraction) follows the same pattern as `#discrete-sector-condition` DA.1S:
+**Steady-state bound.** The stochastic analog (mean-square contraction) follows the same pattern as `#deriv-discrete-sector-condition` DA.1S:
 
 $$\mathbb{E}[\lVert \boldsymbol\lambda_t - \boldsymbol\lambda^\ast \rVert^2] \leq \lambda_{\text{op}}^{2t} \lVert \boldsymbol\lambda_0 - \boldsymbol\lambda^\ast \rVert^2 + \frac{\sigma_{\text{op}}^2}{1 - \lambda_{\text{op}}^2}$$
 
@@ -282,7 +282,7 @@ with the steady-state ball radius $R_{\text{op}}^\ast = \sigma_{\text{op}} / \sq
 
 Setting $\eta_k = \eta_0 / (n_k + 1)$ (Beta-Bernoulli) recovers the classical Robbins-Monro step-size schedule $\sum \eta_k = \infty$, $\sum \eta_k^2 \lt \infty$. Under `(O-A2')` (a stochastic-approximation stability condition) and standard Lipschitz regularity of the gradient estimator, Borkar 2008 (*Stochastic Approximation: A Dynamical Systems Viewpoint*) Ch. 2 gives almost-sure convergence $\boldsymbol\lambda_t \to \boldsymbol\lambda^\ast$ through the ODE method. `(O-DA.1)` is the finite-sample mean-square rate; Borkar's theorem is the asymptotic a.s. statement. Both follow from the same structural properties.
 
-**The step-size condition lifts.** `#discrete-sector-condition`'s step-size constraint on continuous-time discretization is replaced, at the operator level, by the ODE-method stability condition — automatically satisfied when `(O-A2')` holds in sub-scope α. No separate step-size tuning is required when the gain schedule matches Robbins-Monro.
+**The step-size condition lifts.** `#deriv-discrete-sector-condition`'s step-size constraint on continuous-time discretization is replaced, at the operator level, by the ODE-method stability condition — automatically satisfied when `(O-A2')` holds in sub-scope α. No separate step-size tuning is required when the gain schedule matches Robbins-Monro.
 
 ---
 
@@ -290,29 +290,29 @@ Setting $\eta_k = \eta_0 / (n_k + 1)$ (Beta-Bernoulli) recovers the classical Ro
 
 ### 6.1 Parallel edge updates
 
-When multiple edges update in parallel (one observation, multiple edge updates), the composed operator is $T(\boldsymbol\lambda; o) = (T_1(\lambda_1; o), \ldots, T_{|E|}(\lambda_{|E|}; o))$. The sector constant of the composed operator is $\alpha_{\text{op}}^{\text{joint}} = \min_k \alpha_{\text{op},k}$ (worst-case edge), the parallel analog of `#team-persistence`'s cooperative coupling inequality.
+When multiple edges update in parallel (one observation, multiple edge updates), the composed operator is $T(\boldsymbol\lambda; o) = (T_1(\lambda_1; o), \ldots, T_{|E|}(\lambda_{|E|}; o))$. The sector constant of the composed operator is $\alpha_{\text{op}}^{\text{joint}} = \min_k \alpha_{\text{op},k}$ (worst-case edge), the parallel analog of `#der-team-persistence`'s cooperative coupling inequality.
 
 *[Derived (parallel composition sector constant, from `(O-A2')` applied componentwise)]*
 
 $$\alpha_{\text{op}}^{\text{joint}} \;\geq\; \min_k \alpha_{\text{op},k} \;=\; \min_k \frac{\eta_k \iota_k J_k^2 \sigma'(\lambda_k^\ast)}{\lVert \mathbf J \rVert^2}$$
 
-Standard (weakest-link) bound. Non-trivial improvement requires correlation structure between the edges — if the edges share a common cause observable ($C$-observable L1'), the joint update can exploit the correlation to gain sector constant beyond weakest-link, exactly as `#critical-mass-composition`'s matched-Tier-1 dyad does at the mismatch level.
+Standard (weakest-link) bound. Non-trivial improvement requires correlation structure between the edges — if the edges share a common cause observable ($C$-observable L1'), the joint update can exploit the correlation to gain sector constant beyond weakest-link, exactly as `#deriv-critical-mass-composition`'s matched-Tier-1 dyad does at the mismatch level.
 
 ### 6.2 Sequential credit assignment (credit pipeline)
 
-When credit flows through multiple DAG layers (plan-level outcome → intermediate-layer edges → root edges), the composed operator is $T = T_{\text{layer-L}} \circ T_{\text{layer-(L-1)}} \circ \cdots \circ T_{\text{layer-1}}$. The sector constant of the composition is the product (operator-analog of the multi-step contraction in `#discrete-sector-condition`):
+When credit flows through multiple DAG layers (plan-level outcome → intermediate-layer edges → root edges), the composed operator is $T = T_{\text{layer-L}} \circ T_{\text{layer-(L-1)}} \circ \cdots \circ T_{\text{layer-1}}$. The sector constant of the composition is the product (operator-analog of the multi-step contraction in `#deriv-discrete-sector-condition`):
 
 *[Derived — sequential composition, conditional on layer-wise sector constants]*
 
 $$\alpha_{\text{op}}^{\text{seq}} \;\geq\; \prod_\ell \alpha_{\text{op},\ell}$$
 
-This is the log-additive form: $\log \alpha_{\text{op}}^{\text{seq}} = \sum_\ell \log \alpha_{\text{op},\ell}$, parallel to `#chain-confidence-decay`'s additive log-confidence accumulation. The structure matches `#additive-coordinate-forcing`'s meta-pattern — the log-odds coordinate's additivity lifts to the operator-layer composition.
+This is the log-additive form: $\log \alpha_{\text{op}}^{\text{seq}} = \sum_\ell \log \alpha_{\text{op},\ell}$, parallel to `#der-chain-confidence-decay`'s additive log-confidence accumulation. The structure matches `#additive-coordinate-forcing`'s meta-pattern — the log-odds coordinate's additivity lifts to the operator-layer composition.
 
 ### 6.3 Concrete base case for Gap B / `spike-operator-sector-unification` (C1)
 
-The pair (`#edge-update-natural-parameter` + `(O-A2')` + parallel composition inequality) gives a concrete base case: for a DAG with $K$ identifiable regime-A edges and observable intermediates, the composed credit-assignment operator is a Banach contraction with sector constant $\geq \min_k \alpha_{\text{op},k}$ and step-size-free convergence. This instantiates the composition-Lyapunov argument at the credit-assignment layer without requiring new machinery.
+The pair (`#deriv-edge-update-natural-parameter` + `(O-A2')` + parallel composition inequality) gives a concrete base case: for a DAG with $K$ identifiable regime-A edges and observable intermediates, the composed credit-assignment operator is a Banach contraction with sector constant $\geq \min_k \alpha_{\text{op},k}$ and step-size-free convergence. This instantiates the composition-Lyapunov argument at the credit-assignment layer without requiring new machinery.
 
-**What this hands Gap B.** If `spike-operator-sector-unification` (C1) pursues the unification of mismatch-operator and update-operator contraction under a single template, the argument above supplies the concrete base-case operator and sector constant for the credit-assignment side. Gap A (mismatch operator) uses `#discrete-sector-condition`; Gap B (update operator) uses `(O-A2')` as derived here; the unification is sector-persistence-template *applied twice*, with coupling terms characterizing the interaction — exactly the augmented-state Lyapunov composition that `#adaptive-gain-dynamics` (MG-1)–(MG-4) does for fixed-plant / adaptive-gain.
+**What this hands Gap B.** If `spike-operator-sector-unification` (C1) pursues the unification of mismatch-operator and update-operator contraction under a single template, the argument above supplies the concrete base-case operator and sector constant for the credit-assignment side. Gap A (mismatch operator) uses `#deriv-discrete-sector-condition`; Gap B (update operator) uses `(O-A2')` as derived here; the unification is sector-persistence-template *applied twice*, with coupling terms characterizing the interaction — exactly the augmented-state Lyapunov composition that `#deriv-adaptive-gain-dynamics` (MG-1)–(MG-4) does for fixed-plant / adaptive-gain.
 
 ---
 
@@ -322,7 +322,7 @@ The pair (`#edge-update-natural-parameter` + `(O-A2')` + parallel composition in
 
 ### 7.1 Non-monotone gains
 
-If $\eta_k$ is non-monotone in $n_k$ (e.g., resetting-gain schedules, step-size warmup-then-decay, adaptive optimizers like Adam with bias-correction), the fixed-gain Lyapunov argument of §5.3 breaks. The path forward is `#adaptive-gain-dynamics`'s augmented-state approach: treat the gain as state, give it its own sector condition (MG-2), verify timescale separation (MG-3). This is the same composition pattern applied at the operator level — no new machinery, but careful verification required per agent class.
+If $\eta_k$ is non-monotone in $n_k$ (e.g., resetting-gain schedules, step-size warmup-then-decay, adaptive optimizers like Adam with bias-correction), the fixed-gain Lyapunov argument of §5.3 breaks. The path forward is `#deriv-adaptive-gain-dynamics`'s augmented-state approach: treat the gain as state, give it its own sector condition (MG-2), verify timescale separation (MG-3). This is the same composition pattern applied at the operator level — no new machinery, but careful verification required per agent class.
 
 ### 7.2 Non-conservative outcome noise
 
@@ -330,15 +330,15 @@ If the per-observation residual $y_G - \hat P_\Sigma$ has bias (biased estimator
 
 ### 7.3 Structurally misspecified $J$
 
-The most serious failure: if $\mathbf J$ in the default signal function does not reflect the true causal Jacobian (wrong DAG structure, wrong regime classification, wrong edge identifiability coefficient), the operator converges to a fixed point of the *mis-specified* expected-operator, not the true operator. This is `#gain-sector-bridge` FM-5 (severe misspecification) at the operator level. The fixed point of the misspecified operator is generally offset from truth by a distance proportional to $\lVert \mathbf J - \mathbf J^{\text{true}} \rVert$. `(O-A2')` holds with respect to the misspecified $\boldsymbol\lambda^\ast$, not the true one.
+The most serious failure: if $\mathbf J$ in the default signal function does not reflect the true causal Jacobian (wrong DAG structure, wrong regime classification, wrong edge identifiability coefficient), the operator converges to a fixed point of the *mis-specified* expected-operator, not the true operator. This is `#der-gain-sector-bridge` FM-5 (severe misspecification) at the operator level. The fixed point of the misspecified operator is generally offset from truth by a distance proportional to $\lVert \mathbf J - \mathbf J^{\text{true}} \rVert$. `(O-A2')` holds with respect to the misspecified $\boldsymbol\lambda^\ast$, not the true one.
 
-**This is `#discussion-identifiability-floor`'s misspecification-cost open gap at the operator level.** The structural-adaptation route (`#structural-adaptation-necessity`) is needed when the mis-specified fixed point lies outside the task-adequacy threshold.
+**This is `#disc-identifiability-floor`'s misspecification-cost open gap at the operator level.** The structural-adaptation route (`#result-structural-adaptation-necessity`) is needed when the mis-specified fixed point lies outside the task-adequacy threshold.
 
 ### 7.4 Rank-deficient Fisher (Cramér-Rao refutation)
 
 Already covered in §4.3: unobservable L1' common cause, rank-1 Fisher, structural break. No sector-positive operator exists. The only repair routes are (i) augment observability (Prop B.7 repair route ii) or (ii) accept plan-level-only tracking (L0-on-marginals fallback).
 
-### 7.5 The `#approximation-tiering` structural classification transfers
+### 7.5 The `#disc-approximation-tiering` structural classification transfers
 
 | Tier | Class membership | `(O-A2')` status |
 |---|---|---|
@@ -346,7 +346,7 @@ Already covered in §4.3: unobservable L1' common cause, rank-1 Fisher, structur
 | Tier 2 (proved, local) | Gradient on locally strongly convex loss, well-tuned PID | `(O-A2')` derived in basin; `(O-DA.1)` converges from basin |
 | Tier 3 (domain-specific) | Rule-based, variational with high rotation, severely misspecified | `(O-A2')` case-by-case; structural-adaptation often required |
 
-This transfers `#approximation-tiering`'s structural classification directly to the update operator. No new ladder is needed.
+This transfers `#disc-approximation-tiering`'s structural classification directly to the update operator. No new ladder is needed.
 
 ---
 
@@ -361,33 +361,33 @@ This transfers `#approximation-tiering`'s structural classification directly to 
 **Contents:**
 
 1. Operator formulation of the default signal function (§1 here).
-2. `(O-A2')` — operator-level sector condition, derived from `#gain-sector-bridge` B1 + `#edge-update-natural-parameter` evidential-additivity (§2 here).
-3. `α-op / β-op` sub-scope partition inheriting from `#gain-sector-bridge` α/β (§3 here).
+2. `(O-A2')` — operator-level sector condition, derived from `#der-gain-sector-bridge` B1 + `#deriv-edge-update-natural-parameter` evidential-additivity (§2 here).
+3. `α-op / β-op` sub-scope partition inheriting from `#der-gain-sector-bridge` α/β (§3 here).
 4. Correlated-failure generalization with graceful L1'-observable / structural L1'-unobservable break (§4 here).
 5. `(O-DA.1)` contraction theorem with step-size condition derived from structural constants (§5 here).
 6. Composition preview — parallel + sequential composition sector constants (§6 here).
-7. Break-test classification with `#approximation-tiering` transfer (§7 here).
+7. Break-test classification with `#disc-approximation-tiering` transfer (§7 here).
 8. Derivation-audit table (O-BP14 convention).
 
-**Why an appendix rather than extension of `#sector-persistence-template`:** The template is about state-variable Lyapunov persistence on continuous-time mismatch dynamics. The operator-level result is about discrete-time credit-assignment iteration — structurally different object (operator vs. correction function), different failure modes (rank-deficient Fisher vs. sector-breakdown beyond $\mathcal B_R$), different composition pattern (Banach contraction vs. augmented-state Lyapunov). Making the operator formulation a separate appendix preserves the template's clean statement and surfaces the operator-layer result as its own derivation.
+**Why an appendix rather than extension of `#result-sector-persistence-template`:** The template is about state-variable Lyapunov persistence on continuous-time mismatch dynamics. The operator-level result is about discrete-time credit-assignment iteration — structurally different object (operator vs. correction function), different failure modes (rank-deficient Fisher vs. sector-breakdown beyond $\mathcal B_R$), different composition pattern (Banach contraction vs. augmented-state Lyapunov). Making the operator formulation a separate appendix preserves the template's clean statement and surfaces the operator-layer result as its own derivation.
 
-### 8.2 Secondary landing: extension of `#discrete-sector-condition`
+### 8.2 Secondary landing: extension of `#deriv-discrete-sector-condition`
 
-Add a new §7 to `#discrete-sector-condition` titled "Operator-level sector analog" that states `(O-A2')` and `(O-DA.1)` as extensions of DA2'/DA.1 to the update-operator setting. Cross-reference `#update-operator-sector` for the full derivation. This positioning makes visible that `#discrete-sector-condition` covers *two* discrete-time objects: the event-driven mismatch update and the observation-driven credit-assignment operator, under two sector conditions (DA2', `O-A2'`) that share structural form.
+Add a new §7 to `#deriv-discrete-sector-condition` titled "Operator-level sector analog" that states `(O-A2')` and `(O-DA.1)` as extensions of DA2'/DA.1 to the update-operator setting. Cross-reference `#update-operator-sector` for the full derivation. This positioning makes visible that `#deriv-discrete-sector-condition` covers *two* discrete-time objects: the event-driven mismatch update and the observation-driven credit-assignment operator, under two sector conditions (DA2', `O-A2'`) that share structural form.
 
 ### 8.3 Tertiary landing: unification segment `#operator-sector-unification` (Gap B base case)
 
 If Gap B / C1 becomes concrete, a unification segment would state the shared Banach-contraction-under-sector-condition template across both mismatch and update layers, with `(MG-1)`–`(MG-4)`-style timescale-separation conditions characterizing interaction. This is one step beyond where the spike currently lands — it requires the actual composition proof, not just the parallel-and-sequential sector constants derived here.
 
-**Recommendation:** land §§1–7 as `#update-operator-sector` (primary), add §7 of `#discrete-sector-condition` as a cross-reference stub (secondary), defer `#operator-sector-unification` until Gap B has a concrete target.
+**Recommendation:** land §§1–7 as `#update-operator-sector` (primary), add §7 of `#deriv-discrete-sector-condition` as a cross-reference stub (secondary), defer `#operator-sector-unification` until Gap B has a concrete target.
 
 ### 8.4 Integration with the three meta-segments
 
 `#update-operator-sector` composes cleanly with AAD's three meta-patterns:
 
-- **`#discussion-separability-pattern`.** Adds a seventh ladder (update-operator sector scope): sub-scope α-op (separable-core, Bayesian/exp-family), β-op conservative (structured-repair, bounded-rotation variational), β-op breaking (general-open, unbounded-rotation or severely misspecified).
-- **`#discussion-identifiability-floor`.** Adds an instance: rank-deficient Fisher under unobservable L1' is a Cramér-Rao-floor no-go at the operator level (§4.3 here). This is the fourth `#discussion-identifiability-floor` instance, complementing on-policy CHT no-go, L1' mixture-identifiability obstruction, and misspecification-cost extension.
-- **`#additive-coordinate-forcing`.** Adds an *application* of the log-odds coordinate forcing from `#edge-update-natural-parameter`: the sequential-composition sector constant (§6.2 here) is log-additive specifically because the log-odds coordinate is the uniquely-forced additive evidence coordinate. The operator-layer composition inherits the log-additive structure — the three-layer additive-decomposition pattern extends to the operator-composition layer as an *adjacent instance* (classified parallel to Lyapunov quadratic and IB Lagrangian in `#additive-coordinate-forcing`).
+- **`#disc-separability-pattern`.** Adds a seventh ladder (update-operator sector scope): sub-scope α-op (separable-core, Bayesian/exp-family), β-op conservative (structured-repair, bounded-rotation variational), β-op breaking (general-open, unbounded-rotation or severely misspecified).
+- **`#disc-identifiability-floor`.** Adds an instance: rank-deficient Fisher under unobservable L1' is a Cramér-Rao-floor no-go at the operator level (§4.3 here). This is the fourth `#disc-identifiability-floor` instance, complementing on-policy CHT no-go, L1' mixture-identifiability obstruction, and misspecification-cost extension.
+- **`#additive-coordinate-forcing`.** Adds an *application* of the log-odds coordinate forcing from `#deriv-edge-update-natural-parameter`: the sequential-composition sector constant (§6.2 here) is log-additive specifically because the log-odds coordinate is the uniquely-forced additive evidence coordinate. The operator-layer composition inherits the log-additive structure — the three-layer additive-decomposition pattern extends to the operator-composition layer as an *adjacent instance* (classified parallel to Lyapunov quadratic and IB Lagrangian in `#additive-coordinate-forcing`).
 
 ---
 
@@ -403,7 +403,7 @@ Strength per section, honestly:
 | §2.1 | `(O-A2')` candidate condition | Formulation |
 | §2.2 | `(O-A2')` derivation from structural properties | **Derived (conditional on monotone-AND + regime-A + small-$R$ linearization)** |
 | §2.3 | Closed-form sector constant $\alpha_{\text{op}}^{\text{comp}}$ | Derived |
-| §3.1 | α-sub-scope inheritance, `(O-A2')` derived for Bayesian agents | **Derived (conditional on `#edge-update-natural-parameter` evidential-additivity axiom)** |
+| §3.1 | α-sub-scope inheritance, `(O-A2')` derived for Bayesian agents | **Derived (conditional on `#deriv-edge-update-natural-parameter` evidential-additivity axiom)** |
 | §3.2 | β-sub-scope failure mode (rotation-bounded variational attenuation) | Robust qualitative |
 | §4.2 | `(O-A2')` graceful degradation under observable L1' | Derived (conditional on Prop B.7 five-way gating) |
 | §4.3 | `(O-A2')` structural break under unobservable L1' | **Proved (external theorem: Cramér-Rao)** |
@@ -416,7 +416,7 @@ Strength per section, honestly:
 
 ### 9.2 What's not derived
 
-- **Section 7.3 (structurally misspecified $J$) is open.** The misspecification-cost question at the operator level is the operator-layer version of `#discussion-identifiability-floor`'s misspecification-cost open gap. A tight bound on $\lVert \boldsymbol\lambda_{\text{miss}}^\ast - \boldsymbol\lambda^\ast \rVert$ in terms of $\lVert \mathbf J - \mathbf J^{\text{true}} \rVert$ is not given here.
+- **Section 7.3 (structurally misspecified $J$) is open.** The misspecification-cost question at the operator level is the operator-layer version of `#disc-identifiability-floor`'s misspecification-cost open gap. A tight bound on $\lVert \boldsymbol\lambda_{\text{miss}}^\ast - \boldsymbol\lambda^\ast \rVert$ in terms of $\lVert \mathbf J - \mathbf J^{\text{true}} \rVert$ is not given here.
 - **Unification with mismatch operator (Gap B).** §6.3 says the spike *supplies* a base case, not that it *closes* the gap. The actual unification — a single template covering both mismatch and update layers with coupling characterization — is deferred.
 - **Non-AND DAGs.** The monotone-AND-with-regime-A derivation in §2.2 Step 1 uses nonnegativity of Jacobian components. For OR-nodes, the Jacobian can have mixed signs, and the derivation of `(O-A2')` requires sign-control arguments that are sketched but not worked through here.
 - **Operator-Lipschitz constant $L_{\text{op}}$ is conservative.** The bound $L_{\text{op}} \leq 1/8$ in §5.2 uses $\sigma'(\lambda) \leq 1/4$ and $\eta_k \leq 1/2$ pessimistically. For specific DAGs, $L_{\text{op}}$ can be computed more tightly.
@@ -424,13 +424,13 @@ Strength per section, honestly:
 
 ### 9.3 Max attainable
 
-*Conditional* — `(O-A2')` is conditional on structural properties (monotone-AND, regime-A, evidential-additivity axiom) that are genuinely agent-class-dependent. Within sub-scope α, these conditions are derivable; within sub-scope β, they are not. The α-op / β-op sub-scoping is honest scope narrowing, not scope retreat — parallel to `#sector-condition-derivation`'s A2' sub-scoping.
+*Conditional* — `(O-A2')` is conditional on structural properties (monotone-AND, regime-A, evidential-additivity axiom) that are genuinely agent-class-dependent. Within sub-scope α, these conditions are derivable; within sub-scope β, they are not. The α-op / β-op sub-scoping is honest scope narrowing, not scope retreat — parallel to `#deriv-sector-condition`'s A2' sub-scoping.
 
 The break-test (§7) is sharp: the three structural failure modes (non-monotone gains, non-conservative outcome noise, structurally misspecified $J$) plus the Cramér-Rao refutation (§4.3) together characterize where `(O-A2')` fails. This is the honest scope boundary.
 
 ### 9.4 The "strengthen before soften" posture
 
-The spike attempts the strong form — a universal sector condition on the update operator — and finds it holds structurally in sub-scope α, degrades gracefully in one family of sub-scope β cases (variational with bounded rotation), breaks structurally in two others (unobservable L1' Cramér-Rao, severely misspecified $J$). The α / β partition inherited from `#gain-sector-bridge` is the right landing: `(O-A2')` is derived where A2' is derived, assumed where A2' is assumed, and breaks where Cramér-Rao floors the identifiability of the update direction itself.
+The spike attempts the strong form — a universal sector condition on the update operator — and finds it holds structurally in sub-scope α, degrades gracefully in one family of sub-scope β cases (variational with bounded rotation), breaks structurally in two others (unobservable L1' Cramér-Rao, severely misspecified $J$). The α / β partition inherited from `#der-gain-sector-bridge` is the right landing: `(O-A2')` is derived where A2' is derived, assumed where A2' is assumed, and breaks where Cramér-Rao floors the identifiability of the update direction itself.
 
 This is genuine strengthening — before the spike, the log-odds update's contraction toward truth was implicit; now it has an operator-level sector condition with closed-form sector constant factoring into $\eta$, $\iota$, $J^2/\lVert\mathbf J\rVert^2$, $\sigma'(\lambda^\ast)$ (§2.3), each term structurally tied to AAD quantities that already carry their own scope and epistemic status.
 
@@ -438,13 +438,13 @@ This is genuine strengthening — before the spike, the log-odds update's contra
 
 ## 10. Recommended Follow-Ups
 
-1. **Land `#update-operator-sector`** as primary deliverable. Format: `derivation` segment following FORMAT.md §Derivation-audit-table convention. Cross-reference hooks into `#credit-assignment-boundary` (default signal function is now an instance of an `(O-A2')`-satisfying operator), `#edge-update-via-gain` (Beta-Bernoulli gain gives concrete sector constant), `#discussion-identifiability-floor` (fourth instance at operator layer), `#discussion-separability-pattern` (seventh ladder).
+1. **Land `#update-operator-sector`** as primary deliverable. Format: `derivation` segment following FORMAT.md §Derivation-audit-table convention. Cross-reference hooks into `#disc-credit-assignment-boundary` (default signal function is now an instance of an `(O-A2')`-satisfying operator), `#hyp-edge-update-via-gain` (Beta-Bernoulli gain gives concrete sector constant), `#disc-identifiability-floor` (fourth instance at operator layer), `#disc-separability-pattern` (seventh ladder).
 
-2. **Update `#credit-assignment-boundary`** to reference `(O-A2')` as the contraction guarantee underlying its Level-1 design requirement (directional fidelity). This clarifies that directional fidelity gives sector-positive expected update, which via `(O-A2')` + `(O-DA.1)` gives Banach contraction in log-odds.
+2. **Update `#disc-credit-assignment-boundary`** to reference `(O-A2')` as the contraction guarantee underlying its Level-1 design requirement (directional fidelity). This clarifies that directional fidelity gives sector-positive expected update, which via `(O-A2')` + `(O-DA.1)` gives Banach contraction in log-odds.
 
-3. **Update `#edge-update-natural-parameter`** Discussion section with cross-reference: the evidential-additivity axiom's role in deriving `(O-A2')` at the operator level is a load-bearing application beyond the uniqueness theorem stated there.
+3. **Update `#deriv-edge-update-natural-parameter`** Discussion section with cross-reference: the evidential-additivity axiom's role in deriving `(O-A2')` at the operator level is a load-bearing application beyond the uniqueness theorem stated there.
 
-4. **Extend `#discrete-sector-condition`** with a new §7 "Operator-level analog" that states `(O-A2')` + `(O-DA.1)` as siblings of DA2' + DA.1, cross-referencing the full derivation in `#update-operator-sector`.
+4. **Extend `#deriv-discrete-sector-condition`** with a new §7 "Operator-level analog" that states `(O-A2')` + `(O-DA.1)` as siblings of DA2' + DA.1, cross-referencing the full derivation in `#update-operator-sector`.
 
 5. **Spike follow-ups.** `spike-fisher-whitened-update` could investigate the Fisher-whitened operator $T_{\text{whit}}$ referenced in §4.4 as the L1'-observable repair. `spike-l1-update-bias` could characterize the bias structure of the mis-specified `(O-A2')` fixed point under §7.3 (misspecification cost at operator layer).
 
@@ -454,9 +454,9 @@ This is genuine strengthening — before the spike, the log-odds update's contra
 
 ## Working Notes
 
-- The spike uses $\lambda$ both as log-odds coordinate and as contraction-factor notation — a Notation clash resolvable by renaming the contraction factor to $\rho_{\text{op}}$ in the landing segment. Kept here for readability against `#discrete-sector-condition`'s $\lambda_{\text{eff}}$.
+- The spike uses $\lambda$ both as log-odds coordinate and as contraction-factor notation — a Notation clash resolvable by renaming the contraction factor to $\rho_{\text{op}}$ in the landing segment. Kept here for readability against `#deriv-discrete-sector-condition`'s $\lambda_{\text{eff}}$.
 - The operator-Lipschitz bound $L_{\text{op}} \leq 1/8$ in §5.2 is pessimistic because it uses $\sigma'(\lambda) \leq 1/4$ globally. Tighter bounds per specific edge (e.g., $\sigma'(\lambda_k^\ast)$ evaluated at truth) give smaller $L_{\text{op}}$; `(O-DA.1)` is correspondingly looser.
 - §2.2 Step 1 uses small-$R$ linearization of $\hat P_\Sigma$. Quadratic-order corrections $O(\lVert \boldsymbol e \rVert^3)$ are absorbed in the proof's $\alpha_{\text{op}} \gt L_{\text{op}}^2/2$ margin; a more careful argument (Taylor expansion with explicit remainder) would give sharper region constants.
-- The parallel-composition weakest-link bound in §6.1 is the operator-level `#team-persistence` analog under *cooperative coupling*. Could be strengthened via explicit correlation structure — parallel to `#critical-mass-composition`'s matched-Tier-1 composite result. Specific: if two edges share a common cause observable, their joint Fisher gains rank and $\alpha_{\text{op}}^{\text{joint}}$ can exceed $\min_k \alpha_{\text{op},k}$.
-- The sequential-composition log-additive form in §6.2 connects to `#chain-confidence-decay` + `#additive-coordinate-forcing` via the *operator* layer — the log-additive sector constant is a fourth adjacent instance in the additive-coordinate-forcing pattern (after chain, divergence, update), with the coordinate forced by the composition structure rather than by a Cauchy functional equation. Worth surfacing explicitly if the meta-pattern segment is revised.
+- The parallel-composition weakest-link bound in §6.1 is the operator-level `#der-team-persistence` analog under *cooperative coupling*. Could be strengthened via explicit correlation structure — parallel to `#deriv-critical-mass-composition`'s matched-Tier-1 composite result. Specific: if two edges share a common cause observable, their joint Fisher gains rank and $\alpha_{\text{op}}^{\text{joint}}$ can exceed $\min_k \alpha_{\text{op},k}$.
+- The sequential-composition log-additive form in §6.2 connects to `#der-chain-confidence-decay` + `#additive-coordinate-forcing` via the *operator* layer — the log-additive sector constant is a fourth adjacent instance in the additive-coordinate-forcing pattern (after chain, divergence, update), with the coordinate forced by the composition structure rather than by a Cauchy functional equation. Worth surfacing explicitly if the meta-pattern segment is revised.
 - Non-AND DAG case (§9.2 third bullet) is the first-order open question. The OR-node Jacobian has mixed signs, and the `(O-A2')` derivation in §2.2 uses nonnegativity. `spike-or-node-strategic-dynamics` has the moment-parameter-form OR-node derivation — extending to the operator formulation would give the first sub-case verification for non-AND DAGs.

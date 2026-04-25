@@ -6,7 +6,7 @@
 
 **Objective**: Determine whether the sector condition extends from a single strategy edge to a two-edge chain A→B→G. The key new phenomena are: vector mismatch (two edges = two-dimensional mismatch), credit assignment (attributing outcomes to specific edges), and the observable vs. unobservable intermediate node distinction.
 
-**Depends on**: #strategy-dag, #strategic-calibration, #chain-confidence-decay, #and-or-scope, #sector-condition-derivation, #observability-dominance, #edge-update-via-gain, `spike-single-edge-strategic-dynamics.md`
+**Depends on**: #def-strategy-dag, #def-strategic-calibration, #der-chain-confidence-decay, #scope-and-or, #deriv-sector-condition, #der-observability-dominance, #hyp-edge-update-via-gain, `spike-single-edge-strategic-dynamics.md`
 
 ---
 
@@ -14,10 +14,10 @@
 
 Consider a two-step strategy: action $A$ leads to intermediate state $B$, which leads to goal $G$. The strategy DAG is $A \to B \to G$ with two edges.
 
-- **Node B is AND**: both edges must succeed for $G$ to be achieved. (This is the chain semantics from #and-or-scope — a linear chain is the degenerate AND case where each node has exactly one parent.)
+- **Node B is AND**: both edges must succeed for $G$ to be achieved. (This is the chain semantics from #scope-and-or — a linear chain is the degenerate AND case where each node has exactly one parent.)
 - **Edge credences**: $p_1 = p_{AB}$ (agent's belief that executing $A$ successfully advances $B$), $p_2 = p_{BG}$ (agent's belief that achieving $B$ advances $G$).
 - **True probabilities**: $\theta_1 = \theta_{AB}$, $\theta_2 = \theta_{BG}$, both in $(0, 1)$.
-- **Plan confidence**: $\hat{P}_\Sigma = p_1 \cdot p_2$ (AND-node propagation from #strategy-dag).
+- **Plan confidence**: $\hat{P}_\Sigma = p_1 \cdot p_2$ (AND-node propagation from #def-strategy-dag).
 - **True success probability**: $\theta_\Sigma = \theta_1 \cdot \theta_2$ (assuming edge independence).
 
 The agent executes $A$, potentially observes the status of $B$, and observes whether $G$ is achieved.
@@ -124,7 +124,7 @@ The overall $\alpha_\Sigma = \min(\alpha_1, \alpha_2)$ is a **weakest-link** res
 
 **The $\theta_1$ attenuation is the key new phenomenon.** Edge 2's effective correction rate is reduced by a factor of $\theta_1$ compared to its stand-alone rate. This is because edge 2 only gets tested when edge 1 succeeds (with probability $\theta_1$). If $\theta_1$ is small (first step rarely succeeds), edge 2 learns very slowly — it is effectively starved of evidence.
 
-This gives a precise mechanism for the chain-confidence-decay observation (#chain-confidence-decay): longer chains are not just less confident, they are harder to calibrate. Each edge downstream of an unreliable upstream edge receives observations at a reduced rate, proportional to the product of all upstream success probabilities.
+This gives a precise mechanism for the chain-confidence-decay observation (#der-chain-confidence-decay): longer chains are not just less confident, they are harder to calibrate. Each edge downstream of an unreliable upstream edge receives observations at a reduced rate, proportional to the product of all upstream success probabilities.
 
 ### 2.5 Generalization to Depth-$d$ Chains
 
@@ -138,11 +138,11 @@ $$\alpha_\Sigma = \min_{k=1}^{d} \alpha_k = \min_{k=1}^{d} \frac{\prod_{j=1}^{k-
 
 *[Derived (depth-$d$ chain sector parameter, observable intermediates)]*
 
-The deepest edge is typically the bottleneck (smallest numerator), confirming the qualitative prediction of #chain-confidence-decay and #observability-dominance: deep chains are fragile because downstream edges cannot be calibrated efficiently.
+The deepest edge is typically the bottleneck (smallest numerator), confirming the qualitative prediction of #der-chain-confidence-decay and #der-observability-dominance: deep chains are fragile because downstream edges cannot be calibrated efficiently.
 
 ### 2.6 Persistence Condition (Observable Intermediate)
 
-Applying the persistence condition from #sector-condition-derivation:
+Applying the persistence condition from #deriv-sector-condition:
 
 $$\alpha_\Sigma > \frac{\rho_\Sigma}{R_\Sigma}$$
 
@@ -519,7 +519,7 @@ where $n_\Phi$ is the pseudo-count for the plan-level Beta. The sector condition
 - **Per-edge tracking** (two Betas): diagnostic resolution (can identify which edge is failing), but biased updates when the intermediate is unobservable and does not cleanly satisfy the sector condition.
 - **Plan-level tracking** (one Beta): no diagnostic resolution, but unbiased updates and clean sector-condition satisfaction with $\alpha_\Sigma = 1/(n_\Phi+1)$.
 
-This tradeoff is a concrete instance of the observability-dominance principle (#observability-dominance): when the intermediate is unobservable, the per-edge decomposition is epistemically dead for the purpose of clean updating. The agent's *effective* strategy is the plan-level aggregate, regardless of the nominal per-edge decomposition.
+This tradeoff is a concrete instance of the observability-dominance principle (#der-observability-dominance): when the intermediate is unobservable, the per-edge decomposition is epistemically dead for the purpose of clean updating. The agent's *effective* strategy is the plan-level aggregate, regardless of the nominal per-edge decomposition.
 
 ### 3.12 Structured Approximation: EM-Style Update
 
@@ -578,7 +578,7 @@ From $y_G$ alone, the agent can learn $\Phi = \theta_1\theta_2$ (the plan succes
 
 *[Derived (non-identifiability, unobservable intermediate)]*
 
-**This is the formal content of #observability-dominance for this case.** The edges connected to the unobservable node $B$ are not individually identifiable from the terminal observation alone. They are "frozen" in a weaker sense than full freezing: their product converges, but their individual values may not.
+**This is the formal content of #der-observability-dominance for this case.** The edges connected to the unobservable node $B$ are not individually identifiable from the terminal observation alone. They are "frozen" in a weaker sense than full freezing: their product converges, but their individual values may not.
 
 ### 4.2 When Identification Succeeds
 
@@ -590,7 +590,7 @@ The per-edge values ARE identifiable when:
 
 3. **The agent can experiment.** By deliberately testing whether $B$ is achievable (executing $A$ and checking $B$ directly, without needing $G$), the agent converts the unobservable case to the observable case for the cost of an exploratory action.
 
-These are all instances of the general principle from #edge-update-via-gain: per-edge learning requires per-edge observability (or a proxy for it).
+These are all instances of the general principle from #hyp-edge-update-via-gain: per-edge learning requires per-edge observability (or a proxy for it).
 
 ---
 
@@ -620,7 +620,7 @@ $$\alpha_\Sigma = \min\left(\frac{1}{n_1+1},\; \frac{\theta_1}{n_2+1}\right)$$
 - Per-edge identification: $\theta_1, \theta_2$ are not individually identifiable from $y_G$ alone.
 - Per-edge sector condition: not established. The coupled, biased correction function does not fit the standard framework.
 
-**Assessment:** The unobservable case requires either (a) a modified sector-condition framework that accommodates asymptotically vanishing bias, or (b) acceptance that the plan-level aggregate is the correct unit of analysis for the sector condition. Option (b) is consistent with #observability-dominance — the theory already predicts that unobservable structure is epistemically dead for individual tracking.
+**Assessment:** The unobservable case requires either (a) a modified sector-condition framework that accommodates asymptotically vanishing bias, or (b) acceptance that the plan-level aggregate is the correct unit of analysis for the sector condition. Option (b) is consistent with #der-observability-dominance — the theory already predicts that unobservable structure is epistemically dead for individual tracking.
 
 ### 5.3 Comparison Table
 
@@ -638,11 +638,11 @@ $$\alpha_\Sigma = \min\left(\frac{1}{n_1+1},\; \frac{\theta_1}{n_2+1}\right)$$
 
 ## 6. Connection to Observability Dominance
 
-The two-edge analysis provides a concrete mathematical mechanism for #observability-dominance:
+The two-edge analysis provides a concrete mathematical mechanism for #der-observability-dominance:
 
 **Observable B.** The agent has diagnostic resolution: it can identify which edge is miscalibrated and correct specifically. The sector condition holds per-edge, with the weakest link determining overall $\alpha_\Sigma$. The downstream evidence-starvation effect ($\alpha_2$ attenuated by $\theta_1$) is a quantitative prediction: downstream edges learn more slowly, proportional to upstream reliability.
 
-**Unobservable B.** The agent loses diagnostic resolution. Per-edge credences are not individually identifiable. The marginal update is biased. The agent can track plan-level success, but cannot localize failure. This is exactly the prediction of #observability-dominance — unobservable nodes freeze per-edge learning — given precise mathematical form.
+**Unobservable B.** The agent loses diagnostic resolution. Per-edge credences are not individually identifiable. The marginal update is biased. The agent can track plan-level success, but cannot localize failure. This is exactly the prediction of #der-observability-dominance — unobservable nodes freeze per-edge learning — given precise mathematical form.
 
 **The observability investment tradeoff.** Making $B$ observable costs something (instrumentation, monitoring, time spent checking). The benefit is: clean per-edge sector conditions instead of the degraded plan-level-only result. The value of this investment is:
 
@@ -658,7 +658,7 @@ When $n_1 \approx n_2 \approx n_\Phi/2$ (similar experience per edge vs. aggrega
 
 The mathematical analysis gives a sharp prescription: **design strategies with observable intermediate nodes.** This converts the intractable unobservable case to the clean observable case. The cost is instrumentation; the benefit is per-edge identification, unbiased updates, and a provable sector condition.
 
-This is the strategic analog of the software engineering principle in #code-quality-as-observation-infrastructure (TST cross-reference): tests and monitoring make intermediate states observable, enabling per-component calibration rather than end-to-end-only assessment.
+This is the strategic analog of the software engineering principle in #der-code-quality-as-observation-infrastructure (TST cross-reference): tests and monitoring make intermediate states observable, enabling per-component calibration rather than end-to-end-only assessment.
 
 ### 7.2 The Depth-Observability Tradeoff
 
@@ -684,7 +684,7 @@ The downstream attenuation factor $\prod_{j<k}\theta_j$ creates a natural explor
 
 3. **Plan-level tracking recovers the sector condition.** If the agent tracks aggregate plan success as a single Beta, the single-edge results apply directly. This sacrifices per-edge diagnostic resolution but provides a clean persistence guarantee.
 
-4. **Per-edge identification requires per-edge observability.** From terminal observations alone, only the product $\theta_1\theta_2$ is identifiable. Individual edge parameters require individual edge observations (or structural constraints that break the symmetry). This is the formal content of #observability-dominance for the two-edge case.
+4. **Per-edge identification requires per-edge observability.** From terminal observations alone, only the product $\theta_1\theta_2$ is identifiable. Individual edge parameters require individual edge observations (or structural constraints that break the symmetry). This is the formal content of #der-observability-dominance for the two-edge case.
 
 5. **Observability investment has quantifiable value.** Making the intermediate observable increases $\alpha_\Sigma$ from the plan-level rate to the per-edge weakest-link rate. The improvement depends on $\theta_1$ and the relative experience levels.
 
@@ -706,7 +706,7 @@ The downstream attenuation factor $\prod_{j<k}\theta_j$ creates a natural explor
 
 1. **Promote the observable-intermediate result.** The two-edge sector condition with observable intermediate is clean enough for a draft segment (e.g., `multi-edge-sector-condition.md`). The weakest-link structure and evidence-starvation effect are genuine results.
 
-2. **Formalize the observability-identification connection.** The non-identifiability result for the unobservable case should be connected to #observability-dominance as a concrete theorem: "per-edge identification requires per-edge observability."
+2. **Formalize the observability-identification connection.** The non-identifiability result for the unobservable case should be connected to #der-observability-dominance as a concrete theorem: "per-edge identification requires per-edge observability."
 
 3. **Investigate the $O(1/n)$ bias.** The systematic pessimism bias in the unobservable case is interesting. Does it help or hurt? A pessimistic agent in an AND-chain is more likely to seek alternatives or invest in observability — both adaptive responses. The bias might be a *feature*, not a bug, from an evolutionary perspective.
 

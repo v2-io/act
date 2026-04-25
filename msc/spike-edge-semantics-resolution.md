@@ -6,7 +6,7 @@
 
 **Objective**: State the tension precisely, analyze three candidate resolutions, recommend one, draft specific language changes for the affected segments, and address two secondary issues (the signal function gap and the $M_t$/edge evidence double-counting question).
 
-**Depends on**: #strategy-dag, #edge-update-via-gain, #edge-update-causal-validity, #loop-interventional-access, #ciy-observational-proxy, #credit-assignment-boundary, #strategic-calibration, #causal-hierarchy-requirement, #chain-confidence-decay, #strategic-dynamics-derivation
+**Depends on**: #def-strategy-dag, #hyp-edge-update-via-gain, #scope-edge-update-causal-validity, #der-loop-interventional-access, #scope-ciy-observational-proxy, #disc-credit-assignment-boundary, #def-strategic-calibration, #der-causal-hierarchy-requirement, #der-chain-confidence-decay, #deriv-strategic-dynamics
 
 ---
 
@@ -145,7 +145,7 @@ When $\iota_{ij} \ll 1$, the agent knows that $p_{ij}^O$ may diverge from $p_{ij
 
 **Strengths.** Conceptually precise. Each quantity has clear semantics. The agent has an explicit model of its own epistemic limitations (the gap between operational and interventional credences). This could feed into sophisticated meta-reasoning: "I believe this edge works (high $p^O$) but I don't causally know why (low $\iota$), so I should seek probe actions."
 
-**Weaknesses.** Doubles the parametric complexity of every edge. Violates the design principle that converged on single-parameter edges (#and-or-scope). The theory fought hard to get to one number per edge; adding a second re-opens questions that were settled. The $\iota_{ij}$ bridge is already available in edge-update-causal-validity as a gain modulator --- promoting it to a first-class edge parameter adds notational weight without clear theoretical benefit.
+**Weaknesses.** Doubles the parametric complexity of every edge. Violates the design principle that converged on single-parameter edges (#scope-and-or). The theory fought hard to get to one number per edge; adding a second re-opens questions that were settled. The $\iota_{ij}$ bridge is already available in edge-update-causal-validity as a gain modulator --- promoting it to a first-class edge parameter adds notational weight without clear theoretical benefit.
 
 More fundamentally, this resolution reifies a distinction that may not be meaningful in practice. For most edges, the agent has no way to independently estimate $p_{ij}^I$ --- it has only the data it has. The "interventional credence" becomes a ghost quantity: formally defined but operationally inaccessible except in Regime A, where it equals $p_{ij}^O$ anyway.
 
@@ -193,7 +193,7 @@ This is not three different quantities --- it is one quantity ($p_{ij}$) whose e
 >
 > $$p_{ij} = \text{Cr}_i(j \text{ advances} \mid i \text{ completed},\, M_t)$$
 >
-> This is the agent's credence that completing step $i$ causally advances step $j$, given its current model. In **intervention-rich domains** (software, laboratory science --- where the agent performs genuine experiments), this credence approximates the interventional probability $P(j \mid do(i), M_t)$. In **confounded domains** (military, organizational --- where evidence is delayed, correlated, or strategically distorted), the credence is weaker: it encodes the agent's best causal belief, but that belief may be biased by observational confounding. The strength of the causal interpretation depends on the domain's identifiability conditions ( #causal-information-yield, admissibility regimes).
+> This is the agent's credence that completing step $i$ causally advances step $j$, given its current model. In **intervention-rich domains** (software, laboratory science --- where the agent performs genuine experiments), this credence approximates the interventional probability $P(j \mid do(i), M_t)$. In **confounded domains** (military, organizational --- where evidence is delayed, correlated, or strategically distorted), the credence is weaker: it encodes the agent's best causal belief, but that belief may be biased by observational confounding. The strength of the causal interpretation depends on the domain's identifiability conditions ( #def-causal-information-yield, admissibility regimes).
 
 **Proposed replacement:**
 
@@ -201,13 +201,13 @@ This is not three different quantities --- it is one quantity ($p_{ij}$) whose e
 >
 > $$p_{ij} = \text{Cr}(j \text{ advances} \mid i \text{ completed},\, M_t)$$
 >
-> This is the agent's credence that completing step $i$ advances step $j$, given its current model --- its **causal efficacy estimate** for the link. The agent treats $p_{ij}$ as a causal quantity for planning purposes (status propagation, plan-confidence scoring, action selection). Whether $p_{ij}$ is a *good* estimate of causal efficacy depends on the identification regime of the data that produced it ( #edge-update-causal-validity):
+> This is the agent's credence that completing step $i$ advances step $j$, given its current model --- its **causal efficacy estimate** for the link. The agent treats $p_{ij}$ as a causal quantity for planning purposes (status propagation, plan-confidence scoring, action selection). Whether $p_{ij}$ is a *good* estimate of causal efficacy depends on the identification regime of the data that produced it ( #scope-edge-update-causal-validity):
 >
 > - **Regime A** (intervention-rich: software, laboratory science). The agent's execution-observation pairs are genuine interventions with clean attribution. $p_{ij}$ approximates the interventional probability $P(j \mid do(i), M_t)$.
 > - **Regime B** (partial intervention: organizational, coordinated action). The agent acts but attribution is blurred by concurrent actions and self-selection. $p_{ij}$ is a partially identified causal estimate, typically biased upward.
 > - **Regime C** (observation-only: passive monitoring, intelligence analysis). The agent observes associations but does not intervene. $p_{ij}$ is an observational proxy for the causal quantity --- useful for planning but potentially confounded.
 >
-> The identifiability coefficient $\iota_{ij}$ ( #edge-update-causal-validity) quantifies the strength of the causal interpretation for each edge. When $\iota_{ij} \approx 1$, the agent's credence is well-identified causally. When $\iota_{ij} \approx 0$, the credence is associational. The single-parameter edge design is preserved: $p_{ij}$ is always the agent's working estimate, with $\iota_{ij}$ characterizing its causal warrant separately.
+> The identifiability coefficient $\iota_{ij}$ ( #scope-edge-update-causal-validity) quantifies the strength of the causal interpretation for each edge. When $\iota_{ij} \approx 1$, the agent's credence is well-identified causally. When $\iota_{ij} \approx 0$, the credence is associational. The single-parameter edge design is preserved: $p_{ij}$ is always the agent's working estimate, with $\iota_{ij}$ characterizing its causal warrant separately.
 
 ### 5.2 strategy-dag: Discussion paragraph on Pearl
 
@@ -223,21 +223,21 @@ This is not three different quantities --- it is one quantity ($p_{ij}$) whose e
 
 **Current text:**
 
-> The uncertainty-ratio gain principle ( #update-gain) extends from epistemic updates to strategy-edge updates: edge credences revise in proportion to the ratio of edge uncertainty to observation noise. This gives a principled, conservative update rule that avoids overreacting to single observations.
+> The uncertainty-ratio gain principle ( #emp-update-gain) extends from epistemic updates to strategy-edge updates: edge credences revise in proportion to the ratio of edge uncertainty to observation noise. This gives a principled, conservative update rule that avoids overreacting to single observations.
 
 **Proposed replacement:**
 
-> The uncertainty-ratio gain principle ( #update-gain) extends from epistemic updates to strategy-edge updates: edge credences revise in proportion to the ratio of edge uncertainty to observation noise, modulated by the identifiability of the causal link ( #edge-update-causal-validity). This gives a principled, conservative update rule that avoids overreacting to single observations and degrades gracefully when causal identification is weak.
+> The uncertainty-ratio gain principle ( #emp-update-gain) extends from epistemic updates to strategy-edge updates: edge credences revise in proportion to the ratio of edge uncertainty to observation noise, modulated by the identifiability of the causal link ( #scope-edge-update-causal-validity). This gives a principled, conservative update rule that avoids overreacting to single observations and degrades gracefully when causal identification is weak.
 
 ### 5.4 edge-update-causal-validity: Opening sentence
 
 **Current text:**
 
-> The gain-based edge update ( #edge-update-via-gain) revises interventional credences $p_{ij}$ using execution data. This data is interventional in character ( #loop-interventional-access) but varies in identification strength depending on the edge's position in the DAG and the domain's causal structure.
+> The gain-based edge update ( #hyp-edge-update-via-gain) revises interventional credences $p_{ij}$ using execution data. This data is interventional in character ( #der-loop-interventional-access) but varies in identification strength depending on the edge's position in the DAG and the domain's causal structure.
 
 **Proposed replacement:**
 
-> The gain-based edge update ( #edge-update-via-gain) revises edge credences $p_{ij}$ --- causal efficacy estimates whose identification strength varies with the data regime ( #strategy-dag). This segment scopes where the update yields credences that approximate the interventional quantity $P(j \mid do(i), M_t)$, where it yields partially identified estimates, and where it yields associational proxies.
+> The gain-based edge update ( #hyp-edge-update-via-gain) revises edge credences $p_{ij}$ --- causal efficacy estimates whose identification strength varies with the data regime ( #def-strategy-dag). This segment scopes where the update yields credences that approximate the interventional quantity $P(j \mid do(i), M_t)$, where it yields partially identified estimates, and where it yields associational proxies.
 
 ---
 
@@ -282,7 +282,7 @@ The gradient-based signal (Level 1) is the recommended default because it satisf
 
 ### 7.1 The concern
 
-The orient cascade (#orient-cascade) processes $M_t$ first (step 1), then edge updates (step 4). Both use the same observation $o_t$. The concern: when the $M_t$ update extracts information from $o_t$, and the edge update also uses $o_t$ (possibly via the updated $M_t$), is there double-counting of evidence?
+The orient cascade (#der-orient-cascade) processes $M_t$ first (step 1), then edge updates (step 4). Both use the same observation $o_t$. The concern: when the $M_t$ update extracts information from $o_t$, and the edge update also uses $o_t$ (possibly via the updated $M_t$), is there double-counting of evidence?
 
 ### 7.2 Analysis: the concern is mostly unfounded
 

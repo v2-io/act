@@ -8,7 +8,7 @@ An AAD agent persists. Mismatch is bounded; the persistence condition holds. Som
 
 The question has real consequences. "This team is shipping" might reflect a strong team or an easy codebase — and the correct intervention (expand scope / rotate people through) depends on which. "This Kalman filter is tracking" might reflect a well-tuned filter or a benign signal. "This autonomous car isn't crashing" might reflect good perception or an over-engineered test route. Attributing performance to the wrong side produces wrong interventions.
 
-The standard result AAD offers is the **persistence condition** ( #persistence-condition):
+The standard result AAD offers is the **persistence condition** ( #result-persistence-condition):
 
 $$\alpha \gt \frac{\rho}{\lVert\delta_{\text{critical}}\rVert}$$
 
@@ -32,7 +32,7 @@ $$\Pi = \alpha - \frac{\rho}{\lVert\delta_{\text{critical}}\rVert}$$
 
 $$\Delta\rho^\ast = \alpha R - \rho$$
 
-"How much *additional* disturbance can the agent absorb before the sector condition breaks?" From #sector-condition-stability. Structural rather than task-oriented.
+"How much *additional* disturbance can the agent absorb before the sector condition breaks?" From #result-sector-condition-stability. Structural rather than task-oriented.
 
 **Candidate (c): the steady-state mismatch.**
 
@@ -54,7 +54,7 @@ $$\mathcal{V} = \log \frac{\lVert\delta_{\text{critical}}\rVert}{R^\ast} = \log 
 
 as the target. This has three properties that make it the natural choice:
 
-1. $\mathcal V \gt 0$ is exactly the task-adequacy condition $R^\ast \lt \lVert\delta_{\text{critical}}\rVert$ (see #persistence-condition).
+1. $\mathcal V \gt 0$ is exactly the task-adequacy condition $R^\ast \lt \lVert\delta_{\text{critical}}\rVert$ (see #result-persistence-condition).
 2. $\log R^\ast = \log \rho - \log \alpha$ (Model D) is a *difference* of an environment term and an agent term, so $\mathcal V$ splits additively into four terms: domain-generosity, environment-benignity, agent-capacity, and task-toughness.
 3. The logarithmic coordinate is AAD's natural scale for quantities built from independent factors (cf. #additive-coordinate-forcing). It is not *forced* by a Cauchy functional equation here — viability has no chain-rule-like compositionality axiom to invoke — so $\mathcal{V}$ is an *adjacent family member*, matched to the three anchors rather than derived by one. This is the honest characterization.
 
@@ -74,7 +74,7 @@ The first decomposition ($\mathcal V = $ capacity $-$ demand $+$ task) is coarse
 
 ### 3.1 Agent-capacity factor $\alpha$
 
-Section I derives $\alpha$ as the sector-condition lower bound ( #sector-condition-stability, #gain-sector-bridge). For gain-based agents with directional fidelity (the sub-scope α partition per the 2026-04-22/23 A2' spike):
+Section I derives $\alpha$ as the sector-condition lower bound ( #result-sector-condition-stability, #der-gain-sector-bridge). For gain-based agents with directional fidelity (the sub-scope α partition per the 2026-04-22/23 A2' spike):
 
 $$\alpha = \eta^\ast \cdot c_{\min}$$
 
@@ -88,13 +88,13 @@ with
 
 $$\eta^\ast = \frac{U_M}{U_M + U_o}$$
 
-(from #update-gain).
+(from #emp-update-gain).
 
 Now the question: which of $\nu, \eta^\ast, c_{\min}$ are internal-to-the-agent vs. set-by-the-environment?
 
 **$\nu$ (event rate).** Partially internal, partially external. The agent can decide to poll more often, run more tests, check more channels — but only up to the rate the environment emits events. In a low-traffic production system, $\nu$ is capped by the environment; in a heavily instrumented test loop, $\nu$ is agent-determined.
 
-**$\eta^\ast$.** Jointly determined. $U_M$ is agent-internal (model uncertainty is a property of the model class and data history). $U_o$ is channel-property — *mostly* external, but per #software-epistemic-properties P6, agents can modify their own observation quality over long timescales by restructuring the environment. For the instantaneous decomposition, treat $U_o$ as external; for the long-run decomposition, acknowledge that $U_o$ at time $t$ depends on agent actions at $s \lt t$.
+**$\eta^\ast$.** Jointly determined. $U_M$ is agent-internal (model uncertainty is a property of the model class and data history). $U_o$ is channel-property — *mostly* external, but per #obs-software-epistemic-properties P6, agents can modify their own observation quality over long timescales by restructuring the environment. For the instantaneous decomposition, treat $U_o$ as external; for the long-run decomposition, acknowledge that $U_o$ at time $t$ depends on agent actions at $s \lt t$.
 
 **$c_{\min}$.** Structural property of the correction function and the loss landscape. For gradient descent on a strongly convex loss, $c_{\min}$ is the strong-convexity modulus — a *joint* property of the model class (agent) and the loss surface induced by the environment. It is not cleanly one-sided.
 
@@ -106,11 +106,11 @@ Every factor is "mixed." This is the first warning signal: $\alpha$ is not an ag
 
 ### 3.2 Environment-demand factor $\rho$
 
-$\rho$ is the environmental disturbance rate ( #mismatch-dynamics). Naively external. But:
+$\rho$ is the environmental disturbance rate ( #hyp-mismatch-dynamics). Naively external. But:
 
-**Disturbance is model-relative.** $\rho$ measures the rate at which *unpredicted* change is injected — the magnitude of what the model fails to anticipate. A richer model predicts more of the environment's change, so $\rho$-as-measured depends on $M_t$'s expressiveness. This is the model-class-fitness connection ( #model-class-fitness): $\rho \mid \mathcal{M}$ can be much larger than $\rho \mid \mathcal{M}'$ for a richer $\mathcal{M}'$.
+**Disturbance is model-relative.** $\rho$ measures the rate at which *unpredicted* change is injected — the magnitude of what the model fails to anticipate. A richer model predicts more of the environment's change, so $\rho$-as-measured depends on $M_t$'s expressiveness. This is the model-class-fitness connection ( #def-model-class-fitness): $\rho \mid \mathcal{M}$ can be much larger than $\rho \mid \mathcal{M}'$ for a richer $\mathcal{M}'$.
 
-**Disturbance is action-policy-relative.** In an interactive setting, the distribution over $\Omega_{t+1}$ depends on $a_t$. If the agent chooses actions that keep the environment in a benign region (a racing car that doesn't corner hard, a trader who avoids volatile assets), the *observed* $\rho$ underestimates the environment's *potential* $\rho$ under a more exploratory policy. This is the `#loop-interventional-access` feedback — by choosing $a_t$, the agent chooses *which* $\rho$ it faces.
+**Disturbance is action-policy-relative.** In an interactive setting, the distribution over $\Omega_{t+1}$ depends on $a_t$. If the agent chooses actions that keep the environment in a benign region (a racing car that doesn't corner hard, a trader who avoids volatile assets), the *observed* $\rho$ underestimates the environment's *potential* $\rho$ under a more exploratory policy. This is the `#der-loop-interventional-access` feedback — by choosing $a_t$, the agent chooses *which* $\rho$ it faces.
 
 **Working split.**
 
@@ -198,7 +198,7 @@ A skilled agent constructs a benign environment. An experienced team writes clea
 
 Four confounding channels — each an AAD machinery piece — couple internal capacity to environmental affordance:
 
-**(i) Observation-quality feedback ( #software-epistemic-properties P6).** Agent actions modify $h$, the observation function. Code quality *is* $U_o$. Write better code now; read better code later. Formally:
+**(i) Observation-quality feedback ( #obs-software-epistemic-properties P6).** Agent actions modify $h$, the observation function. Code quality *is* $U_o$. Write better code now; read better code later. Formally:
 
 $$U_o^{(t)} = U_o^{\text{intrinsic}} + Q(a_{1:t-1})$$
 
@@ -206,7 +206,7 @@ where $Q(\cdot)$ captures the cumulative quality of past actions affecting futur
 
 **(ii) Policy-benignity feedback.** $g(\pi)$ already absorbs this at the rho-level, but notice: a higher-capacity agent can run a more exploratory policy with the same risk, so $g$ is not policy-neutral. A novice running the "conservative policy" may still produce higher effective $\rho$ than an expert running an "aggressive policy," because the expert's policy benignity is realized only by the expert.
 
-**(iii) Structural-adaptation feedback ( #structural-adaptation-necessity).** A high-capacity agent recognizes when $\mathcal{F}(\mathcal{M})$ is insufficient and switches model classes, after which $f(\mathcal{M}')$ drops. The environment hasn't changed; $\log f(\mathcal{M}')$ decreased because the agent upgraded. Over long horizons $\log f$ is agent-controllable.
+**(iii) Structural-adaptation feedback ( #result-structural-adaptation-necessity).** A high-capacity agent recognizes when $\mathcal{F}(\mathcal{M})$ is insufficient and switches model classes, after which $f(\mathcal{M}')$ drops. The environment hasn't changed; $\log f(\mathcal{M}')$ decreased because the agent upgraded. Over long horizons $\log f$ is agent-controllable.
 
 **(iv) Objective re-choice.** When performance is high, agents take on harder objectives ( $h(O_t)$ decreases). When struggling, agents take on easier ones ( $h(O_t)$ increases). This is adaptive scope management — but it means *observed* $\mathcal{V}_I$ from field data is biased downward for high-capacity agents (they chose hard problems) and biased upward for low-capacity agents (they chose easy ones).
 
@@ -214,7 +214,7 @@ where $Q(\cdot)$ captures the cumulative quality of past actions affecting futur
 
 **Short answer: no, not observationally.** The entanglement is structural: the agent's actions affect the environment, so any observed distribution of $(\mathcal{V}_E, \mathcal{V}_I)$ over time reflects the joint feedback. This is the classical endogeneity problem of econometrics (Pearl's term: *reflection*; Oaxaca–Blinder decomposition's domain).
 
-**Long answer: yes, under specific identification regimes** — and these regimes map exactly onto AAD's existing scope machinery (#edge-update-causal-validity, #ciy-observational-proxy).
+**Long answer: yes, under specific identification regimes** — and these regimes map exactly onto AAD's existing scope machinery (#scope-edge-update-causal-validity, #scope-ciy-observational-proxy).
 
 **Regime A (intervention-rich).** The analyst can *vary* agent capacity while holding environment fixed, or vary environment while holding agent fixed. Rotation experiments (same team, different codebase; different team, same codebase) do this. Under Regime A, $\mathcal{V}_E$ and $\mathcal{V}_I$ are separately identifiable.
 
@@ -222,11 +222,11 @@ where $Q(\cdot)$ captures the cumulative quality of past actions affecting futur
 
 **Regime C (passive).** No variation in either side. $\mathcal{V}_E$ and $\mathcal{V}_I$ appear only as their sum. The decomposition becomes *definitional* (one can always write $\mathcal V = \mathcal V_E + \mathcal V_I$ by assumption) but not *identified*.
 
-This regime structure is *identical* to the CIY admissibility regimes ( #ciy-observational-proxy). That is not a coincidence: both are facets of the same underlying identification question — can an analyst (or an agent) distinguish an internal contribution from an external contribution to an observed outcome using the data at hand?
+This regime structure is *identical* to the CIY admissibility regimes ( #scope-ciy-observational-proxy). That is not a coincidence: both are facets of the same underlying identification question — can an analyst (or an agent) distinguish an internal contribution from an external contribution to an observed outcome using the data at hand?
 
-### 5.3 Connection to `#discussion-identifiability-floor`
+### 5.3 Connection to `#disc-identifiability-floor`
 
-The internal-external decomposition has an identifiability floor in Regime C. The floor has the canonical shape of `#discussion-identifiability-floor`:
+The internal-external decomposition has an identifiability floor in Regime C. The floor has the canonical shape of `#disc-identifiability-floor`:
 
 1. **Setting.** Decompose $\mathcal V$ observed in a steady-state agent-environment loop into $\mathcal V_E + \mathcal V_I$.
 2. **External theorem.** Pearl/Bareinboim causal hierarchy: distinguishing internal contribution from external contribution requires Level 2 (interventional) data — hold one side fixed, vary the other. Observational data under a fixed agent-environment coupling is Level 1.
@@ -265,7 +265,7 @@ Even in Regime A or B, the component-wise decomposition faces more granular iden
 
 ## 7. Worked example: Kalman-tracking agent
 
-Take the Kalman setting from #worked-example-kalman. Scalar state $x_t$, process noise $q = 0.25$, observation noise $r_{a_t}$ with modes $L$ ($r_L = 9$) and $H$ ($r_H = 1$), event rate $\nu = 5$, action mix $70\%H / 30\%L$.
+Take the Kalman setting from #example-kalman. Scalar state $x_t$, process noise $q = 0.25$, observation noise $r_{a_t}$ with modes $L$ ($r_L = 9$) and $H$ ($r_H = 1$), event rate $\nu = 5$, action mix $70\%H / 30\%L$.
 
 **Compute the viability terms under Model D.**
 
@@ -273,7 +273,7 @@ Given in the example:
 - $\rho = 0.18$ surprise/s
 - $\lVert\delta_{\text{critical}}\rVert = 1$
 - $\bar\eta^\ast = 0.663$
-- $\mathcal{T} = 3.315$, $\alpha = \mathcal{T} = 3.315$ (linear Kalman: $\alpha = \mathcal{T}$ by #gain-sector-bridge)
+- $\mathcal{T} = 3.315$, $\alpha = \mathcal{T} = 3.315$ (linear Kalman: $\alpha = \mathcal{T}$ by #der-gain-sector-bridge)
 - $R^\ast = \rho/\alpha = 0.054$
 
 $$\mathcal V = \log \lVert\delta_{\text{critical}}\rVert - \log R^\ast = 0 - \log(0.054) = 2.92$$
@@ -314,7 +314,7 @@ The decomposition tells you *where the margin came from*, which tells you what t
 
 ## 8. TST specialization
 
-Map the decomposition onto a software-development team. Use `#software-epistemic-properties` P1–P6 and the developer-as-AAD-agent mapping in `#scope-developer-agent`.
+Map the decomposition onto a software-development team. Use `#obs-software-epistemic-properties` P1–P6 and the developer-as-AAD-agent mapping in `#scope-developer-agent`.
 
 ### 8.1 Per-component TST mapping
 
@@ -328,7 +328,7 @@ Candidates:
 
 Estimator: rate of incidents/changes whose proximal cause is *outside* $\mathcal C_t^{\text{commit}}$ — not attributable to team commits. Measurable from the union of incident logs, deployment-correlated-with-upstream-dep-bumps, and requirement-change tickets, *minus* the subset attributable to the team's own commits.
 
-Exactness: *approximate* in TST's per-quantity exactness audit. Not exact from $\mathcal C_t^{\text{commit}}$ alone — requires incident logs and ticket systems (see #software-epistemic-properties P5: quantities beyond $\mathcal C_t^{\text{commit}}$).
+Exactness: *approximate* in TST's per-quantity exactness audit. Not exact from $\mathcal C_t^{\text{commit}}$ alone — requires incident logs and ticket systems (see #obs-software-epistemic-properties P5: quantities beyond $\mathcal C_t^{\text{commit}}$).
 
 **$f(\mathcal M)$: model-class-expressiveness.** How well does the team's mental model / documentation / architectural representation compress the codebase and its dynamics?
 
@@ -338,16 +338,16 @@ Candidates:
 - Type-system coverage (richness of the partially-explicit causal structure P4)
 - Test coverage on *semantic* behavior (not line coverage — behavior coverage)
 
-Estimator: approximation of $S(M_t)$ for the team collectively. Poorly identified in practice; proxies include "comprehension time for new hires" ( #comprehension-time) and "frequency of surprise bugs" (diagnostic: structural pattern in the residuals per #structural-adaptation-necessity).
+Estimator: approximation of $S(M_t)$ for the team collectively. Poorly identified in practice; proxies include "comprehension time for new hires" ( #def-comprehension-time) and "frequency of surprise bugs" (diagnostic: structural pattern in the residuals per #result-structural-adaptation-necessity).
 
 **$g(\pi)$: policy-benignity.** How cleverly does the team's choice of *what to work on* avoid hitting the hard parts of the codebase?
 
 Candidates:
-- Change distribution across modules (hitting the stable core vs. the volatile edges — #change-distance, #change-proximity-principle)
-- Coupling-weighted change rate ( #system-coupling): changes concentrated on low-coupling modules have lower $\rho$-inducement
-- Changeset-size distribution ( #changeset-size-principle): smaller changes have smaller blast radius
+- Change distribution across modules (hitting the stable core vs. the volatile edges — #def-change-distance, #der-change-proximity-principle)
+- Coupling-weighted change rate ( #def-system-coupling): changes concentrated on low-coupling modules have lower $\rho$-inducement
+- Changeset-size distribution ( #emp-changeset-size-principle): smaller changes have smaller blast radius
 
-Estimator: co-change analysis on $\mathcal C_t^{\text{commit}}$. *Exact* (per the P5 audit, #system-coupling and related quantities are EXACT estimators) as estimators of their own definitions; the inferential step "low coupling implies low $\rho$-inducement" is regime-conditional.
+Estimator: co-change analysis on $\mathcal C_t^{\text{commit}}$. *Exact* (per the P5 audit, #def-system-coupling and related quantities are EXACT estimators) as estimators of their own definitions; the inferential step "low coupling implies low $\rho$-inducement" is regime-conditional.
 
 **$\nu_{\text{external-cap}}$ and $\nu_{\text{chosen}}/\nu_{\text{external-cap}}$: event rate, split into cap and usage.**
 
@@ -355,13 +355,13 @@ External cap: the rate at which the environment emits events the team *could* re
 
 Estimator for the cap: ticket-filing rate, alert rate, PR-submission rate — observable from ticketing and CI systems. Not in $\mathcal C_t^{\text{commit}}$ alone.
 
-Estimator for the chosen rate: commit rate per engineer, PR-merge rate. *Exact* from $\mathcal C_t^{\text{commit}}$ (per #software-epistemic-properties P5).
+Estimator for the chosen rate: commit rate per engineer, PR-merge rate. *Exact* from $\mathcal C_t^{\text{commit}}$ (per #obs-software-epistemic-properties P5).
 
 **$\eta^\ast$: update gain.** Quality of how the team updates its collective understanding on each new piece of information. This is heterogeneous and hard to measure directly; the surrogate TST-native quantities are:
 
 - Post-incident learning uptake (retros → concrete changes) — low-exactness, narrative data
 - Refactoring triggered by failed predictions (bug → architecture change) — observable from commit topology near bug fixes
-- Cross-module knowledge diffusion ( #conceptual-alignment) — empirical
+- Cross-module knowledge diffusion ( #hyp-conceptual-alignment) — empirical
 
 Exactness: mostly approximate. The team's $\eta^\ast$ is the hardest-to-estimate TST quantity in the decomposition.
 
@@ -383,7 +383,7 @@ Estimator: available from PM tools and rough empirical scales. Low-exactness.
 
 ### 8.2 TST exactness summary for the decomposition
 
-Borrowing the format from the #software-epistemic-properties per-quantity audit:
+Borrowing the format from the #obs-software-epistemic-properties per-quantity audit:
 
 | Component | TST estimator | P5 exactness | Regime |
 |---|---|---|---|
@@ -397,7 +397,7 @@ Borrowing the format from the #software-epistemic-properties per-quantity audit:
 | $\lVert\delta_{\text{critical}}^{\text{domain}}\rVert$ | SLA, blast radius | Approximate | B |
 | $h(O_t)$ | Feature-complexity proxy | Heuristic | C |
 
-**Reading the table.** In TST, the decomposition's components vary dramatically in estimability. The policy-benignity factor ($g(\pi)$, via system-coupling and changeset-size) is *exactly* computable from $\mathcal C_t^{\text{commit}}$. The external-cap and chosen-rate factors are cleanly separable *if* the team has ticketing instrumentation. The internal-operational-health components that are hardest to estimate — $\eta^\ast$, $c_{\min}$, $h(O_t)$ — are exactly the *cognitive* components of the team, which are agent-internal and not exteriorized by current standard team protocols (per #software-epistemic-properties P5 scope).
+**Reading the table.** In TST, the decomposition's components vary dramatically in estimability. The policy-benignity factor ($g(\pi)$, via system-coupling and changeset-size) is *exactly* computable from $\mathcal C_t^{\text{commit}}$. The external-cap and chosen-rate factors are cleanly separable *if* the team has ticketing instrumentation. The internal-operational-health components that are hardest to estimate — $\eta^\ast$, $c_{\min}$, $h(O_t)$ — are exactly the *cognitive* components of the team, which are agent-internal and not exteriorized by current standard team protocols (per #obs-software-epistemic-properties P5 scope).
 
 **Consequence for the diagnostic question.** In practice, a team rotation experiment (route the same team through multiple codebases, or route multiple teams through the same codebase) separates $\mathcal V_E$ from $\mathcal V_I$ cleanly without requiring any of the hard-to-estimate components. This is why rotation is the standard engineering-management diagnostic — it's Regime A identification for the aggregate $(\mathcal V_E, \mathcal V_I)$ split, bypassing the per-component identifiability problems.
 
@@ -432,7 +432,7 @@ This is the Oaxaca–Blinder-shaped decomposition of wage gap in econometrics, a
 
 The decomposition is not a new theorem — it's a *rearrangement* of existing AAD quantities. But the rearrangement is non-obvious, and the internal/external attribution is a substantive claim. Sketch the derivation.
 
-**Start.** From #persistence-condition (linear Model D operational form):
+**Start.** From #result-persistence-condition (linear Model D operational form):
 
 $$R^\ast = \frac{\rho}{\alpha} \quad \text{(steady-state mismatch)}$$
 
@@ -450,7 +450,7 @@ $$\mathcal V = \log \lVert\delta_{\text{critical}}\rVert - \log \rho + \log \alp
 
 Three summands, each on log-scale. This is the coarse decomposition of §2.
 
-**Expand $\alpha$.** By #gain-sector-bridge, under sub-scope α (Kalman / strongly-convex / exponential-family / linear-PD / gradient), $\alpha = \eta^\ast \cdot c_{\min}$, and $\mathcal T = \nu \cdot \eta^\ast$, so for the linear case $\alpha = \mathcal T$. For the general sub-scope α case:
+**Expand $\alpha$.** By #der-gain-sector-bridge, under sub-scope α (Kalman / strongly-convex / exponential-family / linear-PD / gradient), $\alpha = \eta^\ast \cdot c_{\min}$, and $\mathcal T = \nu \cdot \eta^\ast$, so for the linear case $\alpha = \mathcal T$. For the general sub-scope α case:
 
 $$\log \alpha = \log \nu + \log \eta^\ast + \log c_{\min}$$
 
@@ -466,7 +466,7 @@ This is the only step requiring an AAD-novel claim. The claim is that $\rho$ in 
 
 **Assemble.** Substituting all the expansions and grouping by attribution gives the full decomposition of §4.
 
-**Epistemic tier.** The coarse form ($\mathcal V = \log \lVert\delta_{\text{critical}}\rVert - \log \rho + \log \alpha$) is *exact* for Model D linear — it's an algebraic identity on log-$R^\ast$. The expansions of $\rho$, $\alpha$, $\lVert\delta_{\text{critical}}\rVert$, and $\nu$ are at tiers varying from *exact* (the $\alpha = \eta^\ast c_{\min}$ under sub-scope α, from #gain-sector-bridge) to *robust-qualitative* (the $\rho$ and $\lVert\delta_{\text{critical}}\rVert$ factorizations). The overall decomposition sits at *robust-qualitative* because the $\rho$-factorization is the weakest link. Under Model S, the $\log\alpha$ coefficient becomes $\tfrac12 \log\alpha$; the additive structure survives but the coefficient is regime-dependent.
+**Epistemic tier.** The coarse form ($\mathcal V = \log \lVert\delta_{\text{critical}}\rVert - \log \rho + \log \alpha$) is *exact* for Model D linear — it's an algebraic identity on log-$R^\ast$. The expansions of $\rho$, $\alpha$, $\lVert\delta_{\text{critical}}\rVert$, and $\nu$ are at tiers varying from *exact* (the $\alpha = \eta^\ast c_{\min}$ under sub-scope α, from #der-gain-sector-bridge) to *robust-qualitative* (the $\rho$ and $\lVert\delta_{\text{critical}}\rVert$ factorizations). The overall decomposition sits at *robust-qualitative* because the $\rho$-factorization is the weakest link. Under Model S, the $\log\alpha$ coefficient becomes $\tfrac12 \log\alpha$; the additive structure survives but the coefficient is regime-dependent.
 
 **Conservation, restated.** The decomposition's operational claim — that log-units of internal improvement and log-units of external affordance are commensurable — is *exact under the log-additive form*. It is the geometric claim behind the rearrangement; it follows from the log-linearity without further assumption.
 
@@ -474,13 +474,13 @@ This is the only step requiring an AAD-novel claim. The claim is that $\rho$ in 
 
 Where does this decomposition sit in AAD's architecture?
 
-**#discussion-separability-pattern (positive half).** The decomposition is a separability result — it names the *separable core* of viability attribution (regimes A/B where the components are identifiable) and the *structured repair* (Regime B with functional-form assumptions) and the *general open* (Regime C, where the decomposition is not identifiable observationally). It adds a seventh ladder to the six in `#discussion-separability-pattern`:
+**#disc-separability-pattern (positive half).** The decomposition is a separability result — it names the *separable core* of viability attribution (regimes A/B where the components are identifiable) and the *structured repair* (Regime B with functional-form assumptions) and the *general open* (Regime C, where the decomposition is not identifiable observationally). It adds a seventh ladder to the six in `#disc-separability-pattern`:
 
 | Ladder | Separable core | Structured repair | General open |
 |---|---|---|---|
 | **Internal-external attribution** (this spike) | **Regime A** — rotation experiments, natural experiments separate $\mathcal V_E$ from $\mathcal V_I$ | **Regime B** — functional-form assumptions on $f, g, h, Q$ | **Regime C** — observational, fixed-coupling data; decomposition is not identifiable |
 
-**#discussion-identifiability-floor (negative half).** §5.3 derives the Regime-C identifiability floor for this decomposition. The external theorem invoked is the Pearl/Bareinboim CHT: separating internal contribution from external contribution requires Level 2 data (holding one side fixed). This is Instance 3 of the floor pattern — shares its shape with Instance 1 (on-policy L0-insufficiency detection) and Instance 2 (L1' single-channel unidentifiability).
+**#disc-identifiability-floor (negative half).** §5.3 derives the Regime-C identifiability floor for this decomposition. The external theorem invoked is the Pearl/Bareinboim CHT: separating internal contribution from external contribution requires Level 2 data (holding one side fixed). This is Instance 3 of the floor pattern — shares its shape with Instance 1 (on-policy L0-insufficiency detection) and Instance 2 (L1' single-channel unidentifiability).
 
 **#additive-coordinate-forcing (constructive half).** The log-viability coordinate $\mathcal V$ is an *adjacent family member* of the three Cauchy-FE anchors, not a fourth theorem. Viability has no chain-rule-like compositionality axiom whose Cauchy solution would force the logarithmic form. The logarithmic coordinate is *matched* to the structure (products of independent factors become log-additive), not *forced* by an AAD-internal axiom. This is the honest characterization; elevating it to a fourth theorem would require identifying a compositionality axiom on viability, which I do not see.
 
@@ -501,19 +501,19 @@ Each read surfaces a different load-bearing role.
 
 **Status.** `robust-qualitative` at the overall decomposition level; individual expansion steps inherit their own statuses.
 
-**Location.** Appendix A (derivations) — sibling to `#strategy-cost-regret-bound` and `#edge-update-natural-parameter`.
+**Location.** Appendix A (derivations) — sibling to `#deriv-strategy-cost-regret-bound` and `#deriv-edge-update-natural-parameter`.
 
 **Depends.**
-- `#persistence-condition` (the base inequality being rearranged)
-- `#sector-condition-stability` (the $R^\ast = \rho/\alpha$ form)
-- `#gain-sector-bridge` (the $\alpha = \eta^\ast c_{\min}$ expansion, sub-scope α)
-- `#update-gain` (the $\eta^\ast = U_M/(U_M + U_o)$ expansion)
-- `#adaptive-tempo` (the $\mathcal T = \nu \eta^\ast$ identity)
-- `#mismatch-dynamics` (the $\rho$ role)
-- `#model-class-fitness` (the $f(\mathcal M)$ factor)
-- `#edge-update-causal-validity` (Regime A/B/C identification framework)
-- `#discussion-identifiability-floor` (the negative-half instance discussion)
-- `#discussion-separability-pattern` (the positive-half seventh-ladder discussion)
+- `#result-persistence-condition` (the base inequality being rearranged)
+- `#result-sector-condition-stability` (the $R^\ast = \rho/\alpha$ form)
+- `#der-gain-sector-bridge` (the $\alpha = \eta^\ast c_{\min}$ expansion, sub-scope α)
+- `#emp-update-gain` (the $\eta^\ast = U_M/(U_M + U_o)$ expansion)
+- `#def-adaptive-tempo` (the $\mathcal T = \nu \eta^\ast$ identity)
+- `#hyp-mismatch-dynamics` (the $\rho$ role)
+- `#def-model-class-fitness` (the $f(\mathcal M)$ factor)
+- `#scope-edge-update-causal-validity` (Regime A/B/C identification framework)
+- `#disc-identifiability-floor` (the negative-half instance discussion)
+- `#disc-separability-pattern` (the positive-half seventh-ladder discussion)
 
 **Content shape.**
 1. Target quantity ($\mathcal V$, log-viability).
@@ -524,7 +524,7 @@ Each read surfaces a different load-bearing role.
 6. TST specialization with per-quantity exactness table.
 7. Derivation audit table (see FORMAT.md O-BP14).
 
-### 12.2 Updates to `#operationalization`
+### 12.2 Updates to `#detail-operationalization`
 
 Add a section on "Decomposing the persistence margin" with:
 - The estimator recipes for $\mathcal V_E$ and $\mathcal V_I$ under Regime A (rotation experiments) and Regime B (functional-form assumptions).
@@ -533,10 +533,10 @@ Add a section on "Decomposing the persistence margin" with:
 
 ### 12.3 Cross-references to add
 
-- `#persistence-condition`: add a Discussion paragraph noting that the persistence inequality admits the internal-external decomposition above; cross-reference the new segment.
-- `#discussion-separability-pattern`: add the seventh ladder row.
-- `#discussion-identifiability-floor`: add Instance 3 (internal-external decomposition under Regime C).
-- `#software-epistemic-properties`: add a Discussion note that the per-quantity exactness audit supports a well-posed TST specialization of the decomposition; cross-reference.
+- `#result-persistence-condition`: add a Discussion paragraph noting that the persistence inequality admits the internal-external decomposition above; cross-reference the new segment.
+- `#disc-separability-pattern`: add the seventh ladder row.
+- `#disc-identifiability-floor`: add Instance 3 (internal-external decomposition under Regime C).
+- `#obs-software-epistemic-properties`: add a Discussion note that the per-quantity exactness audit supports a well-posed TST specialization of the decomposition; cross-reference.
 - `#result-mismatch-decomposition`: add a note distinguishing this per-instant decomposition from the per-history internal-external decomposition.
 
 ### 12.4 Pending work before promotion
@@ -553,18 +553,18 @@ Add a section on "Decomposing the persistence margin" with:
 
 - Shapley-value attribution: mentioned in §9 but not developed. Cleaner under multiplicative (pre-log) form; the log-additive form makes Shapley and the direct decomposition coincide, so Shapley isn't adding anything here.
 - Mediation analysis formalization: noted as future work in 12.4.
-- Agent-environment co-evolution dynamics: §5 identifies the confounding but doesn't model the dynamics. A full treatment would need a coupled ODE for $(\mathcal V_E(t), \mathcal V_I(t))$ — structurally adjacent to #adversarial-destabilization's coupled disturbance form.
+- Agent-environment co-evolution dynamics: §5 identifies the confounding but doesn't model the dynamics. A full treatment would need a coupled ODE for $(\mathcal V_E(t), \mathcal V_I(t))$ — structurally adjacent to #der-adversarial-destabilization's coupled disturbance form.
 - Composition: does the decomposition compose when agents form teams (Section III)? Probably: $\mathcal V$ of the composite is related to $\mathcal V$ of the components by a closure-defect term. Not developed here.
 
 ## 13. Open questions
 
 1. **Is the log-viability coordinate forced by an AAD-internal axiom?** Per §11, I do not currently see a chain-rule-like compositionality axiom for viability. If such an axiom could be identified — e.g., "viability of a sequence of adaptive cycles is the sum of per-cycle viabilities under independence" — the logarithmic coordinate would become a fourth Cauchy-FE theorem. This would be a substantial strengthening. My current read: plausible but not obviously there.
 
-2. **Does the $\rho$ factorization hold under adversarial environments?** In adversarial settings (#adversarial-destabilization), $\rho$ is not purely "external" — it's partly induced by the adversary's actions. The decomposition as stated treats only one agent; extending to adversarial pairs would require splitting $\rho_{\text{external}}$ further into nature-produced and adversary-produced terms, with the adversary's term being the other agent's internal-operational-health projected onto this agent's environment-demand.
+2. **Does the $\rho$ factorization hold under adversarial environments?** In adversarial settings (#der-adversarial-destabilization), $\rho$ is not purely "external" — it's partly induced by the adversary's actions. The decomposition as stated treats only one agent; extending to adversarial pairs would require splitting $\rho_{\text{external}}$ further into nature-produced and adversary-produced terms, with the adversary's term being the other agent's internal-operational-health projected onto this agent's environment-demand.
 
-3. **Is there a primal/dual formulation?** The log-viability is a scalar persistence margin. A dual formulation might express the decomposition as a rate-distortion relation: for given viability $\mathcal V$, what's the minimal internal capacity required as a function of environmental affordance (and vice versa)? This would connect to #compression-operations' IB framework.
+3. **Is there a primal/dual formulation?** The log-viability is a scalar persistence margin. A dual formulation might express the decomposition as a rate-distortion relation: for given viability $\mathcal V$, what's the minimal internal capacity required as a function of environmental affordance (and vice versa)? This would connect to #disc-compression-operations' IB framework.
 
-4. **Connection to cognitive-cost framework.** Increasing $\mathcal V_I$ via richer $\mathcal M$ (lower $f$) and better $\eta^\ast$ has a cost (see `#strategy-complexity-cost`). A full cost-benefit analysis would balance $\mathcal V_I$-gains against computational / deliberative / organizational costs. Not developed here; candidate follow-on spike.
+4. **Connection to cognitive-cost framework.** Increasing $\mathcal V_I$ via richer $\mathcal M$ (lower $f$) and better $\eta^\ast$ has a cost (see `#form-strategy-complexity-cost`). A full cost-benefit analysis would balance $\mathcal V_I$-gains against computational / deliberative / organizational costs. Not developed here; candidate follow-on spike.
 
 5. **The TST rotation-experiment diagnostic.** Is there literature on engineering-management rotation designs that the TST specialization could reference? (Google's "20% time," Spotify's tribes/guilds, various rotation programs.) If so, the decomposition gives them a principled theoretical grounding. If not, the decomposition suggests a new design posture.
 
@@ -574,11 +574,11 @@ Add a section on "Decomposing the persistence margin" with:
 - **Coarse decomposition.** $\mathcal V = \log \lVert\delta_{\text{critical}}\rVert - \log \rho + \log \alpha$, *exact* for Model D linear.
 - **Fine decomposition.** $\mathcal V = \mathcal V_E + \mathcal V_I$ where $\mathcal V_E$ collects the purely-external factors ($\lVert\delta_{\text{critical}}^{\text{domain}}\rVert$, $\rho_{\text{external}}$, $\nu_{\text{external-cap}}$) and $\mathcal V_I$ collects the agent-controllable factors (objective ambition, model expressiveness, policy benignity, chosen event rate, update gain, directional fidelity). Status *robust-qualitative*, limited by the $\rho$ factorization.
 - **Confounding.** Four channels (P6 observation-quality feedback, policy-benignity, structural adaptation, objective re-choice) entangle $\mathcal V_E$ and $\mathcal V_I$ in feedback systems. Structural, not removable.
-- **Identifiability.** Regime A (rotation / natural experiments) separately identifies $\mathcal V_E$ and $\mathcal V_I$. Regime B requires functional-form assumptions. Regime C is an identifiability floor (Instance-3 candidate for `#discussion-identifiability-floor`).
-- **Worked Kalman example.** For the `#worked-example-kalman` setup, $\mathcal V = 2.91$ decomposes as $\mathcal V_E = 2.30$ (environment-heavy) and $\mathcal V_I = 0.61$ (modest agent contribution) — the agent is tracking well mostly because the domain is forgiving.
+- **Identifiability.** Regime A (rotation / natural experiments) separately identifies $\mathcal V_E$ and $\mathcal V_I$. Regime B requires functional-form assumptions. Regime C is an identifiability floor (Instance-3 candidate for `#disc-identifiability-floor`).
+- **Worked Kalman example.** For the `#example-kalman` setup, $\mathcal V = 2.91$ decomposes as $\mathcal V_E = 2.30$ (environment-heavy) and $\mathcal V_I = 0.61$ (modest agent contribution) — the agent is tracking well mostly because the domain is forgiving.
 - **TST specialization.** Policy-benignity ($g(\pi)$) is exactly estimable from $\mathcal C_t^{\text{commit}}$ (system-coupling / changeset-size); the aggregate $(\mathcal V_E, \mathcal V_I)$ split is separately identifiable via team-rotation experiments without requiring per-component estimation. The internal-operational-health components hardest to estimate are exactly the cognitive ones — not exteriorized by standard team protocols.
 - **Meta-segment placement.** Positive-half separability seventh-ladder candidate; negative-half identifiability-floor Instance 3 candidate; adjacent family member in the logarithmic-coordinate family (not a fourth Cauchy-FE theorem, absent a compositionality axiom for viability).
-- **Recommendation.** Promote as new appendix segment `#internal-external-decomposition`; update `#operationalization`, `#persistence-condition`, `#discussion-separability-pattern`, `#discussion-identifiability-floor`, `#software-epistemic-properties`, `#result-mismatch-decomposition` with cross-references and companion notes.
+- **Recommendation.** Promote as new appendix segment `#internal-external-decomposition`; update `#detail-operationalization`, `#result-persistence-condition`, `#disc-separability-pattern`, `#disc-identifiability-floor`, `#obs-software-epistemic-properties`, `#result-mismatch-decomposition` with cross-references and companion notes.
 
 ## Appendix A: per-term ontological inventory
 

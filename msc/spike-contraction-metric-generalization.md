@@ -2,36 +2,36 @@
 spike: contraction-metric-generalization
 date: 2026-04-22
 status: draft
-trigger: Gemini gap — Section III composition contraction results verified only for linear-Kalman; sub-scope β (PID / variational / non-convex-beyond-basin / rule-based) untouched by `#sector-persistence-template`. Lohmiller & Slotine's contraction-metric framework promises broad nonlinear lift.
+trigger: Gemini gap — Section III composition contraction results verified only for linear-Kalman; sub-scope β (PID / variational / non-convex-beyond-basin / rule-based) untouched by `#result-sector-persistence-template`. Lohmiller & Slotine's contraction-metric framework promises broad nonlinear lift.
 posture: Strengthen-first. Push the metric formulation as far as it goes, then retreat honestly.
 relates_to:
-  - sector-persistence-template
-  - sector-condition-derivation
-  - gain-sector-bridge
-  - composition-closure
-  - critical-mass-composition
-  - discussion-separability-pattern
-  - multi-timescale-stability
+  - result-sector-persistence-template
+  - deriv-sector-condition
+  - der-gain-sector-bridge
+  - form-composition-closure
+  - deriv-critical-mass-composition
+  - disc-separability-pattern
+  - sketch-multi-timescale-stability
   - msc/spike-critical-mass-composition.md
   - msc/spike-adaptive-gain-dynamics.md
   - msc/spike-bridge-lemma-contraction.md
 ---
 
-# Spike: Contraction-Metric Generalization of `#sector-persistence-template`
+# Spike: Contraction-Metric Generalization of `#result-sector-persistence-template`
 
 ## Problem statement
 
-`#sector-persistence-template` states AAD's persistence results parameter-free in the form: state variable $\xi$ evolving under $\dot\xi = -F(\xi) + w(t)$ satisfies three preconditions (T1) zero-at-zero, (T2) **Euclidean sector condition** $\xi^T F(\xi) \geq \alpha \lVert\xi\rVert^2$ on $\lVert\xi\rVert \leq R$, (T3) bounded disturbance. The template yields ultimate bound $R^\ast = \rho_\xi/\alpha$ and adaptive reserve $\Delta\rho^\ast = \alpha R - \rho$. Six AAD segments invoke the template.
+`#result-sector-persistence-template` states AAD's persistence results parameter-free in the form: state variable $\xi$ evolving under $\dot\xi = -F(\xi) + w(t)$ satisfies three preconditions (T1) zero-at-zero, (T2) **Euclidean sector condition** $\xi^T F(\xi) \geq \alpha \lVert\xi\rVert^2$ on $\lVert\xi\rVert \leq R$, (T3) bounded disturbance. The template yields ultimate bound $R^\ast = \rho_\xi/\alpha$ and adaptive reserve $\Delta\rho^\ast = \alpha R - \rho$. Six AAD segments invoke the template.
 
 The template's **(T2) is a *one-point* sector bound matched to a *quadratic* Lyapunov candidate $V(\xi) = \tfrac{1}{2}\lVert\xi\rVert^2$ in the Euclidean norm.** This is load-bearing but restrictive:
 
-1. **Sub-scope α coverage is uneven.** Matrix Kalman's natural sector bound is in the $(P^-)^{-1}$-weighted inner product, transferred to Euclidean A2' with a $\kappa(P^-)$ degradation (`#gain-sector-bridge` "Weighted-norm subtlety"). Exponential-family-in-natural-parameters sits more naturally under the Fisher metric. Strongly-convex gradient is more naturally measured under the Hessian-weighted norm.
+1. **Sub-scope α coverage is uneven.** Matrix Kalman's natural sector bound is in the $(P^-)^{-1}$-weighted inner product, transferred to Euclidean A2' with a $\kappa(P^-)$ degradation (`#der-gain-sector-bridge` "Weighted-norm subtlety"). Exponential-family-in-natural-parameters sits more naturally under the Fisher metric. Strongly-convex gradient is more naturally measured under the Hessian-weighted norm.
 
-2. **Sub-scope β is absent.** PID, rule-based agents, variational-approximate posteriors, and non-convex agents beyond basin fail the Euclidean sector condition generically. `#sector-condition-derivation`'s A2' sub-scope β entry is "A2' must be verified per-system" — the current architecture has no lift that generically buys β.
+2. **Sub-scope β is absent.** PID, rule-based agents, variational-approximate posteriors, and non-convex agents beyond basin fail the Euclidean sector condition generically. `#deriv-sector-condition`'s A2' sub-scope β entry is "A2' must be verified per-system" — the current architecture has no lift that generically buys β.
 
-3. **Tier 2/3 agents lose closed form.** `#composition-closure` requires the **incremental sector bound** (DA2'-inc, strong monotonicity across the whole state space), which is strictly stronger than (T2). Tier 2 / Tier 3 sit at "local only" or "verify per-domain" — `#discussion-separability-pattern`'s "general open" under the Contraction ladder.
+3. **Tier 2/3 agents lose closed form.** `#form-composition-closure` requires the **incremental sector bound** (DA2'-inc, strong monotonicity across the whole state space), which is strictly stronger than (T2). Tier 2 / Tier 3 sit at "local only" or "verify per-domain" — `#disc-separability-pattern`'s "general open" under the Contraction ladder.
 
-4. **Composition results (`#critical-mass-composition`) are Tier-1-symmetric-matched only.** `#composition-closure` acquires composite $\alpha_c$ via weakest-link bound; `#critical-mass-composition` pushes to a closed form for matched-symmetric-Tier-1 pairs. Heterogeneous-architecture composites are §6.1 obstruction territory.
+4. **Composition results (`#deriv-critical-mass-composition`) are Tier-1-symmetric-matched only.** `#form-composition-closure` acquires composite $\alpha_c$ via weakest-link bound; `#deriv-critical-mass-composition` pushes to a closed form for matched-symmetric-Tier-1 pairs. Heterogeneous-architecture composites are §6.1 obstruction territory.
 
 Contraction analysis (Lohmiller & Slotine 1998, *Automatica* 34:683; Slotine 2003, *Int. J. Adapt. Control Signal Process.* 17:397) offers a generalization: a state- and time-dependent **Riemannian (or Finsler) metric** $M(x, t)$ under which the *differential dynamics* contract:
 
@@ -39,15 +39,15 @@ $$\dot M + M \frac{\partial f}{\partial x} + \Big(\frac{\partial f}{\partial x}\
 
 Two well-known properties make this a candidate for AAD generalization:
 
-- **(C-α) Metric-freedom picks up sub-scope α "for free".** A contraction metric can be non-Euclidean, allowing systems that fail Euclidean A2' to satisfy the contraction condition in a suitably weighted coordinate. Weighted-norm Lyapunov is the matched canonical move (Khalil 2002 §4.2; also `#sector-condition-derivation`'s "Why Euclidean A2' specifically" passage).
+- **(C-α) Metric-freedom picks up sub-scope α "for free".** A contraction metric can be non-Euclidean, allowing systems that fail Euclidean A2' to satisfy the contraction condition in a suitably weighted coordinate. Weighted-norm Lyapunov is the matched canonical move (Khalil 2002 §4.2; also `#deriv-sector-condition`'s "Why Euclidean A2' specifically" passage).
 
-- **(C-β) Compositional closure.** Contraction is preserved under (a) parallel (product), (b) hierarchical/lower-triangular cascade, (c) negative feedback with bounded loop gain. Slotine 2003 gives a clean compositional calculus that `#composition-closure` currently lacks above Tier 1.
+- **(C-β) Compositional closure.** Contraction is preserved under (a) parallel (product), (b) hierarchical/lower-triangular cascade, (c) negative feedback with bounded loop gain. Slotine 2003 gives a clean compositional calculus that `#form-composition-closure` currently lacks above Tier 1.
 
-The spike attacks: **recast (T2) in contraction-metric form; track which sub-scope items lift; derive a compositional upgrade for `#composition-closure`; draw the honest map of where metric formulation fails.**
+The spike attacks: **recast (T2) in contraction-metric form; track which sub-scope items lift; derive a compositional upgrade for `#form-composition-closure`; draw the honest map of where metric formulation fails.**
 
 ---
 
-## §1. Restating `#sector-persistence-template` in contraction-metric form
+## §1. Restating `#result-sector-persistence-template` in contraction-metric form
 
 ### 1.1 The contraction condition
 
@@ -105,7 +105,7 @@ so $\limsup W \leq \sqrt{m_2}\rho_\xi / \lambda$. Converting back to Euclidean n
 
 **Recovery of (T2).** When $M \equiv I$ (Euclidean metric, time-independent), (CT2) reduces to $-\partial F/\partial\xi - (\partial F/\partial\xi)^T \preceq -2\lambda I$, which is the **incremental Euclidean sector condition** (strong monotonicity of $F$ in Euclidean norm). This implies the one-point sector condition $\xi^T F(\xi) \geq \lambda \lVert\xi\rVert^2$ (integrating along $s\xi$), so $\alpha = \lambda$ when $M = I$. The template's ultimate bound $\rho/\alpha$ is reproduced with $m_1 = m_2 = 1$.
 
-But (CT2) with $M = I$ is **strictly stronger than (T2)** — it requires the Jacobian's symmetric part to be uniformly positive definite, equivalent to `#composition-closure`'s DA2'-inc (strong monotonicity), not just (T2) (one-point sector). This is the key structural observation: the contraction formulation *collapses (T2) and DA2'-inc into one condition* at the cost of requiring differential (Jacobian-level) rather than integral (inner-product-at-a-point) information.
+But (CT2) with $M = I$ is **strictly stronger than (T2)** — it requires the Jacobian's symmetric part to be uniformly positive definite, equivalent to `#form-composition-closure`'s DA2'-inc (strong monotonicity), not just (T2) (one-point sector). This is the key structural observation: the contraction formulation *collapses (T2) and DA2'-inc into one condition* at the cost of requiring differential (Jacobian-level) rather than integral (inner-product-at-a-point) information.
 
 ### 1.3 The contraction template — Model S
 
@@ -125,11 +125,11 @@ This is the natural extension of Prop A.1S under a weighted metric. When $M \equ
 
 The **single substantive gain** of the contraction formulation over (T2) is **metric freedom**. Instead of requiring $F$ to point inward in Euclidean geometry, it requires $F$ to be contracting in *some* geometry — the geometry itself can be chosen to match the dynamics. Five specific wins:
 
-- (G1) **Natural gradient dynamics** (`#update-gain` with Fisher-information preconditioner): $F = \eta\,\mathbf{I}(\theta)^{-1}\nabla L(\theta)$ on an exponential-family natural parameter $\theta$. Euclidean sector fails in general (Fisher can be ill-conditioned, so $(\nabla L)^T (F) \neq \Theta(\lVert\nabla L\rVert^2)$). Fisher-metric contraction works: $M = \mathbf{I}(\theta)$, contraction rate $\lambda = \eta\mu_L$ where $\mu_L$ is $\nabla^2 L$'s lower bound in the Fisher metric (i.e., Riemannian strong convexity).
+- (G1) **Natural gradient dynamics** (`#emp-update-gain` with Fisher-information preconditioner): $F = \eta\,\mathbf{I}(\theta)^{-1}\nabla L(\theta)$ on an exponential-family natural parameter $\theta$. Euclidean sector fails in general (Fisher can be ill-conditioned, so $(\nabla L)^T (F) \neq \Theta(\lVert\nabla L\rVert^2)$). Fisher-metric contraction works: $M = \mathbf{I}(\theta)$, contraction rate $\lambda = \eta\mu_L$ where $\mu_L$ is $\nabla^2 L$'s lower bound in the Fisher metric (i.e., Riemannian strong convexity).
 
 - (G2) **Hessian-metric gradient flow on non-Euclidean strongly convex losses.** If $L$ is $\mu$-strongly convex in the Hessian-induced norm (but not necessarily in Euclidean), $M = \nabla^2 L$ gives $\lambda = \eta\mu$ directly. Euclidean A2' would need condition-number degradation.
 
-- (G3) **Matrix Kalman without $\kappa(P^-)$ degradation.** `#gain-sector-bridge`'s weighted-norm subtlety is exactly this: the natural metric is $M = (P^-)^{-1}$. Stating the contraction result in $M$ avoids the Euclidean transfer that introduced $\kappa(P^-)$.
+- (G3) **Matrix Kalman without $\kappa(P^-)$ degradation.** `#der-gain-sector-bridge`'s weighted-norm subtlety is exactly this: the natural metric is $M = (P^-)^{-1}$. Stating the contraction result in $M$ avoids the Euclidean transfer that introduced $\kappa(P^-)$.
 
 - (G4) **Logarithmic-norm machinery for nonlinear control.** PID on a bounded Lipschitz nonlinearity: the Jacobian is affine in the gains; contraction holds in a metric $M$ solving a Lyapunov equation tuned to the plant's nonlinearity cone. Euclidean sector is regime-specific; contraction under an appropriate $M$ can be global.
 
@@ -161,13 +161,13 @@ Under the metric $M = \mathbf{I}(\theta)$ (Fisher metric):
 
 $$M \cdot (-\eta \mathbf{I}(\theta)^{-1}) + (-\eta\mathbf{I}(\theta)^{-1})^T M = -2\eta I,$$
 
-so the contraction rate $\lambda = \eta$ in the Fisher metric, *globally on the interior of the natural-parameter domain*, provided $\mathbf{I}$ is uniformly bounded (which it is on any compact subset of the interior). The Euclidean A2' entry of `#gain-sector-bridge` reads $\alpha = \eta \cdot \lambda_{\min}(\text{Fisher})$, which degrades as the Fisher spectrum spreads — Fisher-metric contraction removes this degradation.
+so the contraction rate $\lambda = \eta$ in the Fisher metric, *globally on the interior of the natural-parameter domain*, provided $\mathbf{I}$ is uniformly bounded (which it is on any compact subset of the interior). The Euclidean A2' entry of `#der-gain-sector-bridge` reads $\alpha = \eta \cdot \lambda_{\min}(\text{Fisher})$, which degrades as the Fisher spectrum spreads — Fisher-metric contraction removes this degradation.
 
 **Outcome:** Exponential-family-in-natural-parameters promotes to contraction-metric α *strictly better* than its current Euclidean α. The contraction rate is the *learning rate itself*, independent of Fisher conditioning.
 
 ### 2.3 Strongly-convex gradient descent — two cases
 
-**Case (a): Euclidean-strongly-convex.** $L$ is $\mu$-strongly convex in Euclidean norm; $\nabla^2 L \succeq \mu I$ globally. Under $M = I$, contraction holds with $\lambda = \eta\mu$ — same as the current `#gain-sector-bridge` α, no gain. But this is the weaker case.
+**Case (a): Euclidean-strongly-convex.** $L$ is $\mu$-strongly convex in Euclidean norm; $\nabla^2 L \succeq \mu I$ globally. Under $M = I$, contraction holds with $\lambda = \eta\mu$ — same as the current `#der-gain-sector-bridge` α, no gain. But this is the weaker case.
 
 **Case (b): Hessian-metric-strongly-convex.** $L$ is strongly convex in the Hessian-induced norm (a looser condition than Euclidean strong convexity for ill-conditioned problems). Under $M = \nabla^2 L$ (with a regularity condition that $M$'s state-derivative in the dynamics direction is bounded), contraction holds with $\lambda = \eta$. This is the (G2) gain.
 
@@ -216,7 +216,7 @@ The gains are: (i) Kalman/exp-family lose their condition-number penalties, (ii)
 
 ### 3.1 Prior constraint
 
-`#sector-condition-derivation`'s β entries: PID with fixed gains, rule-based, human judgment, severely misspecified, variational approximation, non-convex beyond basin, per-step SGD. The question: **which of these promote to metric-α under *some* contraction metric?**
+`#deriv-sector-condition`'s β entries: PID with fixed gains, rule-based, human judgment, severely misspecified, variational approximation, non-convex beyond basin, per-step SGD. The question: **which of these promote to metric-α under *some* contraction metric?**
 
 ### 3.2 PID with bounded plant nonlinearity
 
@@ -260,7 +260,7 @@ The honest landing is that **contraction metrics solve the within-family converg
 
 **What can be said honestly.** For specific non-convex structures (e.g., saddle-free Newton on benign non-convexity), local metrics composable over basins can give a **basin-chart structure**: metric-α within each basin, structural-adaptation trigger at basin boundaries (the *separatrix* of the gradient flow).
 
-**Outcome: partial promotion.** Non-convex gradient within a basin is metric-α₂ with basin-specific $M$; crossing a separatrix remains the `#structural-adaptation-necessity` trigger. The contraction-metric formulation does not escape `#structural-adaptation-necessity` — but it makes the basin structure explicit.
+**Outcome: partial promotion.** Non-convex gradient within a basin is metric-α₂ with basin-specific $M$; crossing a separatrix remains the `#result-structural-adaptation-necessity` trigger. The contraction-metric formulation does not escape `#result-structural-adaptation-necessity` — but it makes the basin structure explicit.
 
 ### 3.5 Rule-based agents
 
@@ -282,7 +282,7 @@ The honest landing is that **contraction metrics solve the within-family converg
 |---|---|---|
 | PID with bounded plant nonlinearity | **β → metric-α₂** | Derivable under plant-Lipschitz threshold |
 | Variational approximate posteriors | Stays β | Contraction to projected target is derivable; residual projection error is separate |
-| Non-convex beyond basin | **β → metric-α₂ within basin** | Basin-chart structure; basin boundaries = `#structural-adaptation-necessity` trigger |
+| Non-convex beyond basin | **β → metric-α₂ within basin** | Basin-chart structure; basin boundaries = `#result-structural-adaptation-necessity` trigger |
 | Rule-based | Stays β | Smoothness obstruction |
 | Per-step SGD | Stays β (identical treatment) | Noise treated as disturbance regardless |
 | Severely misspecified | Stays β | Target-validity problem, not geometry |
@@ -304,9 +304,9 @@ Following Lohmiller & Slotine 1998 §3 and Slotine 2003, contraction is preserve
 
 - **Negative feedback with bounded loop gain.** If two systems contract at $\lambda_1, \lambda_2$ and are connected by negative feedback with loop gains $k_{12}, k_{21}$, the closed loop contracts iff $k_{12} k_{21} \lt 4\lambda_1\lambda_2$ (small-gain, Slotine 2003 Thm 3).
 
-These are **strict generalizations** of what `#composition-closure` currently gets via the weakest-link bound (WL) and `#critical-mass-composition`'s (CM2) for the matched-symmetric dyad.
+These are **strict generalizations** of what `#form-composition-closure` currently gets via the weakest-link bound (WL) and `#deriv-critical-mass-composition`'s (CM2) for the matched-symmetric dyad.
 
-### 4.2 Lift into `#composition-closure`
+### 4.2 Lift into `#form-composition-closure`
 
 The current bridge-lemma statement requires DA2'-inc (strong monotonicity of $F_c$) at the *composite* level, proved for Tier 1 and conditional for Tier 2/3. Under the metric formulation:
 
@@ -321,9 +321,9 @@ The current bridge-lemma statement requires DA2'-inc (strong monotonicity of $F_
 
 This is a **topology-indexed closure result**. The tier structure degrades from "Tier 1/2/3 depending on sub-agent type" to "topology-indexed: parallel / cascade / feedback / general-graph." Each topology has a specific compositional-contraction rate derivation; general-graph composites require either Slotine-Lohmiller-Wang's "virtual systems" technique or remain open.
 
-### 4.3 Generalization of `#critical-mass-composition` (CM2)
+### 4.3 Generalization of `#deriv-critical-mass-composition` (CM2)
 
-The matched-symmetric-Tier-1 closed form (`#critical-mass-composition` (CM2)):
+The matched-symmetric-Tier-1 closed form (`#deriv-critical-mass-composition` (CM2)):
 
 $$(\alpha - C) R \gt \rho + \gamma\mathcal{T}$$
 
@@ -335,7 +335,7 @@ for heterogeneous sub-agents with metric-contraction rates $\lambda_1, \lambda_2
 
 $$(\lambda - C)^2 \gt k^2/4 \;\;\Leftrightarrow\;\; \lambda - C \gt k/2,$$
 
-which matches `#critical-mass-composition`'s form (setting $k = \gamma\mathcal{T}/R \cdot 2$, adjusting normalization).
+which matches `#deriv-critical-mass-composition`'s form (setting $k = \gamma\mathcal{T}/R \cdot 2$, adjusting normalization).
 
 **Gain:** (CM2-M) is **heterogeneous** — sub-agents need not have matched architectures or sector constants. The critical-mass inequality lifts to a genuine $N$-agent result via the iterative small-gain construction (Slotine 2003 §IV). Heterogeneous teams get a derivation.
 
@@ -346,13 +346,13 @@ which matches `#critical-mass-composition`'s form (setting $k = \gamma\mathcal{T
 **Post-contraction-metric state:** Bridge lemma is derived for:
 - **Tier 1M (metric-contraction-global):** Kalman / exp-family / strongly-convex / L2-regularized / linear-Hurwitz. Global contraction in a specified metric. Composite bridge lemma via §4.1 compositional theorems.
 - **Tier 2M (metric-contraction-basin):** PID-with-bounded-plant-Lipschitz / non-convex-within-basin. Contraction in basin-specific metric. Composite bridge lemma valid in the intersection-of-basins, with basin-crossing as structural-adaptation trigger.
-- **Tier 3M (no global metric):** Rule-based / variational / severely-misspecified. Bridge lemma remains discussion-grade; `#discussion-separability-pattern`'s "general open" entry.
+- **Tier 3M (no global metric):** Rule-based / variational / severely-misspecified. Bridge lemma remains discussion-grade; `#disc-separability-pattern`'s "general open" entry.
 
-**Net:** Tier 1 absorbs metric-α₁ and metric-α₂ cases; Tier 2 becomes basin-chart structure; Tier 3 shrinks to the cases where metric formulation genuinely fails. The three-part `#discussion-separability-pattern` shape is preserved with the separable-core expanded and the structured-repair layer made more explicit (basin-chart).
+**Net:** Tier 1 absorbs metric-α₁ and metric-α₂ cases; Tier 2 becomes basin-chart structure; Tier 3 shrinks to the cases where metric formulation genuinely fails. The three-part `#disc-separability-pattern` shape is preserved with the separable-core expanded and the structured-repair layer made more explicit (basin-chart).
 
 ### 4.5 Heterogeneous composition — the composition bridge lemma
 
-**Current state:** `#composition-closure`'s composite (A4) from sub-agent properties is the weakest-link bound (WL), refined by `#critical-mass-composition` (CM2) only for matched-symmetric-Tier-1.
+**Current state:** `#form-composition-closure`'s composite (A4) from sub-agent properties is the weakest-link bound (WL), refined by `#deriv-critical-mass-composition` (CM2) only for matched-symmetric-Tier-1.
 
 **Proposed upgrade.** Given heterogeneous sub-agents each in Tier 1M or Tier 2M with individual $(M_i, \lambda_i, R_i)$, the composite metric and rate follow compositionally from the topology:
 
@@ -361,13 +361,13 @@ which matches `#critical-mass-composition`'s form (setting $k = \gamma\mathcal{T
 - **Negative-feedback topology (2-agent):** small-gain (CM2-M); rate determined by the loop-gain inequality.
 - **General directed-graph topology:** Slotine 2003 §IV's virtual-system construction, conditional on loop gains along every cycle satisfying small-gain.
 
-This is the **composition bridge lemma under contraction metrics.** It generalizes `#critical-mass-composition` from matched-symmetric-Tier-1 (the current closed form) to heterogeneous sub-agents under a characterized set of topologies. The composite bridge lemma becomes topology-indexed rather than tier-indexed.
+This is the **composition bridge lemma under contraction metrics.** It generalizes `#deriv-critical-mass-composition` from matched-symmetric-Tier-1 (the current closed form) to heterogeneous sub-agents under a characterized set of topologies. The composite bridge lemma becomes topology-indexed rather than tier-indexed.
 
 ---
 
 ## §5. A2' partition redrawn under the metric formulation
 
-### 5.1 Current partition (from `#sector-condition-derivation`)
+### 5.1 Current partition (from `#deriv-sector-condition`)
 
 - **Sub-scope α (A2' derived):** Kalman / conjugate Bayesian / exp-family-natural-params / strongly-convex gradient / L2-regularized / linear-PD.
 - **Sub-scope β (A2' assumed):** PID / rule-based / human-judgment / severely-misspecified / variational / non-convex-beyond-basin / per-step-SGD.
@@ -388,17 +388,17 @@ Four items stay β: variational, rule-based, severely-misspecified, human-judgme
 
 One item is structurally unchanged: per-step SGD (noise-is-disturbance treatment identical under Euclidean and metric formulations).
 
-### 5.4 How this interacts with `#discussion-separability-pattern`
+### 5.4 How this interacts with `#disc-separability-pattern`
 
-`#discussion-separability-pattern`'s "A2' sub-scope partition is a binary special case" observation (its own §Discussion) becomes **three-part** under the metric formulation:
+`#disc-separability-pattern`'s "A2' sub-scope partition is a binary special case" observation (its own §Discussion) becomes **three-part** under the metric formulation:
 
 - Separable core: metric-α₁ (Euclidean metric, trivial).
 - Structured repair: metric-α₂ (specific non-Euclidean metric derived under explicit conditions — basin-Lipschitz, plant-Lipschitz, Fisher-conditioning).
 - General open: metric-β (smoothness / target-validity obstructions).
 
-This is the **third part that `#discussion-separability-pattern` flagged as missing** in its §Discussion under A2'. The metric formulation supplies it: the structured-repair tier is "derive contraction in a problem-appropriate metric, under stated conditions on smoothness / Lipschitz / basin structure."
+This is the **third part that `#disc-separability-pattern` flagged as missing** in its §Discussion under A2'. The metric formulation supplies it: the structured-repair tier is "derive contraction in a problem-appropriate metric, under stated conditions on smoothness / Lipschitz / basin structure."
 
-**Consequence:** A2' now fits `#discussion-separability-pattern` as a proper three-tier ladder, making it **the seventh ladder** in the six-ladder enumeration (Correlation, Convention, Architecture, Contraction, Identification-regime, Scope-hierarchy + **A2'-scope**).
+**Consequence:** A2' now fits `#disc-separability-pattern` as a proper three-tier ladder, making it **the seventh ladder** in the six-ladder enumeration (Correlation, Convention, Architecture, Contraction, Identification-regime, Scope-hierarchy + **A2'-scope**).
 
 ---
 
@@ -414,9 +414,9 @@ Rule-based agents, state-machine controllers, threshold-triggered switches, and 
 
 Two adversarial agents have joint dynamics with mixed-strategy Nash equilibria — fixed points of the best-response map, not fixed points of dynamics. Contraction analysis requires attracting fixed points; strategic equilibria can be saddle points (non-attracting) of the dynamics even when they are unique Nash equilibria. Game theory's fictitious-play / gradient-ascent-descent for saddle-finding is not contracting.
 
-**This is `#adversarial-destabilization`'s non-linearity problem** restated — adversarial dynamics are generically *not* contracting in any metric. Slotine's machinery extends to cooperative multi-agent systems; it does not cover adversarial equilibria. The `#critical-mass-composition` adversarial regime ($\gamma \gt 0$, destabilization) is precisely where the contraction-metric picture fails.
+**This is `#der-adversarial-destabilization`'s non-linearity problem** restated — adversarial dynamics are generically *not* contracting in any metric. Slotine's machinery extends to cooperative multi-agent systems; it does not cover adversarial equilibria. The `#deriv-critical-mass-composition` adversarial regime ($\gamma \gt 0$, destabilization) is precisely where the contraction-metric picture fails.
 
-**Honest landing:** contraction metrics cover the **cooperative half** of multi-agent Section III (`#team-persistence`, cooperative `#critical-mass-composition`, cooperative `#composition-closure`). Adversarial Section III (`#adversarial-destabilization`, `#adversarial-tempo-advantage`) is structurally outside — it needs the differential-game / monotone-operator-but-not-contracting apparatus.
+**Honest landing:** contraction metrics cover the **cooperative half** of multi-agent Section III (`#der-team-persistence`, cooperative `#deriv-critical-mass-composition`, cooperative `#form-composition-closure`). Adversarial Section III (`#der-adversarial-destabilization`, `#result-adversarial-tempo-advantage`) is structurally outside — it needs the differential-game / monotone-operator-but-not-contracting apparatus.
 
 ### 6.3 Stochastic forcing (actually partial — Pham-Slotine exists)
 
@@ -426,7 +426,7 @@ Pham & Slotine 2007 ("Stable concurrent synchronization in dynamic system networ
 
 ### 6.4 Time-varying systems with fast metric variation
 
-$M(\xi, t)$ time-varying introduces the $\dot M$ term in (CT2). When $M$'s time-variation is slow relative to the dynamics, this is absorbable (`#multi-timescale-stability` territory). When $M$ varies on the same timescale as $\xi$ (e.g., an adaptive-metric algorithm where $M$ is learned alongside $\xi$), the cross-coupling $\dot M$ can destabilize contraction. 
+$M(\xi, t)$ time-varying introduces the $\dot M$ term in (CT2). When $M$'s time-variation is slow relative to the dynamics, this is absorbable (`#sketch-multi-timescale-stability` territory). When $M$ varies on the same timescale as $\xi$ (e.g., an adaptive-metric algorithm where $M$ is learned alongside $\xi$), the cross-coupling $\dot M$ can destabilize contraction. 
 
 This is *exactly* the interaction `msc/spike-adaptive-gain-dynamics.md` hit with the $\delta$-to-gain coupling in RMSProp (§4.3 of that spike): the meta-state (gain) feeds back into the primary state's contraction rate, and the coupled system requires a fixed-point closure argument. Under the metric formulation, the same issue recurs as metric-state coupling — a strictly genuine open item, not a metric-formulation failure per se, but a limit on how cleanly the metric formulation composes with adaptive-gain machinery.
 
@@ -434,13 +434,13 @@ This is *exactly* the interaction `msc/spike-adaptive-gain-dynamics.md` hit with
 
 The Lohmiller-Slotine theorem statement is "local contraction on a region implies local exponential stability." Global contraction requires a globally-valid metric. For agents with multiple basins of attraction (non-convex $L$ with multiple minima, multi-stable dynamical systems), no single global metric contracts — only basin-local metrics. The basin-chart picture (§3.4) covers this honestly, but it means the single-metric simplification of Slotine's theorems does not apply.
 
-**Scope:** this is already visible in the current Section III through `#structural-adaptation-necessity`'s basin-boundary trigger. The metric formulation does not fix multi-basin structure; it makes the basin structure explicit.
+**Scope:** this is already visible in the current Section III through `#result-structural-adaptation-necessity`'s basin-boundary trigger. The metric formulation does not fix multi-basin structure; it makes the basin structure explicit.
 
 ### 6.6 Identifiability floor instances
 
-The metric formulation operates **downstream of identification.** It assumes the correction function $F$ points in a valid direction (a B1-analog at the Jacobian level). If B1 fails (severe misspecification, unidentifiable meta-gain), the metric cannot recover — a wrong-direction correction in any metric is still wrong-direction. This is the `#discussion-identifiability-floor` intersection: contraction metrics are silent on identification.
+The metric formulation operates **downstream of identification.** It assumes the correction function $F$ points in a valid direction (a B1-analog at the Jacobian level). If B1 fails (severe misspecification, unidentifiable meta-gain), the metric cannot recover — a wrong-direction correction in any metric is still wrong-direction. This is the `#disc-identifiability-floor` intersection: contraction metrics are silent on identification.
 
-**Consequence:** the metric formulation and `#discussion-identifiability-floor` are *orthogonal* architectural moves. Metric lifts the geometry-of-correction half of sub-scope α; identifiability-floor lives on the what-correction-to-make half. The metric formulation *cannot* escape identifiability-floor constraints.
+**Consequence:** the metric formulation and `#disc-identifiability-floor` are *orthogonal* architectural moves. Metric lifts the geometry-of-correction half of sub-scope α; identifiability-floor lives on the what-correction-to-make half. The metric formulation *cannot* escape identifiability-floor constraints.
 
 ---
 
@@ -448,9 +448,9 @@ The metric formulation operates **downstream of identification.** It assumes the
 
 Four promotion options, ranked:
 
-### R1 (preferred): new meta-segment `#contraction-template`, retain `#sector-persistence-template`
+### R1 (preferred): new meta-segment `#result-contraction-template`, retain `#result-sector-persistence-template`
 
-**Create** `01-aad-core/src/contraction-template.md`, type:result, status:conditional, depending on `#sector-condition-derivation`, `#sector-persistence-template`, `#gain-sector-bridge`. The segment would:
+**Create** `01-aad-core/src/result-contraction-template.md`, type:result, status:conditional, depending on `#deriv-sector-condition`, `#result-sector-persistence-template`, `#der-gain-sector-bridge`. The segment would:
 
 1. State (CT1)–(CT3) as the metric-formulation preconditions.
 2. Derive the ultimate-bound result (CT-D / CT-S) under (M0).
@@ -459,19 +459,19 @@ Four promotion options, ranked:
 5. Present the compositional theorems (§4.1) as a cross-reference / theorem-import from Slotine 2003.
 6. State the compositional lift (§4.2 — topology-indexed bridge lemma, §4.3 — (CM2-M) heterogeneous critical-mass).
 7. Document the failure modes (§6) honestly in a dedicated "Where the metric formulation does not lift AAD" section.
-8. Cross-reference `#discussion-separability-pattern` as the seventh ladder (A2'-scope with metric-α₁ / metric-α₂ / metric-β).
+8. Cross-reference `#disc-separability-pattern` as the seventh ladder (A2'-scope with metric-α₁ / metric-α₂ / metric-β).
 
-**Rationale:** the metric formulation is a genuine structural extension that deserves a segment rather than a paragraph. Retaining `#sector-persistence-template` parallel preserves the Euclidean-template narrative for readers who do not need the metric machinery and preserves the existing six instantiations as first-class items. `#contraction-template` sits as the more general form, with `#sector-persistence-template` as its $M = I$ specialization.
+**Rationale:** the metric formulation is a genuine structural extension that deserves a segment rather than a paragraph. Retaining `#result-sector-persistence-template` parallel preserves the Euclidean-template narrative for readers who do not need the metric machinery and preserves the existing six instantiations as first-class items. `#result-contraction-template` sits as the more general form, with `#result-sector-persistence-template` as its $M = I$ specialization.
 
-### R2: extend `#sector-persistence-template` with a "Metric-formulation extension" section
+### R2: extend `#result-sector-persistence-template` with a "Metric-formulation extension" section
 
-Add a §extension to `#sector-persistence-template` stating (CT2), the ultimate-bound result, and the three-or-four worked instances (Kalman-info-metric, Fisher, Lyapunov-PID). Compositional and tier-lift results would land separately in `#composition-closure` and `#critical-mass-composition`.
+Add a §extension to `#result-sector-persistence-template` stating (CT2), the ultimate-bound result, and the three-or-four worked instances (Kalman-info-metric, Fisher, Lyapunov-PID). Compositional and tier-lift results would land separately in `#form-composition-closure` and `#deriv-critical-mass-composition`.
 
-**Downside:** bloats `#sector-persistence-template` with a substantial new pattern that doesn't reduce to the existing preconditions cleanly. The compositional theorems (§4.1) are Slotine-theorem-imports that the template does not currently do — dedicated real estate is better.
+**Downside:** bloats `#result-sector-persistence-template` with a substantial new pattern that doesn't reduce to the existing preconditions cleanly. The compositional theorems (§4.1) are Slotine-theorem-imports that the template does not currently do — dedicated real estate is better.
 
-### R3: add compositional-lift content to `#composition-closure` + `#critical-mass-composition` directly
+### R3: add compositional-lift content to `#form-composition-closure` + `#deriv-critical-mass-composition` directly
 
-Land §4.2 (topology-indexed bridge lemma) in `#composition-closure` as a new admissibility class; land (CM2-M) in `#critical-mass-composition` as a generalization. Leave the template unchanged.
+Land §4.2 (topology-indexed bridge lemma) in `#form-composition-closure` as a new admissibility class; land (CM2-M) in `#deriv-critical-mass-composition` as a generalization. Leave the template unchanged.
 
 **Downside:** the compositional results *rely* on the metric-template restatement, which under R3 lives nowhere. Orphaned derivation.
 
@@ -481,18 +481,18 @@ Land §4.2 (topology-indexed bridge lemma) in `#composition-closure` as a new ad
 
 ### Recommended: R1
 
-A new meta-segment `#contraction-template` at type:result, status:conditional (conditional on the metric regularity + (CT1)–(CT3)). Status conditional — not exact — because the applicable metric must be specified per agent class, and the compositional results depend on Slotine 2003's theorems rather than being proved internal to AAD. Stage `draft` pending review.
+A new meta-segment `#result-contraction-template` at type:result, status:conditional (conditional on the metric regularity + (CT1)–(CT3)). Status conditional — not exact — because the applicable metric must be specified per agent class, and the compositional results depend on Slotine 2003's theorems rather than being proved internal to AAD. Stage `draft` pending review.
 
 **Dependent segment edits under R1:**
 
-- `#sector-persistence-template`: add a one-paragraph "Relationship to `#contraction-template`" Discussion note pointing to the generalization.
-- `#sector-condition-derivation`: extend the sub-scope partition to metric-α₁ / metric-α₂ / metric-β with cross-reference to `#contraction-template`. Extend the "What is derived vs chosen" table row on A2'.
-- `#gain-sector-bridge`: clean up the "Weighted-norm subtlety" — move matrix-Kalman's $(P^-)^{-1}$-weighting to the information-metric statement in `#contraction-template`, removing the $\kappa(P^-)$ degradation.
-- `#composition-closure`: add topology-indexed bridge-lemma results to the Tier-2-Tier-3 discussion; cross-reference Slotine 2003's compositional theorems.
-- `#critical-mass-composition`: add (CM2-M) heterogeneous generalization; note that (CM2) is the matched-symmetric specialization.
-- `#discussion-separability-pattern`: promote A2'-scope from "binary special case" to a full seventh ladder (metric-α₁ / metric-α₂ / metric-β).
-- `#adversarial-destabilization`: add a note in Working Notes that contraction metrics cover the cooperative half; adversarial remains in game-theoretic territory (§6.2).
-- `#multi-timescale-stability`: add cross-reference to contraction-metric cascade composition as an alternative to singular-perturbation reduction (§6.4).
+- `#result-sector-persistence-template`: add a one-paragraph "Relationship to `#result-contraction-template`" Discussion note pointing to the generalization.
+- `#deriv-sector-condition`: extend the sub-scope partition to metric-α₁ / metric-α₂ / metric-β with cross-reference to `#result-contraction-template`. Extend the "What is derived vs chosen" table row on A2'.
+- `#der-gain-sector-bridge`: clean up the "Weighted-norm subtlety" — move matrix-Kalman's $(P^-)^{-1}$-weighting to the information-metric statement in `#result-contraction-template`, removing the $\kappa(P^-)$ degradation.
+- `#form-composition-closure`: add topology-indexed bridge-lemma results to the Tier-2-Tier-3 discussion; cross-reference Slotine 2003's compositional theorems.
+- `#deriv-critical-mass-composition`: add (CM2-M) heterogeneous generalization; note that (CM2) is the matched-symmetric specialization.
+- `#disc-separability-pattern`: promote A2'-scope from "binary special case" to a full seventh ladder (metric-α₁ / metric-α₂ / metric-β).
+- `#der-adversarial-destabilization`: add a note in Working Notes that contraction metrics cover the cooperative half; adversarial remains in game-theoretic territory (§6.2).
+- `#sketch-multi-timescale-stability`: add cross-reference to contraction-metric cascade composition as an alternative to singular-perturbation reduction (§6.4).
 
 ---
 
@@ -508,17 +508,17 @@ A new meta-segment `#contraction-template` at type:result, status:conditional (c
 
 4. **§4 compositional lift.** Slotine 2003's three composition theorems import directly into Section III as the topology-indexed bridge lemma and the heterogeneous critical-mass generalization (CM2-M). Strength: derived via theorem-import, conditional on Slotine's theorems being correctly stated (which they are — Slotine 2003 is standard).
 
-5. **§5 redrawn A2' partition.** metric-α₁ / metric-α₂ / metric-β as a proper three-tier scope partition, filling `#discussion-separability-pattern`'s "A2' is binary" gap. Strength: structural/derived from §§2–3.
+5. **§5 redrawn A2' partition.** metric-α₁ / metric-α₂ / metric-β as a proper three-tier scope partition, filling `#disc-separability-pattern`'s "A2' is binary" gap. Strength: structural/derived from §§2–3.
 
 6. **§6 honest failure modes.** Non-smooth (rule-based), adversarial (strategic equilibria), state-dependent-metric stochastic, multi-basin, identifiability-floor intersection. These are genuine barriers, not softening retreats.
 
 ### 8.2 What this spike does NOT achieve
 
-1. **Does not prove (CT2) from AAD-internal axioms.** (CT2) is a differential condition on $F$'s Jacobian; the B1 directional-fidelity axiom of `#gain-sector-bridge` is an integral (inner-product) condition. Bridging from B1 to (CT2) requires either (a) stronger B1 variants (Jacobian-level directional fidelity), or (b) relying on external-theorem-import for specific cases. The spike currently does (b); (a) is a candidate strengthening for follow-up work.
+1. **Does not prove (CT2) from AAD-internal axioms.** (CT2) is a differential condition on $F$'s Jacobian; the B1 directional-fidelity axiom of `#der-gain-sector-bridge` is an integral (inner-product) condition. Bridging from B1 to (CT2) requires either (a) stronger B1 variants (Jacobian-level directional fidelity), or (b) relying on external-theorem-import for specific cases. The spike currently does (b); (a) is a candidate strengthening for follow-up work.
 
-2. **Does not close adversarial composition** (§6.2). Contraction metrics cover cooperative multi-agent dynamics; adversarial dynamics need their own machinery. `#adversarial-destabilization`'s approach (coupling-amplified disturbance into the sector template) is the current AAD solution and remains the right tool for that regime.
+2. **Does not close adversarial composition** (§6.2). Contraction metrics cover cooperative multi-agent dynamics; adversarial dynamics need their own machinery. `#der-adversarial-destabilization`'s approach (coupling-amplified disturbance into the sector template) is the current AAD solution and remains the right tool for that regime.
 
-3. **Does not eliminate the incremental-sector-bound requirement for `#composition-closure`** when (CT2) is *not* in hand. `#composition-closure`'s DA2'-inc remains the condition for Tier 1/2/3 when the metric formulation is not used. The lift adds a *route* (via metric contraction), not a *replacement*.
+3. **Does not eliminate the incremental-sector-bound requirement for `#form-composition-closure`** when (CT2) is *not* in hand. `#form-composition-closure`'s DA2'-inc remains the condition for Tier 1/2/3 when the metric formulation is not used. The lift adds a *route* (via metric contraction), not a *replacement*.
 
 4. **Does not resolve metric-state coupling in adaptive-metric algorithms** (§6.4). The interaction with `msc/spike-adaptive-gain-dynamics.md`'s (MG-4) coupling-boundedness is consistent but not tightened.
 
@@ -538,7 +538,7 @@ A new meta-segment `#contraction-template` at type:result, status:conditional (c
 | Variational contraction is to *projected* target, not posterior | Derived | High (standard VI) |
 | Rule-based / severely-misspecified / human-judgment do not promote | Robust qualitative (negative result) | High |
 | Compositional theorems (parallel / cascade / negative-feedback) preserve contraction | Derived (theorem-import from Slotine 2003) | High |
-| Topology-indexed bridge lemma in `#composition-closure` | Derived, conditional on compositional theorems | Medium (requires cleaning up the specific lift) |
+| Topology-indexed bridge lemma in `#form-composition-closure` | Derived, conditional on compositional theorems | Medium (requires cleaning up the specific lift) |
 | (CM2-M) heterogeneous critical-mass | Derived, conditional on small-gain theorem | High for 2-agent; requires Slotine 2003 §IV for N-agent |
 | A2' three-tier partition metric-α₁ / metric-α₂ / metric-β | Robust qualitative | High (structural observation) |
 | Adversarial dynamics are structurally outside metric scope | Robust qualitative | High (game-theoretic argument) |
@@ -547,33 +547,33 @@ A new meta-segment `#contraction-template` at type:result, status:conditional (c
 
 **Net architectural move if R1 is adopted:**
 
-- `#sector-persistence-template`'s six instantiations remain exactly as-is (Euclidean formulation preserved); a new more-general template `#contraction-template` sits alongside as the metric-formulation generalization.
+- `#result-sector-persistence-template`'s six instantiations remain exactly as-is (Euclidean formulation preserved); a new more-general template `#result-contraction-template` sits alongside as the metric-formulation generalization.
 - Sub-scope α gains metric-α₂ (information-metric Kalman, Fisher-metric exp-family, Hessian-metric strongly-convex, Lyapunov-metric linear-Hurwitz, Lyapunov-metric PID-bounded-plant, basin-chart non-convex-within-basin). Roughly **doubles the derived-A2' class.**
 - Sub-scope β shrinks to the four cases where the metric formulation genuinely fails (variational, rule-based, severely-misspecified, human-judgment — all for distinct reasons named in §3).
-- `#composition-closure` gets topology-indexed closure (parallel / cascade / feedback / general) via Slotine 2003 import. Tier 1/2/3 becomes Tier 1M / 2M / 3M with sharper tier boundaries.
-- `#critical-mass-composition` (CM2) generalizes to (CM2-M) — heterogeneous sub-agents, not just matched-symmetric.
-- `#discussion-separability-pattern` gains a seventh ladder (A2'-scope), closing the binary-special-case gap flagged in its Discussion.
-- `#adversarial-destabilization` remains the canonical tool for adversarial regimes; contraction metrics do not compete, they complement.
+- `#form-composition-closure` gets topology-indexed closure (parallel / cascade / feedback / general) via Slotine 2003 import. Tier 1/2/3 becomes Tier 1M / 2M / 3M with sharper tier boundaries.
+- `#deriv-critical-mass-composition` (CM2) generalizes to (CM2-M) — heterogeneous sub-agents, not just matched-symmetric.
+- `#disc-separability-pattern` gains a seventh ladder (A2'-scope), closing the binary-special-case gap flagged in its Discussion.
+- `#der-adversarial-destabilization` remains the canonical tool for adversarial regimes; contraction metrics do not compete, they complement.
 
 This is **a substantive architectural move** that lifts Section III's coverage from "linear-Kalman-centric with Tier 2/3 caveats" to "broadly-nonlinear-cooperative-via-Slotine-compositional-theorems with named honest failure modes." The Gemini gap is **substantially addressed** for the cooperative half of Section III; the adversarial half remains outside the metric framework by structural necessity, not by oversight.
 
 ### 8.5 Overall verdict
 
-The contraction-metric generalization **works and is worth promoting** via R1. It is not a replacement for `#sector-persistence-template` — it is a generalization that preserves the existing template as its $M = I$ specialization. Its gains are concrete (removal of condition-number degradations, PID-derivation, heterogeneous-composition closure), and its failure modes are honest (non-smooth, adversarial, multi-basin — each for named structural reasons).
+The contraction-metric generalization **works and is worth promoting** via R1. It is not a replacement for `#result-sector-persistence-template` — it is a generalization that preserves the existing template as its $M = I$ specialization. Its gains are concrete (removal of condition-number degradations, PID-derivation, heterogeneous-composition closure), and its failure modes are honest (non-smooth, adversarial, multi-basin — each for named structural reasons).
 
-The spike's strongest claim is the **compositional lift** (§4) — Slotine 2003's three composition theorems give `#composition-closure` a topology-indexed closure result that the weakest-link bound (WL) and matched-symmetric (CM2) cannot match. This alone justifies promotion.
+The spike's strongest claim is the **compositional lift** (§4) — Slotine 2003's three composition theorems give `#form-composition-closure` a topology-indexed closure result that the weakest-link bound (WL) and matched-symmetric (CM2) cannot match. This alone justifies promotion.
 
-The spike's most honest retreat is **adversarial composition** (§6.2) — contraction metrics cover the cooperative half of Section III and no more. `#adversarial-destabilization`'s coupling-amplified-disturbance approach remains the adversarial-regime tool, and the metric-framework does not — cannot, in a structural sense — displace it.
+The spike's most honest retreat is **adversarial composition** (§6.2) — contraction metrics cover the cooperative half of Section III and no more. `#der-adversarial-destabilization`'s coupling-amplified-disturbance approach remains the adversarial-regime tool, and the metric-framework does not — cannot, in a structural sense — displace it.
 
-The metric formulation does **not** resolve `#discussion-identifiability-floor` instances, does **not** eliminate the need for basin-level analysis in non-convex cases, and does **not** make adaptive-metric algorithms clean. These are all honest limits that align with existing `#discussion-separability-pattern` and `#discussion-identifiability-floor` positioning.
+The metric formulation does **not** resolve `#disc-identifiability-floor` instances, does **not** eliminate the need for basin-level analysis in non-convex cases, and does **not** make adaptive-metric algorithms clean. These are all honest limits that align with existing `#disc-separability-pattern` and `#disc-identifiability-floor` positioning.
 
 ---
 
 ## §9. Open questions after this spike
 
-1. **Jacobian-level B1.** Can AAD's directional fidelity B1 (`#gain-sector-bridge`) be strengthened to a Jacobian-level condition that implies (CT2) directly, rather than requiring theorem-import for each case? This would make metric-α₂ derivation AAD-internal rather than via external-theorem dependency.
+1. **Jacobian-level B1.** Can AAD's directional fidelity B1 (`#der-gain-sector-bridge`) be strengthened to a Jacobian-level condition that implies (CT2) directly, rather than requiring theorem-import for each case? This would make metric-α₂ derivation AAD-internal rather than via external-theorem dependency.
 
-2. **General-graph composition.** Slotine 2003 §IV's virtual-system technique covers general directed graphs under a small-gain-along-every-cycle condition. Operationalizing this for `#composition-closure`'s general multi-agent setting — including identifying which cycle-gains to measure in practice — is a follow-up derivation.
+2. **General-graph composition.** Slotine 2003 §IV's virtual-system technique covers general directed graphs under a small-gain-along-every-cycle condition. Operationalizing this for `#form-composition-closure`'s general multi-agent setting — including identifying which cycle-gains to measure in practice — is a follow-up derivation.
 
 3. **Adaptive-metric coupling.** The `msc/spike-adaptive-gain-dynamics.md` (MG-1)–(MG-4) framework treats gain adaptation as a meta-state. Under the metric formulation, adapting $M$ itself is a meta-metric problem. Can (MG-2) — the meta-gain sector condition — be restated as a meta-metric contraction condition? This is Opus's "learning the metric" question.
 
@@ -581,7 +581,7 @@ The metric formulation does **not** resolve `#discussion-identifiability-floor` 
 
 5. **Connection to information geometry.** The Fisher-metric contraction for exp-family (G1) is a specific case of Riemannian contraction on statistical manifolds (Amari-Nagaoka 2000). Amari's α-connections give a one-parameter family of connections; each induces a different contraction metric. Is there an AAD-specific choice (e.g., the e-connection or m-connection) that is canonical? This is an interesting but non-critical question — the Fisher metric is the canonical Riemannian one, and other connections are compatible with it.
 
-6. **Convergence-rate refinement.** `msc/spike-critical-mass-composition.md`'s §Open items include rate-specific results. Contraction-metric formulation gives rate $\lambda$ directly; integrating with `#critical-mass-composition`'s convergence-rate open item may tighten both. Follow-up.
+6. **Convergence-rate refinement.** `msc/spike-critical-mass-composition.md`'s §Open items include rate-specific results. Contraction-metric formulation gives rate $\lambda$ directly; integrating with `#deriv-critical-mass-composition`'s convergence-rate open item may tighten both. Follow-up.
 
 ---
 
@@ -608,7 +608,7 @@ The metric formulation does **not** resolve `#discussion-identifiability-floor` 
 - Sontag, E. D. (1989). "Smooth stabilization implies coprime factorization." *IEEE Trans. Automatic Control* 34:435–443.
 
 **AAD segments referenced:**
-- `#sector-persistence-template`, `#sector-condition-derivation`, `#gain-sector-bridge`, `#composition-closure`, `#critical-mass-composition`, `#discussion-separability-pattern`, `#discussion-identifiability-floor`, `#adversarial-destabilization`, `#multi-timescale-stability`, `#structural-adaptation-necessity`, `#discrete-sector-condition`.
+- `#result-sector-persistence-template`, `#deriv-sector-condition`, `#der-gain-sector-bridge`, `#form-composition-closure`, `#deriv-critical-mass-composition`, `#disc-separability-pattern`, `#disc-identifiability-floor`, `#der-adversarial-destabilization`, `#sketch-multi-timescale-stability`, `#result-structural-adaptation-necessity`, `#deriv-discrete-sector-condition`.
 
 **AAD spike trail:**
 - `msc/spike-bridge-lemma-contraction.md` (2026-04-06) — DA2'-inc and Tier 1/2/3.

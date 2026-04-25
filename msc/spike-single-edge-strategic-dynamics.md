@@ -1,12 +1,12 @@
 # Spike: Sector Condition Verification for Single-Edge Strategic Dynamics
 
-**Status**: Spike (investigatory). Attempts to instantiate the strategy-persistence-schema (#strategy-persistence-schema) for the simplest possible case.
+**Status**: Spike (investigatory). Attempts to instantiate the strategy-persistence-schema (#schema-strategy-persistence) for the simplest possible case.
 
 **Date**: 2026-04-01
 
-**Objective**: Verify whether the Beta-Bernoulli edge-credence update satisfies the sector condition from #sector-condition-derivation, thereby closing the gap between the proposed schema and a genuine result for the one-edge case.
+**Objective**: Verify whether the Beta-Bernoulli edge-credence update satisfies the sector condition from #deriv-sector-condition, thereby closing the gap between the proposed schema and a genuine result for the one-edge case.
 
-**Depends on**: #strategy-persistence-schema, #edge-update-via-gain, #sector-condition-derivation, #sector-condition-stability, #persistence-condition, #update-gain
+**Depends on**: #schema-strategy-persistence, #hyp-edge-update-via-gain, #deriv-sector-condition, #result-sector-condition-stability, #result-persistence-condition, #emp-update-gain
 
 ---
 
@@ -30,7 +30,7 @@ $$\hat{p}_{\text{new}} = \frac{\alpha_c + y}{n + 1}$$
 
 ## 2. Mapping to AAD Quantities
 
-The sector-condition framework (#sector-condition-derivation) requires:
+The sector-condition framework (#deriv-sector-condition) requires:
 
 1. A **mismatch state** $\delta$
 2. A **correction function** $F$ such that $\delta^T F \geq \alpha \|\delta\|^2$
@@ -62,7 +62,7 @@ So the single-step update is:
 
 $$\Delta \hat{p} = \frac{1}{n+1}(y - \hat{p})$$
 
-This matches the gain-based form from #edge-update-via-gain:
+This matches the gain-based form from #hyp-edge-update-via-gain:
 
 $$\hat{p}_{\text{new}} = \hat{p} + \eta_{\text{edge}} \cdot (\text{signal} - \hat{p})$$
 
@@ -110,7 +110,7 @@ where $|w_t| \leq \rho_\Sigma$.
 
 $$\eta_{\text{edge}} = \frac{1}{n + 1} = \frac{1}{\alpha_c + \beta_c + 1}$$
 
-This is a decreasing function of experience. A fresh agent ($n$ small) has high gain; an experienced agent ($n$ large) has low gain. This is the Beta-Bernoulli special case of the uncertainty-ratio principle (#update-gain): $\eta^* = U_M / (U_M + U_o)$, where:
+This is a decreasing function of experience. A fresh agent ($n$ small) has high gain; an experienced agent ($n$ large) has low gain. This is the Beta-Bernoulli special case of the uncertainty-ratio principle (#emp-update-gain): $\eta^* = U_M / (U_M + U_o)$, where:
 
 - $U_M = \text{Var}[\text{Beta}(\alpha_c, \beta_c)] = \alpha_c \beta_c / (n^2(n+1))$
 - $U_o$ is the observation noise (for Bernoulli outcomes, the inherent variance $\theta(1-\theta)$)
@@ -121,7 +121,7 @@ In the Bernoulli case, the exact Bayesian posterior update gives $\eta_{\text{ed
 
 ## 3. Sector Condition Verification
 
-**This is the key mathematical step.** We need to verify (SA2') from #sector-condition-derivation:
+**This is the key mathematical step.** We need to verify (SA2') from #deriv-sector-condition:
 
 $$\delta_\Sigma \cdot F_\Sigma(\delta_\Sigma) \geq \alpha_\Sigma \cdot \delta_\Sigma^2 \quad \text{for } |\delta_\Sigma| \leq R_\Sigma$$
 
@@ -250,7 +250,7 @@ Now suppose $\theta$ changes over time at rate $|\dot{\theta}| \leq \rho_\Sigma$
 
 $$\Delta\delta_\Sigma = -\frac{\delta_\Sigma}{n+1} + \frac{y - \theta}{n+1} + w_t, \qquad |w_t| \leq \rho_\Sigma$$
 
-The expected Lyapunov derivative with disturbance (using the deterministic bound, following #sector-condition-derivation):
+The expected Lyapunov derivative with disturbance (using the deterministic bound, following #deriv-sector-condition):
 
 $$\mathbb{E}[\Delta V] \leq -\frac{\delta_\Sigma^2}{n+1} + |\delta_\Sigma| \cdot \rho_\Sigma + \frac{\theta(1-\theta)}{2(n+1)^2}$$
 
@@ -292,7 +292,7 @@ Specifically:
 - **Experienced agent** ($n$ large): low gain, stable estimates, but sluggish to track drift
 - **Critical transition**: when $n$ exceeds $R_\Sigma / \rho_\Sigma - 1$, the agent's credence error exceeds the tolerable bound
 
-**This is the gain-collapse phenomenon** identified in #update-gain, now given precise quantitative form for the single-edge case. The gain decreases as $1/(n+1)$; the disturbance $\rho_\Sigma$ is constant; eventually the gain falls below the threshold.
+**This is the gain-collapse phenomenon** identified in #emp-update-gain, now given precise quantitative form for the single-edge case. The gain decreases as $1/(n+1)$; the disturbance $\rho_\Sigma$ is constant; eventually the gain falls below the threshold.
 
 ### 4.4 Connection to Adaptive Reserve
 
@@ -328,7 +328,7 @@ $$(1 - \lambda) > \frac{\rho_\Sigma}{R_\Sigma} \quad \iff \quad \lambda < 1 - \f
 
 **Interpretation.** The forgetting rate $(1 - \lambda)$ must exceed the disturbance-to-reserve ratio. More forgetting means faster tracking but noisier estimates; less forgetting means stable estimates but slower tracking. The optimal $\lambda$ balances these — this is the bias-variance tradeoff for a non-stationary single-edge strategy.
 
-**Connection to AAD.** This is the strategic analog of the gain-reset mechanism described in #update-gain: "An agent whose gain does NOT reset after structural change will continue trusting a stale model." In the single-edge case, continuous discounting replaces discrete reset, but the principle is the same — the agent must maintain sufficient update capacity to track a changing environment.
+**Connection to AAD.** This is the strategic analog of the gain-reset mechanism described in #emp-update-gain: "An agent whose gain does NOT reset after structural change will continue trusting a stale model." In the single-edge case, continuous discounting replaces discrete reset, but the principle is the same — the agent must maintain sufficient update capacity to track a changing environment.
 
 ---
 
@@ -359,9 +359,9 @@ $$(1 - \lambda) > \frac{\rho_\Sigma}{R_\Sigma} \quad \iff \quad \lambda < 1 - \f
 
 1. **The sector condition is satisfiable for strategic dynamics.** The Beta-Bernoulli correction function satisfies (SA2') globally, not just locally. This is the simplest possible case, but it closes the gap between "proposed schema" and "verified for at least one instance."
 
-2. **The persistence condition has the right form.** $\alpha_\Sigma > \rho_\Sigma / R_\Sigma$ matches #persistence-condition exactly, with $\alpha_\Sigma = \eta_{\text{edge}}$. The structural parallel between epistemic and strategic persistence is not an analogy — it is a mathematical identity at the level of the sector framework.
+2. **The persistence condition has the right form.** $\alpha_\Sigma > \rho_\Sigma / R_\Sigma$ matches #result-persistence-condition exactly, with $\alpha_\Sigma = \eta_{\text{edge}}$. The structural parallel between epistemic and strategic persistence is not an analogy — it is a mathematical identity at the level of the sector framework.
 
-3. **Gain collapse is the dominant failure mode.** For drifting environments, the decreasing gain $1/(n+1)$ eventually violates persistence. This gives the gain-collapse phenomenon (#update-gain) a precise threshold: $n^* = R_\Sigma/\rho_\Sigma - 1$.
+3. **Gain collapse is the dominant failure mode.** For drifting environments, the decreasing gain $1/(n+1)$ eventually violates persistence. This gives the gain-collapse phenomenon (#emp-update-gain) a precise threshold: $n^* = R_\Sigma/\rho_\Sigma - 1$.
 
 4. **Experience discounting resolves the failure mode.** Exponential forgetting stabilizes the gain at $1-\lambda$, with a clean persistence condition on $\lambda$.
 
@@ -375,7 +375,7 @@ $$(1 - \lambda) > \frac{\rho_\Sigma}{R_\Sigma} \quad \iff \quad \lambda < 1 - \f
 
 4. **Time-varying $n$.** In the standard Beta model, $n$ increases with each observation, so $\alpha_\Sigma$ is not constant — it decreases over time. The sector-condition framework assumes constant $\alpha$. We treated $\alpha_\Sigma = 1/(n+1)$ at the current experience level, which gives an instantaneous persistence check but not a trajectory guarantee. For the discounted model ($n_{\text{eff}}$ stabilized), the constant-$\alpha$ assumption is approximately satisfied.
 
-5. **Connection to $\delta_{\text{strategic}}$ from #strategic-calibration.** The calibration residual is defined in terms of value increments ($\Delta V_O$), not raw credence errors. The mismatch $\hat{p} - \theta$ used here is a special case where value is proportional to edge reliability. For complex strategies, the mapping from credence errors to value-increment residuals involves the DAG structure and the value function's sensitivity to each edge — a potentially nonlinear transformation.
+5. **Connection to $\delta_{\text{strategic}}$ from #def-strategic-calibration.** The calibration residual is defined in terms of value increments ($\Delta V_O$), not raw credence errors. The mismatch $\hat{p} - \theta$ used here is a special case where value is proportional to edge reliability. For complex strategies, the mapping from credence errors to value-increment residuals involves the DAG structure and the value function's sensitivity to each edge — a potentially nonlinear transformation.
 
 6. **The $R_\Sigma$ parameter.** "Maximum tolerable credence error" is defined here by fiat. A proper derivation would connect it to the agent's decision problem: how wrong can $\hat{p}$ be before the agent makes a suboptimal decision? For a single action $A$ with an alternative idle action, this becomes: at what credence error does the agent switch from "do $A$" to "don't do $A$" (or vice versa) when it shouldn't? This depends on the costs and payoffs, not just the edge credence — a richer model than the pure dynamics treated here.
 
@@ -395,7 +395,7 @@ To promote the strategy-persistence-schema from "proposed schema" to a segment a
 
 3. **Extend to two edges.** The minimal multi-edge case: one intermediate node $B$ between $A$ and $G$, with edges $A \to B$ and $B \to G$. This introduces edge correlation (observing $G$ success is evidence about both edges), the credit-assignment problem, and the DAG structure. If the sector condition holds for this case with appropriate vector analysis, it strongly motivates the general multi-edge result.
 
-4. **Connect $\delta_\Sigma$ to $\delta_{\text{strategic}}$.** Show that the calibration residual from #strategic-calibration reduces to $|\hat{p} - \theta|$ in the single-edge case, establishing the formal bridge between the concrete mismatch used here and the general strategic mismatch defined in the theory.
+4. **Connect $\delta_\Sigma$ to $\delta_{\text{strategic}}$.** Show that the calibration residual from #def-strategic-calibration reduces to $|\hat{p} - \theta|$ in the single-edge case, establishing the formal bridge between the concrete mismatch used here and the general strategic mismatch defined in the theory.
 
 5. **Stochastic Lyapunov formalization.** Replace the expected-value sector condition with a proper stochastic Lyapunov argument (supermartingale or Foster-Lyapunov). This would give almost-sure or in-probability bounds rather than expected-value bounds, and would properly account for the observation-noise contribution to steady-state mismatch.
 

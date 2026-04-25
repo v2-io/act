@@ -62,7 +62,7 @@ Keep as intuition pump. Don't lean on it for formal results.
 The idea of primary/sentinel/strategic loops is plausible as an engineering description of how complex agents work. But it's not clear whether this is:
 - A genuine theoretical contribution (something derivable from AAD's existing principles)
 - An engineering pattern (a good design, but not load-bearing for the theory)
-- Already captured by the temporal nesting claim (#temporal-nesting)
+- Already captured by the temporal nesting claim (#der-temporal-nesting)
 
 The "sentinel CIY" concept is interesting but thin. It might collapse into the existing exploration/exploitation tradeoff (sentinel actions are just a specific kind of exploration — exploring the assumption that unmonitored regions are stable).
 

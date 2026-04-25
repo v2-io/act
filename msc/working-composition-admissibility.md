@@ -146,7 +146,7 @@ with finite $\alpha_c > 0$ and $R_c > 0$.
 
 **The circularity-breaking insight**: if each sub-agent satisfies its own sector condition (which it does, by the persistence framework), and the coordination structure doesn't destroy stability (bounded coordination overhead), then the composite should satisfy a composite sector condition. The $\alpha_c$ and $R_c$ of the composite are determined by the sub-agents' individual parameters plus coordination quality.
 
-This connects directly to #team-persistence, which already derives the composite persistence condition from individual conditions plus coordination. If team-persistence is correct, the sector condition at the composite level follows.
+This connects directly to #der-team-persistence, which already derives the composite persistence condition from individual conditions plus coordination. If team-persistence is correct, the sector condition at the composite level follows.
 
 ### 3.2 Direction: RG-Fixed-Point Approach
 
@@ -220,7 +220,7 @@ with $\alpha_c > 0$ (positive correction rate) and $R_c > 0$ (finite reserve).
 
 ### 4.3 What's NOT required
 
-Directed separation is NOT required by $\mathcal{M}_{adm}$. It's an additional structural property that some composites have (Case 1 from #directed-separation-under-composition) and others don't (Case 2). Results that depend on directed separation declare it as an additional assumption.
+Directed separation is NOT required by $\mathcal{M}_{adm}$. It's an additional structural property that some composites have (Case 1 from #hyp-directed-separation-under-composition) and others don't (Case 2). Results that depend on directed separation declare it as an additional assumption.
 
 Strategy structure (DAG) is NOT required. The macro-agent may have $G_c = (O_c, \Sigma_c)$ with a full strategy DAG, or $G_c$ may be a simpler goal representation. Strategy-dependent results assume strategy structure.
 
@@ -274,7 +274,7 @@ $$e_t = X_{c,t} - \tilde{X}_{c,t}$$
 
 The per-step closure defect provides: starting from $X_{c,t} = \tilde{X}_{c,t}$ (no accumulated error), one step of macro-dynamics introduces error at most $\varepsilon_x$.
 
-**Key observation.** The trajectory error $e_t$ evolves under the SAME dynamical system that governs mismatch — the macro-correction function acts to reduce divergence, while the closure defect acts as a persistent perturbation. This is structurally identical to Prop A.1 (bounded mismatch) from #sector-condition-derivation, with:
+**Key observation.** The trajectory error $e_t$ evolves under the SAME dynamical system that governs mismatch — the macro-correction function acts to reduce divergence, while the closure defect acts as a persistent perturbation. This is structurally identical to Prop A.1 (bounded mismatch) from #deriv-sector-condition, with:
 
 | Mismatch problem (A.1) | Bridge problem |
 |---|---|
@@ -299,10 +299,10 @@ $$\lVert e_t \rVert \leq \frac{\varepsilon^\ast}{\alpha_c} \quad \text{(ultimate
 
 The condition for the bridge to hold: $\varepsilon^\ast < \alpha_c R_c$. That is: the closure defect must be within the macro-agent's adaptive reserve. If the closure defect exceeds the reserve, the macro-description diverges from the micro-reality — the composite "isn't really a single agent" in a precise dynamical sense.
 
-**Epistemic status update:** The continuous-time sketch above has been superseded by a discrete-time derivation in `01-aad-core/src/composition-closure.md`. The discrete version uses a standard linear recurrence ($\lVert e_{t+1} \rVert \leq \lambda \lVert e_t \rVert + \varepsilon_x$) with contraction factor $\lambda = 1 - \alpha_c / \nu_c$, giving the bound $\varepsilon_x \nu_c / \alpha_c$. The remaining assumption: the sector condition on the correction function implies contraction of the full update map in its state argument. This holds when correction dominates the state update — the normal regime for adaptive agents, excluding structural adaptation events.
+**Epistemic status update:** The continuous-time sketch above has been superseded by a discrete-time derivation in `01-aad-core/src/form-composition-closure.md`. The discrete version uses a standard linear recurrence ($\lVert e_{t+1} \rVert \leq \lambda \lVert e_t \rVert + \varepsilon_x$) with contraction factor $\lambda = 1 - \alpha_c / \nu_c$, giving the bound $\varepsilon_x \nu_c / \alpha_c$. The remaining assumption: the sector condition on the correction function implies contraction of the full update map in its state argument. This holds when correction dominates the state update — the normal regime for adaptive agents, excluding structural adaptation events.
 
 **What this buys.** If correct, (A4) simultaneously ensures:
-1. Macro-agent persistence (the standard result from #sector-condition-stability)
+1. Macro-agent persistence (the standard result from #result-sector-condition-stability)
 2. Bounded trajectory divergence from micro-reality (the bridge lemma)
 3. The trajectory bound $\varepsilon^\ast / \alpha_c$ is interpretable: it's the ratio of closure defect to correction efficiency, the same structure as $\rho / \alpha$ for mismatch
 
@@ -328,7 +328,7 @@ So: $\alpha_c = \min_i \alpha_i$, $R_c = \min_i R_i$. The composite sector condi
 
 **Case 2: Cooperative coupling (from team-persistence).**
 
-Each agent receives cooperative corrections from allies. From #team-persistence's disturbance decomposition:
+Each agent receives cooperative corrections from allies. From #der-team-persistence's disturbance decomposition:
 
 $$\rho_i^{\text{eff}} = \rho_{i,\text{env}} - \sum_{j \in \mathcal{C}_i} \gamma_{j \to i}^{\text{coop}} \mathcal{T}_j$$
 
@@ -352,7 +352,7 @@ $$\Delta\alpha_c = \min_i \left(\alpha_i - \frac{\rho_i^{\text{eff}}}{R_i}\right
 
 **Case 3: Coordination overhead.**
 
-Coordination costs reduce each agent's effective correction rate. If agent $i$ spends $\Delta\mathcal{T}_i^{\text{cost}}$ of its tempo on coordination (from #team-persistence), its effective correction rate decreases:
+Coordination costs reduce each agent's effective correction rate. If agent $i$ spends $\Delta\mathcal{T}_i^{\text{cost}}$ of its tempo on coordination (from #der-team-persistence), its effective correction rate decreases:
 
 $$\alpha_i^{\text{eff}} = \alpha_i - \Delta\mathcal{T}_i^{\text{cost}}$$
 

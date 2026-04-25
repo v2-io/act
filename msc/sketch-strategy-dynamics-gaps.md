@@ -18,11 +18,11 @@ Gap 1 is foundational — the others depend on edge updates working. Gaps 2 and 
 
 ### The tension
 
-Strategy edges carry causal semantics: $p_{ij} = \text{Cr}(j \text{ advances} \mid do(i), M_t)$ — an interventional quantity (#strategy-dag). But the update mechanism (#edge-update-via-gain) uses observational data: "I completed step $i$, then observed whether $j$ advanced." The question: when does this observational evidence validly update an interventional credence?
+Strategy edges carry causal semantics: $p_{ij} = \text{Cr}(j \text{ advances} \mid do(i), M_t)$ — an interventional quantity (#def-strategy-dag). But the update mechanism (#hyp-edge-update-via-gain) uses observational data: "I completed step $i$, then observed whether $j$ advanced." The question: when does this observational evidence validly update an interventional credence?
 
 ### Why this isn't as bad as it sounds
 
-The feedback loop provides Level 2 causal access *by construction* (#loop-interventional-access). When the agent executes step $i$, it is *intervening* — it is performing $do(i)$, not merely observing $i$. So the observation "I did $i$, then $j$ happened" is quasi-interventional data, not pure observational data.
+The feedback loop provides Level 2 causal access *by construction* (#der-loop-interventional-access). When the agent executes step $i$, it is *intervening* — it is performing $do(i)$, not merely observing $i$. So the observation "I did $i$, then $j$ happened" is quasi-interventional data, not pure observational data.
 
 The agent's own actions are genuine interventions in Pearl's sense: they break the causal arrows into the action node (the agent chose the action based on its strategy, not because the environment forced it). This is exactly the distinction between $P(j \mid i)$ (observational) and $P(j \mid do(i))$ (interventional).
 
@@ -34,13 +34,13 @@ Edge updates from observational data yield valid causal credence updates when al
 
 **(C1) The agent intervened on the parent node.** The agent actively executed step $i$ (rather than passively observing $i$ succeed through other causes). This is satisfied whenever the agent follows its own strategy — the very act of executing the plan generates interventional data about the plan's edges.
 
-**(C2) The outcome is attributable.** The agent can distinguish "did $j$ advance because of my $do(i)$, or for other reasons?" This is the credit-assignment problem identified in #strategic-calibration. It is trivially satisfied for single-parent nodes (only one possible cause) and for well-isolated interventions (the agent controls for confounders by not doing other things simultaneously). It is violated when multiple edges converge on a single node and fire concurrently.
+**(C2) The outcome is attributable.** The agent can distinguish "did $j$ advance because of my $do(i)$, or for other reasons?" This is the credit-assignment problem identified in #def-strategic-calibration. It is trivially satisfied for single-parent nodes (only one possible cause) and for well-isolated interventions (the agent controls for confounders by not doing other things simultaneously). It is violated when multiple edges converge on a single node and fire concurrently.
 
 **(C3) No unmeasured confounding between the execution decision and the outcome measurement.** If the agent chose to execute $i$ precisely because conditions were favorable for $j$ succeeding (self-selection), the observed success rate $P(j \mid \text{did } i)$ overestimates $P(j \mid do(i))$. This is a standard selection-bias concern. It is mitigated when the agent varies its execution conditions (different contexts, different orderings) rather than always executing under favorable conditions.
 
 ### The three regimes
 
-These conditions map directly onto the CIY admissibility regimes (#causal-information-yield):
+These conditions map directly onto the CIY admissibility regimes (#def-causal-information-yield):
 
 | Regime | C1 | C2 | C3 | Causal validity |
 |--------|----|----|----|----|
@@ -54,7 +54,7 @@ For Regime B, a practical correction: the agent should discount the update gain 
 
 $$\eta_{\text{edge}}^{\text{adjusted}} = \eta_{\text{edge}} \cdot \iota_{ij}$$
 
-where $\iota_{ij} \in [0, 1]$ is an **identifiability coefficient** — the agent's confidence that the observed outcome is attributable to edge $(i, j)$ specifically. When $\iota_{ij} = 1$ (clean attribution), the full gain applies. When $\iota_{ij} = 0$ (no attribution possible), the edge is effectively unobservable — converging with the #observability-dominance result.
+where $\iota_{ij} \in [0, 1]$ is an **identifiability coefficient** — the agent's confidence that the observed outcome is attributable to edge $(i, j)$ specifically. When $\iota_{ij} = 1$ (clean attribution), the full gain applies. When $\iota_{ij} = 0$ (no attribution possible), the edge is effectively unobservable — converging with the #der-observability-dominance result.
 
 This unifies two sources of "frozen edges": low observability of the *outcome* ($\sigma_v \approx 0$, the node's success is hard to measure) and low identifiability of the *cause* ($\iota_{ij} \approx 0$, the outcome can't be attributed to this edge). Both drive $\eta_{\text{edge}} \to 0$.
 
@@ -65,17 +65,17 @@ The gap resolves as a **scope condition with graduated validity**, not a binary 
 - Biased but useful under C1 alone (Regime B agents, with identifiability discount)
 - Causally uninformative without C1 (Regime C, passive observation)
 
-The working notes in #edge-update-via-gain already flag the signal function as the critical missing piece. This sketch proposes that the identifiability coefficient $\iota_{ij}$ is a key component of that signal function.
+The working notes in #hyp-edge-update-via-gain already flag the signal function as the critical missing piece. This sketch proposes that the identifiability coefficient $\iota_{ij}$ is a key component of that signal function.
 
 ### Epistemic status
 
-The three-regime classification: **robust qualitative** — it follows from standard causal inference (intervention vs observation, confounding, attribution). The identifiability coefficient $\iota_{ij}$: **hypothesis** — the idea is sound but the specific functional form is unspecified. The claim that the feedback loop provides Level 2 access for strategy edges (not just $M_t$ updates): **derived** from #loop-interventional-access, but this extension hasn't been verified independently.
+The three-regime classification: **robust qualitative** — it follows from standard causal inference (intervention vs observation, confounding, attribution). The identifiability coefficient $\iota_{ij}$: **hypothesis** — the idea is sound but the specific functional form is unspecified. The claim that the feedback loop provides Level 2 access for strategy edges (not just $M_t$ updates): **derived** from #der-loop-interventional-access, but this extension hasn't been verified independently.
 
 ### Open questions
 
-1. Does the interaction between $M_t$ updates and edge updates (flagged in #edge-update-via-gain's working notes) create a statistical dependency that biases edge credences? The orient cascade processes $M_t$ first, then edges — but both use the same observation.
+1. Does the interaction between $M_t$ updates and edge updates (flagged in #hyp-edge-update-via-gain's working notes) create a statistical dependency that biases edge credences? The orient cascade processes $M_t$ first, then edges — but both use the same observation.
 2. Can the identifiability coefficient be estimated online, or must it be set a priori? In software (run isolated tests), $\iota$ is nearly 1 by construction. In organizations, estimating $\iota$ may require explicit causal modeling of the multi-agent environment.
-3. Time-varying edge reliability: the Beta-Bernoulli model assumes i.i.d. outcomes, but real edges drift. A forgetting mechanism (exponential discounting of old observations, as noted in #edge-update-via-gain's working notes) would connect edge updates to the mismatch dynamics framework.
+3. Time-varying edge reliability: the Beta-Bernoulli model assumes i.i.d. outcomes, but real edges drift. A forgetting mechanism (exponential discounting of old observations, as noted in #hyp-edge-update-via-gain's working notes) would connect edge updates to the mismatch dynamics framework.
 
 ---
 
@@ -83,7 +83,7 @@ The three-regime classification: **robust qualitative** — it follows from stan
 
 ### The parallel with $M_t$
 
-For $M_t$, the information bottleneck (#information-bottleneck) formalizes the compression-prediction tradeoff:
+For $M_t$, the information bottleneck (#form-information-bottleneck) formalizes the compression-prediction tradeoff:
 
 $$\phi^* = \arg\min_\phi [I(M_t; \mathcal{C}_t) - \beta \cdot I(M_t; o_{t+1:\infty} \mid a_{t:\infty})]$$
 
@@ -108,7 +108,7 @@ The representational cost of a strategy DAG scales with:
 
 1. **Graph size**: $|V| + |E|$ — more nodes and edges consume more capacity.
 2. **Monitoring burden**: Each edge with $\iota_{ij} > 0$ requires the agent to track outcomes and compute updates. More monitorable edges = more ongoing cognitive cost.
-3. **Maintenance frequency**: From #structural-change-as-parametric-limit, the six operations (reweight, reclassify, prune, graft, revise terminals, full restructure) each have costs. A strategy in a volatile domain requires more frequent maintenance.
+3. **Maintenance frequency**: From #form-structural-change-as-parametric-limit, the six operations (reweight, reclassify, prune, graft, revise terminals, full restructure) each have costs. A strategy in a volatile domain requires more frequent maintenance.
 
 The first-order approximation: $C_{\text{rep}} \propto |V| + |E|$ plus a maintenance term proportional to the number of active (non-frozen) edges times the environment's strategic volatility $\rho_\Sigma$.
 
@@ -119,11 +119,11 @@ The $\beta_\Sigma$ parameter mirrors the $\beta$ in the $M_t$ IB objective:
 - **High strategic volatility** ($\rho_\Sigma$ large — requirements change often, adversary acts frequently, the causal landscape shifts): favor simple strategies. Complex strategies can't be maintained; they become incoherent faster than they can be revised. This is the "move fast and break things" regime.
 - **Low strategic volatility** ($\rho_\Sigma$ small — stable requirements, predictable environment): favor rich strategies. The investment in detailed planning pays off because the plan stays valid.
 
-This provides the principled answer to "how detailed should my plan be?" that #explicit-strategy-condition's working notes identify: **maintain a strategy just complex enough that $C_{\text{rep}}$ stays below the value improvement $\Delta V$, given the environment's strategic volatility.**
+This provides the principled answer to "how detailed should my plan be?" that #norm-explicit-strategy-condition's working notes identify: **maintain a strategy just complex enough that $C_{\text{rep}}$ stays below the value improvement $\Delta V$, given the environment's strategic volatility.**
 
 ### Connection to pruning thresholds
 
-From #structural-change-as-parametric-limit: when should the agent prune (remove an edge with very low credence)? The IB framework gives the answer: prune when the edge's marginal contribution to $\Delta V$ falls below its marginal representational cost. For agents with hard capacity constraints (LLM context windows), this becomes: prune the lowest-value edges until $\Sigma_t$ fits within capacity.
+From #form-structural-change-as-parametric-limit: when should the agent prune (remove an edge with very low credence)? The IB framework gives the answer: prune when the edge's marginal contribution to $\Delta V$ falls below its marginal representational cost. For agents with hard capacity constraints (LLM context windows), this becomes: prune the lowest-value edges until $\Sigma_t$ fits within capacity.
 
 ### MDL alternative framing
 
@@ -178,7 +178,7 @@ This is a derivable inequality, not an assumption. The orient cascade forces it.
 
 ### Timescale decomposition
 
-From #structural-change-as-parametric-limit, strategy operations have a natural timescale ordering:
+From #form-structural-change-as-parametric-limit, strategy operations have a natural timescale ordering:
 
 | Operation | Characteristic rate | What limits it |
 |-----------|-------------------|----------------|
@@ -192,7 +192,7 @@ The overall strategic tempo is dominated by the fastest operation (reweighting),
 
 ### Strategic tempo and the persistence schema
 
-#strategy-persistence-schema proposes: $\alpha_\Sigma > \rho_\Sigma / R_\Sigma$ for strategy persistence. The strategic correction rate $\alpha_\Sigma$ is essentially the strategic tempo — the rate at which the agent corrects strategic mismatch.
+#schema-strategy-persistence proposes: $\alpha_\Sigma > \rho_\Sigma / R_\Sigma$ for strategy persistence. The strategic correction rate $\alpha_\Sigma$ is essentially the strategic tempo — the rate at which the agent corrects strategic mismatch.
 
 This gives a precise meaning to the claim: **strategy persists when strategic tempo exceeds the ratio of strategic disturbance to strategic reserve.**
 
@@ -229,7 +229,7 @@ Strategic tempo as gated by epistemic tempo: **derived** from the orient cascade
 
 ### From two-way to three-way
 
-Section I's unified policy objective (#causal-information-yield) balances two modes:
+Section I's unified policy objective (#def-causal-information-yield) balances two modes:
 
 $$\pi^* = \arg\max_a [\mathbb{E}[\text{value}(a) \mid M_t] + \lambda(M_t) \cdot \text{CIY}(a; M_t)]$$
 
@@ -246,7 +246,7 @@ Deliberation is NOT the same as exploration:
 - Deliberation generates internal evaluations (the agent simulates consequences using $M_t$ without external action).
 
 And deliberation is NOT a zero-action:
-- During deliberation, the environment continues to evolve. The agent pays the deliberation cost (#deliberation-cost): $\rho_{\text{delib}} \cdot \Delta\tau$.
+- During deliberation, the environment continues to evolve. The agent pays the deliberation cost (#der-deliberation-cost): $\rho_{\text{delib}} \cdot \Delta\tau$.
 - The agent also stops receiving external observations (unless passive channels are still active), so $M_t$ may degrade through drift.
 
 ### The three-way objective
@@ -267,7 +267,7 @@ where:
 
 Two new quantities appear:
 - $\mu(M_t, \Sigma_t)$: the value-of-strategy-improvement weight. Analogous to $\lambda(M_t)$ for exploration. Large when $\delta_{\text{strategic}}$ is high (strategy is miscalibrated) or when $\delta_{\text{regret}}$ is high (current policy is suboptimal).
-- $\Delta\eta^*_\Sigma(\Delta\tau)$: the improvement in strategy quality from $\Delta\tau$ units of deliberation. Diminishing returns by the same argument as in #deliberation-cost.
+- $\Delta\eta^*_\Sigma(\Delta\tau)$: the improvement in strategy quality from $\Delta\tau$ units of deliberation. Diminishing returns by the same argument as in #der-deliberation-cost.
 
 ### When each mode dominates
 
@@ -298,7 +298,7 @@ This is the "strategic pause" regime — the agent understands the situation but
 
 ### The cascade ordering constrains the allocation
 
-The orient cascade (#orient-cascade) implies: **you cannot deliberate productively before you have an adequate $M_t$.**
+The orient cascade (#der-orient-cascade) implies: **you cannot deliberate productively before you have an adequate $M_t$.**
 
 This creates a natural sequencing:
 1. If $\delta_{\text{epistemic}}$ is high: explore first (or exploit-with-exploration), regardless of strategic mismatch.
@@ -309,10 +309,10 @@ The agent should NOT deliberate when its model is poor — it will be revising i
 
 ### Connection to existing segments
 
-- #deliberation-cost provides the exploit-vs-deliberate tradeoff (the bilateral case).
-- #causal-information-yield provides the exploit-vs-explore tradeoff (the bilateral case).
+- #der-deliberation-cost provides the exploit-vs-deliberate tradeoff (the bilateral case).
+- #def-causal-information-yield provides the exploit-vs-explore tradeoff (the bilateral case).
 - The three-way allocation is the *joint* optimization. It reduces to each bilateral case when the third mode's value is zero.
-- #explicit-strategy-condition provides the meta-question: "is having $\Sigma_t$ at all worth the cost?" This is answered before the three-way allocation applies — if the answer is "no," the agent operates in the two-way explore/exploit regime from Section I.
+- #norm-explicit-strategy-condition provides the meta-question: "is having $\Sigma_t$ at all worth the cost?" This is answered before the three-way allocation applies — if the answer is "no," the agent operates in the two-way explore/exploit regime from Section I.
 
 ### Epistemic status
 
@@ -321,7 +321,7 @@ The three-way decomposition: **robust qualitative** — the three modes are func
 ### Open questions
 
 1. Is the allocation discrete (choose one mode per time step) or continuous (allocate a fraction of capacity to each)? For human agents, there's some evidence for time-sharing. For LLM agents, the context window forces serial processing — you're either reading code (explore), generating code (exploit), or reasoning about approach (deliberate).
-2. The interaction between exploration and deliberation: can internal simulation generate CIY? #deliberation-cost's open question 3 asks this directly. If deliberation can surface model inconsistencies (internal mismatch), it functions as a hybrid explore/deliberate mode.
+2. The interaction between exploration and deliberation: can internal simulation generate CIY? #der-deliberation-cost's open question 3 asks this directly. If deliberation can surface model inconsistencies (internal mismatch), it functions as a hybrid explore/deliberate mode.
 3. In adversarial settings, the opponent benefits from the agent's deliberation pause ($\rho_{\text{delib}}$ includes adversarial disturbance). Does this create a game-theoretic interaction where each agent tries to force the other into deliberation at inopportune times?
 4. How does the allocation change over the course of a task? Natural trajectory: high explore initially (build $M_t$) → high deliberate (form $\Sigma_t$) → high exploit (execute) → periodic explore/deliberate as mismatch accumulates. This matches the software development pattern: read code → plan approach → implement → debug/revise.
 

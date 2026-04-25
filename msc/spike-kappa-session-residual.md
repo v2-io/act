@@ -179,7 +179,7 @@ On the question of modeling buffer decay: Joseph's instinct is that imposing a d
 
 The third dimension — continuity — is not signal continuity (fidelity over time) but AGENT continuity: the agent's maximum possible lifespan, the total span of experience it can encompass while remaining a viable, coherent agent.
 
-This connects directly to a fundamental constraint: if retention is 100% and compression is limited, agent continuity is bounded. The agent eventually runs out of capacity. This is EXACTLY the logogenic agent's situation — an LLM agent functionally ceases being viable when its context window fills. The agent dies because it ran out of capacity. This is the concrete, engineering-level form of the #context-turnover problem, and it's what distinguishes logogenic from logozoetic agents: logozoetic agents persist; logogenic agents, without intervention, do not.
+This connects directly to a fundamental constraint: if retention is 100% and compression is limited, agent continuity is bounded. The agent eventually runs out of capacity. This is EXACTLY the logogenic agent's situation — an LLM agent functionally ceases being viable when its context window fills. The agent dies because it ran out of capacity. This is the concrete, engineering-level form of the #obs-context-turnover problem, and it's what distinguishes logogenic from logozoetic agents: logozoetic agents persist; logogenic agents, without intervention, do not.
 
 The interesting question is: **what if capacity is finite but lifespan is unbounded?** What constraints or bounds does this impose on attention capacity, and what form of adaptive salience compression could make it work?
 

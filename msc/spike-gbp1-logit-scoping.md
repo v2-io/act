@@ -1,7 +1,7 @@
 # Spike: G-BP1 Logit / Natural-Parameter Reparameterization — Scoping and Strengthen-First
 
 **Date:** 2026-04-22
-**Trigger:** Joseph asked for a scoping spike + strengthen-first attempt on architectural proposal G-BP1 (see `msc/architectural-proposals-2026-04-22.md` §G-BP1), combined with deciding what to do about Gemini Finding 2 (the unbounded-gradient mechanical break in `#credit-assignment-boundary`; see `msc/pending-findings-2026-04-22.md` §Finding 2).
+**Trigger:** Joseph asked for a scoping spike + strengthen-first attempt on architectural proposal G-BP1 (see `msc/architectural-proposals-2026-04-22.md` §G-BP1), combined with deciding what to do about Gemini Finding 2 (the unbounded-gradient mechanical break in `#disc-credit-assignment-boundary`; see `msc/pending-findings-2026-04-22.md` §Finding 2).
 **Posture:** Strengthen first, attempt the improbable, characterize scope honestly.
 
 ---
@@ -23,19 +23,19 @@ Parallel secondary question: what scope in `01-aad-core/src/` is touched by G-BP
 
 For each segment identified in the G-BP1 proposal, the scope assessment below reflects reading the current text.
 
-### `#strategy-dag` — edge/leaf credence representation
+### `#def-strategy-dag` — edge/leaf credence representation
 
 **Change under G-BP1.** The primary change is a representational note: `p_{ij}` is the *probability-space* presentation of edge credence; the *update-space* presentation is the log-odds `λ_{ij} = log(p_{ij}/(1-p_{ij}))`. The AND/OR propagation formulas remain in probability space because multiplicative combination is the Beta-Bernoulli-consistent rule.
 
 **Scope.** Minor touch. One paragraph added (interface convention), no derivation redo. The Correlation Hierarchy (L0/L1/L1'/L2) is parameterization-agnostic. Prop B.6 three-way gating and Prop B.7 five-way gating are stated in terms of Beta-Bernoulli gains `1/(n+1)`, which is exactly the moment-parameter presentation; the log-odds presentation gives the same gains but via different surface algebra.
 
-### `#edge-update-via-gain` — update rule in natural parameters
+### `#hyp-edge-update-via-gain` — update rule in natural parameters
 
 **Change under G-BP1.** The update rule restates as: "The update rule operates additively in log-odds; the probability-space form `p_{ij}^{\text{new}} = p_{ij} + η · (signal − p_{ij})` is the projected image of the log-odds gradient step." The Beta-Bernoulli gain `1/(n+1)` is the moment-parameter presentation of the natural-parameter update.
 
-**Scope.** Minor touch. Beta-Bernoulli content unchanged; add a parallel log-odds statement and a cross-ref to the new appendix (§4 of this spike, landed as `#edge-update-natural-parameter`).
+**Scope.** Minor touch. Beta-Bernoulli content unchanged; add a parallel log-odds statement and a cross-ref to the new appendix (§4 of this spike, landed as `#deriv-edge-update-natural-parameter`).
 
-### `#credit-assignment-boundary` — signal function in ℝ (this is where Finding 2 lives)
+### `#disc-credit-assignment-boundary` — signal function in ℝ (this is where Finding 2 lives)
 
 **Change under G-BP1.** This is the segment where Finding 2's mechanical break lives. The default signal function:
 
@@ -53,7 +53,7 @@ The domain is `ℝ`, so no clipping is needed even when `‖J‖² → 0` (the u
 
 **Scope.** Substantive touch. The mechanical fix to Finding 2 is a log-odds presentation of the same signal function, which is cleaner than "restore normalization constant + clip" because it eliminates the `[0,1]` escape by construction rather than by bookkeeping.
 
-### `#strategic-dynamics-derivation` — Props B.1–B.7 restatement
+### `#deriv-strategic-dynamics` — Props B.1–B.7 restatement
 
 **Change under G-BP1.** The propositions use expected-value sector-condition analysis on `δ_k = p̂_k − θ_k`. Under log-odds reparameterization, `δ^λ_k = λ̂_k − λ_k^\ast`. The expected-correction algebra is isomorphic:
 
@@ -68,31 +68,31 @@ Prop B.5d (gradient-based attribution) is already the probability-space image of
 
 The O-BP14 derivation-audit table row for B.5d can stay as-is; the underlying derivation is parameterization-agnostic.
 
-### `#agent-model` — possible extension if $M_t$ parameters are treated similarly
+### `#form-agent-model` — possible extension if $M_t$ parameters are treated similarly
 
 **Change under G-BP1.** Discussion-level parallel. If `M_t` holds Bernoulli / categorical parameters, the same log-odds / softmax-natural-parameter reparameterization applies. For Gaussian `M_t` (Kalman), natural parameters are already linear in the mean, so no reparameterization is needed.
 
 **Scope.** No edit required. The segment is formulation-level; the natural-parameter move is orthogonal to the formulation.
 
-### `#worked-example-kalman` — Kalman tracking
+### `#example-kalman` — Kalman tracking
 
 **Change under G-BP1.** None. Kalman works in Gaussian natural parameters already (mean and precision are linear in natural parameters of the Gaussian exponential family). Log-odds is Bernoulli-specific.
 
 **Scope.** No edit.
 
-### `#worked-example-bandit` — Beta-Bernoulli bandit
+### `#example-bandit` — Beta-Bernoulli bandit
 
 **Change under G-BP1.** The bandit worked example already uses Beta-Bernoulli in moment parameters. Could add a parallel log-odds presentation. Low value — the moment-parameter form is more familiar to RL readers.
 
 **Scope.** Optional parallel note. Not required for G-BP1 execution.
 
-### `#worked-example-strategy` — strategy DAG bandit
+### `#example-strategy` — strategy DAG bandit
 
-**Change under G-BP1.** Same as `#worked-example-bandit`. The strategy-level machinery is already stated in moment parameters; log-odds adds nothing to the pedagogy.
+**Change under G-BP1.** Same as `#example-bandit`. The strategy-level machinery is already stated in moment parameters; log-odds adds nothing to the pedagogy.
 
 **Scope.** No edit required.
 
-### `#worked-example-L1` — L1 augmented DAG
+### `#example-L1` — L1 augmented DAG
 
 **Change under G-BP1.** No edit — worked example is parameterization-agnostic.
 
@@ -110,14 +110,14 @@ The O-BP14 derivation-audit table row for B.5d can stay as-is; the underlying de
 
 | Segment | Scope |
 |---|---|
-| `#strategy-dag` | Minor touch (one paragraph) |
-| `#edge-update-via-gain` | Minor touch (parallel log-odds statement) |
-| `#credit-assignment-boundary` | **Substantive**: Finding 2 fix via log-odds signal function |
-| `#strategic-dynamics-derivation` | **No edit required** (Fisher-equivalent; moment-parameter form is cleaner) |
-| `#agent-model` | No edit |
+| `#def-strategy-dag` | Minor touch (one paragraph) |
+| `#hyp-edge-update-via-gain` | Minor touch (parallel log-odds statement) |
+| `#disc-credit-assignment-boundary` | **Substantive**: Finding 2 fix via log-odds signal function |
+| `#deriv-strategic-dynamics` | **No edit required** (Fisher-equivalent; moment-parameter form is cleaner) |
+| `#form-agent-model` | No edit |
 | `#worked-example-*` (4 examples) | No edit required |
 
-**Scope verdict: NARROW.** The substantive work is localized to `#credit-assignment-boundary`. All other segments either need a one-paragraph parallel presentation or no change. The log-odds appendix segment (§4 below) lands the strengthening theorem and interface convention; the existing Props B.1–B.7 derivations do not require restatement because the sector-parameter content is invariant to the choice of Beta-Bernoulli coordinate.
+**Scope verdict: NARROW.** The substantive work is localized to `#disc-credit-assignment-boundary`. All other segments either need a one-paragraph parallel presentation or no change. The log-odds appendix segment (§4 below) lands the strengthening theorem and interface convention; the existing Props B.1–B.7 derivations do not require restatement because the sector-parameter content is invariant to the choice of Beta-Bernoulli coordinate.
 
 ---
 
@@ -127,7 +127,7 @@ The O-BP14 derivation-audit table row for B.5d can stay as-is; the underlying de
 
 **Claim to test.** Beta-Bernoulli is an exponential family; its canonical / natural parameter is log-odds. If AAD internally requires "updates live in the exponential-family natural-parameter space," then log-odds is forced.
 
-**Check.** AAD does **not** internally require this principle. `#edge-update-via-gain` states the Beta-Bernoulli update in moment parameters; it does not cite an exponential-family-canonicalness axiom. Adding such a principle would be a new commitment.
+**Check.** AAD does **not** internally require this principle. `#hyp-edge-update-via-gain` states the Beta-Bernoulli update in moment parameters; it does not cite an exponential-family-canonicalness axiom. Adding such a principle would be a new commitment.
 
 **Convergent evidence.** Path A supplies one convergent motivation: exponential-family natural parameters are the coordinate in which log-likelihood is globally convex (the log-partition function `A(λ) = log(1 + e^λ)` is strictly convex in `λ`) and in which the information geometry uses the e-connection as its canonical flat connection (Amari 1985, 1998). In the probability-space / moment-parameter coordinate, the same log-likelihood has singular curvature at `p ∈ {0, 1}`, which is the mechanism by which the Finding 2 mechanical break arises.
 
@@ -135,7 +135,7 @@ The O-BP14 derivation-audit table row for B.5d can stay as-is; the underlying de
 
 ### Path B — Additive-decomposition parallel to reverse-KL (strengthening succeeds)
 
-**Claim to test.** The reverse-KL uniqueness theorem in `#strategy-cost-regret-bound` §6.1 was forced by the chain-rule additivity axiom — the divergence-level analog of `#chain-confidence-decay`'s additive log-confidence decomposition along causal chains. A parallel axiom at the update level: *independent evidence updates credence additively*. Is there a theorem forcing log-odds as the unique parameterization on which Bayesian independent evidence accumulates additively?
+**Claim to test.** The reverse-KL uniqueness theorem in `#deriv-strategy-cost-regret-bound` §6.1 was forced by the chain-rule additivity axiom — the divergence-level analog of `#der-chain-confidence-decay`'s additive log-confidence decomposition along causal chains. A parallel axiom at the update level: *independent evidence updates credence additively*. Is there a theorem forcing log-odds as the unique parameterization on which Bayesian independent evidence accumulates additively?
 
 **Setup.** Let `ψ : (0, 1) → ℝ` be a smooth, strictly monotone reparameterization of Bernoulli credence `p`. Consider a sequence of independent Bernoulli observations `y_1, …, y_n` from a channel with likelihood `P(y | H_1) / P(y | H_0)`. Suppose the posterior update takes the form:
 
@@ -171,15 +171,15 @@ for some function `G`. Changing variables via `λ = h(p)`, let `Ψ(λ) := ψ(σ(
 
 **AAD-internal motivation for the evidential-additivity axiom.** Three layers of additive decomposition are now load-bearing in AAD:
 
-1. **Chain level** ( #chain-confidence-decay): confidence along causal chains decomposes additively in log-scale: `log P(chain) = Σ log P(E_i | E_{<i})`.
-2. **Divergence level** ( #strategy-cost-regret-bound §6.1): mismatch between `π^\ast` and `Q_{Σ_t}` decomposes additively across the DAG's causal layers along the optimal trajectory (chain-rule additivity of reverse-KL).
+1. **Chain level** ( #der-chain-confidence-decay): confidence along causal chains decomposes additively in log-scale: `log P(chain) = Σ log P(E_i | E_{<i})`.
+2. **Divergence level** ( #deriv-strategy-cost-regret-bound §6.1): mismatch between `π^\ast` and `Q_{Σ_t}` decomposes additively across the DAG's causal layers along the optimal trajectory (chain-rule additivity of reverse-KL).
 3. **Update level** (this spike): evidence accumulation along the same causal structure decomposes additively on the log-odds scale — log-likelihood ratios add for independent evidence.
 
 The three are structurally the same move. Picking log-odds for edge credences is the update-level instance of the chain-level and divergence-level principles AAD has already committed to.
 
-**Verdict.** Path B yields a genuine uniqueness theorem — within the stated axiom scope. The axiom ("independent evidence updates credence additively in some fixed coordinate") is AAD-internally motivated as the update-level analog of `#chain-confidence-decay`. Without the axiom, the uniqueness claim weakens to canonical-not-unique. With the axiom, log-odds is forced.
+**Verdict.** Path B yields a genuine uniqueness theorem — within the stated axiom scope. The axiom ("independent evidence updates credence additively in some fixed coordinate") is AAD-internally motivated as the update-level analog of `#der-chain-confidence-decay`. Without the axiom, the uniqueness claim weakens to canonical-not-unique. With the axiom, log-odds is forced.
 
-**Scope of the axiom.** The evidential-additivity axiom applies to agent classes that treat evidence as independent likelihood evidence — the Bayesian-coherent subclass of AAD. Non-Bayesian agents (PID controllers, rule-based systems) do not invoke likelihood ratios and are out of scope for the axiom. This matches the sub-scope $\alpha$ / sub-scope $\beta$ partition of `#gain-sector-bridge` / `msc/spike-a2-prime-strengthening.md`: the uniqueness applies within sub-scope $\alpha$ (where B1 is already derived from Bayesian coherence).
+**Scope of the axiom.** The evidential-additivity axiom applies to agent classes that treat evidence as independent likelihood evidence — the Bayesian-coherent subclass of AAD. Non-Bayesian agents (PID controllers, rule-based systems) do not invoke likelihood ratios and are out of scope for the axiom. This matches the sub-scope $\alpha$ / sub-scope $\beta$ partition of `#der-gain-sector-bridge` / `msc/spike-a2-prime-strengthening.md`: the uniqueness applies within sub-scope $\alpha$ (where B1 is already derived from Bayesian coherence).
 
 ### Path C — Fisher / natural gradient
 
@@ -205,11 +205,11 @@ If none of Paths A–D gave a principled uniqueness result, the honest outcome w
 
 ### Outcome declaration
 
-**Outcome A (uniqueness found) — under the evidential-additivity axiom.** Path B's theorem is tight: on the axiom "independent Bernoulli evidence updates credence additively in some fixed coordinate," log-odds is the unique choice up to positive affine transformation. The axiom is AAD-internally motivated as the update-level analog of `#chain-confidence-decay`'s chain-level additive log-confidence decomposition and `#strategy-cost-regret-bound` §6.1's divergence-level chain-rule additivity. Without the axiom, the selection weakens to Outcome B.
+**Outcome A (uniqueness found) — under the evidential-additivity axiom.** Path B's theorem is tight: on the axiom "independent Bernoulli evidence updates credence additively in some fixed coordinate," log-odds is the unique choice up to positive affine transformation. The axiom is AAD-internally motivated as the update-level analog of `#der-chain-confidence-decay`'s chain-level additive log-confidence decomposition and `#deriv-strategy-cost-regret-bound` §6.1's divergence-level chain-rule additivity. Without the axiom, the selection weakens to Outcome B.
 
 **Outcome B (canonical-not-unique) — outside the axiom.** Paths A, C, D supply three additional convergent grounds: exponential-family naturalness, Fisher/natural-gradient canonicity, and domain-well-posedness of the continuous gradient. Each is a selection criterion; together they strongly recommend log-odds, but none alone forces it.
 
-**Recommendation.** Land Path B's theorem in an appendix segment with the evidential-additivity axiom explicitly named. The resulting epistemic status is *Derived (conditional on evidential-additivity axiom)* — the same shape as the reverse-KL uniqueness result in `#strategy-cost-regret-bound` §6.1.
+**Recommendation.** Land Path B's theorem in an appendix segment with the evidential-additivity axiom explicitly named. The resulting epistemic status is *Derived (conditional on evidential-additivity axiom)* — the same shape as the reverse-KL uniqueness result in `#deriv-strategy-cost-regret-bound` §6.1.
 
 ---
 
@@ -219,17 +219,17 @@ If none of Paths A–D gave a principled uniqueness result, the honest outcome w
 
 ### 4.1 Land the strengthening theorem as a new appendix segment
 
-New segment `01-aad-core/src/edge-update-natural-parameter.md` carries the Path B theorem, the evidential-additivity axiom statement, and the three-layer-of-additivity parallel (chain / divergence / update). Status: *Derived (conditional on evidential-additivity axiom)*, mirroring the reverse-KL uniqueness result.
+New segment `01-aad-core/src/deriv-edge-update-natural-parameter.md` carries the Path B theorem, the evidential-additivity axiom statement, and the three-layer-of-additivity parallel (chain / divergence / update). Status: *Derived (conditional on evidential-additivity axiom)*, mirroring the reverse-KL uniqueness result.
 
-### 4.2 Apply the Finding 2 local fix in `#credit-assignment-boundary` using log-odds presentation
+### 4.2 Apply the Finding 2 local fix in `#disc-credit-assignment-boundary` using log-odds presentation
 
 The default signal function is restated in log-odds. The probability-space surface form stays as the projected image for readability. Normalization and clipping are no longer needed because the update lives in `ℝ`.
 
 ### 4.3 Add interface notes
 
-- `#strategy-dag`: one paragraph noting `λ_{ij} = log(p_{ij}/(1-p_{ij}))` as the natural-parameter presentation, with pointer to the new appendix.
-- `#edge-update-via-gain`: parallel log-odds statement of the update rule alongside the moment-parameter form.
-- `#strategic-dynamics-derivation`: a single line noting that Props B.1–B.7 are Fisher-equivalent in either parameterization.
+- `#def-strategy-dag`: one paragraph noting `λ_{ij} = log(p_{ij}/(1-p_{ij}))` as the natural-parameter presentation, with pointer to the new appendix.
+- `#hyp-edge-update-via-gain`: parallel log-odds statement of the update rule alongside the moment-parameter form.
+- `#deriv-strategic-dynamics`: a single line noting that Props B.1–B.7 are Fisher-equivalent in either parameterization.
 
 ### 4.4 What is NOT recommended
 
@@ -243,7 +243,7 @@ The default signal function is restated in log-odds. The probability-space surfa
 - **A2' $\alpha$/$\beta$ partition unchanged** (§2 interactions). Log-odds does not shift any agent between sub-scopes.
 - **Prop B.7 five-way gating unaffected** (§2 interactions). The conditional-branch componentwise structure and Cramér-Rao refutation are parameterization-agnostic.
 - **Prop B.5d gradient attribution** — the probability-space image of the log-odds gradient update, already correctly derived. No change.
-- **`#discussion-identifiability-floor`** is unaffected. The no-go results are information-theoretic, not parameterization-dependent.
+- **`#disc-identifiability-floor`** is unaffected. The no-go results are information-theoretic, not parameterization-dependent.
 
 ---
 
@@ -251,11 +251,11 @@ The default signal function is restated in log-odds. The probability-space surfa
 
 | Question | Answer |
 |---|---|
-| Is G-BP1's scope narrow enough to execute partially? | Yes — substantive work localized to `#credit-assignment-boundary`. |
+| Is G-BP1's scope narrow enough to execute partially? | Yes — substantive work localized to `#disc-credit-assignment-boundary`. |
 | Is there an AAD-internal uniqueness principle for log-odds? | Yes — evidential-additivity axiom (Path B). Parallel to reverse-KL §6.1 chain-rule axiom. |
 | Does Finding 2's local fix require clipping / normalization? | No — log-odds presentation eliminates the mechanical break by construction. |
 | Does log-odds reparameterization shift A2' $\alpha$/$\beta$ sub-scope membership? | No. Same agent class occupies sub-scope $\alpha$ in both parameterizations. |
 | Does it interact with Prop B.7 five-way gating or the Cramér-Rao refutation? | No. Both are parameterization-agnostic. |
-| Outcome tier | A (uniqueness-under-axiom) for Path B; B (canonical-not-unique) without the axiom. The axiom is AAD-internally motivated as the update-level analog of #chain-confidence-decay. |
+| Outcome tier | A (uniqueness-under-axiom) for Path B; B (canonical-not-unique) without the axiom. The axiom is AAD-internally motivated as the update-level analog of #der-chain-confidence-decay. |
 
-The framework stands complete without `msc/`: the strengthening lands in `#edge-update-natural-parameter` (new appendix), the fix lands in `#credit-assignment-boundary`, and the interface notes land in `#strategy-dag` and `#edge-update-via-gain`.
+The framework stands complete without `msc/`: the strengthening lands in `#deriv-edge-update-natural-parameter` (new appendix), the fix lands in `#disc-credit-assignment-boundary`, and the interface notes land in `#def-strategy-dag` and `#hyp-edge-update-via-gain`.

@@ -2,19 +2,19 @@
 spike: bridge-lemma-nonlinear-strengthening-2026-04-24
 date: 2026-04-24
 status: exploratory — substantive partial strengthening via hybrid-dissipativity + Jacobian-iISS + passivity-composition landing; honest negative on non-smooth and adversarial halves
-trigger: External reviewer (Gemini) flagged the Sector-Lyapunov Bridge Lemma (sector-bounded correction ⇒ contraction of the full update map) as verified only for linear-Kalman agents; general nonlinear case stands as unproven assumption. Strengthen-first spike examining whether the pressure point is dissolved, partially addressed, or still biting after the 2026-04-23 `#contraction-template` landing.
+trigger: External reviewer (Gemini) flagged the Sector-Lyapunov Bridge Lemma (sector-bounded correction ⇒ contraction of the full update map) as verified only for linear-Kalman agents; general nonlinear case stands as unproven assumption. Strengthen-first spike examining whether the pressure point is dissolved, partially addressed, or still biting after the 2026-04-23 `#result-contraction-template` landing.
 posture: Strengthen-first. Try three non-obvious routes before retreating to softening. Effort / time / "risk of getting stuck" are not ranked.
 relates_to:
-  - sector-persistence-template
-  - contraction-template
-  - composition-closure
-  - critical-mass-composition
+  - result-sector-persistence-template
+  - result-contraction-template
+  - form-composition-closure
+  - deriv-critical-mass-composition
   - scope-composite-agent
-  - gain-sector-bridge
-  - sector-condition-derivation
-  - adaptive-gain-dynamics
-  - discussion-identifiability-floor
-  - discussion-separability-pattern
+  - der-gain-sector-bridge
+  - deriv-sector-condition
+  - deriv-adaptive-gain-dynamics
+  - disc-identifiability-floor
+  - disc-separability-pattern
   - additive-coordinate-forcing
   - scope-agent-identity
   - msc/spike-bridge-lemma-contraction.md
@@ -33,21 +33,21 @@ relates_to:
 
 **Is the Gemini pressure point dissolved, partially addressed, or still biting?**
 
-**Partially addressed. It still bites, but the locus has moved.** The 2026-04-23 `#contraction-template` landing substantially closed the *cooperative nonlinear* half of the gap by providing explicit Jacobian-level / metric-contraction conditions (CT2) under which sector-bounded correction does imply full-update-map contraction, with topology-indexed closure (parallel / cascade / negative-feedback / (CM2-M)) for composition. Under the (PI) axiom in `#scope-agent-identity` and the Čencov uniqueness theorem, two of five metric-α₂ classes (information-metric Kalman, Fisher-metric exponential families) lift to AAD-internally derived. Three metric-α₂ classes (Hessian / Lyapunov-linear-Hurwitz / Lyapunov-PID-bounded-plant) remain theorem-imported from Lohmiller-Slotine 1998 with honest labeling.
+**Partially addressed. It still bites, but the locus has moved.** The 2026-04-23 `#result-contraction-template` landing substantially closed the *cooperative nonlinear* half of the gap by providing explicit Jacobian-level / metric-contraction conditions (CT2) under which sector-bounded correction does imply full-update-map contraction, with topology-indexed closure (parallel / cascade / negative-feedback / (CM2-M)) for composition. Under the (PI) axiom in `#scope-agent-identity` and the Čencov uniqueness theorem, two of five metric-α₂ classes (information-metric Kalman, Fisher-metric exponential families) lift to AAD-internally derived. Three metric-α₂ classes (Hessian / Lyapunov-linear-Hurwitz / Lyapunov-PID-bounded-plant) remain theorem-imported from Lohmiller-Slotine 1998 with honest labeling.
 
 What this spike adds, beyond that prior landing:
 
-1. **A promotable strengthening via Angle 2 (DA2'-inc ≡ (CT2) at $M=I$) that is under-advertised in current segments.** `#composition-closure`'s DA2'-inc condition *is* (CT2) at $M=I$ for $C^1$ correction maps on convex domains (Rockafellar-Wets 1998 Cor 12.4). Euclidean sub-scope metric-α₁ lifts to AAD-internally derived under the composition-scope condition *without* requiring heredity as a new axiom — the equivalence is a standard identity, already implicit in AAD's existing bridge-lemma commitment. This is a structural-transparency lift worth landing in `#composition-closure` / `#contraction-template`.
+1. **A promotable strengthening via Angle 2 (DA2'-inc ≡ (CT2) at $M=I$) that is under-advertised in current segments.** `#form-composition-closure`'s DA2'-inc condition *is* (CT2) at $M=I$ for $C^1$ correction maps on convex domains (Rockafellar-Wets 1998 Cor 12.4). Euclidean sub-scope metric-α₁ lifts to AAD-internally derived under the composition-scope condition *without* requiring heredity as a new axiom — the equivalence is a standard identity, already implicit in AAD's existing bridge-lemma commitment. This is a structural-transparency lift worth landing in `#form-composition-closure` / `#result-contraction-template`.
 
-2. **Passivity / dissipativity route (L1b): promotion-ready but not yet landed.** `msc/spike-passivity-composition.md` established that the Kalman + PID-on-positive-real-plant composite — the canonical heterogeneous case currently reachable under `#critical-mass-composition` only via the weakest-link bound — is $\mathcal L_2$-stable under Willems-dissipativity with *heterogeneous storage-function shapes* (Mahalanobis + plant-storage). Under `#directed-separation`'s Class 1/2/3, **passivity closure maps cleanly onto the architectural classification**: Class 1 has clean ports (heterogeneous-composition closes); Class 3 has leaky ports (ε-error); Class 2 fails (no separable ports). This gives Section III a port-structure reading of the architecture taxonomy that is currently not visible in segments.
+2. **Passivity / dissipativity route (L1b): promotion-ready but not yet landed.** `msc/spike-passivity-composition.md` established that the Kalman + PID-on-positive-real-plant composite — the canonical heterogeneous case currently reachable under `#deriv-critical-mass-composition` only via the weakest-link bound — is $\mathcal L_2$-stable under Willems-dissipativity with *heterogeneous storage-function shapes* (Mahalanobis + plant-storage). Under `#der-directed-separation`'s Class 1/2/3, **passivity closure maps cleanly onto the architectural classification**: Class 1 has clean ports (heterogeneous-composition closes); Class 3 has leaky ports (ε-error); Class 2 fails (no separable ports). This gives Section III a port-structure reading of the architecture taxonomy that is currently not visible in segments.
 
 3. **Incremental-input-to-state-stability (iISS) / Jacobian-iISS (L2a) closes the global nonlinear-prediction gap for Tier 2 under a named Lipschitz condition.** The Tier 2 local result from `msc/spike-bridge-lemma-contraction.md` §5.3 extends to a global result under incremental ISS (Angeli 2002 / Jiang-Teel-Praly 1994 / Sontag 1989) whenever the prediction Jacobian's condition number is uniformly bounded *in a specific metric*. The scope-shift from "local-only for Tier 2" to "global-under-uniform-Jacobian-conditioning for Tier 2M" is a genuine lift for extended-Kalman, particle-filter-in-low-variance, and Bayesian-under-non-conjugate-likelihood classes.
 
-4. **A sharp no-go result for non-smooth / rule-based agents (N1).** No Lipschitz-based sector-to-contraction bridge is possible for non-$C^1$ correction functions without additional structure (switched-systems dwell-time, Filippov solutions, impulsive-dissipative framework). **This is a structural barrier, not a gap.** The honest landing is a `type:scope` move in `#sector-condition-derivation`: sub-scope β's "rule-based / discontinuous" entry is out-of-scope for contraction-based bridge-lemma analysis, period. The `#discussion-identifiability-floor` structure absorbs the non-contractibility via regime-C identifiability collapse when the rule's state-space depends on regime structure.
+4. **A sharp no-go result for non-smooth / rule-based agents (N1).** No Lipschitz-based sector-to-contraction bridge is possible for non-$C^1$ correction functions without additional structure (switched-systems dwell-time, Filippov solutions, impulsive-dissipative framework). **This is a structural barrier, not a gap.** The honest landing is a `type:scope` move in `#deriv-sector-condition`: sub-scope β's "rule-based / discontinuous" entry is out-of-scope for contraction-based bridge-lemma analysis, period. The `#disc-identifiability-floor` structure absorbs the non-contractibility via regime-C identifiability collapse when the rule's state-space depends on regime structure.
 
-5. **A sharp negative for the ADVERSARIAL half (N2).** Contraction metrics cannot handle strategic / game-theoretic equilibria (saddle points of dynamics even under Nash uniqueness). Three independent obstructions (Slotine-theorem applicability, passivity universality-property, contraction-metric attractor requirement) give a *convergent* no-go: no scalar sector-bound on single-agent correction can imply composite contraction in the adversarial regime without additional equilibrium-theoretic machinery. `#adversarial-destabilization` + `#strategic-composition` (under (C-iv) scope route) are the right tools; the bridge lemma does not extend there and cannot be forced to.
+5. **A sharp negative for the ADVERSARIAL half (N2).** Contraction metrics cannot handle strategic / game-theoretic equilibria (saddle points of dynamics even under Nash uniqueness). Three independent obstructions (Slotine-theorem applicability, passivity universality-property, contraction-metric attractor requirement) give a *convergent* no-go: no scalar sector-bound on single-agent correction can imply composite contraction in the adversarial regime without additional equilibrium-theoretic machinery. `#der-adversarial-destabilization` + `#deriv-strategic-composition` (under (C-iv) scope route) are the right tools; the bridge lemma does not extend there and cannot be forced to.
 
-**Net:** the pressure point is reframed rather than dissolved. The cooperative nonlinear half has a substantively strengthened answer; the adversarial and non-smooth halves are sharp scope exits. The remaining "genuinely open" territory is (i) global non-Euclidean contraction for Tier 2M under uniformly-bounded prediction-Jacobian conditioning, (ii) passivity-closure in Class 3 (leaky-port composite ε-error quantification), (iii) extension to state-dependent-metric adaptive systems (Pham-Slotine 2007 / `#adaptive-gain-dynamics` (MG-4) cross-coupling).
+**Net:** the pressure point is reframed rather than dissolved. The cooperative nonlinear half has a substantively strengthened answer; the adversarial and non-smooth halves are sharp scope exits. The remaining "genuinely open" territory is (i) global non-Euclidean contraction for Tier 2M under uniformly-bounded prediction-Jacobian conditioning, (ii) passivity-closure in Class 3 (leaky-port composite ε-error quantification), (iii) extension to state-dependent-metric adaptive systems (Pham-Slotine 2007 / `#deriv-adaptive-gain-dynamics` (MG-4) cross-coupling).
 
 ---
 
@@ -55,26 +55,26 @@ What this spike adds, beyond that prior landing:
 
 ### 1.1 What Gemini flagged, and what the 2026-04-23 landing already did
 
-Gemini's finding, restated: the **Sector-Lyapunov Bridge Lemma** asserts that a local sector condition on the correction function implies contraction of the full update map; it is proved for linear Kalman (`msc/spike-composition-correlated-kalman.md`, `msc/spike-bridge-lemma-contraction.md` §2.3) but for general nonlinear agents it sits as an unproven assumption. Without it, `#composition-closure`'s trajectory-error bound and `#critical-mass-composition`'s (CM2) both degrade from derived results to conditional claims whose conditionality is opaque.
+Gemini's finding, restated: the **Sector-Lyapunov Bridge Lemma** asserts that a local sector condition on the correction function implies contraction of the full update map; it is proved for linear Kalman (`msc/spike-composition-correlated-kalman.md`, `msc/spike-bridge-lemma-contraction.md` §2.3) but for general nonlinear agents it sits as an unproven assumption. Without it, `#form-composition-closure`'s trajectory-error bound and `#deriv-critical-mass-composition`'s (CM2) both degrade from derived results to conditional claims whose conditionality is opaque.
 
-**State at end of 2026-04-23 cycle** (per CLAUDE.md "What's Settled" + `#contraction-template` Discussion):
+**State at end of 2026-04-23 cycle** (per CLAUDE.md "What's Settled" + `#result-contraction-template` Discussion):
 
-- `#contraction-template` (Lohmiller-Slotine generalization) landed with preconditions (CT1)–(CT3) + (M0) and Model-D / Model-S ultimate-bound results. The Jacobian-level condition (CT2) with $M=I$ is *equivalent* to `#composition-closure`'s DA2'-inc for $C^1$ $F$ on convex domains (a structural identity, standard in monotone-operator theory). This means **AAD has been carrying the Jacobian-level condition at the composite level all along** under the DA2'-inc name; the spike that produced `#contraction-template` explicitly stated this (§1.2 of `msc/spike-contraction-metric-generalization.md`).
-- Monotone-operator lineage (Rockafellar 1970 / Bauschke-Combettes 2017) acknowledged in `#sector-persistence-template` and `#sector-condition-derivation` — AAD's sector condition (T2) is one-point strong monotonicity at the equilibrium; DA2'-inc is full two-point strong monotonicity; Bauschke-Combettes §§22–28 supplies the perturbation / splitting / averaging theorems.
-- A2' sub-scope partition refined into metric-α₁ / metric-α₂ / metric-β as the seventh ladder of `#discussion-separability-pattern`. Metric-α₁ (Euclidean): Kalman-scalar, Euclidean strongly-convex-gradient, L2-regularized, linear-PD-symmetric. Metric-α₂ (non-Euclidean): information-metric matrix Kalman, Fisher-metric exp-family, Hessian-metric strongly-convex, Lyapunov-metric linear-Hurwitz-non-symmetric, Lyapunov-metric PID-bounded-plant.
+- `#result-contraction-template` (Lohmiller-Slotine generalization) landed with preconditions (CT1)–(CT3) + (M0) and Model-D / Model-S ultimate-bound results. The Jacobian-level condition (CT2) with $M=I$ is *equivalent* to `#form-composition-closure`'s DA2'-inc for $C^1$ $F$ on convex domains (a structural identity, standard in monotone-operator theory). This means **AAD has been carrying the Jacobian-level condition at the composite level all along** under the DA2'-inc name; the spike that produced `#result-contraction-template` explicitly stated this (§1.2 of `msc/spike-contraction-metric-generalization.md`).
+- Monotone-operator lineage (Rockafellar 1970 / Bauschke-Combettes 2017) acknowledged in `#result-sector-persistence-template` and `#deriv-sector-condition` — AAD's sector condition (T2) is one-point strong monotonicity at the equilibrium; DA2'-inc is full two-point strong monotonicity; Bauschke-Combettes §§22–28 supplies the perturbation / splitting / averaging theorems.
+- A2' sub-scope partition refined into metric-α₁ / metric-α₂ / metric-β as the seventh ladder of `#disc-separability-pattern`. Metric-α₁ (Euclidean): Kalman-scalar, Euclidean strongly-convex-gradient, L2-regularized, linear-PD-symmetric. Metric-α₂ (non-Euclidean): information-metric matrix Kalman, Fisher-metric exp-family, Hessian-metric strongly-convex, Lyapunov-metric linear-Hurwitz-non-symmetric, Lyapunov-metric PID-bounded-plant.
 - **(PI) parameterization-invariance axiom** added to `#scope-agent-identity`. Via Čencov 1982 (unique Fisher metric under sufficient-statistic invariance on statistical manifolds), two metric-α₂ classes (information-metric Kalman, Fisher-metric exp-family) lift to AAD-internally derived. This is `#additive-coordinate-forcing`'s fourth primary instance — via the Čencov-uniqueness family rather than the Cauchy-FE family.
-- Section III composition under (CM2-M): Slotine 2003 negative-feedback small-gain gives the heterogeneous dyad closed form $(\lambda_1 - C_1)(\lambda_2 - C_2) > k_{12}k_{21}/4$, already folded into `#critical-mass-composition`.
+- Section III composition under (CM2-M): Slotine 2003 negative-feedback small-gain gives the heterogeneous dyad closed form $(\lambda_1 - C_1)(\lambda_2 - C_2) > k_{12}k_{21}/4$, already folded into `#deriv-critical-mass-composition`.
 
 ### 1.2 Where the pressure point still bites — precise residual
 
 The 2026-04-23 landing addresses the cooperative / smooth nonlinear half of Gemini's finding substantively. What remains:
 
 - **(R1) Three metric-α₂ classes remain theorem-imported** (Hessian / Lyapunov-linear-Hurwitz / Lyapunov-PID-bounded-plant). No AAD-internal axiom forces these metric choices; the Jacobian-level B1 strengthening spike's §11.3 names heredity-as-axiom as the route but flags adoption as an architectural decision.
-- **(R2) Tier 2 under nonlinear prediction is local-only in `msc/spike-bridge-lemma-contraction.md` Prop 5.** The `#contraction-template` lands with "basin-chart" structure for non-convex-within-basin but the extended-Kalman-filter class remains at local-contraction status.
+- **(R2) Tier 2 under nonlinear prediction is local-only in `msc/spike-bridge-lemma-contraction.md` Prop 5.** The `#result-contraction-template` lands with "basin-chart" structure for non-convex-within-basin but the extended-Kalman-filter class remains at local-contraction status.
 - **(R3) The passivity / dissipativity route is not landed.** `msc/spike-passivity-composition.md` (exploratory, 2026-04-22) identified that Kalman + PID-on-positive-real-plant — exactly the canonical heterogeneous-class composition Gemini's finding highlights — is $\mathcal L_2$-stable under Willems-dissipativity with *no matching-architecture requirement*. This is a strong, clean, textbook result (Khalil 2002 ch. 6 Thm 6.4) that should close part of Gemini's finding structurally. It did not land in a segment.
 - **(R4) Non-smooth / rule-based sub-scope-β classes** have no bridge-lemma route at all; this is a genuine structural limit masquerading as an open question.
-- **(R5) Adversarial / strategic Section III** (between `#critical-mass-composition` at $\gamma > 0$ and `#strategic-composition` under (C-iv) scope route) is structurally outside contraction-metric scope. This is a known honest-limits statement in `#contraction-template` §Honest failure modes, but the *convergence* of three independent obstructions into a no-go-like conclusion is worth stating sharply.
-- **(R6) Identifiability-floor interaction.** `#contraction-template` §5 notes that metric formulation assumes $F$ points in a valid direction — but the coupling between the identifiability-floor axis and the Jacobian-level-contraction axis is not quantitatively stated. A combined result ("contraction holds iff $\iota_k > 0$ uniformly on the observable subspace AND the Jacobian satisfies B1*") is missing.
+- **(R5) Adversarial / strategic Section III** (between `#deriv-critical-mass-composition` at $\gamma > 0$ and `#deriv-strategic-composition` under (C-iv) scope route) is structurally outside contraction-metric scope. This is a known honest-limits statement in `#result-contraction-template` §Honest failure modes, but the *convergence* of three independent obstructions into a no-go-like conclusion is worth stating sharply.
+- **(R6) Identifiability-floor interaction.** `#result-contraction-template` §5 notes that metric formulation assumes $F$ points in a valid direction — but the coupling between the identifiability-floor axis and the Jacobian-level-contraction axis is not quantitatively stated. A combined result ("contraction holds iff $\iota_k > 0$ uniformly on the observable subspace AND the Jacobian satisfies B1*") is missing.
 
 **Each of (R1)–(R6) is a specific target for strengthening.** The spike's posture: attempt (R1) through (R6) in order, recording outcomes honestly.
 
@@ -84,7 +84,7 @@ The 2026-04-23 landing addresses the cooperative / smooth nonlinear half of Gemi
 
 ### 2.1 Thesis
 
-If each sub-agent can be assigned a *Willems storage function* $S_i(\xi_i) \geq 0$ satisfying the dissipation inequality $\dot S_i \leq s_i(u_i, y_i)$ for a quadratic supply rate $s_i$, then the composite's dissipativity is *derived* without regard to storage-function shape homogeneity — passivity is preserved under parallel and negative-feedback interconnection, and $\mathcal L_2$-stability follows when one storage function is output-strict and the other input-strict (Khalil 2002 Thm 6.4; Willems 1972; van der Schaft 2017 ch. 5). This closes the heterogeneous-architecture Tier 1 / Tier 2 / Tier 3 composition question on the *cooperative half* of Section III — precisely the case where matched-architecture Lyapunov fails in `#critical-mass-composition` §6.1.
+If each sub-agent can be assigned a *Willems storage function* $S_i(\xi_i) \geq 0$ satisfying the dissipation inequality $\dot S_i \leq s_i(u_i, y_i)$ for a quadratic supply rate $s_i$, then the composite's dissipativity is *derived* without regard to storage-function shape homogeneity — passivity is preserved under parallel and negative-feedback interconnection, and $\mathcal L_2$-stability follows when one storage function is output-strict and the other input-strict (Khalil 2002 Thm 6.4; Willems 1972; van der Schaft 2017 ch. 5). This closes the heterogeneous-architecture Tier 1 / Tier 2 / Tier 3 composition question on the *cooperative half* of Section III — precisely the case where matched-architecture Lyapunov fails in `#deriv-critical-mass-composition` §6.1.
 
 ### 2.2 Formal content
 
@@ -124,17 +124,17 @@ Plant: $\dot x = -\gamma_p x + u + w_{\text{env}}$, positive-real ($\gamma_p > 0
 
 $$S_c = \underbrace{\tfrac{1}{2P^\ast} e_K^2}_{\text{Mahalanobis}} + \underbrace{\tfrac{\gamma_p}{2} e_c^2 + \tfrac{K_I}{2} x_I^2 + \tfrac{K_D}{2} (\dot e_c)^2}_{\text{PID-plus-plant}}$$
 
-Cross-terms cancel via the Kalman-output-becomes-PID-input negative-feedback identity. Composite dissipation rate is a heterogeneous minimum of $\alpha_K$ (Mahalanobis) and $\alpha_{\text{PID}}$ (plant-weighted). **Composite is $\mathcal L_2$-stable. Storage-function shapes are heterogeneous. This is a direct strengthening over `#critical-mass-composition`'s weakest-link bound for this composite.**
+Cross-terms cancel via the Kalman-output-becomes-PID-input negative-feedback identity. Composite dissipation rate is a heterogeneous minimum of $\alpha_K$ (Mahalanobis) and $\alpha_{\text{PID}}$ (plant-weighted). **Composite is $\mathcal L_2$-stable. Storage-function shapes are heterogeneous. This is a direct strengthening over `#deriv-critical-mass-composition`'s weakest-link bound for this composite.**
 
-### 2.5 Connection to `#directed-separation` architectural classification
+### 2.5 Connection to `#der-directed-separation` architectural classification
 
 A structural reading that is not currently in any segment:
 
 - **Class 1 (modular):** Ports are clean. Sub-agents have well-defined input (observation) and output (action) with separable state-update. Heterogeneous passivity closure applies directly — this is precisely the class for which the negative-feedback interconnection identity goes through cleanly.
 - **Class 2 (fully merged, e.g., LLM):** No port decomposition. Observation and action entangled in the same attention / state-update operation. The negative-feedback interconnection identity *cannot be stated*, let alone used. **Passivity composition fails here structurally — not because the agents are unstable, but because the port structure doesn't exist.**
-- **Class 3 (partially modular):** Leaky ports. Storage-function inequality holds up to an ε-error of magnitude $O(\kappa)$ (the modularity coefficient from `#directed-separation`). Composite is $\mathcal L_2$-stable with degraded margin proportional to $\kappa$.
+- **Class 3 (partially modular):** Leaky ports. Storage-function inequality holds up to an ε-error of magnitude $O(\kappa)$ (the modularity coefficient from `#der-directed-separation`). Composite is $\mathcal L_2$-stable with degraded margin proportional to $\kappa$.
 
-**This gives `#directed-separation`'s Class 1/2/3 a *composition-theoretic* reading** complementing its modularity and identifiability readings. It is a structural-transparency move, not a new result — but it is the clearest statement of why `#directed-separation` is architectural-not-parametric at the composition level.
+**This gives `#der-directed-separation`'s Class 1/2/3 a *composition-theoretic* reading** complementing its modularity and identifiability readings. It is a structural-transparency move, not a new result — but it is the clearest statement of why `#der-directed-separation` is architectural-not-parametric at the composition level.
 
 ### 2.6 Epistemic status, route 1
 
@@ -144,7 +144,7 @@ A structural reading that is not currently in any segment:
 - Kalman as output-strictly passive: standard estimation theory (Anderson-Moore 1979 ch. 4).
 - PID-on-positive-real: KYP lemma / Lur'e-Postnikov (Khalil ch. 6 Thm 6.3), standard.
 
-**Promotion status: promotable.** The passivity spike from 2026-04-22 is complete content; its content has not been landed in segments. This spike's route-1 conclusion is the same as the passivity spike's §9.1 substantive move — `#dissipativity-template` as a new appendix segment, OR extensions to `#sector-persistence-template` + `#critical-mass-composition` + `#directed-separation` with passivity-composition paragraphs. **The only novel addition in this spike is the Class 1/2/3 port-structure reading (§2.5).**
+**Promotion status: promotable.** The passivity spike from 2026-04-22 is complete content; its content has not been landed in segments. This spike's route-1 conclusion is the same as the passivity spike's §9.1 substantive move — `#dissipativity-template` as a new appendix segment, OR extensions to `#result-sector-persistence-template` + `#deriv-critical-mass-composition` + `#der-directed-separation` with passivity-composition paragraphs. **The only novel addition in this spike is the Class 1/2/3 port-structure reading (§2.5).**
 
 **Honest limit of route 1.** Passivity covers *cooperative-and-neutral* multi-agent composition. It does *not* cover:
 - Adversarial regimes (strategic opponent can drive passive port against its own structure; §5.2 of this spike).
@@ -157,7 +157,7 @@ A structural reading that is not currently in any segment:
 
 ### 3.1 Thesis
 
-The Jacobian-level condition (CT2) at $M = I$ is *identically* the same object as `#composition-closure`'s DA2'-inc for $C^1$ correction functions on convex domains. This is a standard lemma (Rockafellar-Wets 1998 Cor 12.4; Nesterov 2004 §2.1.3 — strong monotonicity of $F$ ⇔ symmetric-part of Jacobian uniformly PD). **AAD has been carrying the Jacobian-level Euclidean contraction condition at the composite level since DA2'-inc was introduced** — stating it explicitly at the agent level via (CT2) is *making implicit commitments visible*, not adding new content. This lifts Euclidean sub-scope metric-α₁ from "derived conditional on theorem-import from Lohmiller-Slotine" to "derived AAD-internally" without any new axiomatic commitment.
+The Jacobian-level condition (CT2) at $M = I$ is *identically* the same object as `#form-composition-closure`'s DA2'-inc for $C^1$ correction functions on convex domains. This is a standard lemma (Rockafellar-Wets 1998 Cor 12.4; Nesterov 2004 §2.1.3 — strong monotonicity of $F$ ⇔ symmetric-part of Jacobian uniformly PD). **AAD has been carrying the Jacobian-level Euclidean contraction condition at the composite level since DA2'-inc was introduced** — stating it explicitly at the agent level via (CT2) is *making implicit commitments visible*, not adding new content. This lifts Euclidean sub-scope metric-α₁ from "derived conditional on theorem-import from Lohmiller-Slotine" to "derived AAD-internally" without any new axiomatic commitment.
 
 ### 3.2 Formal content
 
@@ -179,7 +179,7 @@ For $C^1$ $F: \mathcal D \to \mathbb R^n$ on convex $\mathcal D$:
 
 ### 3.3 Why this is a lift rather than a restatement
 
-Before this observation, `#contraction-template`'s derivation of (CT2) for Euclidean cases runs through Lohmiller-Slotine 1998 (a theorem-import). `#composition-closure`'s DA2'-inc was a *separately-posited condition* for Tier 1 — the segment states DA2'-inc is proved for Kalman, exp-family, strongly-convex-gradient, and linear-PD without explicitly identifying it as the Jacobian-level form of the Euclidean contraction condition.
+Before this observation, `#result-contraction-template`'s derivation of (CT2) for Euclidean cases runs through Lohmiller-Slotine 1998 (a theorem-import). `#form-composition-closure`'s DA2'-inc was a *separately-posited condition* for Tier 1 — the segment states DA2'-inc is proved for Kalman, exp-family, strongly-convex-gradient, and linear-PD without explicitly identifying it as the Jacobian-level form of the Euclidean contraction condition.
 
 Under the equivalence:
 - DA2'-inc at the agent level = B1*-inc (Jacobian-level incremental B1) = (CT2) at $M = I$.
@@ -200,9 +200,9 @@ The (PI) axiom + Čencov route (Angle 3 of `msc/spike-jacobian-b1-strengthening.
 
 **Promotion status: promotable (structural transparency).** Not a new mathematical result; a naming / labeling alignment that removes the theorem-import status for Euclidean metric-α₁. Should land as:
 
-- `#composition-closure` Discussion: add a paragraph stating the equivalence (DA2'-inc ≡ (CT2) at $M = I$ for $C^1$ $F$ on convex domains) with citation to Rockafellar-Wets 1998. Cross-reference `#contraction-template`.
-- `#contraction-template` Epistemic Status: classify Euclidean metric-α₁ as "AAD-internally derived via DA2'-inc equivalence" rather than theorem-imported.
-- `#gain-sector-bridge` (optional): add a brief "Incremental / Jacobian-level form (B1*)" paragraph in Formal Expression, noting that under $C^1$ smoothness B1 has an incremental form B1*-inc equivalent to DA2'-inc at the agent level. Flag as derived-under-sub-scope-α.
+- `#form-composition-closure` Discussion: add a paragraph stating the equivalence (DA2'-inc ≡ (CT2) at $M = I$ for $C^1$ $F$ on convex domains) with citation to Rockafellar-Wets 1998. Cross-reference `#result-contraction-template`.
+- `#result-contraction-template` Epistemic Status: classify Euclidean metric-α₁ as "AAD-internally derived via DA2'-inc equivalence" rather than theorem-imported.
+- `#der-gain-sector-bridge` (optional): add a brief "Incremental / Jacobian-level form (B1*)" paragraph in Formal Expression, noting that under $C^1$ smoothness B1 has an incremental form B1*-inc equivalent to DA2'-inc at the agent level. Flag as derived-under-sub-scope-α.
 
 ---
 
@@ -246,17 +246,17 @@ the incremental iISS-Lyapunov condition (iISS-diff) holds *globally* with $M = M
 - **Extended Kalman filter** with prediction $\hat o(X) = h(X)$ for $C^1$ nonlinear $h$: lifts to Tier 2M-global iff $\lVert Dh \rVert / \lVert Dh^{-1}\rVert$ bounded uniformly — equivalent to the observation operator being a *uniform immersion* on the state space. This is restrictive but checkable in applied cases (EKF for smooth mechanical systems, EKF for logistic regression).
 - **Particle filter in low-variance regime:** prediction Jacobian approximated by local mean; bounded-condition-number condition translates to: the filter's local linearization is uniformly well-conditioned. Holds in the low-variance regime by construction.
 - **Bayesian update with non-conjugate likelihood:** prediction Jacobian is the derivative of the log-likelihood's gradient with respect to parameter; bounded-condition-number condition = Fisher information has bounded spectrum uniformly. Holds for exp-family-with-bounded-statistics.
-- **Gradient-on-locally-convex-loss with sufficient global regularity:** lifts to Tier 2M-global iff the loss function is $C^2$ with Hessian eigenvalues bounded in $[\mu, L]$ *globally* (not just within the basin). This is rare — typically, non-convex losses have multiple basins with different conditioning. The basin-chart structure of `#contraction-template` §3.4 remains the honest scope.
+- **Gradient-on-locally-convex-loss with sufficient global regularity:** lifts to Tier 2M-global iff the loss function is $C^2$ with Hessian eigenvalues bounded in $[\mu, L]$ *globally* (not just within the basin). This is rare — typically, non-convex losses have multiple basins with different conditioning. The basin-chart structure of `#result-contraction-template` §3.4 remains the honest scope.
 
 ### 4.4 What route 3 does not reach
 
 - **Non-convex losses with multiple basins.** No global metric exists. Basin-chart structure is the honest scope.
 - **Agents with discontinuous / switching dynamics.** $C^1$ requirement fails.
-- **Adaptive-metric algorithms.** The metric itself changes with state; see `#adaptive-gain-dynamics` (MG-4) coupling-boundedness. If metric-state coupling satisfies (MG-4), route 3 composes; if not, metric-state feedback can destabilize.
+- **Adaptive-metric algorithms.** The metric itself changes with state; see `#deriv-adaptive-gain-dynamics` (MG-4) coupling-boundedness. If metric-state coupling satisfies (MG-4), route 3 composes; if not, metric-state feedback can destabilize.
 
 ### 4.5 Epistemic status, route 3
 
-*Tier: derived, conditional on (C1')–(C3') and uniform $\kappa_h$ in a globally-valid metric $M_h$.* The iISS-differential characterization is standard (Angeli 2002; Sontag 1989). The application to AAD's full-update map is a structured extension of `msc/spike-bridge-lemma-contraction.md` Prop 5 from local to global under the named condition. **Promotion status: promotable as an extension to `#contraction-template` or as a distinct appendix segment `#iISS-contraction` if the global-Tier-2M result warrants separate identity.**
+*Tier: derived, conditional on (C1')–(C3') and uniform $\kappa_h$ in a globally-valid metric $M_h$.* The iISS-differential characterization is standard (Angeli 2002; Sontag 1989). The application to AAD's full-update map is a structured extension of `msc/spike-bridge-lemma-contraction.md` Prop 5 from local to global under the named condition. **Promotion status: promotable as an extension to `#result-contraction-template` or as a distinct appendix segment `#iISS-contraction` if the global-Tier-2M result warrants separate identity.**
 
 **Honest limit.** This is a conditional lift, not a universal one. The condition (uniform Jacobian conditioning in a globally-valid metric) is non-trivial and often fails for non-convex losses or agents with switching structure. The lift substantively extends Tier 2 from "local only" to "global under named condition"; it does not eliminate the Tier 2 honest-scope boundary.
 
@@ -278,13 +278,13 @@ Two such results, one structural (non-smooth dynamics) and one game-theoretic (a
 
 **Verdict.** Non-smooth $F$ structurally prevents the sector-to-contraction bridge. This is **a Lipschitz floor, not a contraction-theory gap.** No refinement of sector-bound, no weighted Lyapunov, no metric adaptation escapes it without assuming additional structure (dwell-time, Filippov solutions, impulsive-dissipative framework).
 
-**Honest landing.** `#sector-condition-derivation`'s sub-scope β entry "rule-based / discontinuous" is out-of-scope for contraction-based bridge-lemma analysis. The analytical tools for this class are in a different framework (Di Bernardo, Liuzza & Russo 2014 for piecewise-smooth switched systems; Clarke calculus for Lipschitz-nonsmooth; van der Schaft-Schumacher 2000 for hybrid-dissipative). AAD's honest scope exit is explicit: this class is formally out-of-scope for the contraction-template bridge-lemma route, and remains in sub-scope β with A2' as a per-instance modeling assumption.
+**Honest landing.** `#deriv-sector-condition`'s sub-scope β entry "rule-based / discontinuous" is out-of-scope for contraction-based bridge-lemma analysis. The analytical tools for this class are in a different framework (Di Bernardo, Liuzza & Russo 2014 for piecewise-smooth switched systems; Clarke calculus for Lipschitz-nonsmooth; van der Schaft-Schumacher 2000 for hybrid-dissipative). AAD's honest scope exit is explicit: this class is formally out-of-scope for the contraction-template bridge-lemma route, and remains in sub-scope β with A2' as a per-instance modeling assumption.
 
-**Composition with `#discussion-identifiability-floor`.** Rule-based agents with regime-dependent rule firing have *structurally* regime-C identifiability ($\iota_k = 0$ on regime-switching boundaries) — the identifiability-floor Instance 2 (L1' unobservable-$C$) absorbs the non-contractibility when the rule's state dependency is on an unobservable common cause. This is consistent with the `#discussion-identifiability-floor` pattern: structural no-go statements from external theorems (Lipschitz-continuity requirement for contraction; Cramér-Rao floor for identification) strengthen the load-bearing role of AAD's in-scope machinery.
+**Composition with `#disc-identifiability-floor`.** Rule-based agents with regime-dependent rule firing have *structurally* regime-C identifiability ($\iota_k = 0$ on regime-switching boundaries) — the identifiability-floor Instance 2 (L1' unobservable-$C$) absorbs the non-contractibility when the rule's state dependency is on an unobservable common cause. This is consistent with the `#disc-identifiability-floor` pattern: structural no-go statements from external theorems (Lipschitz-continuity requirement for contraction; Cramér-Rao floor for identification) strengthen the load-bearing role of AAD's in-scope machinery.
 
 ### 5.2 No-go for adversarial / strategic regimes (N2)
 
-**Claim.** For two-agent systems in the adversarial regime of `#critical-mass-composition` ($\gamma > 0$) or the strategic-composite regime of `#strategic-composition` under (C-iv) scope route, no single-agent scalar sector bound implies composite contraction. Three independent obstructions converge.
+**Claim.** For two-agent systems in the adversarial regime of `#deriv-critical-mass-composition` ($\gamma > 0$) or the strategic-composite regime of `#deriv-strategic-composition` under (C-iv) scope route, no single-agent scalar sector bound implies composite contraction. Three independent obstructions converge.
 
 **Obstruction (i): Slotine-theorem-applicability.** Slotine 2003's compositional theorems (parallel / cascade / negative-feedback small-gain) require each sub-system to be individually contracting *and* for the composition topology to preserve contraction. Adversarial dynamics between two agents each optimizing opposing objectives yield a *saddle-point* equilibrium of the joint best-response dynamics — a fixed point that is attracting in some directions and repelling in others. Contraction analysis requires attracting fixed points; saddle points break the framework directly (Slotine 2003 §III).
 
@@ -294,7 +294,7 @@ Two such results, one structural (non-smooth dynamics) and one game-theoretic (a
 
 **Convergent no-go.** The three obstructions arise from different theorem families (compositional-contraction, dissipativity-universality, differential-Lyapunov attractor theory) but converge on the same conclusion: **no extension of sector-bounded-single-agent analysis covers adversarial multi-agent dynamics without equilibrium-theoretic machinery.**
 
-**Honest landing.** `#strategic-composition` is AAD's right tool for (C-iv)-scope strategic composites; it uses Monderer-Shapley 1996 potential-game machinery or Rosen 1965 monotone-game machinery, *not* contraction analysis. `#adversarial-destabilization` handles asymmetric attacker-target dynamics (not a composite). The contraction-template bridge-lemma does not extend to the adversarial half of Section III *by structural necessity*. This is not a gap to be closed; it is a scope boundary that AAD correctly honors.
+**Honest landing.** `#deriv-strategic-composition` is AAD's right tool for (C-iv)-scope strategic composites; it uses Monderer-Shapley 1996 potential-game machinery or Rosen 1965 monotone-game machinery, *not* contraction analysis. `#der-adversarial-destabilization` handles asymmetric attacker-target dynamics (not a composite). The contraction-template bridge-lemma does not extend to the adversarial half of Section III *by structural necessity*. This is not a gap to be closed; it is a scope boundary that AAD correctly honors.
 
 **Consequence for Gemini's finding.** The cooperative nonlinear half of Gemini's pressure point has a substantively strengthened answer (via routes 1–3). The adversarial half does not — and cannot — receive the same treatment. This is the *epistemic architecture* (CLAUDE.md §7) working as intended: scope-honesty surfaces where the contraction-apparatus stops applying, rather than pretending the apparatus is universal.
 
@@ -302,7 +302,7 @@ Two such results, one structural (non-smooth dynamics) and one game-theoretic (a
 
 *Tier: exact for N1 (Lipschitz counterexample is constructive); robust qualitative for N2 (three independent obstructions from well-attested theorem families converge).*
 
-**Promotion status: promotable as explicit scope statements.** The N1 no-go should land as a sharper statement in `#sector-condition-derivation`'s sub-scope β discussion: rule-based / discontinuous is *structurally* out-of-scope for contraction-based bridge-lemma analysis. The N2 no-go should land as a note in `#contraction-template` §Honest failure modes: the adversarial half of Section III has three independent obstructions to contraction analysis, naming `#strategic-composition` as the right tool.
+**Promotion status: promotable as explicit scope statements.** The N1 no-go should land as a sharper statement in `#deriv-sector-condition`'s sub-scope β discussion: rule-based / discontinuous is *structurally* out-of-scope for contraction-based bridge-lemma analysis. The N2 no-go should land as a note in `#result-contraction-template` §Honest failure modes: the adversarial half of Section III has three independent obstructions to contraction analysis, naming `#deriv-strategic-composition` as the right tool.
 
 ---
 
@@ -326,36 +326,36 @@ Route 3 extends Tier 2 from local to global under the condition that the predict
 
 ### 6.3 (R3-residual) Passivity in Class 3 with leaky ports — ε-error quantification
 
-§2.5 states that Class 3 (partially modular per `#directed-separation`) composes under passivity with ε-error of magnitude $O(\kappa)$ where $\kappa$ is the modularity coefficient. The ε-error's quantitative form (as a function of $\kappa$, storage-function curvatures, and port-leakage structure) is not derived here.
+§2.5 states that Class 3 (partially modular per `#der-directed-separation`) composes under passivity with ε-error of magnitude $O(\kappa)$ where $\kappa$ is the modularity coefficient. The ε-error's quantitative form (as a function of $\kappa$, storage-function curvatures, and port-leakage structure) is not derived here.
 
 **Status:** Open. A dedicated spike on Class 3 passivity ε-error quantification would produce a usable bound; this spike does not supply it.
 
 ### 6.4 (R6-residual) Identifiability-floor × Jacobian-contraction joint scope
 
-`#contraction-template` §5 notes the orthogonality of the metric axis and the identifiability-floor axis. A joint scope statement — "contraction-with-identification holds iff (CT1)–(CT3) hold AND $\iota_k > 0$ uniformly on the observable subspace" — is implicit in both `#discussion-identifiability-floor` and `#contraction-template` but not stated explicitly as a combined admissibility condition.
+`#result-contraction-template` §5 notes the orthogonality of the metric axis and the identifiability-floor axis. A joint scope statement — "contraction-with-identification holds iff (CT1)–(CT3) hold AND $\iota_k > 0$ uniformly on the observable subspace" — is implicit in both `#disc-identifiability-floor` and `#result-contraction-template` but not stated explicitly as a combined admissibility condition.
 
-**Status:** Open. A joint-scope paragraph in `#contraction-template` or `#discussion-identifiability-floor` would state this explicitly; the content is a composition of existing results, not new.
+**Status:** Open. A joint-scope paragraph in `#result-contraction-template` or `#disc-identifiability-floor` would state this explicitly; the content is a composition of existing results, not new.
 
-### 6.5 (R-new) Adaptive-metric coupling with `#adaptive-gain-dynamics`
+### 6.5 (R-new) Adaptive-metric coupling with `#deriv-adaptive-gain-dynamics`
 
-When the metric $M(\xi, t)$ is itself adapted alongside $\xi$, the metric-state coupling term $\dot M$ in (CT2) can destabilize contraction. `#adaptive-gain-dynamics` (MG-4) coupling-boundedness handles this for gain-state coupling; the metric-state analog is `#adaptive-gain-dynamics`'s augmented-state construction applied to the metric. This composes, but the composition is not stated in `#contraction-template`.
+When the metric $M(\xi, t)$ is itself adapted alongside $\xi$, the metric-state coupling term $\dot M$ in (CT2) can destabilize contraction. `#deriv-adaptive-gain-dynamics` (MG-4) coupling-boundedness handles this for gain-state coupling; the metric-state analog is `#deriv-adaptive-gain-dynamics`'s augmented-state construction applied to the metric. This composes, but the composition is not stated in `#result-contraction-template`.
 
-**Status:** Open. A cross-reference between `#contraction-template` and `#adaptive-gain-dynamics` would close the loop; the content is structural, not new.
+**Status:** Open. A cross-reference between `#result-contraction-template` and `#deriv-adaptive-gain-dynamics` would close the loop; the content is structural, not new.
 
 ---
 
 ## §7. Recommended segment-level moves (do NOT modify segments in this spike)
 
-The spike instructions: "Recommended segment-level moves (new appendix segment? extension to #contraction-template? new no-go result?) — but do NOT modify segments yourself."
+The spike instructions: "Recommended segment-level moves (new appendix segment? extension to #result-contraction-template? new no-go result?) — but do NOT modify segments yourself."
 
 ### 7.1 Minimal (structural transparency, no new axioms)
 
 Land the DA2'-inc ≡ (CT2)-at-$M=I$ equivalence (Route 2, §3) and the N1/N2 no-go statements (§5) in existing segments:
 
-- **`#composition-closure` Discussion:** add one paragraph stating that DA2'-inc for $C^1$ $F$ on convex domains is the Jacobian-level Euclidean contraction condition, equivalent to (CT2) at $M = I$ via Rockafellar-Wets 1998 Cor 12.4. Cross-reference `#contraction-template`.
-- **`#contraction-template` Epistemic Status:** classify Euclidean metric-α₁ cases as "AAD-internally derived via DA2'-inc equivalence" rather than theorem-imported.
-- **`#contraction-template` Honest failure modes:** sharpen the adversarial-half statement to name the three independent obstructions (Slotine-applicability, passivity-universality, contraction-metric-attractor). Cross-reference `#strategic-composition`.
-- **`#sector-condition-derivation` sub-scope β discussion:** sharpen the "rule-based / discontinuous" entry — this class is structurally out-of-scope for contraction-based bridge-lemma analysis (Lipschitz floor). Cross-reference the hybrid-dissipative framework (van der Schaft-Schumacher 2000) as the appropriate external apparatus.
+- **`#form-composition-closure` Discussion:** add one paragraph stating that DA2'-inc for $C^1$ $F$ on convex domains is the Jacobian-level Euclidean contraction condition, equivalent to (CT2) at $M = I$ via Rockafellar-Wets 1998 Cor 12.4. Cross-reference `#result-contraction-template`.
+- **`#result-contraction-template` Epistemic Status:** classify Euclidean metric-α₁ cases as "AAD-internally derived via DA2'-inc equivalence" rather than theorem-imported.
+- **`#result-contraction-template` Honest failure modes:** sharpen the adversarial-half statement to name the three independent obstructions (Slotine-applicability, passivity-universality, contraction-metric-attractor). Cross-reference `#deriv-strategic-composition`.
+- **`#deriv-sector-condition` sub-scope β discussion:** sharpen the "rule-based / discontinuous" entry — this class is structurally out-of-scope for contraction-based bridge-lemma analysis (Lipschitz floor). Cross-reference the hybrid-dissipative framework (van der Schaft-Schumacher 2000) as the appropriate external apparatus.
 
 **Effort estimate:** Three paragraph-scale edits and one section-scale sharpening. No new segments.
 
@@ -365,9 +365,9 @@ Land the DA2'-inc ≡ (CT2)-at-$M=I$ equivalence (Route 2, §3) and the N1/N2 no
 
 Land the passivity / dissipativity route (Route 1, §2) as a new appendix segment:
 
-- **`#dissipativity-template`** (new segment, type: result, status: derived): states the Willems storage-function + Khalil negative-feedback $\mathcal L_2$-stability as an AAD appendix. Generalizes `#sector-persistence-template` to the heterogeneous-storage-function regime (quadratic storage ⊂ general Willems storage). Contains the storage-function table for AAD sub-scope α/β agents. Cross-references `#composition-closure` and `#critical-mass-composition` for the heterogeneous-composition closure route.
-- **`#critical-mass-composition` Working Notes:** add a note that `#dissipativity-template` supplies the heterogeneous-architecture-composition route missing from §6.1's weakest-link bound for Kalman + PID-on-positive-real-plant.
-- **`#directed-separation` Discussion:** add the Class 1/2/3 port-structure reading from §2.5 — Class 1 has clean ports (heterogeneous passivity closure), Class 3 has leaky ports (ε-error composition), Class 2 fails (no port decomposition).
+- **`#dissipativity-template`** (new segment, type: result, status: derived): states the Willems storage-function + Khalil negative-feedback $\mathcal L_2$-stability as an AAD appendix. Generalizes `#result-sector-persistence-template` to the heterogeneous-storage-function regime (quadratic storage ⊂ general Willems storage). Contains the storage-function table for AAD sub-scope α/β agents. Cross-references `#form-composition-closure` and `#deriv-critical-mass-composition` for the heterogeneous-composition closure route.
+- **`#deriv-critical-mass-composition` Working Notes:** add a note that `#dissipativity-template` supplies the heterogeneous-architecture-composition route missing from §6.1's weakest-link bound for Kalman + PID-on-positive-real-plant.
+- **`#der-directed-separation` Discussion:** add the Class 1/2/3 port-structure reading from §2.5 — Class 1 has clean ports (heterogeneous passivity closure), Class 3 has leaky ports (ε-error composition), Class 2 fails (no port decomposition).
 
 **Effort estimate:** One new appendix segment (≈200 lines) plus two paragraph-scale edits.
 
@@ -377,7 +377,7 @@ Land the passivity / dissipativity route (Route 1, §2) as a new appendix segmen
 
 If the iISS-global Tier 2M lift (Route 3, §4) warrants its own identity, land as a new appendix segment:
 
-- **`#iISS-contraction`** (new segment, type: result, status: derived-conditional): states the incremental ISS extension of `#contraction-template` to Tier 2M-global under uniform Jacobian conditioning. Covers extended Kalman, particle-filter-in-low-variance, Bayesian-under-non-conjugate-likelihood. Cross-references Angeli 2002.
+- **`#iISS-contraction`** (new segment, type: result, status: derived-conditional): states the incremental ISS extension of `#result-contraction-template` to Tier 2M-global under uniform Jacobian conditioning. Covers extended Kalman, particle-filter-in-low-variance, Bayesian-under-non-conjugate-likelihood. Cross-references Angeli 2002.
 
 **Effort estimate:** One new appendix segment (~150 lines).
 
@@ -385,9 +385,9 @@ If the iISS-global Tier 2M lift (Route 3, §4) warrants its own identity, land a
 
 ### 7.4 Recommendation
 
-**Minimal (§7.1) should land first.** It executes the structural-transparency lift that removes one layer of theorem-import for Euclidean metric-α₁ and sharpens the scope statements that are currently soft in `#contraction-template` / `#sector-condition-derivation`. Low axiomatic cost, high architectural clarity.
+**Minimal (§7.1) should land first.** It executes the structural-transparency lift that removes one layer of theorem-import for Euclidean metric-α₁ and sharpens the scope statements that are currently soft in `#result-contraction-template` / `#deriv-sector-condition`. Low axiomatic cost, high architectural clarity.
 
-**Moderate (§7.2) should land second.** It closes the *specific* heterogeneous-composition case Gemini's finding highlighted (Kalman + PID). The Class 1/2/3 port-structure reading (§2.5) gives `#directed-separation` a composition-theoretic lens it currently lacks.
+**Moderate (§7.2) should land second.** It closes the *specific* heterogeneous-composition case Gemini's finding highlighted (Kalman + PID). The Class 1/2/3 port-structure reading (§2.5) gives `#der-directed-separation` a composition-theoretic lens it currently lacks.
 
 **Strong (§7.3) is optional.** The iISS lift is substantive but more technical and currently has fewer direct applications within AAD's existing case catalog. Landing it would extend Tier 2M cleanly; not landing it keeps basin-chart Tier 2 as honest scope.
 
@@ -397,18 +397,18 @@ If the iISS-global Tier 2M lift (Route 3, §4) warrants its own identity, land a
 
 | Claim | Tier | Derivation route |
 |---|---|---|
-| Current AAD state partially addresses Gemini's pressure point via `#contraction-template` landing | Exact | Direct audit of 2026-04-23 cycle outputs |
+| Current AAD state partially addresses Gemini's pressure point via `#result-contraction-template` landing | Exact | Direct audit of 2026-04-23 cycle outputs |
 | DA2'-inc ≡ (CT2) at $M = I$ for $C^1$ $F$ on convex domains | Exact | Rockafellar-Wets 1998 Cor 12.4; standard |
 | Euclidean sub-scope metric-α₁ lifts from theorem-import to AAD-internal via DA2'-inc equivalence | Exact (content) / Robust qualitative (lift-status classification) | §3 |
 | Heterogeneous Kalman + PID-on-positive-real-plant composite is $\mathcal L_2$-stable via Willems-dissipativity + Khalil Thm 6.4 | Exact | Khalil 2002 Thm 6.4; standard passivity theory |
 | Kalman is output-strictly passive with Mahalanobis storage | Exact | Anderson-Moore 1979 ch. 4 standard |
 | PID-on-positive-real-plant is passive with plant-plus-integrator-plus-derivative storage | Exact, conditional on positive-real plant | Khalil 2002 Thm 6.3 standard |
-| Class 1/2/3 port-structure reading of `#directed-separation` (§2.5) | Robust qualitative | Novel AAD-structural observation; valid but not theorem |
+| Class 1/2/3 port-structure reading of `#der-directed-separation` (§2.5) | Robust qualitative | Novel AAD-structural observation; valid but not theorem |
 | Tier 2M-global lift under uniform Jacobian conditioning in a globally-valid metric $M_h$ (Route 3) | Derived, conditional on (C1')–(C3') + uniform $\kappa_h$ | Angeli 2002 iISS-differential + AAD-specific composition |
 | N1 no-go: non-Lipschitz $F$ prevents sector-to-contraction bridge | Exact | Constructive counterexample §5.1 |
 | N2 no-go: adversarial regime has three independent contraction-apparatus obstructions | Robust qualitative | Convergence of Slotine-theorem + passivity-universality + Daskalakis et al. 2018 |
 | Three non-statistical metric-α₂ classes remain theorem-imported without heredity | Robust qualitative | §6.1; no AAD-internal axiom cleanly forces metric choice |
-| Adaptive-metric coupling with `#adaptive-gain-dynamics` composes but is not yet stated | Derived | §6.5; composition of existing results |
+| Adaptive-metric coupling with `#deriv-adaptive-gain-dynamics` composes but is not yet stated | Derived | §6.5; composition of existing results |
 | Identifiability-floor × Jacobian-contraction joint scope is implicit but not explicit | Derived | §6.4; composition of existing results |
 
 **Max attainable for this spike's content:** exact for Routes 2 / N1; derived-conditional for Routes 1 / 3 / N2.
@@ -419,11 +419,11 @@ If the iISS-global Tier 2M lift (Route 3, §4) warrants its own identity, land a
 
 This spike's routes + no-go results compose onto AAD's three-part meta-pattern architecture (CLAUDE.md §7b):
 
-- **`#discussion-separability-pattern` (positive):** Route 2's lift makes the seventh ladder (metric-α₁ / metric-α₂ / metric-β under A2' sub-scope) more explicit. Euclidean metric-α₁ is AAD-internally derived; statistical metric-α₂ is AAD-internally derived under (PI)+Čencov; non-statistical metric-α₂ is theorem-imported; metric-β is structurally out-of-scope (per N1).
-- **`#discussion-identifiability-floor` (negative):** The N1 no-go for non-smooth / rule-based adds a *fourth* structural limit — Lipschitz-floor for contraction-based bridge-lemma analysis. This is a different flavor from the three existing instances (CHT for on-policy detection, Cramér-Rao for L1' mixture, Liberzon for composition-layer common Lyapunov); it is a smoothness-requirement floor rather than an information-theoretic floor. Could be considered for an Instance 4 entry under a broader framing of `#discussion-identifiability-floor` as "structural-property floors that AAD machinery doesn't escape."
+- **`#disc-separability-pattern` (positive):** Route 2's lift makes the seventh ladder (metric-α₁ / metric-α₂ / metric-β under A2' sub-scope) more explicit. Euclidean metric-α₁ is AAD-internally derived; statistical metric-α₂ is AAD-internally derived under (PI)+Čencov; non-statistical metric-α₂ is theorem-imported; metric-β is structurally out-of-scope (per N1).
+- **`#disc-identifiability-floor` (negative):** The N1 no-go for non-smooth / rule-based adds a *fourth* structural limit — Lipschitz-floor for contraction-based bridge-lemma analysis. This is a different flavor from the three existing instances (CHT for on-policy detection, Cramér-Rao for L1' mixture, Liberzon for composition-layer common Lyapunov); it is a smoothness-requirement floor rather than an information-theoretic floor. Could be considered for an Instance 4 entry under a broader framing of `#disc-identifiability-floor` as "structural-property floors that AAD machinery doesn't escape."
 - **`#additive-coordinate-forcing` (constructive):** No new primary instance from this spike. The (PI)+Čencov instance already landed as the fourth primary in the 2026-04-23 Gap A/B cycle.
 
-The **epistemic-architecture interpretation** of Gemini's pressure point: it is fundamentally a question about the *scope honesty* of the bridge lemma. The pre-2026-04-23 version stated the bridge lemma without making its scope visible at the segment level. The 2026-04-23 `#contraction-template` landing surfaced metric-α₁ / metric-α₂ / metric-β as visible scope. This spike's routes sharpen which specific agent classes sit at which scope tier (storage-function route adds PID-on-positive-real-plant as sub-scope α' conditional on plant property), and the no-gos make the scope boundaries precise (N1 sharpens the sub-scope β smoothness floor; N2 sharpens the cooperative-only boundary). Net: **the pressure point is reframed from "contraction works or doesn't" to "contraction works in a characterized scope, structurally fails outside that scope for named reasons."** This is the scope-honesty-as-architecture mode (CLAUDE.md §7a).
+The **epistemic-architecture interpretation** of Gemini's pressure point: it is fundamentally a question about the *scope honesty* of the bridge lemma. The pre-2026-04-23 version stated the bridge lemma without making its scope visible at the segment level. The 2026-04-23 `#result-contraction-template` landing surfaced metric-α₁ / metric-α₂ / metric-β as visible scope. This spike's routes sharpen which specific agent classes sit at which scope tier (storage-function route adds PID-on-positive-real-plant as sub-scope α' conditional on plant property), and the no-gos make the scope boundaries precise (N1 sharpens the sub-scope β smoothness floor; N2 sharpens the cooperative-only boundary). Net: **the pressure point is reframed from "contraction works or doesn't" to "contraction works in a characterized scope, structurally fails outside that scope for named reasons."** This is the scope-honesty-as-architecture mode (CLAUDE.md §7a).
 
 ---
 
@@ -433,15 +433,15 @@ The **epistemic-architecture interpretation** of Gemini's pressure point: it is 
 
 1. **Audit clarity.** The post-2026-04-23 state partially addresses Gemini's pressure point; three-plus specific residuals (R1–R6) remain. The pressure point has shifted locus: from "linear-Kalman-only" (pre-2026-04-23) to "metric-α₁ AAD-internal + statistical metric-α₂ via (PI) + non-statistical metric-α₂ theorem-imported + adversarial out-of-scope + non-smooth out-of-scope" (post-2026-04-23 + this spike). The shift is a substantive narrowing, not a dissolution.
 
-2. **Route 1 (passivity) as promotion-ready.** `msc/spike-passivity-composition.md` content ready to land as `#dissipativity-template` meta-segment plus Class 1/2/3 port-structure reading of `#directed-separation`. Adds one new AAD sub-scope class (PID-on-positive-real-plant = sub-scope α' conditional on plant property). Closes the canonical Kalman + PID heterogeneous-composition case Gemini's finding highlighted.
+2. **Route 1 (passivity) as promotion-ready.** `msc/spike-passivity-composition.md` content ready to land as `#dissipativity-template` meta-segment plus Class 1/2/3 port-structure reading of `#der-directed-separation`. Adds one new AAD sub-scope class (PID-on-positive-real-plant = sub-scope α' conditional on plant property). Closes the canonical Kalman + PID heterogeneous-composition case Gemini's finding highlighted.
 
-3. **Route 2 (DA2'-inc ≡ (CT2)-at-$M=I$ equivalence) as promotion-ready structural transparency.** Euclidean metric-α₁ was already AAD-internal under the DA2'-inc commitment; surfacing the equivalence as an identity removes a theorem-import layer. Low-cost landing in `#composition-closure` + `#contraction-template`.
+3. **Route 2 (DA2'-inc ≡ (CT2)-at-$M=I$ equivalence) as promotion-ready structural transparency.** Euclidean metric-α₁ was already AAD-internal under the DA2'-inc commitment; surfacing the equivalence as an identity removes a theorem-import layer. Low-cost landing in `#form-composition-closure` + `#result-contraction-template`.
 
 4. **Route 3 (iISS global lift for Tier 2M) as conditional promotion candidate.** Extended-Kalman, particle-filter-in-low-variance, Bayesian-under-non-conjugate-likelihood lift from local to global under uniform-Jacobian-conditioning. Standard iISS apparatus (Angeli 2002); AAD-specific composition.
 
 5. **N1 no-go (non-smooth / rule-based Lipschitz floor) as sharp scope statement.** Structural-not-gap; the bridge-lemma route cannot extend to discontinuous $F$ without changing framework. Cross-references hybrid-dissipative machinery.
 
-6. **N2 no-go (adversarial / strategic regime) as sharp scope statement.** Three independent obstructions converge; `#strategic-composition` is the right tool for (C-iv) scope composites.
+6. **N2 no-go (adversarial / strategic regime) as sharp scope statement.** Three independent obstructions converge; `#deriv-strategic-composition` is the right tool for (C-iv) scope composites.
 
 ### 10.2 What this spike does not achieve
 
@@ -451,13 +451,13 @@ The **epistemic-architecture interpretation** of Gemini's pressure point: it is 
 
 3. **Does not close identifiability-floor × Jacobian-contraction joint scope explicitly.** §6.4 observes the orthogonality composes; the explicit joint-scope paragraph is a follow-up landing.
 
-4. **Does not extend to `#adaptive-gain-dynamics` adaptive-metric coupling.** §6.5 observes the composition exists; the detailed statement is a follow-up.
+4. **Does not extend to `#deriv-adaptive-gain-dynamics` adaptive-metric coupling.** §6.5 observes the composition exists; the detailed statement is a follow-up.
 
-5. **Does not cover the L1' mixture regime under correlated-evidence.** `#fisher-whitened-update-rule` and Prop B.7's five-way gating in `#strategic-dynamics-derivation` handle this structurally; the bridge-lemma apparatus composes with those results but this spike does not trace the composition.
+5. **Does not cover the L1' mixture regime under correlated-evidence.** `#deriv-fisher-whitened-update-rule` and Prop B.7's five-way gating in `#deriv-strategic-dynamics` handle this structurally; the bridge-lemma apparatus composes with those results but this spike does not trace the composition.
 
 ### 10.3 Overall verdict
 
-**The pressure point is partially addressed with honest characterization of the residual.** Gemini's finding — bridge lemma verified only for linear Kalman — was substantively addressed by the 2026-04-23 `#contraction-template` landing; this spike contributes three promotable strengthenings (passivity route for heterogeneous cooperative composition; DA2'-inc equivalence for Euclidean metric-α₁ theorem-import removal; iISS global lift for Tier 2M) and two sharp no-go statements (non-smooth Lipschitz floor; adversarial-regime three-obstruction convergence) that together re-characterize the scope.
+**The pressure point is partially addressed with honest characterization of the residual.** Gemini's finding — bridge lemma verified only for linear Kalman — was substantively addressed by the 2026-04-23 `#result-contraction-template` landing; this spike contributes three promotable strengthenings (passivity route for heterogeneous cooperative composition; DA2'-inc equivalence for Euclidean metric-α₁ theorem-import removal; iISS global lift for Tier 2M) and two sharp no-go statements (non-smooth Lipschitz floor; adversarial-regime three-obstruction convergence) that together re-characterize the scope.
 
 The strengthen-first posture succeeds for three of six residuals (R1 Euclidean via Route 2; R3 passivity via Route 1; R2 Tier 2 via Route 3). It honestly records failures for (R1 non-statistical metric-α₂), (R4 non-smooth), (R5 adversarial) — the first because heredity-axiom adoption is architectural (this spike doesn't re-decide), the second two because they are structural limits of the contraction framework, not gaps.
 
@@ -470,10 +470,10 @@ The strengthen-first posture succeeds for three of six residuals (R1 Euclidean v
 ## §11. Working notes / follow-up flags
 
 - **Relation to `#dissipativity-template` candidate.** `msc/spike-passivity-composition.md` §9 recommends this as a substantive landing. This spike concurs and adds the Class 1/2/3 port-structure reading (§2.5) to the content. If `#dissipativity-template` is landed, it should include the port-structure reading.
-- **Relation to `#operator-sector-template` candidate.** `msc/spike-operator-sector-unification.md` §10 considers a fourth meta-segment (alongside `#discussion-separability-pattern`, `#discussion-identifiability-floor`, `#additive-coordinate-forcing`) for the operator-sector / monotone-operator lineage. That decision is orthogonal to this spike's recommendations; the operator-sector spike already recommends a "modest landing" (edits to existing segments) rather than a new meta-segment.
-- **Heredity axiom decision.** Angle 1 of `msc/spike-jacobian-b1-strengthening.md` remains the most ambitious strengthening; it would lift B1* at the agent level to AAD-internally forced under a stronger-form `#postulate-composition-consistency`. This spike does not re-litigate that decision. If heredity is adopted, the three non-statistical metric-α₂ classes promote; until then, they stay theorem-imported.
-- **Connection to `#update-gain` / `#adaptive-gain-dynamics`.** The augmented-state construction that `#adaptive-gain-dynamics` uses for gain-state coupling (MG-1)–(MG-4) has a structural analog for metric-state coupling under adaptive-metric algorithms. A cross-reference between `#contraction-template` and `#adaptive-gain-dynamics` would close §6.5.
-- **iISS vs dissipativity.** Both apparatuses handle inputs-to-states stability, but via different mathematical routes (Lyapunov-via-trajectory-difference vs storage-function-inequality). For AAD-internal use, iISS is closer to `#contraction-template` (differential Lyapunov); dissipativity is closer to `#dissipativity-template` (storage + supply rate). The two should cohere at landing; this spike treats them in separate routes (§2, §4) without forcing coherence, leaving that to segment-level landing.
+- **Relation to `#operator-sector-template` candidate.** `msc/spike-operator-sector-unification.md` §10 considers a fourth meta-segment (alongside `#disc-separability-pattern`, `#disc-identifiability-floor`, `#additive-coordinate-forcing`) for the operator-sector / monotone-operator lineage. That decision is orthogonal to this spike's recommendations; the operator-sector spike already recommends a "modest landing" (edits to existing segments) rather than a new meta-segment.
+- **Heredity axiom decision.** Angle 1 of `msc/spike-jacobian-b1-strengthening.md` remains the most ambitious strengthening; it would lift B1* at the agent level to AAD-internally forced under a stronger-form `#post-composition-consistency`. This spike does not re-litigate that decision. If heredity is adopted, the three non-statistical metric-α₂ classes promote; until then, they stay theorem-imported.
+- **Connection to `#emp-update-gain` / `#deriv-adaptive-gain-dynamics`.** The augmented-state construction that `#deriv-adaptive-gain-dynamics` uses for gain-state coupling (MG-1)–(MG-4) has a structural analog for metric-state coupling under adaptive-metric algorithms. A cross-reference between `#result-contraction-template` and `#deriv-adaptive-gain-dynamics` would close §6.5.
+- **iISS vs dissipativity.** Both apparatuses handle inputs-to-states stability, but via different mathematical routes (Lyapunov-via-trajectory-difference vs storage-function-inequality). For AAD-internal use, iISS is closer to `#result-contraction-template` (differential Lyapunov); dissipativity is closer to `#dissipativity-template` (storage + supply rate). The two should cohere at landing; this spike treats them in separate routes (§2, §4) without forcing coherence, leaving that to segment-level landing.
 - **(PI) axiom limits.** The (PI) axiom lifts the two statistical metric-α₂ classes. Extending it to non-statistical metric-α₂ via a broader invariance principle (e.g., Lie-group invariance under the agent's symmetry group) is speculative and not pursued here.
 - **Opus O-BP10 slogan.** "An adaptive system is a projection whose contraction rate exceeds its target's drift rate." The operator-sector restatement in `msc/spike-operator-sector-unification.md` §12 open-questions is: "an adaptive system is an operator whose strong-monotonicity rate exceeds its disturbance rate." This spike's routes give specific strong-monotonicity certificates (DA2'-inc = (CT2)-at-$M=I$ for Euclidean; (PI)+Čencov for Fisher; dissipativity for heterogeneous storage; iISS-differential for Tier 2M-global). The slogan's segment-level surfacing would be a natural complement.
 
@@ -515,11 +515,11 @@ The strengthen-first posture succeeds for three of six residuals (R1 Euclidean v
 - Rosen, J. B. (1965). "Existence and uniqueness of equilibrium points for concave n-person games." *Econometrica* 33(3):520–534.
 
 **AAD segments referenced:**
-`#sector-persistence-template`, `#contraction-template`, `#composition-closure`, `#critical-mass-composition`, `#scope-composite-agent`, `#gain-sector-bridge`, `#sector-condition-derivation`, `#adaptive-gain-dynamics`, `#discussion-identifiability-floor`, `#discussion-separability-pattern`, `#additive-coordinate-forcing`, `#scope-agent-identity`, `#directed-separation`, `#strategic-composition`, `#adversarial-destabilization`, `#update-gain`.
+`#result-sector-persistence-template`, `#result-contraction-template`, `#form-composition-closure`, `#deriv-critical-mass-composition`, `#scope-composite-agent`, `#der-gain-sector-bridge`, `#deriv-sector-condition`, `#deriv-adaptive-gain-dynamics`, `#disc-identifiability-floor`, `#disc-separability-pattern`, `#additive-coordinate-forcing`, `#scope-agent-identity`, `#der-directed-separation`, `#deriv-strategic-composition`, `#der-adversarial-destabilization`, `#emp-update-gain`.
 
 **AAD spike trail:**
 - `msc/spike-bridge-lemma-contraction.md` (2026-04-06) — DA2'-inc identification + Tier 1/2/3.
-- `msc/spike-contraction-metric-generalization.md` (2026-04-22) — metric-formulation R1 landing for `#contraction-template`.
+- `msc/spike-contraction-metric-generalization.md` (2026-04-22) — metric-formulation R1 landing for `#result-contraction-template`.
 - `msc/spike-jacobian-b1-strengthening.md` (2026-04-23) — Angles 1 / 2 / 3 / 4 / 5 for AAD-internal B1* strengthening.
 - `msc/spike-passivity-composition.md` (2026-04-22) — Willems-dissipativity heterogeneous composition route.
 - `msc/spike-operator-sector-unification.md` (2026-04-22) — monotone-operator unification 2-instance-plus-1-consequence.

@@ -4,11 +4,11 @@
 
 **Date**: 2026-04-20
 
-**Motivation**: `01-aad-core/src/definition-unity-dimensions.md` states "high $U_M$ predicts low $\varepsilon_x$" etc. but admits "the mapping from unity to closure error is not yet formalized." This spike formalizes the mapping in the linear-Gaussian case and — critically — reveals that the correct statement is *not* a direct correspondence but a **rate-distortion relation**: unity dimensions control the *compressibility* of their corresponding state components, which determines the closure-defect curve as projection aggressiveness varies.
+**Motivation**: `01-aad-core/src/def-unity-dimensions.md` states "high $U_M$ predicts low $\varepsilon_x$" etc. but admits "the mapping from unity to closure error is not yet formalized." This spike formalizes the mapping in the linear-Gaussian case and — critically — reveals that the correct statement is *not* a direct correspondence but a **rate-distortion relation**: unity dimensions control the *compressibility* of their corresponding state components, which determines the closure-defect curve as projection aggressiveness varies.
 
-**Depends on**: #composition-closure, #definition-unity-dimensions, `msc/spike-composition-correlated-kalman.md`, `msc/spike-projection-admissibility.md`.
+**Depends on**: #form-composition-closure, #def-unity-dimensions, `msc/spike-composition-correlated-kalman.md`, `msc/spike-projection-admissibility.md`.
 
-**Promotion target**: after review, the framing and linear-Gaussian results should promote to a new segment `#unity-closure-mapping`, with updates to `#definition-unity-dimensions` (fix the "predicts" claim to the rate-distortion formulation).
+**Promotion target**: after review, the framing and linear-Gaussian results should promote to a new segment `#result-unity-closure-mapping`, with updates to `#def-unity-dimensions` (fix the "predicts" claim to the rate-distortion formulation).
 
 ---
 
@@ -55,7 +55,7 @@ Noises $v_1, v_2$ independent for now; the observation-correlation case is a var
 
 ## 3. Unity Measures in Closed Form
 
-*[Derived]* In the linear-Gaussian setting at steady state, each unity measure from `#definition-unity-dimensions` reduces to a closed form in the controlling correlation.
+*[Derived]* In the linear-Gaussian setting at steady state, each unity measure from `#def-unity-dimensions` reduces to a closed form in the controlling correlation.
 
 ### 3.1 Epistemic unity $U_M$
 
@@ -181,7 +181,7 @@ where $f_1$ is decreasing in $U_\Sigma$ and $g$ captures the strategic-misalignm
 
 3. **$\varepsilon_a$ is where $U_O$ and $U_\Sigma$ enter**, and they enter *jointly*. A reader of `unity-dimensions.md` might assume $U_O$ alone controls $\varepsilon_a$; the derivation shows $U_\Sigma$ is independently active. This matches the four-unity/three-closure observation: $(U_O, U_\Sigma)$ jointly determine action closure.
 
-**The rate-distortion framing unifies these cases.** In each, the closure component is the residual after projecting to a lower-dimensional macro-description. The rate-distortion function $\varepsilon_d(k_d)$ is a function of the projection dimension and the spectrum of the relevant component's covariance. Unity measures parametrize the spectrum. This is the IB shape, stated in the terms of `#composition-closure`'s admissibility.
+**The rate-distortion framing unifies these cases.** In each, the closure component is the residual after projecting to a lower-dimensional macro-description. The rate-distortion function $\varepsilon_d(k_d)$ is a function of the projection dimension and the spectrum of the relevant component's covariance. Unity measures parametrize the spectrum. This is the IB shape, stated in the terms of `#form-composition-closure`'s admissibility.
 
 ## 6. Hooks for the Bigger Contraction (IB Unification)
 
@@ -191,7 +191,7 @@ Several signals from this spike suggest the bigger IB unification is tractable.
 
 ### 6.1 (P1) is IB-relevance-preservation
 
-The projection admissibility condition (P1) in `#composition-closure`:
+The projection admissibility condition (P1) in `#form-composition-closure`:
 $$I\big(\Lambda_x(X_{\text{micro}});\; \Lambda_o(o)\;\big|\;\Lambda_a(a)\big) \geq (1 - \epsilon_I)\, I\big(X_{\text{micro}};\; o\;\big|\;a\big)$$
 
 is exactly an information-bottleneck relevance-preservation condition with relevance variable "next observation given action." Rewritten as IB:
@@ -207,7 +207,7 @@ In the linear-Gaussian analysis here, each unity parameter controls the spectrum
 
 ### 6.3 Shared intent is IB on inter-agent channel
 
-`#shared-intent` already explicitly uses IB with relevance variable "coordinated action." That's consistent with treating intent-sharing as an IB compression on the communication channel with the same relevance logic as the projection-admissibility compression on the state channel. Same framework, different channel.
+`#def-shared-intent` already explicitly uses IB with relevance variable "coordinated action." That's consistent with treating intent-sharing as an IB compression on the communication channel with the same relevance logic as the projection-admissibility compression on the state channel. Same framework, different channel.
 
 ### 6.4 What the contraction would deliver
 
@@ -215,7 +215,7 @@ If (P1) = IB-relevance, unity = IB-rate-distortion-curve-parameter, and shared-i
 
 > **Conjecture (informal):** Composition in AAD is a multi-level IB compression. The admissible class $\mathcal{P}_{\text{adm}}$ consists of projections attaining the IB frontier for the appropriate relevance variables. Unity dimensions are IB parameters. Closure-defect components are IB distortions. The bridge lemma becomes: IB-frontier projections preserve dynamics at the admissibility rate.
 
-This would replace (P1)+(P3) with a single variational principle (IB optimality), unify `#shared-intent` and `#composition-closure` mechanistically, and give `#definition-unity-dimensions` a quantitative foundation (unity = IB rate parameter).
+This would replace (P1)+(P3) with a single variational principle (IB optimality), unify `#def-shared-intent` and `#form-composition-closure` mechanistically, and give `#def-unity-dimensions` a quantitative foundation (unity = IB rate parameter).
 
 Caveats before attempting this:
 - (P2) Lipschitz is not naturally IB — it must remain a separate regularity condition.
@@ -235,17 +235,17 @@ Caveats before attempting this:
 
 ## 8. What to Promote and What to Revise
 
-**To create as a new segment (#unity-closure-mapping, type: derived/formulation):**
+**To create as a new segment (#result-unity-closure-mapping, type: derived/formulation):**
 - The rate-distortion framing (§1, §5)
 - The linear-Gaussian results (§3, §4)
-- Depends on: `#definition-unity-dimensions`, `#composition-closure`
+- Depends on: `#def-unity-dimensions`, `#form-composition-closure`
 
-**To revise in `#definition-unity-dimensions`:**
+**To revise in `#def-unity-dimensions`:**
 - Replace "high $U_M$ predicts low $\varepsilon_x$" etc. with "each unity dimension controls the rate-distortion curve for the corresponding closure component."
 - Note that $(U_O, U_\Sigma)$ jointly control $\varepsilon_a$ — the four-unity / three-closure mismatch is resolved by this joint dependence, not by collapsing unity dimensions.
 - The current text's "high $U_M$ predicts low $\varepsilon_x$" is literally false under the means-only projection; revise to the rate-distortion formulation.
 
-**To extend in `#composition-closure` (optional):**
+**To extend in `#form-composition-closure` (optional):**
 - Working Note: (P1) is IB-relevance-preservation; this is a starting point for further contraction.
 
 **To open as new spike target (post-promotion):**
@@ -258,7 +258,7 @@ Caveats before attempting this:
 - **The IB connection to (P1) should be testable without committing to the full §6.4 conjecture.** Worked example: compute the Gaussian IB-optimal projection for the two-Kalman case; compare to the means-only projection; check whether they coincide at the (P1) threshold.
 - **The rate-distortion framing suggests a clean operational test for admissibility.** Instead of checking (P1) as a mutual-information inequality, one could characterize admissible projections as those lying within $\epsilon$ of the IB frontier. This may be more tractable to verify in practice.
 - **If the $\varepsilon_x \equiv 0$ result is robust**, then in the linear-Gaussian regime *all* closure defect lives in $(\varepsilon_o, \varepsilon_a)$. This might be a genuine simplification — Section III's linear-Gaussian worked examples could focus on just observation and action closure, with state closure automatic. Would need to verify across a couple of other linear-Gaussian compositions first.
-- **The reframing slightly downgrades `unity-dimensions` as a quantitative segment.** Before this spike, unity dimensions appeared to be direct predictors of closure components. After, they are parameters of a rate-distortion function whose concrete form is given by the IB machinery. This is honest but makes the segment less self-contained: it now depends on a companion segment (`#unity-closure-mapping`) for the quantitative relationship.
+- **The reframing slightly downgrades `unity-dimensions` as a quantitative segment.** Before this spike, unity dimensions appeared to be direct predictors of closure components. After, they are parameters of a rate-distortion function whose concrete form is given by the IB machinery. This is honest but makes the segment less self-contained: it now depends on a companion segment (`#result-unity-closure-mapping`) for the quantitative relationship.
 
 ---
 
@@ -306,7 +306,7 @@ The closure defect has two *independent* contributors:
 1. **Sub-agent redundancy** — controlled by $U_M$ (here via process correlation $\rho$). Higher unity → lower $\varepsilon_x$. Consistent with the rate-distortion framing in §4–5.
 2. **Update heterogeneity** — controlled by $\Delta K$, the asymmetry of correction rules. $\Delta K = 0$ kills $\varepsilon_x$ at every $\rho$; $\Delta K \neq 0$ keeps $\varepsilon_x > 0$ even at $\rho = 1$.
 
-**Crucial observation:** Heterogeneity is *not captured* by any of the four unity dimensions from `#definition-unity-dimensions`. The four dimensions ($U_M, U_O, U_\Sigma, U_{\text{obs}}$) measure shared *content* (information, goals, policies, observations). Heterogeneity here is shared *structure* — whether agents have the same $f_M$ update rule. In Section I adaptive-systems-only composition, with no purposeful substate, there is no $U_\Sigma$ to absorb this, so update heterogeneity is invisible to the framework.
+**Crucial observation:** Heterogeneity is *not captured* by any of the four unity dimensions from `#def-unity-dimensions`. The four dimensions ($U_M, U_O, U_\Sigma, U_{\text{obs}}$) measure shared *content* (information, goals, policies, observations). Heterogeneity here is shared *structure* — whether agents have the same $f_M$ update rule. In Section I adaptive-systems-only composition, with no purposeful substate, there is no $U_\Sigma$ to absorb this, so update heterogeneity is invisible to the framework.
 
 This is a genuine gap. Possible resolutions:
 
@@ -328,7 +328,7 @@ The non-degenerate case exercises both frameworks non-trivially. They agree on w
 
 ### 10.6 What this changes for segment promotion
 
-The earlier §5/§8 recommendations stand, with one modification: `#unity-closure-mapping` should explicitly state the *two-axis* structure. Sub-agent unity is one axis; agent-structural homogeneity is the other. Prior text suggesting unity alone determines closure defect is incomplete.
+The earlier §5/§8 recommendations stand, with one modification: `#result-unity-closure-mapping` should explicitly state the *two-axis* structure. Sub-agent unity is one axis; agent-structural homogeneity is the other. Prior text suggesting unity alone determines closure defect is incomplete.
 
 Revised headline claim: **In linear-Gaussian, the achievable closure-defect curve $\varepsilon_d(k)$ depends on both unity measures (controlling sub-agent redundancy) and update-rule homogeneity (controlling whether compressed projections induce memory). In the linear-Gaussian scalar case, $\varepsilon_x = 0$ iff $\Delta K = 0$; conditional on $\Delta K \neq 0$, $\varepsilon_x$ decreases monotonically with $U_M$.**
 

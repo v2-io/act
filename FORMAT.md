@@ -216,7 +216,7 @@ The `## Working Notes` section is for active development: open questions about t
 
 ### Voice and provenance
 
-**Segment voice, not diff voice.** Formal Expression, Epistemic Status, and Discussion present the current state of the theory. Avoid phrasing like "landed 2026-04-23", "the prior version of this segment treated X as...", "the msc/spike-Y.md cycle lifted...", or "promoted from spike Z" in those sections — that voice positions the content *against* the theory rather than presenting the segment *as* the theory. State what the theory **is**, not what changed: "Instance 3 of #discussion-identifiability-floor derives..." rather than "Instance 3 (landed 2026-04-23 from spike X) derives..."; "the four instances of the meta-pattern..." rather than "the meta-pattern was extended to four instances after the 2026-04-23 cycle...".
+**Segment voice, not diff voice.** Formal Expression, Epistemic Status, and Discussion present the current state of the theory. Avoid phrasing like "landed 2026-04-23", "the prior version of this segment treated X as...", "the msc/spike-Y.md cycle lifted...", or "promoted from spike Z" in those sections — that voice positions the content *against* the theory rather than presenting the segment *as* the theory. State what the theory **is**, not what changed: "Instance 3 of #disc-identifiability-floor derives..." rather than "Instance 3 (landed 2026-04-23 from spike X) derives..."; "the four instances of the meta-pattern..." rather than "the meta-pattern was extended to four instances after the 2026-04-23 cycle...".
 
 A segment is read by future agents and reviewers who have no context for the chronicle of changes; diff voice forces them to imagine the prior state in order to parse the new state, dates the segment, and positions the content as contingent. Date / commit / spike references belong only in `## Working Notes`.
 
@@ -231,7 +231,7 @@ Cross-references between segments (`#other-segment`) are unrestricted in any sec
 
 ### Derivation-audit table *(optional; recommended for derivation-type segments)*
 
-Derivation segments, and any segment that carries multiple claims at distinct epistemic strengths, benefit from an executive-summary table that makes each claim's source and tier visible at a glance. The convention is modelled on `#graph-structure-uniqueness`'s "What Is Derived vs. What Is Chosen" table. It pre-empts the "is X derived or chosen?" ambiguity that fresh readers repeatedly stumble on, and serves as the segment-level counterpart to the claim-level equation tags (`*[Derived]*`, `*[Formulation]*`, etc.).
+Derivation segments, and any segment that carries multiple claims at distinct epistemic strengths, benefit from an executive-summary table that makes each claim's source and tier visible at a glance. The convention is modelled on `#deriv-graph-structure-uniqueness`'s "What Is Derived vs. What Is Chosen" table. It pre-empts the "is X derived or chosen?" ambiguity that fresh readers repeatedly stumble on, and serves as the segment-level counterpart to the claim-level equation tags (`*[Derived]*`, `*[Formulation]*`, etc.).
 
 **Location.** Near the end of `## Formal Expression`, before `## Epistemic Status`, under a `### What Is Derived vs. What Is Chosen` heading (exact title may vary — e.g., `### Derivation Audit`, `### Derived vs. Chosen vs. Assumed` — as long as the three columns are the same).
 
@@ -282,7 +282,7 @@ Three questions to ask when writing or reviewing any segment. These determine th
 
 ### Max attainable status
 
-Each segment has a ceiling — the strongest epistemic status it could ever reach, no matter how much work is invested. A segment whose functional form is inherently empirical (e.g., #conceptual-alignment) will never become `exact`; investing effort to "prove" it is wasted. A segment that's discussion-grade because it hasn't been worked yet (e.g., a sketch with a clear proof path) may have `exact` as its ceiling.
+Each segment has a ceiling — the strongest epistemic status it could ever reach, no matter how much work is invested. A segment whose functional form is inherently empirical (e.g., #hyp-conceptual-alignment) will never become `exact`; investing effort to "prove" it is wasted. A segment that's discussion-grade because it hasn't been worked yet (e.g., a sketch with a clear proof path) may have `exact` as its ceiling.
 
 When the ceiling is clear, note it in the segment's Epistemic Status paragraph: *"Max attainable: [status]. Currently [status] because [reason]."* This prevents wasted effort and focuses energy where promotion is possible.
 
@@ -296,29 +296,29 @@ The current inevitability-core members, with why inevitability is plausible:
 
 | Segment | Why inevitability is plausible |
 |---------|-------------------------------|
-| #recursive-update + #recursive-update-derivation | Three constraints → unique recursive form. Strongest result in the theory. |
+| #der-recursive-update + #deriv-recursive-update | Three constraints → unique recursive form. Strongest result in the theory. |
 | #result-mismatch-decomposition | Bias-variance decomposition: mathematical identity once mismatch is defined. |
-| #chain-confidence-decay | log(product) = sum(logs). Pure algebraic identity. |
-| #persistence-condition | Given sector conditions, the threshold follows by Lyapunov. |
-| #sector-condition-stability + #sector-condition-derivation | Lyapunov stability result applied to mismatch dynamics. |
-| #sector-persistence-template | Abstract Lyapunov argument; six AAD results instantiate it. |
-| #structural-adaptation-necessity | Parametric update converges within model class; wrong class forces structural change. |
-| #orient-cascade | Resolution order forced by information dependency ( $M_t$ before $\Sigma_t$ before $O_t$ ). |
-| #satisfaction-gap / #control-regret | Arithmetic once $V_{\text{ideal}}, A_O, V_{\text{current}}$ are defined. Diagnostic value is the insight. |
-| #causal-hierarchy-requirement | Application of Bareinboim et al.'s causal hierarchy result to $Q_O$ evaluation. |
-| #loop-interventional-access | Feedback loop generates interventional data by construction. |
-| #directed-separation | $f_M$ independence from $G_t$ follows from the update structure, given scope condition. |
-| #deliberation-cost | Think-vs-act threshold from information-theoretic argument. |
-| #postulate-composition-consistency | If scope condition doesn't restrict level, predictions at different levels must be compatible. |
-| #graph-structure-uniqueness | Four operational postulates + causal sufficiency force a Markov-factorized DAG (Cox-analog). |
+| #der-chain-confidence-decay | log(product) = sum(logs). Pure algebraic identity. |
+| #result-persistence-condition | Given sector conditions, the threshold follows by Lyapunov. |
+| #result-sector-condition-stability + #deriv-sector-condition | Lyapunov stability result applied to mismatch dynamics. |
+| #result-sector-persistence-template | Abstract Lyapunov argument; six AAD results instantiate it. |
+| #result-structural-adaptation-necessity | Parametric update converges within model class; wrong class forces structural change. |
+| #der-orient-cascade | Resolution order forced by information dependency ( $M_t$ before $\Sigma_t$ before $O_t$ ). |
+| #def-satisfaction-gap / #def-control-regret | Arithmetic once $V_{\text{ideal}}, A_O, V_{\text{current}}$ are defined. Diagnostic value is the insight. |
+| #der-causal-hierarchy-requirement | Application of Bareinboim et al.'s causal hierarchy result to $Q_O$ evaluation. |
+| #der-loop-interventional-access | Feedback loop generates interventional data by construction. |
+| #der-directed-separation | $f_M$ independence from $G_t$ follows from the update structure, given scope condition. |
+| #der-deliberation-cost | Think-vs-act threshold from information-theoretic argument. |
+| #post-composition-consistency | If scope condition doesn't restrict level, predictions at different levels must be compatible. |
+| #deriv-graph-structure-uniqueness | Four operational postulates + causal sufficiency force a Markov-factorized DAG (Cox-analog). |
 
 **Canonical formulations (second ring).** Good representational choices that are motivated but not forced. Triage question 2 ("what competing formulation would also fit?") answers "at least one alternative exists." Review focus: explaining the choice, noting alternatives, and guarding against drift toward inevitability claims that aren't there.
 
-Current members include: #complete-agent-state, #objective-functional, #value-object, #strategy-dimension, #strategy-dag, #and-or-scope, #agent-model, #information-bottleneck, #event-driven-dynamics, #adaptive-tempo, #structural-change-as-parametric-limit, #explicit-strategy-condition (normative, not derived), #composition-closure (operationalizes #postulate-composition-consistency but is one formulation among several possible ones), most definitions.
+Current members include: #form-complete-agent-state, #form-objective-functional, #def-value-object, #def-strategy-dimension, #def-strategy-dag, #scope-and-or, #form-agent-model, #form-information-bottleneck, #form-event-driven-dynamics, #def-adaptive-tempo, #form-structural-change-as-parametric-limit, #norm-explicit-strategy-condition (normative, not derived), #form-composition-closure (operationalizes #post-composition-consistency but is one formulation among several possible ones), most definitions.
 
 **Empirical, heuristic, discussion (third ring).** Claims whose ceiling is empirical or heuristic — testable against the world but not derivable from the formalism. This is *not* a demotion: these are where AAD becomes falsifiable and useful. Review focus: stating falsifiable predictions, connecting to validation, resisting the temptation to dress empirical claims as derivations.
 
-Current members include: #update-gain, #mismatch-dynamics, #edge-update-via-gain, #strategic-calibration, #communication-gain, #conceptual-alignment, #exponential-cognitive-load, #changeset-size-principle, most TST and logogenic-agent segments, simulation observations.
+Current members include: #emp-update-gain, #hyp-mismatch-dynamics, #hyp-edge-update-via-gain, #def-strategic-calibration, #hyp-communication-gain, #hyp-conceptual-alignment, #hyp-exponential-cognitive-load, #emp-changeset-size-principle, most TST and logogenic-agent segments, simulation observations.
 
 **Usage.** When developing or reviewing a segment, first locate its ring. If it's inevitability-core, the goal is tightening the proof. If it's a canonical formulation, the goal is explaining the choice and noting alternatives. If it's empirical/heuristic, the goal is stating falsifiable predictions and connecting to validation. Don't push segments upward beyond their ceiling; don't leave core segments at sketch status when a proof is within reach. The ring assignment is not part of segment frontmatter — it's an analytical stance the reviewer takes.
 
@@ -350,7 +350,7 @@ Both forms work in GitHub and Obsidian. The plain `#slug-name` form is preferred
 
 **Forward references are expected.** Segments routinely reference not-yet-written segments via `#slug-name`. These are intentional dependency markers — they document the claim's connections within the theory even before the target segment exists. Do not treat them as broken links or remove them.
 
-**Obsidian tag recognition**: Obsidian treats `#word` as a tag only when preceded by a space (or start of line). Always ensure a space before `#slug-name` — write `( #scope-agency)` not `( #scope-agency)`, and `see #update-gain` not `see#update-gain`.
+**Obsidian tag recognition**: Obsidian treats `#word` as a tag only when preceded by a space (or start of line). Always ensure a space before `#slug-name` — write `( #scope-agency)` not `( #scope-agency)`, and `see #emp-update-gain` not `see#emp-update-gain`.
 
 
 ## Math Formatting

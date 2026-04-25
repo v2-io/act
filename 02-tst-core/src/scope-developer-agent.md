@@ -3,15 +3,15 @@ slug: scope-developer-agent
 type: scope
 status: axiomatic
 depends:
-  - software-scope
-  - software-epistemic-properties
-  - agent-environment
-  - agent-model
-  - observation-function
-  - action-transition
-  - complete-agent-state
-  - update-gain
-  - mismatch-signal
+  - scope-software
+  - obs-software-epistemic-properties
+  - def-agent-environment
+  - form-agent-model
+  - def-function
+  - def-action-transition
+  - form-complete-agent-state
+  - emp-update-gain
+  - def-mismatch-signal
 stage: draft
 ---
 
@@ -23,7 +23,7 @@ AAD's developer-scope encompasses human and AI developers acting on a codebase: 
 
 *[Scope (scope-developer-agent)]*
 
-A software developer is an actuated adaptive agent ( #agent-environment) whose state, environment, and coupling are:
+A software developer is an actuated adaptive agent ( #def-agent-environment) whose state, environment, and coupling are:
 
 ### Environment ($\Omega_t$)
 
@@ -44,7 +44,7 @@ The full $\Omega_t$ is larger than "the codebase." Many mismatch events (product
 
 *[Definition (developer-model)]*
 
-The developer's internal model — the epistemic substate ( #agent-model):
+The developer's internal model — the epistemic substate ( #form-agent-model):
 
 **Human developer:**
 - Mental model of architecture and module boundaries
@@ -70,7 +70,7 @@ The developer's current objective — what the agent wants:
 
 $$O_t \in \{\text{implement feature } F,\; \text{fix bug } B,\; \text{refactor module } R,\; \text{investigate incident } I,\; \ldots\}$$
 
-$O_t$ induces a value functional $V_{O_t}$ ( #objective-functional) over codebase states. Objective revision occurs via the orient cascade ( #orient-cascade): e.g., while implementing feature $F$, the developer discovers a blocking bug and revises $O_t$ from "implement $F$" to "fix blocker, then implement $F$."
+$O_t$ induces a value functional $V_{O_t}$ ( #form-objective-functional) over codebase states. Objective revision occurs via the orient cascade ( #der-orient-cascade): e.g., while implementing feature $F$, the developer discovers a blocking bug and revises $O_t$ from "implement $F$" to "fix blocker, then implement $F$."
 
 ### Strategy ($\Sigma_t$)
 
@@ -80,7 +80,7 @@ The developer's implementation plan — how the agent intends to achieve $O_t$:
 
 $$\Sigma_t = \text{plan decomposition of } O_t \text{ into subtasks with dependency and confidence structure}$$
 
-In AAD terms, $\Sigma_t$ is a probabilistic causal DAG ( #strategy-dag) whose nodes are subtasks and whose edges carry confidence weights $p_{ij}$ representing the developer's belief that completing subtask $i$ enables subtask $j$. Examples:
+In AAD terms, $\Sigma_t$ is a probabilistic causal DAG ( #def-strategy-dag) whose nodes are subtasks and whose edges carry confidence weights $p_{ij}$ representing the developer's belief that completing subtask $i$ enables subtask $j$. Examples:
 
 - "First understand the data model, then modify the schema, then update the API, then update the UI" — a chain DAG
 - "Either refactor the existing handler OR write a new one, then integrate" — an OR-node DAG
@@ -112,7 +112,7 @@ Two classes of channels, distinguished by trigger:
 | Documentation lookup | Per-query | Medium | Design intent, API contracts |
 | Colleague query | Per-interaction | Medium–high | Compressed external $M$ |
 
-The distinction matters for gain calibration. Passive channels have well-characterized $U_o$ (compiler output is near-deterministic); active channels have $U_o$ that depends on what is being explored and the quality of the target ( #software-epistemic-properties, P6).
+The distinction matters for gain calibration. Passive channels have well-characterized $U_o$ (compiler output is near-deterministic); active channels have $U_o$ that depends on what is being explored and the quality of the target ( #obs-software-epistemic-properties, P6).
 
 ### Action space ($\mathcal{A}$)
 
@@ -122,17 +122,17 @@ Four classes of developer actions, distinguished by purpose:
 
 1. **Exploration** — directed attention to generate observations: read a file, trace a code path, browse git history. These are actions whose purpose is to build $M_t$, not to modify $\Omega_t$.
 
-2. **Interventional probes** — actions that temporarily perturb $\Omega_t$ to learn from the response: run tests, add a print statement, make a speculative change. These are $do(\cdot)$ operations providing Level 2 information ( #pearl-causal-hierarchy).
+2. **Interventional probes** — actions that temporarily perturb $\Omega_t$ to learn from the response: run tests, add a print statement, make a speculative change. These are $do(\cdot)$ operations providing Level 2 information ( #def-pearl-causal-hierarchy).
 
-3. **Queries** — accessing pre-compressed external models: ask a colleague, search documentation, consult an AI assistant. These access another agent's $M$ that has already extracted structure from raw observations. A single well-targeted query can carry CIY orders of magnitude higher than individual environment probes ( #causal-information-yield).
+3. **Queries** — accessing pre-compressed external models: ask a colleague, search documentation, consult an AI assistant. These access another agent's $M$ that has already extracted structure from raw observations. A single well-targeted query can carry CIY orders of magnitude higher than individual environment probes ( #def-causal-information-yield).
 
-4. **Environment modification** — changing $\Omega_t$: write/edit/delete code, modify configuration, deploy. A subset of these are *observation-infrastructure investments* — actions that modify $\Omega_t$ in ways that improve future observation quality (write tests, add logging, improve naming). See #code-quality-as-observation-infrastructure.
+4. **Environment modification** — changing $\Omega_t$: write/edit/delete code, modify configuration, deploy. A subset of these are *observation-infrastructure investments* — actions that modify $\Omega_t$ in ways that improve future observation quality (write tests, add logging, improve naming). See #der-code-quality-as-observation-infrastructure.
 
 ### Mismatch signal ($\delta_t$)
 
 *[Derived (developer-mismatch, from mismatch-signal applied to software)]*
 
-Every moment of developer surprise is a mismatch signal ( #mismatch-signal):
+Every moment of developer surprise is a mismatch signal ( #def-mismatch-signal):
 
 | Situation | Prediction $\hat{o}_t$ | Observation $o_t$ | Mismatch $\delta_t$ |
 |-----------|------------------------|--------------------|-----------------------|
@@ -141,19 +141,19 @@ Every moment of developer surprise is a mismatch signal ( #mismatch-signal):
 | Deploying | Expected behavior | Production error | Integration mismatch |
 | Code review | Expected approval | Requested changes | Convention/quality gap |
 
-TST's "comprehension time" ( #comprehension-time) is the time spent resolving high $\lVert\delta_t\rVert$ — driving mismatch toward zero through observation. A developer who "doesn't understand the codebase" is one with high $\lVert\delta_t\rVert$.
+TST's "comprehension time" ( #def-comprehension-time) is the time spent resolving high $\lVert\delta_t\rVert$ — driving mismatch toward zero through observation. A developer who "doesn't understand the codebase" is one with high $\lVert\delta_t\rVert$.
 
 ### Update gain ($\eta^\ast$) instantiation
 
 *[Derived (developer-gain, from update-gain applied to software)]*
 
-The uncertainty ratio principle ( #update-gain) instantiates as:
+The uncertainty ratio principle ( #emp-update-gain) instantiates as:
 
 - **New developer** ($U_M$ high): $\eta^\ast \approx 1$ — trust observations heavily. Read code and believe what you see. Rapid learning but vulnerability to noisy signals (misleading comments, outdated documentation).
 
 - **Experienced developer** ($U_M$ low): $\eta^\ast \ll 1$ — trust the model. When code contradicts the model, suspect the code first. Stable expertise but resistance to genuine changes.
 
-- **After major refactoring** ($U_M$ reset): $\eta^\ast$ spikes — the experienced developer must temporarily behave like a new developer. This is the gain reset after structural change ( #update-gain, gain dynamics).
+- **After major refactoring** ($U_M$ reset): $\eta^\ast$ spikes — the experienced developer must temporarily behave like a new developer. This is the gain reset after structural change ( #emp-update-gain, gain dynamics).
 
 ## Epistemic Status
 
@@ -163,13 +163,13 @@ The observation channel tables and action classification are *discussion-grade* 
 
 ## Discussion
 
-**The 100% turnover problem.** For AI agents, $M_t$ is reset to near-zero at each session start. In AAD terms: $M_0 \approx M_{\text{prior}}$ (whatever memory files provide), $U_M$ starts very high, and $\eta^\ast$ starts near 1. The agent must rapidly build $M_t$ through high-$\nu$ observation before it can act effectively. This creates a formal "cold-start" phase — a transient where the agent is in observation mode, building $M_t$ before the persistence condition ( #persistence-condition) can even be meaningfully evaluated.
+**The 100% turnover problem.** For AI agents, $M_t$ is reset to near-zero at each session start. In AAD terms: $M_0 \approx M_{\text{prior}}$ (whatever memory files provide), $U_M$ starts very high, and $\eta^\ast$ starts near 1. The agent must rapidly build $M_t$ through high-$\nu$ observation before it can act effectively. This creates a formal "cold-start" phase — a transient where the agent is in observation mode, building $M_t$ before the persistence condition ( #result-persistence-condition) can even be meaningfully evaluated.
 
-Persistent external memory (documentation, CLAUDE.md files, well-structured codebases) converts ephemeral model state into persistent environmental state. The agent writes its model into $\Omega$ so future agents can reconstruct $M_t$ through observation. The quality of this externalization determines how much of the previous agent's $M_t$ survives turnover. In information-bottleneck ( #information-bottleneck) terms: the externalized memory should retain everything predictively relevant while compressing aggressively.
+Persistent external memory (documentation, CLAUDE.md files, well-structured codebases) converts ephemeral model state into persistent environmental state. The agent writes its model into $\Omega$ so future agents can reconstruct $M_t$ through observation. The quality of this externalization determines how much of the previous agent's $M_t$ survives turnover. In information-bottleneck ( #form-information-bottleneck) terms: the externalized memory should retain everything predictively relevant while compressing aggressively.
 
 **Channel-specific gain calibration.** When a developer encounters conflicting signals (requirements vs. existing architecture vs. code conventions), the uncertainty ratio principle says: weight each by the channel-specific uncertainty ratio. Clear, well-tested code (low $U_o$) should override vague verbal requirements (high $U_o$). Requirements from a well-understood domain (low $U_o$) should override ambiguous code (high $U_o$). The optimal update is channel-specific, not uniform.
 
-**Developer tempo decomposition.** The developer's adaptive tempo ( #adaptive-tempo) decomposes into contributions from the channel classes defined above:
+**Developer tempo decomposition.** The developer's adaptive tempo ( #def-adaptive-tempo) decomposes into contributions from the channel classes defined above:
 
 $$\mathcal{T}_{\text{dev}} = \mathcal{T}_{\text{obs}} + \mathcal{T}_{\text{explore}} + \mathcal{T}_{\text{probe}}$$
 

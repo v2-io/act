@@ -131,7 +131,7 @@ These aren't excluded — AAD applies — but the theory's predictions are trivi
 
 #### ⚙ Agentic System / Agent (agency scope — Sections II and III)
 
-The agency scope narrows the adaptive scope by adding two conditions: $\lvert\mathcal A\rvert \geq 2$ (at least binary choice) and $\exists\, a \neq a'$ s.t. $P(o \mid do(a)) \neq P(o \mid do(a'))$ (at least one action has causal effect). These unlock the causal-information results ( #loop-interventional-access, #causal-hierarchy-requirement) and the purposeful-agent machinery of Section II.
+The agency scope narrows the adaptive scope by adding two conditions: $\lvert\mathcal A\rvert \geq 2$ (at least binary choice) and $\exists\, a \neq a'$ s.t. $P(o \mid do(a)) \neq P(o \mid do(a'))$ (at least one action has causal effect). These unlock the causal-information results ( #der-loop-interventional-access, #der-causal-hierarchy-requirement) and the purposeful-agent machinery of Section II.
 
 Systems within the adaptive scope but outside the agency scope — passive observers, nominal agents whose actions have no causal effect — can use Section I's adaptive machinery but not the causal-information or purposeful-agent results.
 
@@ -295,7 +295,7 @@ Three distinct senses of "persist" appear in AAD. They are independent dimension
 
 The adaptive machinery's *capacity* to maintain bounded mismatch: $\alpha > \rho / R$. This is a property of the system's correction dynamics — its gain, its event rate, the structure of its correction function — not of its current state and not of its goals.
 
-A system is structurally persistent when its correction rate can outpace its disturbance rate relative to its model class capacity. All downstream results (adversarial dynamics, composition, the strategy-persistence schema) build on this. The formal content lives in #persistence-condition and #sector-condition-stability.
+A system is structurally persistent when its correction rate can outpace its disturbance rate relative to its model class capacity. All downstream results (adversarial dynamics, composition, the strategy-persistence schema) build on this. The formal content lives in #result-persistence-condition and #result-sector-condition-stability.
 
 Structural persistence is *necessary but not sufficient* for an agent to actually persist. It says the machinery *could* keep up, not that the machinery *is* keeping up right now.
 

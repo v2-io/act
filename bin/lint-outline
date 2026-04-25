@@ -242,7 +242,7 @@ TYPE_PREFIXES = {
     "discussion":       "DSC",
     "empirical":        "EMP",
     "normative":        "NORM",
-    "derivation":       "PROOF",
+    "derivation":       "DERIV",
     "sketch":           "SKTCH",
     "detail":           "DTL",
     "worked-example":   "EX",

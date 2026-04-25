@@ -183,7 +183,7 @@ Level 2 knowledge is acquired implicitly through repeated act-observe cycles. Co
 
 **Model-based (explicit $\Sigma_t$)**: Build an internal model of action-outcome causal structure. Evaluate actions through mental simulation ("what would happen if I do(X)?"). Cost: computation, model maintenance, model inaccuracy.
 
-### 5.2 The cost inequality (Derived via #temporal-optimality)
+### 5.2 The cost inequality (Derived via #post-temporal-optimality)
 
 *[Derived]*
 
@@ -197,7 +197,7 @@ where:
 - $C_{\text{explore}}$: cost of discovering action consequences through physical trial-and-error
 - $C_{\text{repair}}$: cost of reversing failed actions
 
-When this inequality holds, explicit $\Sigma_t$ is **temporally optimal** ( #temporal-optimality): it achieves the same Level 2 knowledge in less time. The temporal optimality axiom then selects for agents with explicit strategy representation.
+When this inequality holds, explicit $\Sigma_t$ is **temporally optimal** ( #post-temporal-optimality): it achieves the same Level 2 knowledge in less time. The temporal optimality axiom then selects for agents with explicit strategy representation.
 
 **What this makes precise**: TF-07's action fluency concept and TF-09's deliberation cost are now load-bearing for the purposeful layer. The agent invests in explicit $\Sigma_t$ exactly when planning (deliberation) is cheaper than experimentation (action + repair). This is a concrete inequality, not a scope-narrowing appeal.
 

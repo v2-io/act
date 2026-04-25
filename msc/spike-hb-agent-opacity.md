@@ -3,14 +3,14 @@ spike: hb-agent-opacity
 date: 2026-04-23
 status: exploratory
 depends:
-  - interaction-channel-classification
-  - adversarial-destabilization
-  - adversarial-tempo-advantage
-  - team-persistence
-  - directed-separation
+  - der-interaction-channel-classification
+  - der-adversarial-destabilization
+  - result-adversarial-tempo-advantage
+  - der-team-persistence
+  - der-directed-separation
   - scope-agent-identity
-  - discussion-identifiability-floor
-  - discussion-separability-pattern
+  - disc-identifiability-floor
+  - disc-separability-pattern
 related:
   - msc/spike-hafez-integration-audit.md
   - msc/spike-composition-no-go.md
@@ -21,13 +21,13 @@ related:
 
 # Spike: Backward Predictive Uncertainty $H_b$ as an AAD Quantity
 
-**Status.** Exploratory derivation. A first-class AAD-internal definition of $H_b$ is derived from existing commitments (Angle 1). The sign-flip on opacity's value across cooperative / adversarial regimes (Angle 6) is derived structurally from AAD's already-signed coupling structure. B5 and B6 are identified as *already-realized* composition-layer instances of the same pattern (Angles 4, 5) — one bit of opacity and a non-scalar mutual-opacity tensor, respectively. An emitter-side four-regime classification dual to `#interaction-channel-classification` is constructed (Angle 3). Meta-pattern audit (Angle 8) lands $H_b$ as: candidate new ladder in `#discussion-separability-pattern`; new instance-shape in `#discussion-identifiability-floor`; adjacent family member (not primary) for `#additive-coordinate-forcing`. Honest failure mode (Angle 10): a small AAD-consistent extension — the *dual-filtration* apparatus — is required, but the extension is an ontological clarification, not a new formalism. Recommended landing is a new Section III segment `#agent-opacity`, closing both the Hafez gap and the `#adversarial-edge-targeting` gap that depends on it.
+**Status.** Exploratory derivation. A first-class AAD-internal definition of $H_b$ is derived from existing commitments (Angle 1). The sign-flip on opacity's value across cooperative / adversarial regimes (Angle 6) is derived structurally from AAD's already-signed coupling structure. B5 and B6 are identified as *already-realized* composition-layer instances of the same pattern (Angles 4, 5) — one bit of opacity and a non-scalar mutual-opacity tensor, respectively. An emitter-side four-regime classification dual to `#der-interaction-channel-classification` is constructed (Angle 3). Meta-pattern audit (Angle 8) lands $H_b$ as: candidate new ladder in `#disc-separability-pattern`; new instance-shape in `#disc-identifiability-floor`; adjacent family member (not primary) for `#additive-coordinate-forcing`. Honest failure mode (Angle 10): a small AAD-consistent extension — the *dual-filtration* apparatus — is required, but the extension is an ontological clarification, not a new formalism. Recommended landing is a new Section III segment `#der-agent-opacity`, closing both the Hafez gap and the `#adversarial-edge-targeting` gap that depends on it.
 
 **Date.** 2026-04-23.
 
-**Motivation.** Hafez et al. (2026) define **backward predictive uncertainty** $H_b = H(S, A \mid S')$ — the entropy of an agent's (state, action) pair given its observable environmental effect. Many distinct internal configurations can produce identical environmental traces; $H_b$ measures how opaque the agent is *to the world*. AAD has formalized forward uncertainty heavily ($M_t$, $\delta$, observation ambiguity, identifiability-floor, Cramér-Rao refutations on estimation), but has **no formal analog** for the reverse direction. The gap is named in `msc/spike-hafez-integration-audit.md` §Gap 1 ("Priority: Medium. Becomes high when Section III cooperative dynamics are developed"); in CLAUDE.md's Section III Composition Dynamics gaps list ("Agent opacity"); in `TODO.md` §"Future spikes opened by this cycle" as "$f(H_b^B)$ emitter-side-effect function"; and in `#interaction-channel-classification` §5.2 and §Discussion ("Agent opacity and the emitter-side regime distribution"). Two recently-completed spikes — B5 (`msc/spike-composition-no-go.md`) and B6 (`msc/spike-strategic-composition.md`) — touch $H_b$-adjacent structure without naming it.
+**Motivation.** Hafez et al. (2026) define **backward predictive uncertainty** $H_b = H(S, A \mid S')$ — the entropy of an agent's (state, action) pair given its observable environmental effect. Many distinct internal configurations can produce identical environmental traces; $H_b$ measures how opaque the agent is *to the world*. AAD has formalized forward uncertainty heavily ($M_t$, $\delta$, observation ambiguity, identifiability-floor, Cramér-Rao refutations on estimation), but has **no formal analog** for the reverse direction. The gap is named in `msc/spike-hafez-integration-audit.md` §Gap 1 ("Priority: Medium. Becomes high when Section III cooperative dynamics are developed"); in CLAUDE.md's Section III Composition Dynamics gaps list ("Agent opacity"); in `TODO.md` §"Future spikes opened by this cycle" as "$f(H_b^B)$ emitter-side-effect function"; and in `#der-interaction-channel-classification` §5.2 and §Discussion ("Agent opacity and the emitter-side regime distribution"). Two recently-completed spikes — B5 (`msc/spike-composition-no-go.md`) and B6 (`msc/spike-strategic-composition.md`) — touch $H_b$-adjacent structure without naming it.
 
-Hafez's observation is load-bearing for the sign-structure of Section III: *high $H_b$ is costly in cooperation (teammates cannot coordinate with an illegible agent) and valuable in adversarial settings (opponents cannot target what they cannot predict)*. This is a sign-flip that AAD's existing signed-coupling apparatus (`#team-persistence`'s cooperative $\gamma < 0$; `#adversarial-destabilization`'s adversarial $\gamma > 0$) ought to compose with — but only if $H_b$ can be derived from AAD-internal commitments rather than imported as an external quantity. This spike tests whether that derivation exists.
+Hafez's observation is load-bearing for the sign-structure of Section III: *high $H_b$ is costly in cooperation (teammates cannot coordinate with an illegible agent) and valuable in adversarial settings (opponents cannot target what they cannot predict)*. This is a sign-flip that AAD's existing signed-coupling apparatus (`#der-team-persistence`'s cooperative $\gamma < 0$; `#der-adversarial-destabilization`'s adversarial $\gamma > 0$) ought to compose with — but only if $H_b$ can be derived from AAD-internal commitments rather than imported as an external quantity. This spike tests whether that derivation exists.
 
 ---
 
@@ -41,13 +41,13 @@ The prompt named twelve angles. This spike pursues the AAD-internal-derivation a
 
 ### 2.1 Setup and notation
 
-By `#scope-agent-identity`, AAD agents are instantiated on singular, non-forkable causal trajectories. Let agent $A$ live on trajectory $\mathcal C_t^A$ with internal state $X_t^A = (M_t^A, G_t^A)$ at time $t$ and action sequence $a_{A, 0:t}$ generated by $\pi_A(M_t^A, G_t^A)$ per `#directed-separation`. Let agent $B$ be a second AAD agent coupled through the shared environment, with its own trajectory $\mathcal C_t^B$, state $X_t^B = (M_t^B, G_t^B)$, and filtration $\mathcal F_B^t$ — the $\sigma$-algebra generated by everything $B$ has access to up through time $t$ (its own observations $o_{B, 0:t}$, its own actions $a_{B, 0:t}$, any side-channel communications, and whatever it can publicly observe about the shared environment).
+By `#scope-agent-identity`, AAD agents are instantiated on singular, non-forkable causal trajectories. Let agent $A$ live on trajectory $\mathcal C_t^A$ with internal state $X_t^A = (M_t^A, G_t^A)$ at time $t$ and action sequence $a_{A, 0:t}$ generated by $\pi_A(M_t^A, G_t^A)$ per `#der-directed-separation`. Let agent $B$ be a second AAD agent coupled through the shared environment, with its own trajectory $\mathcal C_t^B$, state $X_t^B = (M_t^B, G_t^B)$, and filtration $\mathcal F_B^t$ — the $\sigma$-algebra generated by everything $B$ has access to up through time $t$ (its own observations $o_{B, 0:t}$, its own actions $a_{B, 0:t}$, any side-channel communications, and whatever it can publicly observe about the shared environment).
 
 $B$ carries an internal model of $A$ as a feature of its $M_t^B$ — specifically, $B$'s marginal predictive distribution over $A$'s near-future actions, written $Q_{B \to A, t+\tau}(a) = \mathbb P[a_{A, t+\tau} = a \mid \mathcal F_B^t]$. This is a well-defined quantity whenever $B$'s model class $\mathcal M_B$ includes *some* representation of $A$ (even a degenerate one); in a fully Class 1 modular setup, $Q_{B \to A}$ is the $A$-marginal of $B$'s joint world-model posterior.
 
 ### 2.2 The AAD-internal definition
 
-*[Definition ($H_b$-AAD-internal, from #scope-agent-identity + #directed-separation + #model-class-fitness)]*
+*[Definition ($H_b$-AAD-internal, from #scope-agent-identity + #der-directed-separation + #def-model-class-fitness)]*
 
 The **backward predictive uncertainty of $A$ as seen by $B$** at horizon $\tau \geq 0$ is
 
@@ -79,7 +79,7 @@ In the limit of large history (ergodic regime), the conditioning on history satu
 
 Three features the original definition does not carry explicitly:
 
-1. **Observer-indexing.** $H_b^{A \mid B}$ is indexed on which agent is doing the observing. Hafez's $H(S, A \mid S')$ conditions on the environmental effect — effectively on a universal "world" observer that sees transitions without noise. The AAD-internal version lets opacity depend on who is looking: agents with different model classes, different observation channels, and different priors see different $H_b$ for the same $A$. This is load-bearing for the sign-flip analysis (§5) and for `#interaction-channel-classification`'s §5.1 "$H_b^B$ is primarily an emitter-side quantity" claim — opacity depends on whose emitter-side it's evaluated from.
+1. **Observer-indexing.** $H_b^{A \mid B}$ is indexed on which agent is doing the observing. Hafez's $H(S, A \mid S')$ conditions on the environmental effect — effectively on a universal "world" observer that sees transitions without noise. The AAD-internal version lets opacity depend on who is looking: agents with different model classes, different observation channels, and different priors see different $H_b$ for the same $A$. This is load-bearing for the sign-flip analysis (§5) and for `#der-interaction-channel-classification`'s §5.1 "$H_b^B$ is primarily an emitter-side quantity" claim — opacity depends on whose emitter-side it's evaluated from.
 
 2. **Horizon-indexing.** $H_b^{A \mid B}(t, \tau)$ is indexed on the prediction horizon $\tau$. Short-horizon opacity (next-action unpredictability) and long-horizon opacity (multi-step plan unpredictability) are different quantities that compose differently with AAD's tempo machinery (§6).
 
@@ -87,7 +87,7 @@ Three features the original definition does not carry explicitly:
 
 ### 2.5 Scope / what the definition does not do
 
-- It does not tell you $B$'s *model* of $A$ is well-calibrated. Under `#model-class-fitness`, $B$'s $Q_{B \to A}$ may be systematically off-distribution; the $H_b$ $B$ *computes* from its model may diverge from the "true" $H_b$ in any objective sense. This is §2.2's point — $H_b$ is observer-indexed; observers with different model classes get different numbers.
+- It does not tell you $B$'s *model* of $A$ is well-calibrated. Under `#def-model-class-fitness`, $B$'s $Q_{B \to A}$ may be systematically off-distribution; the $H_b$ $B$ *computes* from its model may diverge from the "true" $H_b$ in any objective sense. This is §2.2's point — $H_b$ is observer-indexed; observers with different model classes get different numbers.
 - It does not determine how $A$ produces opacity. The definition is about the information-theoretic consequence; the mechanism (mixed policies, randomization, structural complexity, adversarial obfuscation) is a separate question.
 - It does not replace the emitter-side view. Hafez's original framing treats $H_b$ as a property of the emitter; AAD's observer-indexed version says "$H_b$ is a property of the emitter-observer *pair*." The emitter-side simplification is recovered under §2.3's specialization.
 
@@ -99,10 +99,10 @@ Three features the original definition does not carry explicitly:
 
 AAD's forward uncertainty has two layers:
 
-- **Observation-side:** $U_{o,B}$ quantifies how ambiguously $B$'s observation channel maps environment state to observation (`#observation-function`, `#update-gain`).
-- **Model-side:** $U_{M,B}$ quantifies $B$'s predictive uncertainty about the environment *given* its model $M_t^B$ (`#model-sufficiency`, `#model-class-fitness`).
+- **Observation-side:** $U_{o,B}$ quantifies how ambiguously $B$'s observation channel maps environment state to observation (`#def-function`, `#emp-update-gain`).
+- **Model-side:** $U_{M,B}$ quantifies $B$'s predictive uncertainty about the environment *given* its model $M_t^B$ (`#def-model-sufficiency`, `#def-model-class-fitness`).
 
-The recipient-side classification in `#interaction-channel-classification` organizes the forward-direction flow: events arrive, get filtered by $h_B$ against $U_{o,B}$, get absorbed by $\eta_B^\ast = U_{M,B} / (U_{M,B} + U_{o,B})$, and land in one of four regimes.
+The recipient-side classification in `#der-interaction-channel-classification` organizes the forward-direction flow: events arrive, get filtered by $h_B$ against $U_{o,B}$, get absorbed by $\eta_B^\ast = U_{M,B} / (U_{M,B} + U_{o,B})$, and land in one of four regimes.
 
 ### 3.2 The dual claim
 
@@ -115,7 +115,7 @@ The backward direction has the same two layers with the same structure, reflecte
 
 By the definition in §2.2, $H_b^{A \mid B}$ decomposes (for independent sources, see scope caveat) into these two contributions. Making this explicit:
 
-*[Derived (H_b-decomposition, from #update-gain's variance-decomposition structure)]*
+*[Derived (H_b-decomposition, from #emp-update-gain's variance-decomposition structure)]*
 
 For independent randomness sources (small-noise linear-Gaussian analog, sub-scope $\alpha$):
 
@@ -123,7 +123,7 @@ $$H_b^{A \mid B}(t, \tau) \; \approx \; \tfrac{1}{2}\log(2\pi e) + \tfrac{1}{2} 
 
 where $U_{\pi, B\to A}^{(\tau)}$ is $B$'s $\tau$-step-ahead variance over $A$'s policy conditional mean and $U_{a, A}^{(\tau)}$ is $A$'s $\tau$-step integrated action-noise.
 
-This is *structurally the same* as the Kalman-gain decomposition $U_M + U_o$ that appears in `#update-gain`, with the observer-observed axis reflected. The two quantities are duals in exactly the sense the `#interaction-channel-classification` Discussion ("$H_b$ is the formal dual of observation quality $U_o$: where $U_o$ characterizes how well the agent sees the world, $H_b$ characterizes how well the world sees the agent") already proposed qualitatively.
+This is *structurally the same* as the Kalman-gain decomposition $U_M + U_o$ that appears in `#emp-update-gain`, with the observer-observed axis reflected. The two quantities are duals in exactly the sense the `#der-interaction-channel-classification` Discussion ("$H_b$ is the formal dual of observation quality $U_o$: where $U_o$ characterizes how well the agent sees the world, $H_b$ characterizes how well the world sees the agent") already proposed qualitatively.
 
 *[Tier: Derived, exact for small-noise linear-Gaussian; robust qualitative for general recipient architectures.]*
 
@@ -132,7 +132,7 @@ This is *structurally the same* as the Kalman-gain decomposition $U_M + U_o$ tha
 The existing AAD apparatus for forward uncertainty transposes directly:
 
 - **Observability-like augmentation is available on the backward side too.** Instrumenting $U_{\pi, B\to A}$ (giving $B$ better models of $A$'s policy — via shared objectives, via communication of $A$'s intentions, via shared architecture) reduces $H_b^{A \mid B}$ in the first term. Reducing $U_{a, A}$ (making $A$'s policy more deterministic given its state) reduces the second. The two knobs are independent; this matters for Angle 6's sign-flip analysis.
-- **The identifiability-floor machinery applies to backward-direction estimation.** When $B$'s observations of $A$'s action-consequences are below the floor $c_{\text{floor}}$ per `#observation-gates-advantage`, $B$ cannot reduce $U_{\pi, B\to A}$ even with unbounded data — a structural lower bound on $H_b^{A \mid B}$ from $B$'s side. This is the first hint that $H_b$ composes with `#discussion-identifiability-floor` (developed in §8).
+- **The identifiability-floor machinery applies to backward-direction estimation.** When $B$'s observations of $A$'s action-consequences are below the floor $c_{\text{floor}}$ per `#obs-gates-advantage`, $B$ cannot reduce $U_{\pi, B\to A}$ even with unbounded data — a structural lower bound on $H_b^{A \mid B}$ from $B$'s side. This is the first hint that $H_b$ composes with `#disc-identifiability-floor` (developed in §8).
 
 ---
 
@@ -140,19 +140,19 @@ The existing AAD apparatus for forward uncertainty transposes directly:
 
 ### 4.1 Construction
 
-`#interaction-channel-classification` classifies incoming events at $B$ into four regimes (Informative / Magnitude-shock / Structural-shock / Ambient-noise) using three independent boundaries (sector-region / model-class / observability) in $B$'s own state. The *emitter-side* dual classifies outgoing events from $A$ by $A$'s own commitments plus $A$'s (estimated) model of $B$.
+`#der-interaction-channel-classification` classifies incoming events at $B$ into four regimes (Informative / Magnitude-shock / Structural-shock / Ambient-noise) using three independent boundaries (sector-region / model-class / observability) in $B$'s own state. The *emitter-side* dual classifies outgoing events from $A$ by $A$'s own commitments plus $A$'s (estimated) model of $B$.
 
 The three independent emitter-side boundaries:
 
 - **(E-a) Predictability boundary.** Can $A$ predict what $B$ will do with the event? This is a function of $H_b^{B \mid A}$ — *mutual* opacity of $B$ to $A$. Low $H_b^{B \mid A}$ (legible recipient) lets $A$ target precisely; high $H_b^{B \mid A}$ forces $A$ to send into an uncertain response distribution.
 - **(E-b) Controllability boundary.** Can $A$ reliably produce the signal content it intends? This is a function of $U_{a, A}$ — $A$'s own action-emission fidelity. High $U_{a, A}$ means $A$ cannot reliably emit specific signals; low $U_{a, A}$ means $A$ can target signal content precisely.
-- **(E-c) Identifiability-to-self boundary.** Can $A$ tell what $A$ just did? This is a function of $A$'s self-model quality. An agent running on a complex substrate (LLM attention over merged goals and observations — Class 2 per `#directed-separation`) may not be able to explain its own actions post-hoc; a modular agent (Class 1) can.
+- **(E-c) Identifiability-to-self boundary.** Can $A$ tell what $A$ just did? This is a function of $A$'s self-model quality. An agent running on a complex substrate (LLM attention over merged goals and observations — Class 2 per `#der-directed-separation`) may not be able to explain its own actions post-hoc; a modular agent (Class 1) can.
 
 *[Definition (emitter-four-regime)]*
 
 For an event $e_\tau^A$ that $A$ emits to $B$, classify:
 
-- **E-I (Broadcast).** All three emitter-side boundaries fail in the benign direction: $A$ can predict $B$'s response (low $H_b^{B \mid A}$), $A$ can produce the signal reliably (low $U_{a,A}$), $A$ can account for its own action (Class 1). This is the regime of deliberate, targeted cooperative signaling — `#auftragstaktik-principle`'s territory.
+- **E-I (Broadcast).** All three emitter-side boundaries fail in the benign direction: $A$ can predict $B$'s response (low $H_b^{B \mid A}$), $A$ can produce the signal reliably (low $U_{a,A}$), $A$ can account for its own action (Class 1). This is the regime of deliberate, targeted cooperative signaling — `#hyp-auftragstaktik-principle`'s territory.
 
 - **E-II (Selective-signal).** (E-a) holds but (E-b) or (E-c) fails. $A$ knows what it wants to do to $B$ but can only produce the signal noisily or cannot verify what it sent. This is the regime of high-variance communication — the message reaches but with distortion. The recipient-side regime depends on $B$'s filter.
 
@@ -162,15 +162,15 @@ For an event $e_\tau^A$ that $A$ emits to $B$, classify:
 
 ### 4.2 Kalman-over-Kalman emitter derivation
 
-Following `#interaction-channel-classification` §4's Kalman-over-Kalman case, derive $A$'s emitter-side regimes concretely.
+Following `#der-interaction-channel-classification` §4's Kalman-over-Kalman case, derive $A$'s emitter-side regimes concretely.
 
 Let $A$ emit action $a_t^A$ drawn from a Gaussian policy $a_t^A \mid X_t^A \sim \mathcal N(\mu_A(X_t^A), \Sigma_{a, A})$ with $\Sigma_{a, A} = U_{a, A}$ the policy-noise covariance. Let $A$'s model of $B$'s predictive response be Gaussian: $B$'s effect-on-state $s_B(a_t^A) \mid a_t^A \sim \mathcal N(\hat s_B(a_t^A), \Sigma_{s \mid B, A})$, with $\Sigma_{s \mid B, A} = U_{\pi, A\to B}$ — $A$'s posterior variance over $B$'s state-response given the action.
 
-**Case E-I (Broadcast, expected).** $\Sigma_{a, A}$ small (controllable), $U_{\pi, A\to B}$ small (predictable recipient), and $A$'s self-model is clean. $A$ can target specific edges in $B$'s strategy-DAG; the outgoing signal lands with mean $\hat s_B(a_t^A)$ and predictable regime on $B$'s side. $H_b^{B \mid A}$ is small; $H_b^{A \mid B}$ is also small because both agents can see each other (legibility pairing). Instance: `#team-persistence`'s cooperative-signaling regime with low communication noise.
+**Case E-I (Broadcast, expected).** $\Sigma_{a, A}$ small (controllable), $U_{\pi, A\to B}$ small (predictable recipient), and $A$'s self-model is clean. $A$ can target specific edges in $B$'s strategy-DAG; the outgoing signal lands with mean $\hat s_B(a_t^A)$ and predictable regime on $B$'s side. $H_b^{B \mid A}$ is small; $H_b^{A \mid B}$ is also small because both agents can see each other (legibility pairing). Instance: `#der-team-persistence`'s cooperative-signaling regime with low communication noise.
 
-**Case E-II (Selective-signal, expected).** $\Sigma_{a, A}$ moderate (some emission noise), $U_{\pi, A\to B}$ small (predictable recipient). $A$ can predict $B$'s response conditional on the action actually emitted, but the action itself has per-channel variance. The signal lands with intended direction but with spread. Reduces to communication-gain `#communication-gain`'s noisy-channel case.
+**Case E-II (Selective-signal, expected).** $\Sigma_{a, A}$ moderate (some emission noise), $U_{\pi, A\to B}$ small (predictable recipient). $A$ can predict $B$'s response conditional on the action actually emitted, but the action itself has per-channel variance. The signal lands with intended direction but with spread. Reduces to communication-gain `#hyp-communication-gain`'s noisy-channel case.
 
-**Case E-III (Information-hide, expected).** $\Sigma_{a, A}$ small, $U_{\pi, A\to B}$ large (opaque recipient). $A$ controls its own emissions but cannot predict $B$. This is the regime where opacity is doing adversarial work: $A$ sends high-tempo, well-controlled signals into an uncertain response surface; some fraction lands in $B$'s Regime II-a for destabilization. This matches `#adversarial-tempo-advantage`'s superlinear scaling scope where $A$'s tempo advantage operates against a $B$ whose state $A$ doesn't deeply model.
+**Case E-III (Information-hide, expected).** $\Sigma_{a, A}$ small, $U_{\pi, A\to B}$ large (opaque recipient). $A$ controls its own emissions but cannot predict $B$. This is the regime where opacity is doing adversarial work: $A$ sends high-tempo, well-controlled signals into an uncertain response surface; some fraction lands in $B$'s Regime II-a for destabilization. This matches `#result-adversarial-tempo-advantage`'s superlinear scaling scope where $A$'s tempo advantage operates against a $B$ whose state $A$ doesn't deeply model.
 
 **Case E-IV (Active-deceive, expected).** $\Sigma_{a, A}$ large, $U_{\pi, A\to B}$ large. $A$ cannot reliably emit specific content *and* cannot predict $B$. Outcomes are essentially random from $A$'s perspective. For $A$ to still extract adversarial benefit here, $A$ must rely on its own tempo overwhelming $B$'s capacity regardless of targeting — the pure-magnitude-attack regime where $A$'s *own unpredictability to itself* is the mechanism.
 
@@ -182,12 +182,12 @@ The four emitter regimes and the four recipient regimes compose into a 16-cell t
 
 | Recipient regime $\to$ / Emitter regime $\downarrow$ | Regime I (Informative) | Regime II-a (Magnitude-shock) | Regime II-b (Structural-shock) | Regime III (Ambient) |
 |---|---|---|---|---|
-| E-I (Broadcast) | **Cooperative signaling** (`#team-persistence`, `#auftragstaktik-principle`) | Instructed structural pressure | Deliberate curriculum-push (`#symbiogenic-composition`'s host-to-endosymbiont) | Detectable but below floor |
-| E-II (Selective) | Noisy cooperation (`#communication-gain`) | Accidental shock | Blurred curriculum | Mostly lost |
-| E-III (Hide) | **Regime-I-with-adversarial-content** (Angle 9 / `#interaction-channel-classification` Discussion) | **Classic adversarial destabilization** (`#adversarial-destabilization`) | **Blind structural push** | High-tempo noise |
+| E-I (Broadcast) | **Cooperative signaling** (`#der-team-persistence`, `#hyp-auftragstaktik-principle`) | Instructed structural pressure | Deliberate curriculum-push (`#hyp-symbiogenic-composition`'s host-to-endosymbiont) | Detectable but below floor |
+| E-II (Selective) | Noisy cooperation (`#hyp-communication-gain`) | Accidental shock | Blurred curriculum | Mostly lost |
+| E-III (Hide) | **Regime-I-with-adversarial-content** (Angle 9 / `#der-interaction-channel-classification` Discussion) | **Classic adversarial destabilization** (`#der-adversarial-destabilization`) | **Blind structural push** | High-tempo noise |
 | E-IV (Deceive) | Self-deceiving misinformation | Chaotic adversarial | Chaotic structural | Dying signal |
 
-The diagonal (E-I + Regime I; E-III + Regime II) contains the two well-studied cases. The off-diagonals — particularly **E-III + Regime I** (opaque adversary lands in recipient's update regime, content is adversarial) — are the load-bearing moves `#interaction-channel-classification`'s Discussion noted but could not cleanly express without the emitter-side boundary. That Discussion item is now *derived* as a specific cell of the 16-regime composition.
+The diagonal (E-I + Regime I; E-III + Regime II) contains the two well-studied cases. The off-diagonals — particularly **E-III + Regime I** (opaque adversary lands in recipient's update regime, content is adversarial) — are the load-bearing moves `#der-interaction-channel-classification`'s Discussion noted but could not cleanly express without the emitter-side boundary. That Discussion item is now *derived* as a specific cell of the 16-regime composition.
 
 ### 4.4 What this closes
 
@@ -196,13 +196,13 @@ This classification closes **`#adversarial-edge-targeting`** — previously a Se
 - **Given $A$'s regime (E-I / E-III / E-IV).** If $A$ is in E-III (can control emissions but can't model $B$), the value-of-attack is dominated by $B$'s plan-sensitivity Jacobian $J_k$ — attack the edges that are load-bearing in any plausible $\Sigma_B$. If $A$ is in E-I (can model $B$), the attack can be targeted: choose edges where $B$'s credence is moderate, $B$'s plan-sensitivity is large, *and* $A$ can inject adversarial content via E-I + Regime I.
 - **Given $B$'s regime classification of the event.** The edge-level value depends on which regime the signal lands in. The Regime-I-with-adversarial-content attack requires $A$ to be in E-I (otherwise $A$ can't produce the specific content) AND $B$ to be in Regime I (otherwise the signal is discarded). This is a narrow but high-leverage regime.
 
-Specifically, the arg-max form from `#interaction-channel-classification`'s §6.2 sketch becomes:
+Specifically, the arg-max form from `#der-interaction-channel-classification`'s §6.2 sketch becomes:
 
 $$\arg\max_k \; \underbrace{p_k(1-p_k)}_{\text{moderate credence}} \cdot \underbrace{J_k^2}_{\text{plan leverage}} \cdot \underbrace{\iota_k}_{\text{regime-A identifiability}} \cdot \underbrace{\sigma_k^B}_{\text{observability}} \cdot \underbrace{(1 - H_b^{B\mid A}/H_b^{\max})}_{\text{targeting fidelity}}$$
 
-where the final term is the emitter-side correction: $A$'s targeting advantage scales with $A$'s legibility-of-$B$ (low $H_b^{B \mid A}$ = $A$ sees $B$ clearly = high targeting advantage). Under $H_b^{B \mid A} \to H_b^{\max}$ the targeting advantage collapses; $A$'s effective tempo advantage in `#adversarial-tempo-advantage` degrades correspondingly.
+where the final term is the emitter-side correction: $A$'s targeting advantage scales with $A$'s legibility-of-$B$ (low $H_b^{B \mid A}$ = $A$ sees $B$ clearly = high targeting advantage). Under $H_b^{B \mid A} \to H_b^{\max}$ the targeting advantage collapses; $A$'s effective tempo advantage in `#result-adversarial-tempo-advantage` degrades correspondingly.
 
-This closes the emitter-side optimizer companion to the recipient-side classifier, which is exactly the pairing `#interaction-channel-classification`'s Discussion advertised.
+This closes the emitter-side optimizer companion to the recipient-side classifier, which is exactly the pairing `#der-interaction-channel-classification`'s Discussion advertised.
 
 ---
 
@@ -214,21 +214,21 @@ Hafez's observation, restated in AAD terms:
 
 > High $H_b^A$ *reduces* $A$'s cooperative-coupling effectiveness (teammates cannot coordinate with an illegible $A$) but *increases* $A$'s adversarial-coupling effectiveness (opponents cannot target an opaque $A$).
 
-This is a **sign-flip**: the same quantity has opposite value-signs across the two regimes. AAD's existing signed-coupling apparatus — `#team-persistence`'s $\gamma^{\text{coop}} < 0$ (negative contribution to $\rho_B^{\text{eff}}$) vs. `#adversarial-destabilization`'s $\gamma^{\text{adv}} > 0$ (positive contribution to $\rho_B^{\text{eff}}$) — is the signed structure that should absorb this asymmetry. The derivation target: exhibit $H_b^A$ as a multiplicative modulator of $\gamma$ in both regimes, with the sign-flip falling out of the regime-dependent *structural role* that predictability plays.
+This is a **sign-flip**: the same quantity has opposite value-signs across the two regimes. AAD's existing signed-coupling apparatus — `#der-team-persistence`'s $\gamma^{\text{coop}} < 0$ (negative contribution to $\rho_B^{\text{eff}}$) vs. `#der-adversarial-destabilization`'s $\gamma^{\text{adv}} > 0$ (positive contribution to $\rho_B^{\text{eff}}$) — is the signed structure that should absorb this asymmetry. The derivation target: exhibit $H_b^A$ as a multiplicative modulator of $\gamma$ in both regimes, with the sign-flip falling out of the regime-dependent *structural role* that predictability plays.
 
 ### 5.2 Cooperative coupling requires predictability
 
-*[Derivation (cooperative-coupling-requires-low-Hb, from #team-persistence + §2.2 definition)]*
+*[Derivation (cooperative-coupling-requires-low-Hb, from #der-team-persistence + §2.2 definition)]*
 
-In the cooperative regime, agent $j$'s action contributes negatively to $i$'s disturbance via $-\gamma_{j \to i}^{\text{coop}} \mathcal T_j$ in `#team-persistence`'s decomposition:
+In the cooperative regime, agent $j$'s action contributes negatively to $i$'s disturbance via $-\gamma_{j \to i}^{\text{coop}} \mathcal T_j$ in `#der-team-persistence`'s decomposition:
 
 $$\rho_i = \rho_{i, \text{env}} + \sum_{k \in \mathcal A_i} \gamma_{k \to i}^{\text{adv}} \mathcal T_k \;-\; \sum_{j \in \mathcal C_i} \gamma_{j \to i}^{\text{coop}} \mathcal T_j.$$
 
-The mechanism per `#team-persistence`: allies *act in the shared environment* to *pre-empt* disturbance at its source. For $j$'s action to pre-empt rather than to create disturbance, $i$ must be able to anticipate $j$'s action *as a structured compensation*, not as a random perturbation. Write $a_{j, t+\tau}$ = $j$'s next action. Decompose $i$'s model of $a_{j, t+\tau}$ into:
+The mechanism per `#der-team-persistence`: allies *act in the shared environment* to *pre-empt* disturbance at its source. For $j$'s action to pre-empt rather than to create disturbance, $i$ must be able to anticipate $j$'s action *as a structured compensation*, not as a random perturbation. Write $a_{j, t+\tau}$ = $j$'s next action. Decompose $i$'s model of $a_{j, t+\tau}$ into:
 
 $$a_{j, t+\tau} \;=\; \mathbb E[a_{j, t+\tau} \mid \mathcal F_i^t] \;+\; \varepsilon_{j \mid i, t+\tau}, \qquad \text{Var}[\varepsilon_{j \mid i, t+\tau}] \;=\; U_{\pi, i \to j}^{(\tau)}.$$
 
-The *structured* part $\mathbb E[a_{j, t+\tau} \mid \mathcal F_i^t]$ is what $i$ can count on — the part that reduces $\rho_i$ by preemption. The *noise* part $\varepsilon_{j \mid i}$ contributes to $\rho_i$ additively through `#interaction-channel-classification`'s Regime III term (ambient variance).
+The *structured* part $\mathbb E[a_{j, t+\tau} \mid \mathcal F_i^t]$ is what $i$ can count on — the part that reduces $\rho_i$ by preemption. The *noise* part $\varepsilon_{j \mid i}$ contributes to $\rho_i$ additively through `#der-interaction-channel-classification`'s Regime III term (ambient variance).
 
 *[Derived]* The effective cooperative coupling coefficient decomposes:
 
@@ -246,9 +246,9 @@ or any other monotonically-decreasing function matching the boundary cases. The 
 
 ### 5.3 Adversarial coupling operates via disturbance-injection
 
-*[Derivation (adversarial-coupling-benefits-from-high-Hb, from #adversarial-destabilization + §2.2 definition)]*
+*[Derivation (adversarial-coupling-benefits-from-high-Hb, from #der-adversarial-destabilization + §2.2 definition)]*
 
-In the adversarial regime, agent $A$'s action contributes positively to $B$'s disturbance via $+\gamma_A \mathcal T_A$ per `#adversarial-destabilization`. The mechanism is the inverse of cooperation: $A$ *injects disturbance* into $B$'s state, either as persistent drift (Model D) or as unpredictable noise (Model S).
+In the adversarial regime, agent $A$'s action contributes positively to $B$'s disturbance via $+\gamma_A \mathcal T_A$ per `#der-adversarial-destabilization`. The mechanism is the inverse of cooperation: $A$ *injects disturbance* into $B$'s state, either as persistent drift (Model D) or as unpredictable noise (Model S).
 
 Here predictability has the *opposite* structural role. If $B$ can predict $A$'s action well ($H_b^{A \mid B}$ low), then $A$'s contribution to $B$'s disturbance is *reducible* — $B$'s Kalman filter can subtract the predicted component, leaving only the residual $\varepsilon_{A \mid B}$ as the un-predictable adversarial input. Decompose:
 
@@ -272,8 +272,8 @@ Compare §5.2 and §5.3 side-by-side:
 
 | Regime | $\gamma^{\text{effective}}$ | As $H_b \to 0$ (legible) | As $H_b \to H_b^{\max}$ (opaque) | Mechanism |
 |---|---|---|---|---|
-| Cooperative (`#team-persistence`) | $\gamma_{j \to i}^{\text{coop, max}} \cdot (1 - H_b^{j \mid i}/H_b^{\max})$ | full strength | vanishes | Predictability enables preemption |
-| Adversarial (`#adversarial-destabilization`) | $\gamma_A^{\text{adv, max}} \cdot (H_b^{A \mid B}/H_b^{\max})$ | vanishes | full strength | Unpredictability *is* the disturbance |
+| Cooperative (`#der-team-persistence`) | $\gamma_{j \to i}^{\text{coop, max}} \cdot (1 - H_b^{j \mid i}/H_b^{\max})$ | full strength | vanishes | Predictability enables preemption |
+| Adversarial (`#der-adversarial-destabilization`) | $\gamma_A^{\text{adv, max}} \cdot (H_b^{A \mid B}/H_b^{\max})$ | vanishes | full strength | Unpredictability *is* the disturbance |
 
 (Linear boundary-matching form for illustration; Gaussian form in §§5.2-5.3 is the sub-scope-$\alpha$ exact expression.)
 
@@ -287,9 +287,9 @@ The sign-flip is structural: $H_b$ has opposite signs in the two regimes because
 
 **Cooperation-adversarial boundary is $H_b$-indexed.** At any given $A$, there is a threshold $H_b^\ast$ above which cooperative effectiveness drops below adversarial effectiveness (at matched $\gamma^{\text{max}}$). Below the threshold, $A$ is *more valuable* as a teammate than as a spoiler; above it, the reverse. The threshold is set by the ratio $\gamma^{\text{coop, max}} / \gamma^{\text{adv, max}}$ at the specific interaction.
 
-**`#critical-mass-composition`'s CM2 inequality is $H_b$-modulated.** CM2 reads $(\alpha - C) R > \rho + \gamma \mathcal T$. Under $H_b$-modulation, $\gamma$ enters as $\gamma^{\text{effective}}(H_b)$ with opposite sign-dependence depending on whether the coupling is cooperative ($\gamma < 0$ with $|\gamma|$ decreasing in $H_b$) or adversarial ($\gamma > 0$ with $|\gamma|$ increasing in $H_b$). The critical-mass composition transitions as $H_b$ crosses regime boundaries.
+**`#deriv-critical-mass-composition`'s CM2 inequality is $H_b$-modulated.** CM2 reads $(\alpha - C) R > \rho + \gamma \mathcal T$. Under $H_b$-modulation, $\gamma$ enters as $\gamma^{\text{effective}}(H_b)$ with opposite sign-dependence depending on whether the coupling is cooperative ($\gamma < 0$ with $|\gamma|$ decreasing in $H_b$) or adversarial ($\gamma > 0$ with $|\gamma|$ increasing in $H_b$). The critical-mass composition transitions as $H_b$ crosses regime boundaries.
 
-**`#auftragstaktik-principle` acquires a formal rationale.** The military doctrine of "share intent before detailed orders" is precisely a mechanism for reducing $H_b$ within a team — a deliberate transparency move whose value is quantified by $\gamma^{\text{coop, effective}}$'s dependence on $H_b$. The same Class 1 architecture that makes directed separation clean also makes opacity-reduction straightforward (a modular agent can publish its $\Sigma$ in a way a Class 2 agent cannot). This couples the architectural classification of `#directed-separation` with the cooperation-feasibility analysis.
+**`#hyp-auftragstaktik-principle` acquires a formal rationale.** The military doctrine of "share intent before detailed orders" is precisely a mechanism for reducing $H_b$ within a team — a deliberate transparency move whose value is quantified by $\gamma^{\text{coop, effective}}$'s dependence on $H_b$. The same Class 1 architecture that makes directed separation clean also makes opacity-reduction straightforward (a modular agent can publish its $\Sigma$ in a way a Class 2 agent cannot). This couples the architectural classification of `#der-directed-separation` with the cooperation-feasibility analysis.
 
 ---
 
@@ -297,17 +297,17 @@ The sign-flip is structural: $H_b$ has opposite signs in the two regimes because
 
 ### 6.1 The target form
 
-`#adversarial-tempo-advantage` derives superlinear $b = 2$ (Model D) or $b = 3/2$ (Model S) scaling for $A$'s tempo effect on $B$'s mismatch ratio. Does $H_b$ enter as a multiplier on the effective adversarial tempo?
+`#result-adversarial-tempo-advantage` derives superlinear $b = 2$ (Model D) or $b = 3/2$ (Model S) scaling for $A$'s tempo effect on $B$'s mismatch ratio. Does $H_b$ enter as a multiplier on the effective adversarial tempo?
 
 ### 6.2 Derivation
 
-From §5.3, the effective adversarial coupling is $\gamma_A^{\text{adv, effective}} = \gamma_A^{\text{adv, max}} \cdot (H_b^{A \mid B} / H_b^{\max})$ in the linear-boundary-matched form (Gaussian-exact form in §5.3). Substituting into `#adversarial-tempo-advantage`'s Model D coupling $\rho_B^{\text{eff}} = \rho_{\text{base}} + \gamma_A \mathcal T_A$:
+From §5.3, the effective adversarial coupling is $\gamma_A^{\text{adv, effective}} = \gamma_A^{\text{adv, max}} \cdot (H_b^{A \mid B} / H_b^{\max})$ in the linear-boundary-matched form (Gaussian-exact form in §5.3). Substituting into `#result-adversarial-tempo-advantage`'s Model D coupling $\rho_B^{\text{eff}} = \rho_{\text{base}} + \gamma_A \mathcal T_A$:
 
 $$\rho_B^{\text{eff}} \;=\; \rho_{\text{base}} \;+\; \gamma_A^{\text{adv, max}} \cdot \frac{H_b^{A \mid B}}{H_b^{\max}} \cdot \mathcal T_A \;=\; \rho_{\text{base}} \;+\; \gamma_A^{\text{adv, max}} \cdot \mathcal T_A^{\text{effective}},$$
 
 where $\mathcal T_A^{\text{effective}} := \mathcal T_A \cdot (H_b^{A \mid B} / H_b^{\max})$. This is $A$'s *effective adversarial tempo* — $A$'s raw tempo scaled by $A$'s opacity-to-$B$.
 
-*[Derived (effective-adversarial-tempo, from §5.3 + #adversarial-tempo-advantage)]*
+*[Derived (effective-adversarial-tempo, from §5.3 + #result-adversarial-tempo-advantage)]*
 
 The Model D mismatch ratio scaling becomes:
 
@@ -319,7 +319,7 @@ $$\frac{\lVert\delta_B\rVert_{ss}}{\lVert\delta_A\rVert_{ss}} \;\to\; \left(\fra
 
 ### 6.3 Interpretation
 
-The scaling exponent $b = 2$ (or $3/2$ under Model S) remains — the structural mechanism of `#adversarial-tempo-advantage` (faster agent corrects itself faster AND generates disturbance faster; effects compound) is unchanged. What $H_b$ modulates is the *effective* tempo that enters the superlinear formula.
+The scaling exponent $b = 2$ (or $3/2$ under Model S) remains — the structural mechanism of `#result-adversarial-tempo-advantage` (faster agent corrects itself faster AND generates disturbance faster; effects compound) is unchanged. What $H_b$ modulates is the *effective* tempo that enters the superlinear formula.
 
 Two consequences:
 
@@ -338,11 +338,11 @@ The $b = 2$ exponent itself is not reshaped by $H_b$. A hypothesis: perhaps $H_b
 
 B5's closed-form §3.3 construction exhibits two coupled systems $(\Sigma_1, \Sigma_2)$ and $(\Sigma_1, \Sigma_2')$ with *identical marginal component distributions* but opposite composite-contraction signs ($\kappa_c > 0$ vs. $\kappa_c < 0$). The ambiguity is precisely the sign of cross-agent coupling — one bit of information.
 
-In the language of §2.2: the certifier, seeing component marginals only, has $H_b$ of 1 bit on the coupling-sign variable. Specifically, $H_b^{\Sigma_c \mid \text{certifier}} \geq 1$ bit on the coupling-sign (which is the single bit distinguishing `#team-persistence`'s cooperative regime from `#adversarial-destabilization`'s adversarial regime).
+In the language of §2.2: the certifier, seeing component marginals only, has $H_b$ of 1 bit on the coupling-sign variable. Specifically, $H_b^{\Sigma_c \mid \text{certifier}} \geq 1$ bit on the coupling-sign (which is the single bit distinguishing `#der-team-persistence`'s cooperative regime from `#der-adversarial-destabilization`'s adversarial regime).
 
 *[Derived (B5-as-Hb-instance, from B5 §3.3 + §2.2 definition)]*
 
-B5 is the **maximum-opacity** limit on the coupling-sign variable: the component-data filtration retains zero information about the sign bit. The composition-layer identifiability floor in `#discussion-identifiability-floor` Instance 3 is therefore an **$H_b$-indexed floor** at the composite layer: 1 bit of backward predictive uncertainty on coupling sign is *unobservable from component-marginal data* and is exactly what distinguishes contraction from destabilization.
+B5 is the **maximum-opacity** limit on the coupling-sign variable: the component-data filtration retains zero information about the sign bit. The composition-layer identifiability floor in `#disc-identifiability-floor` Instance 3 is therefore an **$H_b$-indexed floor** at the composite layer: 1 bit of backward predictive uncertainty on coupling sign is *unobservable from component-marginal data* and is exactly what distinguishes contraction from destabilization.
 
 **Consequences.**
 
@@ -354,7 +354,7 @@ B5 is the **maximum-opacity** limit on the coupling-sign variable: the component
 
   All four are opacity-reduction mechanisms at the composite layer.
 
-- The `#discussion-identifiability-floor` pattern at the composition layer acquires a natural $H_b$-reading: **the floor is a lower bound on $H_b^{\Sigma_c}$ from the certifier's filtration.** Each instance names an external theorem (Liberzon, Bareinboim CHT, Cramér-Rao) that certifies the lower bound; each escape route is an information-augmentation that reduces $H_b$ below the floor.
+- The `#disc-identifiability-floor` pattern at the composition layer acquires a natural $H_b$-reading: **the floor is a lower bound on $H_b^{\Sigma_c}$ from the certifier's filtration.** Each instance names an external theorem (Liberzon, Bareinboim CHT, Cramér-Rao) that certifies the lower bound; each escape route is an information-augmentation that reduces $H_b$ below the floor.
 
 *[Tier: Derived, exact (B5's construction is closed-form; the $H_b$-reading is the same construction re-indexed on filtrations).]*
 
@@ -374,12 +374,12 @@ In a composition of $N$ agents, the mutual opacity is a non-scalar structure —
 
 *[Derived (B6-as-Hb-threshold, from B6 §3 + §2.2)]*
 
-The B6 $\alpha'/\beta'$ partition is an instance of the general pattern: **$H_b$-thresholds gate AAD scope boundaries**. Just as `#sector-condition-derivation`'s sub-scope $\alpha/\beta$ partitions AAD agents by forward-uncertainty structure (whether A2' derives under update rules), B6's $\alpha'/\beta'$ partitions strategic composites by backward-uncertainty structure (whether mutual cross-gradient predictability supports coordinated-gradient dynamics).
+The B6 $\alpha'/\beta'$ partition is an instance of the general pattern: **$H_b$-thresholds gate AAD scope boundaries**. Just as `#deriv-sector-condition`'s sub-scope $\alpha/\beta$ partitions AAD agents by forward-uncertainty structure (whether A2' derives under update rules), B6's $\alpha'/\beta'$ partitions strategic composites by backward-uncertainty structure (whether mutual cross-gradient predictability supports coordinated-gradient dynamics).
 
 **Consequences.**
 
 - Mechanism design (B6 §6.2) is the **engineering of $H_b$-low regimes**: designing payoffs such that each agent's gradient is predictable from the others' perspectives (and thus a shared potential exists or the joint Jacobian is negative-definite-symmetric-part).
-- The effects spiral in `#adversarial-destabilization` (formalized in B6 §7.3 as a joint-Jacobian eigenvalue condition) corresponds to a regime where mutual $H_b$ is growing dynamically: each agent's model-of-the-other degrades as mismatch grows, which increases opacity both ways, which increases $\gamma^{\text{adv, effective}}$ both ways, driving the spiral. This is the formal form of the coupling that `#adversarial-destabilization`'s Working Notes flag as qualitative-only.
+- The effects spiral in `#der-adversarial-destabilization` (formalized in B6 §7.3 as a joint-Jacobian eigenvalue condition) corresponds to a regime where mutual $H_b$ is growing dynamically: each agent's model-of-the-other degrades as mismatch grows, which increases opacity both ways, which increases $\gamma^{\text{adv, effective}}$ both ways, driving the spiral. This is the formal form of the coupling that `#der-adversarial-destabilization`'s Working Notes flag as qualitative-only.
 
 *[Tier: Derived, robust qualitative — the mechanism is clean, the specific threshold values depend on game-structure details.]*
 
@@ -398,11 +398,11 @@ The two structures compose: a composite where B5 has resolved (sign known) but B
 
 ## 8. Angle 8 — Meta-Pattern Audit
 
-### 8.1 `#discussion-identifiability-floor`
+### 8.1 `#disc-identifiability-floor`
 
 $H_b$ is a natural **re-reading** of the identifiability-floor pattern, not a new instance of it. Each existing floor (F1 CHT; F13 Cramér-Rao; B5 Liberzon) names an external theorem that certifies a lower bound on the observer's uncertainty about some AAD-internal variable; each escape reduces that uncertainty below the floor. The $H_b$ language makes this uniform: every identifiability floor is an $H_b$-lower-bound at the relevant observer-observed-variable pair.
 
-*[Proposed — Hb-reading of #discussion-identifiability-floor]*
+*[Proposed — Hb-reading of #disc-identifiability-floor]*
 
 Restate the three existing instances in $H_b$-indexed form:
 
@@ -421,25 +421,25 @@ The candidate fourth instance is an **agent-external** observer-observed variant
 - The pattern is mild compared to F1/F13/B5. The Shannon lower bound is less surprising than CHT or Cramér-Rao — "you cannot know what you do not observe" is tautological; the identifiability-floor pattern earns its keep partly because the external theorems (CHT, CR, Liberzon) are non-obvious.
 - The pattern is more broadly applicable than the existing three. Every inter-agent coupling runs through an $H_b$-floor; this is the *generic* identifiability structure in Section III.
 
-**Recommendation:** promote $H_b$ to a new instance of `#discussion-identifiability-floor` with the **general shape of "mutual information bounds observer-side uncertainty"** as the external-theorem anchor, and document that the existing three instances are the *specialization* to causal-structural variables (F1), estimation-parameter variables (F13), and composition-sign variables (B5). This positions $H_b$ as the *generic* instance and the existing three as specific variables-of-interest.
+**Recommendation:** promote $H_b$ to a new instance of `#disc-identifiability-floor` with the **general shape of "mutual information bounds observer-side uncertainty"** as the external-theorem anchor, and document that the existing three instances are the *specialization* to causal-structural variables (F1), estimation-parameter variables (F13), and composition-sign variables (B5). This positions $H_b$ as the *generic* instance and the existing three as specific variables-of-interest.
 
-### 8.2 `#discussion-separability-pattern`
+### 8.2 `#disc-separability-pattern`
 
 $H_b$ is a natural candidate for a **seventh ladder**:
 
 | Ladder | Separable core | Structured repair | General open |
 |---|---|---|---|
-| **Opacity** (new) | **Transparent agent** — $H_b = 0$; observer has full model of agent ($A$ publishes $M_A$, $\Sigma_A$, $O_A$; coordination-feasible by construction) | **Partial transparency** — $H_b$ bounded via signaling channels (`#communication-gain`), shared objectives (`#auftragstaktik-principle`), shared architecture (Class 1 with standard interfaces), conditional observability (side-channel signals identifying $A$'s state regime); coordination-feasible under channel-quality conditions | **Full opacity** — $H_b \to H_b^{\max}$; observer has only behavioral-marginal access; coordination structurally unavailable under B6 sub-scope $\beta'$ / identifiability-floor per §8.1 |
+| **Opacity** (new) | **Transparent agent** — $H_b = 0$; observer has full model of agent ($A$ publishes $M_A$, $\Sigma_A$, $O_A$; coordination-feasible by construction) | **Partial transparency** — $H_b$ bounded via signaling channels (`#hyp-communication-gain`), shared objectives (`#hyp-auftragstaktik-principle`), shared architecture (Class 1 with standard interfaces), conditional observability (side-channel signals identifying $A$'s state regime); coordination-feasible under channel-quality conditions | **Full opacity** — $H_b \to H_b^{\max}$; observer has only behavioral-marginal access; coordination structurally unavailable under B6 sub-scope $\beta'$ / identifiability-floor per §8.1 |
 
 The separable-core / structured-repair / general-open shape fits cleanly:
 
-- Separable core: $H_b = 0$ is a concrete regime — it occurs when agents share architecture, publish state, or communicate through high-quality channels. Full coordination is feasible; `#team-persistence` is the relevant machinery.
-- Structured repair: partial transparency via `#communication-gain`, `#auftragstaktik-principle`, shared regime indicators; the repair mechanism is explicit (specific channels, specific shared-information items).
+- Separable core: $H_b = 0$ is a concrete regime — it occurs when agents share architecture, publish state, or communicate through high-quality channels. Full coordination is feasible; `#der-team-persistence` is the relevant machinery.
+- Structured repair: partial transparency via `#hyp-communication-gain`, `#hyp-auftragstaktik-principle`, shared regime indicators; the repair mechanism is explicit (specific channels, specific shared-information items).
 - General open: fully opaque agents (adversarial regime + adversary's self-opacity; Class 2 architectures where even the agent itself can't predict its own actions) sit in the general-open column with the identifiability-floor per §8.1.
 
-*[Derived (Hb-seventh-ladder, from §8.1 + #discussion-separability-pattern)]*
+*[Derived (Hb-seventh-ladder, from §8.1 + #disc-separability-pattern)]*
 
-$H_b$ populates a seventh ladder of the `#discussion-separability-pattern` meta-segment with the three-part epistemic posture AAD runs across its other six ladders. This ladder is *composition-specific* (it only makes sense for inter-agent interactions; within a single agent, $H_b$ is trivially zero because the agent has full access to its own state). This might motivate grouping it with the "architecture" ladder (Class 1/2/3) or with a new composition sub-category. Either placement is defensible.
+$H_b$ populates a seventh ladder of the `#disc-separability-pattern` meta-segment with the three-part epistemic posture AAD runs across its other six ladders. This ladder is *composition-specific* (it only makes sense for inter-agent interactions; within a single agent, $H_b$ is trivially zero because the agent has full access to its own state). This might motivate grouping it with the "architecture" ladder (Class 1/2/3) or with a new composition sub-category. Either placement is defensible.
 
 ### 8.3 `#additive-coordinate-forcing`
 
@@ -473,26 +473,26 @@ $H_b$-additivity across agents is **conditionally** true (under independence) an
 
 | Meta-segment | $H_b$ position | Reasoning |
 |---|---|---|
-| `#discussion-identifiability-floor` | **Candidate 4th instance (generic-observer form); the existing 3 are specializations** | Shannon inequality is a genuine external theorem; escapes are AAD machinery; pattern matches |
-| `#discussion-separability-pattern` | **Candidate 7th ladder (opacity)** | Separable-core $H_b = 0$ / structured-repair partial-transparency / general-open full opacity matches the three-part shape |
+| `#disc-identifiability-floor` | **Candidate 4th instance (generic-observer form); the existing 3 are specializations** | Shannon inequality is a genuine external theorem; escapes are AAD machinery; pattern matches |
+| `#disc-separability-pattern` | **Candidate 7th ladder (opacity)** | Separable-core $H_b = 0$ / structured-repair partial-transparency / general-open full opacity matches the three-part shape |
 | `#additive-coordinate-forcing` | **Adjacent family member (like IB Lagrangian)** | Logarithmic coordinate inherited from Shannon, not forced by AAD-internal axiom; cross-agent additivity fails under coupling (the regime of interest) |
 
 ---
 
 ## 9. Angle 9 — Closing `#adversarial-edge-targeting`
 
-`#adversarial-edge-targeting` is listed in `TODO.md` as a Section III missing segment. §4.4 derived the emitter-side optimization in the 16-cell composition with `#interaction-channel-classification`'s recipient-side classification. The closed form is:
+`#adversarial-edge-targeting` is listed in `TODO.md` as a Section III missing segment. §4.4 derived the emitter-side optimization in the 16-cell composition with `#der-interaction-channel-classification`'s recipient-side classification. The closed form is:
 
 $$\arg\max_k \; p_k(1-p_k) \cdot J_k^2 \cdot \iota_k \cdot \sigma_k^B \cdot (1 - H_b^{B \mid A}/H_b^{\max})$$
 
 This factors cleanly into:
 
-- **$B$-interior factors** ($p_k$, $J_k$, $\iota_k$, $\sigma_k^B$) — the value of the edge for a perfectly-informed adversary. Known from `#strategy-dag` + `#edge-update-causal-validity` + `#credit-assignment-boundary` + `#observation-function`.
+- **$B$-interior factors** ($p_k$, $J_k$, $\iota_k$, $\sigma_k^B$) — the value of the edge for a perfectly-informed adversary. Known from `#def-strategy-dag` + `#scope-edge-update-causal-validity` + `#disc-credit-assignment-boundary` + `#def-function`.
 - **Mutual-information factor** ($1 - H_b^{B \mid A}/H_b^{\max}$) — $A$'s targeting fidelity. This is the $H_b$ contribution.
 
 Under full legibility of $B$ to $A$ (low $H_b^{B \mid A}$), the optimization is fully exploitable; the adversary targets the specific high-value edge. Under full opacity (high $H_b^{B \mid A}$), the adversary must broadcast-attack — the optimization degrades to $\arg\max_k p_k(1-p_k) J_k^2$ (most-valuable edges in expectation), essentially a non-targeted load-bearing-edge-attack.
 
-**Recommendation.** Close `#adversarial-edge-targeting` as a Section III segment with the above formula and a sub-scope partition (sub-scope $\alpha_{H_b}$: adversary has low $H_b^{B \mid A}$ — full targeting; sub-scope $\beta_{H_b}$: high $H_b^{B \mid A}$ — broadcast only). The segment depends on `#interaction-channel-classification`, `#credit-assignment-boundary`, `#edge-update-causal-validity`, and the proposed `#agent-opacity` segment landing this spike.
+**Recommendation.** Close `#adversarial-edge-targeting` as a Section III segment with the above formula and a sub-scope partition (sub-scope $\alpha_{H_b}$: adversary has low $H_b^{B \mid A}$ — full targeting; sub-scope $\beta_{H_b}$: high $H_b^{B \mid A}$ — broadcast only). The segment depends on `#der-interaction-channel-classification`, `#disc-credit-assignment-boundary`, `#scope-edge-update-causal-validity`, and the proposed `#der-agent-opacity` segment landing this spike.
 
 ---
 
@@ -540,7 +540,7 @@ This is a mild but genuinely useful observation: $H_b$ sits within the broader (
 
 The AAD-internal definition (§2.2) *assumes* each observer $B$ carries a filtration $\mathcal F_B^t$ and a model of $A$. This is a mild assumption when both agents are AAD agents (they each have $M_t$, which contains a model of the world; the world includes other agents), but it requires making explicit:
 
-- **$B$'s model of $A$ is a feature of $M_t^B$.** The current AAD segment machinery treats $M_t$ as a model of the environment, sometimes with other agents as features (see `#team-persistence` discussion of communication, `#symbiogenic-composition` for host models of endosymbiont). A cleanly-formalized "$B$'s model of $A$" is not a first-class AAD object at the segment level.
+- **$B$'s model of $A$ is a feature of $M_t^B$.** The current AAD segment machinery treats $M_t$ as a model of the environment, sometimes with other agents as features (see `#der-team-persistence` discussion of communication, `#hyp-symbiogenic-composition` for host models of endosymbiont). A cleanly-formalized "$B$'s model of $A$" is not a first-class AAD object at the segment level.
 - **$H_b^{A \mid B}$ is defined over $B$'s filtration.** Filtrations are standard in the sub-scope-$\alpha$ stochastic-process apparatus but are not a first-class segment-level AAD construct.
 
 ### 12.2 The needed extension
@@ -557,7 +557,7 @@ The dual-filtration apparatus gives $H_b$ a home; it also unlocks several other 
 
 - **Mutual-prediction reciprocity.** When both $A$ and $B$ model each other, the joint dynamics has a fixed-point structure (each agent's model-of-the-other is consistent with the actual behavior of the other). This is the formal form of B6's strategic composition — the mutual-modeling is precisely the regret-minimization or potential-game-gradient coordination.
 - **Second-order agent structure.** The first-order agent structure is $A = (M_A, G_A, \pi_A, h_A)$. The second-order structure is: $A$'s $M_A$ includes $M_B^{A}$ (what $A$ thinks $B$'s $M_B$ is) as a sub-component. This recursion terminates at the level AAD needs (practically, two levels is sufficient for strategic composition; the regress beyond is bounded by cognitive-cost `#cognitive-cost-of-strategy`).
-- **The $\kappa_{\text{processing}}$ operationalization for inter-agent interaction.** `#directed-separation`'s $\kappa_{\text{processing}}$ measures within-agent coupling. A dual quantity — call it $\kappa_{\text{cross}}$ — would measure the coupling between $A$'s model-of-self and $A$'s model-of-$B$. This is the formal form of the second-order-theory-of-mind question.
+- **The $\kappa_{\text{processing}}$ operationalization for inter-agent interaction.** `#der-directed-separation`'s $\kappa_{\text{processing}}$ measures within-agent coupling. A dual quantity — call it $\kappa_{\text{cross}}$ — would measure the coupling between $A$'s model-of-self and $A$'s model-of-$B$. This is the formal form of the second-order-theory-of-mind question.
 
 ### 12.4 Assessment of the failure mode
 
@@ -565,7 +565,7 @@ The failure mode is *mild*, not *structural*. The derivation of $H_b$ does not r
 
 **Specifically:** the derivations in §§2-7 all run without the dual-filtration formalism being explicit — they work with $\mathcal F_B^t$ and $Q_{B \to A}$ as standard probability-theoretic objects. The dual-filtration extension is required to *cleanly integrate* $H_b$ into AAD's segment-level language, not to make the derivation work.
 
-**Honest characterization.** The spike's derivations (§§2-11) are AAD-internal under the mild extension that $M_t^B$ carries a sub-model of $A$'s state (already implicit in the existing segment machinery; see `#team-persistence`, `#symbiogenic-composition`, `#auftragstaktik-principle`, `#communication-gain` for non-formal uses). The dual-filtration apparatus is *architecturally orthogonal* to the derivations; its introduction would tighten the formalism but is not a prerequisite.
+**Honest characterization.** The spike's derivations (§§2-11) are AAD-internal under the mild extension that $M_t^B$ carries a sub-model of $A$'s state (already implicit in the existing segment machinery; see `#der-team-persistence`, `#hyp-symbiogenic-composition`, `#hyp-auftragstaktik-principle`, `#hyp-communication-gain` for non-formal uses). The dual-filtration apparatus is *architecturally orthogonal* to the derivations; its introduction would tighten the formalism but is not a prerequisite.
 
 ---
 
@@ -576,25 +576,25 @@ The failure mode is *mild*, not *structural*. The derivation of $H_b$ does not r
 For $H_b$:
 
 - **Shannon entropy** (the information-theoretic content of the definition) is *adopted* from Shannon 1948 and forced logarithmic by Khinchin-Aczél axioms external to AAD. This is adoption-style.
-- **The observer-indexing and trajectory-indexing** (§2.4) are *derived* from AAD-internal commitments (`#scope-agent-identity`'s singular trajectory; `#directed-separation`'s filtration-indexed update) — theorem-style extensions of existing segments.
-- **The sign-flip derivation** (§5) is *derived* from AAD-internal signed-coupling structure (`#team-persistence`'s $\gamma^{\text{coop}} < 0$; `#adversarial-destabilization`'s $\gamma^{\text{adv}} > 0$) composed with §2.2's definition — theorem-style under AAD-internal axioms.
+- **The observer-indexing and trajectory-indexing** (§2.4) are *derived* from AAD-internal commitments (`#scope-agent-identity`'s singular trajectory; `#der-directed-separation`'s filtration-indexed update) — theorem-style extensions of existing segments.
+- **The sign-flip derivation** (§5) is *derived* from AAD-internal signed-coupling structure (`#der-team-persistence`'s $\gamma^{\text{coop}} < 0$; `#der-adversarial-destabilization`'s $\gamma^{\text{adv}} > 0$) composed with §2.2's definition — theorem-style under AAD-internal axioms.
 - **The sub-scope/scope-partition composition** (§§6, 7) is *derived* under AAD's existing sub-scope-$\alpha$/sub-scope-$\beta$ discipline — theorem-style.
 
-**Net characterization.** $H_b$ is **adopted** at the information-theoretic-foundation layer (Shannon), then **theorem-style extended** to AAD by observer-indexing, trajectory-indexing, and composition with signed-coupling structure. The pattern is parallel to `#information-bottleneck`'s IB-Lagrangian: adopted from Tishby-Pereira-Bialek at the foundations layer; applied AAD-internally under AAD's specific scope conditions. It is *not* a new Cauchy-FE-forced coordinate (per §8.3 analysis).
+**Net characterization.** $H_b$ is **adopted** at the information-theoretic-foundation layer (Shannon), then **theorem-style extended** to AAD by observer-indexing, trajectory-indexing, and composition with signed-coupling structure. The pattern is parallel to `#form-information-bottleneck`'s IB-Lagrangian: adopted from Tishby-Pereira-Bialek at the foundations layer; applied AAD-internally under AAD's specific scope conditions. It is *not* a new Cauchy-FE-forced coordinate (per §8.3 analysis).
 
-This matches the discipline: $H_b$ is *not* a fourth primary instance of `#additive-coordinate-forcing`; it is adjacent-family in that meta-segment and **primary new material in two others** (`#discussion-identifiability-floor` as generic observer-side instance; `#discussion-separability-pattern` as new 7th ladder).
+This matches the discipline: $H_b$ is *not* a fourth primary instance of `#additive-coordinate-forcing`; it is adjacent-family in that meta-segment and **primary new material in two others** (`#disc-identifiability-floor` as generic observer-side instance; `#disc-separability-pattern` as new 7th ladder).
 
 ---
 
 ## 14. Landing Recommendation
 
-### 14.1 Primary landing: new Section III segment `#agent-opacity`
+### 14.1 Primary landing: new Section III segment `#der-agent-opacity`
 
-Promote a new segment `#agent-opacity` with:
+Promote a new segment `#der-agent-opacity` with:
 
 - **Type.** Derived.
 - **Status.** Conditional (sub-scope $\alpha$ exact; sub-scope $\beta$ robust qualitative).
-- **Depends on.** `#scope-agent-identity`, `#directed-separation`, `#model-class-fitness`, `#observation-function`, `#update-gain`, `#adaptive-tempo`, `#team-persistence`, `#adversarial-destabilization`, `#adversarial-tempo-advantage`, `#interaction-channel-classification`, `#discussion-identifiability-floor`, `#discussion-separability-pattern`.
+- **Depends on.** `#scope-agent-identity`, `#der-directed-separation`, `#def-model-class-fitness`, `#def-function`, `#emp-update-gain`, `#def-adaptive-tempo`, `#der-team-persistence`, `#der-adversarial-destabilization`, `#result-adversarial-tempo-advantage`, `#der-interaction-channel-classification`, `#disc-identifiability-floor`, `#disc-separability-pattern`.
 - **Contents.**
   1. The AAD-internal definition (§2.2) with reduction to Hafez's original (§2.3) and the three AAD-specific features (observer-indexing, horizon-indexing, trajectory-indexing, §2.4).
   2. The duality with forward uncertainty (§3) — the $U_{\pi, B\to A}$ + $U_{a, A}$ decomposition as backward analog of $U_M$ + $U_o$.
@@ -602,18 +602,18 @@ Promote a new segment `#agent-opacity` with:
   4. The emitter-side tempo amplification (§6) — $\mathcal T^{\text{effective}} = \mathcal T \cdot H_b/H_b^{\max}$ under adversarial coupling.
   5. A note on composition-layer readings (§7) — B5 as 1-bit opacity limit; B6 as mutual-opacity tensor gate on sub-scope $\alpha'/\beta'$.
   6. A scope-limits paragraph — Class 1 primary; Class 3 approximate; Class 2 requires coupled formulation per `03-logogenic-agents/`.
-- **Honest credit.** $H_b$ is Hafez et al. (2026)'s quantity — their definition and empirical motivation (89% IDT detection accuracy via $H_b$) stand unchanged. AAD's contribution: the AAD-internal derivation (§2.2), observer/trajectory/horizon-indexing (§2.4), the sign-flip structural derivation (§5), the emitter-side four-regime classification dual (§4), the composition with `#interaction-channel-classification`, the integration with `#discussion-identifiability-floor` and `#discussion-separability-pattern` (§8), and the closure of `#adversarial-edge-targeting` (§9).
-- **Structural strength.** The segment closes the Hafez integration gap (`msc/spike-hafez-integration-audit.md` §Gap 1) cleanly. It also pairs naturally with `#interaction-channel-classification` as that segment's already-flagged emitter-side companion — both segments together give the full bidirectional inter-agent signaling theory.
+- **Honest credit.** $H_b$ is Hafez et al. (2026)'s quantity — their definition and empirical motivation (89% IDT detection accuracy via $H_b$) stand unchanged. AAD's contribution: the AAD-internal derivation (§2.2), observer/trajectory/horizon-indexing (§2.4), the sign-flip structural derivation (§5), the emitter-side four-regime classification dual (§4), the composition with `#der-interaction-channel-classification`, the integration with `#disc-identifiability-floor` and `#disc-separability-pattern` (§8), and the closure of `#adversarial-edge-targeting` (§9).
+- **Structural strength.** The segment closes the Hafez integration gap (`msc/spike-hafez-integration-audit.md` §Gap 1) cleanly. It also pairs naturally with `#der-interaction-channel-classification` as that segment's already-flagged emitter-side companion — both segments together give the full bidirectional inter-agent signaling theory.
 
 ### 14.2 Secondary landings (cross-references)
 
-- **`#interaction-channel-classification`** — Discussion paragraph ("Agent opacity and the emitter-side regime distribution") tightens from qualitative reference to derived form (§§4, 5, 6). The §5.2 $\gamma_A^{\text{effective}} = \gamma_A^{\text{max}} \cdot f(H_b^B)$ qualitative claim is replaced by the explicit form derived in §5.3, §6.2.
-- **`#adversarial-destabilization`** — Discussion / Working Notes paragraph on agent-opacity degrades from qualitative reference ("high $H_b^{(B)}$ forces $A$ to act against an uncertain model") to the derived $\gamma^{\text{adv, effective}}$ form (§5.3), with pointer to `#agent-opacity` for the full derivation.
-- **`#adversarial-tempo-advantage`** — Discussion paragraph on the effective-tempo form $\mathcal T^{\text{effective}}_A = \mathcal T_A \cdot (H_b^{A \mid B}/H_b^{\max})$ (§6.2), with pointer to `#agent-opacity` and the derivation. The superlinear scaling $b = 2$ (Model D) or $3/2$ (Model S) remains unchanged; $H_b$ modulates the tempos that enter.
-- **`#team-persistence`** — Discussion paragraph on cooperative coupling's dependence on predictability (§5.2). The existing $\gamma^{\text{coop}}$ gets the $H_b$-modulation form; `#auftragstaktik-principle` is surfaced as the $H_b$-reduction mechanism.
-- **`#discussion-identifiability-floor`** — new instance (the generic observer-side instance per §8.1), re-framing the existing three instances as specializations.
-- **`#discussion-separability-pattern`** — new 7th ladder (opacity, per §8.2).
-- **`#directed-separation`** — Working Note promoted: IDT sidecar architecture (Hafez et al. 2026) as an $H_b$-reduction mechanism for Class 2 agents; refers to `#agent-opacity` for the formal form.
+- **`#der-interaction-channel-classification`** — Discussion paragraph ("Agent opacity and the emitter-side regime distribution") tightens from qualitative reference to derived form (§§4, 5, 6). The §5.2 $\gamma_A^{\text{effective}} = \gamma_A^{\text{max}} \cdot f(H_b^B)$ qualitative claim is replaced by the explicit form derived in §5.3, §6.2.
+- **`#der-adversarial-destabilization`** — Discussion / Working Notes paragraph on agent-opacity degrades from qualitative reference ("high $H_b^{(B)}$ forces $A$ to act against an uncertain model") to the derived $\gamma^{\text{adv, effective}}$ form (§5.3), with pointer to `#der-agent-opacity` for the full derivation.
+- **`#result-adversarial-tempo-advantage`** — Discussion paragraph on the effective-tempo form $\mathcal T^{\text{effective}}_A = \mathcal T_A \cdot (H_b^{A \mid B}/H_b^{\max})$ (§6.2), with pointer to `#der-agent-opacity` and the derivation. The superlinear scaling $b = 2$ (Model D) or $3/2$ (Model S) remains unchanged; $H_b$ modulates the tempos that enter.
+- **`#der-team-persistence`** — Discussion paragraph on cooperative coupling's dependence on predictability (§5.2). The existing $\gamma^{\text{coop}}$ gets the $H_b$-modulation form; `#hyp-auftragstaktik-principle` is surfaced as the $H_b$-reduction mechanism.
+- **`#disc-identifiability-floor`** — new instance (the generic observer-side instance per §8.1), re-framing the existing three instances as specializations.
+- **`#disc-separability-pattern`** — new 7th ladder (opacity, per §8.2).
+- **`#der-directed-separation`** — Working Note promoted: IDT sidecar architecture (Hafez et al. 2026) as an $H_b$-reduction mechanism for Class 2 agents; refers to `#der-agent-opacity` for the formal form.
 - **`#scope-agent-identity`** — cross-reference in Discussion: trajectory-singularity is what makes observer-indexed $H_b$ well-defined (type-level agents do not admit $H_b$ definition because there is no unique trajectory to compute the entropy over).
 
 ### 14.3 Tertiary landings (close existing gaps)
@@ -621,13 +621,13 @@ Promote a new segment `#agent-opacity` with:
 - **`#adversarial-edge-targeting`** (previously a Section III missing-segment gap) — closed per §9 with the derived arg-max form. Recommend promoting from gap-marker to draft segment.
 - **CLAUDE.md Section III gaps list** — remove "Agent opacity (Hafez et al. 2026 backward predictive uncertainty $H_b$)" from the gaps list; the gap is closed.
 - **TODO.md "Future spikes opened by this cycle"** — mark `$f(H_b^B)$ emitter-side-effect function` as resolved (§5.3 + §6.2 provide the derived form).
-- **`msc/spike-hafez-integration-audit.md` §Gap 1** — mark as resolved; the spike's recommendations (2, 3) on $H_b$ gap promotion and IDT-as-Class-2-architecture-reference are addressed by the `#agent-opacity` segment and the `#directed-separation` cross-reference.
+- **`msc/spike-hafez-integration-audit.md` §Gap 1** — mark as resolved; the spike's recommendations (2, 3) on $H_b$ gap promotion and IDT-as-Class-2-architecture-reference are addressed by the `#der-agent-opacity` segment and the `#der-directed-separation` cross-reference.
 
 ### 14.4 Open items the spike does *not* close
 
 - **The exact functional form of $f(H_b)$.** §5.2 and §5.3 give the linear-boundary-matched form and the Gaussian-sub-scope-$\alpha$ exact form. A unique closed form across sub-scope $\beta$ is not derived — the form is monotone-with-specified-boundary-behavior, which is robust qualitative.
 - **Whether $H_b$ reshapes the $b = 2$ or $b = 3/2$ exponents.** §6.4 flagged this as open. The spike establishes $H_b$ as a prefactor (not an exponent) under Model D / Model S coupling; whether it changes the exponent under coupling-model variations is a follow-up question.
-- **Dual-filtration apparatus formalization.** §12 argues the extension is mild and AAD-consistent, but the formal segment-level machinery is not written. If the `#agent-opacity` segment lands without it, the definition §2.2 stands at the probability-theoretic-foundations level; a future architectural move could tighten to the dual-filtration form.
+- **Dual-filtration apparatus formalization.** §12 argues the extension is mild and AAD-consistent, but the formal segment-level machinery is not written. If the `#der-agent-opacity` segment lands without it, the definition §2.2 stands at the probability-theoretic-foundations level; a future architectural move could tighten to the dual-filtration form.
 - **B6 sub-scope $\alpha'/\beta'$ $H_b$-threshold quantification.** §7.2 argues the partition is an $H_b$-tensor threshold; a closed-form threshold value at specific game structures is not derived.
 
 ---
@@ -638,9 +638,9 @@ Promote a new segment `#agent-opacity` with:
 
 1. **Derives $H_b$ as an AAD-internal quantity (§2.2)** — not imported as an external atom but defined from AAD's singular-trajectory, filtration-indexed, model-class-fitness machinery. Reduces to Hafez's original definition under IDT-observer specialization (§2.3).
 2. **Derives the sign-flip (§5)** — cooperative coupling's requirement of predictability and adversarial coupling's exploitation of unpredictability are shown to be structural consequences of AAD's existing signed-coupling apparatus composed with the new definition. Not imported; derived.
-3. **Constructs the emitter-side four-regime classification (§4)** — fills the explicitly-flagged gap in `#interaction-channel-classification` §5.2. Gives the 16-cell emitter-recipient composition and closes `#adversarial-edge-targeting` (§9).
+3. **Constructs the emitter-side four-regime classification (§4)** — fills the explicitly-flagged gap in `#der-interaction-channel-classification` §5.2. Gives the 16-cell emitter-recipient composition and closes `#adversarial-edge-targeting` (§9).
 4. **Names B5 and B6 as composition-layer $H_b$ instances (§7)** — B5 is the 1-bit opacity limit on coupling-sign; B6 is the mutual-opacity tensor threshold on strategic-interaction dimensions. Shows the composition-layer $H_b$ structure has at least two distinct granularities already realized in recent spikes.
-5. **Positions $H_b$ in the meta-pattern architecture (§8)** — candidate 4th instance of `#discussion-identifiability-floor` (generic observer-side form with existing 3 instances as specializations); candidate 7th ladder of `#discussion-separability-pattern` (opacity); adjacent-family member of `#additive-coordinate-forcing` (adopted from Shannon, not re-forced).
+5. **Positions $H_b$ in the meta-pattern architecture (§8)** — candidate 4th instance of `#disc-identifiability-floor` (generic observer-side form with existing 3 instances as specializations); candidate 7th ladder of `#disc-separability-pattern` (opacity); adjacent-family member of `#additive-coordinate-forcing` (adopted from Shannon, not re-forced).
 6. **Respects Hafez credit** (§14.1) — the quantity is Hafez's; AAD's contribution is the AAD-internal derivation and the structural composition work.
 
 **What it does not achieve.**
@@ -662,7 +662,7 @@ Promote a new segment `#agent-opacity` with:
 - Meta-pattern audit (§8): **derived, structural** — the three meta-segments absorb $H_b$ cleanly at the positions named.
 - Dual-filtration as mild extension (§12.4): **argued** — the derivations run without it; the extension would tighten but is not required.
 
-**Overall.** $H_b$ is genuinely derivable from AAD-internal commitments. The sign-flip on opacity's value across cooperative and adversarial regimes falls out of AAD's existing signed-coupling structure once $H_b$ is defined. Two recently-completed spikes (B5, B6) are already composition-layer instances of the pattern. The emitter-side four-regime classification dual to `#interaction-channel-classification` is constructive and closes `#adversarial-edge-targeting`. The meta-pattern audit returns a clear three-position result: new identifiability-floor instance (generic observer-side); new separability ladder (opacity); adjacent-family in additive-coordinate-forcing. The spike is ready for promotion to `#agent-opacity` with the cross-reference moves detailed in §14.
+**Overall.** $H_b$ is genuinely derivable from AAD-internal commitments. The sign-flip on opacity's value across cooperative and adversarial regimes falls out of AAD's existing signed-coupling structure once $H_b$ is defined. Two recently-completed spikes (B5, B6) are already composition-layer instances of the pattern. The emitter-side four-regime classification dual to `#der-interaction-channel-classification` is constructive and closes `#adversarial-edge-targeting`. The meta-pattern audit returns a clear three-position result: new identifiability-floor instance (generic observer-side); new separability ladder (opacity); adjacent-family in additive-coordinate-forcing. The spike is ready for promotion to `#der-agent-opacity` with the cross-reference moves detailed in §14.
 
 ---
 
@@ -670,7 +670,7 @@ Promote a new segment `#agent-opacity` with:
 
 - **Hafez et al. (2026).** *Informational Cost of Agency / Information Digital Twin.* arXiv:2603.01283 / `ref/2026-hafez.2602.22519v1.pdf`. The original source of $H_b = H(S, A \mid S')$. AAD adopts the quantity, derives it AAD-internally, reshapes it to observer-indexed / trajectory-indexed / horizon-indexed forms, and composes it with AAD's signed-coupling apparatus. The 89% IDT detection accuracy versus 44% reward-based monitoring is the empirical motivation for making $H_b$ formal.
 - **Shannon 1948, "A Mathematical Theory of Communication," *Bell Syst. Tech. J.* 27.** Shannon entropy is the information-theoretic foundation $H_b$ inherits. Forced logarithmic by Khinchin (1957) / Aczél (1966) axioms external to AAD.
-- **Auftragstaktik doctrine** (Moltke, von Clausewitz lineage). The military doctrine of "share intent before plans" is the operational form of $H_b$-reduction within a team. Already cross-referenced in `#auftragstaktik-principle`; the $H_b$-framing makes the principle's structural rationale explicit.
+- **Auftragstaktik doctrine** (Moltke, von Clausewitz lineage). The military doctrine of "share intent before plans" is the operational form of $H_b$-reduction within a team. Already cross-referenced in `#hyp-auftragstaktik-principle`; the $H_b$-framing makes the principle's structural rationale explicit.
 - **Bruineberg et al. 2022, "The Emperor's New Markov Blankets," *Behav. Brain Sci.* 45.** The Pearl-blanket vs. Friston-blanket distinction is structurally relevant: $H_b$ is a Pearl-blanket quantity (statistical conditional-independence of $A$'s internal state given $B$'s filtration), not a metaphysical self-other demarcation. AAD's adoption is Pearl-blanket-compatible.
 - **Liberzon 2003; Dayawansa-Martin 1999; Jiang-Teel-Praly 1994.** External anchors for B5's composition-layer identifiability floor, which §7.1 re-reads in $H_b$ language (1-bit opacity on coupling sign).
 - **Monderer-Shapley 1996; Rosen 1965; Facchinei-Pang 2003.** External anchors for B6's strategic-composition sub-scope machinery, which §7.2 re-reads as $H_b$-tensor-threshold on mutual cross-gradient predictability.
@@ -679,7 +679,7 @@ Promote a new segment `#agent-opacity` with:
 - **Friston 2013 / Parr & Pezzulo 2022.** Active inference's free-energy principle has an internal-to-agent predictive uncertainty quantity ($F = -\log p(o, \theta)$) that is forward-direction (agent's uncertainty about world). The backward-direction dual is not standard in active inference; Hafez's $H_b$ and AAD's §2.2 adaptation fill this gap in both frameworks.
 - **Conant & Ashby 1970, "Every good regulator of a system must be a model of that system."** The "good regulator" theorem says a successful controller contains a model of the controlled system. $H_b$ formalizes the dual: a successful *monitor* of an agent contains enough of a model to reduce observer-side uncertainty. The dual is implicit in Hafez's IDT (the IDT monitors agents, not environments).
 
-None of these adjacencies change the derivations in §§2-11; they confirm the result sits correctly in the broader literature and identify where AAD's contribution is distinctive (observer/trajectory/horizon-indexing; the sign-flip structural derivation; the composition-layer readings of B5 and B6; the emitter-side-classification dual to `#interaction-channel-classification`).
+None of these adjacencies change the derivations in §§2-11; they confirm the result sits correctly in the broader literature and identify where AAD's contribution is distinctive (observer/trajectory/horizon-indexing; the sign-flip structural derivation; the composition-layer readings of B5 and B6; the emitter-side-classification dual to `#der-interaction-channel-classification`).
 
 ---
 

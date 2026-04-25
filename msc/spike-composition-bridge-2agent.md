@@ -76,7 +76,7 @@ Same as Case 1 except: Agent $A$'s actions contribute to Agent $B$'s disturbance
 $$\rho_B = \rho_{B,\text{base}} + \gamma_{AB} \cdot \mathcal{T}_A$$
 
 where $\gamma_{AB} \in \mathbb{R}$ is the coupling effectiveness:
-- $\gamma_{AB} > 0$: adversarial — A's actions disturb B (the case analyzed in #adversarial-destabilization)
+- $\gamma_{AB} > 0$: adversarial — A's actions disturb B (the case analyzed in #der-adversarial-destabilization)
 - $\gamma_{AB} < 0$: cooperative — A's actions reduce B's disturbance (the composition case)
 - $\gamma_{AB} = 0$: independent — reduces to Case 1
 
@@ -108,7 +108,7 @@ $$R_B^* = \frac{\rho_{B,\text{base}} + \gamma_{AB} \cdot \mathcal{T}_A}{\alpha_B
 
 This is the formal content of "teams persist where individuals can't" for the simplest case: if A's actions reduce B's effective disturbance enough, B can persist even when $\alpha_B < \rho_{B,\text{base}} / R_B$ (below individual persistence threshold).
 
-**Adversarial subcase ($\gamma_{AB} > 0$):** A's actions *increase* B's disturbance. This is exactly #adversarial-destabilization. B diverges when $\gamma_{AB} \cdot \mathcal{T}_A > \Delta\rho_B^*$.
+**Adversarial subcase ($\gamma_{AB} > 0$):** A's actions *increase* B's disturbance. This is exactly #der-adversarial-destabilization. B diverges when $\gamma_{AB} \cdot \mathcal{T}_A > \Delta\rho_B^*$.
 
 **Composite tempo:**
 
@@ -188,7 +188,7 @@ and the composite persists as an AAD agent.
 
 3. **The bidirectional case** produces a concrete persistence condition for the composite that depends on the coupling structure. The bridge lemma has explicit conditions.
 
-4. **The adversarial case** is already covered by #adversarial-destabilization — this spike extends the same machinery to cooperative and mixed coupling.
+4. **The adversarial case** is already covered by #der-adversarial-destabilization — this spike extends the same machinery to cooperative and mixed coupling.
 
 ## What Remains Open
 
@@ -196,9 +196,9 @@ and the composite persists as an AAD agent.
 
 - **The n-agent case** should follow by induction (any n-agent system decomposes into nested 2-agent compositions), but the coupling structure becomes a matrix and the conditions become spectral conditions on the coupling matrix. Whether the 2-agent result extends cleanly or degrades with n is an open question.
 
-- **The steady-state coupling model** ($\rho_B = \rho_{B,\text{base}} + \gamma_{AB} \cdot \mathcal{T}_A$) treats tempo as exogenous. A fully dynamic model where A's mismatch state affects B's disturbance in real time (and vice versa) would be the joint Lyapunov analysis mentioned in #adversarial-destabilization's Working Notes. The steady-state analysis gives the persistence boundary; the dynamic analysis would give the transient behavior.
+- **The steady-state coupling model** ($\rho_B = \rho_{B,\text{base}} + \gamma_{AB} \cdot \mathcal{T}_A$) treats tempo as exogenous. A fully dynamic model where A's mismatch state affects B's disturbance in real time (and vice versa) would be the joint Lyapunov analysis mentioned in #der-adversarial-destabilization's Working Notes. The steady-state analysis gives the persistence boundary; the dynamic analysis would give the transient behavior.
 
-- **The γ coefficients** are assumed known. In practice, estimating coupling strength between agents is itself an estimation problem. For software teams, coupling is estimable from the dependency graph (#system-coupling). For military units, it's estimated from doctrine and intelligence. For AI agent compositions, it could be measured from interaction logs.
+- **The γ coefficients** are assumed known. In practice, estimating coupling strength between agents is itself an estimation problem. For software teams, coupling is estimable from the dependency graph (#def-system-coupling). For military units, it's estimated from doctrine and intelligence. For AI agent compositions, it could be measured from interaction logs.
 
 ---
 
@@ -210,4 +210,4 @@ The bridge lemma (Theorem sketch in Case 3) is plausible and the conditions are 
 
 **Confidence:** Case 1 is proved (trivial). Case 2 is proved (sign change of existing result). Case 3's bridge lemma is a sketch — the Lyapunov analysis holds, but the projection step needs formalization. The conditions are concrete enough to be checked in specific domains.
 
-**Recommendation:** Cases 1 and 2 are ready for promotion to src/ as part of a strengthened #composition-closure or a new #composition-bridge-2agent segment. Case 3's bridge lemma should remain sketch-level until the projection conditions are tightened.
+**Recommendation:** Cases 1 and 2 are ready for promotion to src/ as part of a strengthened #form-composition-closure or a new #composition-bridge-2agent segment. Case 3's bridge lemma should remain sketch-level until the projection conditions are tightened.

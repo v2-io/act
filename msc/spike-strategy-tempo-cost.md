@@ -4,9 +4,9 @@
 
 **Date**: 2026-04-02
 
-**Discipline**: Every step is labeled. Part 1 (strategic tempo) is largely derivable from existing machinery — the four verified cases in #strategic-dynamics-derivation already contain the essential structure. Part 2 (cognitive cost) is more speculative — the IB/MDL extension to strategy DAGs requires new formalization choices.
+**Discipline**: Every step is labeled. Part 1 (strategic tempo) is largely derivable from existing machinery — the four verified cases in #deriv-strategic-dynamics already contain the essential structure. Part 2 (cognitive cost) is more speculative — the IB/MDL extension to strategy DAGs requires new formalization choices.
 
-**Dependencies**: #adaptive-tempo, #strategy-persistence-schema, #strategic-dynamics-derivation, #edge-update-via-gain, #edge-update-causal-validity, #chain-confidence-decay, #information-bottleneck, #deliberation-cost, #explicit-strategy-condition, #credit-assignment-boundary.
+**Dependencies**: #def-adaptive-tempo, #schema-strategy-persistence, #deriv-strategic-dynamics, #hyp-edge-update-via-gain, #scope-edge-update-causal-validity, #der-chain-confidence-decay, #form-information-bottleneck, #der-deliberation-cost, #norm-explicit-strategy-condition, #disc-credit-assignment-boundary.
 
 ---
 
@@ -14,7 +14,7 @@
 
 ### 1.1 Definition
 
-Epistemic tempo ( #adaptive-tempo) is:
+Epistemic tempo ( #def-adaptive-tempo) is:
 
 $$\mathcal{T} = \sum_k \nu^{(k)} \cdot \eta^{(k)\ast}$$
 
@@ -29,7 +29,7 @@ $$\mathcal{T}_\Sigma = \sum_{(i,j) \in E} \nu_{ij} \cdot \eta_{\text{edge},ij}$$
 where:
 - $(i,j)$ ranges over all edges in the strategy DAG $\Sigma_t$
 - $\nu_{ij}$ is the effective rate at which edge $(i,j)$ receives execution evidence (trials per unit time)
-- $\eta_{\text{edge},ij}$ is the edge update gain ( #edge-update-via-gain): $\eta_{\text{edge},ij} = 1/(n_{ij} + 1)$ for Beta-Bernoulli edges
+- $\eta_{\text{edge},ij}$ is the edge update gain ( #hyp-edge-update-via-gain): $\eta_{\text{edge},ij} = 1/(n_{ij} + 1)$ for Beta-Bernoulli edges
 
 **The key difference from epistemic tempo.** Epistemic tempo sums over observation *channels* — the agent's sensory interfaces with the environment. Strategic tempo sums over *edges* — the agent's causal beliefs about action-outcome links. The indexing is different because the objects being corrected are different. For $M_t$, the agent corrects a compressed state via observation channels. For $\Sigma_t$, the agent corrects edge credences via execution outcomes.
 
@@ -37,7 +37,7 @@ where:
 
 ### 1.2 Consistency with the Four Verified Cases
 
-The definition must be consistent with the $\alpha_\Sigma$ values derived in #strategic-dynamics-derivation (Props B.1–B.4). In each case, the sector parameter $\alpha_\Sigma$ is a minimum over per-edge correction rates. The strategic tempo, as a sum, is a different quantity — it measures total correction capacity across all edges, while $\alpha_\Sigma$ measures the weakest-link correction rate. But the relationship between them is precise.
+The definition must be consistent with the $\alpha_\Sigma$ values derived in #deriv-strategic-dynamics (Props B.1–B.4). In each case, the sector parameter $\alpha_\Sigma$ is a minimum over per-edge correction rates. The strategic tempo, as a sum, is a different quantity — it measures total correction capacity across all edges, while $\alpha_\Sigma$ measures the weakest-link correction rate. But the relationship between them is precise.
 
 **Case B.1: Single edge ($A \to G$).** One edge, tested every trial. $\nu_{AG} = \nu$ (the base action rate). $\eta_{\text{edge}} = 1/(n+1)$.
 
@@ -55,7 +55,7 @@ This is the *total* correction capacity. The sector parameter — the weakest li
 
 $$\alpha_\Sigma = \min\!\left(\frac{1}{n_1+1},\; \frac{\theta_1}{n_2+1}\right)$$
 
-The relationship: $\mathcal{T}_\Sigma / \nu = 1/(n_1+1) + \theta_1/(n_2+1) \geq 2\alpha_\Sigma$, with equality when the two per-edge rates are equal. **Strategic tempo is an aggregate; the persistence condition depends on the bottleneck.** This parallels the scalar-vs-vector tempo warning in #adaptive-tempo: scalar tempo overestimates capacity along the weak dimension.
+The relationship: $\mathcal{T}_\Sigma / \nu = 1/(n_1+1) + \theta_1/(n_2+1) \geq 2\alpha_\Sigma$, with equality when the two per-edge rates are equal. **Strategic tempo is an aggregate; the persistence condition depends on the bottleneck.** This parallels the scalar-vs-vector tempo warning in #def-adaptive-tempo: scalar tempo overestimates capacity along the weak dimension.
 
 The evidence-starvation effect appears directly in $\nu_2 = \nu\theta_1$ — the downstream edge's effective rate is attenuated by the upstream success probability. This is not an artifact of the sector analysis but a property of the tempo itself.
 
@@ -71,7 +71,7 @@ The sector parameter is $\alpha_\Sigma = \min((1-\varepsilon)/(n_1+1),\; \vareps
 
 ### 1.3 Decomposition by Structure
 
-Epistemic tempo decomposes by observation channels — each channel contributes independently to the total corrective capacity (under the channel independence assumption, see #adaptive-tempo). Strategic tempo decomposes by edges, but the decomposition reveals *structural* patterns:
+Epistemic tempo decomposes by observation channels — each channel contributes independently to the total corrective capacity (under the channel independence assumption, see #def-adaptive-tempo). Strategic tempo decomposes by edges, but the decomposition reveals *structural* patterns:
 
 **AND-chains: depth-gated evidence starvation.**
 
@@ -105,11 +105,11 @@ $$\mathcal{T}_\Sigma = \sum_{(i,j) \in E} \nu_{ij}(\pi, \boldsymbol{\theta}) \cd
 
 where $\nu_{ij}(\pi, \boldsymbol{\theta})$ is the effective trial rate for edge $(i,j)$ under policy $\pi$ and true edge probabilities $\boldsymbol{\theta}$. For AND-chains, $\nu_{ij}$ is attenuated by upstream success probabilities. For OR-children, $\nu_{ij}$ is determined by the action-selection policy. The general computation requires propagating both the trial rate (from root to leaves, or leaves to root depending on DAG orientation) and the selection policy through the DAG.
 
-The hypothesis is that this general form is well-defined and consistent with the four verified cases. Verification for mixed topologies is open — it would be the natural next step in the #strategic-dynamics-derivation program.
+The hypothesis is that this general form is well-defined and consistent with the four verified cases. Verification for mixed topologies is open — it would be the natural next step in the #deriv-strategic-dynamics program.
 
 ### 1.4 Strategic Tempo Under the Three Causal Regimes
 
-From #edge-update-causal-validity, edge updates have different causal validity across three regimes. Strategic tempo inherits this structure through the identifiability-adjusted gain:
+From #scope-edge-update-causal-validity, edge updates have different causal validity across three regimes. Strategic tempo inherits this structure through the identifiability-adjusted gain:
 
 $$\eta_{\text{edge},ij}^{\text{adj}} = \eta_{\text{edge},ij} \cdot \iota_{ij}$$
 
@@ -127,11 +127,11 @@ $$\mathcal{T}_\Sigma^{\text{eff}} = \sum_{(i,j) \in E} \nu_{ij} \cdot \eta_{\tex
 
 **The regime decomposition is additive.** If some edges are in Regime A and others in Regime C, the total effective strategic tempo is dominated by the Regime A edges — the Regime C edges contribute nothing. This gives a precise meaning to "the agent cannot improve the parts of its strategy that it cannot test interventionally."
 
-**Strategic tempo in software (Regime A).** In software development, the agent runs a specific test ($do(i)$ = run test, observe pass/fail). C1-C3 from #edge-update-causal-validity are all satisfied. Leaf-originating edges have $\iota \approx 1$. Software agents in Regime A have maximal strategic tempo for their action rate and DAG structure. This is one reason why software development can sustain deep, explicit strategies — the full strategic tempo machinery is available.
+**Strategic tempo in software (Regime A).** In software development, the agent runs a specific test ($do(i)$ = run test, observe pass/fail). C1-C3 from #scope-edge-update-causal-validity are all satisfied. Leaf-originating edges have $\iota \approx 1$. Software agents in Regime A have maximal strategic tempo for their action rate and DAG structure. This is one reason why software development can sustain deep, explicit strategies — the full strategic tempo machinery is available.
 
 ### 1.5 The Persistence Condition in Terms of $\mathcal{T}_\Sigma$
 
-The persistence condition from #strategy-persistence-schema is $\alpha_\Sigma \gt \rho_\Sigma / R_\Sigma$. The sector parameter $\alpha_\Sigma$ is the weakest-link per-edge correction rate (a minimum), while $\mathcal{T}_\Sigma$ is the total correction rate (a sum). The relationship between the two, for $\lvert E\rvert$ edges:
+The persistence condition from #schema-strategy-persistence is $\alpha_\Sigma \gt \rho_\Sigma / R_\Sigma$. The sector parameter $\alpha_\Sigma$ is the weakest-link per-edge correction rate (a minimum), while $\mathcal{T}_\Sigma$ is the total correction rate (a sum). The relationship between the two, for $\lvert E\rvert$ edges:
 
 *[Derived (tempo-persistence relationship)]*
 
@@ -139,23 +139,23 @@ $$\alpha_\Sigma \leq \frac{\mathcal{T}_\Sigma}{\lvert E\rvert} \leq \mathcal{T}_
 
 The left inequality holds because the minimum is at most the average. The right holds because the average is at most the sum. Therefore $\mathcal{T}_\Sigma \gt \lvert E\rvert \cdot \rho_\Sigma / R_\Sigma$ is a *necessary* condition for persistence (if all edges persist, the total tempo must exceed this threshold), but not sufficient — a high total $\mathcal{T}_\Sigma$ does not guarantee persistence if one edge is starved. When edges have approximately equal correction rates ($\alpha_\Sigma \approx \mathcal{T}_\Sigma / \lvert E\rvert$), the bound is tight and the necessary condition becomes approximately sufficient.
 
-**The persistence condition is bottleneck-limited, not throughput-limited.** A high total $\mathcal{T}_\Sigma$ does not guarantee persistence if one edge is starved. This parallels #per-dimension-persistence's insight about epistemic persistence: the weak dimension is the bottleneck. For strategic persistence, the "weak edge" — the one with lowest $\nu_{ij} \cdot \eta_{\text{edge},ij}$ — determines whether the strategy survives.
+**The persistence condition is bottleneck-limited, not throughput-limited.** A high total $\mathcal{T}_\Sigma$ does not guarantee persistence if one edge is starved. This parallels #result-per-dimension-persistence's insight about epistemic persistence: the weak dimension is the bottleneck. For strategic persistence, the "weak edge" — the one with lowest $\nu_{ij} \cdot \eta_{\text{edge},ij}$ — determines whether the strategy survives.
 
 The natural formulation of strategic persistence is therefore *per-edge*:
 
 $$\forall\, (i,j) \in E: \quad \nu_{ij} \cdot \eta_{\text{edge},ij} \gt \frac{\rho_{\Sigma,ij}}{R_{\Sigma,ij}}$$
 
-where $\rho_{\Sigma,ij}$ is the per-edge disturbance rate and $R_{\Sigma,ij}$ is the per-edge reserve. This is the vector generalization of #per-dimension-persistence applied to strategy edges.
+where $\rho_{\Sigma,ij}$ is the per-edge disturbance rate and $R_{\Sigma,ij}$ is the per-edge reserve. This is the vector generalization of #result-per-dimension-persistence applied to strategy edges.
 
 ### 1.6 Epistemic Status (Part 1)
 
 **Strategic tempo definition** (Section 1.1): *Definition.* A naming of the quantity that characterizes the agent's total strategic corrective capacity. Max attainable: axiomatic (it is a definition). The definition is well-motivated by the structural parallel with epistemic tempo and consistent with the four verified cases.
 
-**Consistency with verified cases** (Section 1.2): *Derived.* Each computation follows directly from the per-edge rates already established in #strategic-dynamics-derivation. The tempo-to-sector-parameter relationship is algebraic.
+**Consistency with verified cases** (Section 1.2): *Derived.* Each computation follows directly from the per-edge rates already established in #deriv-strategic-dynamics. The tempo-to-sector-parameter relationship is algebraic.
 
 **Structural decomposition** (Section 1.3): *Derived (AND-chain), Hypothesis (general DAG).* The depth-$d$ chain tempo is derived from the evidence-starvation rates already in Props B.2 and the depth-$d$ generalization. The general DAG form is hypothesized — consistent with the four cases but not verified for mixed topologies.
 
-**Regime adjustment** (Section 1.4): *Hypothesis.* The identifiability-adjusted tempo inherits the identifiability coefficient from #edge-update-causal-validity, which is itself a hypothesis.
+**Regime adjustment** (Section 1.4): *Hypothesis.* The identifiability-adjusted tempo inherits the identifiability coefficient from #scope-edge-update-causal-validity, which is itself a hypothesis.
 
 **Persistence relation** (Section 1.5): *Derived.* The bounds relating $\mathcal{T}_\Sigma$ to $\alpha_\Sigma$ are algebraic (min-sum inequalities).
 
@@ -165,7 +165,7 @@ where $\rho_{\Sigma,ij}$ is the per-edge disturbance rate and $R_{\Sigma,ij}$ is
 
 ### 2.1 The Problem
 
-The epistemic side of AAD has a principled framework for model compression: the information bottleneck ( #information-bottleneck) balances retained history against predictive power, with the trade-off $\beta$ depending on environment volatility. The deliberation-cost analysis ( #deliberation-cost) captures the temporal cost of thinking versus acting.
+The epistemic side of AAD has a principled framework for model compression: the information bottleneck ( #form-information-bottleneck) balances retained history against predictive power, with the trade-off $\beta$ depending on environment volatility. The deliberation-cost analysis ( #der-deliberation-cost) captures the temporal cost of thinking versus acting.
 
 But neither addresses the *ongoing* cognitive cost of maintaining a strategy DAG. A strategy DAG with $\lvert V\rvert$ nodes and $\lvert E\rvert$ edges, each carrying a Beta credence, must be:
 - **Stored** in the agent's representational capacity
@@ -199,7 +199,7 @@ where $n_{\text{eff}}$ is the effective sample size. As the agent accumulates ev
 
 ### 2.3 The Information Bottleneck for Strategy
 
-The epistemic IB objective ( #information-bottleneck) is:
+The epistemic IB objective ( #form-information-bottleneck) is:
 
 $$\phi^\ast = \arg\min_\phi \left[I(M_t;\, \mathcal{C}_t) - \beta \cdot I(M_t;\, o_{t+1:\infty} \mid a_{t:\infty})\right]$$
 
@@ -225,17 +225,17 @@ This is the reduction in uncertainty about the optimal policy that the strategy 
 
 **When is action guidance maximal?** When the action space is large, the environment has structure the model alone does not exploit, and the strategy identifies the few actions worth considering. In a two-action environment, $\Sigma_t$ provides at most 1 bit of guidance. In a 1000-action environment with deep causal structure, $\Sigma_t$ can provide $\approx 10$ bits.
 
-**When is action guidance minimal?** When $M_t$ alone is sufficient for near-optimal action selection (the value function is simple enough to compute directly), or when $\Sigma_t$ is so inaccurate that it misdirects more than it helps. The latter connects to #strategic-calibration: a miscalibrated strategy has negative net guidance.
+**When is action guidance minimal?** When $M_t$ alone is sufficient for near-optimal action selection (the value function is simple enough to compute directly), or when $\Sigma_t$ is so inaccurate that it misdirects more than it helps. The latter connects to #def-strategic-calibration: a miscalibrated strategy has negative net guidance.
 
 ### 2.4 The Complexity-Depth Trade-off
 
-Chain confidence decay ( #chain-confidence-decay) and evidence starvation ( #strategic-dynamics-derivation, Prop B.2) impose independent penalties on deep strategies. Combined with the cognitive cost of maintaining edges, these yield an information-theoretic upper bound on useful DAG depth.
+Chain confidence decay ( #der-chain-confidence-decay) and evidence starvation ( #deriv-strategic-dynamics, Prop B.2) impose independent penalties on deep strategies. Combined with the cognitive cost of maintaining edges, these yield an information-theoretic upper bound on useful DAG depth.
 
 *[Derived (useful depth bound, heuristic)]*
 
 Consider a uniform AND-chain of depth $d$ with per-edge confidence $p$ and per-edge experience $n$. Three depth-dependent costs:
 
-1. **Confidence decay** ( #chain-confidence-decay): Plan confidence $P(\text{chain}) = p^d$. The information content of the plan's confidence assessment: $-d\log p$ bits (log-confidence grows linearly).
+1. **Confidence decay** ( #der-chain-confidence-decay): Plan confidence $P(\text{chain}) = p^d$. The information content of the plan's confidence assessment: $-d\log p$ bits (log-confidence grows linearly).
 
 2. **Evidence starvation** (Section 1.3 above): Strategic tempo for the deepest edge: $\nu_{d} \cdot \eta_d = \nu p^{d-1}/(n+1)$. The deepest edge's correction rate decays exponentially.
 
@@ -265,11 +265,11 @@ Beyond $d^\ast$, additional edges are epistemically unlearnable — they fail th
 | 100 | 0.01 | 5 |
 | 100 | 0.1 | 0 |
 
-Note: $d^\ast = 0$ means no edges are learnable at that disturbance rate — the first edge already fails the per-edge persistence condition ($1/(n+1) < \rho_\Sigma / R_\Sigma$). High experience ($n$) and high disturbance ($\rho_\Sigma$) both reduce useful depth. This is the gain-collapse effect from #strategic-dynamics-derivation applied to the depth dimension: deep edges have both lower gain (from $1/(n+1)$) and lower trial rates (from $p^{d-1}$), making them the first to lose their persistence battle.
+Note: $d^\ast = 0$ means no edges are learnable at that disturbance rate — the first edge already fails the per-edge persistence condition ($1/(n+1) < \rho_\Sigma / R_\Sigma$). High experience ($n$) and high disturbance ($\rho_\Sigma$) both reduce useful depth. This is the gain-collapse effect from #deriv-strategic-dynamics applied to the depth dimension: deep edges have both lower gain (from $1/(n+1)$) and lower trial rates (from $p^{d-1}$), making them the first to lose their persistence battle.
 
 ### 2.5 The Enriched Explicit Strategy Condition
 
-The explicit strategy condition ( #explicit-strategy-condition) states that planning beats exploring when:
+The explicit strategy condition ( #norm-explicit-strategy-condition) states that planning beats exploring when:
 
 $$C_{\text{plan}} + C_{\text{maintain}} \lt C_{\text{explore}} + C_{\text{repair}}$$
 
@@ -282,13 +282,13 @@ $$C_{\text{plan}} + C_{\text{DL}}(\Sigma_t) + C_{\text{update}}(\Sigma_t) + C_{\
 where:
 - $C_{\text{DL}}(\Sigma_t) \propto \text{DL}(\Sigma_t)$: storage cost, proportional to description length
 - $C_{\text{update}}(\Sigma_t) \propto \lvert E\rvert \cdot \bar\nu$: per-cycle update cost, proportional to edge count times mean trial rate (each evidence event triggers an edge update)
-- $C_{\text{monitor}}(\Sigma_t) \propto \lvert V\rvert$: structural monitoring cost, checking whether nodes should be pruned or added (see #structural-change-as-parametric-limit)
+- $C_{\text{monitor}}(\Sigma_t) \propto \lvert V\rvert$: structural monitoring cost, checking whether nodes should be pruned or added (see #form-structural-change-as-parametric-limit)
 
 **The complexity ceiling.** The enriched condition implies an upper bound on strategy complexity. For a given domain ($C_{\text{explore}}$, $C_{\text{repair}}$ fixed), increasing $\Sigma_t$ complexity eventually makes the left side exceed the right:
 
 $$\lvert E\rvert^\ast : \quad C_{\text{plan}} + C_{\text{DL}}(\lvert E\rvert^\ast) + C_{\text{update}}(\lvert E\rvert^\ast) = C_{\text{explore}} + C_{\text{repair}}$$
 
-Beyond $\lvert E\rvert^\ast$ edges, the agent should simplify its strategy — drop low-value edges, collapse unobservable chains to plan-level aggregates (as in Prop B.3), or prune alternatives at OR-nodes. The "how detailed should my plan be?" question from #explicit-strategy-condition's working notes now has a formal answer: detailed enough that the planning benefit exceeds the maintenance cost, and no more.
+Beyond $\lvert E\rvert^\ast$ edges, the agent should simplify its strategy — drop low-value edges, collapse unobservable chains to plan-level aggregates (as in Prop B.3), or prune alternatives at OR-nodes. The "how detailed should my plan be?" question from #norm-explicit-strategy-condition's working notes now has a formal answer: detailed enough that the planning benefit exceeds the maintenance cost, and no more.
 
 ### 2.6 Strategy Compression: the IB Trade-off in Practice
 
@@ -321,11 +321,11 @@ Each operation reduces $\text{DL}(\Sigma_t)$ at the cost of $I(\Sigma_t;\, \pi^\
 
 ### 2.7 Connection to Chain Confidence Decay
 
-Chain confidence decay ( #chain-confidence-decay) provides a planning-side constraint on strategy depth: longer chains have lower aggregate confidence, providing less useful discrimination for action selection. The cognitive-cost analysis provides an independent constraint on the learning side.
+Chain confidence decay ( #der-chain-confidence-decay) provides a planning-side constraint on strategy depth: longer chains have lower aggregate confidence, providing less useful discrimination for action selection. The cognitive-cost analysis provides an independent constraint on the learning side.
 
 *[Discussion (double depth penalty, extended)]*
 
-#chain-confidence-decay identifies a double depth penalty: confidence decay (propagation) and evidence starvation (learning). The cognitive cost adds a *third* penalty:
+#der-chain-confidence-decay identifies a double depth penalty: confidence decay (propagation) and evidence starvation (learning). The cognitive cost adds a *third* penalty:
 
 1. **Confidence decay**: deeper chains have lower plan confidence, reducing the *signal* available for action selection
 2. **Evidence starvation**: deeper edges learn more slowly, reducing the *calibration* of that signal
@@ -361,7 +361,7 @@ In practice, evidence starvation is likely the binding constraint for deep AND-c
 
 **Content**: Definition, consistency verification with the four cases, structural decomposition (depth-gated for AND, exploration-gated for OR), regime adjustment. The per-edge persistence formulation.
 
-**Dependencies**: #adaptive-tempo, #edge-update-via-gain, #strategic-dynamics-derivation, #edge-update-causal-validity.
+**Dependencies**: #def-adaptive-tempo, #hyp-edge-update-via-gain, #deriv-strategic-dynamics, #scope-edge-update-causal-validity.
 
 **What's derived vs hypothesized**: The definition is a naming. Consistency with Props B.1-B.4 is derived. The general DAG form and regime adjustment are hypothesized.
 
@@ -373,7 +373,7 @@ In practice, evidence starvation is likely the binding constraint for deep AND-c
 
 **Content**: Description length, the IB trade-off for strategy, the enriched explicit-strategy condition, compression operations, the useful-depth bound.
 
-**Dependencies**: #information-bottleneck, #explicit-strategy-condition, #chain-confidence-decay, #strategic-dynamics-derivation, #structural-change-as-parametric-limit.
+**Dependencies**: #form-information-bottleneck, #norm-explicit-strategy-condition, #der-chain-confidence-decay, #deriv-strategic-dynamics, #form-structural-change-as-parametric-limit.
 
 **What's derived vs hypothesized**: The description length decomposition is standard. The IB objective is a formulation. The depth bound is derived (conditional on Beta-Bernoulli). The compression operations are discussion-grade.
 
@@ -387,8 +387,8 @@ In practice, evidence starvation is likely the binding constraint for deep AND-c
 
 3. **Dynamic complexity.** An agent should vary its strategy complexity over time: start simple (low $\text{DL}$, broad exploration), elaborate as evidence accumulates (grow the DAG), and re-simplify when the environment changes (prune stale edges). The IB trade-off $\beta_\Sigma$ should increase with evidence and decrease with volatility. Formalizing this dynamics is open.
 
-4. **Connection to the three-way tradeoff.** The third --GAP-- in Section II is "Three-way exploit/explore/deliberate allocation with $\Sigma_t$." Strategic tempo provides the missing quantity for that allocation: the agent should allocate trials to maximize the minimum per-edge $\nu_{ij} \cdot \eta_{\text{edge},ij}$ (for persistence), or to maximize total $\mathcal{T}_\Sigma$ (for throughput), or to balance between them. This connects to the exploit/explore tradeoff ( #ciy-unified-objective) extended with a "deliberate = revise $\Sigma_t$" mode.
+4. **Connection to the three-way tradeoff.** The third --GAP-- in Section II is "Three-way exploit/explore/deliberate allocation with $\Sigma_t$." Strategic tempo provides the missing quantity for that allocation: the agent should allocate trials to maximize the minimum per-edge $\nu_{ij} \cdot \eta_{\text{edge},ij}$ (for persistence), or to maximize total $\mathcal{T}_\Sigma$ (for throughput), or to balance between them. This connects to the exploit/explore tradeoff ( #disc-ciy-unified-objective) extended with a "deliberate = revise $\Sigma_t$" mode.
 
-5. **Stochastic strategic tempo.** The working notes in #strategy-persistence-schema mention $\rho_\Sigma / \sqrt{\mathcal{T}_\Sigma}$ rather than $\rho_\Sigma / \mathcal{T}_\Sigma$ for stochastic steady-state strategic mismatch. If the stochastic treatment carries over, the persistence condition becomes $\mathcal{T}_\Sigma \gt (\rho_\Sigma / R_\Sigma)^2$ — qualitatively different from the deterministic case. Clarifying which regime applies (deterministic drift vs stochastic noise) is domain-dependent and open.
+5. **Stochastic strategic tempo.** The working notes in #schema-strategy-persistence mention $\rho_\Sigma / \sqrt{\mathcal{T}_\Sigma}$ rather than $\rho_\Sigma / \mathcal{T}_\Sigma$ for stochastic steady-state strategic mismatch. If the stochastic treatment carries over, the persistence condition becomes $\mathcal{T}_\Sigma \gt (\rho_\Sigma / R_\Sigma)^2$ — qualitatively different from the deterministic case. Clarifying which regime applies (deterministic drift vs stochastic noise) is domain-dependent and open.
 
 6. **Cognitive cost for LLM agents.** For logogenic agents ( `03-logogenic-agents/`), the representational capacity constraint is the context window. Strategy $\text{DL}(\Sigma_t)$ must fit within the context budget alongside $M_t$ and the task description. This gives a concrete version of the complexity ceiling: $\text{DL}(\Sigma_t) \lt C_{\text{context}} - \text{DL}(M_t) - \text{DL}(\text{task})$. The IB trade-off $\beta_\Sigma$ is directly calibrated by what fits in the window.

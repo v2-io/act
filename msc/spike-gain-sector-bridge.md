@@ -4,9 +4,9 @@
 
 **Date**: 2026-04-02
 
-**Objective**: Determine whether gain-based updating (the uncertainty-ratio principle, #update-gain) produces correction dynamics satisfying the sector condition (GA-3), thereby grounding the quantitative predictions that flow through #sector-condition-derivation.
+**Objective**: Determine whether gain-based updating (the uncertainty-ratio principle, #emp-update-gain) produces correction dynamics satisfying the sector condition (GA-3), thereby grounding the quantitative predictions that flow through #deriv-sector-condition.
 
-**Depends on**: #update-gain, #sector-condition-derivation, #sector-condition-stability, #persistence-condition, #mismatch-dynamics, #adaptive-tempo, #worked-example-kalman
+**Depends on**: #emp-update-gain, #deriv-sector-condition, #result-sector-condition-stability, #result-persistence-condition, #hyp-mismatch-dynamics, #def-adaptive-tempo, #example-kalman
 
 ---
 
@@ -16,7 +16,7 @@ AAD's quantitative prediction chain:
 
 $$\text{gain principle} \;\xrightarrow{\text{GA-3 assumed}}\; \text{sector condition} \;\xrightarrow{\text{Lyapunov (exact)}}\; \text{persistence, reserve, adversarial scaling}$$
 
-The right arrow is proved (Props A.1, A.1S, A.2 in #sector-condition-derivation). The left arrow is *assumed*: GA-3 states $\delta^T F(\mathcal{T}, \delta) \geq \alpha \|\delta\|^2$ for $\|\delta\| \leq R$, but whether the correction function $F$ induced by the gain principle $M_t = M_{t-1} + \eta^* \cdot g(\delta_t)$ actually satisfies this is never derived.
+The right arrow is proved (Props A.1, A.1S, A.2 in #deriv-sector-condition). The left arrow is *assumed*: GA-3 states $\delta^T F(\mathcal{T}, \delta) \geq \alpha \|\delta\|^2$ for $\|\delta\| \leq R$, but whether the correction function $F$ induced by the gain principle $M_t = M_{t-1} + \eta^* \cdot g(\delta_t)$ actually satisfies this is never derived.
 
 The single-edge spike (`spike-single-edge-strategic-dynamics.md`) verified the bridge for Beta-Bernoulli, where the expected correction is exactly linear: $F(\delta) = \delta/(n+1)$, giving $\alpha = 1/(n+1)$ trivially.
 
@@ -62,7 +62,7 @@ The sector condition operates on mismatch dynamics: $d\delta/dt = -F(\mathcal{T}
 
 **Option C: Predicted-observation-space.** Track $\hat{\delta}_t = H e_t = H(x_t - \hat{x}_{t|t})$, the projection of the state error into observation space. This is the predictable part of the next innovation.
 
-We work in **observation space** (Option B), because that is where AAD defines the mismatch signal (#mismatch-signal): $\delta_t = o_t - \hat{o}_t$, with $\hat{o}_t = H \hat{x}_{t|t-1}$.
+We work in **observation space** (Option B), because that is where AAD defines the mismatch signal (#def-mismatch-signal): $\delta_t = o_t - \hat{o}_t$, with $\hat{o}_t = H \hat{x}_{t|t-1}$.
 
 ### 2.2 Mismatch Dynamics in Observation Space
 
@@ -216,7 +216,7 @@ $$\mathcal{T} = \nu \cdot K_{ss}$$
 
 And the sector parameter (in the continuous-time AAD framework) is $\alpha = \mathcal{T} = \nu \cdot K_{ss}$. The bridge holds trivially in the scalar Kalman case: the gain IS the sector parameter. The linear correction means the sector bound is tight, not merely a lower bound.
 
-This matches the worked example (#worked-example-kalman) where $\alpha$ is reported from data but the derivation from $K$ is not shown.
+This matches the worked example (#example-kalman) where $\alpha$ is reported from data but the derivation from $K$ is not shown.
 
 ---
 
@@ -372,7 +372,7 @@ The sector condition holds with $\alpha = \min_i K_i$. In the Euclidean norm (wh
 
 $$\alpha = \min_{i=1}^n \frac{-q_i + \sqrt{q_i^2 + 4 q_i r_i}}{2 r_i}$$
 
-The bottleneck is the dimension with the worst signal-to-noise ratio $q_i / r_i$, consistent with the per-dimension persistence result (#per-dimension-persistence).
+The bottleneck is the dimension with the worst signal-to-noise ratio $q_i / r_i$, consistent with the per-dimension persistence result (#result-per-dimension-persistence).
 
 ---
 
@@ -392,7 +392,7 @@ The Kalman filter correction function $F(e) = KH \cdot e$ satisfies the sector c
 
 ### 5.2 The General Bridge Theorem
 
-Now generalize beyond Kalman. The gain principle (#update-gain) gives:
+Now generalize beyond Kalman. The gain principle (#emp-update-gain) gives:
 
 $$M_t = M_{t-1} + \eta^* \cdot g(\delta_t)$$
 
@@ -498,7 +498,7 @@ The gain principle assumes the model class contains the truth (or a reasonable a
 
 In AAD terms: this is the model-class-fitness condition $\mathcal{F}(\mathcal{M}) < 1$. When the model class cannot represent reality, the correction function's sector parameter degrades. The sector condition holds with reduced $\alpha$ (or fails entirely) proportional to the model misspecification.
 
-This is the trigger for structural adaptation (#structural-adaptation-necessity): the sector condition fails not because the gain is wrong but because the correction *direction* is wrong.
+This is the trigger for structural adaptation (#result-structural-adaptation-necessity): the sector condition fails not because the gain is wrong but because the correction *direction* is wrong.
 
 ---
 
@@ -573,7 +573,7 @@ The load-bearing assumption shifts from "the correction function satisfies the s
 
 2. **The α-T relationship is grounded.** The persistence condition segment notes that "$\alpha$ is monotone increasing in $\mathcal{T}$" is empirically verified for all correction function classes. This becomes *derived* for the linear case ($\alpha = \mathcal{T}$ exactly) and *structurally motivated* for the nonlinear case (higher tempo → larger gain → larger sector parameter, modulo saturation).
 
-3. **The worked example is fully closed.** The Kalman worked example (#worked-example-kalman) currently reports $\alpha = 2.6$ from data. With the bridge, $\alpha$ can be computed from the Kalman gain and observation matrix, making the example fully derived rather than semi-empirical.
+3. **The worked example is fully closed.** The Kalman worked example (#example-kalman) currently reports $\alpha = 2.6$ from data. With the bridge, $\alpha$ can be computed from the Kalman gain and observation matrix, making the example fully derived rather than semi-empirical.
 
 4. **The failure modes are precisely characterized.** Instead of "the sector condition might fail," the theory can say exactly when it fails: directional infidelity, unobservable directions, model misspecification, or gain collapse.
 
@@ -599,7 +599,7 @@ The load-bearing assumption shifts from "the correction function satisfies the s
 
 ### 9.2 Open questions remaining
 
-1. **The weighted-norm subtlety.** In the matrix Kalman case, the sector condition holds in the $(P^-)^{-1}$-weighted norm, not the Euclidean norm. The Lyapunov proofs in #sector-condition-derivation use the Euclidean Lyapunov function $V = \frac{1}{2}\|\delta\|^2$. Does the bridge require changing the Lyapunov function, or is the Euclidean version sufficient? For the fully observable case with bounded condition number $\kappa(P^-)$, the two norms are equivalent up to a factor of $\kappa(P^-)$, so $\alpha_{\text{Euclidean}} \geq \alpha_{\text{weighted}} / \kappa(P^-)$. This is a quantitative refinement, not a qualitative issue.
+1. **The weighted-norm subtlety.** In the matrix Kalman case, the sector condition holds in the $(P^-)^{-1}$-weighted norm, not the Euclidean norm. The Lyapunov proofs in #deriv-sector-condition use the Euclidean Lyapunov function $V = \frac{1}{2}\|\delta\|^2$. Does the bridge require changing the Lyapunov function, or is the Euclidean version sufficient? For the fully observable case with bounded condition number $\kappa(P^-)$, the two norms are equivalent up to a factor of $\kappa(P^-)$, so $\alpha_{\text{Euclidean}} \geq \alpha_{\text{weighted}} / \kappa(P^-)$. This is a quantitative refinement, not a qualitative issue.
 
 2. **The fluid-limit gap.** The bridge analysis works in expected value (the expected correction satisfies the sector condition). The actual per-step correction is stochastic, with noise that enters as effective disturbance. The single-edge spike (Section 3.2) showed how to decompose this into correction + observation noise. The same decomposition applies to the Kalman case: the observation noise $\varepsilon_t$ contributes $K\varepsilon_t$ to the state update, which acts as an effective disturbance of magnitude $\|K\| \sigma_\varepsilon$ per step. The sector condition on the *expected* correction, combined with the *stochastic* noise, maps exactly to the Prop A.1S framework.
 

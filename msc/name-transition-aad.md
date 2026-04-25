@@ -77,7 +77,7 @@ From repository scan on 2026-04-15:
 |---|---|---|
 | Top-level `*.md` | 7 | README, OUTLINE, WORKBENCH, LEXICON, NOTATION, CLAUDE, TODO |
 | `01-act-core/src/` | ~39 segment files + OUTLINE | Core — every segment probably mentions ACT somewhere |
-| `02-tst-core/src/` | ~21 files | Cross-references (e.g., `#persistence-condition` in ACT) |
+| `02-tst-core/src/` | ~21 files | Cross-references (e.g., `#result-persistence-condition` in ACT) |
 | `03-logogenic-agents/src/` | ~7 files | Cross-references |
 | `04-logozoetic-agents/` | minimal | Check OUTLINE |
 | `msc/` working docs | ~30+ files | Includes spikes, reflections, landscape research |
@@ -137,7 +137,7 @@ Actions (for each file):
 - Replace `"Agentic Cycle Theory"` → `"Adaptation and Actuation Dynamics"`
 - Replace `\bACT\b` → `AAD` (case-sensitive)
 - Review remaining "Agentic Cycle" uses (see §6)
-- Slug references (`#persistence-condition` etc.) are unchanged — slugs are content-based, not name-based
+- Slug references (`#result-persistence-condition` etc.) are unchanged — slugs are content-based, not name-based
 
 Verify per file: `grep -E '\bACT\b|Agentic Cycle Theory' <file>` returns zero.
 

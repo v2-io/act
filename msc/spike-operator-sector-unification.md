@@ -4,18 +4,18 @@ type: spike
 status: exploratory
 created: 2026-04-22
 depends:
-  - sector-persistence-template
-  - sector-condition-derivation
-  - gain-sector-bridge
-  - discrete-sector-condition
-  - credit-assignment-boundary
-  - edge-update-natural-parameter
-  - composition-closure
+  - result-sector-persistence-template
+  - deriv-sector-condition
+  - der-gain-sector-bridge
+  - deriv-discrete-sector-condition
+  - disc-credit-assignment-boundary
+  - deriv-edge-update-natural-parameter
+  - form-composition-closure
 ---
 
 # Spike: Operator-Sector Unification Across ODE, Update Map, and Composition Map
 
-**Question.** Does a single sector-condition-on-operators abstraction unify (a) the ODE-level `#sector-persistence-template`, (b) the log-odds credit-assignment update operator, and (c) the composition (coarse-graining) map between agents? If yes, the A2'/DA2' α/β partition becomes a property of *operators*, not plants — a fundamental simplification of AAD's load-bearing machinery.
+**Question.** Does a single sector-condition-on-operators abstraction unify (a) the ODE-level `#result-sector-persistence-template`, (b) the log-odds credit-assignment update operator, and (c) the composition (coarse-graining) map between agents? If yes, the A2'/DA2' α/β partition becomes a property of *operators*, not plants — a fundamental simplification of AAD's load-bearing machinery.
 
 **Outcome (up front).** Partial unification. The continuous template and the discrete update machinery share a genuine common structure — both are instances of monotone-operator contraction in a Hilbert-space setting, and A2'/DA2' are exactly the one-point reduction (resp. two-point "incremental" form) of a *strongly monotone operator* condition in the sense of Rockafellar / Bauschke-Combettes. This is the substance of the unification, not just the typography. The composition map, however, plugs into this framework only *after* the bridge-lemma's DA2'-inc condition is imposed on the composite's discrete macro-update; it does not independently motivate the operator-sector primitive. **The honest result is a 2-instance-plus-1-consequence picture**, not a 3-instance symmetric theorem. Sub-scope α/β re-expresses cleanly as an operator-family classification — this part is load-bearing.
 
@@ -39,7 +39,7 @@ This is *strong monotonicity* of $A = I - T$ in the Rockafellar sense (Rockafell
 
 ## 2. Three Candidate Instances
 
-### 2.1 Instance A — Continuous-time semigroup (the #sector-persistence-template)
+### 2.1 Instance A — Continuous-time semigroup (the #result-sector-persistence-template)
 
 Let $\xi(t) \in \mathbb R^n$ evolve under $\dot\xi = -F(\xi) + w(t)$ with $F(0) = 0$, $w(t)$ bounded (Model D) or stochastic (Model S). The template's condition (T2) is
 
@@ -55,11 +55,11 @@ $$\langle I - T, e \rangle = \langle \xi - \Phi_h(\xi), \xi \rangle = h \xi^T F(
 
 Dividing by $h$ and taking $h \to 0$, (T2) is *exactly* the infinitesimal-generator version of the operator-sector condition with $\kappa = \alpha$. The Lyapunov ultimate-bound argument on $V(\xi) = \tfrac12 \lVert\xi\rVert^2$ is the integrated form of the per-step contraction implied by $\kappa \gt 0$.
 
-**Instance A fits cleanly.** $\kappa = \alpha$. The state space is $\mathbb R^n$ with Euclidean inner product; the weighted-norm case of #gain-sector-bridge (matrix Kalman, $(P^-)^{-1}$-inner-product) uses the same definition in a different Hilbert-space structure, with $\kappa_{\text{Euclidean}} \geq \kappa_{\text{weighted}}/\kappa(P^-)$.
+**Instance A fits cleanly.** $\kappa = \alpha$. The state space is $\mathbb R^n$ with Euclidean inner product; the weighted-norm case of #der-gain-sector-bridge (matrix Kalman, $(P^-)^{-1}$-inner-product) uses the same definition in a different Hilbert-space structure, with $\kappa_{\text{Euclidean}} \geq \kappa_{\text{weighted}}/\kappa(P^-)$.
 
 ### 2.2 Instance B — Discrete update operator (the log-odds credit-assignment update)
 
-The discrete-time mismatch setup ( #discrete-sector-condition) gives $\delta_{k+1} = \delta_k - \eta^\ast F_d(\delta_k) + w_k$, i.e., the update operator is $T_d(\delta) = \delta - \eta^\ast F_d(\delta)$ with $T_d(0) = 0$. The conditions DA2'a (one-point sector) and DA2'b (Lipschitz) are exactly:
+The discrete-time mismatch setup ( #deriv-discrete-sector-condition) gives $\delta_{k+1} = \delta_k - \eta^\ast F_d(\delta_k) + w_k$, i.e., the update operator is $T_d(\delta) = \delta - \eta^\ast F_d(\delta)$ with $T_d(0) = 0$. The conditions DA2'a (one-point sector) and DA2'b (Lipschitz) are exactly:
 
 - DA2'a: $\delta^T F_d(\delta) \geq c_{\min} \lVert\delta\rVert^2$ — one-point strong monotonicity of $F_d$ at 0, equivalently the one-point operator-sector condition on $T_d$ with $\kappa = \eta^\ast c_{\min}$ (after rearrangement);
 - DA2'b: $\lVert F_d(\delta)\rVert \leq c_{\max} \lVert\delta\rVert$ — Lipschitz bound on $F_d$ at 0.
@@ -70,7 +70,7 @@ Now consider the credit-assignment log-odds update operator. In log-odds coordin
 
 $$T_{\text{edge}}(\lambda_k) = \lambda_k + \eta_{\text{edge}} \cdot \iota_k \cdot \frac{J_k (y_G - \hat P_\Sigma(\sigma(\lambda)))}{\lVert \mathbf J \rVert^2}.$$
 
-This is the $k$th component of a discrete update map on $\mathbb R^{|E|}$ (the log-odds state space for all edges). At the fixed point $\lambda^\ast = \text{logit}(\theta^\ast)$ (true credence), under the independent-evidence case treated in #edge-update-natural-parameter, $\mathbb E[y_G - \hat P_\Sigma(\sigma(\lambda^\ast))] = 0$, so $\mathbb E[T_{\text{edge}}(\lambda^\ast)] = \lambda^\ast$.
+This is the $k$th component of a discrete update map on $\mathbb R^{|E|}$ (the log-odds state space for all edges). At the fixed point $\lambda^\ast = \text{logit}(\theta^\ast)$ (true credence), under the independent-evidence case treated in #deriv-edge-update-natural-parameter, $\mathbb E[y_G - \hat P_\Sigma(\sigma(\lambda^\ast))] = 0$, so $\mathbb E[T_{\text{edge}}(\lambda^\ast)] = \lambda^\ast$.
 
 The question: does $T_{\text{edge}}$ satisfy the operator-sector condition in log-odds coordinates?
 
@@ -90,7 +90,7 @@ $$\mathbb E[\langle (I - T_{\text{edge}})(\lambda), e \rangle] = \eta_{\text{edg
 
 This is **not** a quadratic form in $e$ of the operator-sector type unless additional structure is imposed. Specifically:
 
-**(i) Componentwise case (Prop B.5b in #strategic-dynamics-derivation).** If we regard each edge's log-odds as updating independently — so we consider the diagonal component $k = k$ only and drop the cross-edge terms — then the expected per-component contraction is $\eta_{\text{edge}} \iota_k \theta_k^\ast(1-\theta_k^\ast) \cdot J_k^2 / \lVert\mathbf J\rVert^2$. This *does* satisfy a per-component sector condition with
+**(i) Componentwise case (Prop B.5b in #deriv-strategic-dynamics).** If we regard each edge's log-odds as updating independently — so we consider the diagonal component $k = k$ only and drop the cross-edge terms — then the expected per-component contraction is $\eta_{\text{edge}} \iota_k \theta_k^\ast(1-\theta_k^\ast) \cdot J_k^2 / \lVert\mathbf J\rVert^2$. This *does* satisfy a per-component sector condition with
 
 $$\kappa_k = \eta_{\text{edge}} \cdot \iota_k \cdot \theta_k^\ast(1-\theta_k^\ast) \cdot \frac{J_k^2}{\lVert\mathbf J\rVert^2}.$$
 
@@ -102,7 +102,7 @@ The weakest-edge rate $\kappa = \min_k \kappa_k$ gives a vector operator-sector 
 
 **Instance B fits — under the componentwise case (ii.i) or the Fisher-weighted inner product (iii).** In the Euclidean coupled case, rank deficiency of $\mathbf J \mathbf J^T$ blocks a uniform $\kappa \gt 0$; the degeneracy is structural, not a failure of the abstraction. Within the Fisher-weighted Hilbert space, $\kappa_F = \eta_{\text{edge}} \cdot \min_k \iota_k$ directly — clean operator-sector structure.
 
-### 2.3 Instance C — Composition map (the #composition-closure bridge lemma)
+### 2.3 Instance C — Composition map (the #form-composition-closure bridge lemma)
 
 The composition map $\Lambda$ is a projection $\mathcal X_{\text{micro}} \to \mathcal X_c$. It is *not* an endomorphism on a single Hilbert space — it maps between two distinct spaces of different dimension. The operator-sector primitive (Definition 1) is defined for operators $T : \mathcal H \to \mathcal H$. So $\Lambda$ does not directly fit.
 
@@ -142,7 +142,7 @@ The unification covers the first four rows — all of which are instances of ope
 
 Persistence (ultimate bound within $\mathcal B_R$) holds when $\rho_{\text{step}} / (1 - \lambda_{\text{eff}}) \lt R$.
 
-**Proof sketch.** Apply Bauschke-Combettes Thm 5.14 (averaged operators) in the iteration. The operator $T$ is $\kappa$-strongly monotone at $x^\ast$ under the one-point form; combined with $L$-Lipschitz, a rescaled $T_\theta$ is a Banach contraction with rate $\lambda_{\text{eff}}$. The perturbed iteration then has the stated ultimate bound by the standard affine-contraction argument (Elaydi 2005, Thm 4.14; appears in #discrete-sector-condition Prop DA.1 proof for the Euclidean case). The continuous-time limit substitutes the infinitesimal-generator relation derived in §2.1. Model S follows via Itô's formula (continuous) or martingale increments (discrete), matching the proofs in #sector-condition-derivation Prop A.1S and #discrete-sector-condition Prop DA.1S. $\square$
+**Proof sketch.** Apply Bauschke-Combettes Thm 5.14 (averaged operators) in the iteration. The operator $T$ is $\kappa$-strongly monotone at $x^\ast$ under the one-point form; combined with $L$-Lipschitz, a rescaled $T_\theta$ is a Banach contraction with rate $\lambda_{\text{eff}}$. The perturbed iteration then has the stated ultimate bound by the standard affine-contraction argument (Elaydi 2005, Thm 4.14; appears in #deriv-discrete-sector-condition Prop DA.1 proof for the Euclidean case). The continuous-time limit substitutes the infinitesimal-generator relation derived in §2.1. Model S follows via Itô's formula (continuous) or martingale increments (discrete), matching the proofs in #deriv-sector-condition Prop A.1S and #deriv-discrete-sector-condition Prop DA.1S. $\square$
 
 **Epistemic status of the theorem:** exact (mathematical), under the stated conditions. But its novelty relative to existing literature is thin — it is essentially *Banach fixed-point theorem + perturbation* for a strongly monotone operator, which is standard in Rockafellar 1970, Bauschke-Combettes 2017 Thm 5.14–5.16, and every textbook on variational analysis. The AAD contribution is not a new theorem but a unifying **viewpoint**: the template, the discrete update, and the edge update are all the same theorem in three Hilbert-space settings.
 
@@ -164,7 +164,7 @@ Here I must be rigorous. The claim "they share a theorem" would be weakened to "
 - **The projection $\Lambda$ itself.** Not an endomorphism; three independent admissibility conditions (P1/P2/P3). Operator-sector does not subsume it.
 - **The closure defect $\varepsilon^\ast$.** The infimum over admissible classes is a separate optimization, not an operator-sector statement.
 - **Regime-indexed edge semantics (A/B/C).** The identifiability coefficient $\iota_k$ enters as a per-edge *weight* in the sector parameter; the Fisher metric (or regime-aware weighting) is where the regime structure lives. The operator-sector primitive is silent on why $\iota_k \in [0, 1]$.
-- **Correlation hierarchy (L0/L1/L1'/L2).** Correlated evidence introduces a covariance structure on the disturbance $w_k$; the operator-sector condition on $T_d$ itself is unchanged, but the effective disturbance moment (Model S: $\sigma^2_{\text{step}}$) absorbs the correlation. The L1' observable-$C$ transfer in #strategic-dynamics-derivation Prop B.7 uses monotonicity of the facilitator, not operator-sector of the update; the operator-sector framing does not simplify the five-way gating there.
+- **Correlation hierarchy (L0/L1/L1'/L2).** Correlated evidence introduces a covariance structure on the disturbance $w_k$; the operator-sector condition on $T_d$ itself is unchanged, but the effective disturbance moment (Model S: $\sigma^2_{\text{step}}$) absorbs the correlation. The L1' observable-$C$ transfer in #deriv-strategic-dynamics Prop B.7 uses monotonicity of the facilitator, not operator-sector of the update; the operator-sector framing does not simplify the five-way gating there.
 - **A2'/DA2' scope (sub-scope α/β) across agent classes.** This is operator-family classification — see §4.
 
 ## 4. A2' α/β as an Operator-Family Classification
@@ -173,7 +173,7 @@ Here I must be rigorous. The claim "they share a theorem" would be weakened to "
 
 *[Derived (operator-family recasting of the A2' sub-scope partition)]*
 
-The current sub-scope partition (#sector-condition-derivation Grounding paragraph, #gain-sector-bridge Epistemic Status) is already *effectively* an operator-family list. Restating it explicitly:
+The current sub-scope partition (#deriv-sector-condition Grounding paragraph, #der-gain-sector-bridge Epistemic Status) is already *effectively* an operator-family list. Restating it explicitly:
 
 **Sub-scope α (A2' derived via directional fidelity).** Operator families where $T_d = I - \eta^\ast F_d$ is the update map and the operator-sector condition holds by construction of the update rule:
 
@@ -203,7 +203,7 @@ Compared to the plant-based partition ("Kalman plant vs. PID plant"), the operat
 
 ### 4.3 Does the α/β boundary shift under the recasting?
 
-**No — the boundary survives with sharper characterization.** The list of operator families in sub-scope α maps exactly onto the plant-based list in #sector-condition-derivation:
+**No — the boundary survives with sharper characterization.** The list of operator families in sub-scope α maps exactly onto the plant-based list in #deriv-sector-condition:
 
 | Plant-based label (current) | Operator-family label (recast) |
 |---|---|
@@ -221,23 +221,23 @@ Sub-scope β matches exactly as well. The shift is from "plant structure ⇒ ope
 
 Standard closure results (Bauschke-Combettes 2017 §4, §25; Rockafellar-Wets 1998 §12; Parikh-Boyd 2014 §2):
 
-**(C1) Parallel composition (product).** $T_1 \times T_2$ on $\mathcal H_1 \times \mathcal H_2$ (product Hilbert space with inner product $\langle (x,y), (x',y') \rangle = \langle x,x' \rangle_{\mathcal H_1} + \langle y,y' \rangle_{\mathcal H_2}$). Operator-sector-inc with $\kappa = \min(\kappa_1, \kappa_2)$, same $R$. **Weakest-link** structure — recovers #team-persistence's weakest-link bound $\alpha_c \geq \min_i \alpha_i$ from the monotone-operator literature directly.
+**(C1) Parallel composition (product).** $T_1 \times T_2$ on $\mathcal H_1 \times \mathcal H_2$ (product Hilbert space with inner product $\langle (x,y), (x',y') \rangle = \langle x,x' \rangle_{\mathcal H_1} + \langle y,y' \rangle_{\mathcal H_2}$). Operator-sector-inc with $\kappa = \min(\kappa_1, \kappa_2)$, same $R$. **Weakest-link** structure — recovers #der-team-persistence's weakest-link bound $\alpha_c \geq \min_i \alpha_i$ from the monotone-operator literature directly.
 
 **(C2) Sequential composition (cascade).** For gradient operators $T_i = I - \eta \nabla f_i$ on the same space $\mathcal H$: $T_2 \circ T_1$ is *not* in general strongly monotone with a clean rate — the composition is only guaranteed to be nonexpansive (rate 1) unless additional structure is imposed. However, for proximal operators, the **Douglas-Rachford / Peaceman-Rachford / ADMM** splitting theorems (Bauschke-Combettes 2017 §26–28) give operator-sector rates for specific cascade structures. For AAD: this is why sequential multi-step dynamics generally require the incremental form (DA2'-inc) rather than just one-point.
 
-**(C3) Feedback (fixed-point coupling).** $T(x) = F(x, G(x))$ where $G$ is another agent's update — operator-sector-inc with rate $\kappa_1 - L_2 \gamma$ under Lipschitz $L_2$ of $G$ and coupling strength $\gamma$. This **recovers #adversarial-destabilization's coupling-amplified-disturbance formula $\rho_B = \rho_{B,\text{base}} + \gamma_A \mathcal T_A$** when $G$ is an adversary injecting disturbance through its own correction rate.
+**(C3) Feedback (fixed-point coupling).** $T(x) = F(x, G(x))$ where $G$ is another agent's update — operator-sector-inc with rate $\kappa_1 - L_2 \gamma$ under Lipschitz $L_2$ of $G$ and coupling strength $\gamma$. This **recovers #der-adversarial-destabilization's coupling-amplified-disturbance formula $\rho_B = \rho_{B,\text{base}} + \gamma_A \mathcal T_A$** when $G$ is an adversary injecting disturbance through its own correction rate.
 
 **(C4) Averaged operators.** $T_\theta = (1 - \theta) I + \theta T$ for $\theta \in (0, 1)$ — preserves operator-sector with $\kappa_\theta = \theta \kappa$. The averaging pipeline is how most practical update operators (exponential smoothing, Polyak averaging, SGD with momentum) satisfy operator-sector even when the base $T$ does not.
 
 ### 5.2 How this recovers AAD closure results
 
-**Team persistence** ( #team-persistence): each sub-agent's update is an operator-sector operator on its own state space. Parallel composition (C1) gives composite operator-sector with rate $\min_i \alpha_i$. Cooperative coupling reduces the effective disturbance, not the composite rate — this matches #team-persistence's structure of "weakest-link $\alpha_c$, cooperative coupling reduces $\rho_c^{\text{eff}}$".
+**Team persistence** ( #der-team-persistence): each sub-agent's update is an operator-sector operator on its own state space. Parallel composition (C1) gives composite operator-sector with rate $\min_i \alpha_i$. Cooperative coupling reduces the effective disturbance, not the composite rate — this matches #der-team-persistence's structure of "weakest-link $\alpha_c$, cooperative coupling reduces $\rho_c^{\text{eff}}$".
 
-**Cascade composition** (e.g., hierarchical agents updating at different rates): (C2) tells us the composite is only nonexpansive unless the sub-agents are proximal/cocoercive. This matches the Tier 1 restriction in #composition-closure: Bayesian/gradient-strongly-convex composites (all Tier 1) are proximal, so cascade composition preserves operator-sector; Tier 2/3 composites need per-case verification.
+**Cascade composition** (e.g., hierarchical agents updating at different rates): (C2) tells us the composite is only nonexpansive unless the sub-agents are proximal/cocoercive. This matches the Tier 1 restriction in #form-composition-closure: Bayesian/gradient-strongly-convex composites (all Tier 1) are proximal, so cascade composition preserves operator-sector; Tier 2/3 composites need per-case verification.
 
-**Adversarial destabilization** ( #adversarial-destabilization): (C3) recovers the coupling-amplified disturbance, with the sign of $\gamma$ determining cooperative ($\gamma \lt 0$ effectively) vs. adversarial ($\gamma \gt 0$). This matches #critical-mass-composition's closed form $(\alpha - C)R \gt \rho + \gamma\mathcal T$ — where $C$ is a coupling-cost term subtracted from $\alpha$, and $\gamma\mathcal T$ is the adversarial disturbance added to $\rho$.
+**Adversarial destabilization** ( #der-adversarial-destabilization): (C3) recovers the coupling-amplified disturbance, with the sign of $\gamma$ determining cooperative ($\gamma \lt 0$ effectively) vs. adversarial ($\gamma \gt 0$). This matches #deriv-critical-mass-composition's closed form $(\alpha - C)R \gt \rho + \gamma\mathcal T$ — where $C$ is a coupling-cost term subtracted from $\alpha$, and $\gamma\mathcal T$ is the adversarial disturbance added to $\rho$.
 
-**The composition-closure bridge lemma** ( #composition-closure): the macro-update $T_c$ satisfies operator-sector-inc iff DA2'-inc holds; the trajectory error $e_m$ lives in a space where $T_c$ is the operator; the closure defect $\varepsilon^\ast \nu_c$ is the effective disturbance. The bridge lemma *is* the operator-sector Lyapunov theorem applied to $T_c$ with an externally-specified disturbance rate.
+**The composition-closure bridge lemma** ( #form-composition-closure): the macro-update $T_c$ satisfies operator-sector-inc iff DA2'-inc holds; the trajectory error $e_m$ lives in a space where $T_c$ is the operator; the closure defect $\varepsilon^\ast \nu_c$ is the effective disturbance. The bridge lemma *is* the operator-sector Lyapunov theorem applied to $T_c$ with an externally-specified disturbance rate.
 
 **Assessment.** Monotone-operator closure theory recovers AAD's closure results for composition as special cases, and names several AAD heuristics (weakest-link, coupling-amplified-disturbance) as instances of general closure theorems. This is a genuine gain — not just cosmetic, because the closure theory supplies the *conditions* under which the closure holds (proximal vs. gradient-only; Lipschitz $\lt 2/\kappa$; averaging factor $\theta$).
 
@@ -262,11 +262,11 @@ This is the key question for the spike's honest assessment. AAD adds:
 
 **(i) The one-point-at-fixed-point anchoring as a strictly weaker, but sufficient, form.** The standard monotone-operator literature works with full (two-point) strong monotonicity. AAD's A2' uses the one-point form at the target. The gap matters because agents in sub-scope β (PID, rule-based) *can* satisfy one-point strong monotonicity at the equilibrium without being fully monotone everywhere — a non-trivial enlargement of the usable class. The one-point form is anchored in AAD's physical semantics (at the target, there is no mismatch, so there is no correction), not in the generic mathematical structure.
 
-**(ii) Disturbance decomposition (Model D / Model S) as first-class.** The monotone-operator literature has perturbation theorems (Fazel et al. 2018; Ben-Tal-Nemirovski 2002 robust optimization), but the systematic division between bounded-adversarial and stochastic-zero-mean disturbance (with different scaling in $\alpha$: $1/\alpha$ vs. $1/\sqrt\alpha$) is not standard — it is AAD's contribution. This scaling difference propagates to the adversarial exponent regimes ( #adversarial-exponent-regimes: $b=2$ vs $b=3/2$) and is genuinely novel as a *framework* even if the individual Lyapunov bounds are standard.
+**(ii) Disturbance decomposition (Model D / Model S) as first-class.** The monotone-operator literature has perturbation theorems (Fazel et al. 2018; Ben-Tal-Nemirovski 2002 robust optimization), but the systematic division between bounded-adversarial and stochastic-zero-mean disturbance (with different scaling in $\alpha$: $1/\alpha$ vs. $1/\sqrt\alpha$) is not standard — it is AAD's contribution. This scaling difference propagates to the adversarial exponent regimes ( #result-adversarial-exponent-regimes: $b=2$ vs $b=3/2$) and is genuinely novel as a *framework* even if the individual Lyapunov bounds are standard.
 
 **(iii) The identifiability-floor connection.** Operator-sector gives you a contraction rate $\kappa$ assuming the operator is well-defined. But whether $\iota_k \gt 0$ (Regime A), $\iota_k \in (0,1)$ (Regime B), or $\iota_k = 0$ (Regime C) is an *identifiability* question, not an operator-sector question. AAD's combination of operator-sector (dynamics) + identifiability-floor (information-theoretic no-go) is the substantive move; monotone-operator theory alone does not supply this second axis.
 
-**(iv) Composition consistency and scope condition.** The requirement that the operator-sector structure applies at every level of description that satisfies the scope condition ( #scope-agency, #postulate-composition-consistency) is not part of the monotone-operator literature — it is AAD's postulate. The operator-family classification enables the consistency argument; monotone-operator theory by itself is indifferent to whether the operator lives at the agent level or the composite level.
+**(iv) Composition consistency and scope condition.** The requirement that the operator-sector structure applies at every level of description that satisfies the scope condition ( #scope-agency, #post-composition-consistency) is not part of the monotone-operator literature — it is AAD's postulate. The operator-family classification enables the consistency argument; monotone-operator theory by itself is indifferent to whether the operator lives at the agent level or the composite level.
 
 **(v) The sub-scope α/β partition.** Monotone-operator theory classifies operators by structural properties (proximal, gradient, cocoercive, firmly nonexpansive), but does not distinguish "operator-sector by construction" from "operator-sector by empirical verification." The α/β labeling is *epistemic*, not mathematical — it tracks which classes of real-world systems give operator-sector structurally vs. as a modeling assumption. This is a scope-honesty move (per CLAUDE.md §7(a)), not a mathematical one.
 
@@ -280,11 +280,11 @@ The operator-sector framing addresses this cleanly:
 
 **(a) The signal function's linearized operator.** Under L1' with observable common cause, the linearized update operator $T_{\text{edge}}$ has a covariance structure on the effective evidence $y_G - \hat P_\Sigma$. Writing the residual covariance as $\Sigma_\Upsilon$, the expected squared per-step progress is $\mathbb E[\lVert T_{\text{edge}}(\lambda) - \lambda^\ast\rVert^2 \mid \text{evidence}]$ — a quadratic form in $e$ with coefficient matrix $(\Sigma_\Upsilon^{-1/2} \mathbf J \mathbf J^T D_\sigma \Sigma_\Upsilon^{-1/2})$ (after whitening). This is the Fisher-whitened update from the sibling spike `spike-fisher-whitened-update.md` (if written) — its geometric content is *exactly* that the operator-sector inner product in the whitened coordinate gives a clean $\kappa$ even when the raw evidence is correlated.
 
-**(b) L1' observable-$C$ transfer.** Prop B.7 in #strategic-dynamics-derivation derives the L1' transfer under five gating conditions. The operator-sector framing interprets these as: (i) **facilitator monotonicity** $\Leftrightarrow$ linearized operator is strongly monotone on the observable subspace; (ii) **common-cause observability** $\Leftrightarrow$ the whitening transform $\Sigma_\Upsilon^{-1/2}$ is computable; (iii) **identifiability of $C$** $\Leftrightarrow$ $\iota_k \gt 0$ for the common-cause edge. The five-way gating is then *exactly* the set of conditions under which the Fisher-whitened operator-sector condition holds.
+**(b) L1' observable-$C$ transfer.** Prop B.7 in #deriv-strategic-dynamics derives the L1' transfer under five gating conditions. The operator-sector framing interprets these as: (i) **facilitator monotonicity** $\Leftrightarrow$ linearized operator is strongly monotone on the observable subspace; (ii) **common-cause observability** $\Leftrightarrow$ the whitening transform $\Sigma_\Upsilon^{-1/2}$ is computable; (iii) **identifiability of $C$** $\Leftrightarrow$ $\iota_k \gt 0$ for the common-cause edge. The five-way gating is then *exactly* the set of conditions under which the Fisher-whitened operator-sector condition holds.
 
 **(c) L1' unobservable-$C$ refutation.** The Cramér-Rao floor (Fisher rank-1) says the Fisher information matrix is rank-deficient — which in operator-sector language means $\kappa = 0$ on the null space. The operator-sector primitive correctly detects this as a failure of the condition in any Hilbert-space inner product, matching the refutation without requiring separate machinery.
 
-**Handoff to Gap A.** The operator-sector framing supplies the **unifying geometry**: the signal function is whatever operator $T_{\text{edge}}$ makes the linearized credit-assignment map operator-sector in the Fisher-whitened inner product. The specific form of $T_{\text{edge}}$ (log-odds + Jacobian-weighted residual) is forced by the combination of (i) Fisher-natural-gradient structure (Amari 1998), (ii) log-odds additivity (#edge-update-natural-parameter), and (iii) regime-aware identifiability weighting ($\iota_k$). This does not replace Prop B.7's derivation, but it supplies the geometric why.
+**Handoff to Gap A.** The operator-sector framing supplies the **unifying geometry**: the signal function is whatever operator $T_{\text{edge}}$ makes the linearized credit-assignment map operator-sector in the Fisher-whitened inner product. The specific form of $T_{\text{edge}}$ (log-odds + Jacobian-weighted residual) is forced by the combination of (i) Fisher-natural-gradient structure (Amari 1998), (ii) log-odds additivity (#deriv-edge-update-natural-parameter), and (iii) regime-aware identifiability weighting ($\iota_k$). This does not replace Prop B.7's derivation, but it supplies the geometric why.
 
 ## 8. Coupling to Gap B (Contraction Beyond Linear Kalman)
 
@@ -335,13 +335,13 @@ Elevate the operator-sector primitive to a new appendix meta-segment that:
 - Recasts the A2'/DA2' α/β partition as operator-family classification (§4).
 - Documents what is NOT unified (projection $\Lambda$, identifiability-floor, regime-indexing) and cross-references the relevant other meta-segments.
 
-This meta-segment sits alongside `#discussion-separability-pattern`, `#discussion-identifiability-floor`, `#additive-coordinate-forcing` as a fourth AAD meta-pattern — it is AAD's *geometric* meta-pattern, complementary to the separability (positive-half scope), identifiability (negative half), and additive-coordinate (constructive half) meta-patterns.
+This meta-segment sits alongside `#disc-separability-pattern`, `#disc-identifiability-floor`, `#additive-coordinate-forcing` as a fourth AAD meta-pattern — it is AAD's *geometric* meta-pattern, complementary to the separability (positive-half scope), identifiability (negative half), and additive-coordinate (constructive half) meta-patterns.
 
 **Proposed slug:** `#operator-sector-template` or `#operator-sector-geometry`.
 
 **Proposed composition with existing meta-segments:**
-- `#discussion-separability-pattern` — scope (what's in-scope).
-- `#discussion-identifiability-floor` — information-theoretic obstructions (the negative half).
+- `#disc-separability-pattern` — scope (what's in-scope).
+- `#disc-identifiability-floor` — information-theoretic obstructions (the negative half).
 - `#additive-coordinate-forcing` — coordinate choice (the constructive half).
 - `#operator-sector-template` — geometric unification of the dynamics (the *mechanism* half).
 
@@ -351,10 +351,10 @@ The four meta-segments name AAD's cross-sectional structure: *where* it applies 
 
 If adding a new meta-segment is too much:
 
-- **`#sector-persistence-template`** Discussion — add a paragraph naming the operator-sector primitive, cross-referencing Bauschke-Combettes 2017. Small edit.
-- **`#gain-sector-bridge`** Epistemic Status — recast the sub-scope α list as an operator-family classification (one sentence per class identifying the monotone-operator label). Small edit.
-- **`#composition-closure`** Discussion — add a paragraph noting that parallel/cascade/feedback closures recover from Bauschke-Combettes §4 and naming which tier corresponds to which operator class. Small edit.
-- **`#credit-assignment-boundary`** Discussion — add a paragraph noting that the Fisher-weighted inner product is the natural setting for the log-odds update's operator-sector structure, connecting to Amari 1998 natural gradient. Small edit.
+- **`#result-sector-persistence-template`** Discussion — add a paragraph naming the operator-sector primitive, cross-referencing Bauschke-Combettes 2017. Small edit.
+- **`#der-gain-sector-bridge`** Epistemic Status — recast the sub-scope α list as an operator-family classification (one sentence per class identifying the monotone-operator label). Small edit.
+- **`#form-composition-closure`** Discussion — add a paragraph noting that parallel/cascade/feedback closures recover from Bauschke-Combettes §4 and naming which tier corresponds to which operator class. Small edit.
+- **`#disc-credit-assignment-boundary`** Discussion — add a paragraph noting that the Fisher-weighted inner product is the natural setting for the log-odds update's operator-sector structure, connecting to Amari 1998 natural gradient. Small edit.
 
 These edits would close the loop without requiring a new meta-segment; the trade-off is that the *organizing* insight (operator-sector as a cross-sectional meta-pattern) would not be surfaced.
 
@@ -403,10 +403,10 @@ This spike is the *organizing* spike for the operator-sector framework; the two 
 |---|---|
 | Operator-sector primitive is well-defined (§1) | Exact (definitional) |
 | ODE semigroup (Instance A) satisfies operator-sector with $\kappa = \alpha$ in $h \to 0$ limit (§2.1) | Proved (direct calculation from A2') |
-| Discrete update $T_d$ (Instance B) satisfies operator-sector-inc with $\kappa = \eta^\ast c_{\min}$ under DA2'a + DA2'b (§2.2) | Proved (direct from #discrete-sector-condition) |
+| Discrete update $T_d$ (Instance B) satisfies operator-sector-inc with $\kappa = \eta^\ast c_{\min}$ under DA2'a + DA2'b (§2.2) | Proved (direct from #deriv-discrete-sector-condition) |
 | Edge-update $T_{\text{edge}}$ (Instance B') satisfies operator-sector in Fisher-weighted inner product under linearization + componentwise reduction (§2.2) | Derived (conditional on linearization + Fisher metric; componentwise case exact) |
 | Projection $\Lambda$ does NOT satisfy operator-sector primitive (§2.3) | Proved (category mismatch) |
-| Macro-update $T_c$ (Instance C') satisfies operator-sector-inc under DA2'-inc (§2.3) | Proved (direct from #composition-closure bridge-lemma) |
+| Macro-update $T_c$ (Instance C') satisfies operator-sector-inc under DA2'-inc (§2.3) | Proved (direct from #form-composition-closure bridge-lemma) |
 | Unifying theorem (§3.1) is standard monotone-operator Lyapunov + perturbation result | Exact (but not novel — Bauschke-Combettes 2017 Thm 5.14–5.16) |
 | Sub-scope α/β recasts cleanly as operator-family classification (§4) | Derived (exact mapping between current plant-based list and operator-family labels) |
 | Closure results (weakest-link, cascade, feedback, averaged) recover AAD composition from Bauschke-Combettes §4, §25–28 (§5) | Derived (direct citation to existing theorems) |
@@ -442,4 +442,4 @@ Max attainable for this spike's content: **exact for §1–§5 (operator-sector 
 - Parikh, N., & Boyd, S. (2014). "Proximal algorithms." *Foundations and Trends in Optimization* 1(3), 127–239. Practical monotone-operator pipeline.
 - Elaydi, S. (2005). *An Introduction to Difference Equations* (3rd ed.). Springer. Thm 4.14 (Banach-fixed-point for affine contractions).
 
-AAD cross-references used throughout: #sector-persistence-template, #sector-condition-derivation, #gain-sector-bridge, #discrete-sector-condition, #credit-assignment-boundary, #edge-update-natural-parameter, #composition-closure, #strategic-dynamics-derivation, #discussion-identifiability-floor, #discussion-separability-pattern, #additive-coordinate-forcing, #team-persistence, #adversarial-destabilization, #critical-mass-composition, #unity-closure-mapping, #compression-operations.
+AAD cross-references used throughout: #result-sector-persistence-template, #deriv-sector-condition, #der-gain-sector-bridge, #deriv-discrete-sector-condition, #disc-credit-assignment-boundary, #deriv-edge-update-natural-parameter, #form-composition-closure, #deriv-strategic-dynamics, #disc-identifiability-floor, #disc-separability-pattern, #additive-coordinate-forcing, #der-team-persistence, #der-adversarial-destabilization, #deriv-critical-mass-composition, #result-unity-closure-mapping, #disc-compression-operations.

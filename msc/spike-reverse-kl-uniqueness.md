@@ -7,7 +7,7 @@ date: 2026-04-22
 
 # Spike: Reverse-KL Uniqueness Within the Direction-Forced Family
 
-**Migration note.** The load-bearing math has been migrated to `#strategy-cost-regret-bound` §6.1 (new subsection: "Chain-rule uniqueness of reverse-KL") and the working note on family-characterization strengthening is marked resolved. This spike retains the strengthening-cycle reasoning trail only: which of Paths A–F were tried, which failed and why, which succeeded and under what axiom set.
+**Migration note.** The load-bearing math has been migrated to `#deriv-strategy-cost-regret-bound` §6.1 (new subsection: "Chain-rule uniqueness of reverse-KL") and the working note on family-characterization strengthening is marked resolved. This spike retains the strengthening-cycle reasoning trail only: which of Paths A–F were tried, which failed and why, which succeeded and under what axiom set.
 
 **Charter.** Is there a set of structural axioms under which reverse-KL is *uniquely* the smooth f-divergence providing an upper regret bound $R(Q) \leq g(D(\pi^\ast \Vert Q))$ within the $\pi^\ast$-first family?
 
@@ -17,7 +17,7 @@ date: 2026-04-22
 
 ## §1 — The Question Precisely
 
-Fix the setting of `#strategy-cost-regret-bound`: $\pi^\ast = \delta_{a^\ast}$, $Q = Q_{\Sigma_t}$, bounded value range $V_{\max}$, strategy-induced regret $R(Q) := V(a^\ast) - \mathbb{E}_Q[V]$.
+Fix the setting of `#deriv-strategy-cost-regret-bound`: $\pi^\ast = \delta_{a^\ast}$, $Q = Q_{\Sigma_t}$, bounded value range $V_{\max}$, strategy-induced regret $R(Q) := V(a^\ast) - \mathbb{E}_Q[V]$.
 
 The F20 direction-forcing result: forward-KL $D_{\mathrm{KL}}(Q \Vert \pi^\ast) = +\infty$ under deterministic $\pi^\ast$ with off-optimum mass → a bound using forward-KL is vacuous. So the admissible family is $\{D_f(\pi^\ast \Vert Q) : f \text{ convex, } f(1) = 0, f \text{ smooth at } 1\}$. Within this $\pi^\ast$-first smooth-f-divergence family, the F20 table enumerates members:
 
@@ -111,7 +111,7 @@ for some function $g$, where the equation holds for all $r, s \gt 0$. This funct
 
 The uniqueness theorem of §4 is a pure mathematical result. For it to land as a segment update (not merely a technical aside), the chain-rule axiom must be *AAD-internally motivated* — the chain rule must correspond to something AAD cares about structurally.
 
-**The motivation.** AAD's strategy is a **probabilistic causal DAG** ( #strategy-dag). The DAG decomposes into a joint over (action chains, conditional sub-plan outcomes, final-action distributions). The DAG's factorization is *compositional*: a plan $\Sigma_t$ decomposes into a sequence of sub-plans $(\Sigma_t^{(1)}, \Sigma_t^{(2)}, \ldots)$ at different causal layers, with each sub-plan carrying conditional structure.
+**The motivation.** AAD's strategy is a **probabilistic causal DAG** ( #def-strategy-dag). The DAG decomposes into a joint over (action chains, conditional sub-plan outcomes, final-action distributions). The DAG's factorization is *compositional*: a plan $\Sigma_t$ decomposes into a sequence of sub-plans $(\Sigma_t^{(1)}, \Sigma_t^{(2)}, \ldots)$ at different causal layers, with each sub-plan carrying conditional structure.
 
 The natural question AAD asks of a mismatch functional is: **does the total mismatch between $\pi^\ast$ and $Q_{\Sigma_t}$ decompose additively over the DAG's causal layers?** If yes, then the per-layer mismatch is a well-defined local quantity, and the total is the sum of layer-mismatches weighted by layer-accessibility.
 
@@ -123,15 +123,15 @@ $$D(\pi^\ast \Vert Q_{\Sigma_t}) \;=\; \sum_{t=1}^T \mathbb{E}_{\pi^\ast}\!\left
 
 Under deterministic $\pi^\ast = \delta_{a_{1:T}^\ast}$, this collapses to a sum of per-step KL terms along the optimal trajectory — *additive cost-of-mismatch across causal layers*.
 
-**Non-chain-rule divergences (e.g., $\chi^2$) would give non-additive decompositions.** For $\chi^2$, the total mismatch $\chi^2(P_{XY}\Vert Q_{XY}) \neq \chi^2(P_X\Vert Q_X) + E_{P_X}[\chi^2(P_{Y\mid X}\Vert Q_{Y\mid X})]$; the total is super-additive (cross-layer terms amplify each other). Operationally: a mismatch at layer 1 and a mismatch at layer 2 interact multiplicatively rather than combining independently. This is **structurally discordant with the DAG factorization** AAD already committed to in `#strategy-dag` and `#chain-confidence-decay`.
+**Non-chain-rule divergences (e.g., $\chi^2$) would give non-additive decompositions.** For $\chi^2$, the total mismatch $\chi^2(P_{XY}\Vert Q_{XY}) \neq \chi^2(P_X\Vert Q_X) + E_{P_X}[\chi^2(P_{Y\mid X}\Vert Q_{Y\mid X})]$; the total is super-additive (cross-layer terms amplify each other). Operationally: a mismatch at layer 1 and a mismatch at layer 2 interact multiplicatively rather than combining independently. This is **structurally discordant with the DAG factorization** AAD already committed to in `#def-strategy-dag` and `#der-chain-confidence-decay`.
 
-**The parallel to #chain-confidence-decay.** AAD's #chain-confidence-decay segment already commits to *additive log-confidence decay* along causal chains (multiplicative confidence in linear space becomes additive in log space). The chain-rule-for-divergence axiom is the natural analog for mismatch: **additive mismatch decay along causal chains.** Reverse-KL is the unique f-divergence making this work.
+**The parallel to #der-chain-confidence-decay.** AAD's #der-chain-confidence-decay segment already commits to *additive log-confidence decay* along causal chains (multiplicative confidence in linear space becomes additive in log space). The chain-rule-for-divergence axiom is the natural analog for mismatch: **additive mismatch decay along causal chains.** Reverse-KL is the unique f-divergence making this work.
 
 **Verdict.** The chain-rule axiom is not arbitrary — it is the divergence-level version of the additive-decomposition principle AAD already relies on for confidence decay. Adopting it forces reverse-KL; rejecting it is equivalent to adopting a super-additive or sub-additive decomposition, which AAD has already rejected elsewhere.
 
 ## §6 — Paths D, E, F (the remaining candidates). None independently close uniqueness.
 
-**Path D (Variational / ELBO decomposition).** Reverse-KL is the divergence used in the ELBO decomposition $\log Z - D_{KL}(Q\Vert P_{\text{target}}) = E_Q[\log p(X, z)] - E_Q[\log Q(z)]$. This is a real result (Jordan et al. 1999, "An introduction to variational methods for graphical models," *Machine Learning* 37(2):183–233; Blei et al. 2017, "Variational inference: A review for statisticians," *JASA* 112(518):859–877) but the ELBO's role is in the *learning* of $Q$ to approximate $P$, not in bounding regret. The ELBO-reverse-KL connection is the `#strategy-complexity-cost` variational motivation (already in the segment); it is *convergent evidence* that reverse-KL is natural in the variational-inference frame, not an independent uniqueness argument. The ELBO decomposition uses KL's chain rule as a sub-step, so the logical priority is: chain rule → reverse-KL → ELBO decomposition, not the reverse.
+**Path D (Variational / ELBO decomposition).** Reverse-KL is the divergence used in the ELBO decomposition $\log Z - D_{KL}(Q\Vert P_{\text{target}}) = E_Q[\log p(X, z)] - E_Q[\log Q(z)]$. This is a real result (Jordan et al. 1999, "An introduction to variational methods for graphical models," *Machine Learning* 37(2):183–233; Blei et al. 2017, "Variational inference: A review for statisticians," *JASA* 112(518):859–877) but the ELBO's role is in the *learning* of $Q$ to approximate $P$, not in bounding regret. The ELBO-reverse-KL connection is the `#form-strategy-complexity-cost` variational motivation (already in the segment); it is *convergent evidence* that reverse-KL is natural in the variational-inference frame, not an independent uniqueness argument. The ELBO decomposition uses KL's chain rule as a sub-step, so the logical priority is: chain rule → reverse-KL → ELBO decomposition, not the reverse.
 
 **Verdict.** Path D reduces to Path C.
 
@@ -165,17 +165,17 @@ However: Sanov gives a *rate-function identification* at the asymptotic-large-sa
 
 **Outcome A.** Under the additional structural axiom of **chain-rule additivity over conditional factorizations** (Hobson 1969; Csiszár 1991 Theorem 3 corollary and Theorem 5; standard functional-equation derivation per Aczél & Daróczy 1975), reverse-KL is the **unique** smooth f-divergence in the $\pi^\ast$-first direction-forced family providing an upper regret bound.
 
-The axiom is independently motivated by AAD's DAG factorization of strategies ( #strategy-dag) and by the parallel with additive log-confidence decay ( #chain-confidence-decay). It is the divergence-level analog of additive-mismatch-decomposition-along-causal-chains, a principle AAD has already committed to.
+The axiom is independently motivated by AAD's DAG factorization of strategies ( #def-strategy-dag) and by the parallel with additive log-confidence decay ( #der-chain-confidence-decay). It is the divergence-level analog of additive-mismatch-decomposition-along-causal-chains, a principle AAD has already committed to.
 
-**Within the strengthened axiom set**, the "Reverse-KL canonical among smooth divergences" row in `#strategy-cost-regret-bound`'s derivation-audit table moves from *Formulation choice* to **Derived (conditional on chain-rule axiom)**.
+**Within the strengthened axiom set**, the "Reverse-KL canonical among smooth divergences" row in `#deriv-strategy-cost-regret-bound`'s derivation-audit table moves from *Formulation choice* to **Derived (conditional on chain-rule axiom)**.
 
-**What the theorem does not do.** The uniqueness theorem holds *within the f-divergence family*. It does not rule out non-f-divergence choices (e.g., the BH-composite $1-e^{-D_{KL}}$, which is a monotone transform of reverse-KL and therefore equivalent for any downstream gradient-based optimization). It does not address the linear-vs-square-root form question (that's a formulation choice on top of the chosen divergence; §7 of `#strategy-cost-regret-bound` handles it).
+**What the theorem does not do.** The uniqueness theorem holds *within the f-divergence family*. It does not rule out non-f-divergence choices (e.g., the BH-composite $1-e^{-D_{KL}}$, which is a monotone transform of reverse-KL and therefore equivalent for any downstream gradient-based optimization). It does not address the linear-vs-square-root form question (that's a formulation choice on top of the chosen divergence; §7 of `#deriv-strategy-cost-regret-bound` handles it).
 
 ## §9 — Segment update executed
 
-1. **`#strategy-cost-regret-bound`** — added new subsection §6.1 "Chain-rule uniqueness of reverse-KL" with the Csiszár/Amari theorem, the AAD-internal motivation (chain-rule additivity parallel to `#chain-confidence-decay`), and the updated table row. Moved "Reverse-KL canonical among smooth divergences" in the derivation-audit table from "Formulation choice" to "Derived (conditional on chain-rule axiom)". Updated Working Notes: "Family characterization strengthening" marked resolved with pointer to §6.1. Left the untouched §6.2 (the four canonical-not-unique grounds) as background context — those grounds remain independently useful (gradient-tractability, VI-alignment, Fisher geometry, MDL coding) but are no longer load-bearing for uniqueness.
+1. **`#deriv-strategy-cost-regret-bound`** — added new subsection §6.1 "Chain-rule uniqueness of reverse-KL" with the Csiszár/Amari theorem, the AAD-internal motivation (chain-rule additivity parallel to `#der-chain-confidence-decay`), and the updated table row. Moved "Reverse-KL canonical among smooth divergences" in the derivation-audit table from "Formulation choice" to "Derived (conditional on chain-rule axiom)". Updated Working Notes: "Family characterization strengthening" marked resolved with pointer to §6.1. Left the untouched §6.2 (the four canonical-not-unique grounds) as background context — those grounds remain independently useful (gradient-tractability, VI-alignment, Fisher geometry, MDL coding) but are no longer load-bearing for uniqueness.
 
-2. **`#discussion-identifiability-floor`** — no update needed. This outcome is Outcome A (uniqueness found), not Outcome C (structural non-uniqueness, which would have been a new Instance 3). The identifiability-floor pattern is unchanged.
+2. **`#disc-identifiability-floor`** — no update needed. This outcome is Outcome A (uniqueness found), not Outcome C (structural non-uniqueness, which would have been a new Instance 3). The identifiability-floor pattern is unchanged.
 
 3. **OUTLINE.md** — no change to stage or title (the segment was already at draft; the addition is a sub-section strengthening).
 
@@ -225,4 +225,4 @@ The axiom is independently motivated by AAD's DAG factorization of strategies ( 
 
 - **The axiom's AAD-internal motivation is the key load-bearing piece.** A pure Hobson-theorem uniqueness would be technically correct but unmotivated. The §5 argument — that the chain rule is the natural divergence-level analog of additive log-confidence decay, which AAD already commits to — is what makes the axiom a principled choice rather than an imported constraint. If Joseph pushes back on §5's motivation, the uniqueness theorem still holds but loses its AAD-groundedness.
 
-- **What this does not resolve.** The linear-vs-square-root form choice in `#strategy-cost-regret-bound` §7 is orthogonal — the uniqueness result picks the divergence; the functional form around the divergence is a separate choice. Also, the choice between Pinsker and BH bounds on top of reverse-KL is not forced by the uniqueness theorem (both use reverse-KL; they differ in the bounding function $g$). The segment already handles these via the admissible-family table.
+- **What this does not resolve.** The linear-vs-square-root form choice in `#deriv-strategy-cost-regret-bound` §7 is orthogonal — the uniqueness result picks the divergence; the functional form around the divergence is a separate choice. Also, the choice between Pinsker and BH bounds on top of reverse-KL is not forced by the uniqueness theorem (both use reverse-KL; they differ in the bounding function $g$). The segment already handles these via the admissible-family table.

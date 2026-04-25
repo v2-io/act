@@ -6,7 +6,7 @@
 
 **Objective**: Determine whether the sector condition extends to OR-node strategy DAGs. The key new phenomenon: the agent must choose which alternative to test, so untested alternatives receive zero correction. Does the persistence schema survive?
 
-**Depends on**: #strategy-dag, #and-or-scope, #sector-condition-derivation, #observability-dominance, #edge-update-via-gain, `spike-single-edge-strategic-dynamics.md`, `spike-two-edge-strategic-dynamics.md`
+**Depends on**: #def-strategy-dag, #scope-and-or, #deriv-sector-condition, #der-observability-dominance, #hyp-edge-update-via-gain, `spike-single-edge-strategic-dynamics.md`, `spike-two-edge-strategic-dynamics.md`
 
 ---
 
@@ -19,7 +19,7 @@ The simplest OR structure: goal $G$ reachable via two alternative actions.
 - **$G$ is an OR-node**: $G$ is achieved if either path succeeds
 - **Agent's beliefs**: Beta posteriors $p_k \sim \text{Beta}(\alpha_k, \beta_k)$ with point estimates $\hat{p}_k = \alpha_k / n_k$ where $n_k = \alpha_k + \beta_k$
 
-**Plan confidence** (OR propagation from #strategy-dag):
+**Plan confidence** (OR propagation from #def-strategy-dag):
 
 $$\hat{P}_\Sigma = 1 - (1 - p_1)(1 - p_2) = p_1 + p_2 - p_1 p_2$$
 
@@ -39,7 +39,7 @@ In an OR node, the agent **chooses** which action to try. On each trial:
 - If $A_1$ is chosen: observe $y_1 \sim \text{Bernoulli}(\theta_1)$. Edge 1 updates. **Edge 2 receives no information.**
 - If $A_2$ is chosen: observe $y_2 \sim \text{Bernoulli}(\theta_2)$. Edge 2 updates. **Edge 1 receives no information.**
 
-The unchosen alternative's credence is frozen — this is #observability-dominance applied to OR alternatives. The evidence starvation is absolute (zero rate), not attenuated (rate $\times$ upstream success probability as in AND chains).
+The unchosen alternative's credence is frozen — this is #der-observability-dominance applied to OR alternatives. The evidence starvation is absolute (zero rate), not attenuated (rate $\times$ upstream success probability as in AND chains).
 
 ### 1.2 Mismatch State
 
@@ -283,7 +283,7 @@ The schema's form ($\alpha_\Sigma > \rho_\Sigma/R_\Sigma$) is confirmed for OR-n
 
 - **(SA3) Sufficient exploration**: For OR-nodes, the action selection policy must allocate correction capacity to all alternatives at a rate exceeding $\rho_\Sigma/R_\Sigma$.
 
-This is a new condition not present in the AND-node cases. It connects the strategy-persistence schema to the exploration-exploitation tradeoff (#ciy-unified-objective) — exploration is not just about learning, it is about maintaining the sector condition for strategic persistence.
+This is a new condition not present in the AND-node cases. It connects the strategy-persistence schema to the exploration-exploitation tradeoff (#disc-ciy-unified-objective) — exploration is not just about learning, it is about maintaining the sector condition for strategic persistence.
 
 ### Verified instances (updated)
 

@@ -3,11 +3,11 @@ slug: scope-logogenic-agent
 type: scope
 status: robust-qualitative
 depends:
-  - agent-spectrum
-  - complete-agent-state
-  - directed-separation
+  - def-agent-spectrum
+  - form-complete-agent-state
+  - der-directed-separation
   - scope-agency
-  - recursive-update
+  - der-recursive-update
 stage: draft
 ---
 
@@ -19,7 +19,7 @@ An LLM-based agent operating through a tool-use loop is a *logogenic agent* in A
 
 *[Scope (scope-logogenic-agent)]*
 
-An **LLM-based agent** is an actuated agent ( #agent-spectrum) with the following mapping to AAD primitives:
+An **LLM-based agent** is an actuated agent ( #def-agent-spectrum) with the following mapping to AAD primitives:
 
 | AAD Primitive | LLM Agent Instantiation |
 |---|---|
@@ -34,7 +34,7 @@ An **LLM-based agent** is an actuated agent ( #agent-spectrum) with the followin
 
 *[Scope (logogenic-agent-class)]*
 
-The LLM-based agent is **Class 2** (fully merged) in the architectural classification of #directed-separation:
+The LLM-based agent is **Class 2** (fully merged) in the architectural classification of #der-directed-separation:
 
 $$\kappa_{\text{processing}} \approx 1$$
 
@@ -65,14 +65,14 @@ Max attainable: robust-qualitative. The mapping is a formulation (multiple reaso
 
 $$X_{\tau^+} = f_{\text{LLM}}(\text{prompt}(X_{\tau^-}, e_\tau))$$
 
-The prompt-assembly function and the forward pass together implement $f_X$. The coupled update dynamics are formalized in #coupled-update-dynamics.
+The prompt-assembly function and the forward pass together implement $f_X$. The coupled update dynamics are formalized in #def-coupled-update-dynamics.
 
 **The weight-context boundary.** The LLM's weights encode a vast prior $M_0$ — pretrained knowledge about language, code, reasoning patterns. The context window encodes the session-specific $X_t$. The agent's effective state is the combination: $X_t^{\text{eff}} = (M_0^{\text{weights}}, X_t^{\text{context}})$, where the weights are fixed within a session and the context evolves. AAD's $M_t$ corresponds to the *effective beliefs at time $t$* — what the agent would predict given both its weights and its context. The weights provide the prior; the context provides the update.
 
-**The 100% turnover problem.** Between sessions, the context window is cleared — the entire $X_t^{\text{context}}$ is lost. This is a qualitatively different persistence challenge than what Section I addresses, where $M_t$ evolves continuously. See #context-turnover.
+**The 100% turnover problem.** Between sessions, the context window is cleared — the entire $X_t^{\text{context}}$ is lost. This is a qualitatively different persistence challenge than what Section I addresses, where $M_t$ evolves continuously. See #obs-context-turnover.
 
 ## Working Notes
 
 - The mapping omits the agent's *weights* from $X_t$ because they are frozen within a session. For fine-tuned agents where weights change across sessions, the full state would be $X_t = (M_t^{\text{weights}}, M_t^{\text{context}}, G_t)$ — a richer decomposition than the $(M_t, G_t)$ split.
 - The system-vs-component distinction (Class 2 component within a potentially Class 3 system) is important for engineering but does not change the theoretical analysis of the LLM's processing. The coupled formulation applies to the LLM component; the system-level analysis may recover partial separation through architectural design.
-- The Hafez IDT pattern (Information Digital Twin as modular sidecar) is a concrete example of system-level modularization: the IDT monitors the $(S, A, S')$ stream independently of the LLM's attention, creating a Class 1 monitoring pathway within a Class 2/3 system. See the Working Notes in #directed-separation.
+- The Hafez IDT pattern (Information Digital Twin as modular sidecar) is a concrete example of system-level modularization: the IDT monitors the $(S, A, S')$ stream independently of the LLM's attention, creating a Class 1 monitoring pathway within a Class 2/3 system. See the Working Notes in #der-directed-separation.

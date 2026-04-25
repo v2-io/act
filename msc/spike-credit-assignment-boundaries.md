@@ -6,7 +6,7 @@
 
 **Objective**: Characterize the boundary between tractable and intractable credit assignment for the strategy DAG $\Sigma_t$. Establish negative results (what cannot be done), identify tractable special cases (what can), propose principled approximations for the general case, and state precisely what the theory *requires* of a credit-assignment scheme.
 
-**Depends on**: #strategy-dag, #strategic-calibration, #edge-update-via-gain, #observability-dominance, #strategic-dynamics-derivation (Props B.1--B.5), `spike-two-edge-strategic-dynamics.md`
+**Depends on**: #def-strategy-dag, #def-strategic-calibration, #hyp-edge-update-via-gain, #der-observability-dominance, #deriv-strategic-dynamics (Props B.1--B.5), `spike-two-edge-strategic-dynamics.md`
 
 ---
 
@@ -16,7 +16,7 @@ Credit assignment in AAD is the problem of decomposing an observed outcome at a 
 
 Given observation $o_t$ at some set of observable nodes $\mathcal{V}_{\text{obs}} \subseteq V_t$, compute, for each edge $(i,j) \in E_t$, a **signal** $\text{signal}(o_t, i, j) \in [0,1]$ that represents the evidential content of $o_t$ about the causal link $i \to j$.
 
-This is the unspecified function in #edge-update-via-gain. The update rule is:
+This is the unspecified function in #hyp-edge-update-via-gain. The update rule is:
 
 $$p_{ij}^{\text{new}} = p_{ij}^{\text{old}} + \eta_{\text{edge}} \cdot (\text{signal}(o_t, i, j) - p_{ij}^{\text{old}})$$
 
@@ -89,7 +89,7 @@ $$\dim(\mathcal{I}(\mathcal{V}_{\text{obs}})) \leq |\mathcal{V}_{\text{obs}}|$$
 **Consequences for AAD:**
 1. Credit assignment for edges whose effects are pooled at unobservable nodes is not just computationally hard --- it is *information-theoretically impossible* without additional structure (prior information, structural constraints, or interventional data).
 2. Any credit-assignment scheme operating with fewer observations than edges must rely on prior beliefs to resolve the underdetermined directions. The quality of the attribution depends on prior quality, not just on the update algorithm.
-3. This is not a failure of the theory but a fundamental property of partial observability. The theory's response (#observability-dominance) is correct: unobservable edges are epistemically frozen, and the correct unit of analysis is the largest identifiable aggregate.
+3. This is not a failure of the theory but a fundamental property of partial observability. The theory's response (#der-observability-dominance) is correct: unobservable edges are epistemically frozen, and the correct unit of analysis is the largest identifiable aggregate.
 
 ### 1.3 The Posterior Correlation Barrier
 
@@ -127,7 +127,7 @@ $$\text{signal}(o_t, i, j) = \begin{cases} y_j & \text{if } y_i = 1 \\ \text{no 
 
 **Update rule**: Standard Beta-Bernoulli conjugate update. Sector condition satisfied with $\alpha_\Sigma = \min_k \eta_k$ modulated by evidence-starvation factors (Prop B.2, generalized).
 
-**Status**: *Established* (Props B.1, B.2 in #strategic-dynamics-derivation).
+**Status**: *Established* (Props B.1, B.2 in #deriv-strategic-dynamics).
 
 #### Case 2: Tree-Structured DAGs (Each Node Has At Most One Parent)
 
@@ -262,7 +262,7 @@ $$\text{signal}(o_t, i, j) = p_{ij} + \frac{\partial \hat{P}_\Sigma}{\partial p_
 
 where $c$ is a normalization constant ensuring the signal lies in $[0,1]$. This is analogous to the gradient-based update in neural network training (backpropagation).
 
-**Computation of the gradient.** The plan-value function $\hat{P}_\Sigma(\mathbf{p})$ is defined by the AND/OR status propagation formulas (#strategy-dag). The gradient $\nabla_\mathbf{p} \hat{P}_\Sigma$ is the Jacobian $\mathbf{J}$ from Prop B.5, computable in $O(|V| + |E|)$ by reverse-mode differentiation through the propagation.
+**Computation of the gradient.** The plan-value function $\hat{P}_\Sigma(\mathbf{p})$ is defined by the AND/OR status propagation formulas (#def-strategy-dag). The gradient $\nabla_\mathbf{p} \hat{P}_\Sigma$ is the Jacobian $\mathbf{J}$ from Prop B.5, computable in $O(|V| + |E|)$ by reverse-mode differentiation through the propagation.
 
 For an AND-node with parents $\{i_1, \ldots, i_k\}$ feeding into node $v$:
 
@@ -393,7 +393,7 @@ In both cases, what matters is the *existence* of a per-edge correction mechanis
 
 ### 4.2 What Calibration Requires (Directional Fidelity)
 
-The strategic calibration diagnostic (#strategic-calibration) requires per-edge residuals $r_{ij}$. Computing $r_{ij}$ requires attributing observed value changes to specific edges --- this IS credit assignment.
+The strategic calibration diagnostic (#def-strategic-calibration) requires per-edge residuals $r_{ij}$. Computing $r_{ij}$ requires attributing observed value changes to specific edges --- this IS credit assignment.
 
 But the theory's structural requirements on the calibration diagnostic are weaker than "compute the exact per-edge residual." What is needed:
 
@@ -407,7 +407,7 @@ This is strictly weaker than exact attribution. It says: "on average, push each 
 
 ### 4.3 What the Gain Principle Requires (Bounded Signal)
 
-The gain principle (#edge-update-via-gain) requires $\text{signal}(o_t, i, j) \in [0, 1]$ and $\eta_{\text{edge}} = U_{\text{edge}} / (U_{\text{edge}} + U_{\text{obs}})$. The gain provides the step size; the signal provides the direction.
+The gain principle (#hyp-edge-update-via-gain) requires $\text{signal}(o_t, i, j) \in [0, 1]$ and $\eta_{\text{edge}} = U_{\text{edge}} / (U_{\text{edge}} + U_{\text{obs}})$. The gain provides the step size; the signal provides the direction.
 
 **Minimal requirement on the signal function:**
 1. $\text{signal}(o_t, i, j) \in [0, 1]$ (bounded).
@@ -468,7 +468,7 @@ RL faces the same problem: when a reward arrives at the end of an episode, which
 
 **Do-calculus and interventional queries.** Pearl's framework provides the gold standard for causal attribution: the effect of edge $(i,j)$ is $P(j \mid do(i)) - P(j \mid do(\neg i))$. This requires interventional data (or identifiability conditions that allow interventional conclusions from observational data).
 
-- **AAD connection**: Edge credences $p_{ij}$ are intended to approximate $P(j \mid do(i), M_t)$ (#strategy-dag, edge semantics). In intervention-rich domains (software, laboratory), the agent can directly estimate this via experiment. In confounded domains, the do-calculus provides conditions under which observational data suffice.
+- **AAD connection**: Edge credences $p_{ij}$ are intended to approximate $P(j \mid do(i), M_t)$ (#def-strategy-dag, edge semantics). In intervention-rich domains (software, laboratory), the agent can directly estimate this via experiment. In confounded domains, the do-calculus provides conditions under which observational data suffice.
 - **Key insight for AAD**: The identifiability conditions from do-calculus (back-door criterion, front-door criterion) translate directly to observability conditions on the strategy DAG. A "back-door admissible" set in the DAG is a set of observable nodes that blocks confounding. This gives a formal criterion for when per-edge credences are identifiable from partial observations.
 
 **Mediation analysis.** Decomposes the total effect of a treatment into direct and indirect effects (through mediating variables). The AND-chain $A \to B \to G$ is a mediation model where $B$ is the mediator.
@@ -496,7 +496,7 @@ RL faces the same problem: when a reward arrives at the end of an episode, which
 
 ### 6.1 The Gradient-Based Scheme as the Canonical Signal Function
 
-The gradient-based attribution (Section 3.2) is the strongest candidate for the unspecified signal function in #edge-update-via-gain. It:
+The gradient-based attribution (Section 3.2) is the strongest candidate for the unspecified signal function in #hyp-edge-update-via-gain. It:
 - Satisfies SA1 (zero expected correction at truth).
 - Has a characterizable sector parameter ($\eta / \kappa(\mathbf{J})^2$).
 - Is computable in $O(|V| + |E|)$ (one forward pass + one backward pass).
@@ -511,7 +511,7 @@ The condition number $\kappa(\mathbf{J})$ of the plan-value Jacobian emerges as 
 
 **Open question**: Can the agent *improve* $\kappa(\mathbf{J})$ by restructuring the DAG? E.g., adding redundant paths (OR-nodes) to reduce the dependence on any single edge, or introducing observable intermediates to decouple the corrections. If so, there is a second-order optimization problem: choose the DAG structure to minimize $\kappa(\mathbf{J})$, subject to the constraint that the DAG still represents a viable strategy for $O_t$.
 
-This connects to the strategy health metrics mentioned in the working notes of #strategy-dag (groundedness, bottleneck scores). The condition number may provide a principled replacement.
+This connects to the strategy health metrics mentioned in the working notes of #def-strategy-dag (groundedness, bottleneck scores). The condition number may provide a principled replacement.
 
 ### 6.3 Adaptive Observability Investment
 
@@ -587,9 +587,9 @@ where the minimum is over the independent subproblems created by observable node
 
 ## 8. Path Forward
 
-1. **Promote the gradient-based signal function to a hypothesis-grade segment.** It is the natural completion of #edge-update-via-gain's unspecified signal function. The segment should state the update rule, the sector parameter, and the condition-number penalty.
+1. **Promote the gradient-based signal function to a hypothesis-grade segment.** It is the natural completion of #hyp-edge-update-via-gain's unspecified signal function. The segment should state the update rule, the sector parameter, and the condition-number penalty.
 
-2. **Promote the identifiability result to a derived segment.** $\dim(\mathcal{I}(\mathcal{V}_{\text{obs}})) \leq |\mathcal{V}_{\text{obs}}|$ is a clean result connecting observability to credit-assignment tractability. It formalizes the content of #observability-dominance for strategy DAGs.
+2. **Promote the identifiability result to a derived segment.** $\dim(\mathcal{I}(\mathcal{V}_{\text{obs}})) \leq |\mathcal{V}_{\text{obs}}|$ is a clean result connecting observability to credit-assignment tractability. It formalizes the content of #der-observability-dominance for strategy DAGs.
 
 3. **Investigate the condition number.** Compute $\kappa(\mathbf{J})$ for the canonical DAG topologies (depth-$d$ AND-chain, $k$-arm OR-node, balanced binary tree). Determine whether $\kappa$ is bounded for "reasonable" strategies.
 

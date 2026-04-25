@@ -4,7 +4,7 @@
 
 **Date**: 2026-04-06
 
-**Motivation**: The Correlation Hierarchy in #strategy-dag claims that L1 (augmented DAGs with common-cause nodes) gets all L0 formal results for free because "the augmented DAG is a standard AND/OR DAG that satisfies causal sufficiency." This spike instantiates the claim with the simplest interesting case and discovers an important structural requirement for correct L1 construction.
+**Motivation**: The Correlation Hierarchy in #def-strategy-dag claims that L1 (augmented DAGs with common-cause nodes) gets all L0 formal results for free because "the augmented DAG is a standard AND/OR DAG that satisfies causal sufficiency." This spike instantiates the claim with the simplest interesting case and discovers an important structural requirement for correct L1 construction.
 
 ---
 
@@ -209,7 +209,7 @@ The Jacobian of $\hat P_\Sigma$ with respect to the credence vector:
 
 $$\mathbf{J} = \nabla_{\mathbf{p}} \hat P_\Sigma = \begin{pmatrix} s_{G_{\text{sub}}} \\ p_C(1 - p_{A_2}) \\ p_C(1 - p_{A_1}) \end{pmatrix}$$
 
-All components are non-negative (monotone AND/OR). Corrections are componentwise (each leaf updates from its own observation independently). By Proposition B.5b from #strategic-dynamics-derivation, the sector condition transfers losslessly:
+All components are non-negative (monotone AND/OR). Corrections are componentwise (each leaf updates from its own observation independently). By Proposition B.5b from #deriv-strategic-dynamics, the sector condition transfers losslessly:
 
 $$\alpha_s = \alpha_c = \alpha_\Sigma$$
 
@@ -273,7 +273,7 @@ Both models have $\delta_s = 0$ when credences are at truth — the sector condi
 
 ## The L1 Construction Principle
 
-The spike reveals an important structural requirement that the current #strategy-dag description understates:
+The spike reveals an important structural requirement that the current #def-strategy-dag description understates:
 
 ### ✗ Naive construction: common cause as sibling parent
 
@@ -300,7 +300,7 @@ For AND-chains (no OR-structure): adding a common-cause parent doesn't create pr
 
 ## Implications for Strategy-DAG's L1 Claim
 
-The L1 description in #strategy-dag says: "The independence assumption then holds within the augmented DAG, at the cost of a larger graph."
+The L1 description in #def-strategy-dag says: "The independence assumption then holds within the augmented DAG, at the cost of a larger graph."
 
 This is correct **if and only if** the common-cause node is factored above the correlation — i.e., placed as an AND-prerequisite above the OR-structure whose children it correlates. With naive placement (common cause as parent of correlated siblings), the independence assumption does NOT hold between siblings in the propagation formulas.
 
@@ -326,7 +326,7 @@ If this spike is promoted to an appendix segment, the structure would be:
 - The L1 construction principle (structural requirement)
 - When naive vs correct L1 construction matters (OR-nodes only)
 
-The proposition would live in #strategic-dynamics-derivation alongside B.1-B.5. The L0/L1 comparison and construction principle could go in a discussion section of #strategy-dag or as a new appendix detail segment.
+The proposition would live in #deriv-strategic-dynamics alongside B.1-B.5. The L0/L1 comparison and construction principle could go in a discussion section of #def-strategy-dag or as a new appendix detail segment.
 
 
 ---

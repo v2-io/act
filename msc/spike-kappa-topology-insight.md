@@ -76,7 +76,7 @@ If I had to state one formal claim from tonight's work, it would be:
 - It fails by construction in merged architectures where G_t is causally upstream of the update pathway
 - Its degree of violation in partially-shared architectures is determined by the information capacity of the shared causal paths between G_t and f_M
 
-This reframes the #directed-separation segment: instead of a scope condition (which agents satisfy it?), it becomes a structural property (which ARCHITECTURES satisfy it?). The scope condition on the agent class becomes a condition on the processing topology.
+This reframes the #der-directed-separation segment: instead of a scope condition (which agents satisfy it?), it becomes a structural property (which ARCHITECTURES satisfy it?). The scope condition on the agent class becomes a condition on the processing topology.
 
 And the κ_processing operationalization from the earlier spike:
 

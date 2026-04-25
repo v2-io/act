@@ -23,18 +23,18 @@ The parent spike explicitly flags this as the weakest link (§3.2, §10, §12.4 
 5. Work at least two structured cases (linear-Gaussian; Beta-Bernoulli; OU with LQR) end-to-end.
 6. Report outcome as (A) full derivation, (B) partial, or (C) obstruction with honest reframe.
 
-**Scope.** I attempt the derivation under sub-scope $\alpha$ (Kalman / conjugate-Bayesian / exponential-family / strongly-convex-gradient / linear-PD) — the regime where `#gain-sector-bridge` already delivers structural results. If the factorization fails under sub-scope $\alpha$, it has no chance under sub-scope $\beta$.
+**Scope.** I attempt the derivation under sub-scope $\alpha$ (Kalman / conjugate-Bayesian / exponential-family / strongly-convex-gradient / linear-PD) — the regime where `#der-gain-sector-bridge` already delivers structural results. If the factorization fails under sub-scope $\alpha$, it has no chance under sub-scope $\beta$.
 
 ## 2. What $\rho$ is
 
-`#mismatch-dynamics` writes
+`#hyp-mismatch-dynamics` writes
 
 $$\frac{d\lVert\delta\rVert}{dt} = -\mathcal T \cdot \lVert\delta\rVert + \rho(t), \qquad \lVert w(t)\rVert \le \rho \text{ (Model D)}, \qquad \mathbb E\lVert w(t)\rVert^2 = \sigma_w^2 \text{ (Model S)}$$
 
 where $w(t)$ is the disturbance injected into the mismatch process
-$d\delta/dt = -F(\mathcal T, \delta) + w(t)$ per `#sector-condition-stability`.
+$d\delta/dt = -F(\mathcal T, \delta) + w(t)$ per `#result-sector-condition-stability`.
 
-**Key observation: $w(t)$ is defined agent-relatively.** By construction, $\delta_t = o_t - \hat o_t(M_{t-1}, a_{t-1})$ (`#mismatch-signal`) is the residual that the model does *not* predict. So the "disturbance" $w(t)$ is *whatever part of the environment's evolution the agent's prediction fails to track* — not some raw environmental quantity.
+**Key observation: $w(t)$ is defined agent-relatively.** By construction, $\delta_t = o_t - \hat o_t(M_{t-1}, a_{t-1})$ (`#def-mismatch-signal`) is the residual that the model does *not* predict. So the "disturbance" $w(t)$ is *whatever part of the environment's evolution the agent's prediction fails to track* — not some raw environmental quantity.
 
 Substituting into Model D:
 
@@ -181,11 +181,11 @@ additive in variance, not log-additive in rate. Taking square roots to convert t
 
 ### 4.1 Setup
 
-Consider a strategy DAG edge (per `#strategy-dag`) carrying confidence $p_{ij} \in (0, 1)$ updated by Bernoulli observations. The agent's model of the edge is a Beta distribution $\text{Beta}(\alpha_{ij}, \beta_{ij})$ with point-estimate $\hat p_{ij} = \alpha_{ij}/(\alpha_{ij} + \beta_{ij})$.
+Consider a strategy DAG edge (per `#def-strategy-dag`) carrying confidence $p_{ij} \in (0, 1)$ updated by Bernoulli observations. The agent's model of the edge is a Beta distribution $\text{Beta}(\alpha_{ij}, \beta_{ij})$ with point-estimate $\hat p_{ij} = \alpha_{ij}/(\alpha_{ij} + \beta_{ij})$.
 
 True success probability of the underlying event: $p^\ast_{ij}$. Agent's policy $\pi$ affects whether the edge is tested (action $a_t$ invokes this sub-plan, producing a Bernoulli sample).
 
-"Disturbance" in the strategy-dynamics sense (`#strategic-dynamics-derivation`) is the rate at which the edge-credence process $p_{ij}(t)$ is driven away from its current estimate by incoming likelihood mass. Per `#edge-update-natural-parameter`'s log-odds form:
+"Disturbance" in the strategy-dynamics sense (`#deriv-strategic-dynamics`) is the rate at which the edge-credence process $p_{ij}(t)$ is driven away from its current estimate by incoming likelihood mass. Per `#deriv-edge-update-natural-parameter`'s log-odds form:
 
 $$\lambda_{ij}^{\text{post}} = \lambda_{ij}^{\text{prior}} + \ell(y)$$
 
@@ -201,7 +201,7 @@ where $\ell_0$ is the log-likelihood ratio magnitude. Rate per unit time:
 
 $$\rho_\Sigma^2 \cdot (\text{per edge}) \;=\; \nu_{\text{edge},\pi} \cdot p^\ast(1-p^\ast) \cdot \ell_0^2$$
 
-Here $\nu_{\text{edge},\pi}$ is the rate at which the policy $\pi$ visits this edge — a pure agent-choice quantity (under `#causal-structure`'s temporal ordering, the agent's policy determines edge visits).
+Here $\nu_{\text{edge},\pi}$ is the rate at which the policy $\pi$ visits this edge — a pure agent-choice quantity (under `#post-causal-structure`'s temporal ordering, the agent's policy determines edge visits).
 
 ### 4.3 Attempted factorization
 
@@ -268,7 +268,7 @@ Policy reduces $\rho$ only when the environment's stochastic structure depends o
 
 1. **State-dependent noise.** If $\sigma_\text{nat}(x)$ grows with $x$ (e.g., process noise scales with state), then a policy that keeps $x$ small reduces innovation variance. Under Gaussian LQR-style filtering, state-dependent noise breaks the Kalman structure; the agent's predictor no longer matches the optimal Bayesian predictor, and $\rho$ picks up a policy-dependent term.
 2. **Regime switching.** If the environment transitions between modes (linear / nonlinear, low-noise / high-noise), and the transition rate depends on state, then policy affects the mode-occupation distribution and thence average innovation rate.
-3. **Adversarial or strategic environments.** If another agent's action (the environment) depends on ours (`#adversarial-destabilization`), then policy shapes the adversary's response, which shapes our innovation.
+3. **Adversarial or strategic environments.** If another agent's action (the environment) depends on ours (`#der-adversarial-destabilization`), then policy shapes the adversary's response, which shapes our innovation.
 
 **Crucially, these are exactly the cases where the Kalman/LQR structure breaks.** In the clean sub-scope-$\alpha$ linear-Gaussian case, $g(\pi) \equiv 1$; $f(\mathcal M)$ is a ratio of sums, not a factor; $\rho_{\text{external}}$ is the marginal-predictor innovation variance, which itself depends on environment parameters.
 
@@ -404,12 +404,12 @@ Agent-controllable part subsumes both model-class and policy contributions witho
 | AAD quantity | How (R-F) wanted it | How the honest reframe uses it |
 |---|---|---|
 | `#result-mismatch-decomposition` | (not directly used) | Central — the per-instant bias-variance identity is exactly the starting point for (R-V). Cross-sectional; (R-V) integrates it over time |
-| `#model-class-fitness` ($\mathcal F(\mathcal M)$) | supplied $f(\mathcal M)$ as a direct multiplicative factor | supplies a *ceiling* for the reducible-model-error term $\Delta_{\mathcal M}^2$; not a factor but an upper bound on one term |
-| `#model-sufficiency` | (not directly used) | $S(M_t) \lt 1$ corresponds to positive $\Delta_{\mathcal M}^2$; $S(M_t) = 1$ drives the model-class term to zero |
-| `#loop-interventional-access` | supplied $g(\pi)$ implicitly (policy chooses which disturbance the agent sees) | supplies the mechanism whereby $\Delta_\pi^2$ exists at all — the policy couples action to next observation |
-| `#ciy-observational-proxy` | (not directly used) | the regime structure (A/B/C) governs whether the cross terms between $\Delta_{\mathcal M}^2$ and $\Delta_\pi^2$ can be estimated |
-| `#adaptive-tempo` / `#update-gain` | (not directly used in $\rho$ decomposition) | these are the *other side* of the persistence inequality; they determine $\alpha$, not $\rho$. The factorization error is *only* in $\rho$; the $\alpha$ factorization (§3.1 of parent spike) is fine |
-| `#information-bottleneck` | (not directly used) | (R-KL) is the rate-distortion specialization of the IB objective where $\beta$-varying picks out different points on the Pareto curve between $\rho^2_\text{irreducible}$ and $\Delta^2_{\mathcal M}$ |
+| `#def-model-class-fitness` ($\mathcal F(\mathcal M)$) | supplied $f(\mathcal M)$ as a direct multiplicative factor | supplies a *ceiling* for the reducible-model-error term $\Delta_{\mathcal M}^2$; not a factor but an upper bound on one term |
+| `#def-model-sufficiency` | (not directly used) | $S(M_t) \lt 1$ corresponds to positive $\Delta_{\mathcal M}^2$; $S(M_t) = 1$ drives the model-class term to zero |
+| `#der-loop-interventional-access` | supplied $g(\pi)$ implicitly (policy chooses which disturbance the agent sees) | supplies the mechanism whereby $\Delta_\pi^2$ exists at all — the policy couples action to next observation |
+| `#scope-ciy-observational-proxy` | (not directly used) | the regime structure (A/B/C) governs whether the cross terms between $\Delta_{\mathcal M}^2$ and $\Delta_\pi^2$ can be estimated |
+| `#def-adaptive-tempo` / `#emp-update-gain` | (not directly used in $\rho$ decomposition) | these are the *other side* of the persistence inequality; they determine $\alpha$, not $\rho$. The factorization error is *only* in $\rho$; the $\alpha$ factorization (§3.1 of parent spike) is fine |
+| `#form-information-bottleneck` | (not directly used) | (R-KL) is the rate-distortion specialization of the IB objective where $\beta$-varying picks out different points on the Pareto curve between $\rho^2_\text{irreducible}$ and $\Delta^2_{\mathcal M}$ |
 
 Additionally: Imai et al. 2010 causal mediation analysis is the right framework for quantifying the cross terms in (R-V). The parent spike's §5 lists four confounding channels; those channels are *precisely* the sources of the cross terms.
 
@@ -493,11 +493,11 @@ The parent spike should be revised along the following lines:
 4. **Downgrade the overall tier.** The coarse form remains *exact* for Model D linear; the fine form with (R-V) is *conditional* (on the independence-of-sources Pythagorean conditions holding approximately, which is a sub-scope-$\alpha$ assumption) and in the full-generality case is *heuristic / first-order-approximation*.
 5. **The confounding discussion in §5 of the parent spike should be preserved but reframed.** The four confounding channels now manifest as cross terms in (R-V), not as coupling between independent multiplicative factors. This is *more rigorous*, not less — the cross terms have explicit mediation-analysis interpretation (Imai et al. 2010).
 
-### 13.2 Impact on the `#discussion-identifiability-floor` claim
+### 13.2 Impact on the `#disc-identifiability-floor` claim
 
 The parent spike's §5.3 claims the decomposition is Instance 3 of the identifiability-floor pattern. This claim *survives* the reframe, but with a slightly different content: under Regime C (observational, fixed coupling), the full (R-V) decomposition with its cross terms is not identifiable; under Regime A (rotation / natural experiments) the decomposition *with cross terms treated as a third identifiable quantity* (mediation analysis) becomes identifiable. The Instance 3 status is preserved.
 
-### 13.3 Impact on `#discussion-separability-pattern` ladder
+### 13.3 Impact on `#disc-separability-pattern` ladder
 
 The seventh ladder (internal-external attribution) stands. The "separable core" is the Regime A case under the coarse decomposition; the "structured repair" is (R-V) under functional-form assumptions (the cross terms) + Regime B; the "general open" is (R-V) under Regime C with unrestricted cross terms. The pattern positioning is actually *strengthened* by the reframe, because the structured-repair ring now has a concrete technical content (mediation analysis on the cross terms) rather than "functional-form assumptions on $f, g, h, Q$" as abstract placeholders.
 
@@ -527,8 +527,8 @@ The seventh ladder (internal-external attribution) stands. The "separable core" 
 - Downgrade the fine decomposition from *robust-qualitative* to *conditional* (under first-order approximation) or *heuristic* (in general).
 - Preserve the coarse decomposition $\mathcal V = \log\lVert\delta_\text{crit}\rVert - \log\rho + \log\alpha$ at *exact* tier — this is unaffected.
 - Reframe the confounding analysis in §5 of the parent spike as *cross terms in a variance decomposition* rather than *coupling between independent multiplicative factors*. This is a technical upgrade: mediation analysis (Imai et al. 2010) gives concrete quantitative content to cross terms; "coupling between multiplicative factors" was always hand-wavy.
-- Keep `#discussion-identifiability-floor` Instance 3 status. Under Regime C, the cross-terms are not separately identifiable; under Regime A, rotation-style experiments resolve them.
-- Keep `#discussion-separability-pattern` seventh-ladder status. The separable core + structured repair + general open frame survives.
+- Keep `#disc-identifiability-floor` Instance 3 status. Under Regime C, the cross-terms are not separately identifiable; under Regime A, rotation-style experiments resolve them.
+- Keep `#disc-separability-pattern` seventh-ladder status. The separable core + structured repair + general open frame survives.
 
 **Recommendation for promotion of the parent spike:** With the reframe, the parent spike can be promoted to `#internal-external-decomposition` (new appendix segment) at *conditional* tier for the fine decomposition and *exact* for the coarse decomposition. Without the reframe, the (R-F) weakest link forces the fine decomposition to *heuristic*, which erodes the value of the fine split.
 
@@ -540,9 +540,9 @@ The seventh ladder (internal-external attribution) stands. The "separable core" 
 
 3. **Is there a non-trivial factorization in rate under any AAD sub-scope?** The three structured cases and the Cauchy-FE argument suggest no, but I have not checked heavy-tailed, discrete-time, or non-stationary cases exhaustively. A negative result (proven impossibility of multiplicative factorization under stationarity + Markov + exponential-family) would close this question definitively.
 
-4. **Does the (R-V) cross-term structure compose under agent composition (Section III)?** The parent spike's §12.5 notes composition as out-of-scope. (R-V) composes additively in variance, so the cross-term composition question is whether the inter-agent cross terms are cleanly bounded. This bears on the `#composition-closure` machinery.
+4. **Does the (R-V) cross-term structure compose under agent composition (Section III)?** The parent spike's §12.5 notes composition as out-of-scope. (R-V) composes additively in variance, so the cross-term composition question is whether the inter-agent cross terms are cleanly bounded. This bears on the `#form-composition-closure` machinery.
 
-5. **TST-specific: is the policy-benignity / model-class-expressiveness entanglement visible in TST metrics?** The parent spike's §8.2 lists per-component exactness. The reframe says $f$ and $g$ are entangled at source; TST coupling metrics (`#system-coupling`) may already be catching this entanglement rather than separating it. Worth a specific TST-specialization note.
+5. **TST-specific: is the policy-benignity / model-class-expressiveness entanglement visible in TST metrics?** The parent spike's §8.2 lists per-component exactness. The reframe says $f$ and $g$ are entangled at source; TST coupling metrics (`#def-system-coupling`) may already be catching this entanglement rather than separating it. Worth a specific TST-specialization note.
 
 ## 16. Summary
 
@@ -551,7 +551,7 @@ The seventh ladder (internal-external attribution) stands. The "separable core" 
 - **Outcome.** (C) Obstruction with honest reframe. (R-F) is a modeling choice, not derivable; worse, it misrepresents the natural structure, which is variance-additive (R-V) or KL-additive (R-KL) with generic cross terms.
 - **Four specific findings.** (1) $\rho$ is agent-conditional, not environmental. (2) Variance-additivity is the native structure. (3) $f$ and $g$ are not independent — they entangle at source. (4) No AAD-internal additivity axiom motivates $\log\rho$ decomposition.
 - **Honest reframe.** (R-V): $\rho^2 = \rho^2_\text{irr} + \Delta_{\mathcal M}^2 + \Delta_\pi^2 + \text{cross}$, variance-additive with explicit cross terms. (R-2T): agent-controllable vs environment-irreducible two-term split if the fine decomposition is not essential. (R-KL): information-geometric Pythagorean decomposition, strongest under sub-scope $\alpha$.
-- **Impact on parent spike.** Coarse decomposition survives at *exact*; fine decomposition is *conditional* under (R-V) first-order approximation or *heuristic* in general. `#discussion-identifiability-floor` Instance 3 status survives; `#discussion-separability-pattern` seventh-ladder status survives. `#additive-coordinate-forcing` is *not* a primary instance; the logarithmic coordinate here is *matched rather than forced*, like the Lyapunov and IB adjacent-family members.
+- **Impact on parent spike.** Coarse decomposition survives at *exact*; fine decomposition is *conditional* under (R-V) first-order approximation or *heuristic* in general. `#disc-identifiability-floor` Instance 3 status survives; `#disc-separability-pattern` seventh-ladder status survives. `#additive-coordinate-forcing` is *not* a primary instance; the logarithmic coordinate here is *matched rather than forced*, like the Lyapunov and IB adjacent-family members.
 - **Small-$\Delta$ regime.** (R-F) is approximately correct as a first-order Taylor expansion around near-optimal model + near-benign policy. This is an honest special case, not a derivation.
 - **Recommendation.** The parent spike should promote with the (R-V) reframe: retain the coarse decomposition at exact tier; express the fine decomposition with explicit cross terms; downgrade the fine tier from *robust-qualitative* to *conditional* (with small-$\Delta$ scope) or *heuristic* (in general). This is still a substantial contribution — the coarse decomposition, the regime structure, the identifiability-floor instance, and the separability-pattern ladder all stand.
 

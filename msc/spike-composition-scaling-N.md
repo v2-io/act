@@ -4,15 +4,15 @@
 
 **Date**: 2026-04-22
 
-**Motivation.** #composition-closure Working Notes log "$N$-agent scaling of $\varepsilon^\ast$" as an open question (is it polynomial or exponential in team size?), and `TODO.md` flags this as "critical for applying the theory to large teams." For $N = 2$, there is one fully worked case (`msc/spike-composition-correlated-kalman.md`) and a two-agent sketch of the bridge lemma (`msc/spike-composition-bridge-2agent.md`, absorbed). For general $N$, there is nothing but the weakest-link bound $\alpha_c \geq \min_i(\alpha_i - \Delta\mathcal T_i^{\text{cost}})$ from #team-persistence. The conjectural folklore is that coupling *structure* dominates: sparse/tree-like coupling should allow efficient dimensionality reduction, fully-connected coupling should not, and real teams live somewhere between. This spike lays out the scaffolding so a future working pass can attack the question without re-deriving the frame.
+**Motivation.** #form-composition-closure Working Notes log "$N$-agent scaling of $\varepsilon^\ast$" as an open question (is it polynomial or exponential in team size?), and `TODO.md` flags this as "critical for applying the theory to large teams." For $N = 2$, there is one fully worked case (`msc/spike-composition-correlated-kalman.md`) and a two-agent sketch of the bridge lemma (`msc/spike-composition-bridge-2agent.md`, absorbed). For general $N$, there is nothing but the weakest-link bound $\alpha_c \geq \min_i(\alpha_i - \Delta\mathcal T_i^{\text{cost}})$ from #der-team-persistence. The conjectural folklore is that coupling *structure* dominates: sparse/tree-like coupling should allow efficient dimensionality reduction, fully-connected coupling should not, and real teams live somewhere between. This spike lays out the scaffolding so a future working pass can attack the question without re-deriving the frame.
 
-**Depends on**: #composition-closure, #scope-composite-agent, #sector-persistence-template, #derived-tempo-composition, #team-persistence, #definition-unity-dimensions, #unity-closure-mapping, #compression-operations, `msc/spike-composition-correlated-kalman.md`, `msc/spike-agent-composition.md`, `msc/speculation-soc-composition.md`, `msc/spike-unity-closure-mapping.md`, `msc/spike-mori-zwanzig-composition.md`.
+**Depends on**: #form-composition-closure, #scope-composite-agent, #result-sector-persistence-template, #der-tempo-composition, #der-team-persistence, #def-unity-dimensions, #result-unity-closure-mapping, #disc-compression-operations, `msc/spike-composition-correlated-kalman.md`, `msc/spike-agent-composition.md`, `msc/speculation-soc-composition.md`, `msc/spike-unity-closure-mapping.md`, `msc/spike-mori-zwanzig-composition.md`.
 
 ---
 
 ## 1. The Question, Stated Precisely
 
-The formal object is $\varepsilon^\ast(N)$: the minimal achievable closure defect ( #composition-closure) for a composite of $N$ sub-agents, as defined by
+The formal object is $\varepsilon^\ast(N)$: the minimal achievable closure defect ( #form-composition-closure) for a composite of $N$ sub-agents, as defined by
 
 $$\varepsilon^\ast = \inf_{\Lambda \in \mathcal P_{\text{adm}},\, (\pi_c, E_c, f_c) \in \mathcal M_{\text{adm}}} \big\lVert (\varepsilon_x, \varepsilon_a, \varepsilon_o) \big\rVert.$$
 
@@ -24,7 +24,7 @@ $$\varepsilon^\ast = \inf_{\Lambda \in \mathcal P_{\text{adm}},\, (\pi_c, E_c, f
 
 3. **Worst case over admissible couplings.** $\sup_{\mathcal G_N} \varepsilon^\ast(N)$ subject to some structural budget (bounded max degree, bounded pairwise coupling strength, etc.). This is the pessimism bound relevant for robustness claims ("how bad can it get?").
 
-4. **Best achievable projection class as $N$ grows.** Fix the sub-agents and coupling, but allow $\mathcal P_{\text{adm}}$ to grow in expressive power with $N$ (e.g., macro-dimension $\dim \mathcal X_c = k(N)$ chosen adaptively). Ask for the Pareto frontier $\varepsilon^\ast(N, k)$. This is the rate-distortion reading connecting naturally to #unity-closure-mapping.
+4. **Best achievable projection class as $N$ grows.** Fix the sub-agents and coupling, but allow $\mathcal P_{\text{adm}}$ to grow in expressive power with $N$ (e.g., macro-dimension $\dim \mathcal X_c = k(N)$ chosen adaptively). Ask for the Pareto frontier $\varepsilon^\ast(N, k)$. This is the rate-distortion reading connecting naturally to #result-unity-closure-mapping.
 
 Reading 1 is the easiest to attack; reading 4 is the most honest, because (P3) dimensionality-reduction is meaningful only relative to $\dim \mathcal X_{\text{micro}}$, which itself grows with $N$. Subsequent sections use reading 1 unless noted.
 
@@ -32,9 +32,9 @@ Reading 1 is the easiest to attack; reading 4 is the most honest, because (P3) d
 
 ## 2. Why It Matters (Load-Bearing Downstream)
 
-- **#composition-closure Working Notes** explicitly logs "$N$-agent scaling of $\varepsilon^\ast$" as open. The bridge lemma's trajectory bound $\varepsilon^\ast \nu_c / \alpha_c$ becomes unusable if $\varepsilon^\ast$ grows exponentially with $N$.
-- **#derived-tempo-composition** derives Brooks's Law as an instance of the sector-persistence template: adding an agent increases $\sum_i \mathcal T_i$ but may increase $\varepsilon^\ast \nu_c$ faster. Whether this happens *in practice* depends on how $\varepsilon^\ast$ actually scales with $N$ under typical couplings.
-- **#team-persistence** supplies $\alpha_c \geq \min_i(\alpha_i - \Delta\mathcal T_i^{\text{cost}})$ (weakest-link). This is an $\alpha_c$ bound, not a $\varepsilon^\ast$ bound, and the two interact in the bridge lemma in opposite directions. Clarifying their joint scaling with $N$ is prerequisite to any composite-persistence claim for large teams.
+- **#form-composition-closure Working Notes** explicitly logs "$N$-agent scaling of $\varepsilon^\ast$" as open. The bridge lemma's trajectory bound $\varepsilon^\ast \nu_c / \alpha_c$ becomes unusable if $\varepsilon^\ast$ grows exponentially with $N$.
+- **#der-tempo-composition** derives Brooks's Law as an instance of the sector-persistence template: adding an agent increases $\sum_i \mathcal T_i$ but may increase $\varepsilon^\ast \nu_c$ faster. Whether this happens *in practice* depends on how $\varepsilon^\ast$ actually scales with $N$ under typical couplings.
+- **#der-team-persistence** supplies $\alpha_c \geq \min_i(\alpha_i - \Delta\mathcal T_i^{\text{cost}})$ (weakest-link). This is an $\alpha_c$ bound, not a $\varepsilon^\ast$ bound, and the two interact in the bridge lemma in opposite directions. Clarifying their joint scaling with $N$ is prerequisite to any composite-persistence claim for large teams.
 - **TODO.md ("Composition scaling with $N$")** names this as critical for applying the theory to large teams; it is currently listed without an associated spike.
 
 ## 3. What's Already Known (Honestly, Very Little)
@@ -53,15 +53,15 @@ For two Kalman filters with heterogeneous gains $K_1^\ast \neq K_2^\ast$, projec
 
 $$\varepsilon_x^2 = (\Delta K/2)^2 \big[S_- - C_{+-}^2/S_+\big].$$
 
-Two independent drivers of $\varepsilon_x$: sub-agent unity (process correlation, $U_M$) and update-rule heterogeneity ($\Delta K = K_1^\ast - K_2^\ast$). This is the two-axis structure flagged in #unity-closure-mapping and as a gap in #definition-unity-dimensions. For $N$-scaling purposes, the pertinent question is whether either axis has a natural $N$-generalization — e.g., "aggregate heterogeneity" $\sum_{i \lt j} \lvert K_i - K_j \rvert^2$ — and whether $\varepsilon_x^2$ in a $k$-dimensional projection grows linearly, polynomially, or worse in those aggregates.
+Two independent drivers of $\varepsilon_x$: sub-agent unity (process correlation, $U_M$) and update-rule heterogeneity ($\Delta K = K_1^\ast - K_2^\ast$). This is the two-axis structure flagged in #result-unity-closure-mapping and as a gap in #def-unity-dimensions. For $N$-scaling purposes, the pertinent question is whether either axis has a natural $N$-generalization — e.g., "aggregate heterogeneity" $\sum_{i \lt j} \lvert K_i - K_j \rvert^2$ — and whether $\varepsilon_x^2$ in a $k$-dimensional projection grows linearly, polynomially, or worse in those aggregates.
 
-### 3.3 Weakest-link bound on $\alpha_c$ ( #team-persistence, #composition-closure Discussion)
+### 3.3 Weakest-link bound on $\alpha_c$ ( #der-team-persistence, #form-composition-closure Discussion)
 
 $$\alpha_c \geq \min_i(\alpha_i - \Delta\mathcal T_i^{\text{cost}}), \qquad R_c \leq \min_i R_i.$$
 
 This bounds the *correction rate* at the composite level, not the closure defect itself. As $N$ grows, the minimum over $i$ can only decrease (the weakest link gets weaker or stays the same). Combined with the bridge lemma's $\varepsilon^\ast \nu_c / \alpha_c$ ultimate-bound form, the implication is that the *trajectory error* bound grows at least $\propto 1/\alpha_c$ as the weakest sub-agent degrades — but this is driven by $\alpha_c$ deterioration, not by $\varepsilon^\ast$ itself.
 
-### 3.4 Coordination-overhead tempo lower bound ( #derived-tempo-composition)
+### 3.4 Coordination-overhead tempo lower bound ( #der-tempo-composition)
 
 $$C_{\text{coord}} \geq \varepsilon^\ast \nu_c / \lVert \delta_{\text{critical}}\rVert.$$
 
@@ -97,13 +97,13 @@ Each pair $(i, j)$ interacts through a coupling of bounded strength. Motivates: 
 
 *Intuition.* Number of pairwise couplings is $O(N^2)$, number of triangles $O(N^3)$, etc. Every sub-agent's state enters every other's update (directly or with small lag). The projection must either (i) preserve enough pairwise state to capture all couplings — forcing $\dim \mathcal X_c \geq O(N^2)$ and violating (P3) in any useful sense — or (ii) compress pairwise coupling into a mean-field summary statistic, accepting defect. Mean-field compression in interacting-particle systems incurs defect $\sim 1/\sqrt N$ when the system is close to a Gaussian fluctuation regime (law-of-large-numbers plus central-limit scaling), but $\sim O(1)$ away from it. So the intuition is: fully-connected $\varepsilon^\ast(N)$ might be bounded independently of $N$ in a mean-field regime (favorable) or grow like $O(1)$ forever (unfavorable), with a phase transition somewhere.
 
-*Why this intuition might be wrong.* The interacting-particle-system analogy relies on exchangeability (de Finetti) or mean-field decoupling (propagation of chaos). AAD sub-agents are not exchangeable in general — heterogeneity of $K_i$ is exactly the driver identified in #unity-closure-mapping. Without exchangeability, mean-field intuitions may not apply.
+*Why this intuition might be wrong.* The interacting-particle-system analogy relies on exchangeability (de Finetti) or mean-field decoupling (propagation of chaos). AAD sub-agents are not exchangeable in general — heterogeneity of $K_i$ is exactly the driver identified in #result-unity-closure-mapping. Without exchangeability, mean-field intuitions may not apply.
 
 ### 4.3 Sparse / $k$-regular coupling
 
 Each agent couples to $k$ neighbors, $k$ fixed as $N$ grows. Motivates: distributed systems with bounded fan-out, modular teams with limited interfaces, lattice-organized processes.
 
-*Intuition.* $k$-regular gives $O(N)$ edges rather than $O(N^2)$; local-neighborhood projections should give $\varepsilon^\ast(N)$ bounded or growing sublinearly if the coupling is local and contracting. Close in spirit to Mori–Zwanzig projection on lattice systems — the zero-lag kernel bound ( #composition-closure Working Notes, Mori-Zwanzig partial note) is the candidate quantitative estimate.
+*Intuition.* $k$-regular gives $O(N)$ edges rather than $O(N^2)$; local-neighborhood projections should give $\varepsilon^\ast(N)$ bounded or growing sublinearly if the coupling is local and contracting. Close in spirit to Mori–Zwanzig projection on lattice systems — the zero-lag kernel bound ( #form-composition-closure Working Notes, Mori-Zwanzig partial note) is the candidate quantitative estimate.
 
 *Why this intuition might be wrong.* Long-range correlations can propagate through short-range couplings (critical phenomena, percolation). Even with $k$ fixed, correlation lengths can diverge and the mean-field approximation fails near criticality — the SOC speculation (`msc/speculation-soc-composition.md`) is exactly the claim that AAD composites may sit near such a critical point.
 
@@ -133,13 +133,13 @@ $N$-scaling does not sit in isolation. Three other axes of the closure-defect fo
 
 ### 5.1 Macro-timescale ratio $K_c$
 
-#composition-closure's macro-step formulation introduces the timescale ratio $K_c \geq 1$: the number of micro-timesteps per macro-step. When $K_c \gg 1$ the composite lives at a strictly slower timescale and only macro-boundary states enter $\varepsilon_x$. For large-$N$ composites this is plausibly the natural regime ( #temporal-nesting asserts that composites typically update more slowly than their constituents). If $K_c$ grows with $N$ (e.g., $K_c \sim N^\beta$ for $\beta \gt 0$), the closure-defect is measured against more averaged observation windows, which may reduce $\varepsilon^\ast$ independent of any structural coupling effect.
+#form-composition-closure's macro-step formulation introduces the timescale ratio $K_c \geq 1$: the number of micro-timesteps per macro-step. When $K_c \gg 1$ the composite lives at a strictly slower timescale and only macro-boundary states enter $\varepsilon_x$. For large-$N$ composites this is plausibly the natural regime ( #der-temporal-nesting asserts that composites typically update more slowly than their constituents). If $K_c$ grows with $N$ (e.g., $K_c \sim N^\beta$ for $\beta \gt 0$), the closure-defect is measured against more averaged observation windows, which may reduce $\varepsilon^\ast$ independent of any structural coupling effect.
 
 *Implication.* Any scaling claim $\varepsilon^\ast(N) \sim f(N)$ must specify how $K_c$ scales. A fair comparison probably requires fixing $K_c$ (e.g., $K_c = 1$ or $K_c$ independent of $N$) and isolating the coupling effect, or else jointly characterizing $\varepsilon^\ast(N, K_c)$ as a two-parameter surface.
 
 ### 5.2 Unity dimensions × update heterogeneity
 
-#unity-closure-mapping established that $\varepsilon^\ast$ depends on *both* sub-agent unity (captured by $U_M, U_O, U_\Sigma, U_{\text{obs}}$) *and* update-rule heterogeneity (not captured by any unity dimension as currently defined). For large $N$, each of these becomes an aggregate:
+#result-unity-closure-mapping established that $\varepsilon^\ast$ depends on *both* sub-agent unity (captured by $U_M, U_O, U_\Sigma, U_{\text{obs}}$) *and* update-rule heterogeneity (not captured by any unity dimension as currently defined). For large $N$, each of these becomes an aggregate:
 
 - Aggregate unity: e.g., pairwise average $\bar U_M = \frac{2}{N(N-1)}\sum_{i \lt j} U_M^{(i,j)}$ or the multi-information fraction as originally defined.
 - Aggregate heterogeneity: e.g., variance of $K_i$ across sub-agents, or a suitable operator-norm distance across $f_{M,i}$.
@@ -184,13 +184,13 @@ Effort: moderate-to-high. Payoff: attacks the purposeful-substate case directly.
 
 ### 6.4 Mori–Zwanzig $N$-agent zero-lag bound
 
-Apply the zero-lag kernel bound $\varepsilon^\ast \geq \lVert Q_\Lambda U P_\Lambda \rVert_{\text{op}}$ (from the MZ partial note in #composition-closure Working Notes) to structured $N$-agent propagators — tridiagonal (chains), dense-symmetric (complete graphs), block-diagonal (hierarchies). This gives *lower* bounds on $\varepsilon^\ast(N)$ in each structural case, complementing the *upper* bounds from explicit projections.
+Apply the zero-lag kernel bound $\varepsilon^\ast \geq \lVert Q_\Lambda U P_\Lambda \rVert_{\text{op}}$ (from the MZ partial note in #form-composition-closure Working Notes) to structured $N$-agent propagators — tridiagonal (chains), dense-symmetric (complete graphs), block-diagonal (hierarchies). This gives *lower* bounds on $\varepsilon^\ast(N)$ in each structural case, complementing the *upper* bounds from explicit projections.
 
 Effort: moderate if restricted to linear-propagator cases; high in general. Payoff: concrete quantitative claims about which coupling structures can achieve $\varepsilon^\ast \to 0$ and which cannot, derived from standard spectral machinery rather than constructed per-case.
 
 ### 6.5 Rate-distortion $\varepsilon^\ast(N, k)$ surface
 
-Using the IB framing ( #compression-operations), construct the $\varepsilon^\ast(N, k)$ rate-distortion surface for at least one tractable $N$-agent family (linear-Gaussian with specified coupling). Extract scaling of the minimum $k$ at fixed $\varepsilon^\ast = \varepsilon_{\text{max}}$.
+Using the IB framing ( #disc-compression-operations), construct the $\varepsilon^\ast(N, k)$ rate-distortion surface for at least one tractable $N$-agent family (linear-Gaussian with specified coupling). Extract scaling of the minimum $k$ at fixed $\varepsilon^\ast = \varepsilon_{\text{max}}$.
 
 Effort: high. Payoff: the cleanest framing of the question, and the one most likely to produce a universal answer of the form "$\varepsilon^\ast(N, k) = g(N/k, \bar U, \bar \Delta)$ for large $N$."
 
@@ -198,13 +198,13 @@ Effort: high. Payoff: the cleanest framing of the question, and the one most lik
 
 - **SOC / RG speculation** ( `msc/speculation-soc-composition.md`). Scaling of $\varepsilon^\ast$ with $N$ is *exactly* the question the RG inverse-argument addresses: requiring scale-invariance of agent-level distributions constrains which composition operations are admissible. If the inverse argument goes through, it would characterize $\varepsilon^\ast(N)$ as the fixed-point property rather than as a separately-derived scaling law. This is speculation-grade; it is not available as machinery yet.
 
-- **Mori–Zwanzig connection** ( #composition-closure Working Notes, `msc/spike-mori-zwanzig-composition.md`). The zero-lag kernel bound gives a lower bound on $\varepsilon^\ast$ in terms of an operator-norm quantity that depends explicitly on the micro-propagator's spectrum. For structured $N$-agent propagators, this spectrum has known $N$-scaling (tridiagonal: $O(1/N^2)$ gap; dense: $O(1)$; hierarchical: level-dependent). The MZ bound is the most direct link between $N$-structure and $\varepsilon^\ast$ currently available — but it closes only on the zero-lag piece, not the full kernel, and relies on stationarity (which fails for Beta-Bernoulli purposeful agents).
+- **Mori–Zwanzig connection** ( #form-composition-closure Working Notes, `msc/spike-mori-zwanzig-composition.md`). The zero-lag kernel bound gives a lower bound on $\varepsilon^\ast$ in terms of an operator-norm quantity that depends explicitly on the micro-propagator's spectrum. For structured $N$-agent propagators, this spectrum has known $N$-scaling (tridiagonal: $O(1/N^2)$ gap; dense: $O(1)$; hierarchical: level-dependent). The MZ bound is the most direct link between $N$-structure and $\varepsilon^\ast$ currently available — but it closes only on the zero-lag piece, not the full kernel, and relies on stationarity (which fails for Beta-Bernoulli purposeful agents).
 
-- **Tempo-composition coordination costs** ( #derived-tempo-composition, Working Notes). The additive $C_{\text{negotiation}}, C_{\text{sync}}, C_{\text{conflict}}$ terms are uncharacterized in general. Closing them into specific functions of $\mathcal G_N$ would give the tempo-side analog of the $\varepsilon^\ast$ scaling — and via the tempo $\to$ closure-defect conversion $C_{\text{coord}} \geq \varepsilon^\ast \nu_c / \lVert\delta_{\text{critical}}\rVert$, an independent handle on $\varepsilon^\ast(N)$.
+- **Tempo-composition coordination costs** ( #der-tempo-composition, Working Notes). The additive $C_{\text{negotiation}}, C_{\text{sync}}, C_{\text{conflict}}$ terms are uncharacterized in general. Closing them into specific functions of $\mathcal G_N$ would give the tempo-side analog of the $\varepsilon^\ast$ scaling — and via the tempo $\to$ closure-defect conversion $C_{\text{coord}} \geq \varepsilon^\ast \nu_c / \lVert\delta_{\text{critical}}\rVert$, an independent handle on $\varepsilon^\ast(N)$.
 
-- **Symbiogenic composition** ( `msc/spike-symbiogenic-composition.md`). Hierarchical absorption ("symbiogenesis") is one of three composition mechanisms distinguished in the spike and now promoted to #symbiogenic-composition. It reframes teleological unity $U_O$ as a *scope* condition rather than a quality metric. The $N$-scaling question may split differently depending on which mechanism is dominant: peer coupling may scale differently from hierarchical absorption, and mixed mechanisms (symbiogenesis *embedded in* peer coupling) may be typical.
+- **Symbiogenic composition** ( `msc/spike-symbiogenic-composition.md`). Hierarchical absorption ("symbiogenesis") is one of three composition mechanisms distinguished in the spike and now promoted to #hyp-symbiogenic-composition. It reframes teleological unity $U_O$ as a *scope* condition rather than a quality metric. The $N$-scaling question may split differently depending on which mechanism is dominant: peer coupling may scale differently from hierarchical absorption, and mixed mechanisms (symbiogenesis *embedded in* peer coupling) may be typical.
 
-- **Team-persistence topological structure** ( #team-persistence Working Notes, item 1). The spike notes that topology-dependent analysis (peer networks, ensembles, hierarchies) was deferred from TFT Appendix F.4. That deferred work is adjacent to this one — topology enters both $\alpha_c$ (weakest-link or improved by cooperation) and $\varepsilon^\ast$ (coupling structure), and a joint treatment could share machinery.
+- **Team-persistence topological structure** ( #der-team-persistence Working Notes, item 1). The spike notes that topology-dependent analysis (peer networks, ensembles, hierarchies) was deferred from TFT Appendix F.4. That deferred work is adjacent to this one — topology enters both $\alpha_c$ (weakest-link or improved by cooperation) and $\varepsilon^\ast$ (coupling structure), and a joint treatment could share machinery.
 
 ## 8. Where This Sits in the "Inevitability Core" Classification
 
@@ -225,7 +225,7 @@ Explicitly:
 
 - No derivation of $\varepsilon^\ast(N)$ for any $N \geq 3$.
 - No decision among the four readings in §1; the choice is deferred to whoever picks up the resolution work.
-- No formalization of the aggregate unity or heterogeneity measures; current #definition-unity-dimensions does not cover this, and §5.2 only flags the need.
+- No formalization of the aggregate unity or heterogeneity measures; current #def-unity-dimensions does not cover this, and §5.2 only flags the need.
 - No bounds on the $K_c$-dependence; §5.1 only notes it matters.
 - No attempt to derive the coordination-cost decomposition for general $\mathcal G_N$; §7 notes it would be one independent handle.
 - No use of the RG / SOC machinery; it remains speculation.
@@ -235,15 +235,15 @@ Any one of these is a multi-session task. This spike's purpose is to ensure that
 ## 10. Working Notes and Open Questions
 
 - **Reading selection is the first substantive decision.** Reading 1 (pointwise) is easiest; reading 4 (rate-distortion surface) is most honest. Reading 2 (expectation over random coupling) is most useful for applications but requires specifying an ensemble — and the ensemble choice is itself a research question.
-- **Exchangeability assumption.** Much of the fully-connected intuition in §4.2 relies on exchangeable or nearly-exchangeable sub-agents. Real teams are not exchangeable (heterogeneous skills, heterogeneous update rules). The #unity-closure-mapping two-axis structure is precisely the non-exchangeable case; how it generalizes to $N \gg 2$ is open.
+- **Exchangeability assumption.** Much of the fully-connected intuition in §4.2 relies on exchangeable or nearly-exchangeable sub-agents. Real teams are not exchangeable (heterogeneous skills, heterogeneous update rules). The #result-unity-closure-mapping two-axis structure is precisely the non-exchangeable case; how it generalizes to $N \gg 2$ is open.
 - **Purposeful-substate scaling is probably the critical case.** Part 2 of `spike-composition-correlated-kalman.md` already showed that $\varepsilon^\ast \gt 0$ arises generically in purposeful agents via auxiliary-state divergence. If this persists (likely) and aggregates across $N$ (possibly), then purposeful large-team composites may have $\varepsilon^\ast(N)$ that grows in $N$ even under benign structural coupling. This would make the Section III composite-persistence claims load-bearing on an *unfavorable* scaling, which is important to know.
 - **Note on terminology.** "Scaling with $N$" invites the language of exponents and asymptotic notation; whether the theory produces exponents or only qualitative "grows / stays bounded" depends on how many of the tractable special cases can be worked in closed form. Do not commit to exponents before the machinery is in place to compute them.
-- **Question for the outline.** Should there eventually be a dedicated segment (`#composition-scaling-N` or similar) or does this scaling live as Working-Notes content within #composition-closure? The volume of structural content here (four coupling families, four composing axes, five candidate first moves) argues for its own segment; the lack of derived content argues for keeping it as Working Notes until something is derivable. The call is premature until a resolution spike lands at least one tractable case.
+- **Question for the outline.** Should there eventually be a dedicated segment (`#composition-scaling-N` or similar) or does this scaling live as Working-Notes content within #form-composition-closure? The volume of structural content here (four coupling families, four composing axes, five candidate first moves) argues for its own segment; the lack of derived content argues for keeping it as Working Notes until something is derivable. The call is premature until a resolution spike lands at least one tractable case.
 
 ## 11. Flagged Elsewhere-Repairs (Do Not Edit Here)
 
 Items this spike surfaced that belong in other files, recorded here per the guardrails in the spike brief:
 
-- #definition-unity-dimensions currently does not define aggregate unity for $N \gt 2$; §5.2 notes this as a gap. Resolution (if any) belongs in the #definition-unity-dimensions Working Notes, not here.
-- #derived-tempo-composition's Working Notes acknowledge that $\varepsilon^\ast$ scaling with $N$ is open (§last bullet of that segment). The present spike is the formalization of what that note pointed at; a cross-reference could be added there when a resolution lands.
+- #def-unity-dimensions currently does not define aggregate unity for $N \gt 2$; §5.2 notes this as a gap. Resolution (if any) belongs in the #def-unity-dimensions Working Notes, not here.
+- #der-tempo-composition's Working Notes acknowledge that $\varepsilon^\ast$ scaling with $N$ is open (§last bullet of that segment). The present spike is the formalization of what that note pointed at; a cross-reference could be added there when a resolution lands.
 - `TODO.md`'s "Composition scaling with $N$" entry currently has no spike reference. Once this spike stabilizes, that entry should be updated to point to this file. Per the brief, this spike does not modify `msc/SPIKES.md`; that update is a separate pass.

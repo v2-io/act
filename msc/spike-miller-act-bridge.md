@@ -8,7 +8,7 @@
 
 ## 1. Where AAD is Hand-Wavy (Honest Audit)
 
-### 1.1 Structural Adaptation Necessity (#structural-adaptation-necessity)
+### 1.1 Structural Adaptation Necessity (#result-structural-adaptation-necessity)
 
 **What's solid:** The *diagnostic* — when model class fitness is insufficient, parametric adaptation cannot close the mismatch floor. This is derived (Prop 10.1 from TFT). The symptoms are clear (persistent irreducible mismatch, gain collapse, systematic residuals).
 
@@ -22,7 +22,7 @@ These are *categories*, not mechanisms. No formalism connects the diagnostic ("y
 
 **The gap:** Between detecting the need for structural change and actually executing it, AAD has nothing but hand-waves and domain-specific examples.
 
-### 1.2 Structural Change as Parametric Limit (#structural-change-as-parametric-limit)
+### 1.2 Structural Change as Parametric Limit (#form-structural-change-as-parametric-limit)
 
 **What's solid:** The continuity claim — in a probabilistic DAG, adding/removing edges is a boundary event, not a discontinuity. The six operations are well-ordered by frequency.
 
@@ -30,7 +30,7 @@ These are *categories*, not mechanisms. No formalism connects the diagnostic ("y
 
 **The gap:** How does a system transition from one structural configuration to a radically different one through incremental changes? This is EXACTLY what Miller's extreme transition motif answers.
 
-### 1.3 Strategy Complexity Cost (#strategy-complexity-cost)
+### 1.3 Strategy Complexity Cost (#form-strategy-complexity-cost)
 
 **What's solid:** The depth bound d* (derived for Beta-Bernoulli). The triple depth penalty (combining three independent results).
 
@@ -38,7 +38,7 @@ These are *categories*, not mechanisms. No formalism connects the diagnostic ("y
 
 **The gap:** Miller provides the exact enumeration (Table 12.2) that would give this substance.
 
-### 1.4 Adversarial Destabilization (#adversarial-destabilization)
+### 1.4 Adversarial Destabilization (#der-adversarial-destabilization)
 
 **What's solid:** The destabilization threshold (exact under coupling model). The result that getting inside the opponent's loop has a Lyapunov characterization.
 
@@ -46,7 +46,7 @@ These are *categories*, not mechanisms. No formalism connects the diagnostic ("y
 
 **The gap:** Miller shows what actually happens after destabilization — the system enters a transition period, a new equilibrium emerges through the cascading displacement mechanism, and then consolidates. This is a concrete answer to AAD's open question.
 
-### 1.5 Communication Gain (#communication-gain)
+### 1.5 Communication Gain (#hyp-communication-gain)
 
 **Status:** Hypothesis. The additive denominator is acknowledged as a "structural heuristic, not a strict variance derivation." Trust is a static meta-model parameter.
 
@@ -72,7 +72,7 @@ Miller's five-phase motif (Table 6.1):
 
 3. **Neutral drift**: ν drifts to a nontrivial proportion through stochastic reproduction. Observable behavior unchanged. (= AAD: no AAD analog currently. This is the mechanism AAD lacks — how latent variation accumulates without performance change)
 
-4. **Niche creation + mutant invasion**: ν's structural difference creates a new niche. A mutant μ in the subordinate population exploits this niche. Self-reinforcing feedback: ν's growth enables μ, μ's growth enables ν. (= AAD: this is the effects spiral from #adversarial-destabilization, but *constructive* rather than destructive, and between populations rather than against a target)
+4. **Niche creation + mutant invasion**: ν's structural difference creates a new niche. A mutant μ in the subordinate population exploits this niche. Self-reinforcing feedback: ν's growth enables μ, μ's growth enables ν. (= AAD: this is the effects spiral from #der-adversarial-destabilization, but *constructive* rather than destructive, and between populations rather than against a target)
 
 5. **Consolidation**: Both populations taken over by new mutants. Simplified forms emerge that capture the new behavior more efficiently. (= AAD: structural adaptation completed. The new "model class" is in place.)
 
@@ -205,7 +205,7 @@ Split Section III into statics (composition closure — when is a composite vali
 - Communication as emergent and transitory
 - Computational thresholds for social behavior
 
-Also restructure the adversarial dynamics segments to fit the dynamics framework, since the current #adversarial-destabilization is really about transition dynamics.
+Also restructure the adversarial dynamics segments to fit the dynamics framework, since the current #der-adversarial-destabilization is really about transition dynamics.
 
 Effort: Significant. Value: Addresses the deepest weakness of Section III.
 
@@ -268,7 +268,7 @@ Effort: Significant but bounded. Risk: Moderate — needs to show the FSA strate
 
 **The missing concept: Latent structural diversity** — variation in correction architectures across a population that is invisible to persistence analysis under current conditions but becomes consequential under regime change. This is a *composition-level* property (Section III territory), not a single-agent property.
 
-**The endogenous coupling problem:** In #adversarial-destabilization, γ is a parameter. In Miller's motif, γ *emerges* from population composition. Formalizing the transition motif requires γ(composition) as a dynamical variable — coupling coefficients that are functions of the population state, not exogenous inputs.
+**The endogenous coupling problem:** In #der-adversarial-destabilization, γ is a parameter. In Miller's motif, γ *emerges* from population composition. Formalizing the transition motif requires γ(composition) as a dynamical variable — coupling coefficients that are functions of the population state, not exogenous inputs.
 
 ---
 
@@ -296,12 +296,12 @@ Both sub-spikes converge on the same conclusion: **Miller's contribution to AAD 
    - **Epochal stability**: composite persists, sector condition satisfied, all γ below destabilization thresholds
    - **Latent diversification**: agents join or mutate within the behavioral equivalence class. No observable change in composite dynamics. Latent structural diversity increases.
    - **Niche emergence**: diversity crosses a threshold where the effective γ between some agent pair becomes nonzero or changes sign. New coupling pathways appear.
-   - **Cascading restructuring**: positive feedback — new coupling enables agents that couldn't previously thrive; their success further changes coupling for others. The effects spiral mechanism from #adversarial-destabilization, potentially running constructively (team-persistence-style) or destructively.
+   - **Cascading restructuring**: positive feedback — new coupling enables agents that couldn't previously thrive; their success further changes coupling for others. The effects spiral mechanism from #der-adversarial-destabilization, potentially running constructively (team-persistence-style) or destructively.
    - **Re-equilibration**: new composite stabilizes with different architecture but persistence condition re-satisfied at updated parameters.
 
-4. **Computational thresholds for social behavior** — Miller's ICE finding as a concrete scope condition: composite dynamics require individual agents with sufficient computation (≥2-state equivalent: ability to condition behavior on interaction history) AND sufficient interaction depth (≥2-round equivalent: enough repeated interaction for conditional strategies to be distinguishable). This would connect to #strategy-complexity-cost's d* bound and give it empirical content.
+4. **Computational thresholds for social behavior** — Miller's ICE finding as a concrete scope condition: composite dynamics require individual agents with sufficient computation (≥2-state equivalent: ability to condition behavior on interaction history) AND sufficient interaction depth (≥2-round equivalent: enough repeated interaction for conditional strategies to be distinguishable). This would connect to #form-strategy-complexity-cost's d* bound and give it empirical content.
 
-5. **Communication as transitional phenomenon** — Miller shows communication is most important during transitions and wanes during stable epochs. This reframes #communication-gain: trust calibration matters most when the composite is restructuring, not during routine operation. Complements the existing segment without replacing it.
+5. **Communication as transitional phenomenon** — Miller shows communication is most important during transitions and wanes during stable epochs. This reframes #hyp-communication-gain: trust calibration matters most when the composite is restructuring, not during routine operation. Complements the existing segment without replacing it.
 
 ### What This Buys AAD
 
@@ -315,5 +315,5 @@ Both sub-spikes converge on the same conclusion: **Miller's contribution to AAD 
 ### What This Does NOT Address
 
 - The FSA ↔ DAG orthogonality means we don't get a clean composition algebra for strategies (product automaton doesn't apply because strategies are DAGs, not policies). The composition closure framework with ε* remains the approach.
-- Within-agent structural adaptation (how a *single agent* restructures its strategy) is still not formalized beyond the labels in #structural-change-as-parametric-limit. Miller's mechanism operates at the population level, not the individual level. For single-agent structural change, a different mechanism is needed — possibly deliberation-driven (#exploit-explore-deliberate) or prompted by the diagnostic in #structural-adaptation-necessity.
+- Within-agent structural adaptation (how a *single agent* restructures its strategy) is still not formalized beyond the labels in #form-structural-change-as-parametric-limit. Miller's mechanism operates at the population level, not the individual level. For single-agent structural change, a different mechanism is needed — possibly deliberation-driven (#disc-exploit-explore-deliberate) or prompted by the diagnostic in #result-structural-adaptation-necessity.
 - Miller's specific game-theoretic setting (binary actions, repeated games, evolutionary dynamics) is narrower than AAD's scope. The *patterns* (epochal dynamics, transition motifs, computational thresholds) generalize plausibly but this needs argument, not assumption.

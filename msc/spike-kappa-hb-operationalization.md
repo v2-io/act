@@ -4,7 +4,7 @@
 
 **Date**: 2026-03-13 (overnight session)
 
-**Depends on**: `spike-kappa-regimes.md` for context; Hafez 2026 for the P/ΔH framework; `src/directed-separation.md` for the current formulation.
+**Depends on**: `spike-kappa-regimes.md` for context; Hafez 2026 for the P/ΔH framework; `src/der-directed-separation.md` for the current formulation.
 
 ---
 

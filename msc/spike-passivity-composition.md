@@ -2,23 +2,23 @@
 spike: passivity-composition
 date: 2026-04-22
 status: exploratory; substantive for α sub-scope; partial for β; honestly limited at adversarial boundaries
-motivates: candidate meta-segment #dissipativity-template OR strengthening of #sector-persistence-template; sub-scope α promotions for PID-in-positive-real-plant
+motivates: candidate meta-segment #dissipativity-template OR strengthening of #result-sector-persistence-template; sub-scope α promotions for PID-in-positive-real-plant
 depends-on:
-  - composition-closure
+  - form-composition-closure
   - scope-composite-agent
-  - sector-persistence-template
-  - sector-condition-derivation
-  - gain-sector-bridge
-  - team-persistence
-  - adversarial-destabilization
+  - result-sector-persistence-template
+  - deriv-sector-condition
+  - der-gain-sector-bridge
+  - der-team-persistence
+  - der-adversarial-destabilization
   - critical-mass-composition (spike)
   - interaction-channel-classification (spike)
-  - directed-separation
+  - der-directed-separation
 ---
 
 # Spike: Passivity / Dissipativity-Based Composition Closure
 
-**Motivation.** Section III composition closure (#composition-closure, #critical-mass-composition) is proved cleanly for *symmetric-matched-Tier-1* pairs (two Kalman agents, or two instances of the same update rule). The weakest-link bound (WL) handles heterogeneous cases conservatively. Gemini's standing finding — that contraction-based composition verifications are all linear-Kalman-class — names a real gap: AAD does not currently have a first-class way to compose one Kalman agent with one PID agent, even though the control-theory literature (Willems 1972 *dissipative dynamical systems*; Khalil 2002 *Nonlinear Systems* ch. 6; van der Schaft 2017 *L2-Gain and Passivity Techniques*) has a well-developed tool that handles exactly this heterogeneity: **passivity / dissipativity with storage functions**.
+**Motivation.** Section III composition closure (#form-composition-closure, #deriv-critical-mass-composition) is proved cleanly for *symmetric-matched-Tier-1* pairs (two Kalman agents, or two instances of the same update rule). The weakest-link bound (WL) handles heterogeneous cases conservatively. Gemini's standing finding — that contraction-based composition verifications are all linear-Kalman-class — names a real gap: AAD does not currently have a first-class way to compose one Kalman agent with one PID agent, even though the control-theory literature (Willems 1972 *dissipative dynamical systems*; Khalil 2002 *Nonlinear Systems* ch. 6; van der Schaft 2017 *L2-Gain and Passivity Techniques*) has a well-developed tool that handles exactly this heterogeneity: **passivity / dissipativity with storage functions**.
 
 The core move is simple and old: if each sub-system dissipates energy against a storage function, and the interconnection pattern is power-preserving (parallel, negative-feedback with compatible port signs, cascade with small-gain), then the sum (or a weighted sum) of the sub-system storage functions is a storage function for the composite — regardless of whether the sub-systems share architecture. The asymmetric information-flow structure of AAD's heterogeneous composites maps onto this: each AAD agent supplies its own storage function; composition preserves dissipativity along the corresponding port structure.
 
@@ -54,7 +54,7 @@ Neither (F1) nor (F2) requires matching architectures, matching time constants, 
 
 ### 1.2 Storage as a generalization of the Lyapunov function
 
-In AAD's current machinery, $V(\delta) = \tfrac{1}{2}\lVert\delta\rVert^2$ is the canonical Lyapunov function; sector-persistence (#sector-persistence-template) is the Lyapunov-based persistence theorem. **The storage function is the same object, generalized.**
+In AAD's current machinery, $V(\delta) = \tfrac{1}{2}\lVert\delta\rVert^2$ is the canonical Lyapunov function; sector-persistence (#result-sector-persistence-template) is the Lyapunov-based persistence theorem. **The storage function is the same object, generalized.**
 
 For an AAD agent with mismatch $\delta$, bounded-disturbance input $w$, and output $y$ (e.g., $y = H\delta$ — what the environment sees of the mismatch):
 
@@ -63,7 +63,7 @@ For an AAD agent with mismatch $\delta$, bounded-disturbance input $w$, and outp
 
 So AAD's sector-condition template is a *special case* of a storage-function / dissipativity argument where the supply rate is specifically quadratic-in-mismatch. Asking whether AAD should generalize to storage functions in general is really asking: *does AAD need non-quadratic storage functions, or non-Euclidean output maps, to reach composites it cannot otherwise reach?*
 
-**This spike's claim, stated up front:** Yes — at least for heterogeneous β-class / α-class composites. The passivity frame reveals that sub-agent heterogeneity composes cleanly under negative-feedback interconnection with *no* requirement that the agents share architecture, so long as each has its own storage function and the port-level supply rates sum consistently. Critical-mass (#critical-mass-composition) obtains a weighted Lyapunov *after* checking that both agents are Tier 1; passivity obtains composite storage *before* checking tier, because heterogeneous storage functions sum regardless of the Lyapunov form at either end.
+**This spike's claim, stated up front:** Yes — at least for heterogeneous β-class / α-class composites. The passivity frame reveals that sub-agent heterogeneity composes cleanly under negative-feedback interconnection with *no* requirement that the agents share architecture, so long as each has its own storage function and the port-level supply rates sum consistently. Critical-mass (#deriv-critical-mass-composition) obtains a weighted Lyapunov *after* checking that both agents are Tier 1; passivity obtains composite storage *before* checking tier, because heterogeneous storage functions sum regardless of the Lyapunov form at either end.
 
 ---
 
@@ -79,13 +79,13 @@ The mismatch $\delta_t = y_t - H\hat x_{t\vert t-1}$ (innovation); state is $(\h
 
 $$S(e_{t+1}) - S(e_t) \;\leq\; -\alpha_K \lVert e_t\rVert_{P^{-1}}^2 + e_t^T (K^\ast)^T H w_t + \text{noise-bounded term}$$
 
-with $\alpha_K = \lambda_{\min}^+(K^\ast H)$ in the $P^{-1}$-weighted inner product — the matrix-Kalman sector constant of #gain-sector-bridge Prop B.3, restricted to the observable subspace.
+with $\alpha_K = \lambda_{\min}^+(K^\ast H)$ in the $P^{-1}$-weighted inner product — the matrix-Kalman sector constant of #der-gain-sector-bridge Prop B.3, restricted to the observable subspace.
 
 The Kalman filter is **output-strictly passive** in the Mahalanobis norm from input $w$ (disturbance) to output $\delta$ (innovation). The storage function is the Mahalanobis-weighted squared error.
 
 **Verification status:** *derived* (direct transcription of the Kalman sector-condition result; Anderson & Moore 1979 *Optimal Filtering* §4 is the standard control-theory reference).
 
-**What the storage function looks like.** Quadratic in state, weighted by the inverse of the steady-state prediction covariance. This matches the Mahalanobis-norm discussion in `#composition-closure` and in `spike-projection-admissibility.md` §4: Kalman filters naturally live in inverse-covariance-weighted norms, which *are* storage functions. The two-Kalman verification in `spike-composition-correlated-kalman.md` is already, mathematically, a passivity-based composition argument — the spike just didn't name it that.
+**What the storage function looks like.** Quadratic in state, weighted by the inverse of the steady-state prediction covariance. This matches the Mahalanobis-norm discussion in `#form-composition-closure` and in `spike-projection-admissibility.md` §4: Kalman filters naturally live in inverse-covariance-weighted norms, which *are* storage functions. The two-Kalman verification in `spike-composition-correlated-kalman.md` is already, mathematically, a passivity-based composition argument — the spike just didn't name it that.
 
 ### 2.2 Exponential-family natural-parameter Bayesian updater
 
@@ -97,7 +97,7 @@ Under the natural-parameter gradient update (exponential-family likelihood is lo
 
 $$\dot S \;=\; -\eta \lVert\nabla_\theta \log p\rVert_{I(\theta)^{-1}}^2 + \text{innovation}\cdot w$$
 
-where $I(\theta)$ is the Fisher information matrix. This is output-strictly passive with rate $\eta \lambda_{\min}(I(\theta))$ — matching the sub-scope α $\alpha = \eta \cdot \lambda_{\min}(\text{Fisher})$ of #gain-sector-bridge.
+where $I(\theta)$ is the Fisher information matrix. This is output-strictly passive with rate $\eta \lambda_{\min}(I(\theta))$ — matching the sub-scope α $\alpha = \eta \cdot \lambda_{\min}(\text{Fisher})$ of #der-gain-sector-bridge.
 
 **Verification status:** *derived* (Amari 2016 *Information Geometry*; Csiszár-Matúš 2003 on Bregman-divergence-as-storage).
 
@@ -111,7 +111,7 @@ Agent minimizes $L(\theta)$ with $L$ μ-strongly-convex; update $\theta_{t+1} = 
 
 $$S(\theta_{t+1}) - S(\theta_t) \;\leq\; -\eta(1 - \tfrac{\eta L}{2}) \lVert\nabla L(\theta_t)\rVert^2$$
 
-with $L$ the smoothness constant; under strong convexity $\lVert\nabla L\rVert^2 \geq 2\mu \cdot S$. So $\dot S \leq -2\eta\mu S + \text{disturbance term}$, which is output-strictly passive with rate $\eta\mu$ — recovering #gain-sector-bridge's $\alpha = \eta\mu$.
+with $L$ the smoothness constant; under strong convexity $\lVert\nabla L\rVert^2 \geq 2\mu \cdot S$. So $\dot S \leq -2\eta\mu S + \text{disturbance term}$, which is output-strictly passive with rate $\eta\mu$ — recovering #der-gain-sector-bridge's $\alpha = \eta\mu$.
 
 **Verification status:** *derived*.
 
@@ -150,7 +150,7 @@ State is symbolic; updates are triggered by condition-matching; no continuous st
 
 **What survives.** Some rule-based controllers are *hybrid dissipative systems* (van der Schaft & Schumacher 2000) — they satisfy a storage-function inequality with impulsive supply at rule-firings. This extends the dissipativity framework but adds technical machinery (hybrid-automaton semantics, reset maps, dwell-time conditions).
 
-**AAD posture.** Rule-based agents stay in sub-scope β under the passivity frame. The passivity promotion that PID-on-positive-real-plant gets does *not* extend to rule-based controllers. This matches the Working Notes in `#sector-condition-derivation`'s sub-scope-β enumeration.
+**AAD posture.** Rule-based agents stay in sub-scope β under the passivity frame. The passivity promotion that PID-on-positive-real-plant gets does *not* extend to rule-based controllers. This matches the Working Notes in `#deriv-sector-condition`'s sub-scope-β enumeration.
 
 ### 2.6 Variational / approximate posteriors
 
@@ -162,7 +162,7 @@ For non-concave ELBO regimes (multi-modal posteriors, mean-field factorizations 
 
 **Verification status:** *derived with ε-error* in the locally-concave regime; undefined globally.
 
-**Takeaway for A2'.** Variational posteriors sit in a **partial-α' sub-scope**: passive locally near the variational optimum, β globally. Matches the "approximation-direction error can rotate the correction" caveat in #sector-condition-derivation's current β list, but gives it a cleaner scope statement: variational updates are ε-passive within their convergence basin, where ε decays with the KL gap between the variational family and the true posterior.
+**Takeaway for A2'.** Variational posteriors sit in a **partial-α' sub-scope**: passive locally near the variational optimum, β globally. Matches the "approximation-direction error can rotate the correction" caveat in #deriv-sector-condition's current β list, but gives it a cleaner scope statement: variational updates are ε-passive within their convergence basin, where ε decays with the KL gap between the variational family and the true posterior.
 
 ### 2.7 Summary table
 
@@ -193,7 +193,7 @@ Two agents share input; outputs add. For AAD, this is the case where two agents 
 
 This is the result that heterogeneous-matched composition spikes could not reach.
 
-**Contrast with #critical-mass-composition.** (CM2) requires both agents to be Tier 1, matched, and symmetric to get the closed-form $(\alpha - C)R \gt \rho + \gamma\mathcal T$. The parallel-passivity result gives a heterogeneous-composition certificate (the sum of any two storage functions is a storage function) but does *not* give the closed-form threshold condition. The two results are complementary: passivity gives *existence* of composite stability under broad heterogeneity; critical-mass gives *closed-form parameters* under narrow symmetry. Both are useful; they occupy different parts of the scope-honesty architecture.
+**Contrast with #deriv-critical-mass-composition.** (CM2) requires both agents to be Tier 1, matched, and symmetric to get the closed-form $(\alpha - C)R \gt \rho + \gamma\mathcal T$. The parallel-passivity result gives a heterogeneous-composition certificate (the sum of any two storage functions is a storage function) but does *not* give the closed-form threshold condition. The two results are complementary: passivity gives *existence* of composite stability under broad heterogeneity; critical-mass gives *closed-form parameters* under narrow symmetry. Both are useful; they occupy different parts of the scope-honesty architecture.
 
 ### 3.2 Negative-feedback interconnection
 
@@ -209,7 +209,7 @@ The cross-terms ($y_2^T y_1$ and $y_1^T y_2$) cancel. The composite is passive f
 
 **AAD content — the heterogeneous-Tier-3 payoff.** Consider the composite where $\Sigma_1$ = Kalman (output-strictly passive, storage $\tfrac{1}{2}\lVert e\rVert^2_{P^{-1}}$) and $\Sigma_2$ = PID on a positive-real plant (input-strictly passive by design, storage $S_{\text{PID}}$). The composite is $\mathcal L_2$-stable with storage $S_{\Vert} + S_{\text{PID}}$ — a *sum of heterogeneous storage functions*, each with its own units, curvature, and state dimension.
 
-This is reachable under #critical-mass-composition (CM2) only through the weakest-link bound (WL), which gives a conservative existence statement but no clean composite threshold. Under passivity, we get a stronger result: composite $\mathcal L_2$-stability from heterogeneous sub-agent dissipativity, **with no requirement that the storage-function shapes match**.
+This is reachable under #deriv-critical-mass-composition (CM2) only through the weakest-link bound (WL), which gives a conservative existence statement but no clean composite threshold. Under passivity, we get a stronger result: composite $\mathcal L_2$-stability from heterogeneous sub-agent dissipativity, **with no requirement that the storage-function shapes match**.
 
 **Concrete worked case (Kalman + PID on positive-real plant).**
 
@@ -228,7 +228,7 @@ $$\dot S_{\text{composite}} \;\leq\; -\alpha_K \cdot \tfrac{e_K^2}{P^\ast} - \ga
 
 The cross-term cancellation is the key step: the Kalman output's role as reference input to PID gives rise to $e_K \cdot u_{\text{PID}}$; PID's output gives rise to $u_{\text{PID}} \cdot x_p$; the sign conventions of negative-feedback make these cancel out in the sum $\dot S_1 + \dot S_2$. Ultimate bound: the composite state is ultimately bounded with radius determined by the sum of the sub-agent sector constants (weighted by the storage-function Hessians).
 
-**This case is the canonical heterogeneous composition that #critical-mass-composition currently handles only via (WL).** Under passivity, we get composite storage, composite dissipativity, and $\mathcal L_2$-stability — as a **derived theorem** conditional on positive-real plant and standard Kalman-gain positivity.
+**This case is the canonical heterogeneous composition that #deriv-critical-mass-composition currently handles only via (WL).** Under passivity, we get composite storage, composite dissipativity, and $\mathcal L_2$-stability — as a **derived theorem** conditional on positive-real plant and standard Kalman-gain positivity.
 
 **Verification status:** *derived* (under the stated conditions; a textbook exercise in passivity-based control, not a novel result at the control-theory level). The novelty is recognizing the AAD fit.
 
@@ -240,7 +240,7 @@ $\Sigma_1$'s output feeds $\Sigma_2$'s input; no return path. In AAD terms: one 
 
 **AAD content:** This is the small-gain theorem. For purely feedforward cascades without feedback, stability of each component implies stability of the cascade (trivially). When a feedback loop is closed around the cascade (as in any AAD system with action-observation loops), the small-gain condition $\gamma_1 \gamma_2 \lt 1$ is the key inequality.
 
-**Structural insight — relationship to AAD's $\gamma$.** AAD's inter-agent coupling coefficient $\gamma_{j\to i}$ in #adversarial-destabilization and #team-persistence plays a related but not identical role. Small-gain's $\gamma_i$ is the agent's $\mathcal L_2$-gain from disturbance to output. AAD's $\gamma_{j\to i}$ is the effectiveness of $j$'s actions on $i$'s disturbance (a coupling strength from the emitter side). The two are linked: in a symmetric feedback loop with unit gains on the feedback paths, $\gamma_{j\to i}^{\text{AAD}}$ relates to the L2-gain product $\gamma_i \cdot \gamma_j$ via the closed-loop transfer function.
+**Structural insight — relationship to AAD's $\gamma$.** AAD's inter-agent coupling coefficient $\gamma_{j\to i}$ in #der-adversarial-destabilization and #der-team-persistence plays a related but not identical role. Small-gain's $\gamma_i$ is the agent's $\mathcal L_2$-gain from disturbance to output. AAD's $\gamma_{j\to i}$ is the effectiveness of $j$'s actions on $i$'s disturbance (a coupling strength from the emitter side). The two are linked: in a symmetric feedback loop with unit gains on the feedback paths, $\gamma_{j\to i}^{\text{AAD}}$ relates to the L2-gain product $\gamma_i \cdot \gamma_j$ via the closed-loop transfer function.
 
 The small-gain condition $\gamma_i \gamma_j \lt 1$ is *implied by* passivity (passive systems have $\mathcal L_2$-gain $\leq 1$ when normalized to unit supply) but is **weaker** than passivity — there are $\mathcal L_2$-stable composites that are not passive, and vice versa.
 
@@ -270,7 +270,7 @@ $$\hat x_{t+1} = (1 - K^\ast) \hat x_t + K^\ast o_t$$
 with $K^\ast$ such that $P^\ast = (P^\ast)(1-K^\ast) + q$ (Riccati fixed point). Let $e_K = \hat x - x$. In continuous-time fluid limit:
 $$\dot e_K = -K^\ast e_K + K^\ast v - w_{\text{plant on } x}$$
 
-The Kalman agent is output-strictly passive with storage $S_K = \tfrac{1}{2P^\ast} e_K^2$ and dissipation rate $\alpha_K = K^\ast/P^\ast$ in the Mahalanobis inner product. (Verified #gain-sector-bridge.)
+The Kalman agent is output-strictly passive with storage $S_K = \tfrac{1}{2P^\ast} e_K^2$ and dissipation rate $\alpha_K = K^\ast/P^\ast$ in the Mahalanobis inner product. (Verified #der-gain-sector-bridge.)
 
 **PID controller (Agent 2).** Uses $\hat x$ from Kalman as its tracking-error signal against a reference $r_{\text{ref}}$:
 $$u = K_P(r_{\text{ref}} - \hat x) + K_I \int_0^t (r_{\text{ref}} - \hat x)\,d\tau + K_D\frac{d}{dt}(r_{\text{ref}} - \hat x)$$
@@ -297,27 +297,27 @@ The composite dissipation rate is a weighted combination of $\alpha_K$ and $\alp
 
 ### 4.4 Comparison with existing AAD machinery
 
-| Question | #critical-mass-composition answer | Passivity-framed answer |
+| Question | #deriv-critical-mass-composition answer | Passivity-framed answer |
 |---|---|---|
 | Does the composite persist? | Weakest-link bound (WL): $\alpha_c \geq \min(\alpha_K, \alpha_{\text{PID}}) - C$. Conservative. | Composite is $\mathcal L_2$-stable via passive + passive + negative feedback (Thm 6.4). |
 | Closed-form $\alpha_c$? | Only in symmetric-matched case (CM2). | Composite dissipation rate is a weighted combination; no single scalar $\alpha_c$ unless specialized. |
 | Heterogeneous-architecture composition certificate? | Open (tiered: Tier 1 proved, Tier 2 local, Tier 3 domain-specific). | **Yes** — direct from passivity closure (parallel + negative-feedback). |
 | When does it fail? | When weakest-link is negative, or when Tier 3 contraction fails. | When positive-real plant assumption fails OR when one agent is not in the passive class. |
 
-The passivity frame reaches the heterogeneous Tier-3 composition that #critical-mass-composition does not. But critical-mass reaches closed-form thresholds that passivity does not. **They are complementary**, and AAD benefits from having both.
+The passivity frame reaches the heterogeneous Tier-3 composition that #deriv-critical-mass-composition does not. But critical-mass reaches closed-form thresholds that passivity does not. **They are complementary**, and AAD benefits from having both.
 
 ### 4.5 What this does not claim
 
 - Does not give a scalar composite $\alpha_c$ and $R_c$ — the sub-agent storage functions live in different coordinate systems, so the composite storage has no single inner-product characterization.
 - Does not extend to arbitrarily many agents without additional work — three-agent negative-feedback loops require Zames' small-gain theorem (iterated); four or more require network-level passivity analysis (Arcak 2007).
 - Does not cover the case where the plant is not positive-real (e.g., time-delayed plants, non-minimum-phase plants) — these remain in sub-scope β.
-- Does not close the #composition-closure bridge-lemma gap — the bridge lemma needs DA2'-inc (strong monotonicity of $f_c$), which passivity does not imply. Passivity gives composite (T2); bridge lemma needs composite (T2) AND composite DA2'-inc. The two gaps are orthogonal.
+- Does not close the #form-composition-closure bridge-lemma gap — the bridge lemma needs DA2'-inc (strong monotonicity of $f_c$), which passivity does not imply. Passivity gives composite (T2); bridge lemma needs composite (T2) AND composite DA2'-inc. The two gaps are orthogonal.
 
 ---
 
 ## 5. Relation to the Sector Condition
 
-**Claim.** The sector-$[0, \infty]$ condition is a passivity condition. AAD's current #sector-condition-derivation is the scalar-SISO special case of dissipativity with supply rate $s(u,y) = uy$.
+**Claim.** The sector-$[0, \infty]$ condition is a passivity condition. AAD's current #deriv-sector-condition is the scalar-SISO special case of dissipativity with supply rate $s(u,y) = uy$.
 
 *[Discussion]*
 
@@ -336,7 +336,7 @@ AAD's sector-condition region $\mathcal B_R$ — where $\delta^T F(\mathcal T, \
 
 - Unify Kalman (quadratic/Mahalanobis), exp-family (Bregman), gradient-on-convex-loss (loss excess), PID-on-positive-real-plant under a single dissipativity result.
 - Absorb the sector-condition results as the $V = \tfrac{1}{2}\lVert\delta\rVert^2$ special case.
-- Generalize the instantiations table in #sector-persistence-template to allow non-quadratic storage functions per instantiation (important for the exp-family and gradient cases).
+- Generalize the instantiations table in #result-sector-persistence-template to allow non-quadratic storage functions per instantiation (important for the exp-family and gradient cases).
 
 **Against the move.** Making passivity the primitive would complicate exposition (the quadratic-Lyapunov form is more transparent; Bregman / loss-excess / hybrid are more technical). The practical tradeoff: AAD already commits to quadratic-Lyapunov in the sector-persistence template as a *formulation* (status = exact under (T1)-(T3)). Making it a special case of dissipativity gains heterogeneous-composition closure but costs the "single clean template" framing.
 
@@ -348,7 +348,7 @@ Rather than reframe the template, **introduce a companion meta-segment `#dissipa
 
 ## 6. Relation to Scope Condition / Directed Separation
 
-AAD's architectural classification (Class 1 modular, Class 2 merged, Class 3 partially modular; #directed-separation) has a natural reading under the passivity frame:
+AAD's architectural classification (Class 1 modular, Class 2 merged, Class 3 partially modular; #der-directed-separation) has a natural reading under the passivity frame:
 
 **Class 1 (modular) composition under negative-feedback passivity — strong closure.** When epistemic update is goal-blind, each sub-agent is a passivity-preserving block with a well-defined input (observation) and output (action) port. Interconnections respect the port structure. The negative-feedback theorem applies directly: heterogeneous Class 1 agents compose with heterogeneous storage functions summing cleanly.
 
@@ -357,8 +357,8 @@ AAD's architectural classification (Class 1 modular, Class 2 merged, Class 3 par
 **Class 3 (partially modular) composition — passivity with ε-error.** When directed separation is approximate with modularity coefficient $\kappa \in (0, 1)$, the port structure has leakage of magnitude $O(\kappa)$. The passivity composition theorem holds with ε-error in the composite storage function: $\dot S_{\text{composite}} \leq \text{supply} + O(\kappa)$. The composite is still $\mathcal L_2$-stable, but with a degraded margin.
 
 **This provides a third reading of the architectural classification.** The Class 1/3/2 hierarchy was previously framed as:
-- (a) a modularity spectrum (#directed-separation);
-- (b) an identifiability ladder (#discussion-separability-pattern);
+- (a) a modularity spectrum (#der-directed-separation);
+- (b) an identifiability ladder (#disc-separability-pattern);
 - (c) under the passivity frame: **a port-structure ladder for composition closure** — Class 1 has clean ports (heterogeneous composition closes); Class 3 has leaky ports (closes with ε-error); Class 2 has no ports (does not close via passivity; requires coupled formulation).
 
 This fits the "three meta-segments" framing (CLAUDE.md §7) as a concrete specialization: the separability pattern has a composition-theoretic realization under passivity.
@@ -413,7 +413,7 @@ PID composition closure depends on positive-realness. When the plant has zeros i
 
 Passivity's storage-function inequality assumes the supply rate is finite. For AAD agents with bounded control effort (any realistic agent), this is automatic. For formal models that permit unbounded control (some LQG formulations, some game-theoretic models with unrestricted strategy spaces), the supply rate can diverge, and dissipativity is formally violated.
 
-**AAD consequence.** For agents with bounded action space $\mathcal A$, this is not a restriction. The scope commitment #action-transition already embeds this.
+**AAD consequence.** For agents with bounded action space $\mathcal A$, this is not a restriction. The scope commitment #def-action-transition already embeds this.
 
 ### 8.3 Strategic adversarial opponents
 
@@ -421,16 +421,16 @@ The key failure. Passivity's supply rate is a fixed functional $s(u, y)$ of inpu
 
 Formally: the supply rate $s(u, y)$ must hold for *all* trajectories, including adversarially chosen ones. Passivity is a *universal* property — it bounds $\dot S$ uniformly. When the adversary chooses $u$ to maximize $\dot S$, the composite dissipation inequality still holds with the passivity supply rate, but the adversary can drive the system via the supply-rate term regardless.
 
-**Compare with #adversarial-destabilization's coupling analysis.** Adversarial destabilization captures this with the coupling term $\gamma_A \mathcal T_A$ as an additional effective disturbance. Under passivity, the adversarial term enters the supply rate, not the dissipation. The two are structurally consistent but **passivity alone does not give adversarial robustness** — it gives cooperative or neutral robustness. Adversarial interactions require the full #adversarial-destabilization machinery on top of passivity.
+**Compare with #der-adversarial-destabilization's coupling analysis.** Adversarial destabilization captures this with the coupling term $\gamma_A \mathcal T_A$ as an additional effective disturbance. Under passivity, the adversarial term enters the supply rate, not the dissipation. The two are structurally consistent but **passivity alone does not give adversarial robustness** — it gives cooperative or neutral robustness. Adversarial interactions require the full #der-adversarial-destabilization machinery on top of passivity.
 
-**AAD consequence.** Passivity provides composition closure for *cooperative and neutral* multi-agent settings. For adversarial settings, #adversarial-destabilization's joint-Lyapunov analysis remains the primary tool. The two frameworks cover complementary regimes of the signed-coupling structure:
-- Cooperative ($\gamma \lt 0$): passivity and #team-persistence give equivalent bounds; passivity extends the bound to heterogeneous architectures.
+**AAD consequence.** Passivity provides composition closure for *cooperative and neutral* multi-agent settings. For adversarial settings, #der-adversarial-destabilization's joint-Lyapunov analysis remains the primary tool. The two frameworks cover complementary regimes of the signed-coupling structure:
+- Cooperative ($\gamma \lt 0$): passivity and #der-team-persistence give equivalent bounds; passivity extends the bound to heterogeneous architectures.
 - Neutral ($\gamma = 0$): passivity gives the strongest heterogeneous-composition results.
-- Adversarial ($\gamma \gt 0$): #adversarial-destabilization remains primary; passivity gives composition closure against the *structure* of the adversary's dynamics, not against the *value* of their strategy.
+- Adversarial ($\gamma \gt 0$): #der-adversarial-destabilization remains primary; passivity gives composition closure against the *structure* of the adversary's dynamics, not against the *value* of their strategy.
 
 ### 8.4 Non-linear plants with sector violations
 
-Sector-condition failure at large mismatch (#structural-adaptation-necessity trigger): once the agent's correction function exits its passive region (A2' fails at the basin boundary), passivity fails with it.
+Sector-condition failure at large mismatch (#result-structural-adaptation-necessity trigger): once the agent's correction function exits its passive region (A2' fails at the basin boundary), passivity fails with it.
 
 **AAD consequence.** Passivity is local in the same way A2' is local; the structural-adaptation trigger applies to both. No new scope boundary introduced — the passivity frame inherits sector-condition's basin boundary.
 
@@ -438,13 +438,13 @@ Sector-condition failure at large mismatch (#structural-adaptation-necessity tri
 
 The two-agent negative-feedback theorem extends to $N$-agent networks under additional structural conditions (Arcak & Sontag 2006 on network passivity; Bürger-Zelazo-Allgöwer 2014 on dissipativity in networks). The extension is non-trivial and introduces dependence on the network topology's algebraic connectivity. For $N = 2$ the results are clean; for $N \geq 3$, network-level conditions (e.g., the interconnection matrix has diagonally-dominant passivity index) are required.
 
-**AAD consequence.** The $N$-agent scaling problem (open in #composition-closure Working Notes and in `spike-composition-scaling-N.md`) is not closed by passivity alone. Passivity reaches two-agent heterogeneous composition cleanly; three-agent and beyond require further work.
+**AAD consequence.** The $N$-agent scaling problem (open in #form-composition-closure Working Notes and in `spike-composition-scaling-N.md`) is not closed by passivity alone. Passivity reaches two-agent heterogeneous composition cleanly; three-agent and beyond require further work.
 
 ### 8.6 Discrete-time vs continuous-time
 
 AAD operates in both. Passivity has discrete-time analogs (Lin-Byrnes 1994 on discrete dissipativity; Khalil ch. 14 on sampled-data), but the conditions are technically different: the storage-function inequality becomes a sum rather than integral, and the pass-through structure of discrete transfer functions creates additional algebraic conditions. The Kalman-PID example above is stated in continuous time; the discrete-time version is routine but not identical.
 
-**AAD consequence.** Discrete-time passivity results transfer with minor technical adjustments; not a fundamental limit. The #discrete-sector-condition already handles the AAD-internal discrete-time analog.
+**AAD consequence.** Discrete-time passivity results transfer with minor technical adjustments; not a fundamental limit. The #deriv-discrete-sector-condition already handles the AAD-internal discrete-time analog.
 
 ---
 
@@ -458,7 +458,7 @@ What to promote, where, and at what status. Three candidate moves; the first is 
 
 **Status:** conditional (status=exact-under-stated-conditions for the α class; conditional for the PID promotion).
 
-**Depends on:** #sector-persistence-template, #sector-condition-derivation, #composition-closure, #scope-composite-agent, #directed-separation, #team-persistence.
+**Depends on:** #result-sector-persistence-template, #deriv-sector-condition, #form-composition-closure, #scope-composite-agent, #der-directed-separation, #der-team-persistence.
 
 **Core content:**
 
@@ -468,40 +468,40 @@ What to promote, where, and at what status. Three candidate moves; the first is 
 
 3. **Composition theorems.** Parallel (storage sums, passivity preserved); negative-feedback (storage sums, $\mathcal L_2$-stable under strict-passivity conditions); small-gain (for cascades with feedback closure). With concrete AAD instantiations.
 
-4. **Relationship to #sector-persistence-template.** Named as the scalar-SISO-quadratic-storage specialization. Explicit recovery argument.
+4. **Relationship to #result-sector-persistence-template.** Named as the scalar-SISO-quadratic-storage specialization. Explicit recovery argument.
 
-5. **Relationship to #critical-mass-composition.** Passivity and critical-mass are complementary: passivity gives heterogeneous-composition certificates without closed-form thresholds; critical-mass gives closed-form thresholds in the matched-symmetric case.
+5. **Relationship to #deriv-critical-mass-composition.** Passivity and critical-mass are complementary: passivity gives heterogeneous-composition certificates without closed-form thresholds; critical-mass gives closed-form thresholds in the matched-symmetric case.
 
 6. **A2' sub-scope repartition.** PID-on-positive-real-plant and variational-in-basin promote from β to conditional α.
 
-7. **Adversarial caveat.** Passivity handles cooperative and neutral composition; adversarial interactions require #adversarial-destabilization.
+7. **Adversarial caveat.** Passivity handles cooperative and neutral composition; adversarial interactions require #der-adversarial-destabilization.
 
 8. **Architectural reading.** The Class 1/3/2 partition admits a port-structure reading under passivity; Class 1 composes cleanly, Class 3 with ε-error, Class 2 not at all.
 
 9. **Heterogeneous-composition worked example: Kalman + PID.** The canonical case. Derivation ends with composite storage and $\mathcal L_2$-stability.
 
-**Position in outline.** Appendix A, after #sector-persistence-template; logically paired with #critical-mass-composition.
+**Position in outline.** Appendix A, after #result-sector-persistence-template; logically paired with #deriv-critical-mass-composition.
 
-### 9.2 Alternative: extend #sector-persistence-template rather than a new segment
+### 9.2 Alternative: extend #result-sector-persistence-template rather than a new segment
 
 **Pro:** keeps the template as AAD's single persistence primitive; avoids proliferation.
 
-**Con:** loses the scope-honest distinction between the quadratic-Lyapunov case (current) and the heterogeneous-storage case (new); the "one template, six instances" framing of #sector-persistence-template becomes "one template, mixed storage shapes, contraction argument varies per instance" — less clean.
+**Con:** loses the scope-honest distinction between the quadratic-Lyapunov case (current) and the heterogeneous-storage case (new); the "one template, six instances" framing of #result-sector-persistence-template becomes "one template, mixed storage shapes, contraction argument varies per instance" — less clean.
 
-**Recommendation:** Keep #sector-persistence-template as-is (exact, one Lyapunov shape, six instances, clean statement); add `#dissipativity-template` as a *generalization* meta-segment that cites #sector-persistence-template as the scalar-quadratic-storage special case and extends to non-quadratic storage functions. Two templates; one generalizes the other; the relationship is explicit.
+**Recommendation:** Keep #result-sector-persistence-template as-is (exact, one Lyapunov shape, six instances, clean statement); add `#dissipativity-template` as a *generalization* meta-segment that cites #result-sector-persistence-template as the scalar-quadratic-storage special case and extends to non-quadratic storage functions. Two templates; one generalizes the other; the relationship is explicit.
 
 ### 9.3 Satellite moves
 
 Not a new segment; modifications to existing segments after `#dissipativity-template` lands.
 
-- **#sector-condition-derivation.** Add α'' sub-scope (PID + positive-real plant; variational in basin) to the sub-scope-α enumeration, with reference to `#dissipativity-template`. Adjust the sub-scope β list accordingly.
-- **#gain-sector-bridge.** Add a section "Dissipativity as the supersystematic generalization of directional fidelity" — when the agent admits a storage function, the sector condition is the scalar-quadratic case of the dissipativity inequality. Cross-reference `#dissipativity-template`.
-- **#composition-closure.** In the derivation-audit table, add a row: "Heterogeneous-architecture composition via negative-feedback passivity" — derived under positive-real plant + output-strictly-passive Kalman or gradient agent.
-- **#critical-mass-composition.** In §7 (comparison with the six template instances), add a row identifying passivity-based composition as complementary to the matched-symmetric (CM2) approach.
-- **#directed-separation.** Add a Discussion paragraph: "Class 1/3/2 as a port-structure ladder for composition closure." Cross-reference `#dissipativity-template` §5.
-- **#team-persistence.** Note that the cooperative disturbance-reduction term is the AAD instantiation of the passivity port-supply identity in the cooperative regime.
-- **#adversarial-destabilization.** Note that adversarial composition requires this segment's machinery *in addition to* any passivity argument; passivity alone does not cover adversarial interactions.
-- **#interaction-channel-classification (spike).** If promoted, add a note that the four-regime classification composes cleanly with passivity: Regime I events ride the passive port structure (cooperative supply); Regime II events trigger sector-exit (passivity fails); Regime III events produce supply-rate drain without state change.
+- **#deriv-sector-condition.** Add α'' sub-scope (PID + positive-real plant; variational in basin) to the sub-scope-α enumeration, with reference to `#dissipativity-template`. Adjust the sub-scope β list accordingly.
+- **#der-gain-sector-bridge.** Add a section "Dissipativity as the supersystematic generalization of directional fidelity" — when the agent admits a storage function, the sector condition is the scalar-quadratic case of the dissipativity inequality. Cross-reference `#dissipativity-template`.
+- **#form-composition-closure.** In the derivation-audit table, add a row: "Heterogeneous-architecture composition via negative-feedback passivity" — derived under positive-real plant + output-strictly-passive Kalman or gradient agent.
+- **#deriv-critical-mass-composition.** In §7 (comparison with the six template instances), add a row identifying passivity-based composition as complementary to the matched-symmetric (CM2) approach.
+- **#der-directed-separation.** Add a Discussion paragraph: "Class 1/3/2 as a port-structure ladder for composition closure." Cross-reference `#dissipativity-template` §5.
+- **#der-team-persistence.** Note that the cooperative disturbance-reduction term is the AAD instantiation of the passivity port-supply identity in the cooperative regime.
+- **#der-adversarial-destabilization.** Note that adversarial composition requires this segment's machinery *in addition to* any passivity argument; passivity alone does not cover adversarial interactions.
+- **#der-interaction-channel-classification (spike).** If promoted, add a note that the four-regime classification composes cleanly with passivity: Regime I events ride the passive port structure (cooperative supply); Regime II events trigger sector-exit (passivity fails); Regime III events produce supply-rate drain without state change.
 
 ### 9.4 Recommended status on promotion
 
@@ -516,7 +516,7 @@ Not a new segment; modifications to existing segments after `#dissipativity-temp
 
 ### 10.1 What this spike achieves
 
-1. **Names the passivity frame as a complementary composition primitive to #sector-persistence-template and #critical-mass-composition.** Heterogeneous composition is the key payoff; parallel and negative-feedback storage-function sums give Tier-3 (heterogeneous) composition closure that no existing AAD result reaches.
+1. **Names the passivity frame as a complementary composition primitive to #result-sector-persistence-template and #deriv-critical-mass-composition.** Heterogeneous composition is the key payoff; parallel and negative-feedback storage-function sums give Tier-3 (heterogeneous) composition closure that no existing AAD result reaches.
 
 2. **Produces a clean worked example (Kalman + PID on positive-real plant, §4).** $\mathcal L_2$-stability of the composite with a heterogeneous storage function. Derivation-level.
 
@@ -530,13 +530,13 @@ Not a new segment; modifications to existing segments after `#dissipativity-temp
 
 ### 10.2 What this spike does not achieve
 
-- **Does not close the #composition-closure bridge-lemma gap.** The bridge lemma needs composite DA2'-inc (strong monotonicity); passivity gives composite (T2) (one-point sector) but not composite DA2'-inc. Two orthogonal gaps.
+- **Does not close the #form-composition-closure bridge-lemma gap.** The bridge lemma needs composite DA2'-inc (strong monotonicity); passivity gives composite (T2) (one-point sector) but not composite DA2'-inc. Two orthogonal gaps.
 
 - **Does not extend to $N \geq 3$.** Cleanly reaches $N = 2$; network-level passivity ($N \geq 3$) requires additional machinery (Arcak-Sontag 2006; Bürger-Zelazo-Allgöwer 2014). Not attempted here.
 
-- **Does not give scalar composite $\alpha_c$ in heterogeneous cases.** The sum of heterogeneous storage functions does not reduce to a single scalar sector constant. Composite stability is certified but without #critical-mass-composition's (CM2)-style closed-form inequality. This is a feature of the generalization, not a bug, but it limits what can be said quantitatively.
+- **Does not give scalar composite $\alpha_c$ in heterogeneous cases.** The sum of heterogeneous storage functions does not reduce to a single scalar sector constant. Composite stability is certified but without #deriv-critical-mass-composition's (CM2)-style closed-form inequality. This is a feature of the generalization, not a bug, but it limits what can be said quantitatively.
 
-- **Does not resolve the Class 3 ε-error quantification.** The port-structure reading names Class 3 as "ε-passive with leaky ports" but does not derive the ε-passivity bound from the modularity coefficient $\kappa$ of #directed-separation. A follow-up derivation spike is needed.
+- **Does not resolve the Class 3 ε-error quantification.** The port-structure reading names Class 3 as "ε-passive with leaky ports" but does not derive the ε-passivity bound from the modularity coefficient $\kappa$ of #der-directed-separation. A follow-up derivation spike is needed.
 
 - **Does not extend the PID-on-positive-real-plant result to nonlinear plants.** Hill-Moylan 1980 on nonlinear dissipativity gives the machinery, but plant-specific verification would be required per case.
 
@@ -560,13 +560,13 @@ Not a new segment; modifications to existing segments after `#dissipativity-temp
 
 This spike's result (passivity as composition primitive) integrates cleanly with AAD's three-meta-segment structure:
 
-- **#discussion-separability-pattern** (positive half): passivity adds a new ladder — the **architectural-port ladder** — to the six ladders already enumerated (correlation, convention, architecture, contraction, identification, scope). Class 1 has clean ports (separable); Class 3 has leaky ports (structured repair); Class 2 has no ports (general open). This is a seventh ladder in the same shape.
+- **#disc-separability-pattern** (positive half): passivity adds a new ladder — the **architectural-port ladder** — to the six ladders already enumerated (correlation, convention, architecture, contraction, identification, scope). Class 1 has clean ports (separable); Class 3 has leaky ports (structured repair); Class 2 has no ports (general open). This is a seventh ladder in the same shape.
 
-- **#discussion-identifiability-floor** (negative half): passivity gives a no-go result for adversarial composition — the passivity framework cannot certify stability against an adversary who chooses supply-rate inputs strategically. This is structurally parallel to the on-policy-detection no-go: there's a structural limit (adversarial choice of supply) that external machinery (passivity) cannot overcome, and an escape route (small-gain robustness plus #adversarial-destabilization's coupling analysis) that AAD machinery does supply. Candidate as a fourth instance of the identifiability-floor pattern.
+- **#disc-identifiability-floor** (negative half): passivity gives a no-go result for adversarial composition — the passivity framework cannot certify stability against an adversary who chooses supply-rate inputs strategically. This is structurally parallel to the on-policy-detection no-go: there's a structural limit (adversarial choice of supply) that external machinery (passivity) cannot overcome, and an escape route (small-gain robustness plus #der-adversarial-destabilization's coupling analysis) that AAD machinery does supply. Candidate as a fourth instance of the identifiability-floor pattern.
 
 - **#additive-coordinate-forcing** (constructive half): passivity does *not* fit the Cauchy-FE-force-a-coordinate pattern. Storage functions sum additively under interconnection, but the additivity is from the port-structure identity (power-preserving interconnection), not from a Cauchy-functional-equation argument on an axiomatized additivity requirement. The storage-function summation is a *different* additivity pattern — it arises from the physics/geometry of ports, not from a uniqueness theorem. So passivity does not compose with #additive-coordinate-forcing; it stands outside the constructive-half meta-pattern.
 
-This integration analysis suggests `#dissipativity-template` belongs alongside #sector-persistence-template as a *technical-machinery* segment (not a meta-segment), with its port-ladder-and-composition-closure reading adding to the separability-pattern meta-segment but not itself becoming a fourth meta.
+This integration analysis suggests `#dissipativity-template` belongs alongside #result-sector-persistence-template as a *technical-machinery* segment (not a meta-segment), with its port-ladder-and-composition-closure reading adding to the separability-pattern meta-segment but not itself becoming a fourth meta.
 
 ### 10.6 The distinctive AAD angle
 
@@ -600,13 +600,13 @@ These three are the distinctively AAD-native content. The rest is honest adoptio
 
 ## 12. Summary
 
-Passivity / dissipativity gives AAD a composition primitive that reaches heterogeneous composites cleanly — a case #critical-mass-composition handles only via the conservative weakest-link bound and #sector-persistence-template handles only under matched Lyapunov shapes. The Kalman + PID worked example (§4) delivers composite $\mathcal L_2$-stability with a heterogeneous storage function summing a Mahalanobis term (Kalman) and a plant-plus-integral-plus-derivative term (PID on positive-real plant). Two concrete A2' sub-scope promotions — PID on positive-real plant and variational updates in convergence basin — follow from the frame.
+Passivity / dissipativity gives AAD a composition primitive that reaches heterogeneous composites cleanly — a case #deriv-critical-mass-composition handles only via the conservative weakest-link bound and #result-sector-persistence-template handles only under matched Lyapunov shapes. The Kalman + PID worked example (§4) delivers composite $\mathcal L_2$-stability with a heterogeneous storage function summing a Mahalanobis term (Kalman) and a plant-plus-integral-plus-derivative term (PID on positive-real plant). Two concrete A2' sub-scope promotions — PID on positive-real plant and variational updates in convergence basin — follow from the frame.
 
-The spike recommends a new meta-segment `#dissipativity-template` that generalizes `#sector-persistence-template` to non-quadratic storage functions (Bregman, loss-excess, hybrid) and carries the composition theorems for parallel / negative-feedback / cascade topologies. The segment would sit alongside #critical-mass-composition as complementary machinery — passivity for heterogeneous-architecture certificates; critical-mass for closed-form symmetric-matched thresholds — and alongside #sector-persistence-template as a generalization for cases where the quadratic-Lyapunov form is too narrow.
+The spike recommends a new meta-segment `#dissipativity-template` that generalizes `#result-sector-persistence-template` to non-quadratic storage functions (Bregman, loss-excess, hybrid) and carries the composition theorems for parallel / negative-feedback / cascade topologies. The segment would sit alongside #deriv-critical-mass-composition as complementary machinery — passivity for heterogeneous-architecture certificates; critical-mass for closed-form symmetric-matched thresholds — and alongside #result-sector-persistence-template as a generalization for cases where the quadratic-Lyapunov form is too narrow.
 
-Passivity does *not* handle strategic adversarial opponents — those require the #adversarial-destabilization framework on top. Passivity does *not* close the #composition-closure bridge-lemma gap — that needs composite DA2'-inc, which is orthogonal to passivity's composite (T2). Passivity does *not* cover $N \geq 3$ without additional network-level conditions. These are honest scope boundaries.
+Passivity does *not* handle strategic adversarial opponents — those require the #der-adversarial-destabilization framework on top. Passivity does *not* close the #form-composition-closure bridge-lemma gap — that needs composite DA2'-inc, which is orthogonal to passivity's composite (T2). Passivity does *not* cover $N \geq 3$ without additional network-level conditions. These are honest scope boundaries.
 
-Integration with AAD's three-meta-segment architecture: passivity adds a seventh ladder (architectural port structure) to #discussion-separability-pattern, contributes a fourth candidate instance to #discussion-identifiability-floor (adversarial-supply no-go), and sits outside #additive-coordinate-forcing (storage-function additivity is port-structure additivity, not Cauchy-FE additivity). This places `#dissipativity-template` as technical-machinery-segment rather than as a fourth meta-segment.
+Integration with AAD's three-meta-segment architecture: passivity adds a seventh ladder (architectural port structure) to #disc-separability-pattern, contributes a fourth candidate instance to #disc-identifiability-floor (adversarial-supply no-go), and sits outside #additive-coordinate-forcing (storage-function additivity is port-structure additivity, not Cauchy-FE additivity). This places `#dissipativity-template` as technical-machinery-segment rather than as a fourth meta-segment.
 
 Distinctively AAD moves in the passivity frame: (1) cross-tradition synthesis of Amari's information-geometric divergences with Willems's dissipativity; (2) port-structure reading of directed separation's Class 1/3/2; (3) scope-honesty-as-architecture applied to the α/β/α'' sub-scope partition.
 

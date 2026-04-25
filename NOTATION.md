@@ -25,7 +25,7 @@ One complete traversal of the agent-environment feedback loop — the unit of ad
 The cycle is: Prolepsis → Aisthesis → Aporia → Epistrophe → Praxis → (Prolepsis).
 
 
-## Primitives ( #agent-environment, #observation-function, #action-transition)
+## Primitives ( #def-agent-environment, #def-function, #def-action-transition)
 
 | Symbol | Type | Meaning |
 |--------|------|---------|
@@ -42,17 +42,17 @@ The cycle is: Prolepsis → Aisthesis → Aporia → Epistrophe → Praxis → (
 | $I(\cdot; \cdot)$ | Functional | Mutual information |
 
 
-## Temporal Structure ( #causal-structure, #chronica)
+## Temporal Structure ( #post-causal-structure, #def-chronica)
 
 | Symbol | Type | Meaning |
 |--------|------|---------|
 | $\mathcal C_t$ | Sequence | Interaction history (*chronica*): $(o_1, a_1, \ldots, a_{t-1}, o_t)$ |
-| $\mathcal C_t^{\text{commit}}$ | Sequence | TST: committed-state subset of $\mathcal C_t$ — git-recorded codebase transitions with cryptographic immutability and authorship ( #software-epistemic-properties P5) |
+| $\mathcal C_t^{\text{commit}}$ | Sequence | TST: committed-state subset of $\mathcal C_t$ — git-recorded codebase transitions with cryptographic immutability and authorship ( #obs-software-epistemic-properties P5) |
 | $do(\cdot)$ | Operator | Pearl's intervention operator (Level 2) |
-| $\text{CIY}(a)$ | Scalar $\geq 0$ | Causal information yield of action $a$ ( #causal-information-yield) |
+| $\text{CIY}(a)$ | Scalar $\geq 0$ | Causal information yield of action $a$ ( #def-causal-information-yield) |
 
 
-## The Model ( #agent-model, #information-bottleneck)
+## The Model ( #form-agent-model, #form-information-bottleneck)
 
 | Symbol | Type | Meaning |
 |--------|------|---------|
@@ -60,12 +60,12 @@ The cycle is: Prolepsis → Aisthesis → Aporia → Epistrophe → Praxis → (
 | $\mathcal{M}$ | Set | Model space (the class of representable models) |
 | $\phi$ | Function | Compression: $M_t = \phi(\mathcal C_t)$ |
 | $f$ | Function | Recursive update: $M_{\tau^+} = f(M_{\tau^-}, e_\tau)$ |
-| $S(M_t)$ | $\in [0, 1]$ | Model sufficiency ( #model-sufficiency) |
-| $\mathcal{F}(\mathcal{M})$ | $\in [0, 1]$ | Model class fitness ( #model-class-fitness) |
+| $S(M_t)$ | $\in [0, 1]$ | Model sufficiency ( #def-model-sufficiency) |
+| $\mathcal{F}(\mathcal{M})$ | $\in [0, 1]$ | Model class fitness ( #def-model-class-fitness) |
 | $\beta$ | Scalar $\gt 0$ | Information bottleneck trade-off parameter |
 
 
-## Event-Driven Dynamics ( #event-driven-dynamics)
+## Event-Driven Dynamics ( #form-event-driven-dynamics)
 
 | Symbol | Type | Meaning |
 |--------|------|---------|
@@ -78,7 +78,7 @@ The cycle is: Prolepsis → Aisthesis → Aporia → Epistrophe → Praxis → (
 | $U_o^{(k)}$ | Scalar $\gt 0$ | Observation uncertainty on channel $k$ |
 
 
-## Mismatch Signal ( #mismatch-signal)
+## Mismatch Signal ( #def-mismatch-signal)
 
 | Symbol | Type | Meaning |
 |--------|------|---------|
@@ -87,7 +87,7 @@ The cycle is: Prolepsis → Aisthesis → Aporia → Epistrophe → Praxis → (
 | $\tilde{\delta}_t$ | $\in T_M\mathcal{M}$ | Score-function mismatch: $-\nabla_M \log P(o_t \mid M_{t-1}, a_{t-1})$ |
 
 
-## Update Gain ( #update-gain)
+## Update Gain ( #emp-update-gain)
 
 | Symbol | Type | Meaning |
 |--------|------|---------|
@@ -99,26 +99,26 @@ The cycle is: Prolepsis → Aisthesis → Aporia → Epistrophe → Praxis → (
 | $g$ | Function | Mismatch transform: maps mismatch to update direction |
 
 
-## Action Selection ( #action-selection)
+## Action Selection ( #der-action-selection)
 
 | Symbol | Type | Meaning |
 |--------|------|---------|
 | $\pi$ | Function or distribution | Policy: $a_t = \pi(M_t)$ or $a_t \sim \pi(\cdot \mid M_t)$ |
-| $\lambda(M_t)$ | Scalar $\geq 0$ | Exploration-exploitation balance weight ( #causal-information-yield) |
+| $\lambda(M_t)$ | Scalar $\geq 0$ | Exploration-exploitation balance weight ( #def-causal-information-yield) |
 
 
-## Adaptive Tempo and Dynamics ( #adaptive-tempo, #mismatch-dynamics)
+## Adaptive Tempo and Dynamics ( #def-adaptive-tempo, #hyp-mismatch-dynamics)
 
 | Symbol | Type | Meaning |
 |--------|------|---------|
 | $\mathcal{T}$ | Rate ($t^{-1}$) | Adaptive tempo (epistemic): $\sum_k \nu^{(k)} \cdot \eta^{(k)\ast}$ |
-| $\mathcal{T}_\Sigma$ | Rate ($t^{-1}$) | Strategic tempo: $\sum_{(i,j) \in E} \nu_{ij} \cdot \eta_{\text{edge},ij}$ ( #strategic-tempo) |
+| $\mathcal{T}_\Sigma$ | Rate ($t^{-1}$) | Strategic tempo: $\sum_{(i,j) \in E} \nu_{ij} \cdot \eta_{\text{edge},ij}$ ( #def-strategic-tempo) |
 | $\rho(t)$ | Rate (surprise/time) | Environment change rate (mismatch injection rate) |
 | $\rho_\Sigma$ | Rate | Strategic disturbance rate (rate of causal-link invalidation) |
 | $\lVert\delta\rVert_{ss}$ | Scalar $\geq 0$ | Steady-state mismatch: $\rho / \mathcal{T}$ (linear approximation) |
 
 
-## Lyapunov / Sector-Condition Analysis ( #sector-condition-stability)
+## Lyapunov / Sector-Condition Analysis ( #result-sector-condition-stability)
 
 | Symbol | Type | Meaning |
 |--------|------|---------|
@@ -132,7 +132,7 @@ The cycle is: Prolepsis → Aisthesis → Aporia → Epistrophe → Praxis → (
 | $V(\delta)$ | Scalar $\geq 0$ | Lyapunov function: $\frac{1}{2}\lVert\delta\rVert^2$ |
 
 
-## Deliberation ( #deliberation-cost)
+## Deliberation ( #der-deliberation-cost)
 
 | Symbol | Type | Meaning |
 |--------|------|---------|
@@ -208,8 +208,8 @@ Load-bearing assumptions that appear locally but are referenced by multiple resu
 | ID | Assumption | Used by |
 |----|-----------|---------|
 | GA-1 | **Fresh noise.** $\varepsilon_t$ is conditionally independent of $\mathcal C_{t-1}$ given $(\Omega_t, a_{t-1})$. | #result-mismatch-decomposition |
-| GA-2 | **Bounded disturbance (Model D).** $\lVert w(t)\rVert \leq \rho$ for finite $\rho$. Deterministic worst-case bound; no distributional assumption. | #sector-condition-stability, #persistence-condition |
-| GA-2S | **Stochastic disturbance (Model S).** $w(t)$ is zero-mean with $\mathbb{E}[\lVert w(t)\rVert^2] = \sigma_w^2$. Alternative to GA-2 for environments with noise rather than drift. | #sector-condition-stability (Prop A.1S), #persistence-condition, #adversarial-exponent-regimes |
-| GA-3 | **Sector condition (continuous).** $\delta^T F(\mathcal{T}, \delta) \geq \alpha\lVert\delta\rVert^2$ for $\lVert\delta\rVert \leq R$. Derived from the gain principle when the update rule has directional fidelity (B1); for gradient-based agents, equivalent to local strong convexity of the loss. Remains an independent assumption for non-gradient agents. The discrete-time analog (DA2') adds a Lipschitz upper bound $\lVert F_d(\delta)\rVert \leq c_{\max}\lVert\delta\rVert$ — strictly stronger than an inner-product upper bound, required because the discrete contraction involves $\lVert F_d\rVert^2$. See #gain-sector-bridge, #discrete-sector-condition. | #sector-condition-stability, #discrete-sector-condition |
-| GA-4 | **Local deliberation drift.** Mismatch accumulates at rate $\rho_{\text{delib}}$ during inaction. | #deliberation-cost |
-| GA-5 | **Fluid limit.** Event rate high relative to dynamics timescale ($\eta^\ast \ll 1$). | #mismatch-dynamics |
+| GA-2 | **Bounded disturbance (Model D).** $\lVert w(t)\rVert \leq \rho$ for finite $\rho$. Deterministic worst-case bound; no distributional assumption. | #result-sector-condition-stability, #result-persistence-condition |
+| GA-2S | **Stochastic disturbance (Model S).** $w(t)$ is zero-mean with $\mathbb{E}[\lVert w(t)\rVert^2] = \sigma_w^2$. Alternative to GA-2 for environments with noise rather than drift. | #result-sector-condition-stability (Prop A.1S), #result-persistence-condition, #result-adversarial-exponent-regimes |
+| GA-3 | **Sector condition (continuous).** $\delta^T F(\mathcal{T}, \delta) \geq \alpha\lVert\delta\rVert^2$ for $\lVert\delta\rVert \leq R$. Derived from the gain principle when the update rule has directional fidelity (B1); for gradient-based agents, equivalent to local strong convexity of the loss. Remains an independent assumption for non-gradient agents. The discrete-time analog (DA2') adds a Lipschitz upper bound $\lVert F_d(\delta)\rVert \leq c_{\max}\lVert\delta\rVert$ — strictly stronger than an inner-product upper bound, required because the discrete contraction involves $\lVert F_d\rVert^2$. See #der-gain-sector-bridge, #deriv-discrete-sector-condition. | #result-sector-condition-stability, #deriv-discrete-sector-condition |
+| GA-4 | **Local deliberation drift.** Mismatch accumulates at rate $\rho_{\text{delib}}$ during inaction. | #der-deliberation-cost |
+| GA-5 | **Fluid limit.** Event rate high relative to dynamics timescale ($\eta^\ast \ll 1$). | #hyp-mismatch-dynamics |

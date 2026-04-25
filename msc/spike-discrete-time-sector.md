@@ -8,17 +8,17 @@
 
 $$\text{gain principle} + \text{B1} \;\xrightarrow{\text{derived}}\; \text{sector condition (GA-3)} \;\xrightarrow{\text{Lyapunov (exact)}}\; \text{persistence, reserve, adversarial scaling}$$
 
-The left arrow is closed by #gain-sector-bridge. The right arrow is proved by #sector-condition-derivation (Props A.1, A.1S, A.2) — but in continuous time. Real agents operate in discrete time: event-driven updates ( #event-driven-dynamics) with finite step size $\eta^\ast$. The bridge from discrete to continuous is the fluid-limit approximation, flagged in #mismatch-dynamics as valid when $\eta^\ast \ll 1$. #gain-sector-bridge identifies this as "the only remaining gap in Section I's formal chain" — label GA-5.
+The left arrow is closed by #der-gain-sector-bridge. The right arrow is proved by #deriv-sector-condition (Props A.1, A.1S, A.2) — but in continuous time. Real agents operate in discrete time: event-driven updates ( #form-event-driven-dynamics) with finite step size $\eta^\ast$. The bridge from discrete to continuous is the fluid-limit approximation, flagged in #hyp-mismatch-dynamics as valid when $\eta^\ast \ll 1$. #der-gain-sector-bridge identifies this as "the only remaining gap in Section I's formal chain" — label GA-5.
 
 This spike closes GA-5 by proving discrete-time analogs of all three propositions directly, characterizing the fluid-limit approximation error, and assessing downstream impact.
 
-**Depends on**: #sector-condition-derivation, #sector-condition-stability, #mismatch-dynamics, #event-driven-dynamics, #update-gain, #gain-sector-bridge, #composition-closure, #persistence-condition, #adversarial-tempo-advantage, #adversarial-exponent-regimes
+**Depends on**: #deriv-sector-condition, #result-sector-condition-stability, #hyp-mismatch-dynamics, #form-event-driven-dynamics, #emp-update-gain, #der-gain-sector-bridge, #form-composition-closure, #result-persistence-condition, #result-adversarial-tempo-advantage, #result-adversarial-exponent-regimes
 
 ---
 
 ## 0. The Gap in Detail
 
-The continuous-time results assume dynamics $d\delta/dt = -F(\mathcal{T}, \delta) + w(t)$, where $F$ is the correction function. But the actual update mechanism ( #update-gain) is:
+The continuous-time results assume dynamics $d\delta/dt = -F(\mathcal{T}, \delta) + w(t)$, where $F$ is the correction function. But the actual update mechanism ( #emp-update-gain) is:
 
 $$M_t = M_{t-1} + \eta^\ast \cdot g(\delta_t)$$
 
@@ -26,7 +26,7 @@ This is a discrete map, applied at event times $\tau_1, \tau_2, \ldots$ with rat
 
 The approximation is good when each correction is small ($\eta^\ast \ll 1$) — many small steps approximate a continuous flow. It is poor when corrections are large ($\eta^\ast$ near 1) — the discrete dynamics can overshoot, oscillate, or exhibit qualitative behaviors absent from the ODE.
 
-The composition-closure bridge lemma ( #composition-closure) already works in discrete time, using a contraction factor $\lambda = 1 - \alpha_c / \nu_c$. This demonstrates the approach is viable. This spike extends it to the full sector-condition framework.
+The composition-closure bridge lemma ( #form-composition-closure) already works in discrete time, using a contraction factor $\lambda = 1 - \alpha_c / \nu_c$. This demonstrates the approach is viable. This spike extends it to the full sector-condition framework.
 
 ---
 
@@ -41,7 +41,7 @@ Let $\delta_k \in \mathbb{R}^n$ be the mismatch vector after $k$ update steps. A
 $$\delta_{k+1} = \delta_k - \eta^\ast \cdot H \, g(\delta_k) + w_k$$
 
 where:
-- $\eta^\ast \cdot H \, g(\delta_k)$ is the correction applied at step $k$ (the gain-based update projected into observation space, cf. #gain-sector-bridge)
+- $\eta^\ast \cdot H \, g(\delta_k)$ is the correction applied at step $k$ (the gain-based update projected into observation space, cf. #der-gain-sector-bridge)
 - $w_k$ is the per-step disturbance — new mismatch introduced between steps $k$ and $k+1$
 - $H$ maps state-space corrections to mismatch-space reductions
 
@@ -67,7 +67,7 @@ There exist constants $c_{\min} \gt 0$ and $c_{\max} \lt 2/\eta^\ast$ such that 
 
 $$c_{\min} \, \eta^\ast \, \lVert\delta\rVert^2 \;\leq\; \delta^T f(\delta) \;\leq\; c_{\max} \, \eta^\ast \, \lVert\delta\rVert^2 \tag{DA2'}$$
 
-**Lower bound** ($c_{\min}$): same role as in the continuous case — the correction points inward with at least baseline efficiency. Identical to B1 (directional fidelity) from #gain-sector-bridge: $c_{\min} = \inf_{\lVert\delta\rVert \leq R} \delta^T H g(\delta) / \lVert\delta\rVert^2$.
+**Lower bound** ($c_{\min}$): same role as in the continuous case — the correction points inward with at least baseline efficiency. Identical to B1 (directional fidelity) from #der-gain-sector-bridge: $c_{\min} = \inf_{\lVert\delta\rVert \leq R} \delta^T H g(\delta) / \lVert\delta\rVert^2$.
 
 **Upper bound** ($c_{\max} \lt 2/\eta^\ast$): **new in discrete time.** This prevents the correction from overshooting — correcting so aggressively that mismatch increases rather than decreases. The continuous case has no analog because infinitesimal corrections cannot overshoot.
 
@@ -85,7 +85,7 @@ Under (DA2'), the discrete dynamics contract mismatch at each step. Define:
 
 $$\lambda \;=\; 1 - \eta^\ast \cdot c_{\min} \;=\; 1 - \alpha / \nu$$
 
-where $\alpha = \eta^\ast \cdot c_{\min} \cdot \nu = \mathcal{T} \cdot c_{\min} / c_{\text{nom}}$ is the continuous sector parameter (with $c_{\text{nom}}$ a normalization factor that equals 1 when the bridge is direct, as in the Kalman and Beta-Bernoulli cases — see #gain-sector-bridge).
+where $\alpha = \eta^\ast \cdot c_{\min} \cdot \nu = \mathcal{T} \cdot c_{\min} / c_{\text{nom}}$ is the continuous sector parameter (with $c_{\text{nom}}$ a normalization factor that equals 1 when the bridge is direct, as in the Kalman and Beta-Bernoulli cases — see #der-gain-sector-bridge).
 
 For the important special case where the bridge gives $\alpha = \eta^\ast \cdot c_{\min}$ per event and there are $\nu$ events per unit time, so $\alpha_{\text{continuous}} = \nu \cdot \eta^\ast \cdot c_{\min}$:
 
@@ -93,7 +93,7 @@ $$\lambda = 1 - \eta^\ast \cdot c_{\min}$$
 
 The upper bound in (DA2') guarantees $\lambda \gt -(1 - \eta^\ast \cdot c_{\max})$, ensuring the correction doesn't reverse the mismatch direction (no sign flip / oscillation). Specifically, since $c_{\max} \lt 2/\eta^\ast$, we have $\eta^\ast \cdot c_{\max} \lt 2$, so $\lambda \gt -1$, preventing period-2 oscillation.
 
-For strict contraction (no oscillation at all), we need $\lambda \gt 0$, i.e., $\eta^\ast \cdot c_{\min} \lt 1$, i.e., the per-step correction is less than the full mismatch. This is the discrete analog of the "realistic systems" condition noted in #composition-closure: "the agent doesn't fully correct in a single step."
+For strict contraction (no oscillation at all), we need $\lambda \gt 0$, i.e., $\eta^\ast \cdot c_{\min} \lt 1$, i.e., the per-step correction is less than the full mismatch. This is the discrete analog of the "realistic systems" condition noted in #form-composition-closure: "the agent doesn't fully correct in a single step."
 
 **Summary of contraction regimes:**
 
@@ -335,7 +335,7 @@ $$\delta^{(\nu)}(t) = \delta_{\lfloor \nu t \rfloor}$$
 
 $$\sup_{0 \leq t \leq T_0} \lVert \delta^{(\nu)}(t) - \delta_{\text{ODE}}(t) \rVert \;\xrightarrow{\nu \to \infty}\; 0$$
 
-where $\delta_{\text{ODE}}(t)$ solves $d\delta/dt = -\tilde{F}(\delta) + \rho(t)$ (the continuous dynamics of #mismatch-dynamics) over any finite horizon $[0, T_0]$.
+where $\delta_{\text{ODE}}(t)$ solves $d\delta/dt = -\tilde{F}(\delta) + \rho(t)$ (the continuous dynamics of #hyp-mismatch-dynamics) over any finite horizon $[0, T_0]$.
 
 **Proof sketch.** This is a standard deterministic approximation result (Kurtz 1970, Ethier & Kurtz 1986, Ch. 11). The key conditions are:
 1. Corrections per unit time: $\nu$ corrections, each of size $O(1/\nu)$.
@@ -404,7 +404,7 @@ The correction is always positive: the discrete system has **more** steady-state
 
 The critical regime is $\eta^\ast c \gt 1$: the continuous ODE predicts monotone convergence with rate $\alpha$, but the discrete system oscillates (with shrinking amplitude if $\eta^\ast c \lt 2$, diverging if $\eta^\ast c \geq 2$). The fluid-limit approximation is qualitatively misleading here.
 
-**However, for well-designed agents, $\eta^\ast c \ll 1$ is the normal operating regime.** The optimal gain ( #update-gain) is $\eta^\ast = U_M / (U_M + U_o)$. At steady state, $U_M$ has converged and $\eta^\ast$ is determined by the signal-to-noise ratio. For the Kalman filter with process noise $Q$ and observation noise $R_{\text{obs}}$, the steady-state gain is $K_{ss} \approx \sqrt{Q/R_{\text{obs}}}$ when $Q \ll R_{\text{obs}}$ (slow dynamics, noisy observations — the common case). The directional fidelity is $c = 1$ for linear systems. So $\eta^\ast c = K_{ss} \ll 1$ in the normal regime.
+**However, for well-designed agents, $\eta^\ast c \ll 1$ is the normal operating regime.** The optimal gain ( #emp-update-gain) is $\eta^\ast = U_M / (U_M + U_o)$. At steady state, $U_M$ has converged and $\eta^\ast$ is determined by the signal-to-noise ratio. For the Kalman filter with process noise $Q$ and observation noise $R_{\text{obs}}$, the steady-state gain is $K_{ss} \approx \sqrt{Q/R_{\text{obs}}}$ when $Q \ll R_{\text{obs}}$ (slow dynamics, noisy observations — the common case). The directional fidelity is $c = 1$ for linear systems. So $\eta^\ast c = K_{ss} \ll 1$ in the normal regime.
 
 The fluid-limit approximation is *most* inaccurate precisely when it is *least* needed: during initial transients with large $\eta^\ast$, where the qualitative behavior (rapid convergence from a distant initial condition) is the same regardless of whether the path is smooth or oscillatory. The approximation is *most* accurate when it *most* matters: at steady state, where the quantitative predictions (persistence bound, adaptive reserve, adversarial exponent) are evaluated.
 
@@ -451,15 +451,15 @@ In all cases, the conventional wisdom is the same: reduce the gain (learning rat
 
 The central question: do any downstream results change when discrete-time corrections are applied?
 
-### 7.1 Persistence Condition ( #persistence-condition)
+### 7.1 Persistence Condition ( #result-persistence-condition)
 
 **Impact: None.** The discrete persistence condition $\eta^\ast c_{\min} \gt \rho_{\text{step}}/R$ is equivalent to the continuous condition $\alpha \gt \rho/R$ under the identification $\alpha = \nu \eta^\ast c_{\min}$, $\rho = \nu \rho_{\text{step}}$. The two-part structure (structural persistence + task adequacy) and the operational forms are unchanged.
 
-### 7.2 Adaptive Reserve ( #sector-condition-stability, Prop A.2)
+### 7.2 Adaptive Reserve ( #result-sector-condition-stability, Prop A.2)
 
 **Impact: None.** $\Delta\rho^\ast = \alpha R - \rho$ is identical in discrete and continuous formulations (Prop DA.2).
 
-### 7.3 Adversarial Tempo Advantage ( #adversarial-tempo-advantage)
+### 7.3 Adversarial Tempo Advantage ( #result-adversarial-tempo-advantage)
 
 **Impact: No qualitative change; small quantitative correction in Model S.** The exponent $b = 2$ (Model D) and $b = 3/2$ (Model S) are derived from steady-state ratios. The Model D steady-state is identical in discrete and continuous. The Model S steady-state has the correction factor $1/(1 - \eta^\ast c/2)$, which affects both agents equally (same $\eta^\ast c$ for both under symmetric coupling) and therefore **cancels in the ratio**. The exponents are unchanged.
 
@@ -469,19 +469,19 @@ $$R^{\ast 2}_{B} = \frac{\sigma^2_{B,\text{step}}}{2\eta^\ast_B c_B - (\eta^\ast
 
 The ratio $R^{\ast 2}_B / R^{\ast 2}_A$ depends on $\sigma^2_B/\sigma^2_A$ and $(\eta^\ast_A c_A) / (\eta^\ast_B c_B)$. The discrete correction factors $(1 - \eta^\ast c/2)$ appear in both numerator and denominator. When agents have similar $\eta^\ast c$ (similar correction efficiency), the correction cancels. When they differ, there is an $O(\eta^\ast c)$ perturbation to the exponent — negligible in the regime where the adversarial analysis is applied (steady state, where $\eta^\ast$ is small).
 
-### 7.4 Adversarial Exponent Regimes ( #adversarial-exponent-regimes)
+### 7.4 Adversarial Exponent Regimes ( #result-adversarial-exponent-regimes)
 
 **Impact: None.** The exponents $b = 2$ (Model D), $b = 3/2$ (Model S), and the interpolation to non-coupling-dominant regimes all follow from steady-state formulas that are either identical (Model D) or differ by a factor that cancels in ratios (Model S).
 
-### 7.5 Multi-Timescale Stability ( #multi-timescale-stability)
+### 7.5 Multi-Timescale Stability ( #sketch-multi-timescale-stability)
 
-**Impact: Potentially clarifying.** The timescale separation condition $\nu_{n+1} \ll \nu_n$ from #temporal-nesting is naturally a discrete condition. The continuous singular perturbation analysis assumes $\epsilon_k / \epsilon_{k+1} \ll 1$. The discrete framework gives a concrete interpretation: the faster level must complete many correction cycles ($\gg 1/(\eta^\ast c)$ steps) before the slower level takes a single step. This is the condition for the faster level's steady-state bound to be reached before the slower level perturbs it — i.e., the condition for the fluid-limit approximation of the faster level to be valid from the perspective of the slower level.
+**Impact: Potentially clarifying.** The timescale separation condition $\nu_{n+1} \ll \nu_n$ from #der-temporal-nesting is naturally a discrete condition. The continuous singular perturbation analysis assumes $\epsilon_k / \epsilon_{k+1} \ll 1$. The discrete framework gives a concrete interpretation: the faster level must complete many correction cycles ($\gg 1/(\eta^\ast c)$ steps) before the slower level takes a single step. This is the condition for the faster level's steady-state bound to be reached before the slower level perturbs it — i.e., the condition for the fluid-limit approximation of the faster level to be valid from the perspective of the slower level.
 
-### 7.6 Composition Closure ( #composition-closure)
+### 7.6 Composition Closure ( #form-composition-closure)
 
 **Impact: Already resolved.** The composition-closure bridge lemma is already stated in discrete time with $\lambda = 1 - \alpha_c/\nu_c$. The results of this spike confirm that the discrete formulation is consistent with the continuous sector-condition framework. No changes needed.
 
-### 7.7 Gain-Sector Bridge ( #gain-sector-bridge)
+### 7.7 Gain-Sector Bridge ( #der-gain-sector-bridge)
 
 **Impact: Upper bound added.** The continuous bridge requires only directional fidelity (lower bound, B1). The discrete bridge additionally requires the upper bound ($c_{\max} \lt 2/\eta^\ast$). For optimal Bayesian updates (Kalman, conjugate), this is satisfied automatically: the Kalman gain $K \in (0, I)$ ensures $\eta^\ast c_{\max} = K \lt 1 \lt 2$. For gradient descent with learning rate $\eta$, the upper bound is $\eta \lt 2/L$ where $L$ is the Lipschitz constant of the gradient — the classical step-size condition for gradient descent convergence (Nesterov 2004). The upper bound is not a new restriction but a well-known condition that was implicit in the continuous framework and becomes explicit in the discrete one.
 
@@ -518,11 +518,11 @@ The two-sided discrete sector condition (DA2') is strictly stronger than the one
 
 ### 8.3 Recommendations for Segment Updates
 
-1. **#gain-sector-bridge**: Add a note that the discrete framework requires an upper bound ($c_{\max} \lt 2/\eta^\ast$), automatically satisfied for Bayesian updates and equivalent to the standard step-size condition for gradient descent. Remove the "only remaining gap" sentence (GA-5 is closed).
+1. **#der-gain-sector-bridge**: Add a note that the discrete framework requires an upper bound ($c_{\max} \lt 2/\eta^\ast$), automatically satisfied for Bayesian updates and equivalent to the standard step-size condition for gradient descent. Remove the "only remaining gap" sentence (GA-5 is closed).
 
-2. **#mismatch-dynamics**: Upgrade the "Bridging assumption" paragraph from a caveat to a grounded claim. The fluid limit is now formally justified with a quantitative error bound ($O(\eta^\ast c)$ in variance for Model S, zero for Model D steady state).
+2. **#hyp-mismatch-dynamics**: Upgrade the "Bridging assumption" paragraph from a caveat to a grounded claim. The fluid limit is now formally justified with a quantitative error bound ($O(\eta^\ast c)$ in variance for Model S, zero for Model D steady state).
 
-3. **#sector-condition-derivation**: Add a note (or a separate segment) presenting the discrete propositions DA.1, DA.1S, DA.2 as the primary results, with the continuous propositions as the fluid limit. This is optional — the continuous proofs are clean and pedagogically valuable, and the discrete proofs yield the same bounds.
+3. **#deriv-sector-condition**: Add a note (or a separate segment) presenting the discrete propositions DA.1, DA.1S, DA.2 as the primary results, with the continuous propositions as the fluid limit. This is optional — the continuous proofs are clean and pedagogically valuable, and the discrete proofs yield the same bounds.
 
 4. **New segment (optional)**: `discrete-sector-condition` — if the discrete results are to be promoted to the formal chain, they warrant their own segment (with the continuous results as a corollary via the fluid limit, rather than vice versa).
 
@@ -534,7 +534,7 @@ The two-sided discrete sector condition (DA2') is strictly stronger than the one
 
 2. **Heavy-tailed disturbances.** The supermartingale argument in DA.1S assumes finite second moments. For heavy-tailed disturbances (financial crashes, adversarial inputs), the bound degrades or fails. The continuous Itô analysis has the same limitation. Extending to sub-exponential or bounded-moment conditions is an open direction for both frameworks.
 
-3. **Non-i.i.d. disturbances.** The proof of DA.1S assumes $w_k$ are i.i.d. Correlated disturbances (e.g., AR(1) environmental noise) would modify the steady-state bound. The standard approach is to bound the spectral radius of the joint (state, disturbance) system. This connects to the per-dimension persistence analysis in #per-dimension-persistence.
+3. **Non-i.i.d. disturbances.** The proof of DA.1S assumes $w_k$ are i.i.d. Correlated disturbances (e.g., AR(1) environmental noise) would modify the steady-state bound. The standard approach is to bound the spectral radius of the joint (state, disturbance) system. This connects to the per-dimension persistence analysis in #result-per-dimension-persistence.
 
 4. **Exact vs. bound.** The discrete bounds are tight for linear correction (where DA.1 yields the exact steady state of an AR(1) process). For nonlinear correction, the bounds may be conservative. Whether tighter bounds are possible for specific nonlinear classes (e.g., gradient descent on strongly convex losses with known curvature bounds) is an optimization theory question with extensive existing literature.
 
@@ -552,7 +552,7 @@ The two-sided discrete sector condition (DA2') is strictly stronger than the one
 
 Section I's formal chain is now complete:
 
-$$\text{gain principle (} \text{\#update-gain)} \;\xrightarrow[\text{\#gain-sector-bridge}]{\text{B1 + upper bound}}\; \text{sector condition (DA2')} \;\xrightarrow[\text{DA.1, DA.1S, DA.2}]{\text{contraction (exact)}}\; \text{persistence, reserve, adversarial scaling}$$
+$$\text{gain principle (} \text{\#emp-update-gain)} \;\xrightarrow[\text{\#der-gain-sector-bridge}]{\text{B1 + upper bound}}\; \text{sector condition (DA2')} \;\xrightarrow[\text{DA.1, DA.1S, DA.2}]{\text{contraction (exact)}}\; \text{persistence, reserve, adversarial scaling}$$
 
 with the continuous-time Lyapunov results (Props A.1, A.1S, A.2) as the fluid-limit corollaries.
 

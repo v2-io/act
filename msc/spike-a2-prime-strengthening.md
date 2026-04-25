@@ -1,7 +1,7 @@
 # Spike: A2' Strengthening — Derivability within AAD Scope
 
 **Date:** 2026-04-22
-**Trigger:** O-BP14 derivation-table pass on `#sector-condition-derivation` surfaced epistemic slack — A2' labeled "Assumption" in the main Assumptions section but "Derived (conditional on #gain-sector-bridge)" in the O-BP14 row, with the "Grounding of GA-3" paragraph describing it as derivable. Classic three-layer-separation territory on a Section I load-bearing primitive.
+**Trigger:** O-BP14 derivation-table pass on `#deriv-sector-condition` surfaced epistemic slack — A2' labeled "Assumption" in the main Assumptions section but "Derived (conditional on #der-gain-sector-bridge)" in the O-BP14 row, with the "Grounding of GA-3" paragraph describing it as derivable. Classic three-layer-separation territory on a Section I load-bearing primitive.
 **Posture:** Strengthen first (attempt the improbable), then soften honestly if needed.
 
 ## 1. The question
@@ -10,11 +10,11 @@
 
 Separately: **can the Prop A.1S "sufficiently large region" condition be lifted from Epistemic Status into the proposition statement cleanly?**
 
-A2' is load-bearing — every Section I persistence-flavored result, every Section III composition result (via `#sector-persistence-template`), every downstream adversarial / structural / team result uses an instance of A2'. Tightening A2' tightens the entire Lyapunov chain.
+A2' is load-bearing — every Section I persistence-flavored result, every Section III composition result (via `#result-sector-persistence-template`), every downstream adversarial / structural / team result uses an instance of A2'. Tightening A2' tightens the entire Lyapunov chain.
 
 ## 2. What is already known
 
-From `#gain-sector-bridge` (claims-verified, conditional status):
+From `#der-gain-sector-bridge` (claims-verified, conditional status):
 
 - Prop B.3 derives A2' conditional on **B1 (directional fidelity)**: $\delta^T H g(\delta) \geq c \lVert\delta\rVert^2$ on $\mathcal B_R$. Given B1, $\alpha = \eta^\ast \cdot c_{\min}$.
 - For **optimal Bayesian updates** (Kalman, conjugate, exponential family in natural parameters), B1 holds *by construction* — the posterior minimizes expected loss.
@@ -30,7 +30,7 @@ So A2' is *already* a conditional derivation in the bridge segment. The spike's 
 
 **Claim to test.** If AAD's scope requires Bayesian-coherent updating, directional fidelity is inherited and A2' is derived universally.
 
-**Check.** `#recursive-update-derivation` proves only the recursive *form* $M_{\tau^+} = f(M_{\tau^-}, e_\tau)$ — it constrains structure, not rule. `#update-gain` is *robust qualitative*, explicitly noting that RL (fixed $\alpha$), PID (fixed $K_p$), and human judgment are in scope but non-Bayesian. `#agent-spectrum` explicitly places PID controllers in the "blind pursuer" region of AAD scope.
+**Check.** `#deriv-recursive-update` proves only the recursive *form* $M_{\tau^+} = f(M_{\tau^-}, e_\tau)$ — it constrains structure, not rule. `#emp-update-gain` is *robust qualitative*, explicitly noting that RL (fixed $\alpha$), PID (fixed $K_p$), and human judgment are in scope but non-Bayesian. `#def-agent-spectrum` explicitly places PID controllers in the "blind pursuer" region of AAD scope.
 
 **Verdict.** Bayesian coherence is *sufficient* for B1 (Prop B.3's remark, standard Bayesian-decision-theory argument — posterior update is the Bayes-risk minimizer, so correction is gradient-of-log-likelihood-aligned). But Bayesian coherence is NOT universally required in AAD scope. Path 1 yields a sub-scope derivation, not a universal one.
 
@@ -38,7 +38,7 @@ So A2' is *already* a conditional derivation in the bridge segment. The spike's 
 
 **Claim to test.** (P1)–(P4) + directed separation (Class 1) + gain-based update structure together force B1.
 
-**Check.** The gain-based form $M_t = M_{t-1} + \eta^\ast g(\delta_t)$ leaves the *direction* of $g(\delta)$ unconstrained. The postulates require observation, recursive update, temporal ordering, causal hierarchy — none of these pins down a monotonicity relation between $g(\delta)$ and $\delta$. An agent with $g(\delta) = R_{90°} \delta$ satisfies every AAD postulate but fails B1 trivially ($\delta^T g(\delta) = 0$). `#gain-sector-bridge` §FM-1 exhibits exactly this counterexample.
+**Check.** The gain-based form $M_t = M_{t-1} + \eta^\ast g(\delta_t)$ leaves the *direction* of $g(\delta)$ unconstrained. The postulates require observation, recursive update, temporal ordering, causal hierarchy — none of these pins down a monotonicity relation between $g(\delta)$ and $\delta$. An agent with $g(\delta) = R_{90°} \delta$ satisfies every AAD postulate but fails B1 trivially ($\delta^T g(\delta) = 0$). `#der-gain-sector-bridge` §FM-1 exhibits exactly this counterexample.
 
 **Verdict.** Scope + gain structure does NOT force B1. Some optimality / coherence / rationality principle is needed.
 
@@ -52,7 +52,7 @@ So A2' is *already* a conditional derivation in the bridge segment. The spike's 
 
 **But the witness may not be $V = \tfrac{1}{2}\|\delta\|^2$.** The converse theorem delivers *some* quadratic-equivalent Lyapunov function, not specifically the Euclidean-norm one. The corresponding "sector-like" condition is with respect to the matrix $P$ defining $V(\delta) = \delta^T P \delta$, not the Euclidean inner product.
 
-**Counterexample to the universal Euclidean A2'.** The matrix-Kalman case (`#gain-sector-derivation` Prop B.2) already exhibits this: the sector condition holds in the $(P^-)^{-1}$-weighted inner product, not the Euclidean one. The Euclidean-norm A2' holds only up to the condition number $\kappa(P^-)$. For systems with ill-conditioned prior covariance, Euclidean A2' can fail while weighted A2' holds — and the agent still persists. This is already flagged in `#gain-sector-bridge` Epistemic Status.
+**Counterexample to the universal Euclidean A2'.** The matrix-Kalman case (`#deriv-gain-sector` Prop B.2) already exhibits this: the sector condition holds in the $(P^-)^{-1}$-weighted inner product, not the Euclidean one. The Euclidean-norm A2' holds only up to the condition number $\kappa(P^-)$. For systems with ill-conditioned prior covariance, Euclidean A2' can fail while weighted A2' holds — and the agent still persists. This is already flagged in `#der-gain-sector-bridge` Epistemic Status.
 
 **What this gives.** A conditional converse: persistence *implies* a sector condition *in the quadratic-Lyapunov-witness inner product*. Under norm equivalence (bounded condition number), this transfers to Euclidean A2' with a degraded $\alpha$.
 
@@ -80,7 +80,7 @@ For sub-scope α, A2' is a **derived** consequence of the update rule's structur
 |---|---|
 | PID controllers with fixed gains | No gradient / optimality structure; B1 is a tuning question |
 | Rule-based systems | No continuous update rule; A2' is a domain-specific empirical claim |
-| Human judgment / organizational learning | Structural analogy in `#update-gain`; no formal B1 guarantee |
+| Human judgment / organizational learning | Structural analogy in `#emp-update-gain`; no formal B1 guarantee |
 | Severely misspecified agents | FM-5: even proper-gradient rules aim at the wrong target |
 | Variational / approximate posteriors | B1 not guaranteed by optimality (approximation error can rotate) |
 | Non-convex gradient agents beyond the basin | A2' fails at basin boundary — structural-adaptation trigger |
@@ -124,29 +124,29 @@ for all $t \geq 0$.
 
 ## 5. Segment edits to land
 
-### 5.1 `#sector-condition-derivation`
+### 5.1 `#deriv-sector-condition`
 
-- **Sharpen the A2' Assumptions subsection.** After the A2' statement, add an explicit sub-scope paragraph naming sub-scope α (A2' derived, listing the five classes from the bridge) and sub-scope β (A2' assumed / empirical claim, listing the agent classes where B1 is not structurally guaranteed). Reference `#gain-sector-bridge` Prop B.3 as the derivation source for sub-scope α.
+- **Sharpen the A2' Assumptions subsection.** After the A2' statement, add an explicit sub-scope paragraph naming sub-scope α (A2' derived, listing the five classes from the bridge) and sub-scope β (A2' assumed / empirical claim, listing the agent classes where B1 is not structurally guaranteed). Reference `#der-gain-sector-bridge` Prop B.3 as the derivation source for sub-scope α.
 - **Tighten the "Grounding of GA-3" paragraph.** Replace "is not an irreducible assumption for well-designed agents" (imprecise) with the explicit sub-scope α / β split. Retain $\alpha = \eta^\ast \cdot c_{\min}$ as the sub-scope-α magnitude.
 - **Lift the Prop A.1S region condition into the proposition statement.** Replace the current "implicit strengthening / stopping-time argument" Epistemic Status language with the stopped / unstopped / non-exit probability statement (i)–(iii).
-- **Update the O-BP14 table row for A2'.** From "Derived (conditional on #gain-sector-bridge's directional-fidelity premise); otherwise Assumption" to "Derived within sub-scope α (Bayesian / gradient-strongly-convex / exponential family; B1 structural); Assumption within sub-scope β (PID, rule-based, non-Bayesian); see #gain-sector-bridge Props B.3–B.4 and §Failure Modes."
-- **Add a Discussion note on Path 3** (converse Lyapunov): the Euclidean A2' is the canonical sector form matched to $V = \tfrac{1}{2}\|\delta\|^2$; under the weighted Lyapunov candidate $V = \tfrac{1}{2}\delta^T P \delta$, the sector condition is $\delta^T P F(\delta) \geq \alpha \delta^T P \delta$, and persistence-implies-sector holds in the weighted inner product. This clarifies why the matrix-Kalman weighted-norm subtlety in `#gain-sector-bridge` is not an exception but an instance of a general structure.
+- **Update the O-BP14 table row for A2'.** From "Derived (conditional on #der-gain-sector-bridge's directional-fidelity premise); otherwise Assumption" to "Derived within sub-scope α (Bayesian / gradient-strongly-convex / exponential family; B1 structural); Assumption within sub-scope β (PID, rule-based, non-Bayesian); see #der-gain-sector-bridge Props B.3–B.4 and §Failure Modes."
+- **Add a Discussion note on Path 3** (converse Lyapunov): the Euclidean A2' is the canonical sector form matched to $V = \tfrac{1}{2}\|\delta\|^2$; under the weighted Lyapunov candidate $V = \tfrac{1}{2}\delta^T P \delta$, the sector condition is $\delta^T P F(\delta) \geq \alpha \delta^T P \delta$, and persistence-implies-sector holds in the weighted inner product. This clarifies why the matrix-Kalman weighted-norm subtlety in `#der-gain-sector-bridge` is not an exception but an instance of a general structure.
 
-### 5.2 `#gain-sector-bridge`
+### 5.2 `#der-gain-sector-bridge`
 
-- **Add a sub-scope α / β naming paragraph** to the Epistemic Status section, mirroring `#sector-condition-derivation`. No new math; clarity in terminology.
+- **Add a sub-scope α / β naming paragraph** to the Epistemic Status section, mirroring `#deriv-sector-condition`. No new math; clarity in terminology.
 - **Stage:** leave at `claims-verified` if the changes are purely language tightening; revert to `draft` if substantive.
 
 ### 5.3 Prop A.1S region-aware statement impact
 
-- **`#sector-persistence-template`** (T3-S) currently uses the Grönwall bound form without region-awareness. Add a brief Epistemic Status sentence pointing to the stopped / unstopped refinement, citing the updated Prop A.1S. No change to the template's instantiation table.
-- Downstream consumers (`#persistence-condition`, `#strategy-persistence-schema`, `#team-persistence`, `#composition-closure`, `#derived-tempo-composition`, `#adversarial-destabilization`) do not need edits — they invoke the template without reference to A.1S's region technicality.
+- **`#result-sector-persistence-template`** (T3-S) currently uses the Grönwall bound form without region-awareness. Add a brief Epistemic Status sentence pointing to the stopped / unstopped refinement, citing the updated Prop A.1S. No change to the template's instantiation table.
+- Downstream consumers (`#result-persistence-condition`, `#schema-strategy-persistence`, `#der-team-persistence`, `#form-composition-closure`, `#der-tempo-composition`, `#der-adversarial-destabilization`) do not need edits — they invoke the template without reference to A.1S's region technicality.
 
 ### 5.4 Stage updates
 
-- `#sector-condition-derivation`: already `draft` — substantive content change, remains `draft` for re-review.
-- `#gain-sector-bridge`: was `claims-verified` — substantive language change (sub-scope naming); revert to `draft` for re-review.
-- `#sector-persistence-template`: was `draft` — small epistemic-status addition only; remains `draft`.
+- `#deriv-sector-condition`: already `draft` — substantive content change, remains `draft` for re-review.
+- `#der-gain-sector-bridge`: was `claims-verified` — substantive language change (sub-scope naming); revert to `draft` for re-review.
+- `#result-sector-persistence-template`: was `draft` — small epistemic-status addition only; remains `draft`.
 
 ## 6. References
 
@@ -154,11 +154,11 @@ for all $t \geq 0$.
 - Khasminskii, R. (2012). *Stochastic Stability of Differential Equations* (2nd ed.). Springer. Ch. 5 (Lyapunov functions and stochastic stability; stopping-time localization).
 - Lur'e, A. I. (1957). *Some Nonlinear Problems in the Theory of Automatic Control*. Gostekhizdat. Original sector-condition framework for absolute stability.
 - Nesterov, Y. (2004). *Introductory Lectures on Convex Optimization*. Springer. Thm 2.1.10 (strong convexity ⇔ gradient monotonicity).
-- AAD segments cited: `#sector-condition-derivation`, `#gain-sector-bridge`, `#gain-sector-derivation`, `#update-gain`, `#recursive-update-derivation`, `#agent-model`, `#agent-spectrum`, `#scope-agency`, `#sector-persistence-template`, `#discrete-sector-condition`.
+- AAD segments cited: `#deriv-sector-condition`, `#der-gain-sector-bridge`, `#deriv-gain-sector`, `#emp-update-gain`, `#deriv-recursive-update`, `#form-agent-model`, `#def-agent-spectrum`, `#scope-agency`, `#result-sector-persistence-template`, `#deriv-discrete-sector-condition`.
 
 ## 7. Open questions (after this spike)
 
 1. **Non-gradient agents in AAD scope.** For PID controllers, rule-based systems, and human-judgment agents, A2' remains an empirical claim. Is there a narrower mid-level sub-scope (e.g., "PID with gains tuned to Ziegler-Nichols ranges") where B1 can be argued structurally? Deferred — not blocking Section I completion.
 2. **Variational inference.** A2' holds in expectation for optimal Bayesian updates, but variational approximations can violate B1 by approximation-direction error. This is structurally outside sub-scope α as currently defined. Worth a future note cross-referencing Wainwright & Jordan 2008 (variational methods and Bethe free energy) if the active-inference integration deepens.
-3. **Global sector bound for structural-adaptation-resistant agents.** A2 (global, without $\mathcal B_R$ restriction) is stronger and would give global ultimate boundedness and infinite adaptive reserve. It is unrealistic for finite model classes (flagged in Working Notes of `#sector-condition-derivation`), but is there a domain-specific agent class (e.g., specialists in convex-only environments) where A2 holds globally by construction?
-4. **Tier interaction with sector condition.** The tier 1/2/3 structure in `#composition-closure` uses DA2'-inc (incremental / strong monotonicity), strictly stronger than one-point A2'. The relationship between A2' sub-scope α/β and the composition tiers is not yet characterized — sub-scope α agents are largely Tier 1, but the mapping is not exact. Future spike.
+3. **Global sector bound for structural-adaptation-resistant agents.** A2 (global, without $\mathcal B_R$ restriction) is stronger and would give global ultimate boundedness and infinite adaptive reserve. It is unrealistic for finite model classes (flagged in Working Notes of `#deriv-sector-condition`), but is there a domain-specific agent class (e.g., specialists in convex-only environments) where A2 holds globally by construction?
+4. **Tier interaction with sector condition.** The tier 1/2/3 structure in `#form-composition-closure` uses DA2'-inc (incremental / strong monotonicity), strictly stronger than one-point A2'. The relationship between A2' sub-scope α/β and the composition tiers is not yet characterized — sub-scope α agents are largely Tier 1, but the mapping is not exact. Future spike.

@@ -2,7 +2,7 @@
 
 > **Origin**: `~/src/_core/tst/vault/04-workspace/1-inbox/formal-bounds-on-implementation-speed.md` (2025). Prior art research for the specification-bound claim.
 >
-> **Relevance**: Grounds `02-tst-core/src/specification-bound.md` in established results. Key models: Austin's game-theoretic threshold (2001), Putnam's software equation ($\text{Effort}^{1/3} \times \text{Time}^{4/3}$), Shannon communication complexity bounds, and formal verification bottleneck theory. The specification-bound segment should reference these as prior art rather than presenting the bound as novel.
+> **Relevance**: Grounds `02-tst-core/src/result-specification-bound.md` in established results. Key models: Austin's game-theoretic threshold (2001), Putnam's software equation ($\text{Effort}^{1/3} \times \text{Time}^{4/3}$), Shannon communication complexity bounds, and formal verification bottleneck theory. The specification-bound segment should reference these as prior art rather than presenting the bound as novel.
 
 After extensive research into mathematical formalizations that establish boundaries on maximum implementation speed being constrained by specification communication time, I found several theoretical frameworks that address this fundamental relationship, though not always in the explicit form you're seeking.
 

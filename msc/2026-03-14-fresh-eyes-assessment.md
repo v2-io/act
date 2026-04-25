@@ -72,7 +72,7 @@ Fixed in this session. The general persistence condition is α > ρ/R; the T for
 
 ### Section IV Overstates Git's Causal Status
 
-The claim that git commit data provides "genuinely causal" information is analogical, not formal. Commits are developer interventions, but the confounding structure (bundled changes, convention-driven grouping, cherry-picking, merge strategies) isn't addressed. The segment #causal-discovery-from-git is still missing. Until it's written, the operationalization story should be framed as "promising empirical program" not "secure bridge."
+The claim that git commit data provides "genuinely causal" information is analogical, not formal. Commits are developer interventions, but the confounding structure (bundled changes, convention-driven grouping, cherry-picking, merge strategies) isn't addressed. The segment #hyp-causal-discovery-from-git is still missing. Until it's written, the operationalization story should be framed as "promising empirical program" not "secure bridge."
 
 ---
 
@@ -89,7 +89,7 @@ The claim that git commit data provides "genuinely causal" information is analog
 
 5. Replace the κ discussion with an architectural classification: Section II scoped to modular agents, Section V scoped to coupled (merged-architecture) agents. Remove the "κ as scalar" framing. State the scope decision explicitly.
 6. Promote the acyclicity derivation independently from the full graph-uniqueness argument — it's tight and can stand alone
-7. Write #causal-discovery-from-git or downgrade the git causal claims
+7. Write #hyp-causal-discovery-from-git or downgrade the git causal claims
 
 ### Medium-term (next month)
 

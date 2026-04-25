@@ -2,9 +2,9 @@
 
 **Status**: Speculation / partial derivation -- the upper-bound direction goes through under stated assumptions; the named target (lower bound $\varepsilon^\ast \geq C \cdot \lVert K \rVert_{\text{norm}}$) does **not** close under the current AAD formulation without additional structural hypotheses.
 **Date**: 2026-04-20
-**Motivation**: The composition-closure segment ( #composition-closure, Working Notes) identifies an unworked connection: "The closure defect should relate to the MZ memory kernel -- when correlations between projected and discarded variables decay fast, $\varepsilon^\ast$ is small. A rigorous lower bound $\varepsilon^\ast \geq f(\text{memory kernel norm})$ would anchor AAD's composition framework in established dynamical-systems theory. Plausible but unworked." This spike attempts that derivation, documents where it closes, and flags where it does not.
+**Motivation**: The composition-closure segment ( #form-composition-closure, Working Notes) identifies an unworked connection: "The closure defect should relate to the MZ memory kernel -- when correlations between projected and discarded variables decay fast, $\varepsilon^\ast$ is small. A rigorous lower bound $\varepsilon^\ast \geq f(\text{memory kernel norm})$ would anchor AAD's composition framework in established dynamical-systems theory. Plausible but unworked." This spike attempts that derivation, documents where it closes, and flags where it does not.
 
-**Depends on**: #composition-closure, #multi-agent-scope, #sector-condition-derivation, #discrete-sector-condition, `msc/spike-composition-correlated-kalman.md`, `msc/spike-bridge-lemma-contraction.md`, `msc/spike-projection-admissibility.md`
+**Depends on**: #form-composition-closure, #scope-multi-agent, #deriv-sector-condition, #deriv-discrete-sector-condition, `msc/spike-composition-correlated-kalman.md`, `msc/spike-bridge-lemma-contraction.md`, `msc/spike-projection-admissibility.md`
 
 ---
 
@@ -22,7 +22,7 @@ $$K(s) = P L \, e^{s Q L} \, Q L P$$
 
 The noise $F(t) = e^{t Q L} Q L P A(0)$ lives in the range of $Q$ (orthogonal to $P$'s range).
 
-**Target hypothesis (from #composition-closure Working Notes):** There exists a constant $C$ depending on $\alpha_c, \nu_c$ such that
+**Target hypothesis (from #form-composition-closure Working Notes):** There exists a constant $C$ depending on $\alpha_c, \nu_c$ such that
 
 $$\varepsilon^\ast \;\geq\; C \cdot \lVert K \rVert_{\text{norm}}$$
 
@@ -46,7 +46,7 @@ This spike makes ingredients (1) and (2) precise, derives the upper-bound direct
 
 *[Formulation]*
 
-Let $\pi$ be a probability measure on $\mathcal X_{\text{micro}}$ that is stationary (or quasi-stationary) under the micro-dynamics -- for Kalman-type agents, $\pi$ is the steady-state joint distribution of $(X_{\text{micro}}, o_{\text{micro}})$. For event-driven AAD agents ( #event-driven-dynamics), $\pi$ exists when the process is ergodic; stationarity is an additional assumption that holds in the regime the sector condition is most often invoked (bounded mismatch, persistent disturbance).
+Let $\pi$ be a probability measure on $\mathcal X_{\text{micro}}$ that is stationary (or quasi-stationary) under the micro-dynamics -- for Kalman-type agents, $\pi$ is the steady-state joint distribution of $(X_{\text{micro}}, o_{\text{micro}})$. For event-driven AAD agents ( #form-event-driven-dynamics), $\pi$ exists when the process is ergodic; stationarity is an additional assumption that holds in the regime the sector condition is most often invoked (bounded mismatch, persistent disturbance).
 
 Define the Hilbert space
 
@@ -179,7 +179,7 @@ The target hypothesis is $\varepsilon^\ast \geq C \lVert K \rVert_{\text{norm}}$
 
 ### 4.1 Trajectory error as memory accumulation
 
-Recall the bridge lemma recurrence ( #composition-closure, eq. referenced in §143):
+Recall the bridge lemma recurrence ( #form-composition-closure, eq. referenced in §143):
 
 $$\lVert e_{t+1} \rVert \leq \lambda \lVert e_t \rVert + \varepsilon_x, \qquad \lambda = 1 - \alpha_c/\nu_c$$
 
@@ -225,7 +225,7 @@ $$\lVert K_s \rVert \lesssim \rho(Q_\Lambda U)^s$$
 
 If $\rho(Q_\Lambda U) < 1$, the sum $\sum_s \lVert K_s \rVert < \infty$ and the memory contribution to the trajectory error is bounded. This is the MZ analog of "fast decay of correlations" or "spectral gap" (in the continuous-time Liouvillian setting).
 
-**The connection to the bridge lemma's contraction assumption** ( #composition-closure, eq. 131, and `msc/spike-bridge-lemma-contraction.md`): the contraction of $f_c$ in state space is *not* the same as the spectral gap of $Q U$ in observable space. The former controls how the macro-dynamics contract state differences; the latter controls how fast micro-correlations between projected and discarded variables decay. They are related but distinct:
+**The connection to the bridge lemma's contraction assumption** ( #form-composition-closure, eq. 131, and `msc/spike-bridge-lemma-contraction.md`): the contraction of $f_c$ in state space is *not* the same as the spectral gap of $Q U$ in observable space. The former controls how the macro-dynamics contract state differences; the latter controls how fast micro-correlations between projected and discarded variables decay. They are related but distinct:
 
 - **$f_c$ contraction** is a property of the *macro*-dynamics chosen (A4 + strong monotonicity, per the bridge-lemma-contraction spike).
 - **$Q U$ spectral gap** is a property of the *micro*-dynamics restricted to the orthogonal subspace -- it does not depend on the macro-dynamics choice, only on $\Lambda$ and $f_{\text{micro}}$.
@@ -242,7 +242,7 @@ The honest account of why the target $\varepsilon^\ast \geq C \cdot \lVert K \rV
 
 ### 5.1 Obstruction 1: ε* is per-step, memory kernel is multi-lag
 
-$\varepsilon^\ast$ as defined in #composition-closure (eq. 47) is a *per-step* (trajectory-averaged) norm error. The memory kernel $K$ is inherently a *lag-indexed sequence* $\{K_s\}_{s \geq 0}$. The per-step closure defect can at best be related to $K_0$, the zero-lag kernel. The sum or sup of $\lVert K_s \rVert$ over lags captures a trajectory-accumulation phenomenon. To get $\varepsilon^\ast \geq C \lVert K \rVert$ with $\lVert K \rVert$ including multi-lag structure, one would need to *redefine* $\varepsilon^\ast$ as a trajectory error (integrating over a horizon) rather than a per-step error. This is a formulation-level choice, not a derivation gap.
+$\varepsilon^\ast$ as defined in #form-composition-closure (eq. 47) is a *per-step* (trajectory-averaged) norm error. The memory kernel $K$ is inherently a *lag-indexed sequence* $\{K_s\}_{s \geq 0}$. The per-step closure defect can at best be related to $K_0$, the zero-lag kernel. The sum or sup of $\lVert K_s \rVert$ over lags captures a trajectory-accumulation phenomenon. To get $\varepsilon^\ast \geq C \lVert K \rVert$ with $\lVert K \rVert$ including multi-lag structure, one would need to *redefine* $\varepsilon^\ast$ as a trajectory error (integrating over a horizon) rather than a per-step error. This is a formulation-level choice, not a derivation gap.
 
 ### 5.2 Obstruction 2: Admissibility class constraint gap
 
@@ -264,7 +264,7 @@ The Hilbert-space setup in §2.1 requires a stationary measure. For purposeful a
 
 ### 5.4 Obstruction 4: Norm compatibility
 
-AAD uses the Mahalanobis norm for estimation-type agents ( #composition-closure, §193) and leaves the norm open for other domains. MZ's natural norm is $L^2(\pi)$. For the Kalman case these align (the inverse steady-state covariance is the Mahalanobis weight and coincides with the weighting induced by $\pi$). For non-Gaussian agents or discrete state spaces, the compatibility is not automatic.
+AAD uses the Mahalanobis norm for estimation-type agents ( #form-composition-closure, §193) and leaves the norm open for other domains. MZ's natural norm is $L^2(\pi)$. For the Kalman case these align (the inverse steady-state covariance is the Mahalanobis weight and coincides with the weighting induced by $\pi$). For non-Gaussian agents or discrete state spaces, the compatibility is not automatic.
 
 ### 5.5 What *would* close the target
 
@@ -336,7 +336,7 @@ The stronger form $\varepsilon^\ast_{\text{traj}} \geq (\nu_c / \alpha_c) \lVert
 
 2. **Does $P_\Lambda U P_\Lambda \in \mathcal M_{\text{adm}}$ generically?** If the MZ-optimal Markovian reduction automatically inherits AAD structure from the micro-dynamics, the admissibility gap of §5.2 disappears and one of the obstructions goes away. This is itself an interesting question about AAD -- it would say "the $L^2$-best macro-dynamics is automatically AAD-shaped when the micro-dynamics are."
 
-3. **Reformulate $\varepsilon^\ast$ as a trajectory quantity** or define $\varepsilon^\ast_{\text{traj}}$ explicitly. The current per-step definition in #composition-closure is compatible with the bridge-lemma style trajectory error but they are not *the same quantity*. Distinguishing them explicitly may clean up several results.
+3. **Reformulate $\varepsilon^\ast$ as a trajectory quantity** or define $\varepsilon^\ast_{\text{traj}}$ explicitly. The current per-step definition in #form-composition-closure is compatible with the bridge-lemma style trajectory error but they are not *the same quantity*. Distinguishing them explicitly may clean up several results.
 
 4. **Handle non-stationary auxiliary states** (Beta-Bernoulli with diverging $n$, structurally adapting DAGs). This is the main technical obstacle to extending MZ to purposeful agents. The candidate is to work in the *innovation frame* (stationary signal) plus an explicit quasi-stationary correction for the slowly-varying auxiliary state -- a Magnus-expansion-style perturbation of MZ.
 
@@ -352,7 +352,7 @@ The stronger form $\varepsilon^\ast_{\text{traj}} \geq (\nu_c / \alpha_c) \lVert
 
 **The worst-case interaction with AAD is that the most interesting cases** (purposeful agents with diverging auxiliary state) **are exactly the cases where MZ's stationarity assumption fails.** This suggests the MZ connection will anchor AAD's *epistemic-substate* composition cleanly (Kalman-type agents, stationary estimation frames) but will not, without substantial additional work, anchor the *purposeful-substate* composition where the composition-closure framework is most load-bearing.
 
-**Recommended update to #composition-closure Working Notes.** The MZ connection should be promoted from "plausible but unworked" to "partially worked; per-step bound via $K_0$ derived under stationarity; full kernel bound requires reformulating $\varepsilon^\ast$ as a trajectory quantity or accepting the hypothesis as applying to the bridge lemma's trajectory-error bound rather than to $\varepsilon^\ast$ directly. Extension to purposeful agents blocked by non-stationarity of strategy updates." This spike is the reference for that update.
+**Recommended update to #form-composition-closure Working Notes.** The MZ connection should be promoted from "plausible but unworked" to "partially worked; per-step bound via $K_0$ derived under stationarity; full kernel bound requires reformulating $\varepsilon^\ast$ as a trajectory quantity or accepting the hypothesis as applying to the bridge lemma's trajectory-error bound rather than to $\varepsilon^\ast$ directly. Extension to purposeful agents blocked by non-stationarity of strategy updates." This spike is the reference for that update.
 
 ---
 

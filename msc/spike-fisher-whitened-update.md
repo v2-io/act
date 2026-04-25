@@ -3,22 +3,22 @@ slug: spike-fisher-whitened-update
 type: spike
 status: draft
 depends:
-  - credit-assignment-boundary
-  - edge-update-natural-parameter
-  - gain-sector-bridge
-  - sector-condition-derivation
-  - strategic-dynamics-derivation
+  - disc-credit-assignment-boundary
+  - deriv-edge-update-natural-parameter
+  - der-gain-sector-bridge
+  - deriv-sector-condition
+  - deriv-strategic-dynamics
   - additive-coordinate-forcing
-  - discussion-identifiability-floor
-  - discussion-separability-pattern
+  - disc-identifiability-floor
+  - disc-separability-pattern
 ---
 
 # Spike: Fisher-Whitened Edge Update Under Correlated Evidence
 
 **Date:** 2026-04-22
-**Trigger:** Gemini's Finding (post-SP-2, post-G-BP1 landing): the log-odds coordinate is *uniquely forced* for independent Bernoulli evidence by `#edge-update-natural-parameter`'s Aczél-Cauchy-FE derivation — but the evidential-additivity axiom presumes *independent* likelihood ratios. Under L1' / L2 (correlated edges with shared common cause), the likelihoods are no longer independent, and the log-odds additive update may be mis-oriented relative to the natural-gradient direction. The default signal function in `#credit-assignment-boundary` uses the log-odds coordinate globally; it is not presently Fisher-aware. Question: is directional fidelity B1 preserved under correlation, or does the mismatch between the additive-coordinate-forced direction and the information-geometrically-correct direction create a structural hole that only a Fisher-whitening correction can plug?
+**Trigger:** Gemini's Finding (post-SP-2, post-G-BP1 landing): the log-odds coordinate is *uniquely forced* for independent Bernoulli evidence by `#deriv-edge-update-natural-parameter`'s Aczél-Cauchy-FE derivation — but the evidential-additivity axiom presumes *independent* likelihood ratios. Under L1' / L2 (correlated edges with shared common cause), the likelihoods are no longer independent, and the log-odds additive update may be mis-oriented relative to the natural-gradient direction. The default signal function in `#disc-credit-assignment-boundary` uses the log-odds coordinate globally; it is not presently Fisher-aware. Question: is directional fidelity B1 preserved under correlation, or does the mismatch between the additive-coordinate-forced direction and the information-geometrically-correct direction create a structural hole that only a Fisher-whitening correction can plug?
 **Posture:** Strengthen-first. Attempt to derive the correction from AAD-internal principles before falling back on "import Amari's natural gradient wholesale."
-**Status:** Draft. The derivation below has three clean tiers: (A) angle/misalignment characterization under block-correlated evidence — fully worked; (B) Fisher-whitening correction as a *derived* meta-gain law — derived conditional on an AAD-internal principle (directional-fidelity preservation under coordinate change) that turns out to be already load-bearing in `#gain-sector-bridge` Prop B.3; (C) L2 scope check — whitening breaks down under latent correlations, giving a third `#discussion-identifiability-floor` instance.
+**Status:** Draft. The derivation below has three clean tiers: (A) angle/misalignment characterization under block-correlated evidence — fully worked; (B) Fisher-whitening correction as a *derived* meta-gain law — derived conditional on an AAD-internal principle (directional-fidelity preservation under coordinate change) that turns out to be already load-bearing in `#der-gain-sector-bridge` Prop B.3; (C) L2 scope check — whitening breaks down under latent correlations, giving a third `#disc-identifiability-floor` instance.
 
 ## 1. Problem statement
 
@@ -26,7 +26,7 @@ AAD's edge update under independent evidence is:
 
 $$\lambda_{ij}^{\text{new}} = \lambda_{ij}^{\text{prior}} + \eta_{\text{edge}} \cdot \iota_{ij} \cdot \frac{J_{ij}(y_G - \hat P_\Sigma)}{\lVert \mathbf J \rVert^2}$$
 
-( #credit-assignment-boundary default signal, log-odds form). This is derived as an additive update on the unique additive-evidence coordinate ( #edge-update-natural-parameter), applied componentwise to a plan-level residual with Jacobian-reweighted attribution.
+( #disc-credit-assignment-boundary default signal, log-odds form). This is derived as an additive update on the unique additive-evidence coordinate ( #deriv-edge-update-natural-parameter), applied componentwise to a plan-level residual with Jacobian-reweighted attribution.
 
 Under L1' (soft facilitator, observable common cause) or L2 (general correlation), the per-trial observations are no longer conditionally independent given the edge credences. Let $\boldsymbol\lambda \in \mathbb{R}^E$ denote the stacked log-odds vector across edges. The Fisher information matrix of the joint likelihood is:
 
@@ -45,7 +45,7 @@ The question decomposes:
 
 **Q2 (derivation).** Is there an AAD-internal principle that *forces* the whitening correction, parallel to how evidential-additivity forces the log-odds coordinate? Or is whitening a pure import from information geometry?
 
-**Q3 (scope).** Does the whitening correction restore directional fidelity B1 across L1' / L2, or does it break down somewhere — giving a new `#discussion-identifiability-floor` instance?
+**Q3 (scope).** Does the whitening correction restore directional fidelity B1 across L1' / L2, or does it break down somewhere — giving a new `#disc-identifiability-floor` instance?
 
 **Q4 (A2' partition).** Where in the $\alpha_1 / \alpha_2 / \beta$ partition ( `msc/spike-adaptive-gain-dynamics.md` §7) does "correlated edges with Fisher-whitened update" sit? Is it a new sub-scope, or absorbed into $\alpha_2$?
 
@@ -59,9 +59,9 @@ Take two parallel edges $k_1, k_2$ sharing an observable soft facilitator $C$ (P
 
 $$P(y_1, y_2 \mid \boldsymbol\phi) = \theta_C \prod_{k=1}^{2} p_{k\mid C}^{y_k}(1 - p_{k\mid C})^{1-y_k} + (1 - \theta_C) \prod_{k=1}^{2} p_{k\mid \neg C}^{y_k}(1 - p_{k\mid \neg C})^{1-y_k}$$
 
-where $\boldsymbol\phi = (\theta_C, p_{1\mid C}, p_{1\mid \neg C}, p_{2\mid C}, p_{2\mid \neg C})$. Under **$C$-observable** (Prop B.7 established sub-case), the per-trial update separates into two sub-trials indexed by the realized $c \in \{0, 1\}$, and each sub-trial has diagonal Fisher in its own conditional-credence sub-block. Under **$C$-unobservable** (refuted sub-case), the Fisher matrix on the joint $\boldsymbol\phi$ is rank-1 per trial — the `#discussion-identifiability-floor` Instance 2 no-go. The *intermediate* and interesting setting is the one this spike addresses: $C$ observable per trial but the agent is *operating in log-odds on the marginal edge credences* $(p_1, p_2)$ rather than the full conditional vector $(p_{1\mid C}, p_{1\mid \neg C}, p_{2\mid C}, p_{2\mid \neg C})$.
+where $\boldsymbol\phi = (\theta_C, p_{1\mid C}, p_{1\mid \neg C}, p_{2\mid C}, p_{2\mid \neg C})$. Under **$C$-observable** (Prop B.7 established sub-case), the per-trial update separates into two sub-trials indexed by the realized $c \in \{0, 1\}$, and each sub-trial has diagonal Fisher in its own conditional-credence sub-block. Under **$C$-unobservable** (refuted sub-case), the Fisher matrix on the joint $\boldsymbol\phi$ is rank-1 per trial — the `#disc-identifiability-floor` Instance 2 no-go. The *intermediate* and interesting setting is the one this spike addresses: $C$ observable per trial but the agent is *operating in log-odds on the marginal edge credences* $(p_1, p_2)$ rather than the full conditional vector $(p_{1\mid C}, p_{1\mid \neg C}, p_{2\mid C}, p_{2\mid \neg C})$.
 
-This is the L0-approximation-to-L1'-truth regime: the agent has not augmented its DAG with $C$ as an explicit node, so it updates marginal credences $p_k = \theta_C p_{k\mid C} + (1-\theta_C) p_{k\mid \neg C}$ from observed $y_k$. This regime is where `#credit-assignment-boundary`'s Discussion §"Correlated-failure interaction (L0 vs L1)" warns: *"[the gradient signal] retains directional fidelity on average ... but the per-edge attribution is contaminated."* The spike sharpens this: how contaminated, and when is the contamination large enough to flip the sign of the update?
+This is the L0-approximation-to-L1'-truth regime: the agent has not augmented its DAG with $C$ as an explicit node, so it updates marginal credences $p_k = \theta_C p_{k\mid C} + (1-\theta_C) p_{k\mid \neg C}$ from observed $y_k$. This regime is where `#disc-credit-assignment-boundary`'s Discussion §"Correlated-failure interaction (L0 vs L1)" warns: *"[the gradient signal] retains directional fidelity on average ... but the per-edge attribution is contaminated."* The spike sharpens this: how contaminated, and when is the contamination large enough to flip the sign of the update?
 
 ### 2.1 Fisher information at truth, reduced to the $(\lambda_1, \lambda_2)$ sub-manifold
 
@@ -103,7 +103,7 @@ Define
 
 $$r \;:=\; \frac{\mathcal I_{12}}{\sqrt{\mathcal I_{11} \mathcal I_{22}}} \;=\; \frac{\theta_C(1-\theta_C) \Delta_1 \Delta_2}{\sigma_1 \sigma_2}$$
 
-This satisfies $\lvert r \rvert \leq 1$ (Cauchy-Schwarz on the score vectors) with equality at the fully-determined limit ($\Delta_k = 1$, $p_k = 1/2$, $\theta_C = 1/2$). When $r = 0$ the edges are Fisher-independent (L0 recovered exactly); when $r \to 1$ the Fisher matrix is rank-1 (the unobservable-$C$ degeneracy of `#discussion-identifiability-floor` Instance 2 re-emerging via the limit even when $C$ is observable).
+This satisfies $\lvert r \rvert \leq 1$ (Cauchy-Schwarz on the score vectors) with equality at the fully-determined limit ($\Delta_k = 1$, $p_k = 1/2$, $\theta_C = 1/2$). When $r = 0$ the edges are Fisher-independent (L0 recovered exactly); when $r \to 1$ the Fisher matrix is rank-1 (the unobservable-$C$ degeneracy of `#disc-identifiability-floor` Instance 2 re-emerging via the limit even when $C$ is observable).
 
 **Observable vs unobservable $C$, clarified.** Under $C$-observable, the agent *could* augment its DAG with $C$ as a node and track $(\theta_C, p_{k\mid C}, p_{k\mid \neg C})$ separately — the Prop B.7 route. If it does *not* (operating on marginal log-odds in the L0-approximation-to-L1' regime), the marginal-level Fisher still carries the $r$ structure derived above. The $C$-observability question is about whether the agent *can* identify the mixture; the $r$-structure is about whether the agent *does* incorporate that identification into its update coordinate. This spike handles the "can but does not" regime.
 
@@ -113,7 +113,7 @@ This satisfies $\lvert r \rvert \leq 1$ (Cauchy-Schwarz on the score vectors) wi
 
 Write $\mathbf g := \mathbf J^T (y_G - \hat P_\Sigma)$ (the plan-level residual pulled back to log-odds coordinates, without any metric correction). Then:
 
-- $\mathbf d_{\text{LO}} = \mathbf g / \lVert \mathbf g \rVert$ (unit-normalized; $\lVert \mathbf J\rVert^2$ is $\mathbf J \mathbf J^T$ scalar Jacobi-weight in the `#credit-assignment-boundary` formula, left off here to isolate the *direction*).
+- $\mathbf d_{\text{LO}} = \mathbf g / \lVert \mathbf g \rVert$ (unit-normalized; $\lVert \mathbf J\rVert^2$ is $\mathbf J \mathbf J^T$ scalar Jacobi-weight in the `#disc-credit-assignment-boundary` formula, left off here to isolate the *direction*).
 - $\mathbf d_{\text{NG}} = \mathcal I^{-1} \mathbf g / \lVert \mathcal I^{-1} \mathbf g\rVert_{\mathcal I}$ (unit-normalized in the Fisher-weighted inner product, which is the appropriate norm for the natural-gradient direction).
 
 The angle $\theta_r$ in the Fisher inner product is:
@@ -194,7 +194,7 @@ $$\alpha_{\text{LO}}(r) \;\geq\; \alpha_{\text{LO}}(0) \cdot \frac{2\sqrt{\kappa
 
 which with $\kappa(\mathcal I) = (1 + \lvert r\rvert)/(1 - \lvert r\rvert)$ for the $2\times 2$ block gives $\alpha_{\text{LO}}(r)/\alpha_{\text{LO}}(0) \geq \sqrt{1 - r^2}$.
 
-**Verdict on Q1 (angle):** The LO update is never antipodal to the truth under finite block correlation. It can be up to $45°$ off for $r \to 1$, degrading the sector parameter by up to $\sqrt{1 - r^2}$. The update still contracts toward truth — it just does so more slowly as correlation grows, with a structural singularity at $r = 1$ (the `#discussion-identifiability-floor` rank-deficient limit).
+**Verdict on Q1 (angle):** The LO update is never antipodal to the truth under finite block correlation. It can be up to $45°$ off for $r \to 1$, degrading the sector parameter by up to $\sqrt{1 - r^2}$. The update still contracts toward truth — it just does so more slowly as correlation grows, with a structural singularity at $r = 1$ (the `#disc-identifiability-floor` rank-deficient limit).
 
 ## 4. Can Fisher whitening be derived from AAD-internal principles?
 
@@ -206,11 +206,11 @@ is *derivable* from AAD's current machinery rather than imported from Amari.
 
 ### 4.1 Candidate: Fisher whitening from directional-fidelity preservation
 
-**Candidate principle (directional-fidelity preservation under parameterization).** The `#gain-sector-bridge` Prop B.3 establishes that directional fidelity B1 — $\delta^T H g(\delta) \geq c \lVert\delta\rVert^2$ — is the structural condition under which A2' is derived. B1 is stated in Euclidean inner product on the mismatch space. Under a change of coordinates $\boldsymbol\lambda \to \boldsymbol\phi(\boldsymbol\lambda)$ with Jacobian $D_\phi$, the pullback of the Euclidean metric is $D_\phi^T D_\phi$. For B1 to be *coordinate-invariant* — i.e., to be a structural property of the agent's update rule rather than an artifact of the representation — the inner product must be pulled back consistently when the coordinate changes.
+**Candidate principle (directional-fidelity preservation under parameterization).** The `#der-gain-sector-bridge` Prop B.3 establishes that directional fidelity B1 — $\delta^T H g(\delta) \geq c \lVert\delta\rVert^2$ — is the structural condition under which A2' is derived. B1 is stated in Euclidean inner product on the mismatch space. Under a change of coordinates $\boldsymbol\lambda \to \boldsymbol\phi(\boldsymbol\lambda)$ with Jacobian $D_\phi$, the pullback of the Euclidean metric is $D_\phi^T D_\phi$. For B1 to be *coordinate-invariant* — i.e., to be a structural property of the agent's update rule rather than an artifact of the representation — the inner product must be pulled back consistently when the coordinate changes.
 
-For a Bayesian-coherent agent ( `#credit-assignment-boundary` §"Default Signal Function"), the natural coordinate is log-odds ( `#edge-update-natural-parameter` Aczél uniqueness). The natural inner product on log-odds is *not* the Euclidean inner product; it is the inner product induced by the Fisher metric, because the Fisher metric is the unique (up to scale) Markov-invariant metric on the statistical manifold (Čencov 1982 *Statistical Decision Rules and Optimal Inference*, AMS Translations of Mathematical Monographs 53; modern treatment Amari & Nagaoka 2000, *Methods of Information Geometry*, Translations of Mathematical Monographs 191, §3).
+For a Bayesian-coherent agent ( `#disc-credit-assignment-boundary` §"Default Signal Function"), the natural coordinate is log-odds ( `#deriv-edge-update-natural-parameter` Aczél uniqueness). The natural inner product on log-odds is *not* the Euclidean inner product; it is the inner product induced by the Fisher metric, because the Fisher metric is the unique (up to scale) Markov-invariant metric on the statistical manifold (Čencov 1982 *Statistical Decision Rules and Optimal Inference*, AMS Translations of Mathematical Monographs 53; modern treatment Amari & Nagaoka 2000, *Methods of Information Geometry*, Translations of Mathematical Monographs 191, §3).
 
-**The AAD-internal motivation.** Under L0 (independent edges), the Fisher matrix on $\boldsymbol\lambda$ is diagonal — Euclidean and Fisher inner products on log-odds coincide up to per-coordinate scaling absorbed into $\eta_{\text{edge}}$. The B1 Euclidean-inner-product formulation in `#gain-sector-bridge` *already* matches the Fisher-inner-product formulation under L0. Under L1'/L2, the two diverge. If B1 is to remain the structural condition governing A2' sub-scope $\alpha$, the inner product under which it is stated must track the coordinate's natural geometry — which under correlated evidence is the Fisher metric.
+**The AAD-internal motivation.** Under L0 (independent edges), the Fisher matrix on $\boldsymbol\lambda$ is diagonal — Euclidean and Fisher inner products on log-odds coincide up to per-coordinate scaling absorbed into $\eta_{\text{edge}}$. The B1 Euclidean-inner-product formulation in `#der-gain-sector-bridge` *already* matches the Fisher-inner-product formulation under L0. Under L1'/L2, the two diverge. If B1 is to remain the structural condition governing A2' sub-scope $\alpha$, the inner product under which it is stated must track the coordinate's natural geometry — which under correlated evidence is the Fisher metric.
 
 **Theorem candidate (derivation-conditional).** *[Derived (Fisher-whitening forced by directional-fidelity preservation, conditional on parameterization-invariance of B1)]*
 
@@ -228,9 +228,9 @@ where $\mathcal L$ is the log-likelihood (or a Jacobian-transformed plan-level s
 
 The directional fidelity condition B1 should be coordinate-invariant: the set of update rules satisfying B1 should not depend on whether mismatch is parameterized in moment coordinates, log-odds, or any smooth reparameterization of the credence state.
 
-This is an **AAD-internal** axiom because the alternative — B1 being Euclidean-specific — would make the entire `#gain-sector-bridge` sub-scope $\alpha$ partition *coordinate-dependent*. An agent could fail B1 in moment-parameter space and pass B1 in log-odds space (by just reparameterizing), or vice versa — the sector-condition derivation would become a property of the *coordinate chosen*, not of the *update rule*. That violates the implicit `#gain-sector-bridge` reading.
+This is an **AAD-internal** axiom because the alternative — B1 being Euclidean-specific — would make the entire `#der-gain-sector-bridge` sub-scope $\alpha$ partition *coordinate-dependent*. An agent could fail B1 in moment-parameter space and pass B1 in log-odds space (by just reparameterizing), or vice versa — the sector-condition derivation would become a property of the *coordinate chosen*, not of the *update rule*. That violates the implicit `#der-gain-sector-bridge` reading.
 
-The axiom is not a throwaway — it is the coordinate-geometric analog of what `#edge-update-natural-parameter`'s evidential-additivity axiom does at the *coordinate-choice* level. Evidential-additivity forces log-odds as *the* additive-evidence coordinate. B1-parameterization-invariance forces Fisher as *the* metric on that coordinate.
+The axiom is not a throwaway — it is the coordinate-geometric analog of what `#deriv-edge-update-natural-parameter`'s evidential-additivity axiom does at the *coordinate-choice* level. Evidential-additivity forces log-odds as *the* additive-evidence coordinate. B1-parameterization-invariance forces Fisher as *the* metric on that coordinate.
 
 ### 4.2 Candidate: Fisher whitening from the `#additive-coordinate-forcing` meta-pattern
 
@@ -250,12 +250,12 @@ Both paths point in the same direction: Fisher whitening is *not* a foreign impo
 
 | Path | AAD principle | Fisher whitening as consequence |
 |---|---|---|
-| A | B1 parameterization-invariance in `#gain-sector-bridge` | The metric on log-odds must track Fisher for B1 to be structural rather than coordinate-specific |
+| A | B1 parameterization-invariance in `#der-gain-sector-bridge` | The metric on log-odds must track Fisher for B1 to be structural rather than coordinate-specific |
 | B | Lyapunov-coordinate-matching to update rule, via `#additive-coordinate-forcing` adjacency | The canonical Lyapunov for natural gradient is Fisher-weighted; under L1'/L2 the Euclidean Lyapunov no longer matches the update |
 
-Both paths have the same shape: **an AAD principle that happened to be vacuously satisfied under L0 (where Fisher is diagonal and the two agree) becomes non-vacuous under L1'/L2 (where they diverge), and forcing the principle to remain operational picks out Fisher whitening**. This is the same structural shape as `#discussion-identifiability-floor`: an external theorem's implications that were dormant under simple structures become operational under richer structures. The escape here, however, is *constructive* (a correction that restores the property) rather than a no-go (a structural obstruction).
+Both paths have the same shape: **an AAD principle that happened to be vacuously satisfied under L0 (where Fisher is diagonal and the two agree) becomes non-vacuous under L1'/L2 (where they diverge), and forcing the principle to remain operational picks out Fisher whitening**. This is the same structural shape as `#disc-identifiability-floor`: an external theorem's implications that were dormant under simple structures become operational under richer structures. The escape here, however, is *constructive* (a correction that restores the property) rather than a no-go (a structural obstruction).
 
-**Verdict on Q2 (derivation):** Fisher whitening is AAD-internally derivable under the axiom of B1 parameterization-invariance or (equivalently, for Bayesian-coherent agents) under the principle of Lyapunov-coordinate-matching. The derivation is conditional on these axioms being AAD-internally motivated — which they plausibly are, because they make explicit what `#gain-sector-bridge` was implicitly relying on under L0.
+**Verdict on Q2 (derivation):** Fisher whitening is AAD-internally derivable under the axiom of B1 parameterization-invariance or (equivalently, for Bayesian-coherent agents) under the principle of Lyapunov-coordinate-matching. The derivation is conditional on these axioms being AAD-internally motivated — which they plausibly are, because they make explicit what `#der-gain-sector-bridge` was implicitly relying on under L0.
 
 ## 5. Restated B1 under Fisher whitening
 
@@ -273,9 +273,9 @@ where $\boldsymbol\delta := \boldsymbol\lambda - \boldsymbol\lambda^\ast$. The l
 
 The Euclidean sector parameter $\alpha_{\text{Eucl}}$ and the Fisher-inner-product sector parameter $\alpha_{\mathcal I}$ relate via $\alpha_{\text{Eucl}} \geq \alpha_{\mathcal I} / \sigma_{\max}(\mathcal I)$ (lower bound via norm equivalence) and $\alpha_{\text{Eucl}} \leq \alpha_{\mathcal I} / \sigma_{\min}(\mathcal I)$ (upper bound). Under L0 (diagonal Fisher with uniform eigenvalues), the two are equal. Under L1'/L2 with condition number $\kappa(\mathcal I)$, the Euclidean sector parameter can be up to $\kappa(\mathcal I)$ times smaller than the Fisher sector parameter.
 
-**This is why the Euclidean-stated B1 in `#gain-sector-bridge` appears to degrade under correlation: the statement in the wrong inner product makes the constant bleed off as the coordinates become skewed.** Under Fisher-whitened updating + Fisher-inner-product B1, the constant does not bleed — the sector parameter is coordinate-intrinsic.
+**This is why the Euclidean-stated B1 in `#der-gain-sector-bridge` appears to degrade under correlation: the statement in the wrong inner product makes the constant bleed off as the coordinates become skewed.** Under Fisher-whitened updating + Fisher-inner-product B1, the constant does not bleed — the sector parameter is coordinate-intrinsic.
 
-### 5.3 Does the proof of `#gain-sector-bridge` carry over?
+### 5.3 Does the proof of `#der-gain-sector-bridge` carry over?
 
 Yes, with substitutions:
 
@@ -285,9 +285,9 @@ Yes, with substitutions:
 
 The directional-fidelity calculation proceeds identically; the sector parameter is now the minimum eigenvalue of $\eta \mathcal I^{-1} \nabla^2 \mathcal L$ at the truth, which under log-concavity is $\eta$ times the spectral ratio $\lambda_{\min}(\mathcal I^{-1} \nabla^2 \mathcal L)$. For Bayesian agents with $\nabla^2 \mathcal L = -\mathcal I$, this ratio is 1 and $\alpha_{\mathcal I} = \eta$.
 
-**The proof of `#gain-sector-bridge` carries over with $\kappa(\mathcal I)$ entering only as the Euclidean ↔ Fisher norm-equivalence penalty in the transfer back to the original `#sector-condition-derivation` framework.** This is exactly the structure of `#gain-sector-bridge`'s "Weighted-norm subtlety" paragraph (Kalman case: sector condition holds in $(P^-)^{-1}$-norm, transfers to Euclidean with $\kappa(P^-)$ penalty). The Fisher-whitening case is the generalization: weighted-sector in Fisher inner product, transfers to Euclidean with $\kappa(\mathcal I)$ penalty.
+**The proof of `#der-gain-sector-bridge` carries over with $\kappa(\mathcal I)$ entering only as the Euclidean ↔ Fisher norm-equivalence penalty in the transfer back to the original `#deriv-sector-condition` framework.** This is exactly the structure of `#der-gain-sector-bridge`'s "Weighted-norm subtlety" paragraph (Kalman case: sector condition holds in $(P^-)^{-1}$-norm, transfers to Euclidean with $\kappa(P^-)$ penalty). The Fisher-whitening case is the generalization: weighted-sector in Fisher inner product, transfers to Euclidean with $\kappa(\mathcal I)$ penalty.
 
-**Verdict on Q3 (B1'):** The proof of `#gain-sector-bridge` carries over cleanly. B1' is the Fisher-inner-product statement; $\kappa(\mathcal I)$ enters as a norm-equivalence penalty, structurally identical to the Kalman case's $\kappa(P^-)$.
+**Verdict on Q3 (B1'):** The proof of `#der-gain-sector-bridge` carries over cleanly. B1' is the Fisher-inner-product statement; $\kappa(\mathcal I)$ enters as a norm-equivalence penalty, structurally identical to the Kalman case's $\kappa(P^-)$.
 
 ## 6. The A2' sub-scope partition under correlation
 
@@ -319,7 +319,7 @@ To verify it satisfies (MG-1)–(MG-4):
 
 **Verdict on Q5 (adaptive-gain connection):** Fisher whitening is a *degenerate* special case of adaptive-gain dynamics in which the meta-gain is not an independent state variable but a deterministic function of the primary state. It is a meta-gain law with the gain/primary identification collapsed. This is consistent with (MG-1)–(MG-4) but does not exercise the full force of the meta-gain framework — in particular, it does not require the two-timescale Lyapunov of `spike-adaptive-gain-dynamics` §7 because there is only one timescale. Fisher whitening hands `spike-adaptive-gain-dynamics` a *second concrete instance* where the meta-gain is structurally derivable (the first being adaptive Kalman with Mehra estimator), with the meta-gain law being a deterministic coordinate-geometric function rather than an innovation-based estimator.
 
-## 7. L2 scope check and the `#discussion-identifiability-floor` connection (Q3 open-endedness)
+## 7. L2 scope check and the `#disc-identifiability-floor` connection (Q3 open-endedness)
 
 ### 7.1 Where does Fisher whitening break down?
 
@@ -331,54 +331,54 @@ Three regimes exhaust the cases:
 
 **L2-singular (correlation structure deterministic).** When $r \to 1$ (some edges perfectly correlated), the Fisher matrix becomes rank-deficient and $\mathcal I^{-1}$ diverges. Fisher whitening amplifies this singular direction unboundedly, destabilizing the update. This is the structural limit; the only correction is to quotient out the redundant direction (merge the perfectly-correlated edges into a single effective edge) or refuse to update in the null direction.
 
-### 7.2 A new `#discussion-identifiability-floor` instance?
+### 7.2 A new `#disc-identifiability-floor` instance?
 
-The L2-latent case gives a *third* instance of the `#discussion-identifiability-floor` pattern, parallel to Instance 1 (on-policy detection) and Instance 2 (unobservable-$C$ L1' single-channel):
+The L2-latent case gives a *third* instance of the `#disc-identifiability-floor` pattern, parallel to Instance 1 (on-policy detection) and Instance 2 (unobservable-$C$ L1' single-channel):
 
 **Instance 3 candidate: Fisher whitening requires observable correlation structure.** *[Discussion (Fisher-whitening identifiability floor)]*
 
-Under latent correlation (L2-latent), the agent has no access to $\mathcal I$ (it cannot estimate the off-diagonal entries from marginal observations alone — this is Cramér-Rao rank-deficiency on the correlation-parameter sub-block). The Fisher-whitening correction is therefore unavailable, and the LO update's angular misalignment with the natural-gradient direction is uncorrectable. Escape requires either: (a) augmenting the DAG with the latent correlation as an explicit node (converting L2-latent to L2-observable); (b) multi-channel observation structure permitting joint estimation of the correlation entries (analogous to the multi-child observability escape in `#discussion-identifiability-floor` Instance 2); (c) accepting the L0 approximation with its $\sqrt{1-r^2}$-degraded sector parameter.
+Under latent correlation (L2-latent), the agent has no access to $\mathcal I$ (it cannot estimate the off-diagonal entries from marginal observations alone — this is Cramér-Rao rank-deficiency on the correlation-parameter sub-block). The Fisher-whitening correction is therefore unavailable, and the LO update's angular misalignment with the natural-gradient direction is uncorrectable. Escape requires either: (a) augmenting the DAG with the latent correlation as an explicit node (converting L2-latent to L2-observable); (b) multi-channel observation structure permitting joint estimation of the correlation entries (analogous to the multi-child observability escape in `#disc-identifiability-floor` Instance 2); (c) accepting the L0 approximation with its $\sqrt{1-r^2}$-degraded sector parameter.
 
-**Format check against Instance 1, 2:** Both prior instances have the form "external theorem no-goes; AAD-machinery is the unique escape." Instance 3 candidate has the same form: the external theorem is Cramér-Rao applied to the correlation-parameter sub-block; the AAD escape is the `#discussion-separability-pattern` structured-repair of observability-augmentation (DAG augmentation with the latent correlation as an explicit node).
+**Format check against Instance 1, 2:** Both prior instances have the form "external theorem no-goes; AAD-machinery is the unique escape." Instance 3 candidate has the same form: the external theorem is Cramér-Rao applied to the correlation-parameter sub-block; the AAD escape is the `#disc-separability-pattern` structured-repair of observability-augmentation (DAG augmentation with the latent correlation as an explicit node).
 
 This instance is structurally distinct from Instance 2 (which is about identifying the *conditional credences* under mixture structure) — Instance 3 is about identifying the *metric/correlation structure itself*. Both arise from Fisher rank deficiency but on different sub-blocks of the parameter space. They compose: under L2-latent mixture with latent correlation, both instances fire simultaneously, and no amount of data resolves either.
 
 **Promotion decision.** Instance 3 candidate is adjacent enough to Instance 2 that it may fold into Instance 2 as a generalization ("L1' Cramér-Rao extends to general L2 latent-correlation Cramér-Rao"), or it may stand on its own as a distinct correlation-structure-identification no-go. Decision deferred to review.
 
-**Verdict on Q3 (open-endedness):** Fisher whitening works cleanly for L2-observable; breaks down for L2-latent via a new `#discussion-identifiability-floor` candidate instance; becomes singular at L2-degenerate (perfect correlation) requiring structural DAG repair (edge merging).
+**Verdict on Q3 (open-endedness):** Fisher whitening works cleanly for L2-observable; breaks down for L2-latent via a new `#disc-identifiability-floor` candidate instance; becomes singular at L2-degenerate (perfect correlation) requiring structural DAG repair (edge merging).
 
 ## 8. Where does this land?
 
-### 8.1 Recommendation: extension to `#gain-sector-bridge` + new working-notes items in two other segments
+### 8.1 Recommendation: extension to `#der-gain-sector-bridge` + new working-notes items in two other segments
 
 Three options:
 
-**R1 (preferred): New segment `#fisher-whitened-update-rule`.** Create `01-aad-core/src/fisher-whitened-update-rule.md` as a derived segment stating:
+**R1 (preferred): New segment `#deriv-fisher-whitened-update-rule`.** Create `01-aad-core/src/deriv-fisher-whitened-update-rule.md` as a derived segment stating:
 
 1. The problem: under correlated evidence, the evidential-additivity-forced log-odds update diverges from the natural-gradient direction (§3).
 2. The AAD-internal derivation: Fisher whitening is forced by either B1 parameterization-invariance or Lyapunov-coordinate-matching (§4).
 3. The B1' formulation: Fisher-inner-product directional fidelity, with Euclidean transfer via $\kappa(\mathcal I)$ norm equivalence (§5).
 4. The A2' sub-scope $\alpha_3$ label: correlated evidence with Fisher-whitened update.
-5. The L2-latent `#discussion-identifiability-floor` instance 3 candidate.
+5. The L2-latent `#disc-identifiability-floor` instance 3 candidate.
 
 Corresponding segment edits:
 
-- **`#gain-sector-bridge`:** add a "Fisher-whitened extension" sub-section or Discussion paragraph cross-referencing the new segment. The "Weighted-norm subtlety" paragraph is the natural landing point — the Kalman case is already a special case of Fisher-weighted inner product (with $\mathcal I = P^{-1}$ for the linear-Gaussian model).
-- **`#credit-assignment-boundary`:** add a Working Notes item: *"Default signal function is log-odds-gradient; under L1'/L2, Fisher whitening restores directional fidelity in the Fisher inner product. See `#fisher-whitened-update-rule`."*
+- **`#der-gain-sector-bridge`:** add a "Fisher-whitened extension" sub-section or Discussion paragraph cross-referencing the new segment. The "Weighted-norm subtlety" paragraph is the natural landing point — the Kalman case is already a special case of Fisher-weighted inner product (with $\mathcal I = P^{-1}$ for the linear-Gaussian model).
+- **`#disc-credit-assignment-boundary`:** add a Working Notes item: *"Default signal function is log-odds-gradient; under L1'/L2, Fisher whitening restores directional fidelity in the Fisher inner product. See `#deriv-fisher-whitened-update-rule`."*
 - **`#additive-coordinate-forcing`:** Working Notes expansion: the Lyapunov-adjacent-family classification needs a sub-clause for Fisher-weighted Lyapunov in the Fisher-whitened regime. The Fisher-weighted quadratic $V_{\mathcal I}$ is *matched to* the natural-gradient update rule in the same way the Euclidean quadratic was matched to the Euclidean gradient — the coordinate is chosen rather than forced by an additivity axiom.
-- **`#discussion-identifiability-floor`:** if Instance 3 candidate is promoted, add as third instance after Instance 2 (L1' unobservable single-channel) and before the three open extensions. Alternative: fold into Instance 2 as a strengthening/generalization.
-- **`#discussion-separability-pattern`:** correlation ladder gets an additional row: *separable core = L0; structured repair = L1'-obs + Fisher-whitened = L2-obs; general open = L2-latent with latent-correlation floor*.
+- **`#disc-identifiability-floor`:** if Instance 3 candidate is promoted, add as third instance after Instance 2 (L1' unobservable single-channel) and before the three open extensions. Alternative: fold into Instance 2 as a strengthening/generalization.
+- **`#disc-separability-pattern`:** correlation ladder gets an additional row: *separable core = L0; structured repair = L1'-obs + Fisher-whitened = L2-obs; general open = L2-latent with latent-correlation floor*.
 - **`spike-adaptive-gain-dynamics`:** §3.3's "meta-gain as an OU-type contraction" framework gets Fisher whitening listed as a *second concrete instance* (deterministic coordinate-function form of meta-gain), alongside adaptive Kalman.
 
-**R2: Appendix to `#credit-assignment-boundary`.** Fold §§3-5 into an appendix "Fisher-whitening extension under correlated evidence." Downside: `#credit-assignment-boundary` is already substantial; adding a whole whitening treatment bloats it.
+**R2: Appendix to `#disc-credit-assignment-boundary`.** Fold §§3-5 into an appendix "Fisher-whitening extension under correlated evidence." Downside: `#disc-credit-assignment-boundary` is already substantial; adding a whole whitening treatment bloats it.
 
-**R3: Appendix to `#gain-sector-bridge`.** Similar to R2 but with `#gain-sector-bridge` as host. Downside: the Fisher-whitened update is more naturally located near `#credit-assignment-boundary`'s default signal, since the whole derivation is motivated by extending that signal function.
+**R3: Appendix to `#der-gain-sector-bridge`.** Similar to R2 but with `#der-gain-sector-bridge` as host. Downside: the Fisher-whitened update is more naturally located near `#disc-credit-assignment-boundary`'s default signal, since the whole derivation is motivated by extending that signal function.
 
-**Recommendation: R1 preferred.** The content has enough substance (five sections of derivation, a new A2' sub-scope, a candidate `#discussion-identifiability-floor` instance, and meta-pattern connections to `#additive-coordinate-forcing` and `#discussion-separability-pattern`) to warrant its own segment. Stage: `draft` pending review; type: `derivation` (uses augmented-state Lyapunov machinery); status: `conditional` (conditional on B1-parameterization-invariance axiom).
+**Recommendation: R1 preferred.** The content has enough substance (five sections of derivation, a new A2' sub-scope, a candidate `#disc-identifiability-floor` instance, and meta-pattern connections to `#additive-coordinate-forcing` and `#disc-separability-pattern`) to warrant its own segment. Stage: `draft` pending review; type: `derivation` (uses augmented-state Lyapunov machinery); status: `conditional` (conditional on B1-parameterization-invariance axiom).
 
 ### 8.2 Connection to G-BP1 + G-BP3 cluster
 
-The architectural-proposals document flags G-BP1 (natural-parameter reparameterization) + G-BP3 (Fisher-information unification) as a strong cluster that "together yield natural gradient descent on a Riemannian manifold" (per `msc/architectural-proposals-2026-04-22.md` §G-BP3 Gemini reaffirm). This spike is the *scoping derivation* for G-BP3 restricted to the edge-update layer: it establishes that Fisher whitening is AAD-internally motivated (not just imported), characterizes the sub-scope where it is derivable ($\alpha_3$), and identifies the structural boundary (L2-latent `#discussion-identifiability-floor` instance).
+The architectural-proposals document flags G-BP1 (natural-parameter reparameterization) + G-BP3 (Fisher-information unification) as a strong cluster that "together yield natural gradient descent on a Riemannian manifold" (per `msc/architectural-proposals-2026-04-22.md` §G-BP3 Gemini reaffirm). This spike is the *scoping derivation* for G-BP3 restricted to the edge-update layer: it establishes that Fisher whitening is AAD-internally motivated (not just imported), characterizes the sub-scope where it is derivable ($\alpha_3$), and identifies the structural boundary (L2-latent `#disc-identifiability-floor` instance).
 
 **For the G-BP3 portfolio decision:** this spike provides partial evidence for G-BP3 — specifically, that Fisher whitening at the edge-update layer is a genuine extension that both fixes a Finding (the LO-NG misalignment under correlation) and unifies machinery (absorbing Kalman's $(P^-)^{-1}$-norm, the correlation-case ladder, and the adaptive-gain meta-gain framework under a single coordinate-geometric principle). It does *not* yet argue for the full G-BP3 rewrite (Section I redefined in Fisher-information terms) — that is a larger move requiring separate scoping. What this spike does say: the edge-update layer can be Fisher-unified without disturbing the rest of Section I, and the derivation is AAD-internal rather than imported.
 
@@ -393,18 +393,18 @@ The architectural-proposals document flags G-BP1 (natural-parameter reparameteri
 | Fisher whitening forced by B1 parameterization-invariance axiom (§4.1) | Candidate AAD-internal axiom: the directional-fidelity condition should be coordinate-invariant | **Derived conditional on B1-parameterization-invariance axiom** |
 | Fisher whitening forced by Lyapunov-coordinate-matching (§4.2) | Via `#additive-coordinate-forcing`'s adjacent-family classification for Lyapunov | Derived (conditional on matching principle) |
 | Fisher-whitened B1' holds in Fisher inner product with $c = \eta\mu$ for Bayesian-coherent agents (§5.1) | Direct: information identity $-\nabla^2\mathcal L = \mathcal I$ for exponential families | Derived |
-| Proof of `#gain-sector-bridge` carries over to Fisher-whitened case with $\kappa(\mathcal I)$ as Euclidean-transfer penalty (§5.3) | Parallels Kalman case's $(P^-)^{-1}$-norm treatment | Derived |
+| Proof of `#der-gain-sector-bridge` carries over to Fisher-whitened case with $\kappa(\mathcal I)$ as Euclidean-transfer penalty (§5.3) | Parallels Kalman case's $(P^-)^{-1}$-norm treatment | Derived |
 | A2' sub-scope $\alpha_3$ (correlated evidence with Fisher whitening) (§6) | Direct from §§4-5 | Derived (conditional on the two axioms) |
 | Fisher whitening as degenerate meta-gain law $K_t = \mathcal I^{-1}(\boldsymbol\lambda_t)$ (§6.2) | Direct comparison with spike-adaptive-gain-dynamics (MG-1)-(MG-4) | Derived (conditional) |
-| L2-latent `#discussion-identifiability-floor` Instance 3 candidate (§7) | Cramér-Rao applied to correlation-parameter sub-block | Discussion-grade (pending Instance 2 vs Instance 3 distinction review) |
+| L2-latent `#disc-identifiability-floor` Instance 3 candidate (§7) | Cramér-Rao applied to correlation-parameter sub-block | Discussion-grade (pending Instance 2 vs Instance 3 distinction review) |
 | Connection to G-BP3 architectural portfolio (§8.2) | Scope of derivation as partial evidence | Discussion-grade (framing) |
 
 ### Epistemic honest obstructions
 
-- **(O1) B1-parameterization-invariance is not currently an explicit AAD axiom.** It is an *implicit* expectation behind `#gain-sector-bridge`'s sub-scope $\alpha$ partition — the sub-scope list would become coordinate-dependent without it. Making it explicit is a framing move; this spike recommends the move but does not resolve whether it should be added to the axiom catalog or absorbed into the text of `#gain-sector-bridge`'s Discussion.
+- **(O1) B1-parameterization-invariance is not currently an explicit AAD axiom.** It is an *implicit* expectation behind `#der-gain-sector-bridge`'s sub-scope $\alpha$ partition — the sub-scope list would become coordinate-dependent without it. Making it explicit is a framing move; this spike recommends the move but does not resolve whether it should be added to the axiom catalog or absorbed into the text of `#der-gain-sector-bridge`'s Discussion.
 - **(O2) The $2\times 2$ worked case does not prove the full-matrix generalization.** The angle bound of §3.4 is standard but the algebraic forms of §3.1-3.3 are specific to the $2\times 2$ block. A full-matrix treatment requires more careful handling of the plan-value Jacobian $\mathbf J$'s interaction with the full Fisher matrix. The scaling claim $\alpha_{\text{LO}}/\alpha_{\mathcal I}$ generalizes via standard norm-equivalence; the specific $\cos\theta$ formulas do not.
-- **(O3) Non-Bayesian sub-scope $\beta$ agents remain outside.** The derivations assume Bayesian coherence (information identity). Non-Bayesian agents (PID, rule-based) may still *benefit* from Fisher-like whitening empirically but the derivation here does not cover them. This is consistent with `#gain-sector-bridge`'s sub-scope $\beta$ A2'-assumed status.
-- **(O4) Fisher-estimator identifiability.** Under L2-latent, the agent cannot estimate $\mathcal I$ from marginal observations alone. The `#discussion-identifiability-floor` Instance 3 candidate in §7.2 formalizes this. The related question of how much data is required to estimate $\mathcal I$ well enough for whitening (finite-sample regime) is open and merits its own treatment.
+- **(O3) Non-Bayesian sub-scope $\beta$ agents remain outside.** The derivations assume Bayesian coherence (information identity). Non-Bayesian agents (PID, rule-based) may still *benefit* from Fisher-like whitening empirically but the derivation here does not cover them. This is consistent with `#der-gain-sector-bridge`'s sub-scope $\beta$ A2'-assumed status.
+- **(O4) Fisher-estimator identifiability.** Under L2-latent, the agent cannot estimate $\mathcal I$ from marginal observations alone. The `#disc-identifiability-floor` Instance 3 candidate in §7.2 formalizes this. The related question of how much data is required to estimate $\mathcal I$ well enough for whitening (finite-sample regime) is open and merits its own treatment.
 - **(O5) Worked example missing.** A concrete simulation showing the LO update contracting slowly under correlation and the Fisher-whitened update recovering full contraction would strengthen the Case A worked-example case — call it "Worked example: correlated-edges strategy calibration under block-common-cause" — but is out of scope for the spike.
 
 ## 10. Answers to the seven spike angles
@@ -415,25 +415,25 @@ The architectural-proposals document flags G-BP1 (natural-parameter reparameteri
 
 3. **Whitening as derived correction (§4).** Derivable from AAD-internal axiom (B1-parameterization-invariance) or from Lyapunov-coordinate-matching. Not a wholesale Amari import.
 
-4. **A2' partition (§6).** New sub-scope $\alpha_3$ = correlated evidence + Fisher-whitened update + Bayesian-coherent. Fits inside the existing $\alpha/\beta$ partition as a third derived sub-scope, parallel to $\alpha_1$ (fixed-gain independent) and $\alpha_2$ (adaptive-gain independent). Latent correlation (L2-latent) pushes to $\beta$ via a new `#discussion-identifiability-floor` instance candidate.
+4. **A2' partition (§6).** New sub-scope $\alpha_3$ = correlated evidence + Fisher-whitened update + Bayesian-coherent. Fits inside the existing $\alpha/\beta$ partition as a third derived sub-scope, parallel to $\alpha_1$ (fixed-gain independent) and $\alpha_2$ (adaptive-gain independent). Latent correlation (L2-latent) pushes to $\beta$ via a new `#disc-identifiability-floor` instance candidate.
 
-5. **B1 under the correction (§5).** B1' is the Fisher-inner-product version; holds with $c = \eta\mu$ for Bayesian-coherent agents. Proof of `#gain-sector-bridge` carries over with $\kappa(\mathcal I)$ as the Euclidean-transfer penalty — structurally identical to the Kalman case's $(P^-)^{-1}$-norm treatment.
+5. **B1 under the correction (§5).** B1' is the Fisher-inner-product version; holds with $c = \eta\mu$ for Bayesian-coherent agents. Proof of `#der-gain-sector-bridge` carries over with $\kappa(\mathcal I)$ as the Euclidean-transfer penalty — structurally identical to the Kalman case's $(P^-)^{-1}$-norm treatment.
 
 6. **Adaptive-gain connection (§6.2).** Fisher whitening is a degenerate meta-gain law $K_t = \mathcal I^{-1}(\boldsymbol\lambda_t)$ — the meta-gain is a deterministic function of the primary state rather than an independent learned variable. Hands `spike-adaptive-gain-dynamics` a second concrete instance of derivable meta-gain (alongside adaptive Kalman with Mehra estimator).
 
-7. **L2 scope check (§7).** Fisher whitening works for L2-observable; breaks down for L2-latent via a new `#discussion-identifiability-floor` Instance 3 candidate (Cramér-Rao on correlation-parameter sub-block); singular at L2-degenerate (perfect correlation, requiring structural DAG repair by edge merging).
+7. **L2 scope check (§7).** Fisher whitening works for L2-observable; breaks down for L2-latent via a new `#disc-identifiability-floor` Instance 3 candidate (Cramér-Rao on correlation-parameter sub-block); singular at L2-degenerate (perfect correlation, requiring structural DAG repair by edge merging).
 
 ## 11. Open questions after this spike
 
 1. **Fisher-estimator sample complexity.** How much data is required to estimate $\hat{\mathcal I}_t$ well enough that the plug-in Fisher-whitened update $\Delta \boldsymbol\lambda = \eta \hat{\mathcal I}_t^{-1} \mathbf g_t$ still satisfies B1'? Finite-sample regime bounds the degradation from plug-in vs oracle whitening.
 
-2. **Instance 2 vs Instance 3 in `#discussion-identifiability-floor`.** Whether the L2-latent Cramér-Rao floor is a distinct instance from the L1'-unobservable-$C$ single-channel floor, or a natural generalization of it, is a structural question for the `#discussion-identifiability-floor` taxonomy.
+2. **Instance 2 vs Instance 3 in `#disc-identifiability-floor`.** Whether the L2-latent Cramér-Rao floor is a distinct instance from the L1'-unobservable-$C$ single-channel floor, or a natural generalization of it, is a structural question for the `#disc-identifiability-floor` taxonomy.
 
 3. **Full-matrix generalization of §3's angle formulas.** The $2\times 2$ block is cleanly worked; the $E$-edge generalization uses standard norm-equivalence but loses the clean explicit form. A full-matrix treatment would be a natural appendix to the R1 segment proposal.
 
 4. **Fisher whitening vs AMSGrad / Shampoo-style preconditioning.** The ML literature has several Fisher-approximations (AMSGrad monotonic second moment, K-FAC block-diagonal Fisher, Shampoo structured preconditioner). Each carries its own approximation cost. Spelling out which approximation corresponds to which AAD sub-scope (and which pushes into $\beta$) is worth doing before external presentation.
 
-5. **Interaction with G-BP1's logit-scoping decision.** G-BP1 stayed narrow (log-odds at `#credit-assignment-boundary` only; Props B.1-B.7 remain in moment-parameter form). Fisher whitening at `#credit-assignment-boundary` naturally extends the narrow G-BP1 execution. Whether it triggers a wider propagation into Props B.1-B.7 is a scoping question — the Fisher-equivalence argument for the sector-parameter content suggests no, but cross-coordinate specifics (e.g., Prop B.7 L1' observable-$C$ sector parameter) should be checked against the Fisher-whitened form.
+5. **Interaction with G-BP1's logit-scoping decision.** G-BP1 stayed narrow (log-odds at `#disc-credit-assignment-boundary` only; Props B.1-B.7 remain in moment-parameter form). Fisher whitening at `#disc-credit-assignment-boundary` naturally extends the narrow G-BP1 execution. Whether it triggers a wider propagation into Props B.1-B.7 is a scoping question — the Fisher-equivalence argument for the sector-parameter content suggests no, but cross-coordinate specifics (e.g., Prop B.7 L1' observable-$C$ sector parameter) should be checked against the Fisher-whitened form.
 
 6. **Adversarial correlation.** If an adversary can choose the correlation structure (e.g., an attacker synchronizing failures across edges), the Fisher whitening becomes an online-estimation game. The `spike-adversarial-tempo-advantage` reading may transfer: faster whitening estimator beats faster adversarial correlation-structure change iff $\alpha_{\mathcal I\text{-estimator}} \gt $ correlation-structure-change rate. Not derived; adjacent spike territory.
 
@@ -457,14 +457,14 @@ The architectural-proposals document flags G-BP1 (natural-parameter reparameteri
 - Dunik, J., Straka, O., Kost, O., Havlik, J. (2021). "On the identification of noise covariances and adaptive Kalman filtering: A new look at a 50 year-old problem." *Frontiers in Signal Processing*. [rank identifiability via minimal polynomial]
 
 **AAD segments referenced:**
-- `#credit-assignment-boundary` — current default signal function, log-odds form
-- `#edge-update-natural-parameter` — Aczél-Cauchy-FE derivation of log-odds as unique additive-evidence coordinate
-- `#gain-sector-bridge` — B1 directional fidelity, sub-scope $\alpha$ derivation, Kalman $(P^-)^{-1}$-norm subtlety
-- `#sector-condition-derivation` — A2' sub-scope partition ($\alpha$ / $\beta$), Prop A.1, A.1S
-- `#strategic-dynamics-derivation` — Props B.5, B.6, B.7 (L1', observable-$C$ five-way gating; unobservable-$C$ Cramér-Rao floor)
+- `#disc-credit-assignment-boundary` — current default signal function, log-odds form
+- `#deriv-edge-update-natural-parameter` — Aczél-Cauchy-FE derivation of log-odds as unique additive-evidence coordinate
+- `#der-gain-sector-bridge` — B1 directional fidelity, sub-scope $\alpha$ derivation, Kalman $(P^-)^{-1}$-norm subtlety
+- `#deriv-sector-condition` — A2' sub-scope partition ($\alpha$ / $\beta$), Prop A.1, A.1S
+- `#deriv-strategic-dynamics` — Props B.5, B.6, B.7 (L1', observable-$C$ five-way gating; unobservable-$C$ Cramér-Rao floor)
 - `#additive-coordinate-forcing` — three-layer meta-pattern; Lyapunov as adjacent family member
-- `#discussion-identifiability-floor` — Instance 1 (CHT on-policy); Instance 2 (L1'-unobservable Cramér-Rao)
-- `#discussion-separability-pattern` — correlation ladder (L0/L1/L1'/L2); this spike proposes extending the ladder with Fisher-whitening structured-repair
+- `#disc-identifiability-floor` — Instance 1 (CHT on-policy); Instance 2 (L1'-unobservable Cramér-Rao)
+- `#disc-separability-pattern` — correlation ladder (L0/L1/L1'/L2); this spike proposes extending the ladder with Fisher-whitening structured-repair
 - `msc/spike-adaptive-gain-dynamics.md` — (MG-1)-(MG-4) meta-gain conditions; Fisher whitening as second derivable instance
 
 **Standard references already in use:**

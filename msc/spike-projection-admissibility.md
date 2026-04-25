@@ -2,11 +2,11 @@
 
 **Status**: Exploratory derivation
 **Date**: 2026-04-01
-**Motivation**: The composition-closure criterion defines $\varepsilon^\ast$ as an infimum over admissible projections ($\mathcal P_{\text{adm}}$) and admissible macro-dynamics ($\mathcal M_{\text{adm}}$). The macro-dynamics admissibility is specified (A1-A4 in #composition-closure). The projection admissibility is NOT specified. This means $\varepsilon^\ast$ is currently an infimum over an undefined set, and all quantitative composition results concern an undefined object.
+**Motivation**: The composition-closure criterion defines $\varepsilon^\ast$ as an infimum over admissible projections ($\mathcal P_{\text{adm}}$) and admissible macro-dynamics ($\mathcal M_{\text{adm}}$). The macro-dynamics admissibility is specified (A1-A4 in #form-composition-closure). The projection admissibility is NOT specified. This means $\varepsilon^\ast$ is currently an infimum over an undefined set, and all quantitative composition results concern an undefined object.
 
 This spike proposes a concrete specification for $\mathcal P_{\text{adm}}$, instantiates it for the simplest nontrivial case (two Kalman filters), specifies the load-bearing norm choices, and assesses whether projection admissibility can be derived from (A1)-(A4) or is genuinely independent.
 
-**Depends on**: #composition-closure, #multi-agent-scope, #sector-condition-derivation, `msc/spike-composition-bridge-2agent.md`, `msc/working-composition-admissibility.md`
+**Depends on**: #form-composition-closure, #scope-multi-agent, #deriv-sector-condition, `msc/spike-composition-bridge-2agent.md`, `msc/working-composition-admissibility.md`
 
 ---
 
@@ -55,7 +55,7 @@ The left side is the predictive mutual information the macro-state has about nex
 **Strengths:**
 - Principled: directly controls the predictive capability of the macro-agent.
 - Domain-agnostic: mutual information is well-defined for any probability space.
-- Connected to existing AAD machinery: the information bottleneck framework (#information-bottleneck) already formalizes model compression; this extends it to the projection.
+- Connected to existing AAD machinery: the information bottleneck framework (#form-information-bottleneck) already formalizes model compression; this extends it to the projection.
 - The parameter $\epsilon_I$ is interpretable: the fraction of predictive information lost to projection.
 
 **Weaknesses:**
@@ -75,7 +75,7 @@ $$\lVert \Lambda_x(X) - \Lambda_x(X') \rVert_{\mathcal X_c} \leq L \cdot \lVert 
 
 and analogously for $\Lambda_o$, $\Lambda_a$, $\Lambda_\Omega$, each with its own Lipschitz constant $L_o$, $L_a$, $L_\Omega$.
 
-**Interpretation.** Nearby micro-states map to nearby macro-states. The bridge lemma in #composition-closure already implicitly assumes this -- the Lipschitz constant determines how projection amplifies the trajectory error.
+**Interpretation.** Nearby micro-states map to nearby macro-states. The bridge lemma in #form-composition-closure already implicitly assumes this -- the Lipschitz constant determines how projection amplifies the trajectory error.
 
 **Strengths:**
 - The bridge lemma requires it (or something equivalent). Without Lipschitz regularity, bounded closure defect does NOT imply bounded trajectory error -- small micro-perturbations can cause large macro-jumps through discontinuous projection.
@@ -486,7 +486,7 @@ How to project strategies is deeply domain-specific and is not resolved by (P1)-
 
 ### Recommendations for promotion:
 
-- **(P1)-(P3) are ready for inclusion in #composition-closure.** They can be added as a new subsection "Admissibility constraints on projections" parallel to the existing "Admissibility constraints on macro-dynamics." The $(\epsilon_I, L)$ parameters should be presented as problem specification, not derived quantities.
+- **(P1)-(P3) are ready for inclusion in #form-composition-closure.** They can be added as a new subsection "Admissibility constraints on projections" parallel to the existing "Admissibility constraints on macro-dynamics." The $(\epsilon_I, L)$ parameters should be presented as problem specification, not derived quantities.
 - **The two-Kalman case is ready for a worked-example segment** (a new `worked-kalman-composition` slug). It instantiates the full composition-closure framework with exact results and interpretable quantities.
-- **The norm specification is ready for inclusion in #composition-closure's Working Notes** as a concrete recommendation, not a requirement. The Mahalanobis norm is natural for estimation-type agents; other domains need their own norms.
-- **The A1-A4 vs. P1-P3 independence result should be stated** in the Epistemic Status of #composition-closure, clarifying that projection admissibility is a separate formulation choice.
+- **The norm specification is ready for inclusion in #form-composition-closure's Working Notes** as a concrete recommendation, not a requirement. The Mahalanobis norm is natural for estimation-type agents; other domains need their own norms.
+- **The A1-A4 vs. P1-P3 independence result should be stated** in the Epistemic Status of #form-composition-closure, clarifying that projection admissibility is a separate formulation choice.

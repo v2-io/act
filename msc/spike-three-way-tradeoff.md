@@ -2,7 +2,7 @@
 
 **Date:** 2026-04-02 (revised: deep adversarial pass)
 **Status:** Adversarial spike. Replaces the earlier constructive spike.
-**Target segment:** `01-aad-core/src/exploit-explore-deliberate.md`
+**Target segment:** `01-aad-core/src/disc-exploit-explore-deliberate.md`
 **Simulation:** `msc/sim-three-way-tradeoff.py`
 
 
@@ -167,9 +167,9 @@ $$\bar{a}^\ast = \arg\min_{\bar{a}} \mathbb{E}[\lVert\delta_{t+1}\rVert \mid \ba
 
 **Why this fails as a derivation:** Mismatch minimization is the wrong objective. The agent wants to minimize REGRET (or maximize value), not minimize model error. An agent that only explores (minimizes mismatch) never earns value from exploitation. The mismatch dynamics describe the MODEL side; the VALUE side requires the policy objective.
 
-**What's genuinely useful:** The mismatch dynamics do constrain the deliberation duration (the $\rho_{\text{delib}} \cdot \Delta\tau$ drift cost from #deliberation-cost). This constraint is already in the theory and doesn't require the three-way extension.
+**What's genuinely useful:** The mismatch dynamics do constrain the deliberation duration (the $\rho_{\text{delib}} \cdot \Delta\tau$ drift cost from #der-deliberation-cost). This constraint is already in the theory and doesn't require the three-way extension.
 
-**Status:** The mismatch dynamics approach does NOT yield a natural three-way decomposition. It gives "always explore" which is wrong. The approach is useful only for bounding deliberation cost, which is already captured in #deliberation-cost.
+**Status:** The mismatch dynamics approach does NOT yield a natural three-way decomposition. It gives "always explore" which is wrong. The approach is useful only for bounding deliberation cost, which is already captured in #der-deliberation-cost.
 
 ### Attempt 8: Persistence Margin Approach
 
@@ -233,7 +233,7 @@ After all attacks, here is what survives:
 
 ### Definitely Derived (from existing machinery)
 
-1. **The deliberation cost threshold extends to strategic deliberation.** If you accept #deliberation-cost's derivation for epistemic deliberation, the same structure applies when deliberation improves $\alpha_\Sigma$ instead of $\eta^\ast$. Stop deliberating when marginal improvement drops below drift cost. This is a straightforward extension, and it's the one genuinely useful formal result.
+1. **The deliberation cost threshold extends to strategic deliberation.** If you accept #der-deliberation-cost's derivation for epistemic deliberation, the same structure applies when deliberation improves $\alpha_\Sigma$ instead of $\eta^\ast$. Stop deliberating when marginal improvement drops below drift cost. This is a straightforward extension, and it's the one genuinely useful formal result.
 
 2. **Boundary conditions.** As $\rho_{\text{delib}} \to \infty$, $\Delta\tau^\ast \to 0$. As $\lambda \to 0$ and $\Delta V_\Sigma \to 0$, the agent only exploits. These are trivial limits of the optimization.
 
@@ -245,7 +245,7 @@ After all attacks, here is what survives:
 
 5. **Deliberation value is bounded by control regret** (for the strategy-revision channel). If $\delta_{\text{regret}} = 0$, strategic deliberation has no value. This is a correct qualitative observation.
 
-6. **Deliberation value depends on environment stability.** The drift cost $\rho_{\text{delib}} \cdot \Delta\tau$ creates a real tradeoff. This is inherited from #deliberation-cost.
+6. **Deliberation value depends on environment stability.** The drift cost $\rho_{\text{delib}} \cdot \Delta\tau$ creates a real tradeoff. This is inherited from #der-deliberation-cost.
 
 7. **The observation that deliberation = computation on existing data, not new data acquisition.** This is the most important conceptual contribution and should be central to the segment.
 
@@ -293,18 +293,18 @@ These conditions are DOMAIN-SPECIFIC and probably cannot be captured in a single
 
 ## Part 6: Recommendation
 
-### For the segment (`01-aad-core/src/exploit-explore-deliberate.md`)
+### For the segment (`01-aad-core/src/disc-exploit-explore-deliberate.md`)
 
 **Rewrite substantially.** The segment should:
 
 1. **Downgrade type to `discussion`** and status to `discussion-grade`. The honest maximum attainable is `discussion-grade` for the overall framing and `conditional` for the deliberation threshold extension.
 
-2. **Split the genuinely derived content** (the strategic deliberation threshold extension of #deliberation-cost) from the discussion-grade content (dominance regimes, cycle mapping, $\Delta V_\Sigma$ approximation).
+2. **Split the genuinely derived content** (the strategic deliberation threshold extension of #der-deliberation-cost) from the discussion-grade content (dominance regimes, cycle mapping, $\Delta V_\Sigma$ approximation).
 
 3. **Remove the "Derived" tag** from the two-stage decomposition and dominance regimes. Tag them `*[Discussion]*`.
 
 4. **Center the segment on what's genuinely useful:**
-   - The extension of #deliberation-cost to strategic deliberation (the one derived result)
+   - The extension of #der-deliberation-cost to strategic deliberation (the one derived result)
    - The conceptual distinction between information acquisition (explore) and computation on existing information (deliberate)
    - The qualitative observation that deliberation value is bounded by $\delta_{\text{regret}}$
    - Honest acknowledgment that the dominance regimes are qualitative observations, not derived predictions
@@ -321,5 +321,5 @@ Move the following to "Open":
 - Whether $\Delta V_\Sigma$ can be operationalized in any specific domain
 
 Move the following to "Settled":
-- The strategic deliberation threshold (extending #deliberation-cost to $\Delta V_\Sigma$) is conditional on the same assumptions as #deliberation-cost
+- The strategic deliberation threshold (extending #der-deliberation-cost to $\Delta V_\Sigma$) is conditional on the same assumptions as #der-deliberation-cost
 - Three-way allocation adds minimal benefit in simple domains (bandit simulation, 2-6%)

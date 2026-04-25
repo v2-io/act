@@ -48,7 +48,7 @@ This is the object that "rotates the correction" in spike-a2-prime's Path 4.
 
 ### 1.3 Target: ε-fidelity B1
 
-Recall B1 from `#gain-sector-bridge`:
+Recall B1 from `#der-gain-sector-bridge`:
 $$\delta^T H g(\delta) \geq c_{\min} \lVert\delta\rVert^2 \quad \text{for } \lVert\delta\rVert \leq R$$
 
 The target is to derive a *relaxed* form under $\mathrm{KL}(q_\phi \Vert p) \leq \varepsilon$:
@@ -90,7 +90,7 @@ where $g^\ast$ is the correction under the true posterior and $e_\varepsilon$ is
 Substituting into the inner product:
 $$\delta^T H g_\varepsilon(\delta) = \delta^T H g^\ast(\delta) + \delta^T H e_\varepsilon(\delta)$$
 
-The first term satisfies B1 (the true-posterior update is in sub-scope α by Bayesian coherence — `#gain-sector-bridge` §6.1). The second term is bounded by Cauchy-Schwarz:
+The first term satisfies B1 (the true-posterior update is in sub-scope α by Bayesian coherence — `#der-gain-sector-bridge` §6.1). The second term is bounded by Cauchy-Schwarz:
 $$\delta^T H e_\varepsilon(\delta) \geq -\lVert\delta\rVert \cdot \lVert H\rVert_{\mathrm{op}} \cdot L_g V_o \sqrt{2\varepsilon}$$
 
 Let $C_H := \lVert H\rVert_{\mathrm{op}} \cdot L_g V_o$. Then:
@@ -124,13 +124,13 @@ Under Regime A — trajectories with $\lVert\delta\rVert \geq 2\delta_0$ — the
 
 ### 3.1 Stopped ultimate bound
 
-**Model D (bounded disturbance).** Apply `#sector-persistence-template` with stopping time $\tau := \inf\{t : \lVert\delta(t)\rVert \leq 2\delta_0 \text{ or } \lVert\delta(t)\rVert \geq R\}$. On $[0, \tau)$, the template proves
+**Model D (bounded disturbance).** Apply `#result-sector-persistence-template` with stopping time $\tau := \inf\{t : \lVert\delta(t)\rVert \leq 2\delta_0 \text{ or } \lVert\delta(t)\rVert \geq R\}$. On $[0, \tau)$, the template proves
 $$\lVert\delta(t)\rVert \leq \max\{\lVert\delta(0)\rVert e^{-\alpha_\varepsilon t}, \rho/\alpha_\varepsilon + 2\delta_0\}$$
 
 Two cases:
 
 - *If $\rho/\alpha_\varepsilon + 2\delta_0 \lt R$*: the agent persists to a radius $R^\ast_\varepsilon = \rho/\alpha_\varepsilon + 2\delta_0$. The variational-approximation floor $2\delta_0$ *adds* to the deterministic-disturbance floor.
-- *If $\rho/\alpha_\varepsilon + 2\delta_0 \geq R$*: the variational approximation is too coarse for the environment — structural adaptation is needed (#structural-adaptation-necessity).
+- *If $\rho/\alpha_\varepsilon + 2\delta_0 \geq R$*: the variational approximation is too coarse for the environment — structural adaptation is needed (#result-structural-adaptation-necessity).
 
 **Model S (stochastic disturbance).** Prop A.1S via stopping-time localization at $\tau$ (Khasminskii 2012 ch. 5; exactly the technique used in the A2' strengthening spike Path 5):
 
@@ -184,7 +184,7 @@ where $F_\phi$ is the Fisher information matrix of $q_\phi$ and $\mathcal L$ is 
 
 **Argument.** Natural-gradient descent on the ELBO equals coordinate-free mirror descent under the Fisher metric (Raskutti & Mukherjee 2015, "The information geometry of mirror descent"). For exponential-family $q$ in natural parameters, the Fisher information matrix is the Hessian of the log-partition function; natural-gradient VI reduces to *exact Bayesian updating in the natural-parameter space* (Khan & Lin 2017, §3–4 deriving CVI as conjugate-family stochastic Bayes).
 
-This places natural-gradient VI (with exponential-family $q$) in the existing sub-scope α row "Exponential families in natural parameters" of `#gain-sector-bridge`: $\alpha = \eta \cdot \lambda_{\min}(\text{Fisher})$, B1 holds by Fisher-PD construction, A2' derived.
+This places natural-gradient VI (with exponential-family $q$) in the existing sub-scope α row "Exponential families in natural parameters" of `#der-gain-sector-bridge`: $\alpha = \eta \cdot \lambda_{\min}(\text{Fisher})$, B1 holds by Fisher-PD construction, A2' derived.
 
 ### 5.2 Where natural-gradient still degrades
 
@@ -242,7 +242,7 @@ The scope of ε-A2' is therefore: **VI agents with controllable-and-monitored KL
 
 ### 9.1 Recommended: sub-scope α' as explicit ε-indexed extension of α
 
-**Proposal.** Extend the A2' sub-scope partition in `#sector-condition-derivation` and `#gain-sector-bridge` from **{α, β}** to **{α, α', β}**:
+**Proposal.** Extend the A2' sub-scope partition in `#deriv-sector-condition` and `#der-gain-sector-bridge` from **{α, β}** to **{α, α', β}**:
 
 - **α** — B1 structural, A2' derived (unchanged): Bayesian/Kalman, exponential-family natural parameters, gradient on strongly convex loss, L2-regularized convex, linear PD $KH$.
 - **α' (new)** — ε-B1 with quantified degradation, ε-A2' derived with $\sqrt\varepsilon$-scaling floor: variational inference under §8 scope constraints (controllable-KL, Lipschitz observation, nested support). Sector constant $\alpha_\varepsilon = \eta^\ast c_{\min}(1 - O(\sqrt\varepsilon))$ (Regime A) with additive floor $2\delta_0 = O(\sqrt\varepsilon)$ in the ultimate bound.
@@ -252,7 +252,7 @@ This is a scope-narrowing of β (moving the well-controlled-VI subset out of β 
 
 ### 9.2 Mechanical edits
 
-**New appendix segment: `#variational-sector-condition`** (proposed slug). Type `derivation`, status `exact` for §§2–3, `robust-qualitative` for §§4–6 application cases.
+**New appendix segment: `#deriv-variational-sector-condition`** (proposed slug). Type `derivation`, status `exact` for §§2–3, `robust-qualitative` for §§4–6 application cases.
 
 Content (summarizing this spike):
 
@@ -266,32 +266,32 @@ Content (summarizing this spike):
 
 **Touches to existing segments.**
 
-- **`#sector-condition-derivation`**:
-  - Extend the sub-scope paragraph from α/β to α/α'/β; add a sentence pointing to `#variational-sector-condition` for the ε-derivation.
+- **`#deriv-sector-condition`**:
+  - Extend the sub-scope paragraph from α/β to α/α'/β; add a sentence pointing to `#deriv-variational-sector-condition` for the ε-derivation.
   - Update the O-BP14 derivation-table row for A2' to reflect the three-way split.
-- **`#gain-sector-bridge`**:
+- **`#der-gain-sector-bridge`**:
   - Add α' to the "Verified Instances" table with: *Update class = Variational (controlled-KL, Lipschitz obs); Bridge status = ε-Derived; Sector parameter $\alpha = \eta^\ast c_{\min}(1-O(\sqrt\varepsilon))$; Valid region = $\mathcal B_R \setminus \mathcal B_{2\delta_0}$*.
-  - Update failure-mode FM-5 ("Variational / approximate posteriors — B1 not guaranteed by optimality") with cross-reference to `#variational-sector-condition` — the failure is now structured, not unstructured.
-- **`#sector-persistence-template`**:
+  - Update failure-mode FM-5 ("Variational / approximate posteriors — B1 not guaranteed by optimality") with cross-reference to `#deriv-variational-sector-condition` — the failure is now structured, not unstructured.
+- **`#result-sector-persistence-template`**:
   - Add a row to the instantiations table for "variational-inference agent" with effective disturbance $\rho_\xi + \alpha_\varepsilon \cdot 2\delta_0$ (additive floor as effective disturbance) and region $\mathcal B_R \setminus \mathcal B_{2\delta_0}$.
-  - Add brief Epistemic Status note: "The sub-scope α' variational case inherits the template with an additive floor; see `#variational-sector-condition`."
-- **`#strategy-complexity-cost`** (the G-BP2 V-medium segment, slug `strategy-complexity-cost`):
-  - Working Notes addition: the $\pi^\ast$-first reverse-KL form has a natural persistence interpretation — under KL-bound $\varepsilon$ on $Q_{\Sigma_t}$ against $\pi^\ast$, the strategy-induced regret is $O(\sqrt\varepsilon)$ and enters the agent's effective disturbance via `#variational-sector-condition`. This connects the strategy-cost KL direction (forced by §6.1 of `#strategy-cost-regret-bound`) to the strategic-mismatch ultimate bound.
+  - Add brief Epistemic Status note: "The sub-scope α' variational case inherits the template with an additive floor; see `#deriv-variational-sector-condition`."
+- **`#form-strategy-complexity-cost`** (the G-BP2 V-medium segment, slug `strategy-complexity-cost`):
+  - Working Notes addition: the $\pi^\ast$-first reverse-KL form has a natural persistence interpretation — under KL-bound $\varepsilon$ on $Q_{\Sigma_t}$ against $\pi^\ast$, the strategy-induced regret is $O(\sqrt\varepsilon)$ and enters the agent's effective disturbance via `#deriv-variational-sector-condition`. This connects the strategy-cost KL direction (forced by §6.1 of `#deriv-strategy-cost-regret-bound`) to the strategic-mismatch ultimate bound.
 - **`#spike-active-inference-vs-aad.md` §I action 5** (V-strong G-BP2 deferral): this spike *does not* force the V-strong move; it supplies the conditional AAD→AI persistence guarantee while leaving V-strong adoption deferred per the spike's guidance.
 
 ### 9.3 Stage impact
 
-- `#variational-sector-condition`: new segment, stage `draft`.
-- `#sector-condition-derivation`: was `draft`, remains `draft` (substantive sub-scope extension).
-- `#gain-sector-bridge`: was `draft`, remains `draft` (new table row + failure-mode update).
-- `#sector-persistence-template`: was `draft`, remains `draft` (new instantiation row).
-- `#strategy-complexity-cost`: was `draft`, remains `draft` (Working Notes addition).
+- `#deriv-variational-sector-condition`: new segment, stage `draft`.
+- `#deriv-sector-condition`: was `draft`, remains `draft` (substantive sub-scope extension).
+- `#der-gain-sector-bridge`: was `draft`, remains `draft` (new table row + failure-mode update).
+- `#result-sector-persistence-template`: was `draft`, remains `draft` (new instantiation row).
+- `#form-strategy-complexity-cost`: was `draft`, remains `draft` (Working Notes addition).
 
 ### 9.4 Cross-cutting connections
 
 - **`#additive-coordinate-forcing`** (2026-04-23 meta-segment): variational persistence sits outside the meta-pattern — no logarithmic coordinate is *forced*; the Pinsker $\sqrt\varepsilon$ is a bound, not a coordinate transform. Classify as *outside* the meta-pattern's three-layer structure. This is informative: it shows the meta-pattern's scope boundary (the pattern is about coordinate-forcing via Cauchy-FE, not about approximation-quantification via Pinsker).
-- **`#discussion-identifiability-floor`**: ε-A2' is a *positive* result, the opposite structural pattern from identifiability-floor's external-no-go results. No direct floor-instance.
-- **`#discussion-separability-pattern`**: ε-A2' introduces a new *ladder* position — between "separable core" (sub-scope α, clean derivation) and "general open" (sub-scope β, per-agent verification), ε-A2' is the *structured-repair* row for the VI agent class. This strengthens `#discussion-separability-pattern`'s three-part characterization by populating the structured-repair half of the contraction ladder.
+- **`#disc-identifiability-floor`**: ε-A2' is a *positive* result, the opposite structural pattern from identifiability-floor's external-no-go results. No direct floor-instance.
+- **`#disc-separability-pattern`**: ε-A2' introduces a new *ladder* position — between "separable core" (sub-scope α, clean derivation) and "general open" (sub-scope β, per-agent verification), ε-A2' is the *structured-repair* row for the VI agent class. This strengthens `#disc-separability-pattern`'s three-part characterization by populating the structured-repair half of the contraction ladder.
 
 ## 10. Epistemic assessment
 
@@ -334,4 +334,4 @@ Content (summarizing this spike):
 - Tsybakov, A. B. (2009). *Introduction to Nonparametric Estimation*. Springer. Lemma 2.5 (Pinsker).
 - Wainwright, M. & Jordan, M. (2008). Graphical models, exponential families, and variational inference. *Found. Trends Mach. Learn.* 1(1–2):1–305. §§2.3, 3.4, 5 (mean-field VI).
 - Aguilera, M., Millidge, B., Tschantz, A. & Buckley, C. L. (2022). How particular is the physics of the free energy principle? *Phys. Life Rev.* 40:24–50. (FEP-flow narrow-validity cite.)
-- AAD segments cited: `#sector-condition-derivation`, `#gain-sector-bridge`, `#sector-persistence-template`, `#strategy-complexity-cost`, `#strategy-cost-regret-bound`, `#additive-coordinate-forcing`, `#discussion-identifiability-floor`, `#discussion-separability-pattern`, `#structural-adaptation-necessity`.
+- AAD segments cited: `#deriv-sector-condition`, `#der-gain-sector-bridge`, `#result-sector-persistence-template`, `#form-strategy-complexity-cost`, `#deriv-strategy-cost-regret-bound`, `#additive-coordinate-forcing`, `#disc-identifiability-floor`, `#disc-separability-pattern`, `#result-structural-adaptation-necessity`.

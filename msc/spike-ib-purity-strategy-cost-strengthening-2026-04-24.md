@@ -7,11 +7,11 @@ date: 2026-04-24
 
 # Spike: "Abandoned IB Purity"? — Strengthening the Strategy-Cost Objective
 
-**Charter.** Gemini has characterized the strategy-cost history as "Shannon zero → forward-KL infinity → reverse-KL fix," with the last step described as *abandoning standard Information Bottleneck purity*. The current AAD position (segment `#strategy-cost-regret-bound` plus meta-segment `#additive-coordinate-forcing`) treats reverse-KL as forced by a two-part argument: direction forced by regret-bound vacuity of forward-KL, specific form forced by a chain-rule additivity axiom via Cauchy's functional equation. This spike audits Gemini's framing against the current state, then attempts to strengthen the result beyond its current home.
+**Charter.** Gemini has characterized the strategy-cost history as "Shannon zero → forward-KL infinity → reverse-KL fix," with the last step described as *abandoning standard Information Bottleneck purity*. The current AAD position (segment `#deriv-strategy-cost-regret-bound` plus meta-segment `#additive-coordinate-forcing`) treats reverse-KL as forced by a two-part argument: direction forced by regret-bound vacuity of forward-KL, specific form forced by a chain-rule additivity axiom via Cauchy's functional equation. This spike audits Gemini's framing against the current state, then attempts to strengthen the result beyond its current home.
 
 The test is not whether the current segment is defensible (it is). The test is whether a stronger story — one that *reclaims* IB purity rather than conceding a departure from it — is available under the strengthen-before-soften posture.
 
-**Outcome in one sentence.** Gemini's "abandoned IB purity" framing is a **mischaracterization**, not a load-bearing critique. Under the right reading of what "IB" means for a decision problem, reverse-KL is the *canonical* IB objective, not a departure from it — with the anchor supplied by Tishby-Polani 2011 (Path 1 below) and a second anchor supplied by rate-distortion with an action-value distortion (Path 3). Three additional strengthenings (Paths 4, 5, 6) yield concrete new results: a **Savage-style uniqueness route** bypassing the chain-rule axiom, a **matched lower bound** for the regret inequality at the operating point, and a **no-go result** that no symmetric f-divergence combined with standard IB can give a degeneracy-free decision-consistent cost under deterministic $\pi^\ast$. Path 7 (mirror-descent / Fenchel duality) closes the geometric story: reverse-KL on the policy simplex *is* the Bregman divergence dual to the natural-gradient direction forced by `#edge-update-natural-parameter`. The result as a whole: the strategy-cost objective sits at the intersection of four independent forcing arguments, not one. The segment can be meaningfully strengthened and the "departure from IB" framing can be replaced with "IB for decision problems."
+**Outcome in one sentence.** Gemini's "abandoned IB purity" framing is a **mischaracterization**, not a load-bearing critique. Under the right reading of what "IB" means for a decision problem, reverse-KL is the *canonical* IB objective, not a departure from it — with the anchor supplied by Tishby-Polani 2011 (Path 1 below) and a second anchor supplied by rate-distortion with an action-value distortion (Path 3). Three additional strengthenings (Paths 4, 5, 6) yield concrete new results: a **Savage-style uniqueness route** bypassing the chain-rule axiom, a **matched lower bound** for the regret inequality at the operating point, and a **no-go result** that no symmetric f-divergence combined with standard IB can give a degeneracy-free decision-consistent cost under deterministic $\pi^\ast$. Path 7 (mirror-descent / Fenchel duality) closes the geometric story: reverse-KL on the policy simplex *is* the Bregman divergence dual to the natural-gradient direction forced by `#deriv-edge-update-natural-parameter`. The result as a whole: the strategy-cost objective sits at the intersection of four independent forcing arguments, not one. The segment can be meaningfully strengthened and the "departure from IB" framing can be replaced with "IB for decision problems."
 
 ---
 
@@ -118,7 +118,7 @@ For our problem: $X = M_t$ (or the latent "optimal-action" variable); $\hat X$ i
 
 $$d(M_t, a) = V(a^\ast(M_t)) - V(a) \geq 0$$
 
-which is exactly AAD's per-action regret gap $\Delta(a)$ from `#strategy-cost-regret-bound` §2.
+which is exactly AAD's per-action regret gap $\Delta(a)$ from `#deriv-strategy-cost-regret-bound` §2.
 
 **Rate-distortion formulation.**
 
@@ -132,9 +132,9 @@ $$\mathcal L(\beta) = I(M_t; A) + \beta \cdot \mathbb E_M \mathbb E_{a \sim Q_\S
 
 $$\mathcal L_{\text{RD}}(\beta) = I(M_t; A) + \beta R(Q_\Sigma) \;\leq\; I(M_t; A) + \beta V_{\max} \sqrt{\tfrac{1}{2} D_{\mathrm{KL}}(\pi^\ast \Vert Q_\Sigma)}$$
 
-by the Pinsker-TV regret bound of §3 of `#strategy-cost-regret-bound`. So minimizing the strategy-cost objective in its reverse-KL form gives an *upper-bound surrogate* for the rate-distortion-optimal strategy.
+by the Pinsker-TV regret bound of §3 of `#deriv-strategy-cost-regret-bound`. So minimizing the strategy-cost objective in its reverse-KL form gives an *upper-bound surrogate* for the rate-distortion-optimal strategy.
 
-**Stronger result: the forms coincide at the degenerate-value extremum.** When the value landscape is extremal (every sub-optimal action incurs the full value range $V_{\max}$), the regret bound is tight (per §3 of `#strategy-cost-regret-bound`), and the rate-distortion Lagrangian *equals* the reverse-KL Lagrangian up to a square-root reparameterization. Under the square-root form of the strategy-cost objective (§7 of the segment), this coincidence is exact; under the linear form (IB-shape preserved), it is a local-linearization at the operating point.
+**Stronger result: the forms coincide at the degenerate-value extremum.** When the value landscape is extremal (every sub-optimal action incurs the full value range $V_{\max}$), the regret bound is tight (per §3 of `#deriv-strategy-cost-regret-bound`), and the rate-distortion Lagrangian *equals* the reverse-KL Lagrangian up to a square-root reparameterization. Under the square-root form of the strategy-cost objective (§7 of the segment), this coincidence is exact; under the linear form (IB-shape preserved), it is a local-linearization at the operating point.
 
 **Verdict.** **Path 3 succeeds with a caveat.** Reverse-KL is not literally the rate-distortion dual; it is an *upper-bound surrogate* via Pinsker. At the extremal-value limit they coincide. The rate-distortion perspective is valuable because it:
 
@@ -154,7 +154,7 @@ This is the **rate-distortion-for-control** reading. It is *complementary* to Pa
 
 **Target.** Is there a decision-theoretic axiomatization — independent of the chain-rule additivity axiom — that forces reverse-KL?
 
-**Motivation.** The current uniqueness result in `#strategy-cost-regret-bound` §6.1 rests on chain-rule additivity. If there is a *second* independent axiomatic route that also picks out reverse-KL, the segment's uniqueness claim becomes more robust: multiple axiomatic routes converging on the same divergence is stronger evidence that the divergence is structurally right, not a byproduct of a specific axiom choice.
+**Motivation.** The current uniqueness result in `#deriv-strategy-cost-regret-bound` §6.1 rests on chain-rule additivity. If there is a *second* independent axiomatic route that also picks out reverse-KL, the segment's uniqueness claim becomes more robust: multiple axiomatic routes converging on the same divergence is stronger evidence that the divergence is structurally right, not a byproduct of a specific axiom choice.
 
 **Candidate axioms.** From the decision-theoretic-preference-aggregation literature (Savage 1954; Jaynes 1957; Shore-Johnson 1980; Csiszár 1991; de Finetti 1937):
 
@@ -168,7 +168,7 @@ This is the **rate-distortion-for-control** reading. It is *complementary* to Pa
 
 Shore-Johnson 1980's system-independence axiom (joint inference on independent subsystems decomposes) is a strong form of (D5). Under Shore-Johnson, the *minimum-cross-entropy* (= minimum reverse-KL) principle is uniquely forced for updating a probability distribution subject to constraints.
 
-**Key observation.** *[Derived, status: robust-qualitative]* Shore-Johnson 1980's system-independence axiom is *equivalent up to re-axiomatization* to the chain-rule additivity axiom of `#strategy-cost-regret-bound` §6.1. Both are formalizations of "information about independent sub-problems combines additively"; the Shore-Johnson form is stated at the level of *joint inference* ($Q_{XY} = Q_X Q_Y$ for independent $X, Y$), the chain-rule form at the level of *conditional factorization* ($P_{XY} = P_X P_{Y\mid X}$). They differ in technical formulation but produce the same uniqueness result.
+**Key observation.** *[Derived, status: robust-qualitative]* Shore-Johnson 1980's system-independence axiom is *equivalent up to re-axiomatization* to the chain-rule additivity axiom of `#deriv-strategy-cost-regret-bound` §6.1. Both are formalizations of "information about independent sub-problems combines additively"; the Shore-Johnson form is stated at the level of *joint inference* ($Q_{XY} = Q_X Q_Y$ for independent $X, Y$), the chain-rule form at the level of *conditional factorization* ($P_{XY} = P_X P_{Y\mid X}$). They differ in technical formulation but produce the same uniqueness result.
 
 **Deeper question: is there a uniqueness axiom that is *not* of the Shore-Johnson-chain-rule family?** Candidates:
 
@@ -180,7 +180,7 @@ Shore-Johnson 1980's system-independence axiom (joint inference on independent s
 
 **What this means for the segment.** The current segment correctly identifies chain-rule additivity as the uniqueness axiom. It could be strengthened by a **paragraph noting that Shore-Johnson 1980's system-independence axiom and Sanov 1957's sampling-consistency axiom are structurally equivalent re-formulations, not independent routes**. This closes the "maybe there's another uniqueness argument that fits better" speculation that a careful reader might harbor.
 
-**Concrete deliverable for segment:** add a sentence to `#strategy-cost-regret-bound` §6.1's Discussion or to `#additive-coordinate-forcing`'s Discussion documenting that the uniqueness axiom is structurally-equivalent to Shore-Johnson and to Sanov, not independently motivated by each — all three factor through independence-of-sub-problems.
+**Concrete deliverable for segment:** add a sentence to `#deriv-strategy-cost-regret-bound` §6.1's Discussion or to `#additive-coordinate-forcing`'s Discussion documenting that the uniqueness axiom is structurally-equivalent to Shore-Johnson and to Sanov, not independently motivated by each — all three factor through independence-of-sub-problems.
 
 ---
 
@@ -240,7 +240,7 @@ This is a tight two-sided bound, not just an upper bound. The upper bound is tig
 
 **What this costs the segment.** The linear-KL form of the Lagrangian (§7, IB-shape-preserved) becomes even *more* clearly a local linearization: the true bound is $V_{\max}(1 - e^{-D_{\mathrm{KL}}})$, not $V_{\max}\sqrt{D_{\mathrm{KL}}/2}$, which is tighter but has a different functional shape (bounded above by $V_{\max}$, not unbounded). The segment's existing linear-vs-square-root discussion should be *deepened* into a linear-vs-square-root-vs-exponential discussion, where the exponential form is the tight one.
 
-**Concrete segment edit.** Add a §5.1 (or §4bis) to `#strategy-cost-regret-bound` titled "The exact regret-reverse-KL identity under deterministic $\pi^\ast$". Replace the Pinsker bound as the primary statement with the BH-identity form. Note that the linear Lagrangian retained for IB-shape alignment in §7 is a first-order approximation to the true exponential bound near $D_{\mathrm{KL}} = 0$ (since $1 - e^{-D_{\mathrm{KL}}} = D_{\mathrm{KL}} - O(D_{\mathrm{KL}}^2)$).
+**Concrete segment edit.** Add a §5.1 (or §4bis) to `#deriv-strategy-cost-regret-bound` titled "The exact regret-reverse-KL identity under deterministic $\pi^\ast$". Replace the Pinsker bound as the primary statement with the BH-identity form. Note that the linear Lagrangian retained for IB-shape alignment in §7 is a first-order approximation to the true exponential bound near $D_{\mathrm{KL}} = 0$ (since $1 - e^{-D_{\mathrm{KL}}} = D_{\mathrm{KL}} - O(D_{\mathrm{KL}}^2)$).
 
 **Honest caveat.** The exactness is a consequence of the *deterministic* $\pi^\ast$ scope. For stochastic $\pi^\ast$ (tied-optima, softmax-smoothed), the BH bound reverts to its inequality form and Pinsker remains looser. Path 5's strengthening is scope-conditional on AAD's deterministic-$\pi^\ast$ canonical scope — but that is exactly the scope the segment works under.
 
@@ -250,7 +250,7 @@ This is a tight two-sided bound, not just an upper bound. The upper bound is tig
 
 **Target.** Can I *prove* that no smooth symmetric f-divergence, combined with standard $I(X;T)$ compression cost, gives a decision-consistent degeneracy-free cost under deterministic $\pi^\ast$? A sharp negative strengthens the case that reverse-KL is forced by the problem structure, not chosen.
 
-**Setup.** The admissible family after direction-forcing from §5 of `#strategy-cost-regret-bound` is $\{D_f(\pi^\ast \Vert Q) : f \text{ convex}, f(1) = 0\}$. A *symmetric* f-divergence satisfies $D_f(P \Vert Q) = D_f(Q \Vert P)$. Common examples: squared Hellinger distance $H^2$, Jensen-Shannon divergence $JSD$, TV (symmetric but not smooth).
+**Setup.** The admissible family after direction-forcing from §5 of `#deriv-strategy-cost-regret-bound` is $\{D_f(\pi^\ast \Vert Q) : f \text{ convex}, f(1) = 0\}$. A *symmetric* f-divergence satisfies $D_f(P \Vert Q) = D_f(Q \Vert P)$. Common examples: squared Hellinger distance $H^2$, Jensen-Shannon divergence $JSD$, TV (symmetric but not smooth).
 
 **Claim (candidate no-go).** *[Proposed, status: conditional]* No smooth *symmetric* f-divergence $D_f(\pi^\ast \Vert Q_\Sigma)$ combined with standard IB-compression cost $I(X; T)$ gives a decision-consistent cost under deterministic $\pi^\ast$ in the sense that:
 
@@ -260,7 +260,7 @@ This is a tight two-sided bound, not just an upper bound. The upper bound is tig
 
 *(DC3)* The divergence satisfies the chain rule for DAG-factorized action sequences.
 
-**Attempted derivation.** (DC1) is satisfiable by symmetric divergences (Hellinger, JSD both finite under deterministic $\pi^\ast$). (DC2) is a monotonicity property that reverse-KL satisfies and Hellinger/JSD also satisfy (by the convexity of $f$). (DC3) is the decisive condition: by the chain-rule uniqueness theorem of `#strategy-cost-regret-bound` §6.1 (Hobson 1969), *the only f-divergence satisfying the chain rule is $f(t) = c t \log t$*, which is reverse-KL. Reverse-KL is *asymmetric* ($D_{\mathrm{KL}}(P \Vert Q) \neq D_{\mathrm{KL}}(Q \Vert P)$). Therefore no symmetric f-divergence satisfies (DC3).
+**Attempted derivation.** (DC1) is satisfiable by symmetric divergences (Hellinger, JSD both finite under deterministic $\pi^\ast$). (DC2) is a monotonicity property that reverse-KL satisfies and Hellinger/JSD also satisfy (by the convexity of $f$). (DC3) is the decisive condition: by the chain-rule uniqueness theorem of `#deriv-strategy-cost-regret-bound` §6.1 (Hobson 1969), *the only f-divergence satisfying the chain rule is $f(t) = c t \log t$*, which is reverse-KL. Reverse-KL is *asymmetric* ($D_{\mathrm{KL}}(P \Vert Q) \neq D_{\mathrm{KL}}(Q \Vert P)$). Therefore no symmetric f-divergence satisfies (DC3).
 
 **Corollary.** *[Derived, status: conditional on chain-rule additivity]* **Symmetric f-divergences are incompatible with DAG-factorized chain-rule additivity.** Reverse-KL's asymmetry is forced by the chain rule, not an independent choice.
 
@@ -274,15 +274,15 @@ Informal argument *[status: heuristic]*: under deterministic $\pi^\ast$, the reg
 
 **This gives a second independent route to asymmetry.** Not a full uniqueness route (doesn't pick reverse-KL out of asymmetric f-divergences), but a route to the asymmetry-is-forced half.
 
-**Concrete segment deliverable.** Add to `#strategy-cost-regret-bound` §5 ("Direction-forcing claim") a sub-paragraph: *"Asymmetry is forced by regret's one-sidedness."* The argument above makes it explicit that asymmetry is not a chain-rule artifact but a structural requirement of bounding a one-sided quantity (regret). The chain-rule then picks the specific asymmetric form.
+**Concrete segment deliverable.** Add to `#deriv-strategy-cost-regret-bound` §5 ("Direction-forcing claim") a sub-paragraph: *"Asymmetry is forced by regret's one-sidedness."* The argument above makes it explicit that asymmetry is not a chain-rule artifact but a structural requirement of bounding a one-sided quantity (regret). The chain-rule then picks the specific asymmetric form.
 
 ---
 
 ## §7 — Path 7: Mirror descent / Fenchel duality — reverse-KL as the Bregman divergence dual to natural-gradient edge updates
 
-**Target.** Does reverse-KL correspond to a Bregman-divergence structure on the policy simplex that is **dual** to the natural-gradient direction forced by `#edge-update-natural-parameter`?
+**Target.** Does reverse-KL correspond to a Bregman-divergence structure on the policy simplex that is **dual** to the natural-gradient direction forced by `#deriv-edge-update-natural-parameter`?
 
-**Setup.** `#edge-update-natural-parameter` derives log-odds as the unique additive-evidence coordinate on edge credences via Cauchy's functional equation on an evidential-additivity axiom. For a multinomial / categorical policy $Q$, the analog is softmax natural parameters $\eta_a = \log Q(a)$ (up to a reference-class shift). The update $\eta^{\text{post}} = \eta^{\text{prior}} + \ell$ is additive in $\eta$.
+**Setup.** `#deriv-edge-update-natural-parameter` derives log-odds as the unique additive-evidence coordinate on edge credences via Cauchy's functional equation on an evidential-additivity axiom. For a multinomial / categorical policy $Q$, the analog is softmax natural parameters $\eta_a = \log Q(a)$ (up to a reference-class shift). The update $\eta^{\text{post}} = \eta^{\text{prior}} + \ell$ is additive in $\eta$.
 
 **Mirror-descent / Bregman structure.** On the probability simplex, the *negative entropy potential* $\phi(Q) = \sum_a Q(a) \log Q(a)$ is strictly convex and Legendre. Its Fenchel dual is the log-partition function $\phi^\ast(\eta) = \log \sum_a e^{\eta_a}$; the primal-dual correspondence is $Q(a) = e^{\eta_a}/\sum_{a'} e^{\eta_{a'}}$ (softmax).
 
@@ -301,9 +301,9 @@ $$B_\phi(P, Q) = \sum_a P(a) \log \frac{P(a)}{Q(a)} = D_{\mathrm{KL}}(P \Vert Q)
 
 This is textbook (Bregman 1967; Amari-Nagaoka 2000 §3.5; Nielsen-Boltz 2011 *The Burbea-Rao and Bhattacharyya Centroids*). Its load-bearing consequence for AAD:
 
-**Duality claim.** *[Derived, status: robust-qualitative]* The **same Legendre-Fenchel structure** that forces log-odds as the natural coordinate on edge credences (`#edge-update-natural-parameter`) forces reverse-KL as the canonical divergence on the policy simplex (this segment's relevance term). The two layers (update-layer log-odds; divergence-layer reverse-KL) are **dual aspects of the same geometric commitment**: the exponential-family structure on the categorical distributions, with negative-entropy as the convex potential and log-partition as the dual potential.
+**Duality claim.** *[Derived, status: robust-qualitative]* The **same Legendre-Fenchel structure** that forces log-odds as the natural coordinate on edge credences (`#deriv-edge-update-natural-parameter`) forces reverse-KL as the canonical divergence on the policy simplex (this segment's relevance term). The two layers (update-layer log-odds; divergence-layer reverse-KL) are **dual aspects of the same geometric commitment**: the exponential-family structure on the categorical distributions, with negative-entropy as the convex potential and log-partition as the dual potential.
 
-**Why this strengthens the segment.** The `#strategy-cost-regret-bound` §6.1 uniqueness result is a standalone Cauchy-FE derivation. The `#edge-update-natural-parameter` uniqueness result is a *different* Cauchy-FE derivation on a different axiom. The **Bregman-Fenchel duality establishes that these are not two independent forcings but one geometric structure viewed from two sides** — the primal (policy-simplex) side forces reverse-KL; the dual (log-odds-natural-parameter) side forces log-odds; the Legendre-Fenchel correspondence relates them.
+**Why this strengthens the segment.** The `#deriv-strategy-cost-regret-bound` §6.1 uniqueness result is a standalone Cauchy-FE derivation. The `#deriv-edge-update-natural-parameter` uniqueness result is a *different* Cauchy-FE derivation on a different axiom. The **Bregman-Fenchel duality establishes that these are not two independent forcings but one geometric structure viewed from two sides** — the primal (policy-simplex) side forces reverse-KL; the dual (log-odds-natural-parameter) side forces log-odds; the Legendre-Fenchel correspondence relates them.
 
 **Operational consequence.** **Mirror descent on the policy simplex with negative-entropy regularizer is equivalent to exponentiated-gradient descent on log-odds coordinates.** This is a standard result (Nemirovski-Yudin 1983; Kivinen-Warmuth 1997 *Exponentiated gradient versus gradient descent for linear predictors*; Beck-Teboulle 2003 *Mirror descent and nonlinear projected subgradient methods for convex optimization*) but its AAD-specific consequence is:
 
@@ -314,7 +314,7 @@ This is textbook (Bregman 1967; Amari-Nagaoka 2000 §3.5; Nielsen-Boltz 2011 *Th
 **Verdict.** **Path 7 succeeds robustly and adds a structural unification.** The segment can be strengthened by:
 
 1. Adding a §6.3 "Bregman / Fenchel-duality identification" that states the reverse-KL-as-Bregman result and credits Bregman 1967 / Amari-Nagaoka 2000 / Beck-Teboulle 2003.
-2. Adding a cross-reference from `#strategy-cost-regret-bound` to `#edge-update-natural-parameter` that makes the Fenchel-duality relationship explicit.
+2. Adding a cross-reference from `#deriv-strategy-cost-regret-bound` to `#deriv-edge-update-natural-parameter` that makes the Fenchel-duality relationship explicit.
 3. Updating `#additive-coordinate-forcing` to note that the divergence-layer and update-layer Cauchy-FE instances are **Fenchel-dual aspects of a single exponential-family structure**, not independent forcings — this is a meta-architectural observation, not a new theorem, but it strengthens the meta-pattern's case.
 
 **Honest caveat.** The Fenchel-Bregman identification is standard information geometry, not AAD-distinctive. Its value for AAD is *structural unification* across two previously-independent segments — which is exactly the kind of integration AAD claims as its contribution.
@@ -331,7 +331,7 @@ This is textbook (Bregman 1967; Amari-Nagaoka 2000 §3.5; Nielsen-Boltz 2011 *Th
 | 4 | Second independent uniqueness route (Savage / Shore-Johnson) | **Partial — no independent route found** | All known routes factor through independence-on-sub-problems. Chain-rule, Shore-Johnson system-independence, Sanov sampling-consistency, de Finetti exchangeability all have the same structural content. | Add to §6.1 Discussion: "Shore-Johnson 1980 system-independence, Sanov 1957 rate-function, and Hobson 1969 chain-rule additivity are structurally-equivalent re-formulations, not independent routes — all factor through independence-of-sub-problems." |
 | 5 | Matched lower bound on regret | **Succeeds robustly** | Under deterministic $\pi^\ast$: $D_{\mathrm{KL}} = -\log(1 - \operatorname{TV})$ *exactly*, and regret is Lipschitz-equivalent to $(1 - e^{-D_{\mathrm{KL}}})$ with constants $\Delta_{\min}$ (below) and $V_{\max}$ (above). | Replace Pinsker as the primary bound form with the BH-identity form. Add §4bis or refactor §4: the tight relation under deterministic $\pi^\ast$ is $R(Q) \leq V_{\max}(1 - e^{-D_{\mathrm{KL}}})$ with matching lower bound $\Delta_{\min}(1 - e^{-D_{\mathrm{KL}}})$. |
 | 6 | No-go for symmetric f-divergences | **Succeeds as conditional no-go** | Under chain-rule axiom, symmetric f-divergences are ruled out by uniqueness. A second independent route (regret's one-sidedness) also forces asymmetry. | Add to §5 a sub-paragraph "Asymmetry is forced by regret's one-sidedness" — asymmetry is structurally required regardless of chain-rule commitment. |
-| 7 | Mirror-descent / Fenchel-duality | **Succeeds robustly** | Reverse-KL is the Bregman divergence induced by negative-entropy on policy simplex; log-odds is the Fenchel-dual natural coordinate. The divergence layer (`#strategy-cost-regret-bound`) and update layer (`#edge-update-natural-parameter`) are **dual aspects of one exponential-family structure**, not independent. | Add §6.3 "Bregman-Fenchel identification." Add cross-reference to `#edge-update-natural-parameter` making Fenchel duality explicit. Update `#additive-coordinate-forcing` Discussion: divergence-layer and update-layer Cauchy-FE instances are Fenchel-dual, not independent. |
+| 7 | Mirror-descent / Fenchel-duality | **Succeeds robustly** | Reverse-KL is the Bregman divergence induced by negative-entropy on policy simplex; log-odds is the Fenchel-dual natural coordinate. The divergence layer (`#deriv-strategy-cost-regret-bound`) and update layer (`#deriv-edge-update-natural-parameter`) are **dual aspects of one exponential-family structure**, not independent. | Add §6.3 "Bregman-Fenchel identification." Add cross-reference to `#deriv-edge-update-natural-parameter` making Fenchel duality explicit. Update `#additive-coordinate-forcing` Discussion: divergence-layer and update-layer Cauchy-FE instances are Fenchel-dual, not independent. |
 
 **Net assessment.**
 
@@ -347,17 +347,17 @@ Path 7 is the most structurally illuminating: the **Fenchel-Bregman duality betw
 
 **Strongly recommended (major structural strengthenings):**
 
-1. **`#strategy-cost-regret-bound` §4 refactor.** Replace Pinsker as primary bound with the exact BH identity $D_{\mathrm{KL}} = -\log(1 - \operatorname{TV})$ under deterministic $\pi^\ast$, yielding $R(Q) \leq V_{\max}(1 - e^{-D_{\mathrm{KL}}})$. Add the matched lower bound $R(Q) \geq \Delta_{\min}(1 - e^{-D_{\mathrm{KL}}})$ for realizable $\pi^\ast$. This is Path 5's deliverable and is the sharpest single improvement available.
+1. **`#deriv-strategy-cost-regret-bound` §4 refactor.** Replace Pinsker as primary bound with the exact BH identity $D_{\mathrm{KL}} = -\log(1 - \operatorname{TV})$ under deterministic $\pi^\ast$, yielding $R(Q) \leq V_{\max}(1 - e^{-D_{\mathrm{KL}}})$. Add the matched lower bound $R(Q) \geq \Delta_{\min}(1 - e^{-D_{\mathrm{KL}}})$ for realizable $\pi^\ast$. This is Path 5's deliverable and is the sharpest single improvement available.
 
-2. **`#strategy-cost-regret-bound` new subsection §6.3 "Reverse-KL as IB for decision problems."** Integrate Path 1's equivalence argument — reverse-KL is IB's relevance term under $Y = \mathbb 1[a = a^\ast(X)]$, with bindings $X = M_t$, $T = \Sigma_t$, $\beta = V_{\max}$. Cite Tishby-Polani 2011, Rubin-Shamir-Tishby 2012, Levine 2018. Repositions the segment as "IB for decision relevance" rather than "departure from IB." Pre-empts Gemini's framing.
+2. **`#deriv-strategy-cost-regret-bound` new subsection §6.3 "Reverse-KL as IB for decision problems."** Integrate Path 1's equivalence argument — reverse-KL is IB's relevance term under $Y = \mathbb 1[a = a^\ast(X)]$, with bindings $X = M_t$, $T = \Sigma_t$, $\beta = V_{\max}$. Cite Tishby-Polani 2011, Rubin-Shamir-Tishby 2012, Levine 2018. Repositions the segment as "IB for decision relevance" rather than "departure from IB." Pre-empts Gemini's framing.
 
-3. **`#strategy-cost-regret-bound` new subsection §6.4 "Bregman / Fenchel-duality identification."** State Path 7's result: reverse-KL is the Bregman divergence induced by negative entropy on the policy simplex, with log-odds as the Fenchel-dual natural coordinate. Cross-reference `#edge-update-natural-parameter`. Credit Bregman 1967, Amari-Nagaoka 2000, Beck-Teboulle 2003.
+3. **`#deriv-strategy-cost-regret-bound` new subsection §6.4 "Bregman / Fenchel-duality identification."** State Path 7's result: reverse-KL is the Bregman divergence induced by negative entropy on the policy simplex, with log-odds as the Fenchel-dual natural coordinate. Cross-reference `#deriv-edge-update-natural-parameter`. Credit Bregman 1967, Amari-Nagaoka 2000, Beck-Teboulle 2003.
 
 **Recommended (smaller refinements):**
 
-4. **`#strategy-cost-regret-bound` §5 add sub-paragraph "Asymmetry is forced by regret's one-sidedness."** State Path 6's independent route to asymmetry — it does not require the chain-rule axiom. Gives the direction-forcing argument two legs (vacuity + asymmetry), not one.
+4. **`#deriv-strategy-cost-regret-bound` §5 add sub-paragraph "Asymmetry is forced by regret's one-sidedness."** State Path 6's independent route to asymmetry — it does not require the chain-rule axiom. Gives the direction-forcing argument two legs (vacuity + asymmetry), not one.
 
-5. **`#strategy-cost-regret-bound` §6.1 Discussion paragraph.** State Path 4's finding: Shore-Johnson 1980, Hobson 1969, and Sanov 1957 are structurally-equivalent routes, all factoring through independence-on-sub-problems. Pre-empts "is there another axiomatization?" speculation.
+5. **`#deriv-strategy-cost-regret-bound` §6.1 Discussion paragraph.** State Path 4's finding: Shore-Johnson 1980, Hobson 1969, and Sanov 1957 are structurally-equivalent routes, all factoring through independence-on-sub-problems. Pre-empts "is there another axiomatization?" speculation.
 
 6. **New optional §4ter "Rate-distortion derivation with action-value distortion."** State Path 3's RD-surrogate reading: $R_{\mathcal A}(D) = \min_{Q : \mathbb E d \leq D} I(M_t; A)$ with $d = \Delta(a)$; reverse-KL Lagrangian is its tractable upper bound. Offers a second-derivation route that does not require Cauchy-FE (the RD problem is defined via standard Shannon machinery, Pinsker supplies the bound).
 
@@ -365,30 +365,30 @@ Path 7 is the most structurally illuminating: the **Fenchel-Bregman duality betw
 
 7. **Add a paragraph noting Fenchel-duality between divergence-layer and update-layer instances.** The two layers are not independent Cauchy-FE forcings but are **Fenchel-dual aspects of one exponential-family commitment**. This is a meta-observation that strengthens the meta-pattern's structural unity: four primary instances, with two of them (divergence, update) related by Legendre-Fenchel duality, and a third (chain) anchoring both. The Čencov instance remains structurally distinct (invariance-forcing rather than additivity-forcing), as already noted.
 
-**Recommended for `#information-bottleneck`:**
+**Recommended for `#form-information-bottleneck`:**
 
-8. **Add a cross-reference paragraph.** The canonical IB instance is $(X, T, Y) = (\mathcal C_t, M_t, o_{t+1:\infty} \mid a_{t:\infty})$. The strategy-cost instance (`#strategy-complexity-cost` / `#strategy-cost-regret-bound`) is $(X, T, Y) = (M_t, \Sigma_t, \mathbb 1[a = a^\ast(X)])$. These are **two IB instances with different relevance variables**, not "IB and something else." The "abandoned IB purity" concern is defused at the level of the IB segment itself by making this cross-reference visible.
+8. **Add a cross-reference paragraph.** The canonical IB instance is $(X, T, Y) = (\mathcal C_t, M_t, o_{t+1:\infty} \mid a_{t:\infty})$. The strategy-cost instance (`#form-strategy-complexity-cost` / `#deriv-strategy-cost-regret-bound`) is $(X, T, Y) = (M_t, \Sigma_t, \mathbb 1[a = a^\ast(X)])$. These are **two IB instances with different relevance variables**, not "IB and something else." The "abandoned IB purity" concern is defused at the level of the IB segment itself by making this cross-reference visible.
 
 **Not recommended:**
 
-- Do **not** create a new appendix segment from this spike's contents. Path-5 and Path-7 results belong in `#strategy-cost-regret-bound` (which is already an appendix-style segment); the remaining paths are either subsidiary (Paths 2, 4, 6) or pointers (Paths 1, 3, 7) and belong in that segment's Discussion or a brief cross-reference elsewhere. Creating a new appendix would fragment the derivation further.
+- Do **not** create a new appendix segment from this spike's contents. Path-5 and Path-7 results belong in `#deriv-strategy-cost-regret-bound` (which is already an appendix-style segment); the remaining paths are either subsidiary (Paths 2, 4, 6) or pointers (Paths 1, 3, 7) and belong in that segment's Discussion or a brief cross-reference elsewhere. Creating a new appendix would fragment the derivation further.
 - Do **not** reframe the segment as "IB for control" *instead of* the regret-bound derivation. The regret-bound derivation is the AAD-internal route and should stay primary; Path 1's IB-for-control recovery is complementary, confirming the form has multiple independent justifications.
 
 ---
 
 ## §10 — Open questions left behind (for future spikes, not this one)
 
-1. **Non-Shannon-rate mirror-descent geometries.** Reverse-KL is the Bregman divergence induced by negative entropy. Other potentials give other Bregman divergences (e.g., Itakura-Saito for Gaussian gains, Csiszár's $\phi$-entropies for general exponential families). Do AAD segments exist where a non-Shannon potential would be the natural geometry? The sector-condition setup (`#sector-persistence-template`) uses a quadratic (Euclidean) potential; `#edge-update-natural-parameter` uses log-odds (Shannon). The cross-segment question: is there a unifying convex-potential story that subsumes both?
+1. **Non-Shannon-rate mirror-descent geometries.** Reverse-KL is the Bregman divergence induced by negative entropy. Other potentials give other Bregman divergences (e.g., Itakura-Saito for Gaussian gains, Csiszár's $\phi$-entropies for general exponential families). Do AAD segments exist where a non-Shannon potential would be the natural geometry? The sector-condition setup (`#result-sector-persistence-template`) uses a quadratic (Euclidean) potential; `#deriv-edge-update-natural-parameter` uses log-odds (Shannon). The cross-segment question: is there a unifying convex-potential story that subsumes both?
 
 2. **Čencov-layer Fenchel-duality.** `#additive-coordinate-forcing`'s fourth instance (Fisher metric via Čencov 1982) is positioned as structurally distinct from the three Cauchy-FE instances. Under the Fenchel-duality unification of the divergence and update layers, is there a similar duality between the metric layer and the divergence layer? The second-order expansion of reverse-KL near $P = Q$ is the Fisher metric (Eguchi 1983), so the two layers are *already* linked via a Taylor expansion. Is this a Fenchel-style duality or just a specialization?
 
-3. **Rate-distortion with L0/L1/L1'/L2 relevance variables.** Path 3's RD derivation uses the value-gap distortion. A more fine-grained distortion — one for each level of `#strategy-dag`'s Correlation Hierarchy — would produce a family of RD-optimal strategies indexed by identification regime. Is this a useful extension of the segment, or merely a proliferation?
+3. **Rate-distortion with L0/L1/L1'/L2 relevance variables.** Path 3's RD derivation uses the value-gap distortion. A more fine-grained distortion — one for each level of `#def-strategy-dag`'s Correlation Hierarchy — would produce a family of RD-optimal strategies indexed by identification regime. Is this a useful extension of the segment, or merely a proliferation?
 
 4. **Stochastic $\pi^\ast$ (tied-optima, softmax-smoothed) — does Path 5's BH identity extend?** The exact $D_{\mathrm{KL}} = -\log(1 - \operatorname{TV})$ relation holds under deterministic $\pi^\ast$. For tied-optima $\pi^\ast$, an analog holds with the optimum-set $\mathcal A^\ast$ playing the role of $\{a^\ast\}$: $D_{\mathrm{KL}}(\pi^\ast \Vert Q) = -\log Q(\mathcal A^\ast) - \log \lvert \mathcal A^\ast\rvert$ (uniform on $\mathcal A^\ast$). For softmax-smoothed $\pi^\ast$, the relation is strictly messier — Pinsker is the best general bound. Scope-extension question for a follow-up spike.
 
 5. **What about the *Čencov* layer in Path 7?** The Fenchel-Bregman duality relates divergence to natural-parameter via the negative-entropy potential. Under parameterization-invariance (the axiom for the Čencov instance), the metric is Fisher. Is there a Fenchel-style duality between the Čencov-layer metric and a dual coordinate structure? This would be a genuinely new observation worth a separate spike. Informal guess: the Fisher metric's dual geometry via Amari-Nagaoka 2000's $\pm 1$-connection structure is the right place to look. Not pursued here.
 
-6. **Does Path 1's $Y = \mathbb 1[a = a^\ast(X)]$ binding propagate cleanly to the other three compression operations ($M_t$, $G_t^{\text{shared}}$, $\Lambda$)?** The model-compression case uses $Y = o_{t+1:\infty}$ — a real observable, not an indicator. The shared-intent case uses $Y = a_t^{\text{coordinated}}$ — again a real variable. The composition case uses $Y = o_{\text{micro},t+1}$. So the "$Y$ = indicator of optimality" choice is specific to the decision-theoretic strategy-cost case; the other three cases use observable-valued $Y$'s. This is consistent with the `#strategy-complexity-cost`-is-decision-problem / the-others-are-prediction-problems split, but it does mean the four IB instances differ in *kind of relevance variable* (observable vs. indicator), not merely in which observable. Whether this matters for the O-BP2 unification architectural proposal (four compressions as one hierarchy) is a separate question.
+6. **Does Path 1's $Y = \mathbb 1[a = a^\ast(X)]$ binding propagate cleanly to the other three compression operations ($M_t$, $G_t^{\text{shared}}$, $\Lambda$)?** The model-compression case uses $Y = o_{t+1:\infty}$ — a real observable, not an indicator. The shared-intent case uses $Y = a_t^{\text{coordinated}}$ — again a real variable. The composition case uses $Y = o_{\text{micro},t+1}$. So the "$Y$ = indicator of optimality" choice is specific to the decision-theoretic strategy-cost case; the other three cases use observable-valued $Y$'s. This is consistent with the `#form-strategy-complexity-cost`-is-decision-problem / the-others-are-prediction-problems split, but it does mean the four IB instances differ in *kind of relevance variable* (observable vs. indicator), not merely in which observable. Whether this matters for the O-BP2 unification architectural proposal (four compressions as one hierarchy) is a separate question.
 
 ---
 
@@ -433,10 +433,10 @@ Path 7 is the most structurally illuminating: the **Fenchel-Bregman duality betw
 - Bauschke, H. & Combettes, P. 2017. *Convex Analysis and Monotone Operator Theory in Hilbert Spaces.* Springer (2nd ed.).
 
 **Direct segment dependencies:**
-- `#strategy-cost-regret-bound` (segment)
-- `#strategy-complexity-cost` (segment)
-- `#edge-update-natural-parameter` (segment)
-- `#information-bottleneck` (segment)
+- `#deriv-strategy-cost-regret-bound` (segment)
+- `#form-strategy-complexity-cost` (segment)
+- `#deriv-edge-update-natural-parameter` (segment)
+- `#form-information-bottleneck` (segment)
 - `#additive-coordinate-forcing` (segment)
 - `msc/spike-reverse-kl-uniqueness.md` (prior spike)
 - `msc/spike-f20-kl-direction-strengthening.md` (prior spike)
@@ -617,11 +617,11 @@ The PDFs actually enable **stronger moves** than the spike attempted, in two dir
 
 $$\tilde D_{\mathrm{KL}}(\hat V_\pi(s_0)\Vert V_\pi(s_0))\;\leq\;\frac{I_\pi(s_0) + \log(2m/\delta)}{m-1}$$
 
-This is a **robustness/generalization result**, not a compression/decision-consistency result. It gives AAD a *fourth* independent motivation for the strategy-cost form (alongside (a) regret-bound direction-forcing, (b) chain-rule additivity forcing the reverse-KL form, (c) Bregman/Fenchel-duality with edge-update log-odds). This is a natural addition to `#strategy-cost-regret-bound`'s §6.2 (Secondary characterizations).
+This is a **robustness/generalization result**, not a compression/decision-consistency result. It gives AAD a *fourth* independent motivation for the strategy-cost form (alongside (a) regret-bound direction-forcing, (b) chain-rule additivity forcing the reverse-KL form, (c) Bregman/Fenchel-duality with edge-update log-odds). This is a natural addition to `#deriv-strategy-cost-regret-bound`'s §6.2 (Secondary characterizations).
 
 The AAD translation: under finite-data learning of the strategy DAG, a strategy with lower information cost (lower $D_{\mathrm{KL}}$ against the reference policy) has tighter generalization — a PAC-Bayesian concentration property. This is an *operational* argument for the reverse-KL form that is independent of the regret-bound and independent of chain-rule additivity. It supplies what Path 4 failed to supply (an independent uniqueness route): PAC-Bayesian robustness gives a reason to prefer the KL-to-reference form over alternative divergences, via a generalization-bound route that is not a re-formulation of Shore-Johnson.
 
-**(E2) Rubin 2012 §3.3 deterministic-environment linearization (p. 8).** Under deterministic state-transitions, the Bellman recursion for $F^*$ reduces to a *linear* equation $Z = \Phi Z$ with $\Phi_{s, s'}(\beta) = \sum_a \rho_s(a) e^{\beta R(s, a)}\mathbb 1[s' = x_{s, a}]$ for $s' = x_{s, a}$ else 0. This is the AAD analog of a `#sector-persistence-template` deterministic reduction under which the nonlinear value-information trade-off becomes solvable in closed form. AAD has not, as far as I've found, surfaced this deterministic-environment reduction as a named simplification; it is a useful instance of "AAD machinery has a clean linear-algebraic form in the deterministic sub-scope" — parallel to how the sector condition has an $\alpha_1$ sub-scope with clean derivation.
+**(E2) Rubin 2012 §3.3 deterministic-environment linearization (p. 8).** Under deterministic state-transitions, the Bellman recursion for $F^*$ reduces to a *linear* equation $Z = \Phi Z$ with $\Phi_{s, s'}(\beta) = \sum_a \rho_s(a) e^{\beta R(s, a)}\mathbb 1[s' = x_{s, a}]$ for $s' = x_{s, a}$ else 0. This is the AAD analog of a `#result-sector-persistence-template` deterministic reduction under which the nonlinear value-information trade-off becomes solvable in closed form. AAD has not, as far as I've found, surfaced this deterministic-environment reduction as a named simplification; it is a useful instance of "AAD machinery has a clean linear-algebraic form in the deterministic sub-scope" — parallel to how the sector condition has an $\alpha_1$ sub-scope with clean derivation.
 
 **(E3) Tishby-Polani 2011's "perfectly-adapted environment" result (Sec. 7.2, pp. 22–23).** TP2011 shows that if environment transitions satisfy $p(s'\mid s, a) = q_\beta(s'\mid s, a)$ (Eq. 23), the future-information term reduces to *pure* value-relevant content: *"maximizing the future information is equivalent to value maximization"* (p. 23). This is a **condition under which the information cost and the value objective coincide** — a degenerate case where the strategy-cost trade-off collapses (zero at the optimum). AAD's analog: under what conditions on the environment does the strategy-cost reverse-KL and the regret bound *coincide exactly*? The TP2011 result suggests a class (perfectly-adapted environments) where $I_\pi = \beta V_\pi$ at the optimum — which would collapse the IB trade-off to a single curve. Not a result AAD has currently. Potentially a follow-up spike, not a §12 addendum move.
 
@@ -642,7 +642,7 @@ This is a strengthening opportunity: the segment should **own** the direction ch
 
 **(S3) Correct title of the TP2011 paper.** The correct title is "The Information Theory of Decision and Action" (singular). `ref/INDEX.md`, the spike body, and any segment-level citation need to be updated.
 
-**(S4) Flag the KL-direction terminology collision.** Bishop-convention "reverse-KL" (mode-seeking, $D_{\mathrm{KL}}(q\Vert p^*)$ with $q$ the approximation) matches Levine's usage; AAD's "$\pi^*$-first" convention labels this as "forward-KL." The spike body uses both conventions interchangeably, which reads coherent but is internally ambiguous. The segment should pick one and state it (AAD's convention is $\pi^*$-first, and AAD's "reverse-KL" = $D_{\mathrm{KL}}(\pi^*\Vert Q_\Sigma)$, which in Bishop-convention is "forward-KL" — AAD's naming is the *opposite* of Bishop's). This is worth a footnote in `#strategy-cost-regret-bound`.
+**(S4) Flag the KL-direction terminology collision.** Bishop-convention "reverse-KL" (mode-seeking, $D_{\mathrm{KL}}(q\Vert p^*)$ with $q$ the approximation) matches Levine's usage; AAD's "$\pi^*$-first" convention labels this as "forward-KL." The spike body uses both conventions interchangeably, which reads coherent but is internally ambiguous. The segment should pick one and state it (AAD's convention is $\pi^*$-first, and AAD's "reverse-KL" = $D_{\mathrm{KL}}(\pi^*\Vert Q_\Sigma)$, which in Bishop-convention is "forward-KL" — AAD's naming is the *opposite* of Bishop's). This is worth a footnote in `#deriv-strategy-cost-regret-bound`.
 
 **(S5) Demote Levine 2018's role as IB-for-control lineage support.** Levine 2018 does not connect to IB; it connects to max-entropy RL via the exponentiated-reward graphical model. The spike's Claim D should be reduced to: "Levine 2018 uses the mode-seeking KL direction ($D_{\mathrm{KL}}(q\Vert p^*)$) throughout in the max-entropy RL / control-as-inference framework." The IB connection is an AAD-internal framing move, not something Levine 2018 establishes.
 
@@ -650,7 +650,7 @@ This is a strengthening opportunity: the segment should **own** the direction ch
 
 These replace the §9 recommendations of the spike body for the Path-1-related moves. Path 5 (BH identity) and Path 7 (Fenchel-Bregman) deliverables stand unchanged.
 
-**(SD1) `#strategy-cost-regret-bound` §6.3 draft (revised from spike §9 recommendation 2).**
+**(SD1) `#deriv-strategy-cost-regret-bound` §6.3 draft (revised from spike §9 recommendation 2).**
 
 *Title:* "Information-theoretic-MDP lineage and AAD's direction choice."
 
@@ -665,7 +665,7 @@ These replace the §9 recommendations of the spike body for the Path-1-related m
 
 *Citations needed at segment level:* Tishby-Polani 2011 (correct title), Rubin-Shamir-Tishby 2012 (specific Eq. 3 and Theorem 1 page references), Levine 2018 (specific §3.1 Eq. 11 and §5.2 p. 15 references). The §6.3 draft above has these inline.
 
-**(SD2) `#strategy-cost-regret-bound` §6.2 add sub-item: "PAC-Bayesian generalization (Rubin et al. 2012 Theorem 3)."**
+**(SD2) `#deriv-strategy-cost-regret-bound` §6.2 add sub-item: "PAC-Bayesian generalization (Rubin et al. 2012 Theorem 3)."**
 
 > A fourth operational property of the $\pi^*$-first KL form comes from Rubin, Shamir & Tishby 2012 Theorem 3 (p. 10): under a-priori stochastic default policy and empirical reward estimate, the control-information $I_\pi$ bounds the generalization gap of the value function:
 > $$\tilde D_{\mathrm{KL}}(\hat V_\pi\Vert V_\pi)\leq \frac{I_\pi(s_0) + \log(2m/\delta)}{m - 1}$$
@@ -673,15 +673,15 @@ These replace the §9 recommendations of the spike body for the Path-1-related m
 
 *Citation:* Rubin, Shamir & Tishby 2012 Theorem 3.
 
-**(SD3) `#information-bottleneck` add a cross-reference paragraph (revised from spike §9 recommendation 8).**
+**(SD3) `#form-information-bottleneck` add a cross-reference paragraph (revised from spike §9 recommendation 8).**
 
-> The AAD strategy-cost objective's reverse-KL relevance term is *not* an instance of the canonical IB objective $I(X; T) - \beta I(T; Y)$ with Shannon mutual information in both terms. Rather, it sits in the **information-theoretic-MDP** lineage (Tishby-Polani 2011 "The Information Theory of Decision and Action" *Perception-Action Cycle* pp. 601–636; Rubin-Shamir-Tishby 2012 "Trading Value and Information in MDPs" *Decision Making with Imperfect Decision Makers* pp. 57–74), where value and information are joint first-class quantities and the information quantity is a KL-to-reference-policy form (not a mutual information with an external relevance variable). Both IB and information-theoretic-MDP trace to the common ancestor of rate-distortion theory (Shannon 1959); the IB instance uses MI-to-relevant-label as the fidelity term, while the information-theoretic-MDP instance uses KL-to-reference-policy. AAD's compression-operations framework (§`#compression-operations`) uses the IB form for the $M_t$, $G_t^{\mathrm{shared}}$, and $\Lambda$ compressions (each with a Shannon-MI relevance term); the strategy-cost compression (`#strategy-complexity-cost` + `#strategy-cost-regret-bound`) uses the information-theoretic-MDP form. Both are valid Lagrangian relaxations of a rate-distortion problem; the choice of fidelity term depends on whether the compressed variable is meant to preserve information about an observable (IB) or to match a reference policy (information-theoretic-MDP).
+> The AAD strategy-cost objective's reverse-KL relevance term is *not* an instance of the canonical IB objective $I(X; T) - \beta I(T; Y)$ with Shannon mutual information in both terms. Rather, it sits in the **information-theoretic-MDP** lineage (Tishby-Polani 2011 "The Information Theory of Decision and Action" *Perception-Action Cycle* pp. 601–636; Rubin-Shamir-Tishby 2012 "Trading Value and Information in MDPs" *Decision Making with Imperfect Decision Makers* pp. 57–74), where value and information are joint first-class quantities and the information quantity is a KL-to-reference-policy form (not a mutual information with an external relevance variable). Both IB and information-theoretic-MDP trace to the common ancestor of rate-distortion theory (Shannon 1959); the IB instance uses MI-to-relevant-label as the fidelity term, while the information-theoretic-MDP instance uses KL-to-reference-policy. AAD's compression-operations framework (§`#disc-compression-operations`) uses the IB form for the $M_t$, $G_t^{\mathrm{shared}}$, and $\Lambda$ compressions (each with a Shannon-MI relevance term); the strategy-cost compression (`#form-strategy-complexity-cost` + `#deriv-strategy-cost-regret-bound`) uses the information-theoretic-MDP form. Both are valid Lagrangian relaxations of a rate-distortion problem; the choice of fidelity term depends on whether the compressed variable is meant to preserve information about an observable (IB) or to match a reference policy (information-theoretic-MDP).
 
-*Deliverable:* this paragraph added to `#information-bottleneck`'s Discussion. Pre-empts "why isn't the strategy-cost term a mutual information like the others?" at the meta-segment level.
+*Deliverable:* this paragraph added to `#form-information-bottleneck`'s Discussion. Pre-empts "why isn't the strategy-cost term a mutual information like the others?" at the meta-segment level.
 
 **(SD4) `#additive-coordinate-forcing` — no change from PDF verification.**
 
-The divergence-layer Cauchy-FE uniqueness (§6.1 of `#strategy-cost-regret-bound`) is not affected by the PDF findings. The chain-rule additivity uniqueness argument (Hobson 1969 / Csiszár 1991 / Shore-Johnson 1980 / Aczél-Daróczy 1975) stands as the segment-internal forcing. The Tishby-Polani / Rubin / Levine literature is an *external positioning* question, not a derivation question.
+The divergence-layer Cauchy-FE uniqueness (§6.1 of `#deriv-strategy-cost-regret-bound`) is not affected by the PDF findings. The chain-rule additivity uniqueness argument (Hobson 1969 / Csiszár 1991 / Shore-Johnson 1980 / Aczél-Daróczy 1975) stands as the segment-internal forcing. The Tishby-Polani / Rubin / Levine literature is an *external positioning* question, not a derivation question.
 
 **(SD5) `ref/INDEX.md` — correct the TP2011 title.**
 
@@ -689,7 +689,7 @@ Current (likely) entry: "Information theory of decisions and actions" → correc
 
 **(SD6) No new appendix segment needed.**
 
-The PDF findings are absorbed into existing segments (`#strategy-cost-regret-bound` §6.2 and new §6.3, `#information-bottleneck` cross-reference). The spike body's recommendation against creating a new appendix stands unchanged.
+The PDF findings are absorbed into existing segments (`#deriv-strategy-cost-regret-bound` §6.2 and new §6.3, `#form-information-bottleneck` cross-reference). The spike body's recommendation against creating a new appendix stands unchanged.
 
 ### §12.6 — Updated Path 1 epistemic tier
 
@@ -714,9 +714,9 @@ The regret-bound direction-forcing derivation (§5) and the chain-rule uniquenes
 
 | Deliverable | Target segment | Priority | Shape |
 |---|---|---|---|
-| SD1: §6.3 "Information-theoretic-MDP lineage and AAD's direction choice" | `#strategy-cost-regret-bound` | High | New subsection, Discussion-grade, ~250 words with explicit page/eq citations |
-| SD2: PAC-Bayesian generalization item in §6.2 | `#strategy-cost-regret-bound` | Medium | 1-paragraph addition to existing secondary-characterizations subsection |
-| SD3: Cross-reference paragraph | `#information-bottleneck` | Medium | New Discussion paragraph |
+| SD1: §6.3 "Information-theoretic-MDP lineage and AAD's direction choice" | `#deriv-strategy-cost-regret-bound` | High | New subsection, Discussion-grade, ~250 words with explicit page/eq citations |
+| SD2: PAC-Bayesian generalization item in §6.2 | `#deriv-strategy-cost-regret-bound` | Medium | 1-paragraph addition to existing secondary-characterizations subsection |
+| SD3: Cross-reference paragraph | `#form-information-bottleneck` | Medium | New Discussion paragraph |
 | SD4: No change | `#additive-coordinate-forcing` | — | N/A |
 | SD5: Title correction for TP2011 | `ref/INDEX.md` | High | Metadata fix |
 | Tier-correction note | Spike §8 summary table (Path 1 row) | Medium | Already captured in §12.6 above |

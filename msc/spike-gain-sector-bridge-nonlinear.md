@@ -6,7 +6,7 @@
 
 **Objective**: Determine whether GA-3 is a derivable consequence of well-understood loss function properties, or an irreducible assumption. The answer is: **GA-3 is equivalent to local strong convexity for any gradient-based agent, and the AAD sector parameter $\alpha$ is the product of the learning rate and the loss landscape's strong convexity modulus.**
 
-**Depends on**: #sector-condition-derivation, #sector-condition-stability, #update-gain, #mismatch-dynamics, #structural-adaptation-necessity, #persistence-condition
+**Depends on**: #deriv-sector-condition, #result-sector-condition-stability, #emp-update-gain, #hyp-mismatch-dynamics, #result-structural-adaptation-necessity, #result-persistence-condition
 
 ---
 
@@ -18,19 +18,19 @@ Consider an agent that updates its model via gradient descent on a loss function
 
 $$M_{t+1} = M_t - \eta \cdot \nabla L(M_t)$$
 
-where $\eta > 0$ is the learning rate (the gain parameter from #update-gain) and $L: \mathbb{R}^n \to \mathbb{R}$ is the loss function the agent minimizes. Let $M^\ast$ denote the loss minimizer (the "truth" the agent is tracking).
+where $\eta > 0$ is the learning rate (the gain parameter from #emp-update-gain) and $L: \mathbb{R}^n \to \mathbb{R}$ is the loss function the agent minimizes. Let $M^\ast$ denote the loss minimizer (the "truth" the agent is tracking).
 
 The mismatch is $\delta_t = M_t - M^\ast$. The per-step change in mismatch (in the absence of disturbance) is:
 
 $$\Delta \delta_t = M_{t+1} - M^\ast - (M_t - M^\ast) = -\eta \cdot \nabla L(M_t)$$
 
-The correction function in the sector framework ( #sector-condition-derivation) is $F(\delta) = -\Delta\delta = \eta \cdot \nabla L(M_t)$, or in continuous time:
+The correction function in the sector framework ( #deriv-sector-condition) is $F(\delta) = -\Delta\delta = \eta \cdot \nabla L(M_t)$, or in continuous time:
 
 *[Formulation (gradient correction function)]*
 
 $$F(\mathcal{T}, \delta) = \eta \cdot \nabla L(M^\ast + \delta)$$
 
-where we have written $M_t = M^\ast + \delta$ and absorbed the event rate $\nu$ into the continuous-time formulation (as in #adaptive-tempo: $\mathcal{T} = \nu \cdot \eta$).
+where we have written $M_t = M^\ast + \delta$ and absorbed the event rate $\nu$ into the continuous-time formulation (as in #def-adaptive-tempo: $\mathcal{T} = \nu \cdot \eta$).
 
 ### 1.2 The Sector Condition in Gradient Terms
 
@@ -95,10 +95,10 @@ The equivalence is **approximate** when:
 The factorization $\alpha = \eta \cdot \mu$ has a clean AAD interpretation:
 
 - **$\mu$** is a property of the *loss landscape* (the environment's curvature, the model class's natural geometry). It measures how strongly the loss surface pushes the agent toward the optimum per unit mismatch. This is the "quality" of the correction signal — analogous to $\eta^\ast$ in the update-gain framework.
-- **$\eta$** is the agent's *responsiveness* — how much it trusts each gradient signal. This maps directly to the update gain from #update-gain.
+- **$\eta$** is the agent's *responsiveness* — how much it trusts each gradient signal. This maps directly to the update gain from #emp-update-gain.
 - **$\alpha = \eta \mu$** is the correction *rate* — how fast the agent actually reduces mismatch. This maps to the adaptive tempo: $\alpha \propto \mathcal{T}$.
 
-In the linear case, $\nabla L = H\delta$ where $H$ is the Hessian, and $\mu = \lambda_{\min}(H)$. Then $\alpha = \eta \lambda_{\min}(H)$, recovering the adaptive tempo $\mathcal{T}$ from #mismatch-dynamics when $\eta = \eta^\ast$ and $\nu = 1$ (one update per time step).
+In the linear case, $\nabla L = H\delta$ where $H$ is the Hessian, and $\mu = \lambda_{\min}(H)$. Then $\alpha = \eta \lambda_{\min}(H)$, recovering the adaptive tempo $\mathcal{T}$ from #hyp-mismatch-dynamics when $\eta = \eta^\ast$ and $\nu = 1$ (one update per time step).
 
 The factorization also explains the convergence condition for gradient descent: the requirement $\eta < 2/L_{\text{smooth}}$ (where $L_{\text{smooth}}$ is the smoothness constant) ensures the correction function doesn't overshoot. Overshoot would violate an *upper* sector condition ($\delta^T F \leq \bar{\alpha} \lVert\delta\rVert^2$), causing oscillation instead of convergence. The sector framework in AAD focuses on the lower bound; the upper bound is the stability condition from optimization theory.
 
@@ -114,7 +114,7 @@ where $H \succ 0$ is the Hessian (e.g., $H = X^T X / N$ for linear regression).
 
 - **Strong convexity**: $\mu = \lambda_{\min}(H) > 0$ **globally**
 - **Sector condition**: $\alpha = \eta \cdot \lambda_{\min}(H)$, holds for all $\delta$ (no radius restriction, $R = \infty$)
-- **AAD consequence**: The linear case from #mismatch-dynamics, where $\alpha = \mathcal{T}$, is recovered exactly. Structural persistence is trivially satisfied. Only task adequacy matters.
+- **AAD consequence**: The linear case from #hyp-mismatch-dynamics, where $\alpha = \mathcal{T}$, is recovered exactly. Structural persistence is trivially satisfied. Only task adequacy matters.
 
 **Simulation verification** (Simulation 1): With a Hessian having eigenvalues $\{0.5, 1.0, 2.0, 3.0, 5.0\}$ and $\eta = 0.1$, the sector ratio $\delta^T F / \lVert\delta\rVert^2$ ranged from 0.050 to 0.317, exactly within $[\eta\mu, \eta L] = [0.05, 0.50]$, confirming the bound at every step of the gradient descent trajectory.
 
@@ -165,7 +165,7 @@ For mixture models, neural network losses, and other non-convex objectives:
 - **At basin boundary** ($r \approx 3.1$): Hessian eigenvalue crosses zero. Sector ratio drops sharply.
 - **Beyond basin** ($r > 3.5$): Sector ratio becomes negative. Gradient descent starting here converges to Optimum B (the wrong basin).
 
-The basin radius $R \approx 3.1$ was confirmed by both the sector condition breakdown and the Hessian eigenvalue sign change. Gradient descent from $r = 2$ (within basin) converged to Optimum A in $< 100$ steps. From $r = 5$ (outside basin), it converged to Optimum B. The basin boundary is the structural-adaptation trigger from #structural-adaptation-necessity.
+The basin radius $R \approx 3.1$ was confirmed by both the sector condition breakdown and the Hessian eigenvalue sign change. Gradient descent from $r = 2$ (within basin) converged to Optimum A in $< 100$ steps. From $r = 5$ (outside basin), it converged to Optimum B. The basin boundary is the structural-adaptation trigger from #result-structural-adaptation-necessity.
 
 ### 2.5 Quasi-Convex Losses
 
@@ -230,13 +230,13 @@ When $\lVert\delta\rVert > R$:
 
 1. **The sector condition fails**: $\delta^T \nabla L < 0$ in some directions, meaning the gradient points *away* from the current reference optimum.
 2. **Gradient descent leaves the basin**: The agent's correction drives it further from $M^\ast$, toward a different basin (a different local minimum).
-3. **This IS the structural-adaptation trigger**: The condition $R^\ast > R$ from #structural-adaptation-necessity means the required steady-state mismatch exceeds the basin of the current model parameterization. The agent needs a qualitatively different model — not a different parameter value in the same basin, but a different basin entirely.
+3. **This IS the structural-adaptation trigger**: The condition $R^\ast > R$ from #result-structural-adaptation-necessity means the required steady-state mismatch exceeds the basin of the current model parameterization. The agent needs a qualitatively different model — not a different parameter value in the same basin, but a different basin entirely.
 
 **The structural-adaptation trigger is the loss landscape's inflection surface.** Beyond the inflection, the correction function reverses, and parametric adaptation becomes counterproductive.
 
 ### 3.4 Consequences for Adaptive Reserve
 
-The adaptive reserve from #sector-condition-derivation is $\Delta\rho^\ast = \alpha R - \rho = \eta\mu R - \rho$.
+The adaptive reserve from #deriv-sector-condition is $\Delta\rho^\ast = \alpha R - \rho = \eta\mu R - \rho$.
 
 For gradient-based agents, this has three factors:
 - **$\eta$**: How responsive the agent is (gain)
@@ -384,7 +384,7 @@ $$R = \sup\{r : \lambda_{\min}(\nabla^2 L(M^\ast + \delta)) > 0 \text{ for all }
 **Agents that need the local form:**
 - Any agent with a non-convex loss landscape (neural networks, mixture models)
 - Any agent operating in a regime where the loss is only locally convex
-- These agents satisfy GA-3 within their current basin, and the basin radius $R$ is the structural-adaptation threshold from #structural-adaptation-necessity
+- These agents satisfy GA-3 within their current basin, and the basin radius $R$ is the structural-adaptation threshold from #result-structural-adaptation-necessity
 
 ### 5.4 Connection to Structural Adaptation
 
@@ -394,7 +394,7 @@ The equivalence provides a sharp characterization of the structural-adaptation t
 
 In optimization terms: when the agent is pushed outside the basin of attraction of its current local minimum, gradient descent drives it *away* from the reference optimum. This is the sector condition failing — the correction function reverses direction. The agent must either:
 1. Find a new basin (structural adaptation — change model class, architecture search)
-2. Be reinitialized within a good basin (external reset, grafting from #structural-adaptation-necessity)
+2. Be reinitialized within a good basin (external reset, grafting from #result-structural-adaptation-necessity)
 
 This also explains why structural adaptation is expensive: finding a good basin in a non-convex landscape is a hard search problem (NP-hard in the worst case for general non-convex optimization). The theory's advice to "prefer parametric adaptation when it suffices" corresponds to "stay in your basin when you can."
 
@@ -407,7 +407,7 @@ GA-3 should remain as a *named assumption* in the theory because:
 2. Not all agents are gradient-based — feedback controllers, rule-based systems, and human decision-makers may satisfy the sector condition through mechanisms unrelated to loss landscape convexity
 3. The sector condition is weaker than strong convexity (it applies to any correction function, not just gradients)
 
-However, the following should be added to #sector-condition-derivation or as a new segment:
+However, the following should be added to #deriv-sector-condition or as a new segment:
 
 > **Derivation note.** For any gradient-based agent with learning rate $\eta$ minimizing a loss $L$, GA-3 is equivalent to local $\mu$-strong convexity of $L$ with $\alpha = \eta\mu$. The sector condition is thus automatically satisfied by agents using convex losses or operating within a convexity basin of non-convex losses. GA-3 is an independent assumption only for agents whose correction mechanisms are not gradient-based.
 
@@ -419,7 +419,7 @@ The Beta-Bernoulli result from #spike-single-edge-strategic-dynamics is a specia
 
 1. **Non-gradient agents.** For agents whose correction is not gradient-based (PID controllers, rule-based systems, human judgment), GA-3 remains an empirical claim. Can it be derived from other principles? PID controllers satisfy a sector condition when the plant transfer function is in a specific sector (Lur'e stability theory) — the connection to AAD's sector condition is structural, not accidental.
 
-2. **Adaptive $\eta$.** When $\eta$ is itself adapted (Adam, RMSprop, Kalman gain), the sector parameter $\alpha = \eta(t) \cdot \mu(w_t)$ is time-varying. The Lyapunov proofs in #sector-condition-derivation assume constant $\alpha$. Extension to time-varying $\alpha(t) \geq \underline{\alpha} > 0$ is standard (see Khalil 2002, Chapter 8) and should be noted.
+2. **Adaptive $\eta$.** When $\eta$ is itself adapted (Adam, RMSprop, Kalman gain), the sector parameter $\alpha = \eta(t) \cdot \mu(w_t)$ is time-varying. The Lyapunov proofs in #deriv-sector-condition assume constant $\alpha$. Extension to time-varying $\alpha(t) \geq \underline{\alpha} > 0$ is standard (see Khalil 2002, Chapter 8) and should be noted.
 
 3. **Matrix gain.** When $\eta$ is a matrix (Kalman gain, natural gradient, Adam's per-parameter rates), the sector condition becomes $\delta^T K \nabla L \geq \alpha \lVert\delta\rVert^2$ where $K$ is the gain matrix. For positive definite $K$, this holds with $\alpha = \lambda_{\min}(K) \cdot \mu$. The natural gradient ($K = [\text{Fisher}]^{-1}$) gives $\alpha = \mu / \lambda_{\max}(\text{Fisher})$, which can be much better conditioned than the vanilla gradient case.
 
@@ -438,10 +438,10 @@ The Beta-Bernoulli result from #spike-single-edge-strategic-dynamics is a specia
 | Logistic: GA-3 local, L2-reg makes global | **Exact** | Simulation 2 confirms |
 | Exponential family: GA-3 global in natural params | **Exact** | Simulation 5 confirms |
 | Non-convex: GA-3 within basin, fails at boundary | **Exact** | Simulation 3,4 confirm |
-| Basin boundary = structural-adaptation trigger | **Derived** | From equivalence + #structural-adaptation-necessity |
+| Basin boundary = structural-adaptation trigger | **Derived** | From equivalence + #result-structural-adaptation-necessity |
 | GA-3 is derivable, not irreducible (for gradient agents) | **Result** | This spike |
 
-The sector condition is not an axiom — for the large class of gradient-based agents, it is a theorem about loss landscape geometry. This substantially strengthens the epistemic status of all downstream results that depend on GA-3 (#persistence-condition, #sector-condition-derivation, #adversarial-destabilization): they hold whenever the loss is locally strongly convex, which is a well-characterized and widely studied property.
+The sector condition is not an axiom — for the large class of gradient-based agents, it is a theorem about loss landscape geometry. This substantially strengthens the epistemic status of all downstream results that depend on GA-3 (#result-persistence-condition, #deriv-sector-condition, #der-adversarial-destabilization): they hold whenever the loss is locally strongly convex, which is a well-characterized and widely studied property.
 
 ---
 

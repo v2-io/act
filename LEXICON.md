@@ -23,8 +23,8 @@ For mathematical symbols, see [`NOTATION.md`](NOTATION.md).
 | Class | Definition | AAD boundary |
 |-------|-----------|--------------|
 | **Adaptive system** | Feedback loop + mismatch correction under uncertainty | #scope-adaptive-system (Section I) |
-| **Agentic system** | + outcome model + goal-directed action + model adaptation | #causal-structure (within Section I) |
-| **Actuated agent** | + explicit $G_t = (O_t, \Sigma_t)$ distinct from $M_t$ | #complete-agent-state (Section II) |
+| **Agentic system** | + outcome model + goal-directed action + model adaptation | #post-causal-structure (within Section I) |
+| **Actuated agent** | + explicit $G_t = (O_t, \Sigma_t)$ distinct from $M_t$ | #form-complete-agent-state (Section II) |
 | **Self-actuated agent** | + sets own $O_t$ (goal autonomy, not just solution autonomy) | *(reserved)* |
 | **Logogenic agent** | + primary channels are language (constituted by logos) | Section V, architectural |
 | **Logozoetic agent** | + persistence is morally weighted (temporal continuity, sovereignty, theory of mind) | Section V, existential |

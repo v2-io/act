@@ -7,9 +7,9 @@ date: 2026-04-22
 
 # Spike: F20 — KL-direction strengthening via regret bound
 
-**Migration note (2026-04-22).** The load-bearing math (TV bound §3, Pinsker-KL bound §4, direction-forcing argument §5, admissible-divergence family analysis §6, $\beta_\Sigma$ linear-vs-square-root trade-off §7, scope limits §8, extensions §9) has been migrated to appendix segment **#strategy-cost-regret-bound** (`01-aad-core/src/strategy-cost-regret-bound.md`). The framework stands complete without this spike — `msc/` is a scratch directory and must not be load-bearing. This spike retains the strengthening-cycle reasoning trail only: how the outcome was reached, what softening options were ruled out, how Outcome B was adjudicated. The segment is the canonical home for the derivation and its supporting analysis.
+**Migration note (2026-04-22).** The load-bearing math (TV bound §3, Pinsker-KL bound §4, direction-forcing argument §5, admissible-divergence family analysis §6, $\beta_\Sigma$ linear-vs-square-root trade-off §7, scope limits §8, extensions §9) has been migrated to appendix segment **#deriv-strategy-cost-regret-bound** (`01-aad-core/src/deriv-strategy-cost-regret-bound.md`). The framework stands complete without this spike — `msc/` is a scratch directory and must not be load-bearing. This spike retains the strengthening-cycle reasoning trail only: how the outcome was reached, what softening options were ruled out, how Outcome B was adjudicated. The segment is the canonical home for the derivation and its supporting analysis.
 
-**Finding.** The V-medium move in `#strategy-complexity-cost` (commit `a14682e`) replaced Shannon MI $-\beta_\Sigma I(\Sigma_t; \pi^\ast \mid M_t)$ with $+\beta_\Sigma D_{\mathrm{KL}}(Q_{\Sigma_t} \Vert \pi^\ast)$. Under deterministic $\pi^\ast$, this KL is **infinite** whenever $Q_{\Sigma_t}$ places mass on non-optimal actions. Shannon-zero degeneracy traded for KL-infinity degeneracy — same shape, different value.
+**Finding.** The V-medium move in `#form-strategy-complexity-cost` (commit `a14682e`) replaced Shannon MI $-\beta_\Sigma I(\Sigma_t; \pi^\ast \mid M_t)$ with $+\beta_\Sigma D_{\mathrm{KL}}(Q_{\Sigma_t} \Vert \pi^\ast)$. Under deterministic $\pi^\ast$, this KL is **infinite** whenever $Q_{\Sigma_t}$ places mass on non-optimal actions. Shannon-zero degeneracy traded for KL-infinity degeneracy — same shape, different value.
 
 **Charter.** Before adopting a softening (reverse KL direction, or Boltzmann-smoothing of $\pi^\ast$), attempt to *derive* the correct form from an AAD-internal regret-bound argument.
 
@@ -19,7 +19,7 @@ date: 2026-04-22
 
 ## §1 — Setup
 
-Fix $O_t$, $M_t$, continuation $\pi_{\text{cont}}$, horizon $N_h$. The **action-value** $Q_O(M_t, a; \pi_{\text{cont}}, N_h)$ ( #value-object) is a scalar for each $a \in \mathcal{A}$. Under AAD's canonical scope, $\pi^\ast(\cdot \mid M_t) = \delta_{a^\ast}$ where $a^\ast = \arg\max_a Q_O(M_t, a; \pi_{\text{cont}}, N_h)$. Write $V(a) := Q_O(M_t, a; \pi_{\text{cont}}, N_h)$ for brevity; $V_{\max} := \max_a V(a) - \min_a V(a)$ is the value range.
+Fix $O_t$, $M_t$, continuation $\pi_{\text{cont}}$, horizon $N_h$. The **action-value** $Q_O(M_t, a; \pi_{\text{cont}}, N_h)$ ( #def-value-object) is a scalar for each $a \in \mathcal{A}$. Under AAD's canonical scope, $\pi^\ast(\cdot \mid M_t) = \delta_{a^\ast}$ where $a^\ast = \arg\max_a Q_O(M_t, a; \pi_{\text{cont}}, N_h)$. Write $V(a) := Q_O(M_t, a; \pi_{\text{cont}}, N_h)$ for brevity; $V_{\max} := \max_a V(a) - \min_a V(a)$ is the value range.
 
 $Q_{\Sigma_t}(\cdot \mid M_t)$ is the action distribution induced by the strategy DAG. In general $Q_{\Sigma_t}$ is stochastic (the DAG's epistemic uncertainty over which edges lead to success induces policy stochasticity).
 
@@ -121,7 +121,7 @@ would have $\beta_\Sigma = V_{\max}/\sqrt{2}$ if $\beta_\Sigma$ is to represent 
 
 **Options.**
 
-(a) **Keep linear form; $\beta_\Sigma$ remains a free parameter** with regret-bound interpretation at *local* scale. Practical upside: consistency with IB linear-Lagrangian form in #compression-operations. Downside: $\beta_\Sigma$ not naturalized globally.
+(a) **Keep linear form; $\beta_\Sigma$ remains a free parameter** with regret-bound interpretation at *local* scale. Practical upside: consistency with IB linear-Lagrangian form in #disc-compression-operations. Downside: $\beta_\Sigma$ not naturalized globally.
 
 (b) **Adopt square-root form in the segment.** Upside: global $\beta_\Sigma \propto V_{\max}$ naturalization; honest derivation. Downside: departs from the IB linear-Lagrangian shape, forfeiting the rate-distortion duality interpretation.
 
@@ -133,7 +133,7 @@ Recommendation: **(c).** The direction-of-KL claim is the load-bearing finding; 
 
 **Where the regret bound is vacuous.**
 
-1. $V_{\max} = \infty$ (unbounded value). Then the TV bound and all KL bounds are $\infty$. AAD's objective functional ( #objective-functional) is $\mathbb{R}$-valued; boundedness over the action set at a fixed state is a mild additional assumption but not automatic. Flag: "boundedness of $V$ over $\mathcal{A}$ at fixed $M_t$" must be stated.
+1. $V_{\max} = \infty$ (unbounded value). Then the TV bound and all KL bounds are $\infty$. AAD's objective functional ( #form-objective-functional) is $\mathbb{R}$-valued; boundedness over the action set at a fixed state is a mild additional assumption but not automatic. Flag: "boundedness of $V$ over $\mathcal{A}$ at fixed $M_t$" must be stated.
 
 2. $Q_{\Sigma_t}(a^\ast) = 0$ (strategy puts zero mass on optimum). Then reverse-KL = $\infty$. This is the "strategy cannot express the optimum" case — a structural failure, correctly flagged by infinite KL. The operational minimization would never select such a $\Sigma_t$. This degeneracy is *informative*, not pathological.
 
@@ -167,15 +167,15 @@ Recommendation: **(c).** The direction-of-KL claim is the load-bearing finding; 
 
 ## §11 — Edits to make
 
-1. **`01-aad-core/src/strategy-complexity-cost.md`** — update the variational-form paragraph with the regret-bound derivation; update Epistemic Status; change tag from `*[Formulation (strategy-IB-objective)]*` to `*[Formulation (strengthened-by-regret-bound)]*` on the relevance term; downgrade stage to `draft`.
-2. **`01-aad-core/src/compression-operations.md`** — add one paragraph to the "Variational form" subsection noting that the strategy-IB variational form's KL direction is forced by the regret bound; reverse-KL is canonical in the admissible family.
-3. **`01-aad-core/src/exploit-explore-deliberate.md`** — add one Discussion-level cross-reference noting the regret-bound interpretation connects exploit-regret to the strategy-cost objective via $\pi^\ast$-first KL.
-4. **`01-aad-core/src/ciy-unified-objective.md`** — add one Discussion sentence noting that AAD's exploit term $Q_O$ connects to the strategy-cost objective via the regret-bound derivation; this is what "value and information term" shares structurally with EFE without the preferences-as-priors commitment.
+1. **`01-aad-core/src/form-strategy-complexity-cost.md`** — update the variational-form paragraph with the regret-bound derivation; update Epistemic Status; change tag from `*[Formulation (strategy-IB-objective)]*` to `*[Formulation (strengthened-by-regret-bound)]*` on the relevance term; downgrade stage to `draft`.
+2. **`01-aad-core/src/disc-compression-operations.md`** — add one paragraph to the "Variational form" subsection noting that the strategy-IB variational form's KL direction is forced by the regret bound; reverse-KL is canonical in the admissible family.
+3. **`01-aad-core/src/disc-exploit-explore-deliberate.md`** — add one Discussion-level cross-reference noting the regret-bound interpretation connects exploit-regret to the strategy-cost objective via $\pi^\ast$-first KL.
+4. **`01-aad-core/src/disc-ciy-unified-objective.md`** — add one Discussion sentence noting that AAD's exploit term $Q_O$ connects to the strategy-cost objective via the regret-bound derivation; this is what "value and information term" shares structurally with EFE without the preferences-as-priors commitment.
 5. **`msc/spike-active-inference-vs-aad.md`** §E.6 — update the implementation sketch to note the regret-bound derivation of the KL direction.
 
 ## Working Notes
 
 - **Stochastic $\pi^\ast$ extension.** The canonical AAD scope has deterministic $\pi^\ast$. If $\pi^\ast$ has tied-value support (multiple optima), reverse-KL is finite as long as $Q_{\Sigma_t}$ covers the tied-optimum set; this is handled correctly by the regret-bound argument. If $\pi^\ast$ is stochastic for *non-degeneracy* reasons (softmax-smoothed with temperature $\beta$), a smoothed regret bound with $\mathbb E_{\pi^\ast}[V] - \mathbb E_{Q_{\Sigma_t}}[V]$ works directly; same KL direction forced.
-- **Linear vs. square-root form.** The segment's current linear-in-KL form is the IB-shape instance (Lagrangian-dual of a constraint). Switching to square-root-in-KL would break the IB-shape-across-four-operations claim in #compression-operations. Keep linear; report the regret-bound as motivation rather than functional-form derivation.
+- **Linear vs. square-root form.** The segment's current linear-in-KL form is the IB-shape instance (Lagrangian-dual of a constraint). Switching to square-root-in-KL would break the IB-shape-across-four-operations claim in #disc-compression-operations. Keep linear; report the regret-bound as motivation rather than functional-form derivation.
 - **Comparison to standard RL regret bounds.** The argument here is the same structure as standard policy-optimization regret bounds (e.g., Agarwal, Kakade, Lee, Mahajan 2021 "On the theory of policy gradient methods" Lemma 3.2; Even-Dar, Kakade, Mansour 2009 "Online Markov decision processes"). AAD's contribution here is *re-using this standard bound as the derivation of the KL direction in the strategy-cost objective*, not inventing the bound.
 - **AI literature cross-check.** Active inference's expected free energy also uses reverse-KL against a "preferred" distribution (in AI's preferences-as-priors framing, preferences *are* the reference). The direction alignment is convergent evidence; AAD derives it from the regret argument, AI from the variational free-energy argument, both arrive at reverse-KL. The convergence is worth noting but is not a uniqueness argument — it shows the direction is the *natural* one in both frames.

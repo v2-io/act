@@ -4,17 +4,17 @@
 
 **Resolution status (2026-04-22 strengthening cycle, commits `14a6095`, `b6134c2`, `4d050c8`, `b91493c`, `a14682e`):**
 
-- **Finding 1 — RESOLVED.** No-go theorem strengthening; predecessor softening at `msc/spike-finding-1-l0-residual-repair.md`, strengthening at `msc/spike-finding-1-strengthening.md`, both in commit `14a6095`. The covariance test is now framed as the unique broadly-available violation of the no-go's scope, not a chosen primary; `#causal-insufficiency-detection` rewritten end-to-end.
-- **Finding 3 — RESOLVED** (subsumed) by G-BP2 V-medium in commit `a14682e`. KL-form replaces Shannon-MI in `#strategy-complexity-cost`; degeneracy fixed by construction.
-- **Finding 5 — PARTIALLY RESOLVED** by AI integration commit `a14682e`. `#loop-interventional-access` now distinguishes "data generated under intervention" from "cleanly identified do-estimates" via the three distinctive AAD moves and Bruineberg-blanket positioning. Full closure requires O-BP6 identity promotion.
+- **Finding 1 — RESOLVED.** No-go theorem strengthening; predecessor softening at `msc/spike-finding-1-l0-residual-repair.md`, strengthening at `msc/spike-finding-1-strengthening.md`, both in commit `14a6095`. The covariance test is now framed as the unique broadly-available violation of the no-go's scope, not a chosen primary; `#der-causal-insufficiency-detection` rewritten end-to-end.
+- **Finding 3 — RESOLVED** (subsumed) by G-BP2 V-medium in commit `a14682e`. KL-form replaces Shannon-MI in `#form-strategy-complexity-cost`; degeneracy fixed by construction.
+- **Finding 5 — PARTIALLY RESOLVED** by AI integration commit `a14682e`. `#der-loop-interventional-access` now distinguishes "data generated under intervention" from "cleanly identified do-estimates" via the three distinctive AAD moves and Bruineberg-blanket positioning. Full closure requires O-BP6 identity promotion.
 - **Finding 7 — RESOLVED.** Per-quantity exactness audit + conditional maximality strengthening; predecessor at `msc/spike-finding-7-git-chronica-narrowing.md`, strengthening at `msc/spike-finding-7-strengthening.md`, both in commit `b6134c2`. $\mathcal{C}_t^{\text{commit}}$ added to NOTATION.md.
 - **Finding 10 — RESOLVED.** Status reclassified discussion-grade → exact (applied external theorem). Spike at `msc/spike-finding-10-ib-status.md`; commit `a14682e`.
-- **Finding 11 — PARTIALLY RESOLVED** by F1 strengthening. Step 4c is now reframed as the unique broadly-available diagnostic given the no-go (rather than as one diagnostic among several). Optional step-4c sanity edit in `#orient-cascade` itself remains as cleanup.
-- **Finding 13 — RESOLVED.** Prop B.7 derived for L1' observable-$C$ + Cramér-Rao refutation for unobservable case. Predecessor softening at `msc/spike-finding-13-l1-default-narrowing.md`, strengthening at `msc/spike-finding-13-strengthening.md`, both in commit `4d050c8`. `#strategy-dag` headline + Correlation Hierarchy table updated; `#strategic-dynamics-derivation` open item #4 marked Resolved.
+- **Finding 11 — PARTIALLY RESOLVED** by F1 strengthening. Step 4c is now reframed as the unique broadly-available diagnostic given the no-go (rather than as one diagnostic among several). Optional step-4c sanity edit in `#der-orient-cascade` itself remains as cleanup.
+- **Finding 13 — RESOLVED.** Prop B.7 derived for L1' observable-$C$ + Cramér-Rao refutation for unobservable case. Predecessor softening at `msc/spike-finding-13-l1-default-narrowing.md`, strengthening at `msc/spike-finding-13-strengthening.md`, both in commit `4d050c8`. `#def-strategy-dag` headline + Correlation Hierarchy table updated; `#deriv-strategic-dynamics` open item #4 marked Resolved.
 
-**Remaining open:** Findings 2 (partial — V-medium G-BP2 fixed Shannon-zero degeneracy in #strategy-complexity-cost; the unbounded-gradient pathology in #credit-assignment-boundary remains), 4, 6, 8, 9, 12, 14, 15. See `TODO.md` for current actionability and subsumption-by-architectural-proposal status.
+**Remaining open:** Findings 2 (partial — V-medium G-BP2 fixed Shannon-zero degeneracy in #form-strategy-complexity-cost; the unbounded-gradient pathology in #disc-credit-assignment-boundary remains), 4, 6, 8, 9, 12, 14, 15. See `TODO.md` for current actionability and subsumption-by-architectural-proposal status.
 
-**New meta-segment from this cycle:** `#discussion-identifiability-floor` collects the F1+F13 no-go pattern as an emerging structural commitment of the theory, with three open extensions (causal-IB, misspecification-cost quantification, tier-switching policy cost) added as new active items.
+**New meta-segment from this cycle:** `#disc-identifiability-floor` collects the F1+F13 no-go pattern as an emerging structural commitment of the theory, with three open extensions (causal-IB, misspecification-cost quantification, tier-switching policy cost) added as new active items.
 
 **Origins:**
 
@@ -42,10 +42,10 @@
 | 7 | TST overstates git as complete chronica | Codex F4 | High | — |
 | 8 | (C-iii) mutual-benefit vs (A1) decomposable $G_c$ gap | Opus F2 | Medium | — |
 | 9 | Section II preamble framing understates survival | Opus F3 | Medium-high | O-BP1 |
-| 10 | `#information-bottleneck` status mismatches unification role | Opus F4 | Low-medium | O-BP2 |
+| 10 | `#form-information-bottleneck` status mismatches unification role | Opus F4 | Low-medium | O-BP2 |
 | 11 | Orient cascade step 4c convergence in non-stationary envs | Opus F5 | Medium | Partial by O-BP3; compound with F1 |
 | 12 | Section II survival slides from statement-level to operationally extractable | Codex r2 F2 | High | C-BP1 |
-| 13 | `#strategy-dag` L1-as-default overgeneralizes beyond strict-prerequisite | Codex r2 F3 | High | — |
+| 13 | `#def-strategy-dag` L1-as-default overgeneralizes beyond strict-prerequisite | Codex r2 F3 | High | — |
 | 14 | `#scope-developer-agent` exact-status mismatch (human vs AI regimes) | Codex r2 F4 | High | Partial by C-BP4 |
 | 15 | Software "richest operationalization domain" headline overclaims | Codex r2 F5 | Low | C-BP3 |
 
@@ -64,7 +64,7 @@
 
 ### Problematic passage
 
-`01-aad-core/src/causal-insufficiency-detection.md` §"The Detection Principle" (lines 21–43):
+`01-aad-core/src/der-causal-insufficiency-detection.md` §"The Detection Principle" (lines 21–43):
 
 > After edge credences converge ($\hat p_k \approx \theta_k$, low gain), the plan-confidence error $\delta_s \approx 0$ — the agent is well-calibrated within the independence model. The agent also observes actual plan outcomes $y_G \in \{0, 1\}$. The **L0 residual** — the gap between the independence-model reference value and actual success — converges to:
 > $$\Phi^{L0} - \bar{y}_G \longrightarrow \begin{cases} +\rho & \text{OR-heavy strategies (overestimation)} \\ -\rho & \text{AND-heavy strategies (underestimation)} \end{cases}$$
@@ -93,7 +93,7 @@ The segment's entire Detection Principle section (its core formal claim) load-be
 
 Downstream dependency check:
 
-- `#orient-cascade` step 4c (just promoted to claims-verified 2026-04-22) references `#causal-insufficiency-detection` for the "causal-sufficiency check" diagnostic. Fortunately, the specific reference is to the **pairwise sibling covariance test** ($\hat\rho_{ij}$), which lives in the segment's §"Interventional Localization" and explicitly requires off-policy / interventional data. That half of the segment survives the finding. Orient-cascade's step 4c is therefore less affected than the causal-insufficiency-detection segment itself.
+- `#der-orient-cascade` step 4c (just promoted to claims-verified 2026-04-22) references `#der-causal-insufficiency-detection` for the "causal-sufficiency check" diagnostic. Fortunately, the specific reference is to the **pairwise sibling covariance test** ($\hat\rho_{ij}$), which lives in the segment's §"Interventional Localization" and explicitly requires off-policy / interventional data. That half of the segment survives the finding. Orient-cascade's step 4c is therefore less affected than the causal-insufficiency-detection segment itself.
 - No other segment currently references the $\pm\rho$ residual signal.
 
 ### Scope considerations
@@ -108,7 +108,7 @@ The finding's substantive implication: the covariance test should be promoted to
 
 ### Repair direction
 
-Two-part revision to `#causal-insufficiency-detection`:
+Two-part revision to `#der-causal-insufficiency-detection`:
 
 **Part A — Detection Principle section.** Replace the $\pm\rho$ limit with the mixed-regime form:
 
@@ -133,7 +133,7 @@ The segment's current claim is reviewer-flagged as structurally incorrect (not j
 ### Notes for the next agent
 
 - The covariance test in the segment's §"Interventional Localization" is the durable half. When repairing, start from there and build the residual mechanism back in as a scope-conditional secondary signal.
-- `#orient-cascade` step 4c currently references "pairwise sibling covariance under an augmented test" — this is correctly aligned with the surviving half of `#causal-insufficiency-detection`. That reference doesn't need changing.
+- `#der-orient-cascade` step 4c currently references "pairwise sibling covariance under an augmented test" — this is correctly aligned with the surviving half of `#der-causal-insufficiency-detection`. That reference doesn't need changing.
 - The bias sign formulas ($+\rho$ for OR-heavy, $-\rho$ for AND-heavy) are correct *if* the agent is sampling marginals. Keep them, but clearly gate them on the off-policy sampling assumption.
 - `msc/spike-credit-assignment-boundaries.md` has related analysis of when on-policy data is sufficient. Worth consulting during the repair.
 
@@ -143,13 +143,13 @@ The segment's current claim is reviewer-flagged as structurally incorrect (not j
 
 **Source:** Gemini audit 2026-04-22, Finding 1. **Confidence:** high.
 
-**Problematic passage** (`01-aad-core/src/credit-assignment-boundary.md`, default signal function):
+**Problematic passage** (`01-aad-core/src/disc-credit-assignment-boundary.md`, default signal function):
 
 $$\text{signal}_k(o_t) = p_k + \iota_k \cdot \frac{J_k \cdot (y_G - \hat P_\Sigma)}{\lVert\mathbf{J}\rVert^2}$$
 
 Updating a probability $p_k \in [0, 1]$. The denominator $\lVert\mathbf{J}\rVert^2$ (squared Jacobian norm) can become arbitrarily small — particularly in deep or highly contingent AND/OR DAGs where edge sensitivities decay toward zero. When $\lVert\mathbf{J}\rVert^2 \to 0$ the signal magnitude explodes to $\pm\infty$; applied via $p_k^{\text{new}} = p_k + \eta \cdot (\text{signal} - p_k)$ this pushes credences outside the valid $[0, 1]$ probability domain.
 
-**Strongest counterevidence in `src/`.** `#edge-update-via-gain` admits the gradient candidate "inherits $\hat P_\Sigma$'s overestimation bias under correlated failures" and "requires further validation." No segment mentions domain bounds or division-by-zero instability.
+**Strongest counterevidence in `src/`.** `#hyp-edge-update-via-gain` admits the gradient candidate "inherits $\hat P_\Sigma$'s overestimation bias under correlated failures" and "requires further validation." No segment mentions domain bounds or division-by-zero instability.
 
 **Why this stands.** The formula is mechanically broken for bounded probability parameters. No link function (logit transform) or clipping mechanism is specified.
 
@@ -172,7 +172,7 @@ Updating a probability $p_k \in [0, 1]$. The denominator $\lVert\mathbf{J}\rVert
 
 **Source:** Gemini audit 2026-04-22, Finding 2. **Confidence:** high.
 
-**Problematic passage** (`01-aad-core/src/strategy-complexity-cost.md`, theoretical objective):
+**Problematic passage** (`01-aad-core/src/form-strategy-complexity-cost.md`, theoretical objective):
 
 $$\Sigma_t^\ast = \arg\min_{\Sigma_t} \left[\, I(\mathcal C_t;\, \Sigma_t) - \beta_\Sigma \cdot I(\Sigma_t;\, \pi^\ast \mid M_t)\right]$$
 
@@ -201,20 +201,20 @@ Under standard Shannon information theory, $\pi^\ast$ is a deterministic functio
 
 **Source:** Codex audit 2026-04-22, Finding 1. **Confidence:** high.
 
-**Problematic passage** (`01-aad-core/src/causal-hierarchy-requirement.md`, around line 30):
+**Problematic passage** (`01-aad-core/src/der-causal-hierarchy-requirement.md`, around line 30):
 
 > We restrict attention to **learning purposeful agents** ... All remaining Section II results operate within learning-agent scope.
 
 **Strongest counterevidence in `src/`.**
 
 - `#scope-agency` states Section II's purposeful machinery becomes non-vacuous at $S_{\text{agency}}$ (full agency scope, not the learning sub-scope).
-- `#agent-spectrum` presents Section II as "the right column of actuated agents generally" (full agency scope).
+- `#def-agent-spectrum` presents Section II as "the right column of actuated agents generally" (full agency scope).
 
-**Why this stands.** The narrowing from agency to learning-purposeful in `#causal-hierarchy-requirement` is defensible as a sub-scope, but it is not integrated as a named Section II-wide commitment. The repo oscillates between "Section II applies to actuated agents" (in scope-condition and agent-spectrum) and "Section II applies to learning purposeful agents" (in causal-hierarchy-requirement). A reader cannot tell whether a downstream Section II claim uses the narrower or wider scope.
+**Why this stands.** The narrowing from agency to learning-purposeful in `#der-causal-hierarchy-requirement` is defensible as a sub-scope, but it is not integrated as a named Section II-wide commitment. The repo oscillates between "Section II applies to actuated agents" (in scope-condition and agent-spectrum) and "Section II applies to learning purposeful agents" (in causal-hierarchy-requirement). A reader cannot tell whether a downstream Section II claim uses the narrower or wider scope.
 
 **msc/ lineage (not yet integrated).** `msc/analysis-2026-04-06.md` (line 265) and `msc/spike-purposeful-agent-derivation.md` (line 648) contain reasoning about the sub-scope but the integration pass has not happened.
 
-**Repair direction.** Reconciliation pass: name the Section II-wide sub-scope explicitly (e.g., $S_{\text{learning}} \subsetneq S_{\text{agency}}$), amend `#scope-agency`, `#agent-spectrum`, and the Section II preamble in `01-aad-core/OUTLINE.md` so the narrowing is declared once and inherited by downstream Section II results. 45–60 min.
+**Repair direction.** Reconciliation pass: name the Section II-wide sub-scope explicitly (e.g., $S_{\text{learning}} \subsetneq S_{\text{agency}}$), amend `#scope-agency`, `#def-agent-spectrum`, and the Section II preamble in `01-aad-core/OUTLINE.md` so the narrowing is declared once and inherited by downstream Section II results. 45–60 min.
 
 **Compound with Finding 9.** This and Finding 9 both touch Section II framing at different layers (Finding 4 inside segments; Finding 9 in OUTLINE preamble). A coordinated pass that rewrites the OUTLINE preamble plus the scope declarations in the inner segments is cheaper than two independent fixes.
 
@@ -230,7 +230,7 @@ Under standard Shannon information theory, $\pi^\ast$ is a deterministic functio
 
 **Source:** Codex audit 2026-04-22, Finding 2. **Confidence:** medium.
 
-**Problematic passage** (`01-aad-core/src/loop-interventional-access.md`):
+**Problematic passage** (`01-aad-core/src/der-loop-interventional-access.md`):
 
 > Agency-scope agents gain Level 2 access ... through the loop itself. [line 14]
 >
@@ -238,14 +238,14 @@ Under standard Shannon information theory, $\pi^\ast$ is a deterministic functio
 
 **Strongest counterevidence in `src/`.**
 
-- `#edge-update-causal-validity` (line 26): intervention-produced data does not automatically yield clean causal identification.
-- `#value-object` (line 36): the remaining requirement is that $M_t$ must actually support $P(o \mid do(a), M_t)$.
+- `#scope-edge-update-causal-validity` (line 26): intervention-produced data does not automatically yield clean causal identification.
+- `#def-value-object` (line 36): the remaining requirement is that $M_t$ must actually support $P(o \mid do(a), M_t)$.
 
-**Why this stands.** The source correctly distinguishes "data generated under intervention" from "identified do-estimates" in the specific segments, but the headline language in `#loop-interventional-access` collapses that distinction. In Pearl terms, many agents here have intervention-produced data with regime-dependent identifiability, not unconditional Level 2 knowledge. The segment overcommits on the headline that the more-careful segments qualify.
+**Why this stands.** The source correctly distinguishes "data generated under intervention" from "identified do-estimates" in the specific segments, but the headline language in `#der-loop-interventional-access` collapses that distinction. In Pearl terms, many agents here have intervention-produced data with regime-dependent identifiability, not unconditional Level 2 knowledge. The segment overcommits on the headline that the more-careful segments qualify.
 
 **msc/ lineage (not yet integrated).** `msc/spike-purposeful-agent-derivation.md` (line 646) discusses the same distinction.
 
-**Repair direction.** Add a regime-indexed qualifier to the loop headlines: "the loop generates data *under intervention*; identification of causal effects from that data requires the regime conditions of `#edge-update-causal-validity`." Cross-reference between the two segments. 30 min.
+**Repair direction.** Add a regime-indexed qualifier to the loop headlines: "the loop generates data *under intervention*; identification of causal effects from that data requires the regime conditions of `#scope-edge-update-causal-validity`." Cross-reference between the two segments. 30 min.
 
 **Subsumed by:** partial by O-BP6 (identity promotion). If `#scope-agent-identity` is promoted to formal scope ("AAD applies to agents on singular causal trajectories"), the ontological ground for calling the loop *interventional* becomes explicit, and the Level-2 headline becomes honest-but-conditional rather than overclaimed.
 
@@ -259,15 +259,15 @@ Under standard Shannon information theory, $\pi^\ast$ is a deterministic functio
 
 **Source:** Codex audit 2026-04-22, Finding 3. **Confidence:** high.
 
-**Problematic passage** (`01-aad-core/src/postulate-composition-consistency.md` line 38 and following):
+**Problematic passage** (`01-aad-core/src/post-composition-consistency.md` line 38 and following):
 
 > [$\tau_{\text{eq}} \ll \tau_{\text{ext}}$ is] a reliable practical test ... the gap between passing that heuristic and meeting Tier 1 conditions is small in common settings.
 
 **Strongest counterevidence in `src/`.**
 
-- `#composition-closure` (line 149): the general case still has open computability and problem-specification choices.
-- `#composition-closure` (line 151): bridge transfer is conditional on the stronger incremental sector bound (DA2'-inc).
-- `#composition-closure` (line 199): still asks for a richer purposeful-agent toy case beyond the Kalman instantiation.
+- `#form-composition-closure` (line 149): the general case still has open computability and problem-specification choices.
+- `#form-composition-closure` (line 151): bridge transfer is conditional on the stronger incremental sector bound (DA2'-inc).
+- `#form-composition-closure` (line 199): still asks for a richer purposeful-agent toy case beyond the Kalman instantiation.
 
 **Why this stands.** Section III has been substantially tightened, but the exact bridge is proved only for restricted classes. The "common organizational settings" language generalizes beyond the current purposeful-composite evidence base — a single Kalman instantiation does not warrant the "reliable practical test" framing for the much wider class of composites implied.
 
@@ -287,7 +287,7 @@ Under standard Shannon information theory, $\pi^\ast$ is a deterministic functio
 
 **Source:** Codex audit 2026-04-22, Finding 4. **Confidence:** high.
 
-**Problematic passage** (`02-tst-core/src/software-epistemic-properties.md` lines 56, 58, 62):
+**Problematic passage** (`02-tst-core/src/obs-software-epistemic-properties.md` lines 56, 58, 62):
 
 > [line 56:] Exact exteriorized chronica.
 >
@@ -297,9 +297,9 @@ Under standard Shannon information theory, $\pi^\ast$ is a deterministic functio
 
 **Strongest counterevidence in `src/`.**
 
-- `#chronica` (line 15) defines $\mathcal C_t$ as the complete record of observations and actions (not just committed state transitions).
+- `#def-chronica` (line 15) defines $\mathcal C_t$ as the complete record of observations and actions (not just committed state transitions).
 - `02-tst-core/src/scope-developer-agent.md` (line 89) lists many software observation channels not captured by git (IDE state, runtime observations, build system interactions, discussions outside commits).
-- `02-tst-core/src/causal-discovery-from-git.md` (line 18) explicitly says the git-to-AAD chain is "empirical and unresolved."
+- `02-tst-core/src/hyp-causal-discovery-from-git.md` (line 18) explicitly says the git-to-AAD chain is "empirical and unresolved."
 
 **Why this stands.** Git records committed state transitions exactly; it does not record the full software chronica. Its causal use remains materially confounded by shared requirements, bundling conventions, and developer knowledge state that never enters commits. The current framing overstates by dropping the "committed-state subset" qualifier.
 
@@ -323,7 +323,7 @@ Under standard Shannon information theory, $\pi^\ast$ is a deterministic functio
 
 > Mutual-benefit alignment. There exists a relevance variable $Y$ such that the sub-agents' joint actions raise $E[Y]$ above the non-cooperation baseline for each sub-agent ... Weakest route. No explicit common objective, but interactions are positive-sum in some dimension.
 
-`#composition-closure` (lines 73–77, 64–65):
+`#form-composition-closure` (lines 73–77, 64–65):
 
 > (A1) AAD agent structure. The macro-state decomposes as $X_c = (M_c, G_c)$. ... The closure-defect framework applies to sets that satisfy `#scope-composite-agent` — i.e., that form composites via at least one of the three alignment routes ... Given scope-satisfaction, a set forms a *meaningful* composite agent.
 
@@ -335,7 +335,7 @@ Under standard Shannon information theory, $\pi^\ast$ is a deterministic functio
 
 **Repair direction (two options).**
 
-- **Option A:** restrict (A1) explicitly to composites satisfying (C-i) or (C-ii); treat (C-iii) as admitting only to `#multi-agent-scope` (the weaker machinery). Clean logical move; narrows what (C-iii) buys.
+- **Option A:** restrict (A1) explicitly to composites satisfying (C-i) or (C-ii); treat (C-iii) as admitting only to `#scope-multi-agent` (the weaker machinery). Clean logical move; narrows what (C-iii) buys.
 - **Option B:** redefine (C-iii) so that a mutual-benefit composite has an *induced* $O_c$ ("maximize $E[Y]$"), effectively collapsing (C-iii) into (C-i). Preserves (C-iii) as a route but eliminates its distinct theoretical status.
 
 Either option resolves the logical gap; the choice depends on whether (C-iii) should be a genuinely distinct route (Option A) or an alternative framing of (C-i) (Option B).
@@ -348,25 +348,25 @@ Either option resolves the logical gap; the choice depends on whether (C-iii) sh
 
 ---
 
-## Finding 9 — Section II preamble framing understates what `#section-ii-survival` establishes
+## Finding 9 — Section II preamble framing understates what `#result-section-ii-survival` establishes
 
 **Source:** Opus audit 2026-04-22, Finding 3. **Confidence:** medium-high.
 
 **Problematic passage** (`01-aad-core/OUTLINE.md`, Section II preamble):
 
-> Class 2 (fully merged) agents — including transformer-based LLMs where attention processes goals and observations together — fall outside Section II's exact scope because directed separation (`#directed-separation`) fails by construction. The coupled formulation these agents require is the subject of `03-logogenic-agents/` ... This is the most significant scope restriction in the theory: the most important present-day agent class (LLM-based) requires work beyond Section II.
+> Class 2 (fully merged) agents — including transformer-based LLMs where attention processes goals and observations together — fall outside Section II's exact scope because directed separation (`#der-directed-separation`) fails by construction. The coupled formulation these agents require is the subject of `03-logogenic-agents/` ... This is the most significant scope restriction in the theory: the most important present-day agent class (LLM-based) requires work beyond Section II.
 
-**Strongest mitigating passage.** `03-logogenic-agents/src/section-ii-survival.md` (§Scorecard and §Discussion):
+**Strongest mitigating passage.** `03-logogenic-agents/src/result-section-ii-survival.md` (§Scorecard and §Discussion):
 
 > Exact: 15.5/24, Approximate: 5.5/24, Modified: 2/24, Fails: 1/24 ... Section II's *conceptual architecture* applies to Class 2 agents (16/24 exact survival is a claim about this), but Section II's *operational deployment* on Class 2 agents requires additional instrumentation.
 
-Reinforced by `#observation-ambiguity-modulation`: in low-ambiguity domains, approximate-surviving results become *good approximations*.
+Reinforced by `#scope-ambiguity-modulation`: in low-ambiguity domains, approximate-surviving results become *good approximations*.
 
 **Why this stands.** The preamble's "falls outside Section II's exact scope" and "requires work beyond Section II" are literally correct but read as if Section II is non-applicable to LLM agents. The survival analysis + ambiguity modulation together say the opposite: the bulk of Section II's statement-level architecture transfers, and in low-ambiguity domains the approximate results become quantitatively tight. OUTLINE framing is the first thing a reader sees; the nuanced picture lives three documents deep.
 
 **msc/ lineage.** `msc/spike-coupled-survival-analysis.md` contains the full 24-result classification, absorbed into `section-ii-survival.md`. Not back-propagated to the Section II preamble.
 
-**Repair direction.** Rewrite the Section II preamble to lead with the survival classification: "Class 2 agents retain the bulk of Section II's architecture exactly (16/24), approximately in low-ambiguity domains, with specific modifications in the rest. See `#section-ii-survival` for the classification and `#observation-ambiguity-modulation` for the ambiguity-gated degradation." Preserve the fact of the Class 2 scope distinction; reframe its significance. 30 min.
+**Repair direction.** Rewrite the Section II preamble to lead with the survival classification: "Class 2 agents retain the bulk of Section II's architecture exactly (16/24), approximately in low-ambiguity domains, with specific modifications in the rest. See `#result-section-ii-survival` for the classification and `#scope-ambiguity-modulation` for the ambiguity-gated degradation." Preserve the fact of the Class 2 scope distinction; reframe its significance. 30 min.
 
 **Subsumed by:** O-BP1 (template-as-organizing-principle). If the whole OUTLINE is reframed around disturbance decomposition at scales, "Class 2 is a scope exit" becomes "Class 2 is one more scale with a coupled update rule; the template applies." Natural absorption.
 
@@ -378,23 +378,23 @@ Reinforced by `#observation-ambiguity-modulation`: in low-ambiguity domains, app
 
 ---
 
-## Finding 10 — `#information-bottleneck` status mismatches its unification role in `#compression-operations`
+## Finding 10 — `#form-information-bottleneck` status mismatches its unification role in `#disc-compression-operations`
 
 **Source:** Opus audit 2026-04-22, Finding 4. **Confidence:** low-medium.
 
-**Problematic passage** (`#information-bottleneck` frontmatter and Epistemic Status):
+**Problematic passage** (`#form-information-bottleneck` frontmatter and Epistemic Status):
 
 > status: discussion-grade ... This is a *formulation* — it provides a principled framework for understanding compression trade-offs, not a claim about how actual agents compute their models.
 
-**Tension.** `#compression-operations` now treats IB as the *shared shape* of four AAD compression operations (a substantial unification role) and derives that `#composition-closure`'s (P1) is the Lagrangian-dual of IB. This derivation implicitly depends on IB being a rigorous rate-distortion statement, not merely discussion-grade.
+**Tension.** `#disc-compression-operations` now treats IB as the *shared shape* of four AAD compression operations (a substantial unification role) and derives that `#form-composition-closure`'s (P1) is the Lagrangian-dual of IB. This derivation implicitly depends on IB being a rigorous rate-distortion statement, not merely discussion-grade.
 
-**Strongest mitigating passage.** `#compression-operations` Epistemic Status:
+**Strongest mitigating passage.** `#disc-compression-operations` Epistemic Status:
 
 > The claim that the four compression operations share IB shape is *discussion-grade* ... The (P1) as Lagrangian-dual of IB is *derived* — rate-distortion duality is standard (see §I.12–13 of Cover & Thomas) and the constraint-form ↔ Lagrangian-form equivalence is mechanical.
 
-**Why this partially stands.** The segment is honest about what's derived and what isn't. But `#information-bottleneck` itself is labeled discussion-grade while `#compression-operations` uses it as a *fixed point* for four compression operations. Consistent only because the duality invoked is external (Cover & Thomas), not internal. The labeling of `#information-bottleneck` as discussion-grade rather than "exact formulation (external theorem)" under-sells what the theory actually leans on.
+**Why this partially stands.** The segment is honest about what's derived and what isn't. But `#form-information-bottleneck` itself is labeled discussion-grade while `#disc-compression-operations` uses it as a *fixed point* for four compression operations. Consistent only because the duality invoked is external (Cover & Thomas), not internal. The labeling of `#form-information-bottleneck` as discussion-grade rather than "exact formulation (external theorem)" under-sells what the theory actually leans on.
 
-**Repair direction.** Reclassify `#information-bottleneck` status from "discussion-grade" to "exact formulation (external theorem: Tishby et al. 1999)" or equivalent. Small frontmatter edit plus a one-paragraph Epistemic Status rewrite clarifying that the segment is an exact statement of an external theorem applied to AAD, not a novel formulation. 15 min.
+**Repair direction.** Reclassify `#form-information-bottleneck` status from "discussion-grade" to "exact formulation (external theorem: Tishby et al. 1999)" or equivalent. Small frontmatter edit plus a one-paragraph Epistemic Status rewrite clarifying that the segment is an exact statement of an external theorem applied to AAD, not a novel formulation. 15 min.
 
 **Subsumed by:** O-BP2 (four compressions as one hierarchy). If compression-as-hierarchy is adopted, IB's status becomes clear as the shared shape, not one of four separate objects.
 
@@ -408,20 +408,20 @@ Reinforced by `#observation-ambiguity-modulation`: in low-ambiguity domains, app
 
 **Source:** Opus audit 2026-04-22, Finding 5. **Confidence:** medium.
 
-**Problematic passage** (`#orient-cascade` step 4c):
+**Problematic passage** (`#der-orient-cascade` step 4c):
 
 > If persistent $\delta_s \approx 0$ coincides with persistent negative plan-outcome residuals ($y_G \lt \hat P_\Sigma$ on average, after edge credences have converged), this is evidence that the DAG is causally insufficient and L0 calibration is converging to a biased target.
 
 **Strongest mitigating passages.**
 
-- `#orient-cascade` Epistemic Status: "What is NOT derived is the *timing* — how long the agent should spend on each step before proceeding, and how long $\delta_s \approx 0$ must persist before 4c's signal is trusted."
-- `#strategy-dag`: "The default assumption in complex environments should be L1, not L0."
+- `#der-orient-cascade` Epistemic Status: "What is NOT derived is the *timing* — how long the agent should spend on each step before proceeding, and how long $\delta_s \approx 0$ must persist before 4c's signal is trusted."
+- `#def-strategy-dag`: "The default assumption in complex environments should be L1, not L0."
 
 **Why this partially stands.** Convergence of $\delta_s \approx 0$ requires the per-edge credences to have stabilized, which presumes a stationary environment for long enough. The environments where latent common causes are most dominant (adversarial, organizational, multi-stakeholder) are often non-stationary — precisely where the ascension signal may never fire. The mitigating passage's "use L1 by default" is a good practical answer but breaks the "cascade driven by information dependency" framing: in those regimes, the agent should not operate at L0 at all, making step 4c's trigger superfluous.
 
 **Compound with Finding 1.** Under on-policy execution (Finding 1), the step-4c signal is zero rather than $\pm\rho$ even in stationary environments. Between Finding 1 (the signal is weak on-policy) and Finding 11 (the signal may never converge off-policy in non-stationary domains), the segment's 4c mechanism faces two different failure modes. A repair addressing both jointly is cleaner than two independent fixes.
 
-**Repair direction.** Reframe step 4c: rather than "detect causal insufficiency from persistent residual after stationary convergence," treat L1 as the *default* in complex environments (per `#strategy-dag`'s own recommendation) and the covariance test (per Finding 1's repair) as the primary detection mechanism. Step 4c becomes a *confirmation* signal rather than a triggering signal, and the convergence assumption is reframed as a convenience rather than a requirement. 30–45 min combined with Finding 1 repair.
+**Repair direction.** Reframe step 4c: rather than "detect causal insufficiency from persistent residual after stationary convergence," treat L1 as the *default* in complex environments (per `#def-strategy-dag`'s own recommendation) and the covariance test (per Finding 1's repair) as the primary detection mechanism. Step 4c becomes a *confirmation* signal rather than a triggering signal, and the convergence assumption is reframed as a convenience rather than a requirement. 30–45 min combined with Finding 1 repair.
 
 **Subsumed by:** partial by O-BP3 (continuous-parameter tiering). If L0→L1 is a continuous parameter, the escalation is smooth rather than triggered; the "wait for convergence to detect" framing dissolves into "increase correlation modeling depth as residuals accumulate."
 
@@ -443,13 +443,13 @@ Second Codex audit, after the morning audit trio. One finding duplicates Finding
 
 **Problematic passages.**
 
-- `03-logogenic-agents/src/section-ii-survival.md` line 37 opens with "16 survive exactly."
-- `03-logogenic-agents/src/coupled-diagnostic-framework.md` line 18 says the diagnostic quantities "can be computed after each coupled update."
+- `03-logogenic-agents/src/result-section-ii-survival.md` line 37 opens with "16 survive exactly."
+- `03-logogenic-agents/src/result-coupled-diagnostic-framework.md` line 18 says the diagnostic quantities "can be computed after each coupled update."
 
 **Strongest counterevidence in `src/`.**
 
-- `03-logogenic-agents/src/section-ii-survival.md` line 127 explicitly states this is *statement-level*, not operational extractability.
-- `03-logogenic-agents/src/coupled-update-dynamics.md` line 66 says the $M / G$ decomposition is *post-hoc and analytical*, not architectural or computable.
+- `03-logogenic-agents/src/result-section-ii-survival.md` line 127 explicitly states this is *statement-level*, not operational extractability.
+- `03-logogenic-agents/src/def-coupled-update-dynamics.md` line 66 says the $M / G$ decomposition is *post-hoc and analytical*, not architectural or computable.
 
 **Why this stands.** The logogenic layer slides from formal well-definedness ("these quantities are defined in the Class 2 setting") to runtime measurability ("these quantities can be computed after each update") before the instrumentation layer has been published into `src/`. Readers who stop at the headline of `section-ii-survival.md` come away thinking LLM agents can run the 2×2 diagnostic directly; readers who continue to line 127 find out they can't without additional instrumentation. Similar issue in the opening of `coupled-diagnostic-framework.md`.
 
@@ -468,13 +468,13 @@ Second Codex audit, after the morning audit trio. One finding duplicates Finding
 
 ---
 
-## Finding 13 — `#strategy-dag` L1-as-default overgeneralizes beyond strict-prerequisite regime
+## Finding 13 — `#def-strategy-dag` L1-as-default overgeneralizes beyond strict-prerequisite regime
 
 **Source:** Codex audit 2026-04-22 round-2, Finding 3. **Confidence:** high.
 
 **Problematic passages.**
 
-- `01-aad-core/src/strategy-dag.md` line 20: "L1 ... is the practical default in complex domains," and that L0 results transfer exactly to correctly constructed L1 DAGs.
+- `01-aad-core/src/def-strategy-dag.md` line 20: "L1 ... is the practical default in complex domains," and that L0 results transfer exactly to correctly constructed L1 DAGs.
 - Line 122: "The default assumption in complex environments should be L1, not L0."
 
 **Strongest counterevidence in the same segment.**
@@ -534,7 +534,7 @@ Second Codex audit, after the morning audit trio. One finding duplicates Finding
 
 **Problematic passage.**
 
-- `02-tst-core/src/software-epistemic-properties.md` line 15: software's six properties "collectively make it the richest operationalization domain for AAD."
+- `02-tst-core/src/obs-software-epistemic-properties.md` line 15: software's six properties "collectively make it the richest operationalization domain for AAD."
 
 **Strongest counterevidence in the same segment.**
 
@@ -573,14 +573,14 @@ Six new findings logged below. The seven candidate findings rescinded by the new
 **Problematic passages.**
 
 - `01-aad-core/src/scope-agency.md` line 14: "Adding causal action unlocks the interventional and purposeful results of Sections II and III."
-- `01-aad-core/src/agent-spectrum.md` line ~30: actuated agents are "the full scope of AAD."
+- `01-aad-core/src/def-agent-spectrum.md` line ~30: actuated agents are "the full scope of AAD."
 
 **Strongest counterevidence in `src/`.**
 
-- `01-aad-core/src/causal-hierarchy-requirement.md` line 30 narrows to "learning purposeful agents" (a strict sub-scope of agency).
-- `01-aad-core/src/directed-separation.md` line ~84 says exact Section II results apply to Class 1 architectures only; Class 2 requires the coupled formulation.
+- `01-aad-core/src/der-causal-hierarchy-requirement.md` line 30 narrows to "learning purposeful agents" (a strict sub-scope of agency).
+- `01-aad-core/src/der-directed-separation.md` line ~84 says exact Section II results apply to Class 1 architectures only; Class 2 requires the coupled formulation.
 
-**Why this stands.** The caveats exist but are scattered. No segment carries the full intersection statement: agency-scope ∩ learning-agent-scope ∩ Class-1-architecture. A reader following the headline scope claims in `#scope-agency` and `#agent-spectrum` over-generalizes; a reader following the per-segment narrowings has to assemble the intersection themselves.
+**Why this stands.** The caveats exist but are scattered. No segment carries the full intersection statement: agency-scope ∩ learning-agent-scope ∩ Class-1-architecture. A reader following the headline scope claims in `#scope-agency` and `#def-agent-spectrum` over-generalizes; a reader following the per-segment narrowings has to assemble the intersection themselves.
 
 **Repair direction.** Two options: (a) Add the intersection statement to `#scope-agency` Discussion as the canonical Section II scope statement; (b) Promote a small meta-segment `#section-ii-scope-lattice` (or equivalent) that names the lattice once and is referenced from the Section II preamble in `01-aad-core/OUTLINE.md`. Option (b) is structurally cleaner and supports O-BP8 (scope-lattice naming) below.
 
@@ -590,78 +590,78 @@ Six new findings logged below. The seven candidate findings rescinded by the new
 
 ---
 
-## Finding 17 — `#coupled-diagnostic-framework` operational-computability overclaim
+## Finding 17 — `#result-coupled-diagnostic-framework` operational-computability overclaim
 
 **Source:** Codex audit 2026-04-22 (post-strengthening evening), Finding 4. **Confidence:** high.
 
 **Problematic passages.**
 
-- `03-logogenic-agents/src/coupled-diagnostic-framework.md` line 18: diagnostic quantities "can be computed *after* each coupled update."
+- `03-logogenic-agents/src/result-coupled-diagnostic-framework.md` line 18: diagnostic quantities "can be computed *after* each coupled update."
 - Same segment around line 40: "From $X^{(\text{post})}$, compute …" presents a runtime-recipe phrasing.
 
 **Strongest counterevidence in `src/`.**
 
-- `03-logogenic-agents/src/section-ii-survival.md` line 127: statement-level survival is not "operational extractability"; separate instrumentation is required.
-- `03-logogenic-agents/src/coupled-update-dynamics.md` line 66: the M/G decomposition is "post-hoc and analytical, not generally computable."
+- `03-logogenic-agents/src/result-section-ii-survival.md` line 127: statement-level survival is not "operational extractability"; separate instrumentation is required.
+- `03-logogenic-agents/src/def-coupled-update-dynamics.md` line 66: the M/G decomposition is "post-hoc and analytical, not generally computable."
 
-**Why this stands.** The recipe-style phrasing in `#coupled-diagnostic-framework` reads as runtime-extractable. The same logogenic layer's other segments correctly mark the M/G decomposition as analytical reconstruction. A fresh reader of the diagnostic-framework segment would think the framework is operational; a reader of the companion segments would conclude it requires instrumentation. The repo says both.
+**Why this stands.** The recipe-style phrasing in `#result-coupled-diagnostic-framework` reads as runtime-extractable. The same logogenic layer's other segments correctly mark the M/G decomposition as analytical reconstruction. A fresh reader of the diagnostic-framework segment would think the framework is operational; a reader of the companion segments would conclude it requires instrumentation. The repo says both.
 
-**Repair direction.** Reframe the segment's phrasing to acknowledge the M/G decomposition as analytical reconstruction, not runtime recipe. Cite `#coupled-update-dynamics` for the post-hoc-analytical-not-architectural distinction. Reference `msc/agentic-tft-evaluation-framework.md` and `msc/agentic-tft-cognitive-loop-spec.md` for the better framing (these quantities are estimated in language with explicit tracking/instrumentation, not directly read out from an internal state object). 30–45 min.
+**Repair direction.** Reframe the segment's phrasing to acknowledge the M/G decomposition as analytical reconstruction, not runtime recipe. Cite `#def-coupled-update-dynamics` for the post-hoc-analytical-not-architectural distinction. Reference `msc/agentic-tft-evaluation-framework.md` and `msc/agentic-tft-cognitive-loop-spec.md` for the better framing (these quantities are estimated in language with explicit tracking/instrumentation, not directly read out from an internal state object). 30–45 min.
 
 **Subsumed by:** C-BP1 (three-layer epistemic separation). The defined / causally valid / operationally extractable framework would force the segment to mark the diagnostic recipe explicitly at the operational layer, exposing the gap.
 
 ---
 
-## Finding 18 — `#worked-example-L1` still says L1' transfer is "open" — STALE after F13 strengthening
+## Finding 18 — `#example-L1` still says L1' transfer is "open" — STALE after F13 strengthening
 
 **Source:** Gemini audit 2026-04-22 (post-strengthening evening), Finding 1. **Confidence:** high.
 
 **Problematic passage.**
 
-- `01-aad-core/src/worked-example-L1.md` line ~134: "Sector-condition verification for L1' has not been derived (each conditional sub-plan is an L0 DAG whose sector parameters are known, but their weighted combination introduces a $\theta_C$-dependent factor analogous to Prop B.6's $\theta_C$ gating; the full transfer through B.5b is an open item)."
+- `01-aad-core/src/example-L1.md` line ~134: "Sector-condition verification for L1' has not been derived (each conditional sub-plan is an L0 DAG whose sector parameters are known, but their weighted combination introduces a $\theta_C$-dependent factor analogous to Prop B.6's $\theta_C$ gating; the full transfer through B.5b is an open item)."
 
 **Strongest counterevidence in `src/`.**
 
-- `01-aad-core/src/strategic-dynamics-derivation.md` Prop B.7 (added 2026-04-22 commit `4d050c8`): derives the L1' sector transfer for observable common cause with explicit five-way-gating $\alpha_{L1'}$ formula.
-- `01-aad-core/src/strategy-dag.md` Correlation Hierarchy (updated same commit): four-row table with L1' sector status now "Derived."
+- `01-aad-core/src/deriv-strategic-dynamics.md` Prop B.7 (added 2026-04-22 commit `4d050c8`): derives the L1' sector transfer for observable common cause with explicit five-way-gating $\alpha_{L1'}$ formula.
+- `01-aad-core/src/def-strategy-dag.md` Correlation Hierarchy (updated same commit): four-row table with L1' sector status now "Derived."
 
-**Why this stands.** Mechanical integration gap: F13 strengthening landed Prop B.7 but the cross-segment update to `#worked-example-L1` was queued (per `msc/spike-finding-13-strengthening.md` §8.4) and not performed. The "open" language is now stale; the example is structurally a B.7 instance (the worked example uses observable $C$, satisfying B.7's scope condition).
+**Why this stands.** Mechanical integration gap: F13 strengthening landed Prop B.7 but the cross-segment update to `#example-L1` was queued (per `msc/spike-finding-13-strengthening.md` §8.4) and not performed. The "open" language is now stale; the example is structurally a B.7 instance (the worked example uses observable $C$, satisfying B.7's scope condition).
 
-**Repair direction.** Update the relevant paragraph in `#worked-example-L1` to reflect Prop B.7's status: "Sector-condition verification for L1' is derived in Prop B.7 ( #strategic-dynamics-derivation) for the observable-$C$ case the example operates within (five-way gating $\alpha_{L1'}$ formula, with explicit reduction to B.6 in the strict-prerequisite limit). Under unobservable $C$, L1' is *refuted* by the Cramér-Rao floor (mixture identifiability obstruction; see B.7 §'Refuted Under Unobservable $C$' and #discussion-identifiability-floor)." 10–15 min.
+**Repair direction.** Update the relevant paragraph in `#example-L1` to reflect Prop B.7's status: "Sector-condition verification for L1' is derived in Prop B.7 ( #deriv-strategic-dynamics) for the observable-$C$ case the example operates within (five-way gating $\alpha_{L1'}$ formula, with explicit reduction to B.6 in the strict-prerequisite limit). Under unobservable $C$, L1' is *refuted* by the Cramér-Rao floor (mixture identifiability obstruction; see B.7 §'Refuted Under Unobservable $C$' and #disc-identifiability-floor)." 10–15 min.
 
 **Subsumed by:** not directly. Pure cross-segment update.
 
 ---
 
-## Finding 19 — `#section-ii-survival` bias bound in entropy form, stale after 2026-04-21 Finding B resolution
+## Finding 19 — `#result-section-ii-survival` bias bound in entropy form, stale after 2026-04-21 Finding B resolution
 
 **Source:** Gemini audit 2026-04-22 (post-strengthening evening), Finding 3. **Confidence:** high.
 
 **Problematic passage.**
 
-- `03-logogenic-agents/src/section-ii-survival.md` line 109: $\lVert\Delta M_{\text{bias}}\rVert \leq C \cdot \kappa_{\text{processing}} \cdot H(G_t \mid e_\tau, M_{\tau^-})$
+- `03-logogenic-agents/src/result-section-ii-survival.md` line 109: $\lVert\Delta M_{\text{bias}}\rVert \leq C \cdot \kappa_{\text{processing}} \cdot H(G_t \mid e_\tau, M_{\tau^-})$
 - Same segment line 136 (Working Notes): "The bound … deserves formal derivation … Without this, the bound is order-of-magnitude guidance, not a theorem."
 
 **Strongest counterevidence in `src/`.**
 
-- The 2026-04-21 Finding B resolution recast `#observation-ambiguity-modulation`'s definition and downstream bias bound as $\lVert\Delta M_{\text{bias}}\rVert \leq C \cdot \kappa \cdot I(G; \Omega \mid e, M)$ — a strict refinement (mutual information of the goal-conditional posterior given the observation, not entropy of the goal alone). Documented in `msc/pending-findings-2026-04-21.md` Finding B resolution and absorbed into `#observation-ambiguity-modulation`.
-- `#section-ii-survival` still serves the older entropy form and the Working Note's "order-of-magnitude" disclaimer about it.
+- The 2026-04-21 Finding B resolution recast `#scope-ambiguity-modulation`'s definition and downstream bias bound as $\lVert\Delta M_{\text{bias}}\rVert \leq C \cdot \kappa \cdot I(G; \Omega \mid e, M)$ — a strict refinement (mutual information of the goal-conditional posterior given the observation, not entropy of the goal alone). Documented in `msc/pending-findings-2026-04-21.md` Finding B resolution and absorbed into `#scope-ambiguity-modulation`.
+- `#result-section-ii-survival` still serves the older entropy form and the Working Note's "order-of-magnitude" disclaimer about it.
 
-**Why this stands.** Cross-segment update gap from the 2026-04-21 cycle. The tighter MI form is a strict refinement (entropy is an upper bound on conditional MI; using MI gives a tighter bias bound). The integration touch on `#section-ii-survival` was not performed.
+**Why this stands.** Cross-segment update gap from the 2026-04-21 cycle. The tighter MI form is a strict refinement (entropy is an upper bound on conditional MI; using MI gives a tighter bias bound). The integration touch on `#result-section-ii-survival` was not performed.
 
-**Repair direction.** Replace the entropy form with the MI form on line 109; update the Working Note at line 136 to acknowledge the refinement and the source segment (`#observation-ambiguity-modulation` carries the canonical recasting). 15–25 min.
+**Repair direction.** Replace the entropy form with the MI form on line 109; update the Working Note at line 136 to acknowledge the refinement and the source segment (`#scope-ambiguity-modulation` carries the canonical recasting). 15–25 min.
 
 **Subsumed by:** not directly. Cross-segment update from prior cycle.
 
 ---
 
-## Finding 20 — KL-direction degeneracy in `#strategy-complexity-cost` variational form (introduced by 2026-04-22 V-medium)
+## Finding 20 — KL-direction degeneracy in `#form-strategy-complexity-cost` variational form (introduced by 2026-04-22 V-medium)
 
 **Source:** Opus audit 2026-04-22 (post-strengthening evening), Finding 1. **Confidence:** medium-high. **Severity: high — affects the load-bearing G-BP2 V-medium move.**
 
 **Problematic passage.**
 
-- `01-aad-core/src/strategy-complexity-cost.md` line ~42:
+- `01-aad-core/src/form-strategy-complexity-cost.md` line ~42:
 $$\Sigma_t^\ast = \arg\min_{\Sigma_t} \left[\, I(\mathcal C_t;\, \Sigma_t) \;+\; \beta_\Sigma \cdot D_{\mathrm{KL}}\bigl(Q_{\Sigma_t}(\pi \mid M_t) \,\big\Vert\, \pi^\ast(\cdot \mid M_t)\bigr)\right]$$
 - And the Epistemic Status text (line ~123) claiming "the KL form does not have this degeneracy."
 
@@ -687,13 +687,13 @@ Recommended: option (a), with a brief Discussion paragraph noting the directiona
 
 ---
 
-## Finding 21 — `#discussion-identifiability-floor` frontmatter status conflicts with internal text
+## Finding 21 — `#disc-identifiability-floor` frontmatter status conflicts with internal text
 
 **Source:** Opus audit 2026-04-22 (post-strengthening evening), Finding 3. **Confidence:** medium. **Severity: low (drafting artifact).**
 
 **Problematic passages.**
 
-- `01-aad-core/src/discussion-identifiability-floor.md` line 4: `status: robust-qualitative`.
+- `01-aad-core/src/disc-identifiability-floor.md` line 4: `status: robust-qualitative`.
 - Same segment Epistemic Status (line ~95): "*Robust qualitative.* The meta-pattern itself is a *discussion-grade* observation … Whether the pattern is a *generative principle* … is a *hypothesis* …"
 
 **Why this stands.** The single Epistemic Status paragraph labels the meta-pattern three different ways (robust-qualitative, discussion-grade, hypothesis). The frontmatter chooses (i). Each phrasing is defensible on its own; the missing piece is a single non-contradictory statement.

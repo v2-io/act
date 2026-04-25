@@ -4,24 +4,24 @@ title: Spike — L1' Log-Odds Update Bias (Quantitative Numerical Floor)
 status: research-spike
 stage: ready-for-review
 depends:
-  - credit-assignment-boundary
-  - edge-update-natural-parameter
-  - discussion-identifiability-floor
-  - strategic-dynamics-derivation
-  - strategy-dag
-  - causal-insufficiency-detection
-  - strategy-persistence-schema
+  - disc-credit-assignment-boundary
+  - deriv-edge-update-natural-parameter
+  - disc-identifiability-floor
+  - deriv-strategic-dynamics
+  - def-strategy-dag
+  - der-causal-insufficiency-detection
+  - schema-strategy-persistence
 ---
 
 # Spike: L1' Log-Odds Update Bias (Quantitative Numerical Floor)
 
 **Date.** 2026-04-22 (current session).
 
-**Status.** Research spike. Not a promoted segment. The derivation below is exploratory; its intent is to supply a *concrete quantitative floor* for the qualitative no-go (F1) and rank-deficiency refutation (F13) already catalogued in #discussion-identifiability-floor. All claims here wait on review before segment placement.
+**Status.** Research spike. Not a promoted segment. The derivation below is exploratory; its intent is to supply a *concrete quantitative floor* for the qualitative no-go (F1) and rank-deficiency refutation (F13) already catalogued in #disc-identifiability-floor. All claims here wait on review before segment placement.
 
-**Bottom line (up front).** Under the canonical default signal function of #credit-assignment-boundary, applied by an L0 agent whose true generative world is an L1' common-cause mixture, the per-cycle log-odds update carries a **quantifiable bias** that is (i) derivable in closed form for OR-root and AND-root structures in terms of the sibling covariance $\rho = \operatorname{Cov}(Y_i, Y_j)$, (ii) **zero in expectation under Prop B.7's observable-$C$ five-way gating** when the agent decomposes its credences along the $C$-partition, and (iii) **bounded strictly away from zero** under the Cramér-Rao floor in the unobservable-$C$ single-channel regime. The bias is **not detectable from the agent's own on-policy data** under the F1 no-go scope conditions, which converts it from a binary "detection forbidden" claim into a concrete *numerical* instance of the #discussion-identifiability-floor pattern — an agent can be shown to be systematically mis-updating its log-odds coordinates without being able to recognize this fact from the signals it has access to. The result composes with #strategy-persistence-schema to produce a *forgetting-rate requirement* that tolerates bounded accumulated bias error. Simulation in §7 confirms the theoretical predictions.
+**Bottom line (up front).** Under the canonical default signal function of #disc-credit-assignment-boundary, applied by an L0 agent whose true generative world is an L1' common-cause mixture, the per-cycle log-odds update carries a **quantifiable bias** that is (i) derivable in closed form for OR-root and AND-root structures in terms of the sibling covariance $\rho = \operatorname{Cov}(Y_i, Y_j)$, (ii) **zero in expectation under Prop B.7's observable-$C$ five-way gating** when the agent decomposes its credences along the $C$-partition, and (iii) **bounded strictly away from zero** under the Cramér-Rao floor in the unobservable-$C$ single-channel regime. The bias is **not detectable from the agent's own on-policy data** under the F1 no-go scope conditions, which converts it from a binary "detection forbidden" claim into a concrete *numerical* instance of the #disc-identifiability-floor pattern — an agent can be shown to be systematically mis-updating its log-odds coordinates without being able to recognize this fact from the signals it has access to. The result composes with #schema-strategy-persistence to produce a *forgetting-rate requirement* that tolerates bounded accumulated bias error. Simulation in §7 confirms the theoretical predictions.
 
-**Landing recommendation (up front).** Promote the closed-form OR-root bias formula (§3) and the observable/unobservable-$C$ bifurcation (§§4–5) as a new **extension segment** `#l1-update-bias` in the Appendix A cluster, sitting adjacent to `#discussion-identifiability-floor` and cross-referenced from Prop B.7 of `#strategic-dynamics-derivation` and from `#credit-assignment-boundary`. Weak alternative: absorb into `#discussion-identifiability-floor` as Instance 3 (numerical companion). The extension-segment route is preferred because the closed-form bias formula is **of independent interest** (it quantifies what Prop B.7's no-go costs) and does not reduce to the existing two instances.
+**Landing recommendation (up front).** Promote the closed-form OR-root bias formula (§3) and the observable/unobservable-$C$ bifurcation (§§4–5) as a new **extension segment** `#deriv-l1-update-bias` in the Appendix A cluster, sitting adjacent to `#disc-identifiability-floor` and cross-referenced from Prop B.7 of `#deriv-strategic-dynamics` and from `#disc-credit-assignment-boundary`. Weak alternative: absorb into `#disc-identifiability-floor` as Instance 3 (numerical companion). The extension-segment route is preferred because the closed-form bias formula is **of independent interest** (it quantifies what Prop B.7's no-go costs) and does not reduce to the existing two instances.
 
 ---
 
@@ -29,15 +29,15 @@ depends:
 
 ### 1.1 The setting
 
-Fix a two-edge L0 strategy DAG with OR root ( #strategy-dag):
+Fix a two-edge L0 strategy DAG with OR root ( #def-strategy-dag):
 
 $$\text{root}_G = \text{OR}(A_1, A_2)$$
 
-Each sibling $A_j$ is a leaf action proposition with agent credence $p_j$ in probability space and $\lambda_j = \log(p_j / (1-p_j))$ in the log-odds coordinate forced by #edge-update-natural-parameter. The plan-confidence score is:
+Each sibling $A_j$ is a leaf action proposition with agent credence $p_j$ in probability space and $\lambda_j = \log(p_j / (1-p_j))$ in the log-odds coordinate forced by #deriv-edge-update-natural-parameter. The plan-confidence score is:
 
 $$\hat P_\Sigma = 1 - (1 - p_1)(1 - p_2)$$
 
-The default signal function of #credit-assignment-boundary, restated in log-odds:
+The default signal function of #disc-credit-assignment-boundary, restated in log-odds:
 
 *[Definition (default-log-odds-update-L0-two-edge-OR)]*
 
@@ -99,7 +99,7 @@ Care with signs: the expectation $\mathbb E[(1 - y_1)(1 - y_2)]$ is *larger* und
 
 $$\mathbb E[y_G - \hat P_\Sigma \mid \text{L1' truth}, \mathbf p = \boldsymbol\mu] = -\rho$$
 
-This matches the #strategy-dag Correlation Hierarchy table (OR: bias is $-\rho$ — overestimation of plan success).
+This matches the #def-strategy-dag Correlation Hierarchy table (OR: bias is $-\rho$ — overestimation of plan success).
 
 ### 2.2 Expected log-odds update bias — closed form
 
@@ -121,7 +121,7 @@ This is the quantitative core result.
 
 3. **Scaling in $n_k$.** Decays as $1/(n_k+1)$. Agents with deep experience have small per-cycle bias *per step*, but no mechanism to correct it — the bias is persistent and its cumulative effect over $T$ cycles is $\sum_{t=0}^{T-1} 1/(n+t+1) \approx \log(T/n)$ for large $T$, unbounded without forgetting.
 
-4. **Regime modulation.** $\iota_k$ enters multiplicatively. Regime A ($\iota_k = 1$): full bias. Regime C ($\iota_k \to 0$): bias is suppressed because the agent is not updating at all. This is the *observational-dominance* case of #observability-dominance. Regime B modulates proportionally.
+4. **Regime modulation.** $\iota_k$ enters multiplicatively. Regime A ($\iota_k = 1$): full bias. Regime C ($\iota_k \to 0$): bias is suppressed because the agent is not updating at all. This is the *observational-dominance* case of #der-observability-dominance. Regime B modulates proportionally.
 
 5. **Topological asymmetry.** $J_k = 1 - \mu_{\bar k}$ for OR: when the sibling is already believed likely ($\mu_{\bar k} \to 1$), the Jacobian on $k$ vanishes (the $k$-edge doesn't matter for plan value), and $B_k \to 0$. When the sibling is unlikely ($\mu_{\bar k} \to 0$), $J_k \to 1$ and the full bias lands on $k$. The *less-redundant* sibling absorbs more bias — exactly the edge where the agent would be *most confident* its credence is well-calibrated.
 
@@ -157,7 +157,7 @@ which for OR is the solution to $(1 - p_1^\ast)(1 - p_2^\ast) = (1 - \mu_1)(1 - 
 
 ## 3. Observable-$C$ Branch: Prop B.7's Zero-Bias Result
 
-**Claim (informal).** When the agent observes $C$ per trial and decomposes its credences as per Prop B.7 of #strategic-dynamics-derivation (two conditional branches $p_{j \mid C}$ and $p_{j \mid \neg C}$), the analogue of $B_k$ in the conditional-branch log-odds coordinates is **zero at the true conditional parameters**.
+**Claim (informal).** When the agent observes $C$ per trial and decomposes its credences as per Prop B.7 of #deriv-strategic-dynamics (two conditional branches $p_{j \mid C}$ and $p_{j \mid \neg C}$), the analogue of $B_k$ in the conditional-branch log-odds coordinates is **zero at the true conditional parameters**.
 
 ### 3.1 Setup under Prop B.7
 
@@ -187,7 +187,7 @@ The observable-$C$ decomposition is *exactly* the transformation that eliminates
 
 The five-way gating condition of Prop B.7 requires that every conditional branch accumulates positive experience (no empty cell). An agent with $\theta_C$ very small has rare $C = 1$ trials; $n_{j \mid C}$ grows slowly; the $\theta_C / (n_{j \mid C} + 1)$ term of $\alpha_{L1'}$ is the bottleneck. Zero bias holds *per-branch* but the slower branch accumulates evidence at the gated rate.
 
-**Summary of §3.** Under Prop B.7's five gating conditions plus observable-$C$, the L1' bias formula of §2 is eliminated entirely in the conditional-branch log-odds. The cost is representational (two conditional credences per affected edge) and computational (running both branches). This is the observable-$C$ branch of #discussion-identifiability-floor Instance 2 — the *positive* side of the asymmetric floor.
+**Summary of §3.** Under Prop B.7's five gating conditions plus observable-$C$, the L1' bias formula of §2 is eliminated entirely in the conditional-branch log-odds. The cost is representational (two conditional credences per affected edge) and computational (running both branches). This is the observable-$C$ branch of #disc-identifiability-floor Instance 2 — the *positive* side of the asymmetric floor.
 
 ---
 
@@ -197,7 +197,7 @@ The five-way gating condition of Prop B.7 requires that every conditional branch
 
 ### 4.1 The Fisher rank-1 structure
 
-From #strategic-dynamics-derivation Prop B.7 "Refuted Under Unobservable $C$":
+From #deriv-strategic-dynamics Prop B.7 "Refuted Under Unobservable $C$":
 
 $$\mathcal F(\phi) = \frac{1}{\mu_j (1 - \mu_j)} u u^T, \qquad u = (\Delta_j, \theta_C, 1 - \theta_C)$$
 
@@ -253,7 +253,7 @@ where $\tau_{\text{mix}}$ is the mixing time of the biased process (inverse of e
 
 $$\lvert \Delta\lambda_k^{\text{saturated}} \rvert \leq \frac{\iota_k \lvert \rho\rvert \max J_k}{(\min \lVert\mathbf J\rVert^2) (1 - \lambda)}$$
 
-This is the quantitative companion to #strategy-persistence-schema's forgetting prerequisite: forgetting must be *strong enough* to both maintain sector persistence *and* bound the accumulated bias. The two requirements are distinct and may compete.
+This is the quantitative companion to #schema-strategy-persistence's forgetting prerequisite: forgetting must be *strong enough* to both maintain sector persistence *and* bound the accumulated bias. The two requirements are distinct and may compete.
 
 ### 4.5 Summary of §4
 
@@ -265,7 +265,7 @@ Under unobservable $C$ and single-channel observation, the L0 agent's log-odds c
 
 ### 5.1 The F1 no-go scope
 
-From #causal-insufficiency-detection, under pure on-policy execution (scope conditions S1–S5), no function of the agent's observable history distinguishes L1' truth from L0-matched truth. Specifically:
+From #der-causal-insufficiency-detection, under pure on-policy execution (scope conditions S1–S5), no function of the agent's observable history distinguishes L1' truth from L0-matched truth. Specifically:
 
 $$\mathbb P_{\pi_{L0}}^{\text{obs}}[\text{L1' truth}] = \mathbb P_{\pi_{L0}}^{\text{obs}}[\text{L0-matched truth}]$$
 
@@ -277,19 +277,19 @@ The bias $B_k(\rho)$ of §2 is *not zero* under L1' truth. The agent's log-odds 
 
 *[Derived (on-policy undetectability of L1' bias)]*
 
-Under scope conditions S1–S5 of #causal-insufficiency-detection, the bias $B_k(\rho)$ is not a function of any on-policy observable statistic. The agent's log-odds coordinate drift is identical in expectation (as a function of its own observations) under L1' truth and under L0-matched truth with the right matching.
+Under scope conditions S1–S5 of #der-causal-insufficiency-detection, the bias $B_k(\rho)$ is not a function of any on-policy observable statistic. The agent's log-odds coordinate drift is identical in expectation (as a function of its own observations) under L1' truth and under L0-matched truth with the right matching.
 
-### 5.3 The #discussion-identifiability-floor instance structure
+### 5.3 The #disc-identifiability-floor instance structure
 
-Under the meta-pattern in #discussion-identifiability-floor:
+Under the meta-pattern in #disc-identifiability-floor:
 
 1. **Setting.** Estimate edge log-odds $\lambda_k$ using the default signal function under L0 assumption, when the true world is L1' with unobservable common cause.
 2. **External theorems.** (a) Bareinboim et al. 2022 Causal Hierarchy Theorem — L1' vs L0-matched is a Level 2 distinction undetectable from Level 1 on-policy data. (b) Cramér-Rao bound on Fisher information — the per-trial Fisher matrix for single-channel mixture observation is rank 1, so the indeterminacy manifold has infinite Cramér-Rao bound.
 3. **No-go.** On-policy edge credences accumulate a *quantifiable* bias $B_k(\rho) \propto \iota_k J_k \rho / (n_k + 1)$ that is neither detectable (CHT) nor reducible below the Cramér-Rao floor (Fisher rank-1).
 4. **Boundary characterization.** Three escape routes from the combined no-go: (a) observe $C$ per trial (recovers Prop B.7 zero bias); (b) run multi-child joint observations satisfying rank-$2K+1$ Fisher condition; (c) accept the bias and forget fast enough ($1 - \lambda \gt \rho / R_\Sigma^\text{bias}$ for some tolerance radius) to keep cumulative bias bounded.
-5. **Strengthened consequence.** The #strategy-persistence-schema forgetting prerequisite now carries *two* load-bearing functions: (i) asymptotic sector persistence, (ii) bounded cumulative L1' bias. The two requirements can be reconciled in the parameter region where $\rho / R_\Sigma^\text{bias} \lt 1 - \lambda \lt 1 - \rho_\Sigma / R_\Sigma$; outside this window, no forgetting rate satisfies both.
+5. **Strengthened consequence.** The #schema-strategy-persistence forgetting prerequisite now carries *two* load-bearing functions: (i) asymptotic sector persistence, (ii) bounded cumulative L1' bias. The two requirements can be reconciled in the parameter region where $\rho / R_\Sigma^\text{bias} \lt 1 - \lambda \lt 1 - \rho_\Sigma / R_\Sigma$; outside this window, no forgetting rate satisfies both.
 
-This is a candidate **Instance 3** for #discussion-identifiability-floor, sitting between Instance 1 (on-policy L0/L1 detection no-go) and Instance 2 (Cramér-Rao refutation of L1' under unobservable single-channel). What Instance 3 adds: the *quantitative numerical floor* — not just "detection is impossible" (Instance 1) and "unbiased online estimation is impossible" (Instance 2), but "the biased estimator's bias is *this specific magnitude*, determined by $\rho$, and the forgetting rate needed to tolerate it is *this specific threshold*."
+This is a candidate **Instance 3** for #disc-identifiability-floor, sitting between Instance 1 (on-policy L0/L1 detection no-go) and Instance 2 (Cramér-Rao refutation of L1' under unobservable single-channel). What Instance 3 adds: the *quantitative numerical floor* — not just "detection is impossible" (Instance 1) and "unbiased online estimation is impossible" (Instance 2), but "the biased estimator's bias is *this specific magnitude*, determined by $\rho$, and the forgetting rate needed to tolerate it is *this specific threshold*."
 
 ---
 
@@ -297,7 +297,7 @@ This is a candidate **Instance 3** for #discussion-identifiability-floor, sittin
 
 ### 6.1 The regime classification in edge semantics
 
-Per #edge-update-causal-validity, the identifiability coefficient $\iota_k$ ranges over:
+Per #scope-edge-update-causal-validity, the identifiability coefficient $\iota_k$ ranges over:
 
 - **Regime A** (intervention-rich): $\iota_k \approx 1$. Full bias as derived in §2.
 - **Regime B** (partial intervention): $\iota_k \in (0, 1)$. Bias is proportionally reduced.
@@ -307,11 +307,11 @@ Per #edge-update-causal-validity, the identifiability coefficient $\iota_k$ rang
 
 At Regime C, the agent is nominally "safe" from the bias — $B_k(\rho) \to 0$. But this is not a substantive reduction in miscalibration; it is a consequence of the agent's credence being *frozen*. The agent's credence at Regime C is whatever its prior was; if the prior is wrong, the agent stays wrong. The bias formula's collapse to zero at $\iota_k = 0$ is correct but misleading — the *mean-squared error* of the agent's credence against conditional truth is not zero at Regime C; it is just not evolving.
 
-The correct reading: Regime C edges are #observability-dominance frozen-credence cases. The Correlation Hierarchy bias mechanism operates through the *update rule*; when the update rule is dormant, there is no bias *accumulation*. But there is still *initial-condition bias* if the prior was set under the wrong model class.
+The correct reading: Regime C edges are #der-observability-dominance frozen-credence cases. The Correlation Hierarchy bias mechanism operates through the *update rule*; when the update rule is dormant, there is no bias *accumulation*. But there is still *initial-condition bias* if the prior was set under the wrong model class.
 
 ### 6.3 Regime A drives maximum bias; Regime C suppresses accumulation
 
-The saturation bias under forgetting (§4.4) scales with $\iota_k$. Combined with the #strategy-persistence-schema forgetting prerequisite, we get a **regime-dependent forgetting window**:
+The saturation bias under forgetting (§4.4) scales with $\iota_k$. Combined with the #schema-strategy-persistence forgetting prerequisite, we get a **regime-dependent forgetting window**:
 
 - Regime A, large $\rho$: narrow window. Need strong forgetting for bias control, but not so strong that sector persistence fails.
 - Regime C, any $\rho$: wide window. Bias does not accumulate because updates are dormant.
@@ -420,7 +420,7 @@ The simulation confirms:
 
 ### 8.1 The forgetting-rate dual requirement
 
-The existing #strategy-persistence-schema forgetting prerequisite is:
+The existing #schema-strategy-persistence forgetting prerequisite is:
 
 $$(1 - \lambda) \gt \rho_\Sigma / R_\Sigma \quad \text{(sector persistence)}$$
 
@@ -461,9 +461,9 @@ This links the two spikes: stability-induced-myopia characterizes the latency of
 | §3 observable-$C$ zero-bias result | **Exact** (direct consequence of Prop B.7's SA1 verification at conditional truth) |
 | §4.2 Cramér-Rao null-space bias floor | **Exact** (standard CR bound applied to rank-1 Fisher of mixture model) |
 | §4.3 Log-odds bias floor is non-zero for $\rho \ne 0$ | **Derived** (Cramér-Rao bound is parameterization-invariant under smooth monotone reparameterization) |
-| §4.4 Saturated-bias under forgetting | **Derived** (conditional on exponential-forgetting model of #strategy-persistence-schema) |
+| §4.4 Saturated-bias under forgetting | **Derived** (conditional on exponential-forgetting model of #schema-strategy-persistence) |
 | §5.2 On-policy undetectability | **Exact** (direct application of F1 no-go / CHT) |
-| §5.3 Instance-3 structure for #discussion-identifiability-floor | **Discussion-grade** (meta-pattern recognition; the instance itself is derived, but its placement as the third instance is structural) |
+| §5.3 Instance-3 structure for #disc-identifiability-floor | **Discussion-grade** (meta-pattern recognition; the instance itself is derived, but its placement as the third instance is structural) |
 | §6 A/B/C regime modulation | **Robust qualitative** (structural; the specific form of Regime-B interpolation depends on the $\iota$-derivation path) |
 | §7 simulation match with §2 formula | **Empirical** (confirmatory; matches closed form to within Monte Carlo error) |
 | §8.1 combined forgetting-window admissibility | **Derived** (composition of two earlier bounds) |
@@ -478,19 +478,19 @@ This links the two spikes: stability-induced-myopia characterizes the latency of
 
 ### 9.3 Max attainable status
 
-The §2 closed-form bias is at **max attainable = exact**. The Cramér-Rao floor is at **exact**. The meta-pattern placement within #discussion-identifiability-floor is at **max attainable = robust qualitative** (it is a structural observation about the catalog, not a derivation). The #strategy-persistence-schema forgetting-window composition is at **max attainable = conditional** (depends on matched-coordinate assumption).
+The §2 closed-form bias is at **max attainable = exact**. The Cramér-Rao floor is at **exact**. The meta-pattern placement within #disc-identifiability-floor is at **max attainable = robust qualitative** (it is a structural observation about the catalog, not a derivation). The #schema-strategy-persistence forgetting-window composition is at **max attainable = conditional** (depends on matched-coordinate assumption).
 
 ---
 
 ## 10. Landing Recommendation
 
-### 10.1 Preferred route: New appendix segment `#l1-update-bias`
+### 10.1 Preferred route: New appendix segment `#deriv-l1-update-bias`
 
 **Slug.** `l1-update-bias` (or `#l1-prime-update-bias` for disambiguation from the generic L1 case).
 
 **Type.** `derivation` — the segment carries multiple derived claims (§2 closed form, §3 zero-bias under observable $C$, §4 Cramér-Rao floor) of mixed strength. Qualifies for the FORMAT.md O-BP14 derivation-audit table convention.
 
-**Status.** `conditional` — conditional on two-edge-OR topology for the closed form, conditional on Bayesian sub-scope $\alpha$ of #gain-sector-bridge for the sector-parameter interpretation, conditional on exponential-forgetting model for the saturation bound.
+**Status.** `conditional` — conditional on two-edge-OR topology for the closed form, conditional on Bayesian sub-scope $\alpha$ of #der-gain-sector-bridge for the sector-parameter interpretation, conditional on exponential-forgetting model for the saturation bound.
 
 **Stage.** `draft` on landing.
 
@@ -520,23 +520,23 @@ The §2 closed-form bias is at **max attainable = exact**. The Cramér-Rao floor
 
 ### 10.2 Cross-segment integrations required on promotion
 
-- **`#discussion-identifiability-floor`**: add as Instance 3 in the *Current Instances* section. Update §"Adjacent Floors (Open Research Directions)" to note that one of the open directions has been derived.
-- **`#credit-assignment-boundary`**: add a subsection or Working-Note reference noting the quantitative bias under L1' truth; the existing "Correlated-failure interaction (L0 vs L1)" discussion becomes the qualitative summary, pointing to the new segment for the quantitative form.
-- **`#strategy-persistence-schema`**: add a Discussion paragraph on the bias-tolerance second role of forgetting, and cross-reference the combined forgetting-window bound.
-- **`#strategic-dynamics-derivation` Prop B.7**: add a "What the positive transfer costs" observation linking to the bias formula in the unobservable-$C$ refutation subsection.
+- **`#disc-identifiability-floor`**: add as Instance 3 in the *Current Instances* section. Update §"Adjacent Floors (Open Research Directions)" to note that one of the open directions has been derived.
+- **`#disc-credit-assignment-boundary`**: add a subsection or Working-Note reference noting the quantitative bias under L1' truth; the existing "Correlated-failure interaction (L0 vs L1)" discussion becomes the qualitative summary, pointing to the new segment for the quantitative form.
+- **`#schema-strategy-persistence`**: add a Discussion paragraph on the bias-tolerance second role of forgetting, and cross-reference the combined forgetting-window bound.
+- **`#deriv-strategic-dynamics` Prop B.7**: add a "What the positive transfer costs" observation linking to the bias formula in the unobservable-$C$ refutation subsection.
 - **`#stability-induced-myopia` (if/when promoted)**: note the composition with the L1' bias as a pre-change-state effect that degrades the effective regime-change footprint.
 
-### 10.3 Alternative route: Absorb into `#discussion-identifiability-floor` Instance 3
+### 10.3 Alternative route: Absorb into `#disc-identifiability-floor` Instance 3
 
 Possible but not recommended. The closed-form bias formula has independent downstream utility (regime-dependent forgetting prescriptions, sim benchmarks, TST deployment guidance) that merits its own segment. Absorbing it as Instance 3 would compress out the load-bearing §2 closed form. Reserve the absorption path as a fallback if the reviewer finds the bias formula too narrow in its current two-edge form.
 
 ### 10.4 Fallback route: Distribute
 
 If the reviewer judges the derivation too incomplete for a standalone appendix:
-- Land §2 closed form in `#credit-assignment-boundary` Discussion (quantitative companion to the existing correlated-failure paragraph).
-- Land §3 zero-bias observation in `#strategic-dynamics-derivation` Prop B.7 Discussion.
-- Land §4 Cramér-Rao bound in `#discussion-identifiability-floor` Instance 2 discussion (sharpening the refutation to a quantitative floor).
-- Land §8 forgetting-window in `#strategy-persistence-schema` Discussion.
+- Land §2 closed form in `#disc-credit-assignment-boundary` Discussion (quantitative companion to the existing correlated-failure paragraph).
+- Land §3 zero-bias observation in `#deriv-strategic-dynamics` Prop B.7 Discussion.
+- Land §4 Cramér-Rao bound in `#disc-identifiability-floor` Instance 2 discussion (sharpening the refutation to a quantitative floor).
+- Land §8 forgetting-window in `#schema-strategy-persistence` Discussion.
 
 This captures about 70% of the content but loses the composition narrative.
 
@@ -548,8 +548,8 @@ This captures about 70% of the content but loses the composition narrative.
 2. **Deep DAG with interior common causes.** For L1' facilitators at interior nodes, the Jacobian computation involves backward propagation. Whether the closed-form structure survives is open.
 3. **Adaptive forgetting.** The combined forgetting-window of §8.1 suggests an *adaptive* forgetting rule that tunes $\lambda$ in response to estimated $\rho$ (from covariance tests under route (b) of F1). The tuning rule is a meta-level design problem — the forgetting rate itself becomes a learned quantity.
 4. **AND/OR mixed topology.** Mixed roots (AND of OR sub-plans, etc.) inherit the opposite-sign behavior at different levels. The net bias at a specific edge depends on the sign-alternation pattern along the path to root. A clean treatment would decompose bias contributions along topology levels.
-5. **Non-Bayesian agents.** The sub-scope $\beta$ of #gain-sector-bridge (PID, rule-based, human-judgment) does not invoke the log-odds coordinate at all. The bias analysis there would need a coordinate-free formulation — likely via Fisher-information bounds that are parameterization-agnostic.
-6. **Connection to misspecification-cost adjacent floor.** #discussion-identifiability-floor's third open direction (misspecification-cost quantification) may reduce to a generalization of the bias formula here, with the L0 agent playing the role of the misspecified model. Worth checking whether the closed-form approach extends.
+5. **Non-Bayesian agents.** The sub-scope $\beta$ of #der-gain-sector-bridge (PID, rule-based, human-judgment) does not invoke the log-odds coordinate at all. The bias analysis there would need a coordinate-free formulation — likely via Fisher-information bounds that are parameterization-agnostic.
+6. **Connection to misspecification-cost adjacent floor.** #disc-identifiability-floor's third open direction (misspecification-cost quantification) may reduce to a generalization of the bias formula here, with the L0 agent playing the role of the misspecified model. Worth checking whether the closed-form approach extends.
 
 ---
 
@@ -557,9 +557,9 @@ This captures about 70% of the content but loses the composition narrative.
 
 This spike does **not** produce a new theorem in the sense of establishing a novel structural impossibility. What it does:
 
-1. **Supplies a quantitative form** for what #discussion-identifiability-floor's Instance 2 (Cramér-Rao refutation) costs *in practice*. The existing Instance 2 says "no unbiased online estimator exists under unobservable $C$"; this spike quantifies the biased estimator's bias in AAD's native log-odds coordinate, at the default signal function, with sign and magnitude derivable.
+1. **Supplies a quantitative form** for what #disc-identifiability-floor's Instance 2 (Cramér-Rao refutation) costs *in practice*. The existing Instance 2 says "no unbiased online estimator exists under unobservable $C$"; this spike quantifies the biased estimator's bias in AAD's native log-odds coordinate, at the default signal function, with sign and magnitude derivable.
 2. **Bridges the two existing Instances (1 and 2).** Instance 1 (F1 on-policy detection no-go) says detection is forbidden. Instance 2 (F13 CR refutation) says unbiased estimation is forbidden. This spike shows the *biased estimator*'s behavior — it *does* accumulate a specific bias pattern, that pattern is *not detectable* by the agent (Instance 1), and it is *not correctable* to below the CR floor (Instance 2). The combination is a numerical floor with a specific formula.
-3. **Composes with `#strategy-persistence-schema`** to give a *dual* forgetting requirement and an explicit admissibility window.
+3. **Composes with `#schema-strategy-persistence`** to give a *dual* forgetting requirement and an explicit admissibility window.
 4. **Gives concrete, testable predictions** for simulation (§7) that match the closed-form formulas.
 
 What this spike does **not** do:
@@ -571,7 +571,7 @@ What this spike does **not** do:
 
 The recommendation to promote is *weak* relative to the recommendation-to-promote bar used in the 2026-04-22/23 strengthening cycle. The result here is a quantitative instrument for an existing meta-pattern, not a new pattern. Its value is engineering — practical agents facing L1' domains (software deployment with shared infrastructure, organizational strategy with shared enabling conditions, investment with market regime correlations) get a closed-form rule for *how wrong their log-odds become and how much forgetting is needed to bound it*. That is useful output, but it sits in the third ring (empirical/heuristic applications) by FORMAT.md's epistemic-triage taxonomy, not in the inevitability core.
 
-My recommendation: **promote to appendix segment with status `conditional`, landing in the Appendix A cluster adjacent to #discussion-identifiability-floor and #additive-coordinate-forcing.** The segment will be at `draft` stage with the three §9.1 exact claims being the strongest content. Cross-segment integrations are straightforward and listed in §10.2.
+My recommendation: **promote to appendix segment with status `conditional`, landing in the Appendix A cluster adjacent to #disc-identifiability-floor and #additive-coordinate-forcing.** The segment will be at `draft` stage with the three §9.1 exact claims being the strongest content. Cross-segment integrations are straightforward and listed in §10.2.
 
 ---
 

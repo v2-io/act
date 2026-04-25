@@ -55,8 +55,8 @@ Key properties:
 
 - The status propagation formula is now well-defined from base cases through terminals
 - The orient cascade's first propagation step (M_t → p_v → forward pass) becomes concrete
-- The connection to #observability-dominance is tightened: high obs noise on a leaf → M_t poorly informed about C_v → p_v unreliable → but p_v is still the agent's best estimate given M_t. Observability affects the *accuracy* of p_v (whether it tracks reality), not its *definition*
-- Far-future leaves naturally have lower confidence, creating pressure toward shorter or more robust strategies (consistent with #chain-confidence-decay)
+- The connection to #der-observability-dominance is tightened: high obs noise on a leaf → M_t poorly informed about C_v → p_v unreliable → but p_v is still the agent's best estimate given M_t. Observability affects the *accuracy* of p_v (whether it tracks reality), not its *definition*
+- Far-future leaves naturally have lower confidence, creating pressure toward shorter or more robust strategies (consistent with #der-chain-confidence-decay)
 
 
 ## 3. Terminal-Objective Interface
@@ -86,7 +86,7 @@ Properties:
 
 3. **Falsifiable through experience.** The agent believes its terminals operationalize O_t. Reality may disagree. When the agent achieves its terminal conditions and evaluates V_O on the resulting trajectory, it discovers whether the well-formedness belief was justified.
 
-4. **Triggers structural change.** When O_t changes, well-formedness must be re-evaluated. If the new O_t makes current terminals inadequate, the agent must construct new terminals — this is the "objective revision → change terminal nodes" operation from #structural-change-as-parametric-limit.
+4. **Triggers structural change.** When O_t changes, well-formedness must be re-evaluated. If the new O_t makes current terminals inadequate, the agent must construct new terminals — this is the "objective revision → change terminal nodes" operation from #form-structural-change-as-parametric-limit.
 
 ### Scope of the terminal-condition construction
 
@@ -102,7 +102,7 @@ It works less naturally for:
   The agent must set an operational threshold ("good enough") and decompose it into Boolean conditions. This is an approximation — the DAG discretizes a continuous objective.
 - **Continuous-valued trajectory functionals**: satisfaction is a matter of degree, not Boolean. The terminal construction imposes a threshold that may not exist in V_O.
 
-The terminal conditions are a **useful operational proxy** for V_O, not the sole interface between O_t and Σ_t. The primary O_t ↔ theory interface remains V_O through the value object ( #value-object). The terminal conditions are Σ_t's internal encoding of what V_O requires — an encoding that (a) enables Boolean status propagation through the DAG, and (b) may be incomplete or wrong.
+The terminal conditions are a **useful operational proxy** for V_O, not the sole interface between O_t and Σ_t. The primary O_t ↔ theory interface remains V_O through the value object ( #def-value-object). The terminal conditions are Σ_t's internal encoding of what V_O requires — an encoding that (a) enables Boolean status propagation through the DAG, and (b) may be incomplete or wrong.
 
 ### Ill-formedness modes
 
@@ -140,7 +140,7 @@ $$\hat{P}_\Sigma(M_t) = s_\text{root}$$
 
 where $s_\text{root}$ is the status of a unique root terminal in $\Sigma_t$.
 
-**Unique-root requirement.** $\Sigma_t$ has exactly one sink node $v_\text{root}$ (out-degree 0). When the objective has multiple components, they feed into $v_\text{root}$ through AND/OR combination within the DAG. This is a structural constraint on well-formed strategies, consistent with scalar $V_O$ ( #objective-functional): if the objective produces a single evaluation, the strategy should have a single top-level success node. Agents with compound objectives express the combination structure (conjunctive, disjunctive, or mixed) through the DAG's existing AND/OR machinery in the layers immediately below $v_\text{root}$, not through an external aggregation operation.
+**Unique-root requirement.** $\Sigma_t$ has exactly one sink node $v_\text{root}$ (out-degree 0). When the objective has multiple components, they feed into $v_\text{root}$ through AND/OR combination within the DAG. This is a structural constraint on well-formed strategies, consistent with scalar $V_O$ ( #form-objective-functional): if the objective produces a single evaluation, the strategy should have a single top-level success node. Agents with compound objectives express the combination structure (conjunctive, disjunctive, or mixed) through the DAG's existing AND/OR machinery in the layers immediately below $v_\text{root}$, not through an external aggregation operation.
 
 $\hat P_\Sigma$ answers: "according to my strategy's own model of causation, what is my probability of achieving the terminal conditions?"
 
@@ -153,7 +153,7 @@ The existing gap measures and $\hat P_\Sigma$ form a richer diagnostic system th
 | Signal pattern | Interpretation | Action |
 |---------------|---------------|--------|
 | $\hat P_\Sigma$ high, $\delta_\text{sat} \leq 0$, $\delta_\text{regret} \approx 0$ | Strategy is good, objective achievable, near-optimal | Continue |
-| $\hat P_\Sigma$ high, $\delta_\text{regret} \gg 0$ | DAG overconfident — edges or leaves are miscalibrated | Calibrate via #strategic-calibration |
+| $\hat P_\Sigma$ high, $\delta_\text{regret} \gg 0$ | DAG overconfident — edges or leaves are miscalibrated | Calibrate via #def-strategic-calibration |
 | $\hat P_\Sigma$ low, $\delta_\text{sat} \leq 0$ | Objective is achievable but current strategy is pessimistic or weak | Revise Σ_t |
 | $\hat P_\Sigma$ high, $\delta_\text{sat} \gt 0$ | DAG thinks it will succeed but even the best policy can't achieve V_min — M_t may be wrong about feasibility, Π may be too narrow, N_h too short, or goal genuinely infeasible | Check M_t, Π, N_h, then consider O_t revision |
 | Terminals achieved, $V_O \lt V_\text{min}$ | **Terminal alignment error** — operational criteria don't match objective | Revise terminal conditions (structural Σ_t change) |
@@ -179,7 +179,7 @@ With both interfaces defined, the cascade's flow through the DAG becomes fully s
 
 **Step 3: Status re-propagation** Forward pass through the DAG in topological order. $O(|V| + |E|)$. New leaf credences flow upward through edges and AND/OR gates. $\hat P_\Sigma$ updates.
 
-**Step 4: Edge credence update** For edges whose consequences were observed, update p_ij via the gain principle ( #edge-update-via-gain). This happens in parallel with or after status propagation — the edge update uses the new M_t plus the observation.
+**Step 4: Edge credence update** For edges whose consequences were observed, update p_ij via the gain principle ( #hyp-edge-update-via-gain). This happens in parallel with or after status propagation — the edge update uses the new M_t plus the observation.
 
 **Step 5: Strategy self-assessment** Read off $\hat P_\Sigma$ from the propagated terminal credences. This is the strategy's own verdict on its chances.
 
@@ -232,9 +232,9 @@ where $C_v$ is the propositional condition associated with node $v$ and $\tau_v$
 $$\Pr\!\left(V_{O_t}(\tau) \geq V_{O_t}^{\min}
   \;\middle|\; \text{terminals achieved},\; M_t\right) \geq 1 - \epsilon$$
 
-This is a constraint on the relationship between $\Sigma_t$ and $O_t$, not a separate state object. When $O_t$ changes, well-formedness must be re-evaluated; violation triggers terminal reassessment ( #structural-change-as-parametric-limit).
+This is a constraint on the relationship between $\Sigma_t$ and $O_t$, not a separate state object. When $O_t$ changes, well-formedness must be re-evaluated; violation triggers terminal reassessment ( #form-structural-change-as-parametric-limit).
 
-**Unique root.** Well-formed strategies have exactly one sink node $v_\text{root}$. Compound objectives express their combination structure (conjunctive, disjunctive, or mixed) through the DAG's AND/OR machinery in the layers below $v_\text{root}$, not through external aggregation. This is consistent with scalar $V_O$ ( #objective-functional).
+**Unique root.** Well-formed strategies have exactly one sink node $v_\text{root}$. Compound objectives express their combination structure (conjunctive, disjunctive, or mixed) through the DAG's AND/OR machinery in the layers below $v_\text{root}$, not through external aggregation. This is consistent with scalar $V_O$ ( #form-objective-functional).
 
 **Strategy self-assessment.** The root node's propagated status:
 
@@ -242,7 +242,7 @@ $$\hat{P}_\Sigma(M_t) = s_{v_\text{root}}$$
 
 is the strategy's self-assessed success probability — the DAG's own answer to "will this plan work?" This is explicitly distinct from $A_O$ (which optimizes over the entire policy class) and from $V_O(\pi_\text{current})$ (which evaluates the current policy). $\hat P_\Sigma$ is cheap to compute ($O(|V| + |E|)$) and updates in real time as $M_t$ changes.
 
-**Scope.** The terminal-condition construction works naturally for threshold, constraint, and composite objectives (Boolean decomposition via AND/OR). For continuous-valued objectives without natural thresholds, the agent must set an operational threshold — introducing a discretization that is a practical proxy, not a lossless encoding of $V_O$. The primary O_t ↔ theory interface remains $V_O$ through the value object ( #value-object); terminal conditions are Σ_t's internal encoding, which may be incomplete or misaligned.
+**Scope.** The terminal-condition construction works naturally for threshold, constraint, and composite objectives (Boolean decomposition via AND/OR). For continuous-valued objectives without natural thresholds, the agent must set an operational threshold — introducing a discretization that is a practical proxy, not a lossless encoding of $V_O$. The primary O_t ↔ theory interface remains $V_O$ through the value object ( #def-value-object); terminal conditions are Σ_t's internal encoding, which may be incomplete or misaligned.
 
 ### Replace Working Notes:
 
@@ -258,8 +258,8 @@ Remove the two Working Notes about p_v and O_t ↔ terminal interface. Add:
 
 2. **Terminal alignment error as a formal signal.** Currently unnamed in the diagnostic apparatus. Could be defined as $\delta_\text{align} = V_{O_t}^{\min} - V_{O_t}(\tau_\text{achieved})$ when all terminal conditions are met. Positive means the terminals were insufficient. This would complement δ_sat, δ_regret, and δ_strategic as a fourth diagnostic. Whether it's worth formalizing depends on how often terminal misalignment is the binding failure mode in practice.
 
-3. **Multiple independent objectives.** If O_t has genuinely independent components (see #objective-functional's scalar scope restriction), the terminal structure needs corresponding independence. This works naturally with the AND/OR machinery (independent objective components as separate terminal subtrees) but hasn't been formally verified.
+3. **Multiple independent objectives.** If O_t has genuinely independent components (see #form-objective-functional's scalar scope restriction), the terminal structure needs corresponding independence. This works naturally with the AND/OR machinery (independent objective components as separate terminal subtrees) but hasn't been formally verified.
 
-4. **Leaf credence under deep planning.** For far-future leaves, $p_v = \Pr(C_v(\tau_v) \mid M_t)$ degrades with $|\tau_v - t|$ because M_t's state predictions are less reliable over long horizons. Does this create systematic underconfidence in long-range strategies? Or is this appropriate conservatism? Connects to #chain-confidence-decay: the decay from far-future leaf uncertainty compounds with the decay from edge uncertainty.
+4. **Leaf credence under deep planning.** For far-future leaves, $p_v = \Pr(C_v(\tau_v) \mid M_t)$ degrades with $|\tau_v - t|$ because M_t's state predictions are less reliable over long horizons. Does this create systematic underconfidence in long-range strategies? Or is this appropriate conservatism? Connects to #der-chain-confidence-decay: the decay from far-future leaf uncertainty compounds with the decay from edge uncertainty.
 
 5. **Well-formedness vs. terminal alignment error.** Well-formedness is the agent's ex ante belief; terminal alignment error is the ex post discovery. Can the agent improve its well-formedness assessments over time (learn what makes good terminals for a given type of O_t)? This is meta-learning about strategy construction — possibly relevant for agents with many repeated objectives.

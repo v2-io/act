@@ -6,7 +6,7 @@ Language-constituted agents — extending AAD to systems whose primary observati
 
 See [`../LEXICON.md`](../LEXICON.md) for the logogenic/logozoetic vocabulary.
 
-**Key challenge:** LLM-based agents are goal-conditioned — their epistemic processing depends on $G_t$ — so directed separation ( #directed-separation) fails by construction. Section I's $M_t$-side quantities remain well-defined, but the sequential orient cascade becomes an approximation. This section starts from the coupled formulation $X_{\tau^+} = f_X(X_{\tau^-}, e_\tau)$ without decomposition, and examines which AAD results survive as approximate or limiting cases.
+**Key challenge:** LLM-based agents are goal-conditioned — their epistemic processing depends on $G_t$ — so directed separation ( #der-directed-separation) fails by construction. Section I's $M_t$-side quantities remain well-defined, but the sequential orient cascade becomes an approximation. This section starts from the coupled formulation $X_{\tau^+} = f_X(X_{\tau^-}, e_\tau)$ without decomposition, and examines which AAD results survive as approximate or limiting cases.
 
 
 ---
@@ -20,12 +20,12 @@ See [`../LEXICON.md`](../LEXICON.md) for the logogenic/logozoetic vocabulary.
 | § | Type | N | Tag | Claim | Stage |
 |---|------|---|-----|-------|-------|
 | L | Definition | D1 | [#scope-logogenic-agent](src/scope-logogenic-agent.md) | AI agent as actuated agent | draft |
-| L | Observation | D2 | [#context-turnover](src/context-turnover.md) | 100% $M_t$ reset per session | draft |
-| L | Definition | D3 | [#coupled-update-dynamics](src/coupled-update-dynamics.md) | Coupled formulation $X_{\tau^+} = f_{\text{LLM}}(\text{prompt}(X_{\tau^-}, e_\tau))$ | draft |
-| L | Result | R1 | [#section-ii-survival](src/section-ii-survival.md) | Which Section II results survive without directed separation | draft |
-| L | Result | R2 | [#coupled-diagnostic-framework](src/coupled-diagnostic-framework.md) | Post-hoc diagnostic decomposition from coupled update | draft |
-| L | Discussion | R3 | [#m-preservation](src/m-preservation.md) | External memory as persistent $M_t$ | draft |
-| L | Scope | S1 | [#observation-ambiguity-modulation](src/observation-ambiguity-modulation.md) | $\kappa \times$ ambiguity scope condition for Class 2/3 agents | draft |
+| L | Observation | D2 | [#obs-context-turnover](src/obs-context-turnover.md) | 100% $M_t$ reset per session | draft |
+| L | Definition | D3 | [#def-coupled-update-dynamics](src/def-coupled-update-dynamics.md) | Coupled formulation $X_{\tau^+} = f_{\text{LLM}}(\text{prompt}(X_{\tau^-}, e_\tau))$ | draft |
+| L | Result | R1 | [#result-section-ii-survival](src/result-section-ii-survival.md) | Which Section II results survive without directed separation | draft |
+| L | Result | R2 | [#result-coupled-diagnostic-framework](src/result-coupled-diagnostic-framework.md) | Post-hoc diagnostic decomposition from coupled update | draft |
+| L | Discussion | R3 | [#disc-m-preservation](src/disc-m-preservation.md) | External memory as persistent $M_t$ | draft |
+| L | Scope | S1 | [#scope-ambiguity-modulation](src/scope-ambiguity-modulation.md) | $\kappa \times$ ambiguity scope condition for Class 2/3 agents | draft |
 | | --GAP-- | | | Language-specific orient cascade (what's specific to logogenic agents?) — partially addressed by D3, R2 | |
 | | --GAP-- | | | Measuring $M_t$ quality, $\Sigma_t$ quality, and tempo in AI agents | |
 | | --GAP-- | | | AAD-grounded experiential training environments | |

@@ -1,10 +1,10 @@
 # Spike: Scalar Objective Scope Analysis
 
-**Status**: Conceptual analysis spike. Not for promotion to `src/` — informing a scope decision for #objective-functional and downstream segments.
+**Status**: Conceptual analysis spike. Not for promotion to `src/` — informing a scope decision for #form-objective-functional and downstream segments.
 
 **Date**: 2026-04-01
 
-**Motivation**: AAD's #objective-functional defines $V_{O_t}: \text{trajectories} \to \mathbb{R}$, requiring a total ordering on trajectory outcomes. The codex review flagged this as making the diagnostics ($\delta_{\text{sat}}$, $\delta_{\text{regret}}$) less universal than they appear for organizations, safety-constrained AI, and agents with true Pareto structure. The Working Notes in #objective-functional suggest modeling compound objectives as terminal AND-nodes in $\Sigma_t$ with simple scalar $O_t$. This spike tests that workaround and analyzes the alternatives.
+**Motivation**: AAD's #form-objective-functional defines $V_{O_t}: \text{trajectories} \to \mathbb{R}$, requiring a total ordering on trajectory outcomes. The codex review flagged this as making the diagnostics ($\delta_{\text{sat}}$, $\delta_{\text{regret}}$) less universal than they appear for organizations, safety-constrained AI, and agents with true Pareto structure. The Working Notes in #form-objective-functional suggest modeling compound objectives as terminal AND-nodes in $\Sigma_t$ with simple scalar $O_t$. This spike tests that workaround and analyzes the alternatives.
 
 ---
 
@@ -38,7 +38,7 @@ The scalar restriction is load-bearing for the **diagnostic system** ($\delta_{\
 
 ## 2. Testing the AND-Node Workaround
 
-The Working Notes in #objective-functional suggest: model compound objectives as terminal AND-nodes in $\Sigma_t$, keeping $O_t$ always simple (one scalar evaluation per terminal). Let us work through a concrete case.
+The Working Notes in #form-objective-functional suggest: model compound objectives as terminal AND-nodes in $\Sigma_t$, keeping $O_t$ always simple (one scalar evaluation per terminal). Let us work through a concrete case.
 
 ### 2.1 Setup: Safety + Utility Agent
 
@@ -119,7 +119,7 @@ The satisfaction question becomes: does the attainability set intersect the targ
 
 **The single-number diagnostic is lost.** The original $\delta_{\text{sat}}$ gives a magnitude (how far from feasible) and a sign (feasible or not). The vector version gives a yes/no (does the intersection exist) but no natural single number for "how far." One could define $\delta_{\text{sat}}^{\text{vec}} = \min_{\pi \in \Pi} \max_i \delta_{\text{sat}}^{(i)}(\pi)$ (minimax gap), but this introduces an implicit priority structure (worst-case dimension dominates).
 
-**Disambiguation partially survives.** The table in #satisfaction-gap (goal infeasible / policy class too narrow / horizon too short / model wrong) applies per-dimension. But a new row is needed: "objectives jointly infeasible" — individually achievable but not simultaneously. This is a genuinely new failure mode that the scalar formulation cannot represent.
+**Disambiguation partially survives.** The table in #def-satisfaction-gap (goal infeasible / policy class too narrow / horizon too short / model wrong) applies per-dimension. But a new row is needed: "objectives jointly infeasible" — individually achievable but not simultaneously. This is a genuinely new failure mode that the scalar formulation cannot represent.
 
 ### 3.2 Control Regret
 
@@ -206,12 +206,12 @@ The restriction is therefore **correctly scoped** for AAD's core target (individ
 
 **Keep the scalar restriction for the core theory (Sections I-II).** The restriction is load-bearing for the diagnostic system and reflects a genuine insight about coherent agency. Removing it would sacrifice the quantitative diagnostics ($\delta_{\text{sat}}$, $\delta_{\text{regret}}$ as magnitudes) for a more general but less actionable formulation.
 
-**Strengthen the scope note in #objective-functional.** The current note is honest but could be sharper. Add:
+**Strengthen the scope note in #form-objective-functional.** The current note is honest but could be sharper. Add:
 - The revealed-preference argument (why the restriction is substantive, not just convenient).
 - The approximation argument (any Pareto-optimal policy has a scalar representation; the restriction excludes the meta-question of weight selection, not the individual policies).
 - The timescale argument ($V_{O_t}$ is the *current* scalarization, which may change at $\nu_O$ timescale).
 
-**Document the AND-node workaround explicitly.** Promote the Working Notes suggestion to a brief discussion in #objective-functional or #strategy-dag:
+**Document the AND-node workaround explicitly.** Promote the Working Notes suggestion to a brief discussion in #form-objective-functional or #def-strategy-dag:
 - AND-node encoding handles constraint satisfaction cleanly (all must pass).
 - Per-terminal satisfaction gaps decompose naturally.
 - The workaround is adequate for "multiple must-satisfy criteria" and inadequate for "multi-objective optimization within the feasible region."
@@ -223,7 +223,7 @@ The restriction is therefore **correctly scoped** for AAD's core target (individ
 - The diagnostics would degrade from scalar magnitudes to set-theoretic tests.
 - The 2x2 corrective table would lose quantitative specificity.
 
-**Add one new entry to the disambiguation table in #satisfaction-gap.** The compound-objective case introduces a failure mode not currently listed: "objectives jointly infeasible — individually attainable but no single policy satisfies all simultaneously." This belongs in the table even under the scalar formalism, because the AND-node workaround makes it visible through per-terminal $\delta_{\text{sat}}$ values.
+**Add one new entry to the disambiguation table in #def-satisfaction-gap.** The compound-objective case introduces a failure mode not currently listed: "objectives jointly infeasible — individually attainable but no single policy satisfies all simultaneously." This belongs in the table even under the scalar formalism, because the AND-node workaround makes it visible through per-terminal $\delta_{\text{sat}}$ values.
 
 ### What AAD Should NOT Do
 
@@ -241,12 +241,12 @@ If the recommendations above are adopted, the changes to existing segments are m
 
 | Segment | Change |
 |---|---|
-| #objective-functional | Strengthen Epistemic Status scope note with the three arguments (revealed-preference, approximation, timescale). Promote AND-node workaround from Working Notes to Discussion. |
-| #satisfaction-gap | Add "jointly infeasible" row to disambiguation table. Note that compound objectives via AND-nodes produce per-terminal $\delta_{\text{sat}}$ values. |
-| #control-regret | No change needed. The per-terminal version follows from the AND-node structure without modifying the definition. |
-| #strategy-dag | Add a brief note that compound objectives appear as AND-nodes near the root, with per-terminal satisfaction criteria. Already implicit in the "rootedness" constraint. |
-| #orient-cascade | No change needed. The cascade ordering is scalar-independent. |
-| #strategy-dimension | No change needed. The $G_t = (O_t, \Sigma_t)$ split is type-theoretic. |
-| #value-object | No change needed. The value object machinery works per-terminal. |
+| #form-objective-functional | Strengthen Epistemic Status scope note with the three arguments (revealed-preference, approximation, timescale). Promote AND-node workaround from Working Notes to Discussion. |
+| #def-satisfaction-gap | Add "jointly infeasible" row to disambiguation table. Note that compound objectives via AND-nodes produce per-terminal $\delta_{\text{sat}}$ values. |
+| #def-control-regret | No change needed. The per-terminal version follows from the AND-node structure without modifying the definition. |
+| #def-strategy-dag | Add a brief note that compound objectives appear as AND-nodes near the root, with per-terminal satisfaction criteria. Already implicit in the "rootedness" constraint. |
+| #der-orient-cascade | No change needed. The cascade ordering is scalar-independent. |
+| #def-strategy-dimension | No change needed. The $G_t = (O_t, \Sigma_t)$ split is type-theoretic. |
+| #def-value-object | No change needed. The value object machinery works per-terminal. |
 
 No new segments are needed. The existing structure accommodates the analysis through strengthened scope notes and one additional disambiguation row.

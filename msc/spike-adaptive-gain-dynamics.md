@@ -15,13 +15,13 @@ Stated inside AAD's current machinery, the adaptive-gain question is:
 
 Three sub-questions sharpen this.
 
-**Q1 (scope).** When is adapting $K$ still inside sub-scope $\alpha$ (A2' derived from the update rule's structure via #gain-sector-bridge Prop B.3)? When does it push into sub-scope $\beta$ (A2' posited per-agent)?
+**Q1 (scope).** When is adapting $K$ still inside sub-scope $\alpha$ (A2' derived from the update rule's structure via #der-gain-sector-bridge Prop B.3)? When does it push into sub-scope $\beta$ (A2' posited per-agent)?
 
 **Q2 (meta-gain).** Is there a *meta-gain sector condition* — a sector-like condition on the $K$-dynamics themselves — that composes with the primary sector condition on $\delta$ to preserve Prop A.1 / A.1S?
 
-**Q3 (timescale separation).** When does adaptive gain introduce a genuinely two-timescale problem, and when is it absorbable as a single-timescale nonlinearity on $F$? Is this a singular-perturbation problem (#multi-timescale-stability), or does it reduce to constant-$\alpha$ analysis in a larger state space?
+**Q3 (timescale separation).** When does adaptive gain introduce a genuinely two-timescale problem, and when is it absorbable as a single-timescale nonlinearity on $F$? Is this a singular-perturbation problem (#sketch-multi-timescale-stability), or does it reduce to constant-$\alpha$ analysis in a larger state space?
 
-The answer, derived below, is: (i) **sub-scope $\alpha$ is preserved whenever the gain-update map is sector-bounded around its optimal gain and the timescales separate cleanly**; (ii) **a meta-gain sector condition does exist for a characterized sub-class (adaptive Kalman with Mehra-type innovation-based estimator; strongly-convex-loss step-size adaptation around a basin); otherwise the adaptive-gain regime is sub-scope $\beta$ with A2' as an assumed effective-$\alpha$ bound**; (iii) **the two-timescale view is productive — not as a singular-perturbation reduction, but as the natural setting for composing two instances of `#sector-persistence-template`**.
+The answer, derived below, is: (i) **sub-scope $\alpha$ is preserved whenever the gain-update map is sector-bounded around its optimal gain and the timescales separate cleanly**; (ii) **a meta-gain sector condition does exist for a characterized sub-class (adaptive Kalman with Mehra-type innovation-based estimator; strongly-convex-loss step-size adaptation around a basin); otherwise the adaptive-gain regime is sub-scope $\beta$ with A2' as an assumed effective-$\alpha$ bound**; (iii) **the two-timescale view is productive — not as a singular-perturbation reduction, but as the natural setting for composing two instances of `#result-sector-persistence-template`**.
 
 ## 2. Structural setup — the gain becomes state
 
@@ -45,7 +45,7 @@ The derivation below enumerates these obstructions case by case.
 
 ### 3.1 Setup
 
-Take the scalar linear-Gaussian setting of #gain-sector-derivation Prop B.1 with unknown $Q$ (process noise variance) and $R$ (observation noise variance). Let $K^\ast$ be the steady-state Kalman gain for the true $(Q^\ast, R^\ast)$. The innovation-based estimator (Mehra 1970, 1972; Mohamed & Schwarz 1999; treated as a rank-deficient-identifiability problem in Dunik et al. 2021 per the Zagrobelny PMC reference) produces $\hat Q_t, \hat R_t$ from a sliding-window autocorrelation of the innovation sequence, then feeds $K_t = K(\hat Q_t, \hat R_t)$ back into the Kalman update.
+Take the scalar linear-Gaussian setting of #deriv-gain-sector Prop B.1 with unknown $Q$ (process noise variance) and $R$ (observation noise variance). Let $K^\ast$ be the steady-state Kalman gain for the true $(Q^\ast, R^\ast)$. The innovation-based estimator (Mehra 1970, 1972; Mohamed & Schwarz 1999; treated as a rank-deficient-identifiability problem in Dunik et al. 2021 per the Zagrobelny PMC reference) produces $\hat Q_t, \hat R_t$ from a sliding-window autocorrelation of the innovation sequence, then feeds $K_t = K(\hat Q_t, \hat R_t)$ back into the Kalman update.
 
 The innovation at time $t$ is $\iota_t = o_t - H \hat x_{t\mid t-1} = H e_{t\mid t-1} + \varepsilon_t$ where $e$ is the state-estimation error and $\varepsilon$ is the observation noise. In the scalar case, the primary sector condition is (Prop B.1):
 
@@ -71,7 +71,7 @@ $$\tilde K_{t+1} = (1 - \lambda_N) \tilde K_t + \lambda_N \eta_t^{\text{inn}}$$
 
 where $\lambda_N$ is a contraction rate set by the window length ($\lambda_N \asymp 1/N$ for the raw estimator; modified via forgetting-factor variants) and $\eta_t^{\text{inn}}$ is zero-mean innovation noise with variance scaling as $O(1/N)$.
 
-**This is a scalar Ornstein-Uhlenbeck process on $\tilde K$.** It is itself an instance of `#sector-persistence-template` with state $\xi = \tilde K$, correction $F_K(\tilde K) = \lambda_N \tilde K$, disturbance $v_t = \lambda_N \eta_t^{\text{inn}}$:
+**This is a scalar Ornstein-Uhlenbeck process on $\tilde K$.** It is itself an instance of `#result-sector-persistence-template` with state $\xi = \tilde K$, correction $F_K(\tilde K) = \lambda_N \tilde K$, disturbance $v_t = \lambda_N \eta_t^{\text{inn}}$:
 
 - **(T1)** $F_K(0) = 0$: when the gain is at optimal, the innovation-statistics estimate returns the optimal, in expectation.
 - **(T2-meta)** $\tilde K \cdot F_K(\tilde K) = \lambda_N \tilde K^2$: **meta-gain sector bound $\alpha_K = \lambda_N$**.
@@ -95,7 +95,7 @@ which reduces to the classical Prop A.1S result as $N \to \infty$ and the gain e
 
 ### 3.5 Verdict — Case A is sub-scope $\alpha$
 
-Adaptive Kalman with innovation-based Q/R estimation under timescale separation ($\lambda_N \ll $ primary-contraction rate) is **inside sub-scope $\alpha$**: both the primary sector condition (Prop B.1) and the meta-gain sector condition (above) are derived from the update structure, not assumed. The composed persistence result is a clean application of `#sector-persistence-template` twice in sequence.
+Adaptive Kalman with innovation-based Q/R estimation under timescale separation ($\lambda_N \ll $ primary-contraction rate) is **inside sub-scope $\alpha$**: both the primary sector condition (Prop B.1) and the meta-gain sector condition (above) are derived from the update structure, not assumed. The composed persistence result is a clean application of `#result-sector-persistence-template` twice in sequence.
 
 **What's derived:**
 - Primary A2' with $\alpha_{\text{eff}} = K^\ast - |\tilde K|_{\text{max}}$ (from Prop B.1 + triangle).
@@ -112,7 +112,7 @@ Adaptive Kalman with innovation-based Q/R estimation under timescale separation 
 
 Agent updates via $M_{t+1} = M_t - \eta_t \cdot \hat g_t / (\sqrt{v_t} + \varepsilon)$ where $\hat g_t$ is the per-step stochastic gradient and $v_t$ is a running second-moment estimate (RMSProp: exponential moving average $v_t = \beta v_{t-1} + (1-\beta)\hat g_t^2$; AdaGrad: cumulative $v_t = \sum_{s \leq t} \hat g_s^2$).
 
-In the #update-gain representation, this is $\eta_t^{\text{eff}} = \eta_t / (\sqrt{v_t} + \varepsilon)$. The gain adapts per-coordinate; here we treat the scalar case. The target $K^\ast$ is the fixed step size that minimizes the asymptotic variance of the iterate in the limit of perfect second-moment knowledge, i.e., $\eta^\ast = \eta / \sqrt{\mathbb E[g^2]}$.
+In the #emp-update-gain representation, this is $\eta_t^{\text{eff}} = \eta_t / (\sqrt{v_t} + \varepsilon)$. The gain adapts per-coordinate; here we treat the scalar case. The target $K^\ast$ is the fixed step size that minimizes the asymptotic variance of the iterate in the limit of perfect second-moment knowledge, i.e., $\eta^\ast = \eta / \sqrt{\mathbb E[g^2]}$.
 
 The loss $L$ is $\mu$-strongly convex with $L$-Lipschitz gradient. The primary correction function is $F(\delta; K) = K \nabla L(M^\ast + \delta)$, with $K$ the effective learning rate. Prop B.4 gives the primary sector condition: $\alpha(K) = K \mu$ for $\delta$ in the basin.
 
@@ -195,7 +195,7 @@ IMM is **not uniformly sub-scope $\alpha$**. It fractures:
 - **Between-transition regime:** sub-scope $\alpha$ by reduction to fixed-gain Kalman for the dominant-mode $K^\ast$.
 - **Across regime transitions:** sub-scope $\beta$, with A2' failing during the reconcentration window. The correct treatment is either (a) dwell-time + disturbance absorption (works if regime process is slow enough), or (b) honest posit that A2' does not hold on the $\tau_{\text{IMM}}$ transient and mismatch persistence is measured after transients decay.
 
-This is the adaptive-gain analog of `#structural-adaptation-necessity`'s trigger: regime-transitions are structural events that temporarily exceed the sector-condition machinery.
+This is the adaptive-gain analog of `#result-structural-adaptation-necessity`'s trigger: regime-transitions are structural events that temporarily exceed the sector-condition machinery.
 
 ## 6. Case D — MAML-style meta-learning (inner loop + outer loop)
 
@@ -207,7 +207,7 @@ In the AAD correspondence: the inner loop is the primary adaptive process with u
 
 ### 6.2 Two-timescale reading — the outer loop as $M_t$ re-specification
 
-MAML is most naturally read in AAD as a meta-adaptation that adjusts the *model class specification* over tasks — very close to what `#structural-adaptation-necessity` contemplates, but continuous and differentiable rather than discrete class-switching. The inner loop is `#update-gain` within a fixed model class; the outer loop moves the model class itself via gradient on meta-loss.
+MAML is most naturally read in AAD as a meta-adaptation that adjusts the *model class specification* over tasks — very close to what `#result-structural-adaptation-necessity` contemplates, but continuous and differentiable rather than discrete class-switching. The inner loop is `#emp-update-gain` within a fixed model class; the outer loop moves the model class itself via gradient on meta-loss.
 
 The primary sector condition (inner loop) holds for each task under the convex-loss assumption, exactly via Prop B.4: $\alpha = \alpha_{\text{inner}} \cdot \mu$.
 
@@ -223,7 +223,7 @@ The inner loop (fixed-$\alpha$ inside the basin) is sub-scope $\alpha$. The comp
 
 ### 6.4 Verdict — Case D is sub-scope $\beta$ at the meta-level, sub-scope $\alpha$ at the task-level
 
-MAML's formal status in AAD is that **its inner-outer structure matches `#multi-timescale-stability`'s two-timescale framework** with the *slow* state being $\theta$ (initialization / model class) and the *fast* state being per-task adaptation. Inner-loop A2' is derived (sub-scope $\alpha$) from Prop B.4. Outer-loop A2' must be assumed per basin, not derived (sub-scope $\beta$), because the meta-loss is non-convex even under per-task convexity.
+MAML's formal status in AAD is that **its inner-outer structure matches `#sketch-multi-timescale-stability`'s two-timescale framework** with the *slow* state being $\theta$ (initialization / model class) and the *fast* state being per-task adaptation. Inner-loop A2' is derived (sub-scope $\alpha$) from Prop B.4. Outer-loop A2' must be assumed per basin, not derived (sub-scope $\beta$), because the meta-loss is non-convex even under per-task convexity.
 
 ## 7. The meta-gain sector condition — consolidated form
 
@@ -241,11 +241,11 @@ $$\tilde K^T \Phi(\tilde K, \delta) \geq \alpha_K \lVert\tilde K\rVert^2 \quad \
 
 with $\alpha_K > 0$. **This is the meta-gain scope condition** — the question asked in the spike brief.
 
-**(MG-3) Timescale separation.** $\alpha_K \ll \underline\alpha$ (the gain adapts slower than the primary state contracts). This is the direct analog of `#temporal-nesting`'s $\nu_{n+1} \ll \nu_n$ convergence constraint, now stated on the Lyapunov decay rates rather than the event rates.
+**(MG-3) Timescale separation.** $\alpha_K \ll \underline\alpha$ (the gain adapts slower than the primary state contracts). This is the direct analog of `#der-temporal-nesting`'s $\nu_{n+1} \ll \nu_n$ convergence constraint, now stated on the Lyapunov decay rates rather than the event rates.
 
 **(MG-4) Coupling boundedness.** The effective gain-channel disturbance $v(t)$ has bounded contribution from the primary state: $\mathbb E[\lVert v(t)\rVert^2 \mid \delta] \leq \sigma_{K,0}^2 + c_v \cdot \lVert\delta\rVert^2$ for some $c_v \geq 0$. (MG-4) with $c_v = 0$ is the clean two-timescale decoupling of Case A; $c_v > 0$ is Case B's RMSProp coupling, requiring the fixed-point closure of §4.4.
 
-**Composed persistence result.** Under (MG-1)–(MG-4), the augmented-state persistence $\mathbb E[\lVert\delta\rVert^2 + c \lVert\tilde K\rVert^2]$ is ultimately bounded for an appropriate weight $c$, and the bounds degrade gracefully compared to the fixed-gain case. Where (MG-4) has $c_v = 0$, the degradation is a clean decomposition: primary + meta, each via `#sector-persistence-template`. Where $c_v > 0$, the degradation couples — solve by fixed-point as in §4.4.
+**Composed persistence result.** Under (MG-1)–(MG-4), the augmented-state persistence $\mathbb E[\lVert\delta\rVert^2 + c \lVert\tilde K\rVert^2]$ is ultimately bounded for an appropriate weight $c$, and the bounds degrade gracefully compared to the fixed-gain case. Where (MG-4) has $c_v = 0$, the degradation is a clean decomposition: primary + meta, each via `#result-sector-persistence-template`. Where $c_v > 0$, the degradation couples — solve by fixed-point as in §4.4.
 
 **Proof sketch.** Define the Lyapunov candidate $V(z) = \tfrac12 \lVert\delta\rVert^2 + \tfrac{c}{2}\lVert\tilde K\rVert^2$ on the augmented state $z = (\delta, \tilde K)$. Compute $\dot V$ along trajectories:
 
@@ -266,23 +266,23 @@ Standard Lyapunov ultimate-boundedness (Khalil 2002 Thm 4.18). $\square$
 - If (MG-1), (MG-2), (MG-3), and (MG-4-decoupled or -bounded) all hold *structurally* from the update rule (as in Cases A and the design-condition regime of B), then adaptive-gain A2' is derived — sub-scope $\alpha_2$ (new label).
 - If any of (MG-1)–(MG-4) must be assumed per-agent (as in the non-convex meta-loss of MAML, the regime-transitioning phase of IMM, or aggressive-$\beta$ RMSProp), the adaptive-gain system falls to sub-scope $\beta$ or a mixed $\alpha$/$\beta$ case as in MAML.
 
-This is a constructive extension of the A2' sub-scope partition, not a replacement: sub-scope $\alpha_1$ (fixed-gain, per the current `#gain-sector-bridge` Prop B.3) continues to cover the well-studied cases; sub-scope $\alpha_2$ (adaptive-gain under MG-1–MG-4) names the adaptive setting where derivation still works; sub-scope $\beta$ catches the rest.
+This is a constructive extension of the A2' sub-scope partition, not a replacement: sub-scope $\alpha_1$ (fixed-gain, per the current `#der-gain-sector-bridge` Prop B.3) continues to cover the well-studied cases; sub-scope $\alpha_2$ (adaptive-gain under MG-1–MG-4) names the adaptive setting where derivation still works; sub-scope $\beta$ catches the rest.
 
-## 8. Relationship to `#multi-timescale-stability`
+## 8. Relationship to `#sketch-multi-timescale-stability`
 
-The adaptive-gain problem naturally sits inside `#multi-timescale-stability`'s two-timescale sketch, but with a sharpening. The existing segment treats the slow state as *model class* $\mathcal M$ (structural adaptation) and the fast state as *mismatch* $\delta$ (parametric adaptation). Adaptive gain is a *different* two-timescale pattern: the slow state is the *gain* (a parameter of the update rule, not of the model), and the fast state is the primary mismatch.
+The adaptive-gain problem naturally sits inside `#sketch-multi-timescale-stability`'s two-timescale sketch, but with a sharpening. The existing segment treats the slow state as *model class* $\mathcal M$ (structural adaptation) and the fast state as *mismatch* $\delta$ (parametric adaptation). Adaptive gain is a *different* two-timescale pattern: the slow state is the *gain* (a parameter of the update rule, not of the model), and the fast state is the primary mismatch.
 
-This suggests a refinement: `#multi-timescale-stability` should distinguish at least three timescale patterns:
+This suggests a refinement: `#sketch-multi-timescale-stability` should distinguish at least three timescale patterns:
 
 1. **Model-class timescale** (slowest meaningful parametric timescale; structural-adaptation territory).
 2. **Gain-parameter timescale** (the subject of this spike; between-events but slower than primary correction).
 3. **Primary-correction timescale** (fastest; the canonical Prop A.1 setting).
 
-The singular-perturbation framing in `#multi-timescale-stability` Eq. 1 becomes concrete: $\epsilon_k$ at each level is the contraction rate of the corresponding Lyapunov function, not a free parameter. The convergence constraint $\nu_{n+1} \ll \nu_n$ translates to $\alpha_{\text{slow}} \ll \alpha_{\text{fast}}$ on Lyapunov decay rates, matching the (MG-3) timescale-separation condition.
+The singular-perturbation framing in `#sketch-multi-timescale-stability` Eq. 1 becomes concrete: $\epsilon_k$ at each level is the contraction rate of the corresponding Lyapunov function, not a free parameter. The convergence constraint $\nu_{n+1} \ll \nu_n$ translates to $\alpha_{\text{slow}} \ll \alpha_{\text{fast}}$ on Lyapunov decay rates, matching the (MG-3) timescale-separation condition.
 
-**However:** singular perturbation theory (Tikhonov 1952; Khalil 2002 ch. 11) is a *reduction* technique — it replaces the fast dynamics with their quasi-steady-state manifold. The spike's adaptive-gain analysis does not do this. Instead, it composes two `#sector-persistence-template` instances with an explicit cross-coupling bound. The two approaches are complementary: Tikhonov gives the "the fast state tracks its slow manifold up to $O(\epsilon)$" story; the template-composition gives the "each level's state is ultimately bounded with coupling-amplified disturbance" story, which is the persistence-flavored statement aligned with AAD's other persistence results.
+**However:** singular perturbation theory (Tikhonov 1952; Khalil 2002 ch. 11) is a *reduction* technique — it replaces the fast dynamics with their quasi-steady-state manifold. The spike's adaptive-gain analysis does not do this. Instead, it composes two `#result-sector-persistence-template` instances with an explicit cross-coupling bound. The two approaches are complementary: Tikhonov gives the "the fast state tracks its slow manifold up to $O(\epsilon)$" story; the template-composition gives the "each level's state is ultimately bounded with coupling-amplified disturbance" story, which is the persistence-flavored statement aligned with AAD's other persistence results.
 
-**Recommendation:** `#multi-timescale-stability` gets an explicit note that AAD's preferred two-timescale composition is via `#sector-persistence-template` applied twice with an augmented-state Lyapunov function (§7 above), not via Tikhonov reduction. Singular perturbation is a reduction tool; template-composition is a persistence-bounding tool. They answer different questions.
+**Recommendation:** `#sketch-multi-timescale-stability` gets an explicit note that AAD's preferred two-timescale composition is via `#result-sector-persistence-template` applied twice with an augmented-state Lyapunov function (§7 above), not via Tikhonov reduction. Singular perturbation is a reduction tool; template-composition is a persistence-bounding tool. They answer different questions.
 
 ## 9. What's derived vs what's assumed in this spike
 
@@ -295,11 +295,11 @@ The singular-perturbation framing in `#multi-timescale-stability` Eq. 1 becomes 
 | (MG-3) timescale separation as AAD's $\nu_{n+1} \ll \nu_n$ analog on Lyapunov decay rates | §7 plus §8 discussion | Derived (via augmented-state Lyapunov cross-term closure) |
 | Case-by-case classification of adaptive-Kalman, RMSProp, IMM, MAML in sub-scope $\alpha_1$ / $\alpha_2$ / $\beta$ | §§3–6 | Derived per case, conditional on named regularity |
 | Refinement of A2' sub-scope partition: $\alpha_1$ (fixed-gain) / $\alpha_2$ (adaptive-gain under MG-1–MG-4) / $\beta$ (everything else) | §7 recommendation | Discussion-grade proposal for segment-level edit |
-| `#multi-timescale-stability` should separate model-class / gain-parameter / primary-correction timescales | §8 | Discussion-grade proposal for segment-level edit |
+| `#sketch-multi-timescale-stability` should separate model-class / gain-parameter / primary-correction timescales | §8 | Discussion-grade proposal for segment-level edit |
 
 ### Epistemic honest obstructions identified
 
-- **(Obstruction O1) Identifiability for Mehra's estimator.** The meta-gain dynamics in §3.3 assume the $(Q, R)$-from-innovations problem is identifiable. This is known to fail for certain system structures (Dunik et al. 2021). When identifiability fails, the meta-gain estimator does not contract to $\tilde K = 0$, and (MG-2) fails at its target — the adaptive-Kalman persistence result does not hold. This is an instance of the #discussion-identifiability-floor pattern: a structural no-go (non-identifiability) on the meta-gain channel blocking adaptive sub-scope $\alpha$.
+- **(Obstruction O1) Identifiability for Mehra's estimator.** The meta-gain dynamics in §3.3 assume the $(Q, R)$-from-innovations problem is identifiable. This is known to fail for certain system structures (Dunik et al. 2021). When identifiability fails, the meta-gain estimator does not contract to $\tilde K = 0$, and (MG-2) fails at its target — the adaptive-Kalman persistence result does not hold. This is an instance of the #disc-identifiability-floor pattern: a structural no-go (non-identifiability) on the meta-gain channel blocking adaptive sub-scope $\alpha$.
 - **(Obstruction O2) Non-convex meta-loss (MAML).** The outer loop's A2' is assumed, not derived, because per-task convexity does not imply meta-loss convexity. Fallah et al. 2020's convergence analysis is in the stationary-point sense, not the sector-condition sense — and the two are structurally different. This is sub-scope $\beta$ status being honest, not a bug.
 - **(Obstruction O3) $\delta$-to-gain coupling in RMSProp.** The $\delta$-dependent term in the effective gain-channel disturbance (§4.3's third term) breaks clean decoupling. The fixed-point closure works under smallness conditions but reduces to (MG-4) with $c_v > 0$ and requires separate verification per problem instance.
 - **(Obstruction O4) IMM regime transitions.** A2' fails uniformly in time during IMM reconcentration windows; repair via dwell-time + impulsive-disturbance absorption is a significant scope narrowing. Sub-scope $\alpha$ between transitions; sub-scope $\beta$ across them.
@@ -310,9 +310,9 @@ None of the four obstructions is fatal to AAD — they are instances of the scop
 
 Three options, ranked:
 
-### R1 (preferred) — New segment: `#adaptive-gain-dynamics` + minor edits to three existing segments
+### R1 (preferred) — New segment: `#deriv-adaptive-gain-dynamics` + minor edits to three existing segments
 
-Create `01-aad-core/src/adaptive-gain-dynamics.md` as a derived/result segment stating:
+Create `01-aad-core/src/deriv-adaptive-gain-dynamics.md` as a derived/result segment stating:
 
 1. The augmented-state setup (§2).
 2. Conditions (MG-1)–(MG-4) as the sector-condition analog for adaptive gain.
@@ -322,19 +322,19 @@ Create `01-aad-core/src/adaptive-gain-dynamics.md` as a derived/result segment s
 
 Corresponding edits:
 
-- **`#sector-condition-derivation`:** extend the sub-scope paragraph to mention $\alpha_2$ (adaptive-gain derivation) with pointer to the new segment; one-sentence note in the "What is derived vs. what is chosen" table.
-- **`#gain-sector-bridge`:** one-paragraph Discussion note cross-referencing the adaptive-gain extension. No change to B1/B.3/B.4.
-- **`#multi-timescale-stability`:** Working Notes entry naming the three timescale patterns (model-class / gain-parameter / primary-correction), with pointer to the new segment's §7–8.
+- **`#deriv-sector-condition`:** extend the sub-scope paragraph to mention $\alpha_2$ (adaptive-gain derivation) with pointer to the new segment; one-sentence note in the "What is derived vs. what is chosen" table.
+- **`#der-gain-sector-bridge`:** one-paragraph Discussion note cross-referencing the adaptive-gain extension. No change to B1/B.3/B.4.
+- **`#sketch-multi-timescale-stability`:** Working Notes entry naming the three timescale patterns (model-class / gain-parameter / primary-correction), with pointer to the new segment's §7–8.
 
 This is the approach consistent with `feedback_math_lives_in_segments.md`: the math in this spike lands as a segment, not just as an appendix or working note.
 
-### R2 — Appendix to `#gain-sector-bridge`
+### R2 — Appendix to `#der-gain-sector-bridge`
 
-Fold §§2, 7 into a new "Adaptive-gain extension" §5 or §6 of `#gain-sector-bridge`, with Cases A-D as terse examples. No new segment file. Downside: bloats an already load-bearing segment with a separate pattern; the $\alpha_1$ / $\alpha_2$ distinction is harder to make visible when embedded.
+Fold §§2, 7 into a new "Adaptive-gain extension" §5 or §6 of `#der-gain-sector-bridge`, with Cases A-D as terse examples. No new segment file. Downside: bloats an already load-bearing segment with a separate pattern; the $\alpha_1$ / $\alpha_2$ distinction is harder to make visible when embedded.
 
-### R3 — Sub-sub-scope of A2' in `#sector-condition-derivation`
+### R3 — Sub-sub-scope of A2' in `#deriv-sector-condition`
 
-Extend the existing A2' sub-scope partition to $\alpha_1$ / $\alpha_2$ / $\beta$ directly in the Assumptions section of `#sector-condition-derivation`, without a new segment. Downside: the augmented-state argument and the meta-gain conditions (MG-1)–(MG-4) are substantive new content that does not fit into a sub-scope-labeling paragraph.
+Extend the existing A2' sub-scope partition to $\alpha_1$ / $\alpha_2$ / $\beta$ directly in the Assumptions section of `#deriv-sector-condition`, without a new segment. Downside: the augmented-state argument and the meta-gain conditions (MG-1)–(MG-4) are substantive new content that does not fit into a sub-scope-labeling paragraph.
 
 **Recommendation: R1.** The adaptive-gain result is a proper extension of AAD's persistence machinery in the form of a new, composable theorem (§7). It deserves its own segment rather than a subordinate position inside an existing one. The segment's stage would be `draft` pending review; type `derived` (since (MG-1)–(MG-4) + Prop A.1 chains to a new result); status `conditional` (since the new sub-scope $\alpha_2$ is conditional on (MG-1)–(MG-4), each verifiable per case).
 
@@ -346,17 +346,17 @@ Extend the existing A2' sub-scope partition to $\alpha_1$ / $\alpha_2$ / $\beta$
 
 3. **Is there a meta-gain sector condition?** Yes — (MG-2) in §7. It is a local sector condition on the gain-update map in the gain-error state $\tilde K$, with rate $\alpha_K$. It is derived for adaptive Kalman (rate $\asymp 1/N$ with window length $N$) and for RMSProp's second-moment EMA (rate $1 - \beta$). It is assumed for adversarial / non-convex / regime-transitioning meta-gains.
 
-4. **Two-timescale singular perturbation?** No, not in the Tikhonov-reduction sense. The correct framing is **two applications of `#sector-persistence-template`** via an augmented-state Lyapunov function with cross-coupling bound (§7). Timescale separation enters as $\alpha_K \ll \underline\alpha$ on Lyapunov decay rates, which serves the role of Tikhonov's $\epsilon \to 0$ but without eliminating the fast variable — the persistence bound keeps both states and quantifies their coupling.
+4. **Two-timescale singular perturbation?** No, not in the Tikhonov-reduction sense. The correct framing is **two applications of `#result-sector-persistence-template`** via an augmented-state Lyapunov function with cross-coupling bound (§7). Timescale separation enters as $\alpha_K \ll \underline\alpha$ on Lyapunov decay rates, which serves the role of Tikhonov's $\epsilon \to 0$ but without eliminating the fast variable — the persistence bound keeps both states and quantifies their coupling.
 
 5. **Does the A2' sub-scope partition itself need revision?** Yes — refinement, not overhaul. The current $\alpha$ / $\beta$ split becomes $\alpha_1$ (fixed-gain, Prop B.3 via B1) / $\alpha_2$ (adaptive-gain, via (MG-1)–(MG-4) and augmented-state Lyapunov) / $\beta$ (everything else). This preserves all existing sub-scope $\alpha$ language as a specialization — adaptive-gain-preserved-as-$\alpha_2$ reduces to the original $\alpha_1$ by setting $\tilde K \equiv 0$.
 
 ## 12. Open questions after this spike
 
 1. **Rate-specific results.** §7's composed persistence is a bound, not a rate. Can the $1/\sqrt{N}$ rate of Mehra-adaptive-Kalman be derived as a rate from §7's augmented-state Lyapunov, or is it external theorem?
-2. **Identifiability as meta-gain fail-mode.** §9 Obstruction O1 suggests adaptive-gain has its own `#discussion-identifiability-floor` instance: Mehra non-identifiability, or IMM unidentifiable-regime-process, blocks the $\alpha_2$ derivation. Worth a sharper statement co-located with or cross-referenced from `#discussion-identifiability-floor`.
-3. **Adversarial adaptive-gain.** If the environment adversarially varies $K^\ast$ (regime-switching under hostile cadence), the dwell-time repair of §5.3 fails. Is there an adversarial-tempo-advantage analog for the meta-gain level? (`#adversarial-tempo-advantage`'s argument structure looks like it transfers: faster meta-gain tracking beats faster environmental regime switching iff $\alpha_K T_{\text{dwell}} > $ transition rate. Not derived here; adjacent spike.)
-4. **Discrete-time form.** Everything above is continuous-time. The discrete-time version involves the additional Lipschitz bound of `#discrete-sector-condition`, now on both $F$ and $\Phi$. Presumably an extension of §7 to discrete time exists; left for future work.
-5. **Connection to `#strategy-persistence-schema` time-varying $\alpha$.** `#sector-persistence-template` Working Notes already flag time-varying $\alpha(t)$ as a candidate extension. Adaptive gain is one concrete source of time-varying $\alpha$. The $\alpha_\Sigma = 1/(n+1)$ decay in `#strategy-persistence-schema` (requiring experience discounting) is a related pattern — an adaptive gain that *does not* preserve (MG-1) without extra machinery. Re-reading that segment through the $\alpha_2$ lens could clarify why experience discounting is formally necessary.
+2. **Identifiability as meta-gain fail-mode.** §9 Obstruction O1 suggests adaptive-gain has its own `#disc-identifiability-floor` instance: Mehra non-identifiability, or IMM unidentifiable-regime-process, blocks the $\alpha_2$ derivation. Worth a sharper statement co-located with or cross-referenced from `#disc-identifiability-floor`.
+3. **Adversarial adaptive-gain.** If the environment adversarially varies $K^\ast$ (regime-switching under hostile cadence), the dwell-time repair of §5.3 fails. Is there an adversarial-tempo-advantage analog for the meta-gain level? (`#result-adversarial-tempo-advantage`'s argument structure looks like it transfers: faster meta-gain tracking beats faster environmental regime switching iff $\alpha_K T_{\text{dwell}} > $ transition rate. Not derived here; adjacent spike.)
+4. **Discrete-time form.** Everything above is continuous-time. The discrete-time version involves the additional Lipschitz bound of `#deriv-discrete-sector-condition`, now on both $F$ and $\Phi$. Presumably an extension of §7 to discrete time exists; left for future work.
+5. **Connection to `#schema-strategy-persistence` time-varying $\alpha$.** `#result-sector-persistence-template` Working Notes already flag time-varying $\alpha(t)$ as a candidate extension. Adaptive gain is one concrete source of time-varying $\alpha$. The $\alpha_\Sigma = 1/(n+1)$ decay in `#schema-strategy-persistence` (requiring experience discounting) is a related pattern — an adaptive gain that *does not* preserve (MG-1) without extra machinery. Re-reading that segment through the $\alpha_2$ lens could clarify why experience discounting is formally necessary.
 
 ## 13. References
 
@@ -390,7 +390,7 @@ Extend the existing A2' sub-scope partition to $\alpha_1$ / $\alpha_2$ / $\beta$
 - Ji, K., Yang, J., Liang, Y. (2022). "Theoretical convergence of multi-step model-agnostic meta-learning," *J. Machine Learning Research* 23:1-41.
 
 **AAD segments referenced:**
-- `#update-gain`, `#gain-sector-bridge`, `#gain-sector-derivation`, `#sector-condition-derivation`, `#sector-condition-stability`, `#sector-persistence-template`, `#multi-timescale-stability`, `#structural-adaptation-necessity`, `#persistence-condition`, `#strategy-persistence-schema`, `#adversarial-tempo-advantage`, `#discussion-identifiability-floor`, `#temporal-nesting`, `#discrete-sector-condition`.
+- `#emp-update-gain`, `#der-gain-sector-bridge`, `#deriv-gain-sector`, `#deriv-sector-condition`, `#result-sector-condition-stability`, `#result-sector-persistence-template`, `#sketch-multi-timescale-stability`, `#result-structural-adaptation-necessity`, `#result-persistence-condition`, `#schema-strategy-persistence`, `#result-adversarial-tempo-advantage`, `#disc-identifiability-floor`, `#der-temporal-nesting`, `#deriv-discrete-sector-condition`.
 
 **Standard references (already in use):**
 - Khalil, H. K. (2002). *Nonlinear Systems*, 3rd ed. Prentice Hall. Ch. 4 (Lyapunov), ch. 9 (input-output), ch. 11 (singular perturbation).

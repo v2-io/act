@@ -7,15 +7,15 @@ date: 2026-04-22
 
 # Spike: Persistence Cost — Rate of Effort to Maintain Bounded Mismatch
 
-**Charter.** AAD's `#persistence-condition` establishes that under the sector condition, mismatch remains ultimately bounded. It does NOT quantify the *sustained rate of effort* required to hold the bound. Two agents with identical persistence-condition guarantees can face wildly different sustained demands — a Kalman filter tracking a stationary process vs. one tracking a rapidly non-stationary process are both "persistent," yet one is dormant and the other running hot. Task: formalize the sustained rate of effort required to maintain bounded mismatch under given disturbance statistics.
+**Charter.** AAD's `#result-persistence-condition` establishes that under the sector condition, mismatch remains ultimately bounded. It does NOT quantify the *sustained rate of effort* required to hold the bound. Two agents with identical persistence-condition guarantees can face wildly different sustained demands — a Kalman filter tracking a stationary process vs. one tracking a rapidly non-stationary process are both "persistent," yet one is dormant and the other running hot. Task: formalize the sustained rate of effort required to maintain bounded mismatch under given disturbance statistics.
 
-**Outcome (preview).** One clean Landauer-like lower bound lands: under Model S (stochastic disturbance, GA-2S), the minimum information rate the agent must acquire from observations to hold mismatch at the sector-persistence ultimate bound scales *linearly* with the sector constant $\alpha$, via a rate-distortion argument on the signal process. The same quantity has an interpretation as the entropy production rate of the Mitter-Newton (2005) steady-state non-equilibrium filter. Two other candidate metrics (expected gain magnitude, control-effort integral) are *dependent* cost quantities — operational rather than fundamental. A fourth candidate (Lyapunov dissipation rate) is revealed to be a *structurally invariant quantity* at steady state, equal to the disturbance power injection regardless of $\alpha$. This gives a three-tier persistence-cost taxonomy with one proper theorem at the bottom, honest scope analysis at the top, and a load-bearing observation in the middle. A new appendix segment `#persistence-cost` is proposed.
+**Outcome (preview).** One clean Landauer-like lower bound lands: under Model S (stochastic disturbance, GA-2S), the minimum information rate the agent must acquire from observations to hold mismatch at the sector-persistence ultimate bound scales *linearly* with the sector constant $\alpha$, via a rate-distortion argument on the signal process. The same quantity has an interpretation as the entropy production rate of the Mitter-Newton (2005) steady-state non-equilibrium filter. Two other candidate metrics (expected gain magnitude, control-effort integral) are *dependent* cost quantities — operational rather than fundamental. A fourth candidate (Lyapunov dissipation rate) is revealed to be a *structurally invariant quantity* at steady state, equal to the disturbance power injection regardless of $\alpha$. This gives a three-tier persistence-cost taxonomy with one proper theorem at the bottom, honest scope analysis at the top, and a load-bearing observation in the middle. A new appendix segment `#deriv-persistence-cost` is proposed.
 
 ---
 
 ## §1 — The Question Precisely
 
-Fix the sector-persistence template ( #sector-persistence-template) instantiated at the single-agent epistemic case ( #sector-condition-stability). Under (T1)–(T3) + persistence condition:
+Fix the sector-persistence template ( #result-sector-persistence-template) instantiated at the single-agent epistemic case ( #result-sector-condition-stability). Under (T1)–(T3) + persistence condition:
 
 - **Model D.** $\lVert\delta\rVert \leq R^\ast = \rho/\alpha$ almost surely (ultimate bound).
 - **Model S.** $\mathbb{E}[\lVert\delta\rVert^2]_{ss} = n\sigma_w^2/(2\alpha)$ (mean-square bound).
@@ -59,7 +59,7 @@ Two limiting regimes:
 | **Drift-dominated** | $\sigma_w^2/\sigma_o^2 \gg \lambda_s^2$ | $K_{ss} \approx \sigma_w/\sigma_o$ | Gain is large — filter runs hot |
 | **Noise-dominated** | $\lambda_s^2 \gg \sigma_w^2/\sigma_o^2$ | $K_{ss} \approx \sigma_w^2/(2\lambda_s\sigma_o^2)$ | Gain is small — filter is calm |
 
-**Connection to AAD quantities.** Under the identification $\eta^\ast \leftrightarrow K_{ss}$ (scalar Kalman case) and $\alpha = \eta^\ast$ for linear correction ( #gain-sector-bridge verified instances), the gain magnitude IS $\alpha$ itself. So $\mathcal{K}_1 = \alpha$ in this regime. **This collapses the cost question to the sector constant**: the agent's "rate of effort" is measured by the very quantity used to state persistence.
+**Connection to AAD quantities.** Under the identification $\eta^\ast \leftrightarrow K_{ss}$ (scalar Kalman case) and $\alpha = \eta^\ast$ for linear correction ( #der-gain-sector-bridge verified instances), the gain magnitude IS $\alpha$ itself. So $\mathcal{K}_1 = \alpha$ in this regime. **This collapses the cost question to the sector constant**: the agent's "rate of effort" is measured by the very quantity used to state persistence.
 
 *[Verdict — obstruction]*
 
@@ -131,11 +131,11 @@ $$\dot{\mathcal{S}} = \alpha/2$$
 
 **The entropy production rate scales linearly with the sector constant** — a clean, compact result. The interpretation in Mitter-Newton: the filter acts as a Maxwellian demon, returning signal energy to the heat bath without entropy increase only because new information is continually supplied. The rate at which information must be supplied equals the rate at which entropy would otherwise accumulate.
 
-**Multi-dimensional generalization.** In the matrix case $\dot{\mathcal{S}} = \tfrac{1}{2}\operatorname{tr}(K_{ss}^T \Sigma_o^{-1} K_{ss} P_{ss})$. For the observable subspace (where #gain-sector-bridge's Euclidean A2' holds), this reduces to $\tfrac{1}{2}\operatorname{tr}(\alpha \cdot I) = n\alpha/2$ under the approximation $K^T\Sigma_o^{-1}K \approx \alpha I$ on the observable subspace. Exact formula requires the full Riccati solution.
+**Multi-dimensional generalization.** In the matrix case $\dot{\mathcal{S}} = \tfrac{1}{2}\operatorname{tr}(K_{ss}^T \Sigma_o^{-1} K_{ss} P_{ss})$. For the observable subspace (where #der-gain-sector-bridge's Euclidean A2' holds), this reduces to $\tfrac{1}{2}\operatorname{tr}(\alpha \cdot I) = n\alpha/2$ under the approximation $K^T\Sigma_o^{-1}K \approx \alpha I$ on the observable subspace. Exact formula requires the full Riccati solution.
 
 *[Verdict — partial. Clean for Kalman-Bucy; scope-limited for general nonlinear filters.]*
 
-**Candidate 3 gives a clean result in the linear-Gaussian case**, and it has a real thermodynamic interpretation via Still et al. (2012, *Phys. Rev. Lett.* 109:120604, "Thermodynamics of Prediction"): the nonpredictive information the system retains about past environmental fluctuations corresponds exactly to the dissipation during interaction. **However, the result is conditional on linear-Gaussian filter structure**. For sub-scope $\alpha$ agents ( #sector-condition-derivation — Kalman/conjugate/exponential-family/strongly-convex-gradient/linear-PD), an analog holds; for sub-scope $\beta$ (PID/rule-based/variational/non-convex), the entropy-production quantity requires per-system derivation.
+**Candidate 3 gives a clean result in the linear-Gaussian case**, and it has a real thermodynamic interpretation via Still et al. (2012, *Phys. Rev. Lett.* 109:120604, "Thermodynamics of Prediction"): the nonpredictive information the system retains about past environmental fluctuations corresponds exactly to the dissipation during interaction. **However, the result is conditional on linear-Gaussian filter structure**. For sub-scope $\alpha$ agents ( #deriv-sector-condition — Kalman/conjugate/exponential-family/strongly-convex-gradient/linear-PD), an analog holds; for sub-scope $\beta$ (PID/rule-based/variational/non-convex), the entropy-production quantity requires per-system derivation.
 
 The Mitter-Newton identity is the *right* quantity but has limited sub-scope coverage. Candidate 3 is the bridge to Candidate 4, which generalizes.
 
@@ -191,7 +191,7 @@ $$\dot R_{\min}(R^{*2}_S) = \frac{n\alpha}{2}\text{ nats}/\text{time}$$
 
 *[Result: persistence-cost lower bound, scalar Gaussian case]*
 
-**Proposition (persistence information rate).** Let an adaptive system be in scope of #sector-condition-stability Model S (GA-2S, stochastic disturbance $\sigma_w^2$), with correction function satisfying A2' with sector constant $\alpha$ on some region $\mathcal B_R$, and let $R^{*2}_S = n\sigma_w^2/(2\alpha) \lt R^2$ (mean-square persistence condition). Suppose the environmental signal process $x$ is a $n$-dimensional independent-component Ornstein-Uhlenbeck process with per-component intrinsic drift $\lambda_s$ and diffusion $\sigma_w^2$, and that sector-persistence is achieved at the tight bound $D^2 = R^{*2}_S$.
+**Proposition (persistence information rate).** Let an adaptive system be in scope of #result-sector-condition-stability Model S (GA-2S, stochastic disturbance $\sigma_w^2$), with correction function satisfying A2' with sector constant $\alpha$ on some region $\mathcal B_R$, and let $R^{*2}_S = n\sigma_w^2/(2\alpha) \lt R^2$ (mean-square persistence condition). Suppose the environmental signal process $x$ is a $n$-dimensional independent-component Ornstein-Uhlenbeck process with per-component intrinsic drift $\lambda_s$ and diffusion $\sigma_w^2$, and that sector-persistence is achieved at the tight bound $D^2 = R^{*2}_S$.
 
 Then **any** adaptive process achieving $\mathbb{E}[\lVert\delta\rVert^2]_{ss} = R^{*2}_S$ must acquire information from observations at sustained rate:
 
@@ -211,7 +211,7 @@ giving $n\alpha/2$ total for $n$-dimensional independent OU. The agent's observa
 
 $$\dot R_{\min} = \mathcal{T}/2\text{ nats/time}$$
 
-Persistence requires adaptive tempo $\mathcal{T} \gt n\sigma_w^2/(2R^2)$ (from #persistence-condition). The information rate required to support this tempo is therefore lower-bounded by $\mathcal{T}/2$ — and the agent's observation channel must have capacity $C \geq \mathcal{T}/2$ (Shannon capacity theorem; Cover & Thomas 2006 §7.7). **Persistence demands a channel capacity ≥ half the adaptive tempo.** This is novel structural content.
+Persistence requires adaptive tempo $\mathcal{T} \gt n\sigma_w^2/(2R^2)$ (from #result-persistence-condition). The information rate required to support this tempo is therefore lower-bounded by $\mathcal{T}/2$ — and the agent's observation channel must have capacity $C \geq \mathcal{T}/2$ (Shannon capacity theorem; Cover & Thomas 2006 §7.7). **Persistence demands a channel capacity ≥ half the adaptive tempo.** This is novel structural content.
 
 ---
 
@@ -277,17 +277,17 @@ For Candidates 1, 2, 5, we have theorem-scale results but they are structurally 
 
 - *Gaussian OU signal only.* For non-Gaussian signals (power-law, heavy-tailed), the RDF has a different form (Berger 1971 Ch. 4). The scalar-OU case is the canonical benchmark; non-Gaussian cases give similar qualitative scaling ($\dot R_{\min} \propto$ some measure of innovation rate / $D^2$) but without the clean $\alpha/2$ form.
 
-- *Stationary regime only.* The bound is on *steady-state* sustained information rate. During transients (e.g., model reset after structural change; #structural-adaptation-necessity) the required information rate can be much higher — the agent is acquiring information to close a growing gap, not to maintain a fixed one.
+- *Stationary regime only.* The bound is on *steady-state* sustained information rate. During transients (e.g., model reset after structural change; #result-structural-adaptation-necessity) the required information rate can be much higher — the agent is acquiring information to close a growing gap, not to maintain a fixed one.
 
 - *High-resolution approximation.* The form $\dot R_{\min} = n\sigma_w^2/(4D^2)$ holds in the high-resolution regime $D^2 \ll \sigma_x^2 = \sigma_w^2/(2\lambda_s)$. In the low-resolution regime $D^2 \geq \sigma_x^2$, the RDF is zero (trivial tracking — the target's stationary variance is already below tolerance). The transition occurs at $\alpha = \lambda_s$: below this, tracking is trivial (the target is stable enough on its own); above, information-rate cost emerges.
 
-**Connection to model-class fitness.** The theorem assumes the agent can in principle reach distortion $D^2 = R^{*2}_S$ — i.e., the model class is adequate ( $\mathcal{F}(\mathcal{M}) \approx 1$ ). When $\mathcal{F}(\mathcal{M}) \lt 1 - \varepsilon$ ( #model-class-fitness), the achievable distortion is bounded away from zero by an *additional* floor, and the effective information-rate cost is larger. A full bound combining both:
+**Connection to model-class fitness.** The theorem assumes the agent can in principle reach distortion $D^2 = R^{*2}_S$ — i.e., the model class is adequate ( $\mathcal{F}(\mathcal{M}) \approx 1$ ). When $\mathcal{F}(\mathcal{M}) \lt 1 - \varepsilon$ ( #def-model-class-fitness), the achievable distortion is bounded away from zero by an *additional* floor, and the effective information-rate cost is larger. A full bound combining both:
 
 $$\dot R_{\min} \geq \frac{n\sigma_w^2}{4 \max(R^{*2}_S,\; D^2_{\text{floor}})} \qquad\text{where $D^2_{\text{floor}}$ is the model-class-inadequacy floor}$$
 
 This is a natural extension but not derived here.
 
-**Connection to #adaptive-tempo.** The bound implies $C_{\text{channel}} \geq \mathcal{T}/2$ (in nats, linear-correction case). If the observation channels have combined Shannon capacity $C_{\text{total}} = \sum_k \nu^{(k)}\cdot h(o^{(k)})$ (per-channel Shannon entropy rate), then persistence requires:
+**Connection to #def-adaptive-tempo.** The bound implies $C_{\text{channel}} \geq \mathcal{T}/2$ (in nats, linear-correction case). If the observation channels have combined Shannon capacity $C_{\text{total}} = \sum_k \nu^{(k)}\cdot h(o^{(k)})$ (per-channel Shannon entropy rate), then persistence requires:
 
 $$\sum_k \nu^{(k)} \cdot h(o^{(k)}) \geq \mathcal{T}/2$$
 
@@ -301,13 +301,13 @@ This connects the tempo-defines-capacity picture ($\mathcal{T} = \sum_k \nu\cdot
 
 AAD already commits to several principles that make the persistence-cost bound natural:
 
-1. **`#adaptive-tempo`** is the primary capacity metric. Knowing that sustained information rate is lower-bounded by $\mathcal{T}/2$ gives the tempo an information-theoretic *floor* — the agent cannot operate at tempo $\mathcal{T}$ with observation channels of less than $\mathcal{T}/2$ Shannon capacity.
+1. **`#def-adaptive-tempo`** is the primary capacity metric. Knowing that sustained information rate is lower-bounded by $\mathcal{T}/2$ gives the tempo an information-theoretic *floor* — the agent cannot operate at tempo $\mathcal{T}$ with observation channels of less than $\mathcal{T}/2$ Shannon capacity.
 
-2. **`#structural-adaptation-necessity`** identifies when parametric adaptation fails. The information-rate bound sharpens this: if the observation channels do not have sufficient capacity for $\mathcal{T}$, then *no* filter can meet persistence in Model S — structural change of the *observation channels* (not just model class) is required.
+2. **`#result-structural-adaptation-necessity`** identifies when parametric adaptation fails. The information-rate bound sharpens this: if the observation channels do not have sufficient capacity for $\mathcal{T}$, then *no* filter can meet persistence in Model S — structural change of the *observation channels* (not just model class) is required.
 
-3. **`#discussion-separability-pattern`** classifies scope regimes. The persistence-cost bound sits in the *structured-repair* half: it holds exactly in sub-scope $\alpha$ (linear-Gaussian / Kalman) and requires per-system verification in sub-scope $\beta$ (PID, rule-based). This positions the theorem within AAD's cross-sectional structure.
+3. **`#disc-separability-pattern`** classifies scope regimes. The persistence-cost bound sits in the *structured-repair* half: it holds exactly in sub-scope $\alpha$ (linear-Gaussian / Kalman) and requires per-system verification in sub-scope $\beta$ (PID, rule-based). This positions the theorem within AAD's cross-sectional structure.
 
-4. **`#discussion-identifiability-floor`** names the no-go pattern. This theorem is the *positive* analog: it says "here is the universal lower bound on persistence cost derived from an external theorem (Shannon RDF), with sector-persistence machinery as the bridge." The two patterns are dual — one says "AAD cannot escape X without information augmentation"; this one says "AAD requires at least Y information rate to operate."
+4. **`#disc-identifiability-floor`** names the no-go pattern. This theorem is the *positive* analog: it says "here is the universal lower bound on persistence cost derived from an external theorem (Shannon RDF), with sector-persistence machinery as the bridge." The two patterns are dual — one says "AAD cannot escape X without information augmentation"; this one says "AAD requires at least Y information rate to operate."
 
 5. **#additive-coordinate-forcing** as a *comparison point*. The persistence-cost bound does NOT force a logarithmic coordinate — it yields a linear-in-$\alpha$ rate, not a log-in-$\alpha$ coordinate. So this result sits *outside* AAD's three-layer logarithmic-coordinate-forcing family. It is an adjacent structural result rather than a member.
 
@@ -317,13 +317,13 @@ AAD already commits to several principles that make the persistence-cost bound n
 
 ### (a) Landing location
 
-**Proposal: new appendix segment `#persistence-cost`.**
+**Proposal: new appendix segment `#deriv-persistence-cost`.**
 
 Type: `derivation` (or `result` with derivation embedded).
 Status: `conditional` (depends on Model S + OU signal + high-resolution regime, explicitly named).
-Stage: would start at `draft`; dependencies include `#persistence-condition`, `#sector-condition-stability`, `#adaptive-tempo`, `#model-class-fitness`, external theorems (Shannon RDF, Mitter-Newton 2005, Still et al. 2012).
+Stage: would start at `draft`; dependencies include `#result-persistence-condition`, `#result-sector-condition-stability`, `#def-adaptive-tempo`, `#def-model-class-fitness`, external theorems (Shannon RDF, Mitter-Newton 2005, Still et al. 2012).
 
-Alternative: embed as a new subsection in `#sector-persistence-template` (under an "Information-rate cost" heading). This is structurally coherent — the template already enumerates instantiations; a cost-rate subsection would state the Landauer-bound shape once, parametrized by (state variable, disturbance statistics, sector constant), and let downstream segments inherit. **This may be the best landing — it factors the cost-rate result at the same level the persistence result is already factored.**
+Alternative: embed as a new subsection in `#result-sector-persistence-template` (under an "Information-rate cost" heading). This is structurally coherent — the template already enumerates instantiations; a cost-rate subsection would state the Landauer-bound shape once, parametrized by (state variable, disturbance statistics, sector constant), and let downstream segments inherit. **This may be the best landing — it factors the cost-rate result at the same level the persistence result is already factored.**
 
 A clean parametric statement for the template:
 
@@ -337,11 +337,11 @@ Each of the six sector-persistence-template instances could then claim its cost 
 
 2. **Rate-distortion for strategic tempo $\mathcal{T}_\Sigma$.** The information rate required to maintain bounded *strategic* mismatch (edge credences tracking environmental change). Would instantiate the template-cost bound at the strategy-DAG state variable and quantify the information cost of maintaining a DAG against endogenous edge invalidation.
 
-3. **Persistence cost under misspecification.** What happens when $\mathcal{F}(\mathcal{M}) \lt 1$? The information rate required to close the mismatch floor diverges, but at what rate? Connects to #discussion-identifiability-floor's "misspecification-cost quantification" open item.
+3. **Persistence cost under misspecification.** What happens when $\mathcal{F}(\mathcal{M}) \lt 1$? The information rate required to close the mismatch floor diverges, but at what rate? Connects to #disc-identifiability-floor's "misspecification-cost quantification" open item.
 
-4. **Composite persistence cost.** For a composite agent, does the information-rate lower bound add, multiply, or have a non-obvious interaction? This is the cost-analog of #derived-tempo-composition's sub-additivity and #team-persistence's cooperative-coupling-reduces-$\rho$-effective result. Likely: $\dot R_{c,\min} \leq \sum_i \dot R_{i,\min}$ due to coordination overhead eating information capacity.
+4. **Composite persistence cost.** For a composite agent, does the information-rate lower bound add, multiply, or have a non-obvious interaction? This is the cost-analog of #der-tempo-composition's sub-additivity and #der-team-persistence's cooperative-coupling-reduces-$\rho$-effective result. Likely: $\dot R_{c,\min} \leq \sum_i \dot R_{i,\min}$ due to coordination overhead eating information capacity.
 
-5. **Observation-channel capacity as a first-class AAD quantity.** Lift Shannon capacity $C^{(k)}$ of channel $k$ into the notation, connect to #update-gain's $U_o$ (channel noise ↔ capacity), and add a channel-capacity-sum-floor condition as a first-class persistence prerequisite. **This is the biggest architectural extension opened by this spike — currently AAD uses $U_o$ (observation uncertainty) as a noise parameter; the channel-capacity framing would make the information-rate floor a first-class persistence diagnostic.**
+5. **Observation-channel capacity as a first-class AAD quantity.** Lift Shannon capacity $C^{(k)}$ of channel $k$ into the notation, connect to #emp-update-gain's $U_o$ (channel noise ↔ capacity), and add a channel-capacity-sum-floor condition as a first-class persistence prerequisite. **This is the biggest architectural extension opened by this spike — currently AAD uses $U_o$ (observation uncertainty) as a noise parameter; the channel-capacity framing would make the information-rate floor a first-class persistence diagnostic.**
 
 ### (c) Honest epistemic status of the best result
 
@@ -408,7 +408,7 @@ $$\dot R_{\min} = n\alpha/2\text{ nats per unit time}$$
 - Martins, N. C. & Dahleh, M. A. 2008. "Feedback Control in the Presence of Noisy Channels: 'Bode-Like' Fundamental Limitations of Performance." *IEEE Trans. Automatic Control* 53(7):1604–1615. *(Information-theoretic Bode integral.)*
 
 **AAD segments cited.**
-- #persistence-condition, #sector-condition-stability, #sector-condition-derivation, #sector-persistence-template, #gain-sector-bridge, #update-gain, #adaptive-tempo, #model-class-fitness, #structural-adaptation-necessity, #result-mismatch-decomposition, #discussion-separability-pattern, #discussion-identifiability-floor, #additive-coordinate-forcing.
+- #result-persistence-condition, #result-sector-condition-stability, #deriv-sector-condition, #result-sector-persistence-template, #der-gain-sector-bridge, #emp-update-gain, #def-adaptive-tempo, #def-model-class-fitness, #result-structural-adaptation-necessity, #result-mismatch-decomposition, #disc-separability-pattern, #disc-identifiability-floor, #additive-coordinate-forcing.
 
 ---
 
@@ -428,4 +428,4 @@ $$\dot R_{\min} = n\alpha/2\text{ nats per unit time}$$
 
 - **Likely second reviewer pushback.** "You've only handled Gaussian-OU; the real environments are heavy-tailed or adversarial." Response: correct — §9 names this scope limit. The result is *exact in the canonical benchmark case*. Generalizations are open, but the canonical-case result is worth landing because it establishes the structural claim (cost scales linearly with $\alpha$) that non-Gaussian extensions are expected to preserve qualitatively.
 
-- **Alternative name for the segment.** `#persistence-cost` is the obvious candidate. Alternatives: `#persistence-information-cost` (more precise but verbose), `#information-rate-floor` (emphasizes the lower-bound character), `#landauer-persistence-bound` (emphasizes the thermodynamic interpretation — too narrow? the result is information-theoretic, not primarily thermodynamic, though it has a thermodynamic consequence). Recommendation: **`#persistence-cost`** as the primary slug, with the abstract "cost" left deliberately broad to accommodate future extensions (control-effort upper-bounds, entropy-production-rate generalizations, model-misspecification cost corrections).
+- **Alternative name for the segment.** `#deriv-persistence-cost` is the obvious candidate. Alternatives: `#persistence-information-cost` (more precise but verbose), `#information-rate-floor` (emphasizes the lower-bound character), `#landauer-persistence-bound` (emphasizes the thermodynamic interpretation — too narrow? the result is information-theoretic, not primarily thermodynamic, though it has a thermodynamic consequence). Recommendation: **`#deriv-persistence-cost`** as the primary slug, with the abstract "cost" left deliberately broad to accommodate future extensions (control-effort upper-bounds, entropy-production-rate generalizations, model-misspecification cost corrections).

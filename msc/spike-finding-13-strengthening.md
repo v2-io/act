@@ -6,9 +6,9 @@
 
 **Source finding:** `msc/pending-findings-2026-04-22.md` Finding 13 (lines 457–482).
 
-**Predecessor spike:** `msc/spike-finding-13-l1-default-narrowing.md` — softening repair to `#strategy-dag` headline. This spike attempts the harder structural move (derive the L1' transfer) before falling back to softening; the softening repair remains valid as a fallback for the non-derived sub-cases.
+**Predecessor spike:** `msc/spike-finding-13-l1-default-narrowing.md` — softening repair to `#def-strategy-dag` headline. This spike attempts the harder structural move (derive the L1' transfer) before falling back to softening; the softening repair remains valid as a fallback for the non-derived sub-cases.
 
-**Companion material:** `msc/spike-L1-worked-example.md`; `01-aad-core/src/worked-example-L1.md` (lines 120-136); `01-aad-core/src/strategy-dag.md` (Correlation Hierarchy); `01-aad-core/src/strategic-dynamics-derivation.md` (Props B.5, B.5b, B.6); `01-aad-core/src/strategy-persistence-schema.md`; `01-aad-core/src/edge-update-via-gain.md`; `01-aad-core/src/credit-assignment-boundary.md`.
+**Companion material:** `msc/spike-L1-worked-example.md`; `01-aad-core/src/example-L1.md` (lines 120-136); `01-aad-core/src/def-strategy-dag.md` (Correlation Hierarchy); `01-aad-core/src/deriv-strategic-dynamics.md` (Props B.5, B.5b, B.6); `01-aad-core/src/schema-strategy-persistence.md`; `01-aad-core/src/hyp-edge-update-via-gain.md`; `01-aad-core/src/disc-credit-assignment-boundary.md`.
 
 ---
 
@@ -25,7 +25,7 @@ The objective: derive Prop B.5b — the L1' analog of Prop B.6 — establishing 
 | **M5** | Extend to nonlinear (global) sector condition | ✓ For SUB-A: global by direct extension of B.6's argument (componentwise Beta-Bernoulli on each branch). ✗ For SUB-B: cannot extend a globally-zero linearization to a global guarantee |
 | **M6** | State the full Prop B.5b | ✗ As stated for the *general* L1' case (no scope restriction): **fails**. Rank-1 Fisher means SA2' admits no $\alpha \gt 0$. ✓ As **B.5b-obs-C** (derived sub-case with $C$-observability): succeeds globally |
 | **M7** | Sub-case fallbacks | ✓ Three sub-case results carved out: B.5b-obs-C (full derivation), B.5b-multi-channel (sketch with explicit identifiability requirement), B.5b-known-thetaC-soft-EM (still rank-deficient, requires multi-channel) |
-| **M8** | Strengthened segment text | ✓ Drafted for `#strategy-dag` headline + Correlation Hierarchy table + new B.5b proposition for `#strategic-dynamics-derivation` |
+| **M8** | Strengthened segment text | ✓ Drafted for `#def-strategy-dag` headline + Correlation Hierarchy table + new B.5b proposition for `#deriv-strategic-dynamics` |
 
 **Net outcome.** A clean, fully-derived sub-case (B.5b-obs-C) with a precise five-way-gating $\alpha_{L1'}$ formula. The fully *general* L1' case is refuted, not merely unverified — there is a fundamental identifiability obstruction (Fisher rank deficiency from a single binary observation channel) that no additional clever update rule can overcome. The narrowing is therefore *principled*: L1' transfers cleanly when $C$ is observable; otherwise it requires either multi-channel structure (sketch) or an explicit information augmentation (interventional probing of $C$). This collapses Finding 13's narrowing from "L1' formal transfer is open" into "L1' formal transfer is established for the observable-$C$ sub-case (B.5b-obs-C); the joint-Bayesian sub-case is structurally obstructed by mixture identifiability and requires either $C$-observation or multi-child observability for repair."
 
@@ -47,7 +47,7 @@ The objective: derive Prop B.5b — the L1' analog of Prop B.6 — establishing 
 >
 > *[Derived (Conditional on Beta-Bernoulli model, observable common cause, facilitator monotonicity)]*
 >
-> **Region.** Global, with the same caveats as Props B.1, B.2, B.4, B.6: $\alpha_{L1'} = 1/(n+1)$-class parameters decay with experience, so trajectory persistence requires the experience-discounting prerequisite of `#strategy-persistence-schema`.
+> **Region.** Global, with the same caveats as Props B.1, B.2, B.4, B.6: $\alpha_{L1'} = 1/(n+1)$-class parameters decay with experience, so trajectory persistence requires the experience-discounting prerequisite of `#schema-strategy-persistence`.
 
 ### Prop B.5b-multi-channel (Sketch) — L1' Under Multi-Child Observability
 
@@ -294,13 +294,13 @@ When the joint Fisher matrix is full-rank (multi-child joint observation), the l
 
 **The honest summary.** L1' admits a clean derived sector transfer **iff the common cause is directly observable** (B.5b-obs-C). When $C$ is unobservable and the agent has only single-channel observations, no SA1-preserving update can satisfy SA2' for the joint conditional vector — this is a Cramér-Rao bound, not a defect of any particular update rule. The multi-channel case is a partial repair requiring strong joint-observability assumptions; the plan-level fallback collapses L1' to L0-on-marginals.
 
-**Action item from this:** the published `#worked-example-L1` already implicitly assumed observability of $C$ (it's described as a "condition leaf" — exactly the SUB-A regime). The L1 strict case (B.6) explicitly requires $C$ to be observable. **L1' for soft facilitators inherits the same observability requirement** — once recognized, B.6's three-way gating extends *naturally* to L1''s five-way gating, and the formal transfer goes through.
+**Action item from this:** the published `#example-L1` already implicitly assumed observability of $C$ (it's described as a "condition leaf" — exactly the SUB-A regime). The L1 strict case (B.6) explicitly requires $C$ to be observable. **L1' for soft facilitators inherits the same observability requirement** — once recognized, B.6's three-way gating extends *naturally* to L1''s five-way gating, and the formal transfer goes through.
 
 ---
 
 ## §8. Strengthened Segment Text (Move 8)
 
-### 8.1 Revised `#strategy-dag` Headline (Line 20)
+### 8.1 Revised `#def-strategy-dag` Headline (Line 20)
 
 **Current:**
 
@@ -308,11 +308,11 @@ When the joint Fisher matrix is full-rank (multi-child joint observation), the l
 
 **Proposed (replaces both the softening narrowing in `spike-finding-13-l1-default-narrowing.md` §2.1 and the original):**
 
-> **Strategy-layer exactness contract.** All formal results in AAD's strategy layer — the sector condition transfer ( #strategic-dynamics-derivation, Prop B.5), the persistence schema ( #strategy-persistence-schema), the gradient-based credit assignment ( #credit-assignment-boundary) — are proved under **L0 (independence)**: causally sufficient DAGs with independent edge outcomes. **L0 formal results transfer exactly to correctly constructed L1 DAGs (strict prerequisites, Prop B.6) and L1' DAGs (soft facilitators, Prop B.5b-obs-C) — provided the common cause is observable per trial.** When the common cause is unobservable, the per-conditional decomposition is *fundamentally* (not merely "openly") obstructed — the mixture parameters are non-identifiable from a single observation channel (Fisher rank deficiency, Prop B.5b refuted form), and the agent must either collect direct $C$-observations, run multi-child joint observations (Prop B.5b-multi-channel, sketch), or fall back to plan-level (L0-on-marginals) tracking. See the Correlation Hierarchy below.
+> **Strategy-layer exactness contract.** All formal results in AAD's strategy layer — the sector condition transfer ( #deriv-strategic-dynamics, Prop B.5), the persistence schema ( #schema-strategy-persistence), the gradient-based credit assignment ( #disc-credit-assignment-boundary) — are proved under **L0 (independence)**: causally sufficient DAGs with independent edge outcomes. **L0 formal results transfer exactly to correctly constructed L1 DAGs (strict prerequisites, Prop B.6) and L1' DAGs (soft facilitators, Prop B.5b-obs-C) — provided the common cause is observable per trial.** When the common cause is unobservable, the per-conditional decomposition is *fundamentally* (not merely "openly") obstructed — the mixture parameters are non-identifiable from a single observation channel (Fisher rank deficiency, Prop B.5b refuted form), and the agent must either collect direct $C$-observations, run multi-child joint observations (Prop B.5b-multi-channel, sketch), or fall back to plan-level (L0-on-marginals) tracking. See the Correlation Hierarchy below.
 
-### 8.2 New Prop B.5b for `#strategic-dynamics-derivation`
+### 8.2 New Prop B.5b for `#deriv-strategic-dynamics`
 
-To be inserted after Prop B.5 (the credence-to-value bridge) or alongside Prop B.6 (the L1-strict case) in `#strategic-dynamics-derivation`. Full text (proof-ready):
+To be inserted after Prop B.5 (the credence-to-value bridge) or alongside Prop B.6 (the L1-strict case) in `#deriv-strategic-dynamics`. Full text (proof-ready):
 
 ---
 
@@ -388,11 +388,11 @@ The bottleneck is typically whichever of $\theta_C$ and $1-\theta_C$ is smaller 
 (ii) Run $K \geq 2$ children jointly under the same $C$-realization (B.5b-multi-channel sketch — sufficient when joint Fisher reaches rank $2K+1$);
 (iii) Fall back to plan-level tracking on the marginal $\hat\mu_j$ (recovering B.1's $\alpha = 1/(n_\mu+1)$ but losing the per-conditional decomposition — equivalent to L0-on-marginals).
 
-This refutation closes the "L1' formal transfer is open" item in `#strategic-dynamics-derivation` Epistemic Status: the *cleanly-derivable* sub-case is B.5b-obs-C; the *general* sub-case is fundamentally obstructed by mixture identifiability, not merely under-derived.
+This refutation closes the "L1' formal transfer is open" item in `#deriv-strategic-dynamics` Epistemic Status: the *cleanly-derivable* sub-case is B.5b-obs-C; the *general* sub-case is fundamentally obstructed by mixture identifiability, not merely under-derived.
 
 ---
 
-### 8.3 Updated Correlation Hierarchy Table for `#strategy-dag`
+### 8.3 Updated Correlation Hierarchy Table for `#def-strategy-dag`
 
 (Replaces the proposed table from `spike-finding-13-l1-default-narrowing.md` §2.3 — the L1' row gains a derived sector parameter and an explicit observability requirement.)
 
@@ -411,11 +411,11 @@ This refutation closes the "L1' formal transfer is open" item in `#strategic-dyn
 
 The B.5b-obs-C result also enables tightening parentheticals in:
 
-- `#strategy-persistence-schema` (line 66): the L1 inheritance now explicitly extends to L1'-obs-C with the same template.
-- `#worked-example-L1` (lines 130-134): the "open" qualifier on L1' transfer should be replaced with "derived under observable $C$ via B.5b-obs-C; refuted under unobservable $C$."
-- `#strategic-dynamics-derivation` (line 513): the "L1/L2 scope" item moves from "Partially resolved" to "Resolved (B.6 for L1-strict, B.5b-obs-C for L1'-observable; refuted under unobservable $C$ — augmentation required)."
-- `#causal-insufficiency-detection` (Step 3a insertion): "Classify $C$ as strict or soft. If strict, factor above (→ L1, B.6). If soft and $C$ observable, build mixture form (→ L1', B.5b-obs-C). If soft and $C$ unobservable, augment observability or fall back to L0-on-marginals."
-- `#independence-audit` (line 47): "L1 augmentation (strict prerequisites, observable $C$) or L1' mixture form (soft facilitators, observable $C$); when $C$ unobservable, augment or fall back."
+- `#schema-strategy-persistence` (line 66): the L1 inheritance now explicitly extends to L1'-obs-C with the same template.
+- `#example-L1` (lines 130-134): the "open" qualifier on L1' transfer should be replaced with "derived under observable $C$ via B.5b-obs-C; refuted under unobservable $C$."
+- `#deriv-strategic-dynamics` (line 513): the "L1/L2 scope" item moves from "Partially resolved" to "Resolved (B.6 for L1-strict, B.5b-obs-C for L1'-observable; refuted under unobservable $C$ — augmentation required)."
+- `#der-causal-insufficiency-detection` (Step 3a insertion): "Classify $C$ as strict or soft. If strict, factor above (→ L1, B.6). If soft and $C$ observable, build mixture form (→ L1', B.5b-obs-C). If soft and $C$ unobservable, augment observability or fall back to L0-on-marginals."
+- `#disc-independence-audit` (line 47): "L1 augmentation (strict prerequisites, observable $C$) or L1' mixture form (soft facilitators, observable $C$); when $C$ unobservable, augment or fall back."
 
 These are not blocking; they queue for the next promotion of each segment.
 
@@ -423,7 +423,7 @@ These are not blocking; they queue for the next promotion of each segment.
 
 ## §9. Comparison to the Softening Repair
 
-The softening repair (`spike-finding-13-l1-default-narrowing.md`) narrowed `#strategy-dag`'s headline to scope L0→L1 transfer to strict prerequisites and tagged L1' transfer as "open." The strengthening attempt produces a different and stronger outcome:
+The softening repair (`spike-finding-13-l1-default-narrowing.md`) narrowed `#def-strategy-dag`'s headline to scope L0→L1 transfer to strict prerequisites and tagged L1' transfer as "open." The strengthening attempt produces a different and stronger outcome:
 
 | Aspect | Softening repair | Strengthening attempt |
 |---|---|---|
@@ -432,7 +432,7 @@ The softening repair (`spike-finding-13-l1-default-narrowing.md`) narrowed `#str
 | **Correlation Hierarchy table** | L1' as fourth row, sector status "open" | L1' as fourth row, sector status **Derived** with formula; observability requirement explicit |
 | **What the reader learns** | "L1' is a valid regime but the formal machinery isn't there yet" | "L1' is a fully formal regime when $C$ is observable; the open question collapses into a *modeling decision* (do we observe $C$?), not a theoretical gap" |
 | **Action items for downstream segments** | Five clarifying parentheticals at next promotion | Same five parentheticals, but each substantively *strengthens* (replaces "open" with "derived under $C$-observability")  |
-| **Scope of `#strategy-persistence-schema`** | L1 inheritance only | L1 + L1'-obs-C inheritance; the experience-discounting prerequisite extends naturally |
+| **Scope of `#schema-strategy-persistence`** | L1 inheritance only | L1 + L1'-obs-C inheritance; the experience-discounting prerequisite extends naturally |
 | **L0 transfer status** | Unchanged (B.5/B.5b for L0) | Unchanged (B.5/B.5b for L0) |
 | **L2 status** | Unchanged | Unchanged |
 | **Risk of misuse** | A reader who takes "L1 by default" at face value still applies L1 incorrectly to soft facilitators | Same risk if reader doesn't notice the observability requirement; mitigated by explicit table column "Sector transfer status" |
@@ -442,13 +442,13 @@ The softening repair (`spike-finding-13-l1-default-narrowing.md`) narrowed `#str
 1. **A real, derived sector parameter for L1'** — the five-way-gating formula $\alpha_{L1'}^{\text{obs-C}}$. This gives concrete persistence thresholds for soft-facilitator strategies.
 2. **A principled refutation** of the unobservable-$C$ case — not "open," but **structurally obstructed by mixture identifiability.** This is information the softening did not have.
 3. **A clear modeling decision tree** for practitioners: classify the common cause as strict/soft, then check $C$-observability, then choose L1 / L1'-obs-C / multi-child / L0-fallback.
-4. **Reduced theoretical debt** — `#strategic-dynamics-derivation` Item 4 in the open list ("Correlated edges (L1/L2 scope) — Partially resolved") moves to fully resolved.
+4. **Reduced theoretical debt** — `#deriv-strategic-dynamics` Item 4 in the open list ("Correlated edges (L1/L2 scope) — Partially resolved") moves to fully resolved.
 
 **What the strengthening does *not* change relative to softening:**
 
 - The Correlation Hierarchy still reads with L0/L1/L1'/L2 as four rows.
 - The headline contract still names strict-vs-soft classification.
-- The `#worked-example-L1` segment text is largely unchanged (it already implicitly assumed observable $C$; the strengthening makes that explicit and confers full sector verification on L1').
+- The `#example-L1` segment text is largely unchanged (it already implicitly assumed observable $C$; the strengthening makes that explicit and confers full sector verification on L1').
 - The misclassification failure mode is still named (treating soft as strict undervalues sub-plans).
 
 **Recommendation.** Adopt the strengthening repair (this spike) in place of the softening repair. The softening text was *correct* but conservative — it tagged a derivable result as "open." The strengthening makes the soft-facilitator regime first-class while exposing a genuine theoretical fact (the unobservable-$C$ obstruction) that helps practitioners route their modeling decisions.
@@ -457,7 +457,7 @@ The softening repair (`spike-finding-13-l1-default-narrowing.md`) narrowed `#str
 
 ## §10. Open Questions for Joseph
 
-1. **Observability classification.** B.5b-obs-C requires *direct* $C$-observation per trial. In TST domains (CI signals, infrastructure status, organizational state), $C$ is often inferred from secondary signals with some noise. Does the proposition extend to *partial* observability via the identifiability coefficient $\iota_C$ (cf. `#edge-update-causal-validity`)? My read: yes, with $\alpha_{L1'} \to \iota_C \cdot \alpha_{L1'}$ on the $C$-term and a corresponding tightening on the conditional terms (the soft-routing of evidence under partial $C$-observation interpolates between SUB-A and SUB-B). Worth a dedicated extension or a mention in B.5b's discussion?
+1. **Observability classification.** B.5b-obs-C requires *direct* $C$-observation per trial. In TST domains (CI signals, infrastructure status, organizational state), $C$ is often inferred from secondary signals with some noise. Does the proposition extend to *partial* observability via the identifiability coefficient $\iota_C$ (cf. `#scope-edge-update-causal-validity`)? My read: yes, with $\alpha_{L1'} \to \iota_C \cdot \alpha_{L1'}$ on the $C$-term and a corresponding tightening on the conditional terms (the soft-routing of evidence under partial $C$-observation interpolates between SUB-A and SUB-B). Worth a dedicated extension or a mention in B.5b's discussion?
 
 2. **Multi-child observability requirement.** B.5b-multi-channel as sketched requires *joint* observation of $K \geq 2$ children under the *same* $C$-realization. This is a stronger structural requirement than typical strategy execution permits (the agent attempts one path at a time). Is there value in formalizing this sub-case despite its narrow applicability, or should we leave it as a sketch and emphasize the observable-$C$ path as the practical recommendation?
 
@@ -468,18 +468,18 @@ The softening repair (`spike-finding-13-l1-default-narrowing.md`) narrowed `#str
 5. **The plan-level fallback under SUB-B.** §6.2 noted that projecting onto the identifiable subspace recovers a B.1-style sector condition for $\hat\mu_j$ — but at this point you are tracking *only* the marginal, equivalent to L0. Should this be promoted to a named "L1'-fallback" sub-case in the Correlation Hierarchy, or is it sufficiently obvious from the table that "if you can't identify the conditionals, you're effectively at L0"?
 
 6. **Naming.** "B.5b-obs-C" is a working label. Cleaner alternatives:
-   - **B.7** (if it gets a new proposition slot in `#strategic-dynamics-derivation`, parallel to B.6 for L1-strict)
+   - **B.7** (if it gets a new proposition slot in `#deriv-strategic-dynamics`, parallel to B.6 for L1-strict)
    - **B.6'** (emphasizing the parallel to B.6 with the soft-facilitator extension)
    - **B.5b-L1'** (emphasizing it's the L1' instantiation of B.5b's componentwise case)
 
-   My recommendation: **B.7** — it deserves first-class status alongside B.6 because the five-way-gating structure is qualitatively new (extending three-way to five-way), not just a reapplication of B.5b's machinery. The B.5b segment in `#strategic-dynamics-derivation` already covers the L0/L1-componentwise transfer; B.7 would be the L1' extension. Confirm preference.
+   My recommendation: **B.7** — it deserves first-class status alongside B.6 because the five-way-gating structure is qualitatively new (extending three-way to five-way), not just a reapplication of B.5b's machinery. The B.5b segment in `#deriv-strategic-dynamics` already covers the L0/L1-componentwise transfer; B.7 would be the L1' extension. Confirm preference.
 
-7. **Promotion to segment.** Should this spike's B.5b-obs-C result land in `#strategic-dynamics-derivation` (as Prop B.7 / B.5b-obs-C) and propagate to `#strategy-dag`'s Correlation Hierarchy table immediately, or queue behind other Phase-1 batch items? My read: this is a substantive strengthening (turns "open" into "derived" for the soft-facilitator regime, the *practically dominant* common-cause pattern), worth promoting in the same batch as the softening repair would have been.
+7. **Promotion to segment.** Should this spike's B.5b-obs-C result land in `#deriv-strategic-dynamics` (as Prop B.7 / B.5b-obs-C) and propagate to `#def-strategy-dag`'s Correlation Hierarchy table immediately, or queue behind other Phase-1 batch items? My read: this is a substantive strengthening (turns "open" into "derived" for the soft-facilitator regime, the *practically dominant* common-cause pattern), worth promoting in the same batch as the softening repair would have been.
 
 8. **Refutation visibility.** The unobservable-$C$ case is now *refuted* (Cramér-Rao bound), not "open." Where should this be stated? Options:
-   - In `#strategic-dynamics-derivation` Prop B.5b's Epistemic Status (alongside the derivation of B.5b-obs-C).
-   - In `#strategy-dag`'s Correlation Hierarchy discussion as a named identifiability-obstruction caveat.
-   - In `#worked-example-L1` §"When Correct L1 Construction Is Not Possible" as the "semantic failure mode under unobservable $C$."
+   - In `#deriv-strategic-dynamics` Prop B.5b's Epistemic Status (alongside the derivation of B.5b-obs-C).
+   - In `#def-strategy-dag`'s Correlation Hierarchy discussion as a named identifiability-obstruction caveat.
+   - In `#example-L1` §"When Correct L1 Construction Is Not Possible" as the "semantic failure mode under unobservable $C$."
 
    My read: all three, with cross-references. The refutation is structural enough to deserve named visibility — it's not a minor caveat but a fundamental scope statement on what L1' can and cannot deliver.
 
@@ -496,11 +496,11 @@ The softening repair (`spike-finding-13-l1-default-narrowing.md`) narrowed `#str
 - **Facilitator monotonicity scope condition:** High. Direct from the Jacobian computation.
 
 **Not in scope.**
-- Continuous outcomes for the mixture (analogous to remaining open item #2 in `#strategic-dynamics-derivation`).
+- Continuous outcomes for the mixture (analogous to remaining open item #2 in `#deriv-strategic-dynamics`).
 - Adaptive exploration policies for L1' (analogous to remaining open item #5).
 - Formal connection to the `architectural-proposals-2026-04-22.md` G-BP1 (natural-parameter reparameterization) — natural-parameter form may simplify L1''s mixture analysis but is a separate move.
 - Formal SOC/RG framing (architectural-proposals-2026-04-22 — separate move).
 
 **Risk.** The B.5b-obs-C result rests on the assumption that the agent can route per-trial evidence to the correct conditional branch via $C$-observation. In practice, $C$-observation is *rarely* perfect — there is observation noise on $C$, partial observability, time-lag in $C$-detection, etc. The proposition as stated handles only the perfect-observability case; partial-observability extension via $\iota_C$ (Open Question 1) is a natural follow-on but unverified.
 
-**Recommendation.** Adopt the strengthening repair as the next-promotion content for `#strategy-dag` and `#strategic-dynamics-derivation`, with the softening repair retired (its content is subsumed and extended). Open questions 1–8 collected as latent items for Joseph's review before the segment-edit pass.
+**Recommendation.** Adopt the strengthening repair as the next-promotion content for `#def-strategy-dag` and `#deriv-strategic-dynamics`, with the softening repair retired (its content is subsumed and extended). Open questions 1–8 collected as latent items for Joseph's review before the segment-edit pass.

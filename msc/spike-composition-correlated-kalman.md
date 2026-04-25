@@ -2,9 +2,9 @@
 
 **Status**: Exploratory derivation -- full worked example (Part 1) and assessment (Part 2)
 **Date**: 2026-04-02
-**Motivation**: The composition-closure segment ( #composition-closure) and the projection-admissibility spike (`msc/spike-projection-admissibility.md`) establish the two-Kalman case with correlated processes as the simplest non-trivial example where $\varepsilon^\ast > 0$. The existing treatment outlines the setup and gives the closure defect as $\varepsilon_x \propto \lvert\rho_{\text{corr}}\rvert$ but does not complete the derivation: no closed-form $\varepsilon^\ast$, no bridge lemma verification, no (A1)-(A4) check, no comparison to the optimal joint filter. This spike provides the full derivation. Part 2 assesses what changes when agents have purposeful substates $G_t$.
+**Motivation**: The composition-closure segment ( #form-composition-closure) and the projection-admissibility spike (`msc/spike-projection-admissibility.md`) establish the two-Kalman case with correlated processes as the simplest non-trivial example where $\varepsilon^\ast > 0$. The existing treatment outlines the setup and gives the closure defect as $\varepsilon_x \propto \lvert\rho_{\text{corr}}\rvert$ but does not complete the derivation: no closed-form $\varepsilon^\ast$, no bridge lemma verification, no (A1)-(A4) check, no comparison to the optimal joint filter. This spike provides the full derivation. Part 2 assesses what changes when agents have purposeful substates $G_t$.
 
-**Depends on**: #composition-closure, #sector-condition-derivation, #persistence-condition, #worked-example-kalman, #multi-agent-scope, #team-persistence, #strategy-dag, #objective-functional, #directed-separation-under-composition, `msc/spike-projection-admissibility.md`, `msc/spike-composition-bridge-2agent.md`
+**Depends on**: #form-composition-closure, #deriv-sector-condition, #result-persistence-condition, #example-kalman, #scope-multi-agent, #der-team-persistence, #def-strategy-dag, #form-objective-functional, #hyp-directed-separation-under-composition, `msc/spike-projection-admissibility.md`, `msc/spike-composition-bridge-2agent.md`
 
 ---
 
@@ -74,14 +74,14 @@ $$\hat\omega_{i,t+1} = (1 - K^\ast)\hat\omega_{i,t} + K^\ast o_{i,t+1}, \quad i 
 
 The micro-dynamics are decoupled: agent 1's update depends only on $o_1$, agent 2's only on $o_2$. The cross-correlation enters through the environment ($w_1, w_2$ are correlated) but neither agent exploits it.
 
-**AAD parameters** (per agent, using #worked-example-kalman's mappings):
+**AAD parameters** (per agent, using #example-kalman's mappings):
 
 | AAD Quantity | Kalman Value |
 |---|---|
 | Event rate $\nu$ | $1$ (one obs per step) |
 | Optimal gain $\eta^\ast$ | $K^\ast$ |
 | Adaptive tempo $\mathcal{T}$ | $K^\ast$ |
-| Sector parameter $\alpha$ | $K^\ast$ (linear correction, by #gain-sector-bridge) |
+| Sector parameter $\alpha$ | $K^\ast$ (linear correction, by #der-gain-sector-bridge) |
 | Model capacity $R$ | $\infty$ (linear Gaussian) |
 | Disturbance rate $\rho_{\text{stoch}}$ | $\sigma_w = \sqrt{q}$ (stochastic, per agent) |
 
@@ -299,7 +299,7 @@ There are two distinct questions:
 
 1. **Representability defect**: Can the micro-dynamics be represented at the macro level? For two independent Kalman filters at steady state, the answer is yes ($\varepsilon^\ast = 0$ under the means-only projection).
 
-2. **Optimality gap**: How much worse is the independent-filter composite compared to the optimal joint filter? This is NOT the closure defect $\varepsilon^\ast$ as defined in #composition-closure. It is a separate quantity -- the steady-state estimation error difference.
+2. **Optimality gap**: How much worse is the independent-filter composite compared to the optimal joint filter? This is NOT the closure defect $\varepsilon^\ast$ as defined in #form-composition-closure. It is a separate quantity -- the steady-state estimation error difference.
 
 The composition-closure framework measures representability, not optimality. The two coincide only when the micro-dynamics are themselves optimal for the macro-state's task. For independent Kalman filters on correlated processes, they are not optimal: the joint filter exploits cross-information that independent filters miss.
 
@@ -461,7 +461,7 @@ The performance gap $\Delta_{\text{perf}}$ is not $\varepsilon^\ast$ -- it is a 
 
 These are related but distinct. In the correlated Kalman case, $\varepsilon^\ast = 0$ (the independent composite is perfectly representable) but $\Delta_{\text{perf}} > 0$ (the independent composite is suboptimal).
 
-**Connection to #team-persistence.** The performance gap connects to the team-persistence framework through effective disturbance. Each independent filter has estimation error variance $P^\ast$. The joint filter has $p < P^\ast$. The difference $P^\ast - p$ is the disturbance reduction that cooperation would provide. In AAD terms, if the agents communicated perfectly:
+**Connection to #der-team-persistence.** The performance gap connects to the team-persistence framework through effective disturbance. Each independent filter has estimation error variance $P^\ast$. The joint filter has $p < P^\ast$. The difference $P^\ast - p$ is the disturbance reduction that cooperation would provide. In AAD terms, if the agents communicated perfectly:
 
 $$\rho_{i,\text{eff}} = \rho_{i,\text{env}} - \gamma^{\text{coop}} \mathcal{T}_j$$
 
@@ -511,7 +511,7 @@ with $\alpha_c = K^\ast$ and $R_c = \infty$ (linear Gaussian). **(A4) satisfied 
 
 *[Derived (bridge-lemma-verification)]*
 
-The bridge lemma in #composition-closure gives the trajectory error bound:
+The bridge lemma in #form-composition-closure gives the trajectory error bound:
 
 $$\limsup_{t \to \infty} \lVert e_t \rVert \leq \frac{\varepsilon_x \nu_c}{\alpha_c}$$
 
@@ -586,7 +586,7 @@ $$\dim(\mathcal{X}_{\text{micro}}) = 2 + 2 + (n_1 + n_2) = 4 + n_1 + n_2$$
 
 *[Discussion (objective-composition)]*
 
-(A1) requires the macro-state to decompose as $(M_c, G_c)$ with $G_c = (O_c, \Sigma_c)$. The macro-objective $O_c$ must induce a value functional $V_{O_c}: \text{trajectories} \to \mathbb{R}$ ( #objective-functional).
+(A1) requires the macro-state to decompose as $(M_c, G_c)$ with $G_c = (O_c, \Sigma_c)$. The macro-objective $O_c$ must induce a value functional $V_{O_c}: \text{trajectories} \to \mathbb{R}$ ( #form-objective-functional).
 
 **Three candidate composition rules:**
 
@@ -596,9 +596,9 @@ $$\dim(\mathcal{X}_{\text{micro}}) = 2 + 2 + (n_1 + n_2) = 4 + n_1 + n_2$$
 
 $$V_{O_c}(\tau) = w_1 V_{O_1}(\tau) + w_2 V_{O_2}(\tau)$$
 
-This requires: (i) commensurability of $V_{O_1}$ and $V_{O_2}$ (both map trajectories to $\mathbb{R}$ -- guaranteed by #objective-functional), (ii) weights $w_1, w_2 > 0$, and (iii) that the weighted sum remains a valid value functional. Condition (iii) is satisfied by linearity. The projection is $\Lambda_O(O_1, O_2) = (O_1, O_2, w_1, w_2)$ -- the composite objective carries the individual objectives plus the weighting.
+This requires: (i) commensurability of $V_{O_1}$ and $V_{O_2}$ (both map trajectories to $\mathbb{R}$ -- guaranteed by #form-objective-functional), (ii) weights $w_1, w_2 > 0$, and (iii) that the weighted sum remains a valid value functional. Condition (iii) is satisfied by linearity. The projection is $\Lambda_O(O_1, O_2) = (O_1, O_2, w_1, w_2)$ -- the composite objective carries the individual objectives plus the weighting.
 
-**Case C: Conflicting objectives.** $O_1$ and $O_2$ are partially adversarial -- satisfying one degrades the other. The composite "objective" exists only as a negotiated compromise (if coordination is possible) or a minimax solution (if not). In AAD terms, the teleological unity $U_O < 0$ ( #definition-unity-dimensions). The composite may not have a meaningful $O_c$ at all -- the group's purpose is contested, not shared. This is the case where composition may fail for the purposeful substate even if the epistemic composition works.
+**Case C: Conflicting objectives.** $O_1$ and $O_2$ are partially adversarial -- satisfying one degrades the other. The composite "objective" exists only as a negotiated compromise (if coordination is possible) or a minimax solution (if not). In AAD terms, the teleological unity $U_O < 0$ ( #def-unity-dimensions). The composite may not have a meaningful $O_c$ at all -- the group's purpose is contested, not shared. This is the case where composition may fail for the purposeful substate even if the epistemic composition works.
 
 *Epistemic status: discussion-grade. The three cases are structurally clear; formal conditions for each case are open.*
 
@@ -612,9 +612,9 @@ This requires: (i) commensurability of $V_{O_1}$ and $V_{O_2}$ (both map traject
 
 $$\delta_{c,\text{strategic}}^T F_{c,\Sigma}(\delta_{c,\text{strategic}}) \geq \alpha_{c,\Sigma} \lVert\delta_{c,\text{strategic}}\rVert^2$$
 
-where $\delta_{c,\text{strategic}}$ is the composite strategic mismatch ( #strategic-calibration) and $F_{c,\Sigma}$ is the composite strategic correction.
+where $\delta_{c,\text{strategic}}$ is the composite strategic mismatch ( #def-strategic-calibration) and $F_{c,\Sigma}$ is the composite strategic correction.
 
-**What #strategy-persistence-schema provides.** For a single agent, the sector parameter for strategic dynamics is $\alpha_\Sigma = \eta_{\text{edge}}$ (the edge update gain), with verified instances for Beta-Bernoulli edges.
+**What #schema-strategy-persistence provides.** For a single agent, the sector parameter for strategic dynamics is $\alpha_\Sigma = \eta_{\text{edge}}$ (the edge update gain), with verified instances for Beta-Bernoulli edges.
 
 **How individual strategy corrections compose.** Two sub-agents, each correcting their own strategy DAGs. The composite strategic correction is:
 
@@ -624,15 +624,15 @@ If the strategy corrections are independent (no cross-strategy coupling), the co
 
 $$\alpha_{c,\Sigma} = \min(\alpha_{\Sigma,1}, \alpha_{\Sigma,2})$$
 
-This is the weakest-link bound from #composition-closure's Discussion section. It holds when: (i) the agents' strategy corrections are independent, and (ii) coordination costs do not degrade individual correction rates.
+This is the weakest-link bound from #form-composition-closure's Discussion section. It holds when: (i) the agents' strategy corrections are independent, and (ii) coordination costs do not degrade individual correction rates.
 
-**Coordination cost.** When agents must coordinate their strategies (e.g., synchronize their plans, negotiate shared subgoals), the coordination overhead $\Delta\mathcal{T}_i^{\text{cost}}$ reduces each agent's effective strategic tempo ( #team-persistence). The effective sector parameter becomes:
+**Coordination cost.** When agents must coordinate their strategies (e.g., synchronize their plans, negotiate shared subgoals), the coordination overhead $\Delta\mathcal{T}_i^{\text{cost}}$ reduces each agent's effective strategic tempo ( #der-team-persistence). The effective sector parameter becomes:
 
 $$\alpha_{c,\Sigma} \geq \min_i\!\left(\alpha_{\Sigma,i} - \Delta\mathcal{T}_i^{\text{cost}}\right)$$
 
 For the composite to satisfy (A4), each agent's coordination cost must be less than its individual sector parameter: $\Delta\mathcal{T}_i^{\text{cost}} < \alpha_{\Sigma,i}$. If coordination consumes all of an agent's strategic correction capacity, the composite's strategic correction fails.
 
-*Epistemic status: the weakest-link bound is discussion-grade (stated in #composition-closure without full derivation). The coordination cost framework is from #team-persistence (conditional). Together they provide a plausible but unproven bound.*
+*Epistemic status: the weakest-link bound is discussion-grade (stated in #form-composition-closure without full derivation). The coordination cost framework is from #der-team-persistence (conditional). Together they provide a plausible but unproven bound.*
 
 ### 12. Sketch: The Simplest Purposeful Case
 
@@ -648,7 +648,7 @@ $$V_O(\tau) = -\max(\lvert\omega_1 - \hat\omega_1\rvert, \lvert\omega_2 - \hat\o
 
 (Positive when both errors are below $d$, negative otherwise.)
 
-- **Agent $i$'s strategy**: a single-edge DAG $\Sigma_i = (v_{\text{action}}, v_{\text{goal}}, p_i)$ where $p_i \in [0,1]$ is agent $i$'s confidence that "my sensing action maintains my tracking error below $d$." The agent's action is the sensing mode choice ($\{L, H\}$ as in #worked-example-kalman).
+- **Agent $i$'s strategy**: a single-edge DAG $\Sigma_i = (v_{\text{action}}, v_{\text{goal}}, p_i)$ where $p_i \in [0,1]$ is agent $i$'s confidence that "my sensing action maintains my tracking error below $d$." The agent's action is the sensing mode choice ($\{L, H\}$ as in #example-kalman).
 - **Strategy update**: Beta-Bernoulli. Each time agent $i$ observes, it updates $p_i$ based on whether $\lvert\delta_{i,t}\rvert < d$ (success) or not (failure). At step $t$ with $n_i$ total observations and $s_i$ successes: $p_i = (s_i + 1)/(n_i + 2)$ (Laplace smoothing).
 
 **Micro-state:**
@@ -712,7 +712,7 @@ Synthesizing Parts 1 and 2, there are three distinct sources of information loss
 
 **Source 3: Cross-agent structural information.** When agents have different strategy DAG topologies, the composite strategy must somehow represent both. The union DAG preserves structure but may not satisfy (A1) (the composite's macro-strategy must be a single coherent plan, not a disjoint collection of plans). An abstracted DAG loses structural detail. **This is the deepest challenge for purposeful-agent composition and remains fully open.**
 
-**What $\varepsilon^\ast > 0$ means for the bridge lemma.** When $\varepsilon^\ast > 0$, the bridge lemma is load-bearing. The trajectory error bound $\varepsilon^\ast \nu_c / \alpha_c < R_c$ must be checked. For the Beta-Bernoulli case with option (a) (fixed macro-gain), $\varepsilon_\Sigma$ eventually grows, violating the bridge lemma's bound. This means the macro-description of the strategy eventually diverges from micro-reality -- the composite's strategy representation becomes stale. The agent must periodically "re-project" (re-synchronize the macro-strategy with the micro-strategies), which is the composition-level analog of structural adaptation ( #structural-adaptation-necessity).
+**What $\varepsilon^\ast > 0$ means for the bridge lemma.** When $\varepsilon^\ast > 0$, the bridge lemma is load-bearing. The trajectory error bound $\varepsilon^\ast \nu_c / \alpha_c < R_c$ must be checked. For the Beta-Bernoulli case with option (a) (fixed macro-gain), $\varepsilon_\Sigma$ eventually grows, violating the bridge lemma's bound. This means the macro-description of the strategy eventually diverges from micro-reality -- the composite's strategy representation becomes stale. The agent must periodically "re-project" (re-synchronize the macro-strategy with the micro-strategies), which is the composition-level analog of structural adaptation ( #result-structural-adaptation-necessity).
 
 ### 14. Summary and Implications
 

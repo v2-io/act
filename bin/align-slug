@@ -19,16 +19,23 @@
 #      or multiple matches.
 #   2. Read the `type:` field from the file's YAML frontmatter.
 #   3. Resolve the effective slug-prefix: TYPE_TO_PREFIX[type] || type.
-#      The mapping below handles types whose full name is long enough that
-#      a shorter slug prefix reads better (the current entry collapses
-#      `worked-example` to `example`).
+#      The mapping below collapses long FORMAT.md type tokens into compact
+#      natural-English forms (`definition → def`, `derivation → deriv`, etc.)
+#      so that an `ls` of src/ shows the kind-of-thing without each entry
+#      being dominated visually by the type word.
 #   4. Strip any known type-prefix from the current slug (longest match
 #      wins — `worked-example-foo` strips `worked-example-`, not `worked-`).
 #      Known prefixes = FORMAT.md's type vocabulary ∪ TYPE_TO_PREFIX.values.
 #      This recovers the bare subject-noun whether the current prefix is
 #      correct, wrong, or absent.
-#   5. Compose target = {effective_prefix}-{subject_noun}.
-#   6. If target == current slug, exit 0 (already aligned). Otherwise,
+#   5. Strip a trailing `-{type}` (or `-{mapped-prefix}`) from the subject-
+#      noun if present. Subject-noun-as-type-suffix is redundant once the
+#      role-prefix lives in front: `bias-bound-derivation` (type=derivation)
+#      aligns to `deriv-bias-bound`, not `deriv-bias-bound-derivation`.
+#      Strips only the segment's own type forms, not arbitrary type words
+#      that happen to appear as the trailing word.
+#   6. Compose target = {effective_prefix}-{subject_noun}.
+#   7. If target == current slug, exit 0 (already aligned). Otherwise,
 #      invoke bin/rename-slug {current} {target} with any passthrough flags.
 #
 # Use cases this covers:
@@ -36,6 +43,8 @@
 #   - Segment carried a correct prefix already: no-op.
 #   - Type in the file changed (definition → scope, etc.): swap the prefix.
 #   - TYPE_TO_PREFIX mapping changed: sweep segments to match.
+#   - Subject-noun ends with the segment's own type word (legacy of the
+#     pre-role-prefix era): the trailing strip cleans it up.
 #   - Subject-noun contains a word that looks like a type but isn't a prefix
 #     (e.g., `definition-verbose-example-foo`): longest-match-first correctly
 #     strips only the leading prefix.
@@ -57,13 +66,33 @@ COMPONENT_SRCS = %w[
 
 RENAME_SLUG = (REPO_ROOT / 'bin' / 'rename-slug').freeze
 
-# Type → slug-prefix mapping. Entries here collapse long FORMAT.md type
-# tokens into shorter, more-readable slug prefixes. This is a project-wide
-# convention; see CLAUDE.md §"Slug role-prefix mapping" for rationale.
-# Any future collapse (e.g., `proposed-schema` → `schema`) goes here and
-# nowhere else — `bin/align-slug --all` then sweeps the repo to match.
+# Type → slug-prefix mapping. Entries here collapse FORMAT.md type tokens
+# into compact natural-English forms used as the slug prefix, so that an
+# `ls` of src/ surfaces the kind-of-thing at a glance without the type
+# word dominating visual real estate. This is the project-wide convention
+# governing slug prefixes; see CLAUDE.md §"Slug role-prefix mapping" for
+# rationale and the parallel-but-distinct `bin/lint-outline` graph-display
+# abbreviation table.
+#
+# Already-short FORMAT.md types (`scope`, `result`, `detail`, `sketch`,
+# `aside`) fall through unchanged — no entry needed here. To adjust the
+# project-wide mapping, edit this constant and re-run `bin/align-slug
+# --all`. Single source of truth.
 TYPE_TO_PREFIX = {
-  'worked-example' => 'example',
+  'postulate'       => 'post',
+  'definition'      => 'def',
+  'formulation'     => 'form',
+  'derived'         => 'der',
+  'derivation'      => 'deriv',
+  'corollary'       => 'corr',
+  'hypothesis'      => 'hyp',
+  'normative'       => 'norm',
+  'empirical'       => 'emp',
+  'observation'     => 'obs',
+  'discussion'      => 'disc',
+  'measurement'     => 'meas',
+  'proposed-schema' => 'schema',
+  'worked-example'  => 'example',
 }.freeze
 
 # FORMAT.md type vocabulary (see the `type` table in FORMAT.md). These are
@@ -140,8 +169,29 @@ def effective_prefix(type)
   TYPE_TO_PREFIX.fetch(type, type)
 end
 
+# Strip a trailing `-{type}` or `-{mapped-prefix}` from the subject-noun.
+# Type-as-suffix is redundant once the role-prefix lives in front. Only
+# the segment's *own* type forms are eligible — we don't strip arbitrary
+# type words that happen to appear as the trailing token. Longer match
+# preferred (e.g., `-proposed-schema` before `-schema`); the length-guard
+# prevents stripping when the entire subject is the type word (which
+# would leave an empty subject).
+def strip_trailing_type(subject, type)
+  candidates = [type, TYPE_TO_PREFIX[type]].compact.uniq.sort_by { |c| -c.length }
+  candidates.each do |c|
+    suffix = "-#{c}"
+    if subject.end_with?(suffix) && subject.length > suffix.length
+      return subject[0...-suffix.length]
+    end
+  end
+  subject
+end
+
 def target_slug(current_slug, type)
-  "#{effective_prefix(type)}-#{bare_subject(current_slug)}"
+  prefix = effective_prefix(type)
+  subject = bare_subject(current_slug)
+  subject = strip_trailing_type(subject, type)
+  "#{prefix}-#{subject}"
 end
 
 # --- rename-slug invocation --------------------------------------------
@@ -223,9 +273,10 @@ def main
   slugs.each do |slug|
     result = align_one(slug, options[:passthrough])
     counts[result] += 1
-  rescue SystemExit
+  rescue SystemExit, StandardError => e
     raise unless options[:all]
     counts[:error] += 1
+    warn "  error on #{slug}: #{e.message.lines.first}"
     warn "  (continuing with remaining slugs)"
   end
 

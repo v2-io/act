@@ -14,7 +14,7 @@ AAD is a well-constructed integrative framework — 68 segments forming a cohere
 
 **Section III** (15 segments): Promising structure grounded in simulations. Composition-closure framework is sophisticated but bridge lemma has contraction gap. Adversarial dynamics are well-validated.
 
-**Appendices** (10 segments): Rigorous support. Worked examples validate the full chain. One missing segment (#linear-ode-approximation).
+**Appendices** (10 segments): Rigorous support. Worked examples validate the full chain. One missing segment (#detail-linear-ode-approximation).
 
 ---
 
@@ -51,7 +51,7 @@ All of the following were identified in prior analyses and have been verified as
 ### 3.1 HIGH — Genuine Open Gaps
 
 **H1. Three-way exploit/explore/deliberate tradeoff.**
-The only --GAP-- in Section II's OUTLINE. No spike done. The individual pieces exist (#temporal-optimality, #explicit-strategy-condition, #deliberation-cost) but the integration into a single resource-allocation framework does not. This is the one genuinely missing argument in Section II.
+The only --GAP-- in Section II's OUTLINE. No spike done. The individual pieces exist (#post-temporal-optimality, #norm-explicit-strategy-condition, #der-deliberation-cost) but the integration into a single resource-allocation framework does not. This is the one genuinely missing argument in Section II.
 - *Affects:* Section II completeness
 - *Source:* OUTLINE.md, analysis-2026-04-01
 
@@ -59,11 +59,11 @@ The only --GAP-- in Section II's OUTLINE. No spike done. The individual pieces e
 
 The following were listed as HIGH in prior analyses but have been addressed by spike work and promoted to segments:
 
-- ~~**Signal function for strategy edge updates.**~~ Resolved at theory level. #credit-assignment-boundary has the gradient-based default formalized as a `[Formulation]` with directional fidelity (B1), O(|V|+|E|) computation, REINFORCE connection, and correlated-failure caveat. #strategy-persistence-schema item 5 says "Characterized at the theory level... the specific update algorithm is domain engineering, not theory." Continuous-outcome and multi-parent cases are extensions, not blocking gaps.
+- ~~**Signal function for strategy edge updates.**~~ Resolved at theory level. #disc-credit-assignment-boundary has the gradient-based default formalized as a `[Formulation]` with directional fidelity (B1), O(|V|+|E|) computation, REINFORCE connection, and correlated-failure caveat. #schema-strategy-persistence item 5 says "Characterized at the theory level... the specific update algorithm is domain engineering, not theory." Continuous-outcome and multi-parent cases are extensions, not blocking gaps.
 
 - ~~**Mixed AND/OR DAG persistence.**~~ Four topologies verified (Props B.1-B.4). Plan-level persistence proved via B.5 without needing per-edge credit assignment. Mixed case is a natural extension; the structural argument (per-edge sector conditions transfer individually) covers the general case at the plan level.
 
-- ~~**Bridge lemma contraction.**~~ Sketched in #composition-closure with (A4) → trajectory error bounded at ε*/α_c. Correlated Kalman spike shows ε*=0 at steady state. Projection admissibility (P1-P3) defined and instantiated. The contraction assumption is documented and bounded, not unaddressed. Discrete-time formalization is the remaining piece.
+- ~~**Bridge lemma contraction.**~~ Sketched in #form-composition-closure with (A4) → trajectory error bounded at ε*/α_c. Correlated Kalman spike shows ε*=0 at steady state. Projection admissibility (P1-P3) defined and instantiated. The contraction assumption is documented and bounded, not unaddressed. Discrete-time formalization is the remaining piece.
 
 - ~~**Strategic persistence gain-collapse.**~~ α_Σ = 1/(n+1) derived in single-edge spike. Forgetting fix stabilizes α. Critical experience n* implicit in the derivation. This is a prose clarification, not a theory gap.
 
@@ -169,9 +169,9 @@ Both labeled "exact" but are convention-dependent on value-object's horizon/poli
 
 | Gap | Section | Type | Description | Difficulty |
 |-----|---------|------|-------------|------------|
-| #exploit-explore-deliberate | II | Derived? | Three-way allocation with Sigma_t. Connects temporal-optimality, explicit-strategy-condition, deliberation-cost. **The only Section II gap.** | Medium — needs to formalize the three cost terms as competing draws on the same resource budget |
+| #disc-exploit-explore-deliberate | II | Derived? | Three-way allocation with Sigma_t. Connects temporal-optimality, explicit-strategy-condition, deliberation-cost. **The only Section II gap.** | Medium — needs to formalize the three cost terms as competing draws on the same resource budget |
 | #adversarial-edge-targeting | III | Derived? | Which strategy edges are most valuable to attack. Connects to adversarial-destabilization and observability-dominance. | Medium — likely involves sensitivity analysis on DAG structure |
-| #linear-ode-approximation | A | Detail | Pedagogical linear mismatch ODE. Currently the linear form appears only in mismatch-dynamics. A standalone appendix would let mismatch-dynamics focus on the qualitative behavior and point here for the full linear treatment. | Small |
+| #detail-linear-ode-approximation | A | Detail | Pedagogical linear mismatch ODE. Currently the linear form appears only in mismatch-dynamics. A standalone appendix would let mismatch-dynamics focus on the qualitative behavior and point here for the full linear treatment. | Small |
 
 ### 4.2 AAD Core — Missing Appendices (from WORKBENCH.md)
 
@@ -184,9 +184,9 @@ Both labeled "exact" but are convention-dependent on value-object's horizon/poli
 
 | Segment | Current Status | What's Needed |
 |---------|---------------|---------------|
-| #derived-tempo-composition | sketch | Close epsilon* → C_coord mapping. Bridge lemma contraction is the gate (discrete-time formalization pending). |
-| #multi-timescale-stability | sketch | Formal N-timescale singular perturbation treatment. |
-| #strategy-persistence-schema | sketch | Natural next step: mixed AND/OR DAGs (four pure topologies verified). Formalize strategic disturbance rho_Sigma. |
+| #der-tempo-composition | sketch | Close epsilon* → C_coord mapping. Bridge lemma contraction is the gate (discrete-time formalization pending). |
+| #sketch-multi-timescale-stability | sketch | Formal N-timescale singular perturbation treatment. |
+| #schema-strategy-persistence | sketch | Natural next step: mixed AND/OR DAGs (four pure topologies verified). Formalize strategic disturbance rho_Sigma. |
 
 ### 4.4 Cross-Component Gaps Relevant to AAD
 
@@ -195,10 +195,10 @@ These are tracked in other components' OUTLINEs but their absence affects how AA
 | Gap | Component | Relevance to AAD |
 |-----|-----------|-------------------|
 | #scope-logogenic-agent | 03-logogenic | Validates Section II scope claims about Class 2 agents |
-| #section-ii-survival | 03-logogenic | Documents which Section II results survive without directed separation (16/24 exactly, 5 approximately, 2 require modification per spike) |
-| #coupled-update-dynamics | 03-logogenic | The coupled formulation that Section II's directed-separation explicitly defers to |
+| #result-section-ii-survival | 03-logogenic | Documents which Section II results survive without directed separation (16/24 exactly, 5 approximately, 2 require modification per spike) |
+| #def-coupled-update-dynamics | 03-logogenic | The coupled formulation that Section II's directed-separation explicitly defers to |
 | #scope-developer-agent | 02-tst-core | Validates Section II for human agents (developer as (M_t, O_t, Sigma_t)) |
-| #causal-discovery-from-git | 02-tst-core | Validates causal-information-yield and loop-interventional-access for software domain |
+| #hyp-causal-discovery-from-git | 02-tst-core | Validates causal-information-yield and loop-interventional-access for software domain |
 
 ---
 

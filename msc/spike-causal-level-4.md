@@ -150,7 +150,7 @@ If Level 4 is real, there might be a fifth:
 
 This isn't "are the parameters wrong?" (that's δ_epistemic). It's "are the structural equations wrong? Am I missing causal links? Do I have spurious links?"
 
-AAD already has a concept for this: #structural-adaptation-necessity — when parametric updates within the current model class fail and the agent needs to change its model's structure. But it's treated as a binary event (either the model class is adequate or it needs changing). A Level 4 framing would make it continuous: the agent always has some degree of structural uncertainty, and δ_structural measures how much.
+AAD already has a concept for this: #result-structural-adaptation-necessity — when parametric updates within the current model class fail and the agent needs to change its model's structure. But it's treated as a binary event (either the model class is adequate or it needs changing). A Level 4 framing would make it continuous: the agent always has some degree of structural uncertainty, and δ_structural measures how much.
 
 **Where this fits in the cascade**: δ_structural should sit BETWEEN δ_epistemic and δ_sat:
 1. Update M_t from observations (δ_epistemic) — Level 1-2
@@ -274,7 +274,7 @@ That is: the policy optimized for the aspirational objective produces better out
 
 3. **Gradient quality**: The gradient ∇_π V_{O_aspirational} may be better-conditioned (more informative, more stable) than ∇_π V_{O_feasible} in the neighborhood of π_f. Optimizing toward the aspirational target navigates the landscape more smoothly.
 
-**AAD formalization**: This could be a corollary or working note in #satisfaction-gap: "δ_sat > 0 is not always a signal for O_t revision. When the aspirational objective produces a better gradient through strategy space than any feasible alternative, maintaining δ_sat > 0 is optimal." This would modify the cascade's rule that O_t revision is the last resort — instead, O_t revision is only warranted when the aspirational gradient is WORSE than the feasible gradient, not just when δ_sat > 0.
+**AAD formalization**: This could be a corollary or working note in #def-satisfaction-gap: "δ_sat > 0 is not always a signal for O_t revision. When the aspirational objective produces a better gradient through strategy space than any feasible alternative, maintaining δ_sat > 0 is optimal." This would modify the cascade's rule that O_t revision is the last resort — instead, O_t revision is only warranted when the aspirational gradient is WORSE than the feasible gradient, not just when δ_sat > 0.
 
 ## 11. What's Real Here and What's Fog
 

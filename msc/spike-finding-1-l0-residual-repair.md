@@ -1,6 +1,6 @@
-# Spike: Finding 1 Repair — Covariance-Primary Restructuring of `#causal-insufficiency-detection`
+# Spike: Finding 1 Repair — Covariance-Primary Restructuring of `#der-causal-insufficiency-detection`
 
-**Status:** Spike (proposed segment revision). Promotion-ready replacement for `01-aad-core/src/causal-insufficiency-detection.md` addressing Finding 1 of `msc/pending-findings-2026-04-22.md` (L0 residual fails as on-policy detection signal).
+**Status:** Spike (proposed segment revision). Promotion-ready replacement for `01-aad-core/src/der-causal-insufficiency-detection.md` addressing Finding 1 of `msc/pending-findings-2026-04-22.md` (L0 residual fails as on-policy detection signal).
 
 **Date:** 2026-04-22
 
@@ -11,7 +11,7 @@
 1. **Algebraic.** For an OR-gated pair $(A_1, A_2)$ executed with sequential short-circuit, the agent's empirical estimate of the success rate of $A_2$ converges to $\hat p_2 \to P(A_2 \mid \neg A_1)$ — the conditional under the short-circuit regime, not the marginal $\theta_2$. Plugging conditionals into the L0 OR formula:
    $$\hat P_\Sigma = 1 - (1 - \hat p_1)(1 - \hat p_2) \to 1 - P(\neg A_1)\,P(\neg A_2 \mid \neg A_1) = 1 - P(\neg A_1, \neg A_2) = P(A_1 \cup A_2)$$
    This is exactly $\bar y_G$ under the executed policy. Residual $\to 0$.
-2. **Worked-example consistency.** `#worked-example-L1` line 34 sets $\theta_1 = \theta_C \cdot \theta_{1\mid C} = 0.72$ — i.e., the *marginal* success probability of path 1, computed across all environment states. The example tacitly assumes the agent learns marginals. This is consistent with off-policy / forced-sampling estimation; under on-policy short-circuit it is not what the agent would learn.
+2. **Worked-example consistency.** `#example-L1` line 34 sets $\theta_1 = \theta_C \cdot \theta_{1\mid C} = 0.72$ — i.e., the *marginal* success probability of path 1, computed across all environment states. The example tacitly assumes the agent learns marginals. This is consistent with off-policy / forced-sampling estimation; under on-policy short-circuit it is not what the agent would learn.
 
 The finding is real. The covariance test in §"Interventional Localization" is the durable mechanism; the $\pm\rho$ residual is the off-policy / marginal-sampling limit and should be gated explicitly on that scope.
 
@@ -25,12 +25,12 @@ Three substantive choices in the revision below; documented here so Joseph can a
 
 The repair direction in `pending-findings-2026-04-22.md` is unambiguous on this — Part B says elevate the covariance test to the **primary** detection mechanism. I have followed that direction:
 
-- **§"Interventional Localization" → renamed §"Detection Principle: Pairwise Sibling Covariance Under Intervention"** and moved to the front. This is now *the* L0-insufficiency detector. It load-bears on `#loop-interventional-access` (which AAD has by construction for actuated agents) and on the agent's exploration mechanism (SA3) generating off-policy samples for sibling pairs — both of which are already established machinery, not novel scope conditions.
+- **§"Interventional Localization" → renamed §"Detection Principle: Pairwise Sibling Covariance Under Intervention"** and moved to the front. This is now *the* L0-insufficiency detector. It load-bears on `#der-loop-interventional-access` (which AAD has by construction for actuated agents) and on the agent's exploration mechanism (SA3) generating off-policy samples for sibling pairs — both of which are already established machinery, not novel scope conditions.
 - **The $\pm\rho$ residual → renamed §"Secondary Signal: Plan-Level Residual Under Off-Policy Sampling"** and moved after the covariance section. It is presented as a confirmatory/aggregate signal valid only when the agent has a material off-policy component, with the regime gating made explicit.
 - **§"From Detection to L1 Construction"** stays in roughly the same form — the construction step is downstream of either detection mechanism, so it doesn't need restructuring. Minor edit to make "given a positive covariance signal" the primary trigger.
 - **§"Diagnostic CIY"** stays as Discussion-grade.
 
-This ordering also matches the downstream truth: `#orient-cascade` step 4c, `#independence-audit` (item 2), and `#strategy-dag` line 124 *all already* point to the covariance test as the diagnostic. The current segment was the outlier in leading with the residual.
+This ordering also matches the downstream truth: `#der-orient-cascade` step 4c, `#disc-independence-audit` (item 2), and `#def-strategy-dag` line 124 *all already* point to the covariance test as the diagnostic. The current segment was the outlier in leading with the residual.
 
 ### (b) Treatment of the $\varepsilon \cdot \rho$ scaling
 
@@ -83,7 +83,7 @@ If Joseph prefers, the *[Heuristic]* call could be tightened to *[Derived (Condi
 
 ## Proposed Revised Segment
 
-The full text of the proposed `01-aad-core/src/causal-insufficiency-detection.md` follows. Apply by replacing the entire segment.
+The full text of the proposed `01-aad-core/src/der-causal-insufficiency-detection.md` follows. Apply by replacing the entire segment.
 
 ```markdown
 ---
@@ -91,16 +91,16 @@ slug: causal-insufficiency-detection
 type: derived
 status: conditional
 depends:
-  - structural-adaptation-necessity
-  - strategy-dag
-  - loop-interventional-access
-  - causal-information-yield
+  - result-structural-adaptation-necessity
+  - def-strategy-dag
+  - der-loop-interventional-access
+  - def-causal-information-yield
 stage: draft
 ---
 
 # Derived: Causal Insufficiency Detection
 
-An agent operating at L0 of the Correlation Hierarchy ( #strategy-dag) can detect that its strategy DAG is causally insufficient — that latent common causes exist — by testing for pairwise covariance among sibling edges using the interventional data the feedback loop generates. A secondary aggregate signal (the L0 plan-level residual) is available when the agent samples off-policy, but vanishes under purely greedy execution. This is #structural-adaptation-necessity applied to the strategy layer, with the independence model as the model class and pairwise covariance as the primary diagnostic.
+An agent operating at L0 of the Correlation Hierarchy ( #def-strategy-dag) can detect that its strategy DAG is causally insufficient — that latent common causes exist — by testing for pairwise covariance among sibling edges using the interventional data the feedback loop generates. A secondary aggregate signal (the L0 plan-level residual) is available when the agent samples off-policy, but vanishes under purely greedy execution. This is #result-structural-adaptation-necessity applied to the strategy layer, with the independence model as the model class and pairwise covariance as the primary diagnostic.
 
 ## Formal Expression
 
@@ -108,7 +108,7 @@ An agent operating at L0 of the Correlation Hierarchy ( #strategy-dag) can detec
 
 *[Derived (from loop-interventional-access + independence test, conditional on SA3 exploration + joint observability)]*
 
-Under L0 (the independence model in #strategy-dag's Correlation Hierarchy), sibling outcomes under a common parent are uncorrelated:
+Under L0 (the independence model in #def-strategy-dag's Correlation Hierarchy), sibling outcomes under a common parent are uncorrelated:
 
 $$H_0:\;\operatorname{Cov}(Y_{A_i}, Y_{A_j}) = 0 \quad \forall\; i \neq j \;\text{siblings under the same parent}$$
 
@@ -122,9 +122,9 @@ $$\hat\rho_{ij} = \frac{1}{N}\sum_t (Y_{A_i,t} - \bar{Y}_{A_i})(Y_{A_j,t} - \bar
 
 A significantly positive $\hat\rho_{ij}$ rejects the L0 independence hypothesis and localizes the latent common cause: $A_i$ and $A_j$ share a dependency not represented in the DAG.
 
-The feedback loop ( #loop-interventional-access) is what makes this possible: the agent's actions are genuine interventions, so the $(A_i, Y_i)$ pairs are interventional data. The covariance test is a causal independence test conducted on interventional data — it detects common causes that would be confounded in purely observational data.
+The feedback loop ( #der-loop-interventional-access) is what makes this possible: the agent's actions are genuine interventions, so the $(A_i, Y_i)$ pairs are interventional data. The covariance test is a causal independence test conducted on interventional data — it detects common causes that would be confounded in purely observational data.
 
-**Why this is the primary mechanism.** The covariance test does not require any particular execution policy beyond the joint-observability condition that the agent occasionally generates samples of $(Y_{A_i}, Y_{A_j})$ pairs not censored by short-circuit evaluation. Standard exploration (SA3, already required by #strategic-dynamics-derivation Prop B.4 for OR-node calibration) supplies these samples. The test runs on data the agent collects anyway and detects the structural property directly rather than indirectly through aggregate residuals.
+**Why this is the primary mechanism.** The covariance test does not require any particular execution policy beyond the joint-observability condition that the agent occasionally generates samples of $(Y_{A_i}, Y_{A_j})$ pairs not censored by short-circuit evaluation. Standard exploration (SA3, already required by #deriv-strategic-dynamics Prop B.4 for OR-node calibration) supplies these samples. The test runs on data the agent collects anyway and detects the structural property directly rather than indirectly through aggregate residuals.
 
 **Detection criterion.** A statistically significant positive $\hat\rho_{ij}$ at sample size $N$ sufficient for the desired test power, after per-edge credences have stabilized:
 
@@ -179,30 +179,30 @@ where $R$ is a structure-dependent coefficient that recovers the marginal-limit 
 1. **Material off-policy fraction.** The agent has $\varepsilon$ large enough that $\varepsilon \cdot R$ exceeds the noise floor of empirical residual estimation. Purely greedy agents cannot use this signal.
 2. **Marginal convergence.** Per-edge credences have actually stabilized at their (conditional or mixed) limits.
 3. **Approximate stationarity.** True edge probabilities are not drifting faster than the agent's update rate.
-4. **No systematic update bias** (e.g., the marginal Bayesian update for unobservable intermediates has $O(1/n)$ downward bias — see #strategic-dynamics-derivation, Prop B.3).
+4. **No systematic update bias** (e.g., the marginal Bayesian update for unobservable intermediates has $O(1/n)$ downward bias — see #deriv-strategic-dynamics, Prop B.3).
 
 When all four hold and the residual is statistically significantly nonzero, its sign confirms the bias direction (OR overestimation vs AND underestimation) identified by the primary covariance test. The two diagnostics are complementary: covariance localizes *where* the missing common cause is; the residual sign characterizes the *aggregate bias direction* across the DAG.
 
-This is #structural-adaptation-necessity's diagnostic criterion ("persistent irreducible mismatch after parametric convergence is diagnostic of model class inadequacy") instantiated for the strategy layer, with the independence model as the model class and the off-policy-regime $\rho$ as the irreducible mismatch — under the explicit scope condition that the agent samples off-policy enough to see it.
+This is #result-structural-adaptation-necessity's diagnostic criterion ("persistent irreducible mismatch after parametric convergence is diagnostic of model class inadequacy") instantiated for the strategy layer, with the independence model as the model class and the off-policy-regime $\rho$ as the irreducible mismatch — under the explicit scope condition that the agent samples off-policy enough to see it.
 
 ### From Detection to L1 Construction
 
-*[Derived (from positive covariance signal + L1 construction principle in #strategy-dag)]*
+*[Derived (from positive covariance signal + L1 construction principle in #def-strategy-dag)]*
 
 Once the agent detects $\hat\rho_{ij} \gt 0$ between siblings $A_i$ and $A_j$, it knows a latent common cause exists but not its identity. The construction process:
 
 1. **Hypothesize** a common-cause node $C$ that explains the correlation.
 2. **Estimate** $\theta_C$ from the pattern of joint outcomes. The joint failure rate $P(A_i\text{ fails}, A_j\text{ fails})$ exceeds $(1-\theta_i)(1-\theta_j)$ by $\hat\rho_{ij}$; the excess localizes the common cause's frequency.
-3. **Restructure** the DAG: factor $C$ above the correlated siblings ( #strategy-dag, L1 construction principle: factor the common cause above the correlation it creates).
+3. **Restructure** the DAG: factor $C$ above the correlated siblings ( #def-strategy-dag, L1 construction principle: factor the common cause above the correlation it creates).
 4. **Re-estimate** conditional edge credences $\theta_{k|C}$ from the data, conditioned on the inferred $C$ state.
 
-This is structural adaptation ( #structural-adaptation-necessity) at the strategy level: the agent changes its model class from L0 to L1, adding representational capacity for a pattern the L0 model cannot express. The cost is the standard cost of structural change: temporary performance degradation while the new credences converge, and increased graph complexity. (Soft-facilitator common causes require L1' rather than L1 — see #strategy-dag and #worked-example-L1 for the strict-prerequisite vs soft-facilitator distinction.)
+This is structural adaptation ( #result-structural-adaptation-necessity) at the strategy level: the agent changes its model class from L0 to L1, adding representational capacity for a pattern the L0 model cannot express. The cost is the standard cost of structural change: temporary performance degradation while the new credences converge, and increased graph complexity. (Soft-facilitator common causes require L1' rather than L1 — see #def-strategy-dag and #example-L1 for the strict-prerequisite vs soft-facilitator distinction.)
 
 ### Diagnostic CIY
 
 *[Discussion (diagnostic-ciy)]*
 
-Which actions are most informative for detecting latent common causes? An action that tests multiple potentially-correlated edges simultaneously has high causal information yield for the independence hypothesis ( #causal-information-yield). The explore-exploit tradeoff extends with a third axis:
+Which actions are most informative for detecting latent common causes? An action that tests multiple potentially-correlated edges simultaneously has high causal information yield for the independence hypothesis ( #def-causal-information-yield). The explore-exploit tradeoff extends with a third axis:
 
 - **Exploit**: pursue the current best plan
 - **Explore**: test unknown edges for their individual success rates
@@ -231,15 +231,15 @@ Interventions cannot detect common causes that:
 - **Correlate edges that are never jointly observable**: if the agent can never observe both $A_i$ and $A_j$ in the same environment state (mutually exclusive with long horizons), the joint outcome data is unavailable.
 - **Introduce negative correlation**: the formulation assumes positive correlation from shared enabling factors. Negative correlation (competing for a shared resource) requires a different model and produces the opposite bias pattern.
 
-These limitations parallel the information-theoretic underdetermination in #credit-assignment-boundary: detection requires data, and the data must have the right structure.
+These limitations parallel the information-theoretic underdetermination in #disc-credit-assignment-boundary: detection requires data, and the data must have the right structure.
 
 ## Discussion
 
-**The detection-construction cycle.** The full cycle — L0 operation → detect positive sibling covariance → localize common cause → construct L1 → re-converge — is a concrete instance of the structural adaptation cycle described in #structural-adaptation-necessity. The agent starts with a simpler model class (L0), runs a structural test on data its exploration generates anyway, then transitions to a richer model class (L1) at the cost of temporary uncertainty. The covariance signal makes the detection criterion quantitative rather than qualitative: the agent has a hypothesis-test threshold rather than a vague "model feels wrong" signal.
+**The detection-construction cycle.** The full cycle — L0 operation → detect positive sibling covariance → localize common cause → construct L1 → re-converge — is a concrete instance of the structural adaptation cycle described in #result-structural-adaptation-necessity. The agent starts with a simpler model class (L0), runs a structural test on data its exploration generates anyway, then transitions to a richer model class (L1) at the cost of temporary uncertainty. The covariance signal makes the detection criterion quantitative rather than qualitative: the agent has a hypothesis-test threshold rather than a vague "model feels wrong" signal.
 
 **Why the primary signal is structural, not aggregate.** A rational agent executing a short-circuit AND/OR plan censors its own training data: edges downstream of failed prerequisites are never tested; OR-alternatives downstream of successes are never tried. Empirical credences therefore converge to *conditionals under the short-circuit regime*, not marginals. Naive L0 arithmetic with conditional inputs is the chain rule of probability — it recovers the true joint under the executed policy. So a purely greedy agent's plan-level residual is structurally zero; it is well-calibrated *to the world it actually samples*, even when its DAG omits common causes. Detecting causal insufficiency requires a signal that survives the censoring — and that is precisely what pairwise sibling covariance under exploration provides: a structural test on uncensored joint data, not an aggregate average over censored marginals.
 
-**Connection to the orient cascade.** The detection signal enters the orient cascade ( #orient-cascade) at step 4c (causal-sufficiency check). The cascade's text already names "pairwise sibling covariance under an augmented test" as the diagnostic mechanism; this segment is its formal home. Step 4c's response is structural revision of $\Sigma_t$ (adding the common-cause node), routed through step 5b's $\Pi$-expansion as the L1 augmentation.
+**Connection to the orient cascade.** The detection signal enters the orient cascade ( #der-orient-cascade) at step 4c (causal-sufficiency check). The cascade's text already names "pairwise sibling covariance under an augmented test" as the diagnostic mechanism; this segment is its formal home. Step 4c's response is structural revision of $\Sigma_t$ (adding the common-cause node), routed through step 5b's $\Pi$-expansion as the L1 augmentation.
 
 **Domain instantiations.** The detection mechanism applies concretely in:
 - **Software deployment**: two services sharing infrastructure fail together more often than independent failure rates predict → add infrastructure-health node
@@ -253,33 +253,33 @@ In each, what makes the detection feasible is the agent's ability to occasionall
 
 - The mixed-regime scaling formula $\Phi^{L0}(\hat{\boldsymbol p}) - \bar y_G = \varepsilon R + O(\varepsilon^2)$ is currently *[Heuristic]* — the qualitative form is robust but the coefficient $R$ is structure-dependent. A tighter result would bound $|R|$ in terms of $\rho$ and the gap between conditional and marginal credences. For the two-OR case, $R = (1-p_1^c)(\theta_2 - p_2^c) + (1-p_2^c)(\theta_1 - p_1^c)$ explicitly and $\rho = R - (\theta_1 - p_1^c)(\theta_2 - p_2^c)$ at $\varepsilon = 1$. Generalizing to $k$-sibling OR and to AND-heavy topologies is straightforward but tedious; if the secondary signal becomes load-bearing for any downstream result, this is the work to do. Currently no downstream segment loads on the *quantitative* form, only on the qualitative ("aggregate residual exists, sign matches dominant node type") — so the heuristic tag is honest and not blocking.
 - The covariance test's effective sample size depends on the off-policy fraction $\varepsilon$ (which controls how often joint observations occur) and the latent common cause's prevalence $\theta_C$ (which controls how often joint failures actually occur). In the worst case (high $\theta_C$, common cause almost always active so failures are rare), the test is power-limited. A more sophisticated diagnostic might condition on environment-state proxies to focus the test on regimes where the common cause varies — but this presumes structure the L0 agent doesn't have. Moving from L0 to L1 is the proper response; refining the test within L0 is unlikely to pay off.
-- This segment now leans entirely on `#loop-interventional-access` for the primary signal (was leaning equally on it before the rewrite, but the residual signal masked that dependency). If `#loop-interventional-access`'s scope is later qualified (e.g., by Finding 5 / O-BP6's regime-indexed treatment of "interventional" data), the covariance test inherits the same regime-conditional reading. Worth a re-check pass on this segment after any rewrite of `#loop-interventional-access`.
+- This segment now leans entirely on `#der-loop-interventional-access` for the primary signal (was leaning equally on it before the rewrite, but the residual signal masked that dependency). If `#der-loop-interventional-access`'s scope is later qualified (e.g., by Finding 5 / O-BP6's regime-indexed treatment of "interventional" data), the covariance test inherits the same regime-conditional reading. Worth a re-check pass on this segment after any rewrite of `#der-loop-interventional-access`.
 ```
 
 ---
 
 ## Downstream Impact Check
 
-Search results from the repo for `#causal-insufficiency-detection` and the $\pm\rho$ / "L0 residual" formulas. Each hit classified as: still holds / minor edit needed / substantive rework needed.
+Search results from the repo for `#der-causal-insufficiency-detection` and the $\pm\rho$ / "L0 residual" formulas. Each hit classified as: still holds / minor edit needed / substantive rework needed.
 
-### `#causal-insufficiency-detection` references
+### `#der-causal-insufficiency-detection` references
 
 | File | Line | Reference | Status |
 |------|------|-----------|--------|
 | `01-aad-core/OUTLINE.md` | 95 | One-line description: "Detecting latent common causes from structured residuals + interventional localization" | **Minor edit.** "structured residuals + interventional localization" inverts the new ordering. Suggested: "Detecting latent common causes via pairwise sibling covariance under intervention; secondary plan-level residual signal under off-policy sampling." |
-| `01-aad-core/src/orient-cascade.md` | 16, 48, 85 | Step 4c diagnostic: "pairwise sibling covariance under an augmented test ( #causal-insufficiency-detection)" | **Still holds.** The reference is exactly to the surviving (and now primary) covariance test. Confirmed during pre-spike review per the finding's own note (line 122). No edit needed. |
-| `01-aad-core/src/strategy-dag.md` | 124 | "An agent at L0 can detect causal insufficiency from its own data: persistent overestimation of plan success after edge credences have converged is the signal" — then describes the covariance test | **Minor edit needed.** The opening clause ("persistent overestimation … is the signal") is the now-demoted secondary signal, presented as the primary signal. The follow-on text correctly describes the covariance test as the localization mechanism, but the framing reverses the new ordering. Suggested rewrite: "An agent at L0 can detect causal insufficiency from its own data: pairwise covariance among sibling edges, computed on interventional data the feedback loop generates, rejects the independence hypothesis and identifies where to add L1 nodes. A secondary aggregate signal — persistent overestimation of plan success after edge credences have converged, available when the agent samples off-policy — corroborates the bias direction." 5 min. |
-| `01-aad-core/src/independence-audit.md` | 45 | Item 2 diagnostic signal: "Pairwise covariance among sibling edges after edge credences have converged. Positive covariance rejects the independence hypothesis and localizes where a common cause is missing. See #causal-insufficiency-detection." | **Still holds.** Already references the surviving (and now primary) mechanism. No edit needed. |
-| `01-aad-core/src/approximation-tiering.md` | 34 | Diagnostic for correlation tier: "Sibling-edge covariance after credence convergence ( #causal-insufficiency-detection)" | **Still holds.** Already references the surviving mechanism. No edit needed. |
-| `01-aad-core/src/worked-example-L1.md` | 141 | "the L0 residual $\Phi^{L0} - \bar y_G$ converges to $+\rho$ (our example: $0.877 - 0.776 = 0.101$), providing a precise, quantitative detection signal. The agent does not need to know the common cause exists *a priori* — it discovers the need for L1 from persistent structured residuals after convergence." | **Substantive edit needed.** This passage is the most affected downstream reference. The numeric calculation (0.877 - 0.776 = 0.101) is correct *in the marginal-sampling limit* — and the worked example *implicitly assumes that limit* by using $\theta_1 = \theta_C \cdot \theta_{1|C} = 0.72$ as the agent's learned credence (the marginal). Suggested rewrite: lead with the covariance signal as the primary detection, retain the residual computation as the off-policy / marginal-sampling demonstration, and add an explicit scope note that the example assumes the agent samples both paths regardless of execution context (i.e., off-policy or simultaneous-attempt regime). The numbers stand; the framing needs to acknowledge the regime. 15–20 min. |
+| `01-aad-core/src/der-orient-cascade.md` | 16, 48, 85 | Step 4c diagnostic: "pairwise sibling covariance under an augmented test ( #der-causal-insufficiency-detection)" | **Still holds.** The reference is exactly to the surviving (and now primary) covariance test. Confirmed during pre-spike review per the finding's own note (line 122). No edit needed. |
+| `01-aad-core/src/def-strategy-dag.md` | 124 | "An agent at L0 can detect causal insufficiency from its own data: persistent overestimation of plan success after edge credences have converged is the signal" — then describes the covariance test | **Minor edit needed.** The opening clause ("persistent overestimation … is the signal") is the now-demoted secondary signal, presented as the primary signal. The follow-on text correctly describes the covariance test as the localization mechanism, but the framing reverses the new ordering. Suggested rewrite: "An agent at L0 can detect causal insufficiency from its own data: pairwise covariance among sibling edges, computed on interventional data the feedback loop generates, rejects the independence hypothesis and identifies where to add L1 nodes. A secondary aggregate signal — persistent overestimation of plan success after edge credences have converged, available when the agent samples off-policy — corroborates the bias direction." 5 min. |
+| `01-aad-core/src/disc-independence-audit.md` | 45 | Item 2 diagnostic signal: "Pairwise covariance among sibling edges after edge credences have converged. Positive covariance rejects the independence hypothesis and localizes where a common cause is missing. See #der-causal-insufficiency-detection." | **Still holds.** Already references the surviving (and now primary) mechanism. No edit needed. |
+| `01-aad-core/src/disc-approximation-tiering.md` | 34 | Diagnostic for correlation tier: "Sibling-edge covariance after credence convergence ( #der-causal-insufficiency-detection)" | **Still holds.** Already references the surviving mechanism. No edit needed. |
+| `01-aad-core/src/example-L1.md` | 141 | "the L0 residual $\Phi^{L0} - \bar y_G$ converges to $+\rho$ (our example: $0.877 - 0.776 = 0.101$), providing a precise, quantitative detection signal. The agent does not need to know the common cause exists *a priori* — it discovers the need for L1 from persistent structured residuals after convergence." | **Substantive edit needed.** This passage is the most affected downstream reference. The numeric calculation (0.877 - 0.776 = 0.101) is correct *in the marginal-sampling limit* — and the worked example *implicitly assumes that limit* by using $\theta_1 = \theta_C \cdot \theta_{1|C} = 0.72$ as the agent's learned credence (the marginal). Suggested rewrite: lead with the covariance signal as the primary detection, retain the residual computation as the off-policy / marginal-sampling demonstration, and add an explicit scope note that the example assumes the agent samples both paths regardless of execution context (i.e., off-policy or simultaneous-attempt regime). The numbers stand; the framing needs to acknowledge the regime. 15–20 min. |
 | `msc/analysis-2026-04-06.md` | 308, 309, 314, 536 | Historical analysis-grade text discussing the residual diagnostic | **Historical artifact.** msc/ analysis document; no edit needed. The newer pending-findings doc supersedes it. |
 
 ### `±ρ residual` / "L0 residual" prose mentions outside the segment
 
 | File | Line | Context | Status |
 |------|------|---------|--------|
-| `01-aad-core/src/causal-insufficiency-detection.md` | 23, 25, 29, 41, 91 | The segment itself | Replaced by this spike. |
-| `01-aad-core/src/worked-example-L1.md` | 141, 146 | Numeric instantiation + Epistemic Status note ("The direction-of-bias formula ($\pm\rho$) is exact for two binary siblings") | Line 141: see worked-example-L1 row above. Line 146: **still holds** — the $\pm\rho$ formula *is* exact for two binary siblings *in the marginal-sampling limit*, and the segment's Epistemic Status is honest about the conditioning. May warrant a one-clause addition: "exact for two binary siblings *under marginal sampling*." 2 min. |
+| `01-aad-core/src/der-causal-insufficiency-detection.md` | 23, 25, 29, 41, 91 | The segment itself | Replaced by this spike. |
+| `01-aad-core/src/example-L1.md` | 141, 146 | Numeric instantiation + Epistemic Status note ("The direction-of-bias formula ($\pm\rho$) is exact for two binary siblings") | Line 141: see worked-example-L1 row above. Line 146: **still holds** — the $\pm\rho$ formula *is* exact for two binary siblings *in the marginal-sampling limit*, and the segment's Epistemic Status is honest about the conditioning. May warrant a one-clause addition: "exact for two binary siblings *under marginal sampling*." 2 min. |
 | `TODO.md` | 55 | Findings index entry | **Will update on completion** of finding repair. |
 | `msc/pending-findings-2026-04-22.md` | various | Finding 1's own description | The finding doc itself; no edit needed. |
 
@@ -308,7 +308,7 @@ Total downstream cost is roughly 30–40 minutes of follow-on editing after appl
    The primary-mechanism reframe is independent of this choice — option (a) is sufficient for the segment to load-bear correctly; (b) and (c) are polish.
 
 2. **Worked-example-L1 framing.** The example's setup uses marginals as learned credences, which is consistent with the segment's pre-rewrite framing but tacitly assumes off-policy / simultaneous-attempt sampling. Two ways to handle:
-   - (a) Add a one-paragraph scope note to `worked-example-L1.md` clarifying the regime: "The example assumes the agent observes both path outcomes per trial, e.g., under simultaneous-attempt or off-policy exploration; under sequential short-circuit the agent's empirical credences would converge to conditionals and the residual would vanish — see #causal-insufficiency-detection §'On-policy collapse'." Cleanest. *(Recommended.)*
+   - (a) Add a one-paragraph scope note to `worked-example-L1.md` clarifying the regime: "The example assumes the agent observes both path outcomes per trial, e.g., under simultaneous-attempt or off-policy exploration; under sequential short-circuit the agent's empirical credences would converge to conditionals and the residual would vanish — see #der-causal-insufficiency-detection §'On-policy collapse'." Cleanest. *(Recommended.)*
    - (b) Rework the example to show *both* regimes side-by-side. More pedagogically thorough but adds significant length to a worked example whose primary purpose is the L1 *construction* demonstration, not the detection mechanism.
    I suggest (a); flagging here in case you have a stronger view.
 

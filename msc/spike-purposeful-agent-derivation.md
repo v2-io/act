@@ -457,7 +457,7 @@ The current contents (#210–#350) assume the DAG and then explore its propertie
 
 3. **The feedback loop provides Level 2 access** — Derived (from TF-02 + temporal ordering). This connects the adaptive-systems foundation to purposeful agency. An agent in the loop achieves Level 2 by construction, even without internal causal structure. *(This is also the LLM-in-loop theorem — Pearl reconciliation.)*
 
-4. **Scope narrowing: planning-capable agents** — Scope. We restrict to agents where mental simulation is cheaper than physical experimentation. By #temporal-optimality, these agents are driven toward explicit causal models of their purpose.
+4. **Scope narrowing: planning-capable agents** — Scope. We restrict to agents where mental simulation is cheaper than physical experimentation. By #post-temporal-optimality, these agents are driven toward explicit causal models of their purpose.
 
 5. **Multi-step fragility** — Derived (mathematical property of chained uncertain steps). p^n decay. This is not DAG-specific.
 
@@ -602,7 +602,7 @@ The feedback loop provides Level 2 access *without* explicit causal representati
 
 Both achieve the same epistemic goal (Level 2 access). They differ in temporal cost.
 
-*[Scope Narrowing via #temporal-optimality]*
+*[Scope Narrowing via #post-temporal-optimality]*
 
 We narrow to agents where mental simulation (planning) is cheaper than physical experimentation (trial-and-error) for the class of action- consequence queries the agent faces. For such agents, the explicit causal model is *temporally optimal* — it achieves the same outcomes in less time. By the temporal optimality axiom (#010), the agent with the explicit model is preferred.
 
@@ -610,7 +610,7 @@ We narrow to agents where mental simulation (planning) is cheaper than physical 
 
 **What this buys us**: The explicit causal model (a structured G_t that supports mental intervention queries) is now *derived* as the temporally optimal representation for purposeful agents in environments where physical exploration is costly relative to mental simulation. The DAG (or whatever structural form G_t takes) isn't just useful — it's what temporal optimality selects for.
 
-**The beautiful connection**: This makes #temporal-optimality genuinely load-bearing for the purposeful agency layer, not just a meta-principle. It does real theoretical work: it narrows us from "any Level 2 access mechanism" to "explicit causal models" by ruling out the temporally suboptimal (but epistemically equivalent) trial-and-error alternative.
+**The beautiful connection**: This makes #post-temporal-optimality genuinely load-bearing for the purposeful agency layer, not just a meta-principle. It does real theoretical work: it narrows us from "any Level 2 access mechanism" to "explicit causal models" by ruling out the temporally suboptimal (but epistemically equivalent) trial-and-error alternative.
 
 **Limitation**: The scope narrowing is one-directional. It says explicit causal models are preferred WHERE planning is cheaper than acting. It does not claim all agents have them or should. Model-free RL agents operating in cheap simulation environments (Atari, simple robotics) may legitimately prefer loop-based access because the environment itself serves as a fast simulator. The narrowing excludes them from scope, not from existence.
 

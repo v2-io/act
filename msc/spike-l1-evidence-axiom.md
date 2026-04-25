@@ -4,11 +4,11 @@ date: 2026-04-22
 author: opus-1m
 topic: block-structured evidential-additivity axiom under correlated failures (L1'/L2)
 relates_to:
-  - edge-update-natural-parameter
+  - deriv-edge-update-natural-parameter
   - additive-coordinate-forcing
-  - credit-assignment-boundary
-  - discussion-identifiability-floor
-  - discussion-separability-pattern
+  - disc-credit-assignment-boundary
+  - disc-identifiability-floor
+  - disc-separability-pattern
   - strategy-dag (Correlation Hierarchy)
   - strategic-dynamics-derivation (Prop B.7)
   - strategy-cost-regret-bound (§6.1)
@@ -18,11 +18,11 @@ relates_to:
 
 ## Problem statement
 
-The #edge-update-natural-parameter segment derives log-odds as the unique additive-evidence parameterization (up to positive affine) under the *evidential-additivity axiom*:
+The #deriv-edge-update-natural-parameter segment derives log-odds as the unique additive-evidence parameterization (up to positive affine) under the *evidential-additivity axiom*:
 
 $$\psi(p_{\text{post}}) = \psi(p_{\text{prior}}) + g(y)$$
 
-where $g$ depends only on the observation $y$, and the underlying Bernoulli channel has likelihood ratio $P(y \mid H_1)/P(y \mid H_0)$ treated as *independent* across updates. When the edge credences $\{p_{ij}\}$ sit on a DAG with causally-insufficient topology — that is, when sibling edges share a latent common cause $C$ (L1' regime in #strategy-dag) — the observations $(y_j, y_k)$ generated along two sibling edges $(\cdot, j)$ and $(\cdot, k)$ are *not* independent. The Bayesian update is not the concatenation of two per-edge Bernoulli updates; it is a coupled mixture update.
+where $g$ depends only on the observation $y$, and the underlying Bernoulli channel has likelihood ratio $P(y \mid H_1)/P(y \mid H_0)$ treated as *independent* across updates. When the edge credences $\{p_{ij}\}$ sit on a DAG with causally-insufficient topology — that is, when sibling edges share a latent common cause $C$ (L1' regime in #def-strategy-dag) — the observations $(y_j, y_k)$ generated along two sibling edges $(\cdot, j)$ and $(\cdot, k)$ are *not* independent. The Bayesian update is not the concatenation of two per-edge Bernoulli updates; it is a coupled mixture update.
 
 The independent-evidence axiom is literally false in L1'. If the log-odds coordinate's uniqueness rests on that axiom, what happens structurally when the axiom fails? Two possible outcomes shape the landing:
 
@@ -31,7 +31,7 @@ The independent-evidence axiom is literally false in L1'. If the log-odds coordi
 
 Either outcome is useful. The spike attempts the positive branch with honest accounting; the negative-result branch is structured as the fallback.
 
-This matters for #credit-assignment-boundary, where the default signal function is stated in log-odds. If L1'/L2 pushes the correct coordinate to vector-valued log-odds on the quotient graph, the signal function's native coordinate is richer than "log-odds per edge" — it is log-odds on clusters with a within-cluster correlation parameter. The #credit-assignment-boundary segment currently lands L1 at "gradient signal still has directional fidelity on average; principled fix is L1 augmentation" — a working-notes-grade fix. A principled L1' signal function would close that gap.
+This matters for #disc-credit-assignment-boundary, where the default signal function is stated in log-odds. If L1'/L2 pushes the correct coordinate to vector-valued log-odds on the quotient graph, the signal function's native coordinate is richer than "log-odds per edge" — it is log-odds on clusters with a within-cluster correlation parameter. The #disc-credit-assignment-boundary segment currently lands L1 at "gradient signal still has directional fidelity on average; principled fix is L1 augmentation" — a working-notes-grade fix. A principled L1' signal function would close that gap.
 
 ## Map of the spike
 
@@ -42,14 +42,14 @@ This matters for #credit-assignment-boundary, where the default signal function 
 - §5 — Negative-result branch. What breaks in the positive-result derivation if pushed naively? Shore-Johnson's system-independence axiom is the clearest friction point; this is where the negative branch is strongest.
 - §6 — Does block-additivity motivate AAD-internally? Parallel to the independent-evidence axiom's chain-layer analog.
 - §7 — Lift attempt to L2 (non-latent-common-cause correlation structure).
-- §8 — Candidate landing — new appendix segment, extension of #edge-update-natural-parameter, or new #discussion-identifiability-floor instance.
+- §8 — Candidate landing — new appendix segment, extension of #deriv-edge-update-natural-parameter, or new #disc-identifiability-floor instance.
 - §9 — Epistemic assessment per tier.
 
 ## §1 — Where the independent-evidence axiom breaks
 
 ### §1.1 Restatement of the axiom and what it assumes
 
-From #edge-update-natural-parameter, the independent-evidence axiom states:
+From #deriv-edge-update-natural-parameter, the independent-evidence axiom states:
 
 *[Assumption (evidential-additivity)]*
 
@@ -142,7 +142,7 @@ with $k_\alpha = 2K+1$ and each $\lambda = \log(\theta/(1-\theta))$.
 
 *Key observation.* The block coordinate is NOT one log-odds per edge ($K$-dimensional) and is NOT one log-odds per cluster (1-dimensional). It is $(2K+1)$-dimensional — one per *conditional* regime, with the $C$-parameter's log-odds as a shared coordinate. The per-edge marginal credence $\hat p_k = \theta_C\theta_{k\mid 1} + (1-\theta_C)\theta_{k\mid 0}$ is a *derived* quantity (a non-log-linear combination of the block coordinates); it is not itself additive under block observations.
 
-This is consistent with the #strategic-dynamics-derivation Prop B.7 state representation, which uses $(\theta_C, \{\theta_{k\mid C}\}, \{\theta_{k\mid \neg C}\})$ as the joint state — an affine image of the log-odds vector under each component's sigmoid-exp.
+This is consistent with the #deriv-strategic-dynamics Prop B.7 state representation, which uses $(\theta_C, \{\theta_{k\mid C}\}, \{\theta_{k\mid \neg C}\})$ as the joint state — an affine image of the log-odds vector under each component's sigmoid-exp.
 
 **Case B — $C$ unobservable.** The likelihood does NOT factorize across $C$:
 
@@ -168,7 +168,7 @@ This is a structural result: it explains why the Cauchy-FE argument cannot give 
 
 ### §2.4 Step 3 — Reduction to singletons
 
-When a cluster $\alpha$ is a singleton (one child, no latent — i.e., the edge is independent of all other edges), the block structure collapses: $K=1$, no $C$, $k_\alpha = 1$, and the coordinate reduces to a single scalar log-odds per edge. This matches #edge-update-natural-parameter's univariate result exactly.
+When a cluster $\alpha$ is a singleton (one child, no latent — i.e., the edge is independent of all other edges), the block structure collapses: $K=1$, no $C$, $k_\alpha = 1$, and the coordinate reduces to a single scalar log-odds per edge. This matches #deriv-edge-update-natural-parameter's univariate result exactly.
 
 The reduction also makes the dimension formula $k_\alpha = 2K+1$ interpretable. A cluster with $K=1$ (single child with a latent) has $k_\alpha = 3$ (the two conditional credences plus $\theta_C$), one more coordinate than the naive per-edge count of 1. The "extra" coordinate is the latent — and it's there whether or not the edge has siblings in the cluster, as long as the posterior depends on $C$ at all. This foreshadows §5's negative-result branch: the block dimension tracks the *parameter* count of the joint model, not the *edge* count.
 
@@ -176,7 +176,7 @@ The reduction also makes the dimension formula $k_\alpha = 2K+1$ interpretable. 
 
 | Regime | $\Psi_\alpha$ dim | Forced shape | Method |
 |---|---|---|---|
-| Independent (singleton cluster) | 1 per edge | scalar log-odds | #edge-update-natural-parameter |
+| Independent (singleton cluster) | 1 per edge | scalar log-odds | #deriv-edge-update-natural-parameter |
 | L1' with observable $C$ | $2K+1$ per cluster | log-odds on conditional regimes | §2.3 Case A (product factorization + Aczél per coordinate) |
 | L1' with unobservable $C$ | — | no solution | §2.3 Case B (nonlinear responsibility kills the axiom) |
 
@@ -229,7 +229,7 @@ This §3.3 read places $\rho$ inside the identifiability-floor structure of Inst
 
 ### §4.1 The chain-rule analog question
 
-The divergence-layer companion theorem in #strategy-cost-regret-bound §6.1 rests on the chain-rule additivity axiom:
+The divergence-layer companion theorem in #deriv-strategy-cost-regret-bound §6.1 rests on the chain-rule additivity axiom:
 
 $$D_f(P_{XY}\Vert Q_{XY}) = D_f(P_X\Vert Q_X) + \mathbb{E}_{P_X}[D_f(P_{Y\mid X}\Vert Q_{Y\mid X})]$$
 
@@ -309,9 +309,9 @@ The strongest negative-result formulation. Even in the observable-$C$ case where
 
 ### §5.1 What "AAD-internally motivated" requires
 
-Per #additive-coordinate-forcing's 1-anchor-plus-2-theorem characterization: an axiom is AAD-internally motivated if it is an analog (at a new layer) of #chain-confidence-decay's chain-rule identity. The existing axioms:
+Per #additive-coordinate-forcing's 1-anchor-plus-2-theorem characterization: an axiom is AAD-internally motivated if it is an analog (at a new layer) of #der-chain-confidence-decay's chain-rule identity. The existing axioms:
 
-- **Chain-rule additivity** (divergence layer): analog of "log-confidence decomposes additively along the DAG" (#chain-confidence-decay) at the divergence level.
+- **Chain-rule additivity** (divergence layer): analog of "log-confidence decomposes additively along the DAG" (#der-chain-confidence-decay) at the divergence level.
 - **Evidential additivity** (update layer): analog of the same chain-layer identity, at the update level.
 
 Both are motivated because the chain layer is a mathematical identity via the probability chain rule, and the two theorem-layer axioms apply the *same* decomposition to a new quantity (divergence, credence).
@@ -332,13 +332,13 @@ Under *unobservable* $C$, the motivation (C3) is vacuous: we cannot condition on
 
 **The negative-result branch's crisp form.** The block-additivity axiom has AAD-internal motivation in the observable-$C$ regime only. In the unobservable-$C$ regime, there is no AAD-internal axiom that forces a unique coordinate. The positive result is scope-restricted.
 
-This exactly parallels the scope restriction on the axiom in #edge-update-natural-parameter: the evidential-additivity axiom is stated for Bayesian-coherent sub-scope $\alpha$ (per #gain-sector-bridge), with non-Bayesian agents in sub-scope $\beta$ outside the uniqueness. Block-additivity under observable $C$ is a Bayesian-coherent extension; under unobservable $C$, the Bayesian posterior itself does not admit the additive form.
+This exactly parallels the scope restriction on the axiom in #deriv-edge-update-natural-parameter: the evidential-additivity axiom is stated for Bayesian-coherent sub-scope $\alpha$ (per #der-gain-sector-bridge), with non-Bayesian agents in sub-scope $\beta$ outside the uniqueness. Block-additivity under observable $C$ is a Bayesian-coherent extension; under unobservable $C$, the Bayesian posterior itself does not admit the additive form.
 
 ### §5.3 What is the unique escape from the unobservable-$C$ regime?
 
 Three routes, recapitulating Prop B.7's repair routes:
 
-- (R1) **Augment $C$-observability.** Move the cluster from unobservable-$C$ regime to observable-$C$ regime. This is an *information-augmentation* move — the same escape named by #discussion-identifiability-floor Instance 2.
+- (R1) **Augment $C$-observability.** Move the cluster from unobservable-$C$ regime to observable-$C$ regime. This is an *information-augmentation* move — the same escape named by #disc-identifiability-floor Instance 2.
 - (R2) **Multi-child joint observation.** Observe $K \geq 2$ children jointly under the same $C$-realization. The joint Fisher matrix reaches rank $2K+1$ (Prop B.7 Repair (ii)); this is structurally equivalent to observing $C$ indirectly through its multi-child fingerprint. Still relies on observability of the joint structure at the trial level.
 - (R3) **Plan-level fallback.** Track only the marginal $\hat\mu_j$, losing per-conditional diagnostics. This is L0-on-marginals; the block collapses to a product of independent marginal channels, and each channel's log-odds is forced by the standard Aczél result.
 
@@ -346,15 +346,15 @@ All three routes escape the unobservable-$C$ regime by either adding information
 
 ### §5.4 The negative-result shape
 
-The negative-result branch, stated as an #discussion-identifiability-floor instance candidate:
+The negative-result branch, stated as an #disc-identifiability-floor instance candidate:
 
-- **Setting.** Force a unique additive-evidence coordinate on an L1' cluster with unobservable common cause, using a block-additivity axiom analogous to #edge-update-natural-parameter's evidential-additivity axiom.
+- **Setting.** Force a unique additive-evidence coordinate on an L1' cluster with unobservable common cause, using a block-additivity axiom analogous to #deriv-edge-update-natural-parameter's evidential-additivity axiom.
 - **External theorem.** Cauchy's functional equation requires the domain transformations to commute with addition — i.e., the posterior update $\phi^{\text{post}}(\phi^{\text{prior}}, \mathbf{y})$ must have the form $\phi^{\text{post}} = T(\phi^{\text{prior}} + U(\mathbf{y}))$ for some $T$ and $U$. The mixture-posterior responsibility-reweighting update does not have this form.
 - **No-go.** No smooth coordinate $\Psi_\alpha$ satisfies the block-additivity axiom for the true Bayesian update under unobservable $C$.
 - **Boundary characterization.** Three escapes: $C$-augmentation, joint multi-child observation, plan-level marginal fallback. Each transforms the problem to a regime where the axiom holds.
 - **Strengthened consequence.** Observability of the latent is structurally required — not merely convenient — for axiomatic uniqueness of the credence coordinate. This strengthens the same load-bearing claim as Prop B.7's Cramér-Rao floor: observability-of-$C$ as information-augmentation.
 
-This *converges* with Instance 2 of #discussion-identifiability-floor rather than creating a fourth instance. Both obstructions have the same scope boundary (observable vs unobservable $C$), same repair routes, and same strengthened consequence (observability-of-$C$ as load-bearing). The contribution of this spike's negative branch is to show that the structural obstruction appears at *two independent layers* (Cauchy-FE uniqueness at the coordinate level; Cramér-Rao floor at the Fisher-information level) — strengthening the robustness of the floor.
+This *converges* with Instance 2 of #disc-identifiability-floor rather than creating a fourth instance. Both obstructions have the same scope boundary (observable vs unobservable $C$), same repair routes, and same strengthened consequence (observability-of-$C$ as load-bearing). The contribution of this spike's negative branch is to show that the structural obstruction appears at *two independent layers* (Cauchy-FE uniqueness at the coordinate level; Cramér-Rao floor at the Fisher-information level) — strengthening the robustness of the floor.
 
 ## §6 — AAD-internal motivation check
 
@@ -362,7 +362,7 @@ This *converges* with Instance 2 of #discussion-identifiability-floor rather tha
 
 The 1-anchor-plus-2-theorem characterization requires:
 
-- The chain-layer identity (#chain-confidence-decay) as anchor.
+- The chain-layer identity (#der-chain-confidence-decay) as anchor.
 - Axiom-conditional theorems at other layers, motivated internally as analogs.
 
 The two existing theorems are at the *divergence* layer and the *update* layer. Both are single-scalar results per coordinate (reverse-KL as a scalar, log-odds as a scalar). The block version would be at the *cluster* layer — a vector-valued coordinate on a block factor.
@@ -371,21 +371,21 @@ The two existing theorems are at the *divergence* layer and the *update* layer. 
 
 - (P1) The observable-$C$ block axiom is AAD-internally motivated at both inter-cluster (C2) and intra-cluster (C3) levels (see §5.1). The motivation is the same chain-rule identity applied to a block-wise conditional factorization.
 - (P2) The forced coordinate is logarithmic ($(2K+1)$-dimensional log-odds vector), matching the pattern's logarithmic-coordinate shape.
-- (P3) The reduction to singleton clusters recovers #edge-update-natural-parameter exactly. So the block version is a *generalization*, not a parallel theorem.
+- (P3) The reduction to singleton clusters recovers #deriv-edge-update-natural-parameter exactly. So the block version is a *generalization*, not a parallel theorem.
 
 **Arguments against.**
 
-- (A1) The block version is *derived from* #edge-update-natural-parameter by per-coordinate application in a factored likelihood. It's not independent of the existing theorem; it's a consequence of applying it per-coordinate under a factorization. A "third theorem" should introduce new content, not just recapitulate the existing theorem on a larger factor space.
+- (A1) The block version is *derived from* #deriv-edge-update-natural-parameter by per-coordinate application in a factored likelihood. It's not independent of the existing theorem; it's a consequence of applying it per-coordinate under a factorization. A "third theorem" should introduce new content, not just recapitulate the existing theorem on a larger factor space.
 - (A2) The axiom (block-additivity) is arguably just "evidential additivity applied to each factor of a block-factorized likelihood," not a genuinely new axiom.
 - (A3) The dimension bump from $K$ to $2K+1$ under a shared latent is information about the *model* (the mixture has one extra parameter per block for the latent's own credence), not information about the *coordinate* in a new sense. The Cauchy-FE argument still forces each scalar coordinate to be log-odds; nothing new at the functional-equation level.
 
-**Honest read.** The block version is NOT a genuine third theorem in the #additive-coordinate-forcing pattern. It is an *extension* of #edge-update-natural-parameter to block-factorized likelihoods — a generalization of the existing theorem's scope, not a new uniqueness result at a new layer.
+**Honest read.** The block version is NOT a genuine third theorem in the #additive-coordinate-forcing pattern. It is an *extension* of #deriv-edge-update-natural-parameter to block-factorized likelihoods — a generalization of the existing theorem's scope, not a new uniqueness result at a new layer.
 
-The landing for this spike should therefore be: extend #edge-update-natural-parameter with a block-structure generalization, rather than create a new segment. The extension clarifies what happens under L1'/L2 and names the observable-$C$ vs unobservable-$C$ scope boundary.
+The landing for this spike should therefore be: extend #deriv-edge-update-natural-parameter with a block-structure generalization, rather than create a new segment. The extension clarifies what happens under L1'/L2 and names the observable-$C$ vs unobservable-$C$ scope boundary.
 
 ### §6.2 Does Case B (unobservable $C$) give a new identifiability-floor instance?
 
-Case B shows that the block-additivity axiom is inconsistent with Bayesian updating under unobservable $C$. This is a structural no-go; does it warrant a standalone entry in #discussion-identifiability-floor, parallel to Instances 1 (CHT) and 2 (Cramér-Rao)?
+Case B shows that the block-additivity axiom is inconsistent with Bayesian updating under unobservable $C$. This is a structural no-go; does it warrant a standalone entry in #disc-identifiability-floor, parallel to Instances 1 (CHT) and 2 (Cramér-Rao)?
 
 **Candidate characterization for a new instance:**
 
@@ -397,12 +397,12 @@ Case B shows that the block-additivity axiom is inconsistent with Bayesian updat
 
 **Honest read.** This is NOT a new floor instance because the repair routes and strengthened consequence are identical to Instance 2. It is a *second-layer confirmation* of Instance 2 — the same observability-of-$C$ scope boundary obstructs both the Fisher-information story (Instance 2) and the Cauchy-FE coordinate story (this spike). The value is strengthening Instance 2 by showing it obstructs at two independent structural layers.
 
-Better landing: a note added to #discussion-identifiability-floor Instance 2 observing the dual obstruction at the Cauchy-FE layer, strengthening the "this is structural, not a defect of one analytical route" reading. Not a new instance.
+Better landing: a note added to #disc-identifiability-floor Instance 2 observing the dual obstruction at the Cauchy-FE layer, strengthening the "this is structural, not a defect of one analytical route" reading. Not a new instance.
 
 ### §6.3 The spike's honest takeaways
 
-- (T1) **Positive result is not a new theorem.** Observable-$C$ block-additivity is a per-coordinate application of #edge-update-natural-parameter under block factorization. Worth noting as an extension; not a third theorem in #additive-coordinate-forcing.
-- (T2) **Negative result is not a new floor.** Unobservable-$C$ Cauchy-FE obstruction confirms Instance 2 of #discussion-identifiability-floor at a second structural layer. Worth noting as a dual-obstruction strengthening; not a new instance.
+- (T1) **Positive result is not a new theorem.** Observable-$C$ block-additivity is a per-coordinate application of #deriv-edge-update-natural-parameter under block factorization. Worth noting as an extension; not a third theorem in #additive-coordinate-forcing.
+- (T2) **Negative result is not a new floor.** Unobservable-$C$ Cauchy-FE obstruction confirms Instance 2 of #disc-identifiability-floor at a second structural layer. Worth noting as a dual-obstruction strengthening; not a new instance.
 - (T3) **The two structural layers converge on the same scope boundary.** Both the Cauchy-FE uniqueness (this spike) and the Cramér-Rao identifiability (Prop B.7) agree: observable $C$ → structurally clean; unobservable $C$ → structurally obstructed. The convergence matters because it shows the scope boundary is not an artifact of one choice of analytical tool.
 - (T4) **Within-cluster $\rho$ conjecture is refuted as stated.** $\rho$ does not interpolate the coordinate's dimension; it interpolates the Fisher identifiability of the marginal channel. The coordinate dimension is piecewise-constant ($K$ under no latent; $2K+1$ under latent) with a discrete jump.
 
@@ -410,7 +410,7 @@ Better landing: a note added to #discussion-identifiability-floor Instance 2 obs
 
 ### §7.1 What L2 adds
 
-The Correlation Hierarchy (#strategy-dag) describes L2 as "full joint failure distribution over edges" — arbitrary correlation structure without the latent-common-cause scaffolding. Specifying a full joint over $m$ binary edges requires $2^m - 1$ parameters; bounded-cognition constraints (#strategy-complexity-cost) forbid this in general.
+The Correlation Hierarchy (#def-strategy-dag) describes L2 as "full joint failure distribution over edges" — arbitrary correlation structure without the latent-common-cause scaffolding. Specifying a full joint over $m$ binary edges requires $2^m - 1$ parameters; bounded-cognition constraints (#form-strategy-complexity-cost) forbid this in general.
 
 What's in L2 but not L1'?
 
@@ -440,7 +440,7 @@ So: under joint observations and the Ising-like natural parameterization, the $(
 
 **What this buys.** A clean generalization: at any correlation level (L0 / L1' / L2), if the agent observes the joint vector $\mathbf{y}$ at each trial and updates the joint posterior, the forced coordinate is the log-linear natural parameterization. The dimension is $m$ at L0 (only main effects), $m + c$ at L1' (main + $c$ interactions induced by latents), and up to $2^m - 1$ at full L2.
 
-**What this costs.** Exponential parameter growth. The $2^m - 1$ cost IS the reason L2 is intractable for #strategy-dag; the present analysis only shows that *if* the agent chose to represent the full joint, the natural coordinate is log-linear. The intractability is at the representation level, not the coordinate level.
+**What this costs.** Exponential parameter growth. The $2^m - 1$ cost IS the reason L2 is intractable for #def-strategy-dag; the present analysis only shows that *if* the agent chose to represent the full joint, the natural coordinate is log-linear. The intractability is at the representation level, not the coordinate level.
 
 ### §7.3 Where L2 block-additivity fails
 
@@ -469,7 +469,7 @@ The pattern: additive-coordinate forcing works whenever the observation is infor
 
 Based on §6's honest takeaways:
 
-**Primary landing — extension of #edge-update-natural-parameter.** Add a new subsection to #edge-update-natural-parameter titled "Block Structure and Correlated Evidence" with:
+**Primary landing — extension of #deriv-edge-update-natural-parameter.** Add a new subsection to #deriv-edge-update-natural-parameter titled "Block Structure and Correlated Evidence" with:
 
 - Statement of the block-additivity axiom under observable $C$.
 - §2.3 Case A: log-odds forced per factor in the $(2K+1)$-dim block coordinate, reducing to singleton Aczél.
@@ -477,27 +477,27 @@ Based on §6's honest takeaways:
 - §7.2: L2 extension under full-joint observation (log-linear coordinate).
 - Scope map as a table (§7.4).
 
-The extension clarifies what the log-odds coordinate becomes under correlated evidence — which is important because #credit-assignment-boundary's default signal function is stated in log-odds and should be updated to reflect the higher-dimensional block coordinate under L1'.
+The extension clarifies what the log-odds coordinate becomes under correlated evidence — which is important because #disc-credit-assignment-boundary's default signal function is stated in log-odds and should be updated to reflect the higher-dimensional block coordinate under L1'.
 
-**Secondary landing — note added to #discussion-identifiability-floor Instance 2.** One paragraph noting that the unobservable-$C$ obstruction appears at a second structural layer (Cauchy-FE coordinate uniqueness) in addition to the Cramér-Rao Fisher-information layer. Strengthens the "structural, not analytical-artifact" reading of the floor.
+**Secondary landing — note added to #disc-identifiability-floor Instance 2.** One paragraph noting that the unobservable-$C$ obstruction appears at a second structural layer (Cauchy-FE coordinate uniqueness) in addition to the Cramér-Rao Fisher-information layer. Strengthens the "structural, not analytical-artifact" reading of the floor.
 
-**Tertiary landing — update to #additive-coordinate-forcing.** Add a Working Note entry under "Candidate future layers" noting that the block-evidence case was investigated and determined to be an extension of #edge-update-natural-parameter under factorization, not a new layer in the 1-anchor-plus-2-theorem pattern. Updates the meta-segment's honest accounting of which Cauchy-FE instances live independently vs as generalizations.
+**Tertiary landing — update to #additive-coordinate-forcing.** Add a Working Note entry under "Candidate future layers" noting that the block-evidence case was investigated and determined to be an extension of #deriv-edge-update-natural-parameter under factorization, not a new layer in the 1-anchor-plus-2-theorem pattern. Updates the meta-segment's honest accounting of which Cauchy-FE instances live independently vs as generalizations.
 
-**Quaternary landing — note in #credit-assignment-boundary.** Observe that the default signal function's log-odds presentation, stated per edge, generalizes to a block coordinate under observable $C$ per the §2.3 Case A extension. The practical consequence: under L1' with observable $C$, the signal function should update $(2K+1)$ coordinates per cluster (one per conditional regime plus the latent), not $K$ marginal coordinates. This would be a first-class repair of the "gradient signal operates at L0; principled fix is L1 augmentation" working-notes-grade gap currently in #credit-assignment-boundary's correlated-failure interaction.
+**Quaternary landing — note in #disc-credit-assignment-boundary.** Observe that the default signal function's log-odds presentation, stated per edge, generalizes to a block coordinate under observable $C$ per the §2.3 Case A extension. The practical consequence: under L1' with observable $C$, the signal function should update $(2K+1)$ coordinates per cluster (one per conditional regime plus the latent), not $K$ marginal coordinates. This would be a first-class repair of the "gradient signal operates at L0; principled fix is L1 augmentation" working-notes-grade gap currently in #disc-credit-assignment-boundary's correlated-failure interaction.
 
 ### §8.2 What the landing does NOT do
 
 - Does not promote any new theorem to #additive-coordinate-forcing's primary instances. The spike found the block result is an extension, not a third primary theorem.
-- Does not create a new #discussion-identifiability-floor instance. The dual obstruction strengthens Instance 2 but does not introduce a structurally new obstruction.
+- Does not create a new #disc-identifiability-floor instance. The dual obstruction strengthens Instance 2 but does not introduce a structurally new obstruction.
 - Does not replace Prop B.7's Cramér-Rao analysis. The two (Cauchy-FE and Cramér-Rao) are independent routes to the same scope boundary, both of which are useful to have on the record.
 
 ### §8.3 Minimal vs full landing
 
-**Minimal landing.** Just add the observable-$C$ extension and the scope table to #edge-update-natural-parameter; mention the Case B obstruction briefly. Cross-link to Prop B.7 for the Cramér-Rao-side derivation. One medium-sized subsection.
+**Minimal landing.** Just add the observable-$C$ extension and the scope table to #deriv-edge-update-natural-parameter; mention the Case B obstruction briefly. Cross-link to Prop B.7 for the Cramér-Rao-side derivation. One medium-sized subsection.
 
-**Full landing.** All four landings (primary + secondary + tertiary + quaternary) as separate edits across four segments. Full landing also includes: (i) explicit L2 log-linear extension in the new subsection with worked example (2-edge Ising), (ii) formal statement of the dual-obstruction convergence between Cauchy-FE and Cramér-Rao, (iii) update to #credit-assignment-boundary's default signal function for block regimes.
+**Full landing.** All four landings (primary + secondary + tertiary + quaternary) as separate edits across four segments. Full landing also includes: (i) explicit L2 log-linear extension in the new subsection with worked example (2-edge Ising), (ii) formal statement of the dual-obstruction convergence between Cauchy-FE and Cramér-Rao, (iii) update to #disc-credit-assignment-boundary's default signal function for block regimes.
 
-Recommend **minimal landing first**, with full landing deferred unless the #credit-assignment-boundary generalization (quaternary) is picked up as an active work item. The #credit-assignment-boundary update would be the single highest-value follow-on because it closes a working-notes-grade gap.
+Recommend **minimal landing first**, with full landing deferred unless the #disc-credit-assignment-boundary generalization (quaternary) is picked up as an active work item. The #disc-credit-assignment-boundary update would be the single highest-value follow-on because it closes a working-notes-grade gap.
 
 ### §8.4 Alternative landing — park the spike
 
@@ -510,7 +510,7 @@ The park-decision would retain the spike for the record, noting that (a) log-odd
 
 ### §8.5 Recommended decision
 
-Land minimal (single subsection extension of #edge-update-natural-parameter + brief cross-refs in #discussion-identifiability-floor and #additive-coordinate-forcing). Promote quaternary landing (#credit-assignment-boundary update) when the block-coordinate signal function becomes a needed improvement (triggered by new L1' applications, or by L2 spikes). The minimal landing is low-disruption and closes the "what happens to log-odds under L1'" question that this spike raised.
+Land minimal (single subsection extension of #deriv-edge-update-natural-parameter + brief cross-refs in #disc-identifiability-floor and #additive-coordinate-forcing). Promote quaternary landing (#disc-credit-assignment-boundary update) when the block-coordinate signal function becomes a needed improvement (triggered by new L1' applications, or by L2 spikes). The minimal landing is low-disruption and closes the "what happens to log-odds under L1'" question that this spike raised.
 
 ## §9 — Epistemic assessment
 
@@ -523,7 +523,7 @@ Land minimal (single subsection extension of #edge-update-natural-parameter + br
 | §3.2 Refutation of $\rho$-interpolation conjecture as stated | **Robust qualitative** | The dimension jump from $K$ to $2K+1$ is discrete, not continuous in any natural correlation parameter |
 | §3.3 $\rho$ parameterizes Fisher identifiability, not coordinate dimension | **Robust qualitative** | Specific form at $\rho=\Delta_j\Delta_k$ is exact; the broader identifiability-vs-coordinate distinction is a structural observation |
 | §4.5 Shore-Johnson subset-independence fails for unobservable-$C$ marginals | **Exact** | Direct check: the mixture does not factor across children |
-| §6.1 Block-additivity is an extension of #edge-update-natural-parameter, not a third theorem | **Robust qualitative** | Judgment call; depends on how "new theorem" is defined; honest accounting favors extension |
+| §6.1 Block-additivity is an extension of #deriv-edge-update-natural-parameter, not a third theorem | **Robust qualitative** | Judgment call; depends on how "new theorem" is defined; honest accounting favors extension |
 | §6.2 Unobservable-$C$ Cauchy-FE obstruction confirms Instance 2, not new instance | **Robust qualitative** | Same scope boundary, same repair routes, same strengthened consequence as Instance 2 |
 | §7.2 L2 log-linear coordinate forced under full-joint observation | **Exact** (conditional on exponential-family structure) | Standard exponential-family conjugate-update result |
 | §7.4 Scope map (L0/L1'/L2 × full/partial observation) | **Robust qualitative** | The pattern is correct; the mapping of unobservable-$C$ and partial-marginal into the same "Fisher-obstructed" column is structural |
@@ -540,24 +540,24 @@ Land minimal (single subsection extension of #edge-update-natural-parameter + br
 - (F1) The "not a third theorem" judgment (§6.1) is a framing call. Reasonable reviewers could argue that a block-axiom uniqueness theorem with a different motivation structure (cluster-factorization AAD-internal motivation vs chain-rule AAD-internal motivation) is genuinely new. The honest read leans extension, but the call is contestable.
 - (F2) The "not a new floor instance" judgment (§6.2) is similarly a framing call. The dual obstruction strengthens Instance 2; whether that's a standalone floor or a reinforcement of an existing floor depends on taste. The honest read leans reinforcement.
 - (F3) The L2 extension (§7.2) is sketchy. The log-linear coordinate under full-joint observation is standard exponential-family theory, but AAD hasn't systematically treated full-joint observation as a practical regime; the $2^m - 1$ cost makes it mostly aspirational. The extension is formally correct but practically bounded.
-- (F4) The quaternary landing (§8.1) — updating #credit-assignment-boundary's default signal function to operate on the block coordinate — has non-trivial downstream effects that weren't worked through here. Specifically: what does the gradient $\mathbf{J}$ look like on a block coordinate? What is the analog of $\iota_k$ (identifiability coefficient) under a $(2K+1)$-dim coordinate? These are not answered in this spike.
+- (F4) The quaternary landing (§8.1) — updating #disc-credit-assignment-boundary's default signal function to operate on the block coordinate — has non-trivial downstream effects that weren't worked through here. Specifically: what does the gradient $\mathbf{J}$ look like on a block coordinate? What is the analog of $\iota_k$ (identifiability coefficient) under a $(2K+1)$-dim coordinate? These are not answered in this spike.
 
 ### §9.4 What is open
 
 - (O1) The full-joint observation regime (§7) is a theoretical scope not developed elsewhere in AAD. If the agent observed the full joint vector at every trial, many of the L2 obstructions would lift. Whether this is a meaningful practical scope or purely formal is a separate question; the spike didn't investigate.
 - (O2) The "second-layer confirmation" of Instance 2 (§5.4, §6.2) — does the dual Cauchy-FE + Cramér-Rao obstruction point to a deeper unifying obstruction? Is there a single axiomatic statement from which both follow? This is a deep research question that could seed a future spike. Speculative angle: both obstructions arise from *non-translation-commuting posterior updates*; both Cauchy-FE and Cramér-Rao are sensitive to the failure of this property, at different structural layers.
-- (O3) The block-coordinate signal function for #credit-assignment-boundary. Specifically: how does the $\mathbf{J}$-Jacobian generalize to operate on a $(2K+1)$-dim coordinate? What is the corresponding $\iota$ coefficient? How does directional fidelity (B1) look on the block coordinate? These are concrete, work-through-able questions that the quaternary landing opens.
+- (O3) The block-coordinate signal function for #disc-credit-assignment-boundary. Specifically: how does the $\mathbf{J}$-Jacobian generalize to operate on a $(2K+1)$-dim coordinate? What is the corresponding $\iota$ coefficient? How does directional fidelity (B1) look on the block coordinate? These are concrete, work-through-able questions that the quaternary landing opens.
 
 ### §9.5 Spike's honest bottom line
 
-The spike set out to test whether a block-structured evidential-additivity axiom forces a unique coordinate analogous to #edge-update-natural-parameter's Aczél result. The answer is:
+The spike set out to test whether a block-structured evidential-additivity axiom forces a unique coordinate analogous to #deriv-edge-update-natural-parameter's Aczél result. The answer is:
 
 - **Yes, under observable $C$** — with the coordinate being $(2K+1)$-dimensional log-odds per cluster, derived as a per-factor application of the existing Aczél theorem on the factored likelihood. Not a new theorem; a clean extension.
-- **No, under unobservable $C$** — with the axiom being *inconsistent* with Bayesian updating, not merely weaker. This confirms #discussion-identifiability-floor Instance 2 at a second structural layer, strengthening but not creating a new instance.
+- **No, under unobservable $C$** — with the axiom being *inconsistent* with Bayesian updating, not merely weaker. This confirms #disc-identifiability-floor Instance 2 at a second structural layer, strengthening but not creating a new instance.
 - **No, $\rho$ does not interpolate the coordinate dimension** — it parameterizes marginal-channel Fisher identifiability instead. The coordinate dimension is piecewise-constant.
 - **No, block-additivity is not a third theorem in #additive-coordinate-forcing** — it is an extension of the update-layer theorem under factorization, not a new layer.
 
-The clean version of this result is a small extension to #edge-update-natural-parameter (scope clarified under L1'/L2) and a cross-reference paragraph in #discussion-identifiability-floor noting the dual-obstruction convergence. The $\rho$-refutation is a valuable honest correction of the likely intuition; it is worth preserving in the spike for that reason. The open follow-on is the #credit-assignment-boundary block-coordinate signal function; this spike doesn't resolve it but frames it concretely.
+The clean version of this result is a small extension to #deriv-edge-update-natural-parameter (scope clarified under L1'/L2) and a cross-reference paragraph in #disc-identifiability-floor noting the dual-obstruction convergence. The $\rho$-refutation is a valuable honest correction of the likely intuition; it is worth preserving in the spike for that reason. The open follow-on is the #disc-credit-assignment-boundary block-coordinate signal function; this spike doesn't resolve it but frames it concretely.
 
 The spike's value is not a new theorem — it is honest scope clarification of an existing one. That kind of "strengthening before softening" work is valuable for the epistemic architecture (per Opus's "honesty as architectural principle" observation) even when the headline is "no new theorem here." The convergence with the identifiability-floor pattern is the takeaway most worth preserving.
 

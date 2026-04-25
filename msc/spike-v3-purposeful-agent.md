@@ -164,15 +164,15 @@ An LLM in the loop has both: priors from training AND interventional data from t
 
 ### 5.2 The cost inequality
 
-*[Normative design criterion (via #temporal-optimality)]*
+*[Normative design criterion (via #post-temporal-optimality)]*
 
 An agent benefits from explicit $\Sigma_t$ when:
 
 $$C_{\text{plan}} + C_{\text{maintain}} \lt C_{\text{explore}} + C_{\text{repair}}$$
 
-**Epistemic status**: This is labeled *normative*, not *derived*, because #temporal-optimality requires identical non-temporal outcomes as a precondition. In practice, loop-based and model-based approaches may differ in final value, risk profile, reversibility, and model bias. The inequality is correct *when* the outcomes are approximately equivalent — a condition that must be verified case by case, not assumed.
+**Epistemic status**: This is labeled *normative*, not *derived*, because #post-temporal-optimality requires identical non-temporal outcomes as a precondition. In practice, loop-based and model-based approaches may differ in final value, risk profile, reversibility, and model bias. The inequality is correct *when* the outcomes are approximately equivalent — a condition that must be verified case by case, not assumed.
 
-**When the precondition holds**: The inequality makes #temporal-optimality load-bearing for the purposeful layer. An agent in an environment where $C_{\text{explore}} + C_{\text{repair}}$ is large (production software, military operations, irreversible decisions) is strongly driven toward explicit $\Sigma_t$.
+**When the precondition holds**: The inequality makes #post-temporal-optimality load-bearing for the purposeful layer. An agent in an environment where $C_{\text{explore}} + C_{\text{repair}}$ is large (production software, military operations, irreversible decisions) is strongly driven toward explicit $\Sigma_t$.
 
 **When the precondition fails**: Model-based and loop-based approaches may produce qualitatively different outcomes (the model introduces bias; exploration discovers things planning cannot). In such cases the inequality is insufficient and the choice requires richer analysis (e.g., which approach has lower expected regret including model error).
 

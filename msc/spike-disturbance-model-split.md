@@ -9,7 +9,7 @@
 - Deterministic: $\|\delta\|_{ss} = \rho/\alpha$, adversarial exponent $b = 2$
 - Stochastic: $\|\delta\|_{ss} \sim \sigma_w/\sqrt{2\alpha}$, adversarial exponent $b = 3/2$
 
-The `#adversarial-exponent-regimes` segment identifies these as distinct regimes. The `#per-dimension-persistence` segment explicitly notes it mixes deterministic threshold notation with stochastic AR(1) formal expressions. The mismatch ODE (`#mismatch-dynamics`) is ambiguous about what $\rho$ means. This spike resolves the ambiguity by treating the two models as first-class alternatives within the sector-condition framework, deriving each result cleanly, and showing where the current segments conflate the two.
+The `#result-adversarial-exponent-regimes` segment identifies these as distinct regimes. The `#result-per-dimension-persistence` segment explicitly notes it mixes deterministic threshold notation with stochastic AR(1) formal expressions. The mismatch ODE (`#hyp-mismatch-dynamics`) is ambiguous about what $\rho$ means. This spike resolves the ambiguity by treating the two models as first-class alternatives within the sector-condition framework, deriving each result cleanly, and showing where the current segments conflate the two.
 
 ---
 
@@ -46,7 +46,7 @@ where $W_t$ is a standard Wiener process.
 - **Model D**: the environment changes persistently and directionally. An adversary who maneuvers, an API that drifts, a climate that shifts. The worst case is a disturbance that points consistently against the agent's correction.
 - **Model S**: the environment fluctuates unpredictably around a stable mean. Market noise, sensor noise, random perturbations. The disturbance has no preferred direction; its effect accumulates as a random walk.
 
-The `#adversarial-exponent-regimes` segment's domain examples (military maneuvering = drift, market volatility = noise) are exactly this distinction. Making it formal resolves the ambiguity rather than patching it.
+The `#result-adversarial-exponent-regimes` segment's domain examples (military maneuvering = drift, market volatility = noise) are exactly this distinction. Making it formal resolves the ambiguity rather than patching it.
 
 ---
 
@@ -54,7 +54,7 @@ The `#adversarial-exponent-regimes` segment's domain examples (military maneuver
 
 ### 2.1 Model D: Deterministic Persistence (Current Result, Unchanged)
 
-This is Proposition A.1 from `#sector-condition-derivation`, reproduced for reference.
+This is Proposition A.1 from `#deriv-sector-condition`, reproduced for reference.
 
 **Lyapunov function:** $V(\delta) = \frac{1}{2}\|\delta\|^2$.
 
@@ -108,7 +108,7 @@ $$\|\delta\|_{\text{rms}} = \sqrt{\mathbb{E}[\|\delta\|^2]_{ss}} = \sigma_w\sqrt
 
 $$\|\delta\|_{\text{rms}} = \frac{\sigma_w}{\sqrt{2\alpha}}$$
 
-This is the $\sigma_w/\sqrt{\alpha}$ scaling that `#adversarial-exponent-regimes` reports — now derived, not empirical.
+This is the $\sigma_w/\sqrt{\alpha}$ scaling that `#result-adversarial-exponent-regimes` reports — now derived, not empirical.
 
 **Result (Model S, steady-state bound):**
 
@@ -172,7 +172,7 @@ For $\epsilon = 0.05$ (95% probability), this requires $\alpha \geq 10 n\sigma_w
 
 ### 3.1 Model D: Exponent $b = 2$ (Current Result, Derived)
 
-From `#adversarial-tempo-advantage`, reproduced for clarity.
+From `#result-adversarial-tempo-advantage`, reproduced for clarity.
 
 **Coupling model:** $\rho_B = \rho_{\text{base}} + \gamma_A \cdot \mathcal{T}_A$ (deterministic drift coupling).
 
@@ -221,7 +221,7 @@ When $\rho_{\text{base}}$ (or $\sigma_{\text{base}}$) is comparable to the coupl
 | Coupling-dominant | $b = 2$ | $b = 3/2$ |
 | Non-coupling-dominant | $b \to 1$ | $b \to 1/2$ |
 
-The transition is smooth and parameterized by $\gamma\mathcal{T}/\rho_{\text{base}}$ (or $\gamma\mathcal{T}/\sigma_{\text{base}}$). This matches the simulation table in `#adversarial-exponent-regimes` exactly.
+The transition is smooth and parameterized by $\gamma\mathcal{T}/\rho_{\text{base}}$ (or $\gamma\mathcal{T}/\sigma_{\text{base}}$). This matches the simulation table in `#result-adversarial-exponent-regimes` exactly.
 
 **Summary.** The exponent is:
 
@@ -243,11 +243,11 @@ Persistence on dimension $k$: $\alpha_k > \rho_k / R_k$.
 
 In the linear operational form: $\mathcal{T}_k > \rho_k / \delta_{\text{critical},k}$.
 
-This is the deterministic per-dimension threshold stated in `#per-dimension-persistence`'s summary. It is exact under Model D.
+This is the deterministic per-dimension threshold stated in `#result-per-dimension-persistence`'s summary. It is exact under Model D.
 
 ### 4.2 Model S: Per-Dimension Stochastic (AR(1))
 
-This is what the formal expression in `#per-dimension-persistence` actually derives. For the discrete AR(1) process:
+This is what the formal expression in `#result-per-dimension-persistence` actually derives. For the discrete AR(1) process:
 
 $$\delta_{k,t+1} = (1 - \eta_k)\delta_{k,t} + w_{k,t}, \quad w_{k,t} \sim N(0, \rho_k^2)$$
 
@@ -261,7 +261,7 @@ Since $\delta_k$ is Gaussian at stationarity, $|\delta_k|$ is half-normal:
 
 $$\mathbb{E}[|\delta_k|] = \sqrt{\text{Var}[\delta_k]} \cdot \sqrt{2/\pi} = \frac{\rho_k}{\sqrt{2\eta_k - \eta_k^2}} \cdot \sqrt{2/\pi}$$
 
-This is precisely the formula in the `#per-dimension-persistence` formal expression. For small $\eta_k$:
+This is precisely the formula in the `#result-per-dimension-persistence` formal expression. For small $\eta_k$:
 
 $$\mathbb{E}[|\delta_k|] \approx \frac{\rho_k}{\sqrt{2\eta_k}} \cdot \sqrt{2/\pi}$$
 
@@ -279,7 +279,7 @@ i.e., $\eta_k > \rho_k^2 \cdot z_{1-\epsilon}^2 / (2\delta_{\text{critical},k}^2
 
 ### 4.3 The Regime-Mixing Diagnosis
 
-The `#per-dimension-persistence` segment has exactly the conflict identified above:
+The `#result-per-dimension-persistence` segment has exactly the conflict identified above:
 
 - **Summary/threshold**: states $\mathcal{T}_k > \rho_k / \delta_{\text{critical},k}$ — this is the **Model D** condition.
 - **Formal expression**: derives $\mathbb{E}[|\delta_k|] = \rho_k/\sqrt{2\eta_k - \eta_k^2} \cdot \sqrt{2/\pi}$ — this is the **Model S** result (from AR(1) stationarity).
@@ -314,15 +314,15 @@ This confirms that the discrete AR(1) simulations and the continuous stochastic 
 
 | Segment | Current State | Model D (deterministic) | Model S (stochastic) |
 |---|---|---|---|
-| `#mismatch-dynamics` | Single $\rho$, ambiguous | $\|\delta\|_{ss} = \rho_{\det}/\mathcal{T}$ | $\|\delta\|_{\text{rms}} = \sigma_w/\sqrt{2\mathcal{T}}$ |
-| `#sector-condition-stability` | Derives $R^* = \rho/\alpha$ under GA-2 | Unchanged | Add stochastic result: $R^*_S = \sigma_w\sqrt{n/(2\alpha)}$ |
-| `#sector-condition-derivation` | Props A.1, A.2 under bounded disturbance | Unchanged | Add Prop A.1S (stochastic Lyapunov) |
-| `#persistence-condition` | $\alpha > \rho/R$ | Unchanged | $\alpha > n\sigma_w^2/(2R^2)$ |
-| `#adversarial-tempo-advantage` | Derives $b = 2$, notes $b = 3/2$ as empirical | Unchanged | Derive $b = 3/2$ from Model S |
-| `#adversarial-exponent-regimes` | Empirical regime table | Label as Model D | Label as Model S; derivations now available |
-| `#per-dimension-persistence` | Mixes deterministic threshold with stochastic formula | State D threshold cleanly | State S formula cleanly; resolve regime-mixing note |
-| `#adversarial-destabilization` | Deterministic coupling only | Unchanged | Discuss stochastic extension (probabilistic destabilization) |
-| `#observation-simulation-results` | Notes the two regimes post-hoc | Frame as Model D validation | Frame as Model S validation |
+| `#hyp-mismatch-dynamics` | Single $\rho$, ambiguous | $\|\delta\|_{ss} = \rho_{\det}/\mathcal{T}$ | $\|\delta\|_{\text{rms}} = \sigma_w/\sqrt{2\mathcal{T}}$ |
+| `#result-sector-condition-stability` | Derives $R^* = \rho/\alpha$ under GA-2 | Unchanged | Add stochastic result: $R^*_S = \sigma_w\sqrt{n/(2\alpha)}$ |
+| `#deriv-sector-condition` | Props A.1, A.2 under bounded disturbance | Unchanged | Add Prop A.1S (stochastic Lyapunov) |
+| `#result-persistence-condition` | $\alpha > \rho/R$ | Unchanged | $\alpha > n\sigma_w^2/(2R^2)$ |
+| `#result-adversarial-tempo-advantage` | Derives $b = 2$, notes $b = 3/2$ as empirical | Unchanged | Derive $b = 3/2$ from Model S |
+| `#result-adversarial-exponent-regimes` | Empirical regime table | Label as Model D | Label as Model S; derivations now available |
+| `#result-per-dimension-persistence` | Mixes deterministic threshold with stochastic formula | State D threshold cleanly | State S formula cleanly; resolve regime-mixing note |
+| `#der-adversarial-destabilization` | Deterministic coupling only | Unchanged | Discuss stochastic extension (probabilistic destabilization) |
+| `#obs-simulation-results` | Notes the two regimes post-hoc | Frame as Model D validation | Frame as Model S validation |
 | `NOTATION.md` | GA-2 only | Keep as GA-2 | Add GA-2S |
 
 ---
@@ -333,9 +333,9 @@ This confirms that the discrete AR(1) simulations and the continuous stochastic 
 
 Add to Global Assumptions table:
 
-> | GA-2S | **Stochastic disturbance.** $w(t)$ is zero-mean with $\mathbb{E}[\|w(t)\|^2] = \sigma_w^2$. | `#sector-condition-stability` (stochastic variant), `#persistence-condition` |
+> | GA-2S | **Stochastic disturbance.** $w(t)$ is zero-mean with $\mathbb{E}[\|w(t)\|^2] = \sigma_w^2$. | `#result-sector-condition-stability` (stochastic variant), `#result-persistence-condition` |
 
-### 7.2 `#mismatch-dynamics`: Split the steady state
+### 7.2 `#hyp-mismatch-dynamics`: Split the steady state
 
 The Discussion section already notes the stochastic exponent. The change is to the formal expression: add a parallel steady-state for Model S next to the existing (Model D) one:
 
@@ -347,7 +347,7 @@ The Discussion section already notes the stochastic exponent. The change is to t
 
 Label the existing steady state as "deterministic" explicitly.
 
-### 7.3 `#sector-condition-stability` and `#sector-condition-derivation`: Add Proposition A.1S
+### 7.3 `#result-sector-condition-stability` and `#deriv-sector-condition`: Add Proposition A.1S
 
 Add a stochastic counterpart to Prop A.1:
 
@@ -355,7 +355,7 @@ Add a stochastic counterpart to Prop A.1:
 
 The derivation is the stochastic Lyapunov argument from Section 2.2 of this spike.
 
-### 7.4 `#persistence-condition`: Present both forms
+### 7.4 `#result-persistence-condition`: Present both forms
 
 Add a "Stochastic form" subsection parallel to the current linear operational form:
 
@@ -365,11 +365,11 @@ Add a "Stochastic form" subsection parallel to the current linear operational fo
 >
 > The per-dimension version: $\eta_k > c \cdot \rho_k^2/\delta_{\text{critical},k}^2$.
 
-### 7.5 `#adversarial-tempo-advantage`: Derive $b = 3/2$
+### 7.5 `#result-adversarial-tempo-advantage`: Derive $b = 3/2$
 
 Replace "the stochastic case is not yet derived from the stochastic mismatch dynamics in full generality" (Working Notes) with the derivation from Section 3.2 above. Move it into the formal expression as a second case.
 
-### 7.6 `#adversarial-exponent-regimes`: Upgrade epistemic status
+### 7.6 `#result-adversarial-exponent-regimes`: Upgrade epistemic status
 
 Change "empirical" to "exact conditional on disturbance model" for the regime 1 and regime 2 exponents. Both are now derived:
 
@@ -378,7 +378,7 @@ Change "empirical" to "exact conditional on disturbance model" for the regime 1 
 
 Regime 3 (non-coupling-dominant) remains empirical in the sense that the smooth interpolation is observed, though the asymptotic limits ($b \to 1$ and $b \to 1/2$) are derived.
 
-### 7.7 `#per-dimension-persistence`: Resolve regime mixing
+### 7.7 `#result-per-dimension-persistence`: Resolve regime mixing
 
 The epistemic status section already identifies the problem. The fix:
 
@@ -393,7 +393,7 @@ This resolves the "regime mixing" note in the epistemic status.
 
 ## 8. What This Does NOT Resolve
 
-1. **Which model is appropriate for a given domain.** This is always an empirical question. The theory provides both tools; the user must assess whether their environment is better modeled as persistent drift or zero-mean noise. Mixed environments use the interpolation from `#adversarial-exponent-regimes` Variant B.
+1. **Which model is appropriate for a given domain.** This is always an empirical question. The theory provides both tools; the user must assess whether their environment is better modeled as persistent drift or zero-mean noise. Mixed environments use the interpolation from `#result-adversarial-exponent-regimes` Variant B.
 
 2. **Heavy-tailed disturbances.** Both Model D and Model S assume bounded second moments (or bounded $\|w\|$ for Model D). Financial crises, strategic surprise, and ecological catastrophe involve heavy tails. These require separate treatment (e.g., stable distributions, input-to-state stability in probability with moment conditions relaxed).
 
@@ -401,7 +401,7 @@ This resolves the "regime mixing" note in the epistemic status.
 
 4. **The nonlinear stochastic case in full generality.** The Itô-Lyapunov argument in Section 2.2 holds for any sector-bounded $F$, giving the $\mathbb{E}[V]$ bound. But the distributional characterization (Gaussian stationary distribution, exact tail bounds) only holds for the linear (OU) case. For nonlinear $F$, the mean-square bound is all we get without additional assumptions on the correction function's structure.
 
-5. **The coupled stochastic Lyapunov analysis.** `#adversarial-destabilization` uses a one-sided Lyapunov argument (treats $\mathcal{T}_A$ as exogenous). The stochastic version of this (probabilistic destabilization: "Agent $A$ can push Agent $B$ above $R_B$ with probability $\geq 1 - \epsilon$") is not worked out here.
+5. **The coupled stochastic Lyapunov analysis.** `#der-adversarial-destabilization` uses a one-sided Lyapunov argument (treats $\mathcal{T}_A$ as exogenous). The stochastic version of this (probabilistic destabilization: "Agent $A$ can push Agent $B$ above $R_B$ with probability $\geq 1 - \epsilon$") is not worked out here.
 
 ---
 
@@ -413,7 +413,7 @@ This resolves the "regime mixing" note in the epistemic status.
 - The $b = 3/2$ derivation — straightforward substitution once the Model S steady state is in place.
 - The stochastic per-dimension persistence threshold — follows from the AR(1) stationarity formula already in the segment.
 
-**Epistemic upgrade.** The split resolves the largest internal inconsistency in Section I. The `#adversarial-exponent-regimes` observation becomes a derived result. The `#per-dimension-persistence` regime-mixing note is resolved. The `#mismatch-dynamics` ambiguity about $\rho$ is eliminated.
+**Epistemic upgrade.** The split resolves the largest internal inconsistency in Section I. The `#result-adversarial-exponent-regimes` observation becomes a derived result. The `#result-per-dimension-persistence` regime-mixing note is resolved. The `#hyp-mismatch-dynamics` ambiguity about $\rho$ is eliminated.
 
 **What stays the same.** The sector-condition framework, the deterministic persistence condition, the adversarial destabilization threshold, the effects spiral, the adaptive reserve, the $\alpha$/$\mathcal{T}$ relationship — all unchanged. Model D is the current theory; Model S is an addition, not a replacement.
 
@@ -422,13 +422,13 @@ This resolves the "regime mixing" note in the epistemic status.
 ## 10. Recommended Promotion Order
 
 1. **Add GA-2S to `NOTATION.md`** — one line, unblocks everything.
-2. **Add Prop A.1S to `#sector-condition-derivation`** — the mathematical foundation.
-3. **Update `#sector-condition-stability` summary** — to reference both D and S results.
-4. **Update `#mismatch-dynamics`** — split the steady state, label the existing as deterministic.
-5. **Update `#persistence-condition`** — add stochastic form.
-6. **Derive $b = 3/2$ in `#adversarial-tempo-advantage`** — upgrade from empirical to derived.
-7. **Upgrade `#adversarial-exponent-regimes`** — label regimes as Model D/S, upgrade epistemic status.
-8. **Resolve `#per-dimension-persistence`** — fix regime mixing.
-9. **Update `#observation-simulation-results`** — frame Model D/S validation explicitly.
+2. **Add Prop A.1S to `#deriv-sector-condition`** — the mathematical foundation.
+3. **Update `#result-sector-condition-stability` summary** — to reference both D and S results.
+4. **Update `#hyp-mismatch-dynamics`** — split the steady state, label the existing as deterministic.
+5. **Update `#result-persistence-condition`** — add stochastic form.
+6. **Derive $b = 3/2$ in `#result-adversarial-tempo-advantage`** — upgrade from empirical to derived.
+7. **Upgrade `#result-adversarial-exponent-regimes`** — label regimes as Model D/S, upgrade epistemic status.
+8. **Resolve `#result-per-dimension-persistence`** — fix regime mixing.
+9. **Update `#obs-simulation-results`** — frame Model D/S validation explicitly.
 
 Steps 1-3 are foundational. Steps 4-8 are consequences. Step 9 is editorial.

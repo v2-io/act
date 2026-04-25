@@ -180,7 +180,7 @@ The "hardwired responses" at the emergency level correspond to Joseph's formal c
 **What I'd want to check:**
 - Is "finite attention" already captured by the information bottleneck (IB) framework? IB constrains the *compression* of observations into the model, which might already limit attention. If so, the attention constraint might be a consequence of existing machinery, not a new postulate.
 - Does the existing mismatch decomposition + strategy sensitivity already imply the severity-proportional response? If ∂Σ/∂M × δ_epistemic is large, the cascade already triggers strategy revision quickly. The governance layer might be implicit.
-- Is the multi-frequency loop structure derivable from the existing temporal nesting claim (#temporal-nesting), or is it genuinely additional?
+- Is the multi-frequency loop structure derivable from the existing temporal nesting claim (#der-temporal-nesting), or is it genuinely additional?
 
 ---
 
