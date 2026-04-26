@@ -6,6 +6,7 @@ depends:
   - post-causal-structure
   - def-observation-function
   - def-action-transition
+  - form-agent-model
 stage: deps-verified
 ---
 
@@ -74,6 +75,6 @@ This quantity — identical to adaptive tempo $\mathcal{T}$ ( #def-adaptive-temp
 | Bug reports | Sporadic (low) | High |
 | Code review feedback | Per-PR (low) | Medium-high |
 
-The three-part tempo decomposition for software — $\mathcal T_{\text{obs}}$ (compiler, tests) + $\mathcal T_{\text{explore}}$ (code reading) + $\mathcal T_{\text{probe}}$ (test runs, staging) — is a direct application of multi-channel tempo. This decomposition is a Section IV gap (see the three-part tempo decomposition gap in `AAD-FULL.md`).
+The three-part tempo decomposition for software — $\mathcal T_{\text{obs}}$ (compiler, tests) + $\mathcal T_{\text{explore}}$ (code reading) + $\mathcal T_{\text{probe}}$ (test runs, staging) — is a direct application of multi-channel tempo. The formal development of this decomposition is a TST-side question (open GAP in `02-tst-core/OUTLINE.md`).
 
 **(Descended from TF-04.)**
