@@ -343,7 +343,7 @@ The larger reorganizations (O-BP11 observability-master, O-BP12 resource-budget,
 
 ### 2026-04-25 batch — F-V3 routing decision + F-V4 follow-up review
 
-**Source:** `msc/audit-2026-04-24-fresh-pass.md` (one Opus-4.7 fresh pass + Gemini and Codex re-audits in the same session). Findings detail in `msc/pending-findings-2026-04-25.md`. The audit's primary pass produced "zero findings" and was corrected by independent Gemini/Codex re-audits; the resulting failure-mode analysis is folded into `msc/de-novo-audit-instructions.md` for the next audit posture.
+**Source:** `msc/audit-2026-04-24-fresh-pass.md` (one Opus-4.7 fresh pass + Gemini and Codex re-audits in the same session). Findings detail in `msc/pending-findings-2026-04-25.md`. The audit's primary pass produced "zero findings" and was corrected by independent Gemini/Codex re-audits; the resulting failure-mode analysis is folded into `doc/de-novo-audit-instructions.md` for the next audit posture.
 
 Mechanical fix bundle (F-V1, F-V2, F-V4, F-V5, P-V1, P-V2, P-V3) landed in commit `a6b61fb` — see Archive. Two items remain Active:
 
@@ -492,7 +492,7 @@ Finding A (composition-closure temporal coarse-graining) and Finding B (observat
 
 ### What exists (artifacts)
 
-- `msc/naming-principles.md` — shared principles + voting format + instructions given to all Round-1 agents.
+- `doc/naming-principles.md` — shared principles + voting format + instructions given to all Round-1 agents (moved from `msc/` 2026-04-26 as part of the doc-pipeline cycle).
 - `msc/naming-brainstorm-2026-04-24.md` — the original single-agent brainstorm that seeded the work (one agent's voice; preserved as historical reference).
 - `msc/naming-votes/*.md` — 10 Round-1 vote files: `agent1-original-brainstorm.md`, `opus-1m.md`, `opus-4-7.md`, `opus-4-7-b.md`, `sonnet-4-6.md`, `haiku-4-5.md`, `codex-1.md`, `codex-2.md`, `gemini-1.md`, `gemini-2.md`. ~1,073 total vote rows across 7 model architectures (Claude ×5, Codex ×2, Gemini ×2).
 - `msc/naming-alias-clusters-codex-2.md`, `msc/naming-cleanup-scan-codex-2.md` — supplementary analyses from Codex-2 (not vote files; human-judgment overlays).
@@ -537,7 +537,7 @@ Pilot validation observations (full list in the details file): role-prefix reads
 
 Assuming the pilot validates the approach:
 
-1. **Refine `msc/naming-principles.md`** based on (a) all 11 insights above, (b) the role-prefix discipline as an invariant (not a vote target — the prefix is architectural), (c) clarify "canonicalize" as a distinct move from "keep", (d) make the Greek-vocabulary commitment explicit as a preference principle, (e) move cold-start instruction to the first paragraph, (f) name `+2` explicitly and spell out weight bands, (g) separate name-unnamed-thing from rename categories in the format, (h) add subject-noun preference as principle, (i) flag the "renamed-from-now-sounds-weird" test.
+1. **Refine `doc/naming-principles.md`** based on (a) all 11 insights above, (b) the role-prefix discipline as an invariant (not a vote target — the prefix is architectural), (c) clarify "canonicalize" as a distinct move from "keep", (d) make the Greek-vocabulary commitment explicit as a preference principle, (e) move cold-start instruction to the first paragraph, (f) name `+2` explicitly and spell out weight bands, (g) separate name-unnamed-thing from rename categories in the format, (h) add subject-noun preference as principle, (i) flag the "renamed-from-now-sounds-weird" test.
 2. **Rerun Round 1 cold-start with the refined principles.** 5–8 fresh agents across architectures; same cold-start discipline; instructions note that prefix is invariant and only the subject-noun is vote-target-able.
 3. **Quick "import anything of unique value from the original Round 1"** — before aggregating the new Round 1, scan the existing 10 vote files for proposals that the new batch might not have surfaced (deeper unnamed-pattern discoveries, edge-case rejections, etc.) and add them to the new aggregation as supplementary items.
 4. **Aggregate, then run Round 2** (blind, using the existing `bin/naming-aggregate.rb --format=round2`).

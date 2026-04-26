@@ -38,7 +38,7 @@ The framework deliberately uses a coherent Greek-rooted vocabulary for its core 
 
 ### Three-document layout for naming workstream
 
-`msc/naming-principles.md` (this file) holds the principles and instructions. `msc/naming-pilot-rename-plan.md` holds specific rename mappings (landed and pending) — that file is excluded from rename sweeps so the mapping table survives them verbatim. `msc/naming-votes/{agent-id}.md` is where you write your votes. Voters do not modify the pilot-rename-plan; the human reviewer does, after voting concludes.
+`doc/naming-principles.md` (this file) holds the principles and instructions. `msc/naming-pilot-rename-plan.md` holds specific rename mappings (landed and pending) — that file is excluded from rename sweeps so the mapping table survives them verbatim. `msc/naming-votes/{agent-id}.md` is where you write your votes. Voters do not modify the pilot-rename-plan; the human reviewer does, after voting concludes.
 
 ### Methodology — separate passes for prefix and subject-noun
 
