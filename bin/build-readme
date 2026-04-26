@@ -1,0 +1,113 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+# bin/build-readme
+#
+# Composes README.md and README-auditor.md at the repo root from Liquid
+# templates and partials under doc/readme/. The two output files share
+# most of their content via the partials in doc/readme/src/; the auditor
+# version omits the live (auto-generated) sections and prepends an
+# audit-orientation partial.
+#
+# Each Liquid template is just an include sequence; the actual
+# content lives in the partials. To change README content, edit a partial
+# (or, for the live sections, regenerate them via bin/extract-* and then
+# rebuild). Templates change only when the section *order* or *set* changes.
+#
+# Usage:
+#   bin/build-readme              # render both READMEs
+#   bin/build-readme --check      # verify on-disk == regenerated; non-zero on drift
+#   bin/build-readme --target=public    # render only README.md
+#   bin/build-readme --target=auditor   # render only README-auditor.md
+#
+# Design notes:
+#   - Includes resolve via a custom Liquid file system: `{% include "X" %}`
+#     reads doc/readme/src/X.md (no `.liquid` suffix on partials; markdown
+#     is markdown).
+#   - The custom file system accepts any name starting with an underscore
+#     (the partial-prefix convention) and rejects others, mirroring how
+#     Jekyll-flavored Liquid distinguishes partials from arbitrary file
+#     reads.
+#   - --check mode renders to memory, compares to disk, and exits non-zero
+#     if they differ. Suitable for pre-commit hooks and CI.
+#
+# Future generalization: this script is README-specific by path. When a
+# second doc family lands under doc/{family}/, a `bin/build-doc` could
+# generalize the dispatch (template-discovery + render-loop) and this
+# script becomes a one-liner around it.
+
+require 'liquid'
+require 'pathname'
+require 'optparse'
+
+REPO_ROOT = Pathname.new(__dir__).parent.expand_path
+DOC_DIR = REPO_ROOT.join('doc/readme')
+SRC_DIR = DOC_DIR.join('src')
+
+TARGETS = {
+  'public'  => { template: DOC_DIR.join('README.md.liquid'),         output: REPO_ROOT.join('README.md') },
+  'auditor' => { template: DOC_DIR.join('README-auditor.md.liquid'), output: REPO_ROOT.join('README-auditor.md') }
+}.freeze
+
+# Liquid file system that reads partials from doc/readme/src/{name}.md.
+# Loose validation — partials are conventionally underscore-prefixed but
+# we don't reject other names; the convention is a reading aid, not a
+# security perimeter (this tool runs on trusted local content).
+class PartialFileSystem
+  def initialize(root)
+    @root = Pathname.new(root)
+  end
+
+  def read_template_file(template_name)
+    path = @root.join("#{template_name}.md")
+    unless path.exist?
+      raise Liquid::FileSystemError, "Partial not found: #{path} (looked up as `#{template_name}`)"
+    end
+    path.read
+  end
+end
+
+def render(template_path)
+  raise "Template missing: #{template_path}" unless template_path.exist?
+  Liquid::Template.file_system = PartialFileSystem.new(SRC_DIR)
+  template = Liquid::Template.parse(template_path.read)
+  template.render!
+end
+
+def emit_drift(target_name, expected, actual)
+  warn "DRIFT in #{target_name}: on-disk content does not match regenerated output."
+  warn "  Run `bin/build-readme` (without --check) to regenerate."
+  # Lightweight diff hint — we don't shell out to `diff` to keep this
+  # standalone, but we surface enough to orient the reader.
+  exp_lines, act_lines = expected.lines, actual.lines
+  warn "  on-disk: #{exp_lines.size} lines, #{expected.bytesize} bytes"
+  warn "  regenerated: #{act_lines.size} lines, #{actual.bytesize} bytes"
+end
+
+options = { check: false, only: nil }
+OptionParser.new do |opts|
+  opts.banner = 'Usage: bin/build-readme [--check] [--target=public|auditor]'
+  opts.on('--check', 'Verify on-disk matches regenerated; exit non-zero on drift') { options[:check] = true }
+  opts.on('--target=TARGET', TARGETS.keys, "Render only one target (#{TARGETS.keys.join('/')})") { |t| options[:only] = t }
+end.parse!
+
+targets_to_render = options[:only] ? { options[:only] => TARGETS[options[:only]] } : TARGETS
+
+drift_detected = false
+targets_to_render.each do |name, spec|
+  rendered = render(spec[:template])
+  if options[:check]
+    on_disk = spec[:output].exist? ? spec[:output].read : ''
+    if on_disk != rendered
+      emit_drift(name, on_disk, rendered)
+      drift_detected = true
+    else
+      puts "OK: #{spec[:output].relative_path_from(REPO_ROOT)} matches regenerated output"
+    end
+  else
+    spec[:output].write(rendered)
+    puts "Wrote #{spec[:output].relative_path_from(REPO_ROOT)} (#{rendered.bytesize} bytes, #{rendered.lines.size} lines)"
+  end
+end
+
+exit(drift_detected ? 1 : 0)

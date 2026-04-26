@@ -1,0 +1,229 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+# bin/extract-findings
+#
+# Walks every component's OUTLINE.md, opens each referenced segment,
+# extracts its `## Findings` section (if present), and emits two
+# artifacts:
+#
+#   1. FINDINGS.md (repo root) — full canonical catalog. Each entry
+#      carries the segment's full Findings content (Novelty, Impact,
+#      For non-specialists), the segment's type, and a link to the
+#      segment.
+#
+#   2. doc/readme/src/_findings-summary.md — README-shaped condensed
+#      surfacing. One block per finding with the headline claim, tier,
+#      and segment link; the impact and casual-reader paragraphs stay
+#      in FINDINGS.md.
+#
+# Most segments will not have a `## Findings` section; that is the
+# correct default. Only segments with genuinely distinctive results
+# carry one. Empty by default keeps the catalog focused.
+#
+# Usage:
+#   bin/extract-findings           # write both outputs
+#   bin/extract-findings --stdout  # write to stdout (FINDINGS.md format only)
+#
+# Findings-section schema (per FORMAT.md once landed):
+#   ## Findings
+#
+#   **Novelty:** *[tier]* — {one-sentence headline claim}.
+#
+#   **Impact:** {one short paragraph on what this unlocks/closes/forces}.
+#
+#   **For non-specialists:** {2-3 sentences in plain language}.
+#
+# The script is tolerant of variations: missing fields produce a
+# warning at the top of the output rather than a crash, so partial
+# adoption during the segment-Findings sweep doesn't break the build.
+
+require 'pathname'
+require 'optparse'
+
+REPO_ROOT = Pathname.new(__dir__).parent.expand_path
+
+OUTLINE_FILES = [
+  REPO_ROOT.join('01-aad-core/OUTLINE.md'),
+  REPO_ROOT.join('02-tst-core/OUTLINE.md'),
+  REPO_ROOT.join('03-logogenic-agents/OUTLINE.md'),
+  REPO_ROOT.join('04-logozoetic-agents/OUTLINE.md')
+].freeze
+
+CANONICAL_OUT = REPO_ROOT.join('FINDINGS.md')
+SUMMARY_OUT = REPO_ROOT.join('doc/readme/src/_findings-summary.md')
+
+# Walks an OUTLINE.md and yields { component, section, slug, path,
+# segment_type } for each segment row. Section is the most recent H2
+# heading (e.g., "I. Adaptive Systems Under Uncertainty").
+def walk_outline(outline_path)
+  raise "Outline missing: #{outline_path}" unless outline_path.exist?
+  component = outline_path.dirname.basename.to_s
+  outline_dir = outline_path.dirname
+  current_section = nil
+  results = []
+
+  outline_path.each_line do |line|
+    if (m = line.match(/\A##\s+(.+?)\s*\z/))
+      current_section = m[1]
+    elsif (m = line.match(/\[#([a-z0-9-]+)\]\(([^)]+\.md)\)/))
+      slug = m[1]
+      relpath = m[2]
+      seg_path = outline_dir.join(relpath).cleanpath
+      next unless seg_path.exist?
+      # Type cell is the second `|`-delimited cell in the row.
+      cells = line.split('|').map(&:strip)
+      seg_type = cells[2] # leading empty + section + type + ...
+      results << {
+        component: component,
+        section: current_section,
+        slug: slug,
+        path: seg_path,
+        type: seg_type
+      }
+    end
+  end
+  results
+end
+
+# Extracts the body of `## Findings` from segment text, terminated by
+# the next `##` heading or EOF. Returns nil if no Findings section.
+def extract_findings_block(text)
+  return nil unless text =~ /^##\s+Findings\s*$/m
+  parts = text.split(/^##\s+Findings\s*$/m, 2)
+  return nil if parts.size < 2
+  body_and_rest = parts[1]
+  # Stop at next H2 (or H1, but segments don't have additional H1s).
+  body = body_and_rest.split(/^##\s+/m, 2).first || ''
+  body.strip
+end
+
+# Pulls the headline claim out of a Findings block, looking for
+# `**Novelty:** *[tier]* — {claim}.` Returns { tier, claim, full_block }.
+# Tolerant: if the schema isn't matched exactly, returns nil for the
+# missing pieces and lets the caller decide how to surface that.
+def parse_findings_block(block)
+  novelty_re = /\*\*Novelty:\*\*\s*\*\[?(?<tier>[^\]\*]+?)\]?\*\s*[—-]\s*(?<claim>.+?)\.\s*\n/m
+  m = block.match(novelty_re)
+  {
+    tier: m && m[:tier]&.strip,
+    claim: m && m[:claim]&.strip,
+    full: block
+  }
+end
+
+# Group entries by section for ordered output.
+# Sections we emit, in order; anything else falls through under the
+# component name as a section.
+def section_label(component, section)
+  if section && section =~ /^[IVX]+\./
+    section
+  elsif component == '01-aad-core'
+    section || 'AAD (uncategorized)'
+  else
+    component
+  end
+end
+
+options = { stdout: false }
+OptionParser.new do |opts|
+  opts.banner = 'Usage: bin/extract-findings [--stdout]'
+  opts.on('--stdout', 'Write canonical FINDINGS.md format to stdout') { options[:stdout] = true }
+end.parse!
+
+# Walk every outline, collect every segment with a Findings section.
+all_findings = []
+warnings = []
+
+OUTLINE_FILES.each do |outline|
+  next unless outline.exist?
+  walk_outline(outline).each do |entry|
+    text = entry[:path].read
+    block = extract_findings_block(text)
+    next unless block
+    parsed = parse_findings_block(block)
+    unless parsed[:claim]
+      warnings << "Segment #{entry[:slug]} has a Findings section but the Novelty: line did not parse cleanly."
+    end
+    all_findings << entry.merge(findings: parsed)
+  end
+end
+
+# --- FINDINGS.md (canonical) ---------------------------------------------
+
+canonical = +<<~HEADER
+  # FINDINGS — Novel Results Catalog
+
+  <!-- AUTO-GENERATED by bin/extract-findings; do not hand-edit. -->
+  <!-- Walks every promoted segment's `## Findings` section. To add or revise
+       an entry, edit the relevant segment file and re-run bin/extract-findings.
+       Most segments do not carry a Findings section — that is the correct
+       default. Only segments with genuinely distinctive results contribute. -->
+
+  This catalog surfaces the framework's distinctive results, organized by section.
+  Each entry is the segment's own self-assessment of novelty, impact, and a
+  framing for non-specialists, followed by a link to the segment for derivation,
+  scope, and caveats.
+
+HEADER
+
+if all_findings.empty?
+  canonical << "*(No `## Findings` sections found yet. The segment-by-segment Findings sweep is in progress; entries will appear here as it proceeds.)*\n"
+else
+  by_section = all_findings.group_by { |f| section_label(f[:component], f[:section]) }
+  by_section.each do |section, items|
+    canonical << "## #{section}\n\n"
+    items.each do |item|
+      seg_link = item[:path].relative_path_from(REPO_ROOT).to_s
+      type_str = item[:type] ? " *(#{item[:type]})*" : ''
+      canonical << "### `##{item[:slug]}`#{type_str}\n\n"
+      canonical << "[`#{seg_link}`](#{seg_link})\n\n"
+      canonical << "#{item[:findings][:full]}\n\n"
+      canonical << "---\n\n"
+    end
+  end
+end
+
+unless warnings.empty?
+  canonical << "## Extraction warnings\n\n"
+  warnings.each { |w| canonical << "- #{w}\n" }
+end
+
+# --- _findings-summary.md (README-shaped) -------------------------------
+
+summary = +<<~HEADER
+  <!-- AUTO-GENERATED by bin/extract-findings; do not hand-edit. -->
+  <!-- README-shaped condensed surfacing. Full content at FINDINGS.md. -->
+
+  ## Novel Results & Findings
+
+  Distinctive results from the framework, with epistemic tiers and links into the segments. Full content (impact, caveats, casual-reader framing) at [`FINDINGS.md`](FINDINGS.md).
+
+HEADER
+
+if all_findings.empty?
+  summary << "*(The segment-by-segment Findings sweep is in progress. Entries will appear here as the catalog is populated. See [`FINDINGS.md`](FINDINGS.md) for the canonical catalog.)*\n"
+else
+  by_section = all_findings.group_by { |f| section_label(f[:component], f[:section]) }
+  by_section.each do |section, items|
+    summary << "### #{section}\n\n"
+    items.each do |item|
+      seg_link = item[:path].relative_path_from(REPO_ROOT).to_s
+      tier = item[:findings][:tier] ? "*(#{item[:findings][:tier]})*" : ''
+      claim = item[:findings][:claim] || '*(headline claim missing — see segment)*'
+      summary << "- **`##{item[:slug]}`** #{tier} — #{claim}.  \n"
+      summary << "  [`#{seg_link}`](#{seg_link})\n"
+    end
+    summary << "\n"
+  end
+end
+
+if options[:stdout]
+  print canonical
+else
+  CANONICAL_OUT.write(canonical)
+  SUMMARY_OUT.write(summary)
+  puts "Wrote #{CANONICAL_OUT.relative_path_from(REPO_ROOT)} (#{all_findings.size} findings, #{canonical.bytesize} bytes)"
+  puts "Wrote #{SUMMARY_OUT.relative_path_from(REPO_ROOT)} (#{all_findings.size} findings, #{summary.bytesize} bytes)"
+  warnings.each { |w| warn "warning: #{w}" }
+end

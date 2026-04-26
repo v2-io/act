@@ -1,0 +1,49 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+# bin/refresh-all
+#
+# Chains the doc-pipeline extraction and rebuild scripts in the right
+# order. Useful as a single command for cycle-close discipline:
+#
+#   bin/refresh-all                 # extract + rebuild both READMEs
+#   bin/refresh-all --check         # extract + verify rebuild matches disk
+#
+# What runs, in order:
+#   1. bin/extract-findings         — segments → FINDINGS.md and _findings-summary
+#   2. bin/extract-recent-progress  — CHANGELOG → _recent-progress
+#   3. bin/extract-known-issues     — Known Fragilities + PROPOSALS + GAPs → _known-issues
+#   4. bin/build-readme             — partials + Liquid → README.md, README-auditor.md
+#
+# Each step is independent and can be run alone. This script is just a
+# convenience for the common case where you want everything refreshed.
+#
+# Future: a pre-commit / pre-push hook can call `bin/refresh-all --check`
+# and stage the regenerated files automatically if there's drift, so
+# README never goes stale.
+
+require 'pathname'
+
+REPO_ROOT = Pathname.new(__dir__).parent.expand_path
+BIN = REPO_ROOT.join('bin')
+
+check_mode = ARGV.include?('--check')
+build_args = check_mode ? %w[--check] : []
+
+steps = [
+  ['Extract findings from segments',     [BIN.join('extract-findings').to_s]],
+  ['Extract recent progress from CHANGELOG', [BIN.join('extract-recent-progress').to_s]],
+  ['Extract known issues',                [BIN.join('extract-known-issues').to_s]],
+  ['Build READMEs from templates',        [BIN.join('build-readme').to_s, *build_args]]
+]
+
+steps.each do |label, cmd|
+  puts "▸ #{label}"
+  ok = system(*cmd)
+  unless ok
+    warn "✗ Failed: #{cmd.join(' ')}"
+    exit 1
+  end
+end
+
+puts '✓ All steps complete.'
