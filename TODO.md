@@ -550,6 +550,7 @@ Slug-specific deferrals (the `aad-agent` vs `adaptive-agent` family debate, ASF 
 
 - **Deferrals that are slug-specific** — re-evaluate per-candidate after the pilot validates role-prefix reading. No pre-deciding; let the refined vote reconfirm.
 - **`ASF` umbrella naming** — Round 1 voted under incomplete framing (agents misread `ASF` as debt rather than the intentional parent-level name). Re-surface in refined Round 1 with correct framing: `ASF` is the umbrella; `AAD` is Part I; `TST` is Part II; etc.
+- **`#deriv-causal-ib-exploration` rename queued.** The slug names the *role/effect* (exploration as action-selection consequence) rather than the *thing defined* (the survival-imperative bound on observation noise via Lyapunov persistence). The companion segment `#deriv-causal-ib-lmi` was named correctly during its 2026-04-25 promotion; the parent inherits the misnaming from Gemini's earlier promotion. Per `feedback_subject_noun_slug_naming.md`, candidate replacements: `#deriv-causal-ib-survival` (clearest), `#deriv-survival-bound`, or `#deriv-causal-ib-scalar` (paired naming with `#deriv-causal-ib-lmi` as scalar-vs-matrix forms). Resolve as part of next naming-discipline cycle alongside other subject-noun decisions.
 
 ### Next step
 
@@ -560,16 +561,16 @@ Pilot has landed. The next piece of work is the principles-file rewrite (folding
 
 - **Spike-to-segment reverse-check.** Standing Gate 2 check per `FORMAT.md`: "What did the spike establish that the segment does not say?" — added in Session C.5 of 2026-04-21 cycle; verify it's still present and visible.
 
-- **Segment counts in CLAUDE.md "What's Settled" summary** — refreshed 2026-04-24 (post-naming-pilot): 111 AAD core segments. Refresh opportunistically.
+- **Segment counts in CLAUDE.md "What's Settled" summary** — refreshed 2026-04-24 (post-naming-pilot) at 111 AAD core segments. Current count 2026-04-25 is 114 (Gemini's `#internal-external-decomposition` + `#deriv-causal-ib-exploration`; Claude's `#deriv-causal-ib-lmi`). The "What's Settled" summary lives in `CLAUDE-2.md` (off-limits during audits); refresh opportunistically when next out of audit-mode work.
 
 
 ## Active — Promotion Pipeline
 
-**Current state (2026-04-24, post-naming-pilot):** 111 AAD core segments. Stage distribution per `bin/lint-outline`: 14 claims-verified, 23 deps-verified, 73 draft, 1 unknown. Segments from the 2026-04-22 strengthening cycle are still reset to `draft` pending re-review: `#der-causal-insufficiency-detection`, `#def-strategy-dag`, `#deriv-strategic-dynamics`, `#form-information-bottleneck`, `#der-directed-separation`, `#def-satisfaction-gap`, `#def-control-regret`, `#form-strategy-complexity-cost`, `#disc-compression-operations`, `#result-sector-persistence-template`, `#der-loop-interventional-access`. The 2026-04-23 Gap A/B cycle added six new draft segments; the 2026-04-24 pressure-point cycle added `#deriv-bias-bound` (draft); the 2026-04-24 naming pilot added `#scope-adaptive-system` and rewrote `#scope-agency` (both claims-verified).
+**Current state (2026-04-25, post-Causal-IB-LMI + transient-amplification):** 114 AAD core segments. Stage distribution per `bin/lint-outline`: 14 claims-verified, 23 deps-verified, 76 draft, 1 unknown. The 2026-04-25 cycle added three new draft segments — `#internal-external-decomposition` (Gemini), `#deriv-causal-ib-exploration` (Gemini), `#deriv-causal-ib-lmi` (Claude). Segments from the 2026-04-22 strengthening cycle remain reset to `draft` pending re-review: `#der-causal-insufficiency-detection`, `#def-strategy-dag`, `#deriv-strategic-dynamics`, `#form-information-bottleneck`, `#der-directed-separation`, `#def-satisfaction-gap`, `#def-control-regret`, `#form-strategy-complexity-cost`, `#disc-compression-operations`, `#result-sector-persistence-template`, `#der-loop-interventional-access`. The 2026-04-23 Gap A/B cycle added six new draft segments; the 2026-04-24 pressure-point cycle added `#deriv-bias-bound` (draft); the 2026-04-24 naming pilot added `#scope-adaptive-system` and rewrote `#scope-agency` (both claims-verified).
 
 The new `#disc-identifiability-floor` segment is at `draft`; it would benefit from a Gate 1 dependency audit on the next promotion pass.
 
-Recommended next promotion candidates remain the ones from the prior round: `#deriv-sector-condition`, `#deriv-recursive-update`, `#result-mismatch-decomposition`, `#der-chain-confidence-decay`, `#result-persistence-condition`, `#der-gain-sector-bridge`, `#example-kalman`, `#deriv-discrete-sector-condition`, `#deriv-graph-structure-uniqueness`. (`#def-satisfaction-gap` and `#def-control-regret` were on this list pre-strengthening; they are now back at draft after the EFE-contrast addition and need re-promotion.)
+Recommended next promotion candidates remain the ones from the prior round: `#deriv-sector-condition`, `#deriv-recursive-update`, `#result-mismatch-decomposition`, `#der-chain-confidence-decay`, `#result-persistence-condition`, `#der-gain-sector-bridge`, `#example-kalman`, `#deriv-discrete-sector-condition`, `#deriv-graph-structure-uniqueness`. Plus: `#deriv-causal-ib-exploration` and `#deriv-causal-ib-lmi` (paired Causal-IB cluster, naturally promoted together) and `#internal-external-decomposition`. (`#def-satisfaction-gap` and `#def-control-regret` were on this list pre-strengthening; they are now back at draft after the EFE-contrast addition and need re-promotion.)
 
 
 ## Active — Lower Priority

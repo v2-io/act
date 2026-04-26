@@ -14,6 +14,8 @@
 
 **Author posture:** triage agent, did not consult CLAUDE-2.md; did not modify segments/OUTLINE/TODO/CHANGELOG/PROPOSALS. Relied on first-hand reading of all 8 final reports plus current `TODO.md` and `PROPOSALS.md` only for cross-referencing.
 
+**Status (2026-04-25 update):** §A items AF-1 through AF-14 all landed via verify+fix-agent dispatch in commits `4f0315e` (AF-1 + AF-5 + AF-6 Section I def-cluster), `937743d` (AF-8 + AF-13 form-event-driven-dynamics), `3e87f59` (AF-4 der-action-selection), `1bffa60` (AF-11 + AF-12 BH-identity propagation), and `fb51ff9` (AF-2 + AF-3 + AF-9 + AF-14 gain-sector cluster). AF-15 confirmed already-in-TODO. §B confirmed exhaustive. §C / §D / §E items remain queued for separate scoping spikes or architectural decisions (not local fixes). This file is now historical extraction record rather than active queue; future audit triage should produce a new dated extraction file rather than amend this one.
+
 ---
 
 ## §A. High-confidence local independent fixes (NEW — not in TODO)
