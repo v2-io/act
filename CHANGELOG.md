@@ -15,6 +15,14 @@ The split between CHANGELOG and TODO §Archive is intentional: CHANGELOG carries
 
 ## 2026-04-25
 
+### Cleanup cycle: TODO archival + small editorial repairs
+
+A housekeeping pass that ran in parallel with substantive Section III work. Three small editorial repairs landed independently as background-agent work: F11/F31 (a single "Practical sensitivity" paragraph at end of orient-cascade step 4c covering both SNR sensitivity and the non-stationarity caveat, cross-referencing `#der-causal-insufficiency-detection`); F25 (verb-precision pass through `result-coupled-diagnostic-framework` separating definedness from operational extractability and cross-referencing `#result-section-ii-survival`'s instrumentation-boundary discussion); F29 (two-axis structure — content unities + structural $U_f$ — elevated from Working-Notes caveat to definitional commitment in `def-unity-dimensions` and `result-unity-closure-mapping` per `msc/spike-unity-closure-mapping.md` Option C). All three lint-clean.
+
+In parallel, TODO.md archival housekeeping consolidated the 2026-04-25 mechanical-fix bundle's findings (F-V1, F-V2, F-V4, F-V5, P-V1, P-V2, P-V3) into §Archive — their fixes had landed in commit `a6b61fb` but the entries still read DELEGATABLE/QUEUED. F-V3 (the deferred Path A vs SP-21 routing decision) and the F-V4 follow-up review remain Active.
+
+Pattern worth naming: small independent editorial repairs delegated to parallel background agents while a separate cycle did substantive mathematical work (Gemini's Section III spike-promotion, running concurrently in `01-aad-core/src/`). The fix-in-parallel-then-archive rhythm let the cleanup cycle stay clear of composition-closure and additive-coordinate-forcing territory; Gemini's work will land its own narrative entry separately when that cycle completes.
+
 ### Audit-extraction cycle: 2026-04-24 fresh-pass results captured
 
 The 2026-04-24 fresh-pass audit (an Opus-4.7 primary pass + independent Gemini and Codex re-audits in the same session) produced findings, an architectural proposal candidate, and a meta-lesson about audit failure modes. The primary pass had initially returned "zero findings"; Gemini and Codex independently surfaced five-plus real findings (math errors in worked examples, cross-segment contradictions around the recently-added C-iv route, integration debt between TST and `03-logogenic-agents/`). The audit's "Reading-mode failures" post-mortem became the foundation for the substantially improved `msc/de-novo-audit-instructions.md` (separate cycle, also 2026-04-24/25).

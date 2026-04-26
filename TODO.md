@@ -1,6 +1,6 @@
 # TODO — Open Work Items
 
-**Last reconciled:** 2026-04-24 (post-full-role-prefix-sweep, commits `09ace17` → `f8bc46a`; pilot landed, tooling built, sweep applied to all 142 active segments, two false-strip bugs caught and restored; segment count 111). New `CHANGELOG.md` is the forward-going cycle record (replacing LOG.md for entries from 2026-04-24 onward). This file is the living action list.
+**Last reconciled:** 2026-04-25 (cleanup-cycle archival pass; landed F11/F31, F25, F29 editorial repairs in commits `7e2e074`, `aa1fb15`; consolidated 2026-04-25 mechanical-fix bundle, 2026-04-22/23 Phase 1 cleanups, and 2026-04-23 citations audit into §Archive). New `CHANGELOG.md` is the forward-going cycle record (replacing LOG.md for entries from 2026-04-24 onward). This file is the living action list.
 
 **Cycle history (most recent first).**
 - **2026-04-24 Gemini pressure-point cycle — Tier 1 landing** (commits `6102a93`, `b76ee67`). Six Tier 1 items landed: (1) `#deriv-strategy-cost-regret-bound` bundled update — §4 BH identity $D_{\mathrm{KL}} = -\log(1 - \mathrm{TV})$ replaces Pinsker as primary bound with matching lower bound; §5 asymmetry-from-one-sidedness paragraph; §6.1 Shore-Johnson/Sanov/Hobson structural-equivalence note; §6.3 Bregman-Fenchel identification; §6.4 information-theoretic-MDP lineage positioning with AAD-outlier-on-KL-direction ownership + Rubin 2012 PAC-Bayesian motivation; Bishop-vs-AAD naming-collision footnote. (2) Structural-transparency lift — `#form-composition-closure` DA2'-inc ≡ (CT2)-at-$M=I$ equivalence with Rockafellar-Wets citation; `#result-contraction-template` honest-failure-modes adversarial three-obstruction convergence; `#deriv-sector-condition` rule-based/discontinuous sub-scope-β as structural Lipschitz-floor scope-exit with van der Schaft-Schumacher 2000 reference. (3) New appendix `#deriv-bias-bound` — Track 1 transport-inequality + Track 2 Fisher-Rao + Attempt E no-go + failed-attempt record + Gaussian worked example; updates `#scope-observation-ambiguity-modulation` and `#result-section-ii-survival` from "order-of-magnitude guidance" to "conditional theorem." (4) `#form-information-bottleneck` IB-lineage vs. information-theoretic-MDP-lineage cross-reference. (5) `#der-loop-interventional-access` "Modes of deployment across `#disc-identifiability-floor` instances" subsection (Mode 1 agent-self-intervention / Mode 2 observer-on-sub-agent; positions for Mode 3 when I4 lands). (6) `ref/INDEX.md` TP2011 title correction ("The Information Theory of Decision and Action" singular) — also done in reasoning-trail commit. Lint clean: 0 ordering violations, 0 missing deps, 0 orphans. **Net effect:** Gemini pressure points #1 (bridge lemma), #2 (IB purity), #5 (constant $C$) closed outright at Tier 1; #3 (ρ factorization) and #4 (neutral drift) await Tier 2 landings.
@@ -42,39 +42,7 @@ Nine spikes completed against five Gemini-flagged pressure points plus four cros
 
 ### Tier 1 — LANDED 2026-04-24 (commits `6102a93`, `b76ee67`)
 
-All six items landed in commit `b76ee67`. See cycle-history entry at top of file for the itemized summary. Section retained below for traceability / future-agent orientation; items marked ✅ in-place.
-
-
-
-1. **`#deriv-strategy-cost-regret-bound` bundled update** (one segment, seven sub-moves):
-   - §4 refactor: Bretagnolle-Huber identity $D_{\mathrm{KL}} = -\log(1 - \mathrm{TV})$ replaces Pinsker as primary bound (Path 5); matched lower bound $\Delta_{\min}(1 - e^{-D_{\mathrm{KL}}})$; Pinsker demoted to weaker-form remark.
-   - §5 addition: "Asymmetry is forced by regret's one-sidedness" paragraph (Path 6) — second leg of direction-forcing independent of chain-rule axiom.
-   - §6 new short subsection: Bregman-Fenchel identification (Path 7 elementary, local to segment) — reverse-KL as Bregman divergence of negative-entropy; log-odds as Fenchel-dual natural coordinate; cross-reference to `#deriv-edge-update-natural-parameter`.
-   - §6.1 Discussion: Shore-Johnson 1980 / Hobson 1969 / Sanov 1957 structural-equivalence note (Path 4) — all factor through independence-on-sub-problems.
-   - §6.3 new subsection "Information-theoretic-MDP lineage and AAD's direction choice" (reframed Path 1 per §12.5 SD1): TP2011 Information-to-Go context; Rubin 2012 control-information with explicit direction note; Levine 2018 control-as-inference positioning; AAD-is-outlier-on-KL-direction ownership paragraph; Rubin 2012 Theorem 3 PAC-Bayesian generalization bound as one item.
-   - Footnote: Bishop-vs-AAD "reverse-KL" naming-collision clarification.
-   - Working Notes cross-reference to `ref/INDEX.md` for corrected TP2011 title.
-
-2. **Spike 1 §7.1 structural-transparency lift** (four paragraph-scale edits across three segments):
-   - `#form-composition-closure` Discussion: DA2'-inc ≡ (CT2)-at-$M=I$ equivalence for $C^1$ $F$ on convex domains (Rockafellar-Wets 1998 Cor 12.4 / Nesterov 2004 §2.1.3).
-   - `#result-contraction-template` Epistemic Status: Euclidean metric-α₁ reclassified "AAD-internally derived via DA2'-inc equivalence" (not theorem-imported).
-   - `#result-contraction-template` Honest-failure-modes: sharpen adversarial-half statement to name three independent obstructions (Slotine-applicability / passivity-universality / contraction-metric-attractor requirement); cross-ref `#deriv-strategic-composition`.
-   - `#deriv-sector-condition` sub-scope β discussion: sharpen "rule-based / discontinuous" as structurally out-of-scope for contraction-based bridge-lemma (Lipschitz floor); cross-ref hybrid-dissipative framework (van der Schaft-Schumacher 2000).
-
-3. **New appendix `#deriv-bias-bound`** (substantial new segment, self-contained):
-   - Track 1: W₂ transport-inequality theorem under (H1) statistical-manifold sub-case + (H2) LSI + (H3) Lipschitz-posterior; $C_{W_2}^2 = 2L_{\mathrm{post}}^2/\rho_{\mathrm{LSI}}$ linear in $I$.
-   - Track 2: Fisher-Rao theorem under (H1) + (H4) small-information regime + (PI)/Čencov; universal dimension-free $C_{FR} = \sqrt{2}$, $\sqrt{I}$ scaling.
-   - Attempt E no-go: heteroscedastic-normal family counterexample shows universal-$C$ under Euclidean-parameter norm fails — justifies (PI) adoption as load-bearing.
-   - Honest failure record: Cramér-Rao inversion (wrong direction), rate-distortion inversion (wrong problem structure) — documented so future agents do not repeat.
-   - Gaussian worked example: $\rho_{\mathrm{LSI}} = 1/\sigma^2$ under Gaussian observation; conjugate-Gaussian prior gives explicit $L_{\mathrm{post}}$.
-   - Updates: `#result-section-ii-survival` and `#scope-observation-ambiguity-modulation` — "Without the constant, the bound is order-of-magnitude guidance, not a theorem" replaced with cross-reference to the new appendix; bias-bound tier upgraded to "conditional (exact under H1-H3 or H1+H4)".
-   - Deps: `section-ii-survival`, `observation-ambiguity-modulation`, `agent-identity`, `additive-coordinate-forcing`, `directed-separation`.
-
-4. **`#form-information-bottleneck` cross-reference paragraph** (§12.5 SD3): distinguish the canonical IB instance ($(X, T, Y)$ with Shannon MI on both sides) from the information-theoretic-MDP-lineage instance (KL-to-reference-policy at strategy-cost layer). Pre-empts "why isn't the strategy-cost term a mutual information like the others?" at the meta-segment level.
-
-5. **`#der-loop-interventional-access` two-mode deployment subsection** (triage spike §4.2): name the two currently-live modes — *agent-self-intervention* (Instance 1: agent does do-actions in its own loop) and *observer-on-sub-agent* (Instance 3: observer intervenes on $A_j$ to reveal $A_i$'s cross-coupling response). Positions the segment for extension to three modes when Instance 4 promotes (observer-on-agent-input). Surfaces already-implicit structure; no new content.
-
-6. **`ref/INDEX.md` TP2011 title correction** — DONE 2026-04-24 (filename updated `tishby-polani-2011-info-decision-action.pdf`; entry corrected to singular "The Information Theory of Decision and Action").
+All six items landed. See Archive entry "2026-04-24 Gemini pressure-point Tier 1" and cycle-history bullet at top of file for itemized summary.
 
 ### Tier 2 (after Tier 1 lands)
 
@@ -232,15 +200,6 @@ Per FORMAT.md's standing spike-to-segment reverse-check convention: the six brai
 
 Probably ~30 minutes of focused reading per spike; can be done in a dedicated editorial pass at next session start.
 
-## Highest-priority cleanups — LANDED (Phase 1 of strengthen-first cycle)
-
-All four cleanups landed. F20 strengthened rather than softened; the others were mechanical cross-segment updates. Detail in Archive section below.
-
-- ~~**F18** — `#example-L1` said L1' transfer was "open"~~ — **LANDED.** Updated to cite Prop B.7 (observable-$C$ with five-way gating under facilitator monotonicity) and the Cramér-Rao refutation for unobservable-$C$ single-channel; three repair routes named.
-- ~~**F19** — `#result-section-ii-survival` bias bound in entropy form~~ — **LANDED.** Replaced with MI form from `#scope-observation-ambiguity-modulation`; triple-zero boundary structure made explicit (bias vanishes at $\kappa=0$ OR $\mathcal{A}=0$ OR factually-sharp observation, not just the first).
-- ~~**F20** — KL-direction degeneracy in `#form-strategy-complexity-cost` variational form~~ — **LANDED as strengthening** (not softening). New appendix segment **#deriv-strategy-cost-regret-bound** hosts the full derivation: TV bound via bounded value range, Pinsker-KL bound, direction-forcing argument (forward-KL is vacuous under deterministic $\pi^\ast$), admissible-divergence family analysis (TV tight but non-differentiable; reverse-KL canonical-not-unique on gradient-tractability + variational-inference + Fisher-geometry + MDL-coding grounds), and the linear-vs-square-root $\beta_\Sigma$ trade-off (linear preserves IB-shape alignment; square-root would give $\beta_\Sigma \propto V_{\max}$ global naturalization). Segment-level cross-refs updated in `#disc-compression-operations`, `#disc-exploit-explore-deliberate`, `#disc-ciy-unified-objective`. `msc/spike-f20-kl-direction-strengthening.md` retained as the reasoning trail only; framework is complete without it.
-- ~~**F21** — `#disc-identifiability-floor` frontmatter status conflicts with internal text~~ — **LANDED.** Frontmatter `status:` changed to `discussion-grade`; Epistemic Status rewritten to cleanly separate the meta-pattern (discussion-grade presentational principle) from individual instances (F1's no-go: *exact* for shallow / *robust qualitative* for general; F13's L1' refutation: *exact*).
-
 ## Active — 2026-04-23 triple audit findings and session-discovered proposals
 
 **10 consolidated findings** from three independent de novo audits (Codex 5 + Gemini 4 + Opus 6, with cross-audit overlap on 5 of them). Full detail in `msc/pending-findings-2026-04-23.md`. Summary table:
@@ -250,13 +209,13 @@ All four cleanups landed. F20 strengthened rather than softened; the others were
 | 22 | README-level scope framing outruns Section II exact theorem scope | Codex 1 + Gemini 4 partial | High | Partial by O-BP8 + SP-7 |
 | 23 | "16/24 exact survival" headline compresses three distinct layer-claims | Codex 2 | High | Partial by C-BP1 |
 | 24 | Strategy-edge semantics not harmonized with identifiability machinery; DAG-forced framing overclaims | Codex 3 + Opus F + Gemini 2 | High | msc/spike-edge-semantics-resolution.md "causal efficacy credence" framing is the integration target |
-| 25 | `#result-coupled-diagnostic-framework` slides from defined to runtime-computable | Codex 4 | High | Directly by C-BP1 |
+| 25 | `#result-coupled-diagnostic-framework` slides from defined to runtime-computable | Codex 4 | High | **RESOLVED** 2026-04-25 cleanup cycle: verb-precision pass throughout (computed → defined/reconstructed); definedness vs operational extractability separated; cross-ref to `#result-section-ii-survival` instrumentation-boundary discussion |
 | 26 | Section III composition-closure reads more closed than self-aware status supports; Tier 3 prevalence not characterized | Codex 5 + Gemini 1 + Opus D | Medium-high | SP-6 (composition-closure consolidation) |
 | 27 | Scalar tempo overcounting — foundational metric structurally additive | Gemini 3 | (already caveated; retained for visibility) | Partial by O-BP3 |
 | 28 | $\rho_\Sigma$ is unmeasurable threshold parameter on which trajectory guarantee depends | Opus A | High (gap); medium (substantive vs. honest-open) | None — genuinely unaddressed |
-| 29 | Update-rule heterogeneity integration debt in `#def-unity-dimensions` | Opus B | High (pure integration debt) | None — mechanical work |
+| 29 | Update-rule heterogeneity integration debt in `#def-unity-dimensions` | Opus B | High (pure integration debt) | **RESOLVED** 2026-04-25 cleanup cycle: two-axis structure (content unities + structural $U_f$) elevated from Working-Notes caveat to definitional commitment in `def-unity-dimensions` and `result-unity-closure-mapping` per `msc/spike-unity-closure-mapping.md` Option C |
 | 30 | Stacked scope narrowings (Class 1 + learning-agent) only Class 1 visible at OUTLINE | Opus C | High | Directly by O-BP8 |
-| 31 | Orient cascade 4c's signal-to-noise sensitivity not surfaced where step prescribed | Opus E | Medium | None — 30min editorial fix |
+| 31 | Orient cascade 4c's signal-to-noise sensitivity not surfaced where step prescribed | Opus E | Medium | **RESOLVED** 2026-04-25 cleanup cycle: bundled with F11 in single "Practical sensitivity" paragraph at end of step 4c |
 
 **7 session-discovered architectural proposals** (SP-2 through SP-8) in `_obs/architectural-proposals-2026-04-22.md` §"Post-2026-04-23-audit architectural extensions":
 
@@ -272,9 +231,7 @@ All four cleanups landed. F20 strengthened rather than softened; the others were
 
 ### Actionable from the audit batch
 
-- **F29** (unity-dimensions two-axis integration) — **pure mechanical work**, 45–90 min. Should land first in next session as a confidence-building cleanup.
-- **F31** (orient cascade 4c sensitivity note) — 30 min editorial. Small cleanup.
-- **F25** (coupled-diagnostic-framework runtime vs. analytical) — 60–90 min editorial *or* wait for C-BP1 landing and handle together.
+- ~~**F29**, **F31**, **F25**~~ — **landed 2026-04-25 cleanup cycle.**
 - **F30** (OUTLINE scope lattice) — 20–40 min editorial; composes naturally with O-BP8 if Phase C framing pass is pursued.
 
 ### Requires scoping or substantive work
@@ -319,8 +276,8 @@ Segment count: 93 → 96 (added `#disc-identifiability-floor` before this cycle;
 ### Recommended sequence for next session (updated 2026-04-23)
 
 **Phase α — Quick wins first (1 session total).** Confidence-builders and pure integration debts:
-- **F29** — `#def-unity-dimensions` two-axis integration (45–90 min). Pure mechanical work landing `msc/spike-unity-closure-mapping.md`'s Option C into Formal Expression.
-- **F31** — `#der-orient-cascade` step 4c practical-sensitivity note (30 min).
+- ~~**F29** — `#def-unity-dimensions` two-axis integration~~ — landed 2026-04-25.
+- ~~**F31** — `#der-orient-cascade` step 4c practical-sensitivity note~~ — landed 2026-04-25.
 - **F21-follow-up / F24** — Promote `msc/spike-edge-semantics-resolution.md`'s "causal efficacy credence" framing to `#def-strategy-dag`; soften "DAG-forced" language to match `#deriv-graph-structure-uniqueness`'s sufficiency-only content (1 session).
 
 **Phase A — CLOSED 2026-04-23.** Project-wide citation audit completed across 3 commits (`7456ec3`, `6567914`, `f61e62f`). Zero confirmed attribution errors. 26 PDFs in `ref/`. 5 missing-citation gaps hardened. See §"Citations Audit — COMPLETE 2026-04-23" above for detail.
@@ -369,27 +326,6 @@ The recommended next session should rebalance toward consolidation: Phase A (cit
 The pattern becoming visible: AAD's strengthening cycles alternate between *depth* (new theorems) and *breadth-compression* (consolidation and naming). This cycle was depth-heavy; the next should be breadth-compression-heavy. If this alternation continues, it may itself be a project-level discipline worth naming in CLAUDE.md.
 
 
-## Citations Audit — COMPLETE 2026-04-23
-
-**Result: zero confirmed attribution errors project-wide.** The reverse-KL audit's 3-wrong-out-of-16 rate was a local concentration in that one spike's citations; the broader corpus is clean. Three commits closed the audit project:
-
-- `7456ec3` — SP-2 landing + framing-pass subset (initial SP-1 truncation fix in proposals doc)
-- `6567914` — Tier 1 verification: 3 framing refinements + Morozova-Chentsov completion + ref/ rename hygiene
-- `f61e62f` — Missing-citation hardening: Tikhonov / Chechik / Doob-Dynkin / Cox / Cramér added
-
-**What was audited.** Four first-pass Explore batches covered every `*[Derived]*`, `*[Proved]*`, and external-theorem citation across 01-aad-core and 02-tst-core. Four follow-up agents with curl-into-ref/ workflow closed the E-verdict backlog. Two PDF-level Tier 1 verification agents confirmed the highest-risk attributions (Bruineberg's "Pearl-blanket vs Friston-blanket" terminology is VERBATIM, with credit to Martin Biehl in footnote 3; Bareinboim CHT = Theorem 1 p.22 of the 2022 ACM Books chapter; Aguilera's FEP-narrow-validity claim exactly matches AAD's usage).
-
-**26 PDFs in `ref/`.** Canonically named (`{author}-{year}-{short}.pdf`). Load-bearing external theorems covered: Khalil 2002, Khasminskii 2012, Nesterov 2004, Pearl 2009, Lauritzen 1996, Spirtes-Glymour-Scheines 2000, Bareinboim 2022, Cover-Thomas 2006 (textbook), Tishby 1999, Chechik 2005, Csiszár 1991, Shore-Johnson 1980, Hobson 1969, Eguchi 1983, Aczél & Daróczy, Ay et al. 2017, all Friston lineage (2010/2013/2017/2019/2023), Da Costa 2020, Sajid 2021, Parr-Pezzulo 2022, Aguilera 2022, Bruineberg 2022, Sun-Firestone 2020, Clark 2013, Wiener 1948, Hafez 2026, Miller 2022. Amari 2009 and Amari-Cichocki 2010 already retained from the reverse-KL audit.
-
-**Framing refinements landed** (commit `6567914`): (1) Eguchi 1983 attribution is now "the differential-geometric framework in Eguchi 1983" not "Eguchi's theorem" (Theorem 3 is about estimator efficiency; the f-divergence/Fisher-metric result is in §2 contrast-function machinery); (2) Sun & Firestone 2020 direction-of-inference clarified (they diagnose, AAD responds); (3) Friston 2023 labeled as the path-integral methodological extension; Friston 2019 named as the primary NESS source.
-
-**Missing-citation hardening landed** (commit `f61e62f`): Tikhonov 1952 + Khalil 2002 Ch 11 (singular perturbation) to `#der-temporal-nesting` and `#sketch-multi-timescale-stability`; Chechik 2005 full citation to `#disc-compression-operations`; Kallenberg 2002 footnote in `#deriv-recursive-update` (Doob-Dynkin); Cox 1946 + Jaynes 2003 in `#deriv-graph-structure-uniqueness` and `#def-strategy-dag`; Cramér 1946 in `#disc-identifiability-floor` and `#deriv-strategic-dynamics`.
-
-**Spike-to-segment promotion fix** (commit `6567914`): Morozova & Chentsov 1991 citation completed in `#deriv-strategy-cost-regret-bound` §6.2 by importing the full form from `msc/spike-reverse-kl-uniqueness.md` ("Markov invariant geometry on state manifolds," *Itogi Nauki i Tekhniki*, translated in *J. Sov. Math.* 56(5):2648-2669).
-
-**Residue (acceptable):** 3 emphasis-vulnerable linter warnings in `#deriv-strategic-dynamics` on dense table-row math (lines 346, 501, 507) — fixing requires math restructuring that exceeds citation-hardening scope. Miller 2022 `Ex_Machina` specific chapter/section/table loci (§3.3, Ch 1, Table 12.2) not independently PDF-verified; book is in `ref/miller-2022-ex-machina.pdf` if a future spot-check is desired.
-
-
 ## Active — Strategic Architectural Proposals
 
 **See [`PROPOSALS.md`](PROPOSALS.md) at the repository root.** The 2026-04-22/23/24 portfolio was consolidated 2026-04-24 from 33 enumerated proposals into a banded, verified structure with cross-cutting bundles (framework-face reframe; Section III completion), ~6 newly-surfaced candidates from segment Working Notes, and per-proposal independence-of-execution markers. The prior portfolio doc is in `_obs/architectural-proposals-2026-04-22.md` for provenance.
@@ -405,32 +341,18 @@ The larger reorganizations (O-BP11 observability-master, O-BP12 resource-budget,
 
 ## Active — Pending Findings
 
-### 2026-04-25 batch — extracted from 2026-04-24 fresh-pass audit
+### 2026-04-25 batch — F-V3 routing decision + F-V4 follow-up review
 
 **Source:** `msc/audit-2026-04-24-fresh-pass.md` (one Opus-4.7 fresh pass + Gemini and Codex re-audits in the same session). Findings detail in `msc/pending-findings-2026-04-25.md`. The audit's primary pass produced "zero findings" and was corrected by independent Gemini/Codex re-audits; the resulting failure-mode analysis is folded into `msc/de-novo-audit-instructions.md` for the next audit posture.
 
-Verification status: F-V1, F-V2, F-V3, F-V4, F-V5 all verified first-hand against current src 2026-04-25. P-V1, P-V2 unverified at audit's stated confidence (medium-high / medium); P-V3 verified textually.
-
-| # | Finding | Severity | Landing path | Status |
-|---|---------|----------|--------------|--------|
-| F-V1 | Discrete-to-continuous Model S variance gap mis-stated as $O((\eta^*)^2)$ — actual is $O(\eta^*) = O(1/\nu)$ via Taylor expansion of segment's own DA.1S; numerical sanity check confirms | Medium (math correct under conservative interpretation; asymptotic claim wrong) | Editorial math correction in `deriv-discrete-sector-condition.md` (lines 147, 163) + `detail-linear-ode-approximation.md` (lines 154, 186). Plus internal-inconsistency cleanup in linear-ode line 163 ($(\eta^*)^2 c^2_{\max} \neq \eta^* c_{\max}/\nu$). ~30 min, mechanical | **DELEGATABLE — queued for fix batch** |
-| F-V2 | `scope-multi-agent.md:71` excludes adversarial pairs; `scope-composite-agent.md:89` admits them via C-iv. Integration drift around recently-added scope route | Medium-high | Editorial fix in `scope-multi-agent.md` Discussion paragraph: "Adversarial pairs are *excluded*" → split between non-equilibrium-convergent (excluded) and equilibrium-convergent (admitted via C-iv). ~20 min | **DELEGATABLE — queued for fix batch** |
-| F-V3 | C-iii admits composites without explicit $O_c$ but `scope-composite-agent.md:79` says without $O_c$ composite is "a fiction." **Same finding as F8** from 2026-04-22 batch. | High (internal contradiction) | Two paths — see Decision below. **Path A (recommended interim):** induce $O_c$ from relevance variable $Y$ for C-iii route; preserves unified scope. ~45–60 min. **Path B:** SP-21 architectural restructure (see PROPOSALS.md §G). | **DECISION DEFERRED — Joseph's call (Path A vs SP-21)** |
-| F-V4 | Sign error in zero-sum worked example in `deriv-strategic-composition.md:70-76`. Claimed potential $\Phi = a_A - a_B$ and NE $(1, -1)$; actual $\Phi = a_A + a_B$, NE $(1, 1)$. Per Codex, same error in `msc/spike-strategic-composition.md` | High (math error in promoted segment's worked example) | Editorial math correction. Replace example with corrected potential and NE; cross-check spike. Sector-template instantiation needs re-grounding around $(1,1)$. ~30 min, agent should run the math | **DELEGATABLE — queued for fix batch** |
-| F-V5 | TST `scope-developer-agent.md` (lines 63, 73, 166) treats AI agents using standard AAD apparatus (orient-cascade-as-derived; near-zero $M_t$ at session start; "directly observable" $M_t$) without referencing Class 2 architectural caveats from `03-logogenic-agents/`. Verified: `scope-logogenic-agent` says Class 2 with $\kappa_{\text{processing}} \approx 1$; `def-coupled-update-dynamics` says orient cascade does NOT hold as derived for Class 2 | Medium-high (cross-component integration debt) | Editorial cross-component pass. Three integration moves in `scope-developer-agent.md`. Should be done by an agent that has read both TST and logogenic-agents segments. ~30–45 min | **DELEGATABLE — needs cross-component-aware agent** |
-| P-V1 | "Not a discretization artifact" framing in `result-adversarial-tempo-advantage.md` Working Notes too strong. The 1.481 vs 1.5 gap is consistent with a derivable correction factor, not just numerical noise. Compounds with F-V1 | Low-medium | Working Notes edit. Could bundle with F-V1 fix. ~15 min | **QUEUED — bundle with F-V1** |
-| P-V2 | "Linear projections of linear dynamics are exact" punchline in `result-unity-closure-mapping.md` overgeneralizes; framework's MZ machinery in `form-composition-closure` already handles general non-invariant-subspace case | Low-medium | Punchline tightening + cross-reference. ~20 min | **QUEUED — low priority** |
-| P-V3 | `hyp-causal-discovery-from-git.md:30` "the temporal ordering provides causal direction for free" overstates `post-causal-structure`'s "structure of possible influence, not actual influence" posture | Low | One-sentence edit. ~5 min | **DELEGATABLE — queued for fix batch** |
+Mechanical fix bundle (F-V1, F-V2, F-V4, F-V5, P-V1, P-V2, P-V3) landed in commit `a6b61fb` — see Archive. Two items remain Active:
 
 **Decision deferred — F-V3 routing (Joseph's call):**
+
+F-V3 = C-iii admits composites without explicit $O_c$ but `scope-composite-agent.md:79` says without $O_c$ composite is "a fiction." **Same finding as F8** from 2026-04-22 batch.
+
 - **Path A (recommended interim):** Edit `scope-composite-agent.md` C-iii to make induced-$O_c$ structure explicit ($O_c$ derived from relevance variable $Y$ when C-iii holds). Preserves the unified disjunctive scope reasoning; resolves the "fiction" contradiction. ~45–60 min. Compatible with later SP-21 if pursued.
 - **Path B (SP-21 restructure):** Split (C-i)–(C-iv) into distinct composite ontologies. **Reverses the deliberate 2026-04-22/23 unification choice** — see PROPOSALS.md §G SP-21 entry for the prior reasoning, downstream rework (8 dependent segments), and the explicit spike-level decision that SP-21 would undo. 4–6 sessions. SP-21 currently recommended for *deferral* — re-evaluate after Bundle 2 (Section III completion) matures the substrate.
-
-**Mechanical fix bundle landed 2026-04-25** (uncommitted; Joseph review pending):
-- F-V1, F-V2, F-V4, F-V5, P-V1 (bundled), P-V3 — all mechanical fixes executed by a single Task agent.
-- P-V2 (subsequent agent) — `result-unity-closure-mapping.md` punchline tightened with invariance condition + cross-reference to `#form-composition-closure`'s Mori-Zwanzig zero-lag bound. MZ bound verified verbatim against `form-composition-closure.md:181, 256`.
-- All edits lint-clean (`bin/lint-md` + `bin/lint-outline` 0 violations, 111 segments).
-- Files modified: `01-aad-core/src/{deriv-discrete-sector-condition, detail-linear-ode-approximation, scope-multi-agent, deriv-strategic-composition, result-adversarial-tempo-advantage, hyp-causal-discovery-from-git, result-unity-closure-mapping}.md` + `02-tst-core/src/scope-developer-agent.md`.
 
 **F-V4 follow-up review required (added 2026-04-25).** The F-V4 fix to `deriv-strategic-composition.md` zero-sum worked example introduced a *quadratic action-cost regularization* with parameter $c$ to enable interior-NE sector-template instantiation. This was a substantive judgment call (the corrected unregularized linear $\Phi$ with NE at corner $(1,1)$ has no interior contraction, so the original sector-template instantiation can't be salvaged without modification). **Accepted as interim form 2026-04-25; explicit follow-up review required:**
 1. Double-check the regularization algebra ($F(\xi) = c\xi$; $R = (1-1/c)\sqrt 2$ disturbance bound).
@@ -440,13 +362,9 @@ Verification status: F-V1, F-V2, F-V3, F-V4, F-V5 all verified first-hand agains
 
 Detail in `deriv-strategic-composition.md` Working Notes §"Zero-sum example regularization." ~1–2 hours of careful follow-up work; should land before the segment is re-promoted to candidate stage. Worth scheduling in the next strengthening cycle.
 
-**Decision deferred — F-V3 / F8 routing (still open):** Path A (induce $O_c$ from relevance variable $Y$ for C-iii; ~45–60 min; preserves unified scope) vs Path B / SP-21 (architectural restructure; 4–6 sessions; reverses prior reasoning). Recommendation: Path A interim now; revisit SP-21 after Bundle 2.
-
 **B7 → SP-21 (architectural proposal).** The audit's bigger-picture observation B7 (split composite-agent scope routes into distinct ontologies) is captured as **SP-21** in `PROPOSALS.md` §G. SP-21 reverses recent (2026-04-22/23) deliberate unification reasoning; its entry includes the prior-reasoning paper trail and recommends deferral pending Bundle 2 maturation.
 
 **B1–B6 (audit's other big-picture observations).** Mostly confirmation that existing portfolio is on track. Mapped: B1 (form-shaping framing) → additive to SP-7; B5 (Bregman-Fenchel reframe) → already SP-9; B6 (channel-capacity prominence) → already SP-14. B2/B3/B4 are pedagogical/orientation, not separate proposals. Captured in `msc/pending-findings-2026-04-25.md` for orientation; no new portfolio entries needed.
-
-**J1–J10 (substantive judgments).** Confirmation that segment-level discipline holds for the ~45 segments read first-hand. Includes external-citation spot-check (Bretagnolle-Huber, Otto-Villani 2000 — both accurate). Recorded in `msc/pending-findings-2026-04-25.md`; not actionable — supplies confidence calibration for the framework's current state.
 
 ---
 
@@ -468,7 +386,7 @@ The 2026-04-22 batch had 15 findings; the strengthening cycle resolved 4 directl
 | 8 | (C-iii) mutual-benefit vs (A1) decomposable $G_c$ gap | Open. 45–60 min scope-reconciliation; involves Joseph's Option A vs Option B decision |
 | 9 | Section II preamble framing understates survival | Open; absorbed if O-BP1 framing pass executed. 30 min standalone |
 | 10 | `#form-information-bottleneck` status mismatches unification role | **RESOLVED** (commit a14682e): status reclassified from discussion-grade to exact (applied external theorem) |
-| 11 | Orient cascade step 4c convergence in non-stationary envs | **PARTIALLY RESOLVED** by F1 strengthening: #der-causal-insufficiency-detection no-go reframes step 4c as the unique broadly-available diagnostic. Step-4c sanity edit in #der-orient-cascade itself remains optional cleanup |
+| 11 | Orient cascade step 4c convergence in non-stationary envs | **RESOLVED** by F31 sensitivity-paragraph landing (2026-04-25 cleanup cycle): single italicized "Practical sensitivity" paragraph at end of step 4c covers SNR sensitivity (F31) and non-stationarity caveat (F11), cross-referencing #der-causal-insufficiency-detection. F1 strengthening's reframing of step 4c remains the upstream no-go context |
 | 12 | Section II survival slides from statement-level to operational | Open. Subsumed by C-BP1 (three-layer epistemic separation) |
 | 13 | `#def-strategy-dag` L1-as-default overgeneralizes beyond strict-prerequisite | **RESOLVED** by strengthening (commit 4d050c8): Prop B.7 derives L1' transfer for observable $C$ with five-way gating; refutes unobservable-$C$ via Cramér-Rao floor; #def-strategy-dag headline + Correlation Hierarchy table updated |
 | 14 | `#scope-developer-agent` exact-status mismatch (human vs AI regimes) | **RESOLVED** by naming-pilot cleanup (2026-04-23): segment type: `definition` → `scope` and status: `exact` → `axiomatic` to match other domain-scope declarations (#scope-software, #scope-multi-agent). The `exact` rating never fit a representational-mapping segment. |
@@ -667,6 +585,49 @@ Recommended next promotion candidates remain the ones from the prior round: `#de
 ## Archive — Work landed
 
 Detailed historical items moved out of the active list. Kept here so that future agents can find what was done.
+
+### 2026-04-25 cleanup cycle — COMPLETE (commits `7e2e074`, `aa1fb15`)
+
+Three small editorial repairs landed in parallel as background-agent work, plus TODO/CHANGELOG archival housekeeping. Lint-clean.
+
+- **F11 + F31** — `01-aad-core/src/der-orient-cascade.md`: single italicized "Practical sensitivity" paragraph at end of step 4c covering both SNR sensitivity (F31) and non-stationarity caveat (F11), cross-referencing `#der-causal-insufficiency-detection`.
+- **F25** — `03-logogenic-agents/src/result-coupled-diagnostic-framework.md`: verb-precision pass throughout (computed → defined / reconstructed); new sentence separating definedness from operational extractability; cross-reference to `#result-section-ii-survival`'s instrumentation-boundary discussion.
+- **F29** — `01-aad-core/src/def-unity-dimensions.md` and `01-aad-core/src/result-unity-closure-mapping.md`: two-axis structure (content unities + structural $U_f$) elevated from Working-Notes caveat to definitional commitment per `msc/spike-unity-closure-mapping.md` Option C.
+
+Pattern noted (CHANGELOG entry for the day): small independent editorial repairs delegated to parallel background agents while a separate cycle (Gemini-driven Section III spike-promotion) ran concurrently in `01-aad-core/src/`. Cleanup stayed clear of composition-closure and additive-coordinate-forcing territory.
+
+### 2026-04-25 audit-extraction mechanical fix bundle — COMPLETE (commit `a6b61fb`)
+
+The 2026-04-25 audit-extraction cycle's mechanical fix bundle landed (uncommitted at extraction-time, committed in `a6b61fb` "2026-04-25 audit extraction: pending-findings, mechanical fixes, SP-21"). Each finding verified first-hand against current src; lint-clean.
+
+- **F-V1** — Discrete-to-continuous Model S variance gap math correction in `deriv-discrete-sector-condition.md` and `detail-linear-ode-approximation.md` (asymptotic claim corrected $O((\eta^*)^2) \to O(\eta^*) = O(1/\nu)$ via Taylor expansion of segment's own DA.1S; numerical sanity check confirmed).
+- **F-V2** — `scope-multi-agent.md` Discussion: adversarial-pairs paragraph split between non-equilibrium-convergent (excluded) and equilibrium-convergent (admitted via C-iv).
+- **F-V4** — Sign error in zero-sum worked example in `deriv-strategic-composition.md` corrected ($\Phi = a_A + a_B$, NE $(1,1)$). Quadratic action-cost regularization introduced as substantive judgment call to enable interior-NE sector-template instantiation; flagged for follow-up review (still Active).
+- **F-V5** — Cross-component pass on `02-tst-core/src/scope-developer-agent.md` integrating Class 2 caveats from `03-logogenic-agents/`.
+- **P-V1** — `result-adversarial-tempo-advantage.md` Working Notes edit (bundled with F-V1).
+- **P-V2** — `result-unity-closure-mapping.md` punchline tightened with invariance condition + cross-reference to `#form-composition-closure`'s Mori-Zwanzig zero-lag bound.
+- **P-V3** — `hyp-causal-discovery-from-git.md` one-sentence softening of the temporal-ordering-as-causal-direction claim.
+- **B7 → SP-21** — Captured in `PROPOSALS.md` §G with full prior-reasoning paper trail. Reverses 2026-04-22/23 deliberate disjunctive-C-iv unification reasoning; recommended for deferral until Bundle 2 (Section III completion) matures the substrate.
+- **F-V3** routing decision (Path A vs SP-21) and **F-V4** follow-up review remain Active.
+
+### 2026-04-22/23 evening Phase 1 cleanups (F18-F21) — COMPLETE (commit `0a772d2`)
+
+Highest-priority cleanups from the 2026-04-22 evening triple audit, executed strengthen-first per Joseph's posture; F20 strengthened rather than softened; the others were mechanical cross-segment updates. (Subsumed within the broader 2026-04-22/23 cascading strengthening cycle Archive entry below; itemized here for cross-reference.)
+
+- **F18** — `#example-L1` updated with Prop B.7 (observable-$C$ five-way gating) + Cramér-Rao refutation for unobservable-$C$; three repair routes named.
+- **F19** — `#result-section-ii-survival` bias bound replaced with MI form; triple-zero boundary structure ($\kappa=0$ OR $\mathcal{A}=0$ OR factually-sharp observation) made explicit.
+- **F20** — landed as strengthening: new appendix segment `#deriv-strategy-cost-regret-bound` with TV bound, Pinsker-KL, direction-forcing, admissible-divergence family analysis, and linear-vs-square-root $\beta_\Sigma$ trade-off. `msc/spike-f20-kl-direction-strengthening.md` retained as reasoning trail only.
+- **F21** — `#disc-identifiability-floor` frontmatter `status:` corrected to `discussion-grade`; Epistemic Status rewritten cleanly separating meta-pattern (discussion-grade) from individual instances (F1: exact/robust qualitative; F13 L1': exact).
+
+### 2026-04-23 citations audit — COMPLETE (commits `7456ec3`, `6567914`, `f61e62f`)
+
+Project-wide citation audit ran across 3 commits and concluded with **zero confirmed attribution errors**: the reverse-KL audit's 3-wrong-out-of-16 rate was a local concentration in that one spike's citations; the broader corpus is clean.
+
+- `7456ec3` — SP-2 landing + framing-pass subset (initial SP-1 truncation fix in proposals doc).
+- `6567914` — Tier 1 verification: 3 framing refinements (Eguchi 1983 framework not theorem; Sun & Firestone direction-of-inference; Friston 2023 path-integral / Friston 2019 NESS) + Morozova-Chentsov full citation completion in `#deriv-strategy-cost-regret-bound` §6.2 + ref/ rename hygiene.
+- `f61e62f` — Missing-citation hardening: Tikhonov 1952 + Khalil 2002 Ch 11 to `#der-temporal-nesting` and `#sketch-multi-timescale-stability`; Chechik 2005 to `#disc-compression-operations`; Kallenberg 2002 (Doob-Dynkin) in `#deriv-recursive-update`; Cox 1946 + Jaynes 2003 in `#deriv-graph-structure-uniqueness` and `#def-strategy-dag`; Cramér 1946 in `#disc-identifiability-floor` and `#deriv-strategic-dynamics`.
+
+26 PDFs in `ref/` (canonically named `{author}-{year}-{short}.pdf`) covering load-bearing external theorems. Two PDF-level Tier 1 verification agents confirmed highest-risk attributions (Bruineberg "Pearl-blanket vs Friston-blanket" terminology is VERBATIM with credit to Martin Biehl; Bareinboim CHT = Theorem 1 p.22 of 2022 ACM Books chapter; Aguilera FEP-narrow-validity claim exactly matches AAD's usage). Residue: 3 emphasis-vulnerable linter warnings in `#deriv-strategic-dynamics` on dense table-row math; Miller 2022 chapter/section/table loci not independently PDF-verified (book in `ref/miller-2022-ex-machina.pdf`).
 
 ### 2026-04-24 naming pilot — COMPLETE (commit `09ace17`)
 
