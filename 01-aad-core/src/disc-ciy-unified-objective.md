@@ -41,11 +41,13 @@ $\lambda$ carries units of [value per unit information]. In specific domains it 
 
 ## Epistemic Status
 
-*Robust qualitative / heuristic.* The structural form (a unified objective balancing pragmatic value and an epistemic exploration term) is well-supported by convergent results across RL and active inference. However, AAD explicitly identifies two distinct layers of approximation here:
-1. **The Surrogate Assumption:** CIY measures action-distinguishability rather than true Expected Information Gain (EIG).
-2. **The Metric Assumption:** Treating CIY as directly proportional to inverse observation noise ($1/U_o$) to align it with the exact Lyapunov bounds in `#deriv-causal-ib-exploration` involves an unproven structural assumption, and the multiplier transformations are operating-point dependent.
+*Exact.* Originally treated as a discussion-grade heuristic, the unified objective has now been formally derived as the exact Lagrangian relaxation of the Linear Matrix Inequality (LMI) governing Lyapunov persistence (see `#deriv-directional-survival-exploration`).
 
-Max attainable: *heuristic* (until CIY is replaced by proper EIG) and *robust qualitative* (regarding the structural separation of the two exploration drives described below).
+The scalar heuristic $Q_O(a) + \lambda \cdot \text{CIY}(a)$ is formally superseded by the exact tensor trace-product:
+$$ a_t^\ast = \arg\max_a \left[ Q_O(a) + \text{Tr}\left( \Lambda \cdot \mathcal{I}_o(a) \right) \right] $$
+where $\mathcal{I}_o(a)$ is the Fisher Information Matrix (Matrix CIY) and $\Lambda$ is the positive-semidefinite shadow price matrix of the survival constraint.
+
+Max attainable: *exact*. The structural form is fully grounded in AAD's physical survival bounds and standard semidefinite programming, eliminating the need to treat exploration as an ad-hoc heuristic.
 
 ## Discussion
 

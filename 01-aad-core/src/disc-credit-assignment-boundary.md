@@ -127,7 +127,7 @@ $$\mathbb{E}[(\text{signal}(o_t, i, j) - p_{ij}) \cdot (p_{ij} - \theta_{ij})] \
 | **2** (approximate) | Proportional blame / expectation propagation | Persistence + per-edge diagnostics (with bias) | Factor-graph inference |
 | **3** (exact) | Full Bayesian posterior | Persistence + optimal per-edge calibration | \#P-hard (general case) |
 
-AAD's formal guarantees require only Level 0. Practical agents need at least Level 1 for adaptive behavior — and the default signal function (above) provides a concrete Level 1 scheme. Level 2 is the sweet spot for most applications. Level 3 is a mathematical ideal that is computationally unattainable in the general case.
+AAD's formal guarantees require only Level 0. Practical agents need at least Level 1 for adaptive behavior — and the default signal function (above) provides a concrete Level 1 scheme. Level 2 is the sweet spot for most applications. Useful Level 2 factor-graph approximations include: exact Belief Propagation (BP) on tree or polytree cases, loopy BP or max-sum for MAP-style diagnosis, Expectation Propagation (EP) for approximate marginals, and structured variational methods only where common-cause structure is explicitly modeled. Level 3 is a mathematical ideal that is computationally unattainable in the general case.
 
 ## Epistemic Status
 
