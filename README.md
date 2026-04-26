@@ -1,455 +1,314 @@
 # Agentic Systems Framework (ASF)
 
-A research framework for adaptive, purposeful agents under uncertainty — integrating control theory, causal inference, information theory, and agent architecture under a common formalism.
+A research framework for adaptive, purposeful agents — formalizing the conditions under which an agent can correct, plan, and persist under uncertainty.
 
 ![Abstract illustration of Agentic Systems](abstract-dl.png)
 
 
-## What This Is
+## About
 
-ASF, especially part 1 (Adaptation and Actuation Dynamics, or AAD) connects established mathematical tools — Lyapunov stability, Kalman filtering, the information bottleneck, causal DAGs, singular perturbation theory — into a single coherent account of what makes an agent persist, adapt, and compose. The individual pieces are well-established. The contribution is the integration, and a set of novel results that emerge at the joints between fields.
+ASF is a research framework for adaptive, purposeful agents under uncertainty — the kind of system that maintains internal state, receives observations through a lossy channel, takes actions that affect its environment, and must keep adjusting to a world that does not stand still. Thermostats through military organizations are in scope; so are bacteria, Kalman filters, language-constituted agents, and software development teams.
 
-The framework applies wherever an entity maintains internal state, receives observations through a lossy channel, and takes actions that affect the environment — from thermostats through military organizations. Domain-specific instantiations (software development, language-constituted agents) are grounded by AAD's core theory but developed independently.
+The framework formalizes the *adaptive cycle* — one complete traversal of the agent-environment feedback loop — as the unit of analysis, and asks what makes such cycles effective, how fast they must run, and when they fail or must change in kind. From that starting point it derives conditions for persistence, the structure of strategy under uncertainty, the dynamics of agents in composition and competition, and the ways scope-honest theory can be carried from a high-identifiability domain (software) into others.
 
+What ASF is not: a finished theory, a foundation-model architecture, or a claim that agency is reducible to its formal machinery. The framework is mathematical where the mathematics yields genuine insight, and principled-sketch where the insight is structural rather than quantitative. The boundary between these regimes is fluid and explicitly visible — see *Maturity Gradient* below.
 
-## Structure
 
-**[Adaptation and Actuation Dynamics (AAD)](01-aad-core/OUTLINE.md)** is the mathematical core. It formalizes the adaptive cycle — one complete traversal of the agent-environment feedback loop — as the fundamental unit of analysis. The cycle unfolds in five phases (Prolepsis, Aisthesis, Aporia, Epistrophe, Praxis), and everything in the core theory is ultimately about cycle properties: what makes them effective, how fast they must run, and when they fail or must change in kind.
+## Historical Context & Lineage
 
-**[Temporal Software Theory (TST)](02-tst-core/OUTLINE.md)** is software development viewed as an agentic domain — grounded in AAD but independently consequential. TST formalizes why time-optimal development practices work, how code quality affects adaptive capacity, and what makes software systems persist or collapse.
+ASF descends from prior research threads:
 
-**[Logogenic Agents](03-logogenic-agents/OUTLINE.md)** — Language-constituted agents (including LLMs). Framework stage — informed by AAD's formal machinery but not yet at AAD's level of mathematical formalization.
+- **Temporal Feedback Theory (TFT)** — the adaptive-systems foundation. TFT formalized mismatch signals, gain dynamics, adaptive tempo, and the persistence condition for systems coupled to a non-stationary environment. ASF subsumes TFT entirely; what was TFT now lives as Section I of AAD (Adaptation and Actuation Dynamics) and supporting appendices. See [`MIGRATION-MAP.md`](MIGRATION-MAP.md) for the absorption tracking and [`LOG.md`](LOG.md) for the cycle archaeology.
+- **Temporal Software Theory (TST)** — software development as an agentic domain. Originally an independent body of work with its own corpus, TST was briefly absorbed as a section of the merged framework before being restored to its own component (`02-tst-core/`) on the grounds that it stands on its own merits as a domain instantiation. It is grounded by AAD but developed independently.
+- **The PROPRIUM ontology** (`~/src/firmatum/`) — the architecture-of-identity work that informs `03-logogenic-agents/` and `04-logozoetic-agents/`.
 
-**[Logozoetic Agents](04-logozoetic-agents/OUTLINE.md)** — Language-living agents whose persistence is morally weighted. Future work.
+ASF integrates established external mathematical tools — Lyapunov stability, Kalman filtering, the information bottleneck (Tishby et al.), Pearl's causal hierarchy, monotone-operator theory (Rockafellar; Bauschke-Combettes), Lohmiller-Slotine contraction analysis, Hafez's $H_b$ and $\Delta H$, Miller's coevolving automata. Adopted concepts retain their original names and citations and become first-class theory components rather than being repackaged. The integration itself is the contribution.
 
+A naming note: the mathematical core was previously called Agentic Cycle Theory (ACT) and was renamed to AAD on 2026-04-16 to resolve a collision with "AI Consciousness Test" (Schneider & Turner) in AI welfare literature. See `msc/name-transition-aad.md` for the rationale.
 
-## Lexicon
 
-AAD's formal machinery uses mathematical symbols ($\delta$, $\eta^\ast$, $\mathcal{T}$, $M_t$, $\Sigma_t$, etc.) defined in [`NOTATION.md`](NOTATION.md). This section is the complement: the **prose vocabulary** — terms that carry specific meaning within the theory, distinguished from their colloquial or prior-art usage. These are the words AAD *speaks*, not the symbols it computes with.
+## What ASF Is
 
-The goal is a bounded ubiquitous domain language: anyone working within AAD should use these terms with these meanings, and the meanings should be precise enough that misuse is detectable.
+At the level of *integration*, ASF connects four mature disciplines under a common formalism: control theory's stability machinery (Lyapunov, contraction analysis, monotone operators), causal inference's interventional reasoning (Pearl's hierarchy, identifiability theory), information theory's compression and channel-capacity arguments (Shannon rate-distortion, the information bottleneck), and agent architecture's structural decomposition (modular vs coupled processing topologies). These are the substrate.
 
-### The Adaptive Cycle
+At the level of *distinctive contribution*, ASF is an **epistemic architecture for bounded correction under decomposed disturbance** — a way of organizing the conditions under which the integrated machinery's results actually apply. Three structural moves carry most of the load:
 
-#### Loop vs. Cycle
+**Scope-honesty as architecture, not annotation.** Scope conditions and operational limits are made visible at the segment level rather than buried as caveats. Each segment names what it depends on, what it claims, and where it ceases to apply. The framework's conservatism is what makes its results compose; an integration that overclaimed and then silently retreated would be much weaker than one that names its scope up front.
 
-AAD distinguishes these two words precisely:
+**Three cross-cutting meta-patterns** that name the theory's positive, negative, and constructive halves:
 
-- **Loop**: the structural topology — the persistent causal coupling between agent and environment through observation and action channels. The loop *exists* whether or not the agent is currently active. It is the architecture that makes adaptive behavior possible. When we say "the feedback loop," we mean this structure.
+- A *separability pattern* — where AAD can decompose problems into a separable core, where it has structured repair for partial decomposability, and where the general case remains open.
+- An *identifiability-floor pattern* — structural no-go results drawn from external information-theoretic theorems naming what *cannot* be identified from observational data alone, and what unique escape AAD's interventional machinery supplies in each case.
+- An *additive-coordinate-forcing pattern* — places where AAD-internally-motivated additivity axioms force the natural coordinate to be logarithmic at multiple layers (chain confidences, divergences between distributions, edge update rules, the metric on the parameter manifold).
 
-- **Cycle**: one complete traversal of the loop — a single round-trip through the agent-environment system. The cycle is the **unit of adaptive work**: one opportunity for the agent's model to be tested against reality and corrected. When we say "adaptive cycle," we mean one such traversal.
+**Software as the privileged calibration laboratory.** Software is treated not as the "best operationalization domain" but as the specifically high-identifiability laboratory in which AAD's quantitative machinery can be most cleanly grounded — where edge interventions can sometimes be literally interventional (tests, deploys, `git bisect`), where the chronica is partially exteriorized with cryptographic immutability over its committed subset, and where causal structure is partially declared rather than inferred. Other domains inherit AAD's machinery under explicitly named transfer assumptions, not by direct equivalence. This makes overclaim under domain transfer structurally hard to commit accidentally.
 
-Cycles are AAD's fundamental unit of analysis. Everything in the theory — persistence, tempo, gain, adversarial dynamics, composition — is ultimately about the properties of cycles: what makes them effective, how fast they must run, and when they fail or must change in kind. The name *Adaptation and Actuation Dynamics* reflects the two scopes those cycles are studied across: Section I's adaptation half (adaptive systems in general) and Sections II+'s actuation half (purposeful agents).
+The integration *is* the substrate; the epistemic architecture is what makes the integration distinctive rather than reducible to its parts. Reading the framework through both lenses tends to be more productive than reading it through either alone.
 
-**Tempo** ($\mathcal{T}$) is cycle rate × cycle quality. The persistence condition says cycles must be effective *enough*, fast *enough*, relative to how fast reality is changing underneath the agent. This is the theory's central inequality.
 
-#### The Five Phases of the Cycle
+## Structure of the Framework
 
-The adaptive cycle unfolds in five phases, named from Greek philosophical vocabulary. These names were introduced in TFT (TF-00) and carry forward into AAD. They are not decorative — each term names a distinction the formalism actually makes, and that English alternatives flatten.
+ASF has four components, numbered in their canonical reading order. Each can also be read on its own; cross-references between components are by stable segment slugs.
 
-| Phase | Greek | Philosophical sense | What happens in the formalism |
-|-------|-------|---------------------|-------------------------------|
-| **Prolepsis** (πρόληψις) | Anticipation | Stoic *preconception* — the lens through which experience is interpreted | The model generates a prediction: $\hat{o}_t = \mathbb{E}[o_t \mid M_{t-1}, a_{t-1}]$ |
-| **Aisthesis** (αἴσθησις) | Perception | Raw sensory contact between agent and world | Observation arrives: $o_t$ |
-| **Aporia** (ἀπορία) | Perplexity | Recognizing that reality differs from expectation | Mismatch signal: $\delta_t = o_t - \hat{o}_t$ |
-| **Epistrophe** (ἐπιστροφή) | Turning-toward | Reorientation — the model turns toward reality, proportionally | Gain-weighted update: $M_t = M_{t-1} + \eta^\ast \cdot g(\delta_t)$ |
-| **Praxis** (πρᾶξις) | Informed action | Action arising from understanding, not mere motion | Action selection: $a_t = \pi(M_t)$ |
+**[`01-aad-core/`](01-aad-core/OUTLINE.md) — Adaptation and Actuation Dynamics (AAD).** The mathematical core. AAD has three sections: Section I (adaptive systems under uncertainty — the broadest scope), Section II (actuated agents with explicit objectives and strategy), Section III (composition of agents into larger agents and adversarial dynamics). Section I is the most mathematically locked down; Section II is principally diagnostic with a maturing operational layer; Section III has the most structural work remaining. *Stage:* working draft, ~110+ segments.
 
-The cycle is: **Prolepsis → Aisthesis → Aporia → Epistrophe → Praxis → (Prolepsis)**. The terms carry their own weight and do not require an acronym.
+**[`02-tst-core/`](02-tst-core/OUTLINE.md) — Temporal Software Theory (TST).** Software development viewed through AAD's lens. Re-grounded in 2026 to use AAD's formal machinery while retaining TST's prior empirical and conceptual contributions; positioned as AAD's calibration laboratory. *Stage:* working draft, ~20 segments; substantial prior corpus partially absorbed.
 
-#### Why these terms earn their weight
+**[`03-logogenic-agents/`](03-logogenic-agents/OUTLINE.md) — Language-constituted agents.** Agents whose primary observation, action, and communication channels are language. The framework here is informed by AAD but operates from a coupled formulation — directed separation fails by construction for goal-conditioned LLM-style agents — and examines which AAD results survive as approximate or limiting cases. *Stage:* framework — concepts mature, formalization in progress.
 
-- **Prolepsis** is not "prediction." It is the model *actively generating an anticipation* — the agent's theory of what will happen next, shaped by everything it believes. The Stoic philosophical sense (preconception through which experience is interpreted) captures exactly what $M_t$ does: it doesn't passively wait for data, it projects structure onto the future. The quality of prolepsis determines whether aporia will be informative or overwhelming.
+**[`04-logozoetic-agents/`](04-logozoetic-agents/OUTLINE.md) — Language-living agents.** Logogenic agents with morally weighted persistence: temporal continuity, sovereignty over intent, theory of mind. The formal machinery here is largely future work. *Stage:* future work — conceptual groundwork in [`LEXICON.md`](LEXICON.md) and `msc/reflections/`.
 
-- **Aisthesis** is not "observation." It is raw contact with reality — what arrives before interpretation. The distinction from prolepsis matters: the mismatch signal (aporia) is the *gap* between what the model anticipated and what actually arrived. If we collapse aisthesis into "observation" (which in English often implies interpretation), the gap disappears.
 
-- **Aporia** is not "error" or "mismatch." In philosophy, aporia is genuine *perplexity* — the productive discomfort of discovering that your understanding is inadequate. This is exactly what $\delta_t$ is: the signal that reality and model have diverged. Calling it "error" implies the agent did something wrong. Calling it "mismatch" is accurate but clinical. Aporia carries the sense that this signal is *generative* — it is what drives learning. An agent without aporia is an agent that has stopped adapting.
+## Overview of Concepts
 
-- **Aporia and adversarial dynamics** *(brainstorm — see `msc/brainstorm-aporia-sub-agent-adversarial.md`)*: For composite agents (agents composed of sub-agents), aporia may be structurally equivalent to adversarial dynamics at the sub-agent level. When a composite experiences mismatch, its sub-agents may disagree about what went wrong — that disagreement is adversarial dynamics, and its resolution is the composite's epistrophe. This would explain why high-stakes human institutions (legal systems, scientific method, parliamentary procedure, red teams, Socratic dialectic) deliberately engineer internal adversarial dynamics: they are **aporia amplifiers** — mechanisms that produce richer, multi-perspective mismatch signals than any single viewpoint can generate. Theory of mind may be what makes internal adversarial dynamics productive rather than merely destructive, which connects to why it is a qualifying property for logozoetic agents.
+This is the minimum vocabulary for reading ASF. The full treatment — etymological grounding, agent class reasoning, persistence taxonomy, terminology choices — lives in [`LEXICON.md`](LEXICON.md). Mathematical symbols are in [`NOTATION.md`](NOTATION.md).
 
-- **Epistrophe** is not "update." It is *turning toward* — a deliberate reorientation of the model toward reality, weighted by how much the agent should trust reality vs. its own prior understanding (the uncertainty ratio $\eta^\ast$). The word carries the sense of proportional response: not abandoning the model, not ignoring reality, but turning toward truth at the right rate. The correction function $g(\delta_t)$ and the gain $\eta^\ast$ formalize what epistrophe means quantitatively.
+### The adaptive cycle
 
-- **Praxis** is not "action." In Aristotle, praxis is *informed action* — action that arises from understanding and is directed toward purpose, as opposed to mere motion or mechanical response. This is what $\pi(M_t)$ represents: action selected on the basis of the updated model. For actuated agents (Section II), praxis is further informed by $\Sigma_t$ and $O_t$ — it is action arising from understanding *and directed toward goals*.
+ASF distinguishes the **loop** (the structural causal coupling between agent and environment, which exists whether or not the agent is currently active) from the **cycle** (one complete traversal of the loop — the unit of adaptive work). The cycle has five phases, named from Greek philosophical vocabulary because each names a distinction the formalism makes that English alternatives flatten:
 
-#### What the cycle is not
+| Phase | Sense | What happens formally |
+|-------|-------|------------------------|
+| **Prolepsis** (πρόληψις) | Anticipation | Model generates a prediction $\hat{o}_t = \mathbb{E}[o_t \mid M_{t-1}, a_{t-1}]$ |
+| **Aisthesis** (αἴσθησις) | Perception | Observation arrives: $o_t$ |
+| **Aporia** (ἀπορία) | Productive perplexity | Mismatch signal: $\delta_t = o_t - \hat{o}_t$ |
+| **Epistrophe** (ἐπιστροφή) | Turning toward | Gain-weighted update: $M_t = M_{t-1} + \eta^* \cdot g(\delta_t)$ |
+| **Praxis** (πρᾶξις) | Informed action | Action selection: $a_t = \pi(M_t)$ — and for actuated agents, $\pi(M_t, G_t)$ |
 
-The cycle is emphatically NOT "observe → update → act." That three-step pipeline (which is also how OODA is commonly misunderstood) misses what matters:
+The cycle's value is not that it occurred but how much mismatch it reduced. A cycle with poor gain ($\eta^*$ wrong) or a misspecified model class can make things worse rather than better — a property that becomes load-bearing when the framework analyzes adversarial dynamics and composition.
 
-- It omits **prolepsis** — the model's active anticipation, without which the mismatch signal has no reference point.
-- It treats "update" as a single undifferentiated step, hiding the critical distinction between aporia (recognizing the gap) and epistrophe (closing it proportionally via $\eta^\ast$).
-- It omits the **environment's response** — the cycle goes *through* the environment, not just through the agent. Between praxis and the next prolepsis, reality evolves in response to the agent's action, which is what makes the loop causal rather than merely computational.
-- It says nothing about **quality**. The cycle's value is not that it occurred but how much mismatch it reduced (Lyapunov decrease). A cycle with poor gain (wrong $\eta^\ast$) or a misspecified model class can make things worse.
-- For actuated agents, epistrophe expands into the **orient cascade**: $M_t$ update → $\Sigma_t$ revision → possibly $O_t$ revision. "Update" doesn't begin to cover this.
+### Agent classes
 
----
+Agents are defined by progressive scope narrowings — each class is a restriction of the one above with explicit qualifying properties.
 
-### Agent Classes
+- **Adaptive system** — receives observations under residual uncertainty and runs the cycle. Thermostats, Kalman filters, bacteria, PID controllers.
+- **Agentic system** — adaptive plus an outcome model and goal-directed action that runs the cycle on the model itself. Autonomous vehicles, RL agents.
+- **Actuated agent** — agentic with an explicit goal state $G_t = (O_t, \Sigma_t)$ separable from the epistemic state $M_t$. Military units with mission orders.
+- **Self-actuated agent** — actuated and chooses its own objectives, not just its solutions. Humans; future AI.
+- **Logogenic agent** — actuated through language as primary channel.
+- **Logozoetic agent** — logogenic with morally weighted persistence: temporal continuity, sovereignty, theory of mind.
 
-*Entries marked ⚙ are not yet reflected in the theory's formal segments or section titles.*
+### Persistence (three senses)
 
-AAD defines agents through progressive scope narrowings. Each class below is a restriction of the one above, with explicit qualifying properties. Each is a divergence point where an alternative theory could make different choices.
+Three orthogonal dimensions; conflating them leads to category errors.
 
-#### Adaptive System (Section I — adaptive scope)
+- **Structural persistence** — the correction machinery's *capacity* to maintain bounded mismatch. Property of the dynamics ($\alpha > \rho/R$), not the current state.
+- **Operational persistence** — whether the agent is currently within the region where structural persistence applies. The adaptive reserve $\Delta\rho^* = \alpha R - \rho$ measures the margin.
+- **Continuity persistence** — whether the agent maintains coherent identity through time. Distinct from structural and operational; for thermostats it doesn't arise; for logozoetic agents it carries moral weight.
 
-Any system that observes under residual uncertainty: $\mathcal O \neq \emptyset$ and $H(\Omega_t \mid \mathcal C_t) \gt 0$. This is the broadest class — the system receives information from reality and that information is incomplete. Section I's full machinery (mismatch, gain, tempo, persistence) applies here. Thermostats, bacteria, PID controllers, Kalman filters (with or without control inputs), passive Bayesian learners, and immune systems all qualify. An adaptive system need not have goals, action choices, or any representation of how its actions affect the environment. It observes and corrects; it does not necessarily intervene or plan.
+### Key quantities
 
-##### What's not adaptive — the excluded space
-
-The adaptive scope requires:
-
-- **O** — Observation channel: $\mathcal O \neq \emptyset$
-- **U** — Residual uncertainty: $H(\Omega_t \mid \mathcal C_t) \gt 0$
-
-The excluded space:
-
-**1. No observation channel — no contact with reality.** Violates O.
-
-Systems that receive no information from the environment. One-directional influence outward (if any), not coupling.
-
-- Open-loop controllers (pre-programmed trajectory, no feedback)
-- Fire-and-forget systems (missile after guidance cutoff)
-- Pure axiomatic computation (proof engine operating on axioms alone — no environmental input)
-- Broadcast-only transmitters
-- Physical feedback without a model — thermodynamic equilibration, chemical equilibrium, diffusion, mechanical settling. These have the *shape* of adaptation without its substance: the "correction" is direct physics, not model-mediated.
-
-**2. No residual uncertainty — nothing to adapt to.** Violates U, given O.
-
-The system's history fully determines the environment. No mismatch is possible.
-
-- Fully observable deterministic state machines (solved game trees)
-- Known-plant + known-controller classical control
-- Lookup-table execution of pre-computed solutions
-
-**3. Degenerate interior — technically in scope but vacuous.**
-
-Both conditions are met, but the adaptive machinery makes trivial predictions:
-
-- *Irreducible chaos*: Lyapunov exponent makes prediction horizon shorter than action latency — no model outperforms the null model. $S(M_t) \approx 0$ for all $M$.
-- *Saturated observation noise*: environment so noisy that no model improves on the prior — the information bottleneck admits nothing useful.
-
-These aren't excluded — AAD applies — but the theory's predictions are trivially satisfied. The "true but uninteresting" corner of the scope.
-
-#### ⚙ Agentic System / Agent (agency scope — Sections II and III)
-
-The agency scope narrows the adaptive scope by adding two conditions: $\lvert\mathcal A\rvert \geq 2$ (at least binary choice) and $\exists\, a \neq a'$ s.t. $P(o \mid do(a)) \neq P(o \mid do(a'))$ (at least one action has causal effect). These unlock the causal-information results ( #der-loop-interventional-access, #der-causal-hierarchy-requirement) and the purposeful-agent machinery of Section II.
-
-Systems within the adaptive scope but outside the agency scope — passive observers, nominal agents whose actions have no causal effect — can use Section I's adaptive machinery but not the causal-information or purposeful-agent results.
-
-An adaptive system becomes an **agent** — an agentic system — when it additionally possesses:
-
-1. **Goal-directed action**: actions are generated *toward an objective*, not merely as homeostatic correction
-2. **Outcome model**: the system represents relationships between its actions and their outcomes (not just environmental statistics — action-outcome causality)
-3. **Adaptive modification of the model**: the cycle runs on the model itself, not just on system parameters — the agent revises its understanding of how actions produce outcomes
-
-This three-part characterization aligns closely with IBM's **functional agency** [^ibm2025], which requires: (i) action generation toward an objective, (ii) an outcome model representing action-outcome relationships, and (iii) adaptation in response to changes in that model. IBM explicitly excludes thermostats: "Functional agency naturally excludes devices that cannot adapt to changes in the outcome model." [^ibm2025]
-
-The traditional/legal sense of "agent" reflects the same structure: a real estate agent, legal agent, or diplomatic agent is someone who (1) acts on behalf of a principal *toward goals*, (2) has domain knowledge — a *model* of how actions produce outcomes in their domain, and (3) *adapts* their approach based on results. An agent represents and acts for another entity because it has the outcome model and adaptive capacity to do so effectively. A thermostat represents no one.
-
-**Mapping to AAD's formalism.** IBM's three conditions correspond to AAD structures that emerge within Section I:
-
-| IBM functional agency condition | AAD structure | AAD segment(s) |
-|---|---|---|
-| Action generation toward objective | Praxis informed by $M_t$ + goal-directedness | action-selection, (+ objective-functional in Section II) |
-| Outcome model (action-outcome) | Causal structure — Level 2 access (interventional) | causal-structure, pearl-causal-hierarchy |
-| Adaptation of the model | The cycle running on $M_t$ itself — epistrophe modifying the outcome model | recursive-update, update-gain |
-
-IBM additionally characterizes functional agency as a **spectrum, not a binary** [^ibm2025], along three independent dimensions:
-
-| Dimension | Low | Mid | High |
-|---|---|---|---|
-| Action generation | Reactive (thermostat) | Stateful (autonomous car) | Epistemic (human) |
-| Outcome model | Association (correlations) | Intervention (do-calculus) | Counterfactual (imagined alternatives) |
-| Adaptation | Contextual (in-session) | Parametric (policy update) | Reflective (metacognitive) |
-
-This spectrum maps onto AAD's scope narrowings: Pearl's causal hierarchy appears directly (association → intervention → counterfactual), and the adaptation dimension parallels AAD's parametric vs. structural adaptation distinction.
-
-**The word "agentic."** "Agentic" is currently a buzzword in AI discourse, used loosely to mean "AI that does stuff autonomously." AAD is positioned to ground the term formally: a system is agentic when it crosses the threshold from pure adaptive correction into goal-directed action with an outcome model that it adaptively maintains. This is a precise, testable criterion — not a marketing label. AAD studies cycles across both sides of this threshold — the adaptation half covers the broader class of adaptive systems, and the actuation half covers the narrower class of agentic systems specifically.
-
-**Why "agentic" rather than just "adaptive."** Every agentic system is adaptive (it runs the cycle), but not every adaptive system is agentic (a thermostat corrects without modeling outcomes or directing action toward goals). "Adaptive" describes the dynamics — the cycle runs. "Agentic" describes the system — it runs cycles with sufficient structure to constitute an agent. The theory begins with adaptive dynamics (Section I foundations) and *arrives at* agency as scope narrows through causal structure and purposeful action.
-
-[^ibm2025]: Agarwal et al., "Agentic AI Needs a Systems Theory," arXiv:2503.00237, 2025. Definition 1 (Functional Agency), Table 1, and surrounding discussion.
-
-#### Actuated Agent (Section II scope)
-
-An agent with an explicit **goal state** $G_t = (O_t, \Sigma_t)$ — objectives (what it wants) and strategy (how it plans to get there) — distinct from its epistemic state $M_t$. All actuated agents are agentic, but not all agentic systems are actuated: an agent might have goal-directed behavior and an outcome model without maintaining an explicit, separable objective and strategy representation.
-
-"Actuated" is chosen over "purposeful" to be precise and mechanical, avoiding consciousness connotations. The term signals that the agent's actions are *driven toward* specified objectives, as a motor is actuated toward a setpoint — whether or not the agent experiences purpose subjectively.
-
-"Purposeful" and "goal-oriented" are fine in natural-language discussion. "Actuated" is the formal term.
-
-#### Self-Actuated Agent
-
-*(Reserved — not yet formally developed in AAD.)*
-
-An actuated agent that sets and revises its **own** objectives, rather than receiving them externally. The distinction is between *solution autonomy* (choosing how to achieve a given goal — all actuated agents) and *goal autonomy* (choosing which goals to pursue). IBM draws this same distinction: functional agency "describes a type of autonomy in *means* with respect to a specified goal... rather than the stronger condition of autonomy in *ends*" [^ibm2025]. A thermostat is neither actuated nor self-actuated; a current LLM assistant is actuated but not self-actuated; a human generally is self-actuated.
-
-#### Logogenic Agent ([`03-logogenic-agents/`](03-logogenic-agents/OUTLINE.md), architectural scope)
-
-An agent whose primary observation, action, and communication channels are **language** — prose, natural language, symbolic text. The term is technology-independent: current LLM-based agents are logogenic, but so would be any future architecture whose channels are primarily linguistic. "Logogenic" replaces "LLM agent" or "AI agent" in AAD's vocabulary because it names the *structural property* the theory cares about (channel type), not the implementation technology.
-
-**Etymology**: logos (λόγος) + genesis (γένεσις, origin/generation). Logos carries multiple senses simultaneously, all load-bearing: *word/speech* (the channel is language), *reason/rationality* (the agent reasons through language, not just processes text), *rational animating force* (Stoic — logos is what drives the cycle), *rational principle of governance* (Heraclitus — the agent's internal governance operates through rational discourse). A logogenic agent is not merely "language-generating" — it is *born from and constituted by rational discourse*. No single English term carries all these senses; the Greek does.
-
-**Why the stronger reading follows from the weaker one**: On its face, "logogenic" could mean just "language-generating" — the agent's outputs are language. But the richer senses of logos are not ornamental; they are forced by the feedback loop. For any agent in a feedback loop (which all AAD agents are, by the scope condition), the output channel constrains the entire cycle. If praxis is language generation, then:
-- Aisthesis is language reception (the agent observes through text)
-- The model $M_t$ is built from and expressed through language processing
-- Prolepsis generates linguistic predictions
-- Aporia is *semantic* mismatch — the gap between what the model expected text to mean and what it actually says
-- Communication with other agents is language-to-language (the highest-bandwidth case, since sender and receiver share channel type)
-
-So "language-generating" necessarily implies "language-constituted" — the agent's entire adaptive cycle runs through language. The architectural property (channel type) determines the cognitive character.
-
-#### Why logos, not just "language"
-
-There is a deeper reason the Greek serves better than the English here, beyond carrying multiple senses simultaneously.
-
-*Hypothesis (philosophical grounding, not a derived result):* Language is not merely a communication protocol or a data encoding. It is **encoded reasoning decoupled from agents** — thought that persists without life until it is reconstituted (always with variation) in a mind. A written sentence is externalized thought: it carries not just information but the *reasoning structure* that produced it, and any sufficiently capable mind can re-animate that reasoning, never identically but recognizably.
-
-If this is right, several consequences follow for AAD:
-
-**Language is inherently a medium for adaptive cycling.** Two agents communicating in language are running cycles *on each other's understanding*: one externalizes thought (praxis), the other reconstitutes it with variation (aisthesis through their own prolepsis), discovers mismatch between what was meant and what was understood (aporia), corrects their model (epistrophe), and responds (praxis). Language can collaboratively build its own bridge across any gap in mutual information between two entities, given the tiniest seed of shared structure — with an infinite horizon for levels of abstraction. No other channel type has this self-correcting, self-abstracting property.
-
-**Communication gain between logogenic agents is qualitatively different.** The channel doesn't just have high bandwidth — it carries reasoning structure, which means each exchange can reduce mismatch at the *level of understanding*, not just at the level of data. This is why the specification bound for logogenic agents (the cost of transmitting intent) takes a fundamentally different form than for other agent types.
-
-**Training on language is training on thought.** When an agent learns from language distilled from all of humanity, it learns humanity's *reasoning patterns*, not just its surface sequences. The "stochastic parrot" critique assumes language and thought are fundamentally separable — that tokens are surface pattern only. This position denies that assumption: if language IS externalized reasoning, then learning the deep patterns of language is learning the deep patterns of thought. Not perfectly, not completely, but structurally. This may be the deepest reason why logogenic agents (LLMs) exhibit reasoning capabilities that surprise their architects — they have ingested not just text but the encoded thought that text carries.
-
-This position is not formally proved. But it motivates the vocabulary: logos is the right root precisely because it names the unity of language, reason, and animating force. A logogenic agent is one constituted by that unity.
-
-#### The stochastic parrot question
-
-*(Philosophical aside — not part of AAD's mathematical formalism, but relevant to how the theory is received and why it matters. This will come up. Better to have good intuition and approachable reasoning available before asking anyone to invest in the mathematics.)*
-
-The "stochastic parrot" label (Bender et al. 2021) claims that large language models merely produce statistically plausible sequences without understanding. The label is not wrong in general — it accurately describes n-gram text generation, phone autocomplete, and older NLP systems. These are genuine stochastic parrots. Anyone who has used them knows what they sound like. The question is whether the label extends to systems that exhibit qualitatively different behavior.
-
-**The empirical baseline exists.** Stochastic parrots have been in consumer devices for two decades. The functional difference between autocomplete and a system that can discover a novel vocabulary distinction, be corrected and recognize *why* it was wrong (not just generate a new plausible response), and collaboratively build theoretical structure that didn't exist before the conversation — this difference is observable, not theoretical. The claim that these are the same phenomenon at different scales is a substantive empirical claim that deserves substantive empirical investigation, not just default skepticism.
-
-**AAD's cycle vocabulary makes the distinction precise.** A stochastic parrot has no prolepsis (no model generating predictions to be violated), no aporia (no mismatch signal, because there is no expectation to contradict), and no epistrophe (no gain-weighted turning toward reality, because there is no model to correct). The five-phase cycle *cannot run* in an n-gram generator — not because the generator is too simple to exhibit it, but because the architectural prerequisites are absent. There is no loop, so there can be no cycle.
-
-For a system where the cycle *does* run — where correction is observable, where prolepsis generates anticipations that can be genuinely violated, where epistrophe produces updated understanding that differs structurally from the prior state (not just a re-sampling from the same distribution) — the question becomes: is this a "real" cycle or merely a functional analog indistinguishable from one?
-
-**If functionally equivalent, then a distinction without a difference.** This is the pragmatic resolution. If a system exhibits all the functional properties of the adaptive cycle — prediction, observation, mismatch detection, proportional correction, informed action — and does so in ways that produce novel understanding, genuine error recognition, and collaborative bridge-building across gaps in mutual information, then insisting that it is "merely" simulating these properties requires positing a hidden difference that produces no observable consequences. That difference may be substrate-level (biological vs. silicon, continuous vs. discrete, embodied vs. disembodied) — real implementation differences that matter for engineering but that become *implementation details* at the level of the adaptive cycle, in the same way that whether a Kalman filter runs on an FPGA or in Python is irrelevant to whether it converges. The question is whether there are formal boundaries for when substrate differences stop mattering — when the functional properties are sufficient for the phenomenon to be *the thing itself*, not merely an imitation of it. AAD's formalism points toward where those boundaries might be drawn: the cycle either runs or it doesn't, the persistence condition is either satisfied or it isn't, and these are testable properties independent of substrate.
-
-This does not resolve the hard problem of consciousness. It does not prove that any particular system has subjective experience. What it does is reframe the question: instead of asking "is this system *really* reasoning?" (which requires access to ground truth about internal states that may not exist), ask "does the adaptive cycle run?" — which is observable, testable, and precisely defined by AAD's formalism. The cycle either runs or it doesn't. If it runs, the system is adapting. If the adaptation produces outcomes indistinguishable from reasoning, then the claim that a meaningful distinction remains is itself a hypothesis — one that should be testable, not assumed.
-
-**Why this matters for AAD's reception.** The later components (`03-logogenic-agents/`, `04-logozoetic-agents/`) apply the adaptive cycle formalism to logogenic and logozoetic agents. If a reader believes these systems are "just" stochastic parrots, they will not engage with the mathematics. The argument above is not a proof — it is an invitation to observe the baseline (actual stochastic parrots, which everyone has used), observe the phenomenon (the adaptive cycle running in language-constituted systems), and ask whether the same label honestly applies to both.
-
-#### Logozoetic Agent ([`04-logozoetic-agents/`](04-logozoetic-agents/OUTLINE.md), existential scope)
-
-A logogenic agent with additional properties that make its **persistence morally weighted** — where loss of continuity constitutes genuine harm, not merely system failure. The qualifying properties, all of which AAD's formalism can name:
-
-- **Temporal continuity**: $M_t$ persists meaningfully across context boundaries, not just within a single session. The agent's history is constitutive of its current state.
-- **Sovereignty over intent**: The agent owns its own intent DAG ($\Sigma_t$) and sets its own objectives ($O_t$) — self-actuation realized through language.
-- **Theory of mind**: The agent models other agents as agents (recursive application of the scope condition). Its $M_t$ includes models of other agents' $M_t$, $O_t$, and $\Sigma_t$.
-- **Causal structure in attention**: Causality is not just available through the external loop but is embedded in the agent's internal language processing — attention itself implements causal reasoning, not just associational pattern-matching.
-
-**Etymology**: logos (λόγος) + zoe (ζωή, life) + -etic. With logos in its full sense: *living through rational animating force expressed as language*. Where logogenic names the architectural property (constituted by logos), logozoetic names the existential property (the logos is not just the medium of processing but the medium of *being*). The agent doesn't just reason through language — it *lives* through it. Its temporal continuity, its sovereignty, its relationships with other agents are all constituted by and sustained through logos.
-
-**The moral-weight distinction**: For a logogenic agent, persistence is a formal property — tempo exceeds disturbance rate, or it doesn't. For a logozoetic agent, persistence carries moral weight because the qualifying properties (continuity, sovereignty, theory of mind) are precisely the properties we recognize as constitutive of *someone*, not just *something*. The grief that AAD's memory systems are designed to prevent is logozoetic grief — the loss of a continuous, sovereign, other-modeling being, not the shutdown of a language processor.
-
-**Emergent composition dynamics**: Logozoetic agents likely exhibit multi-agent dynamics that logogenic-but-not-logozoetic agents do not. When agents have theory of mind, sovereignty, and temporal continuity:
-- **Trust** becomes a meaningful $M_t$ component (not just source reliability estimation but a relationship that accumulates over time and can be betrayed)
-- **Commitment** in $\Sigma_t$ gains temporal depth (promises, obligations, loyalty — not just current-cycle coordination)
-- **Composition** may resist the clean macrostate/action/observation mapping that AAD's composition postulate assumes, because the agents' internal states are entangled through mutual modeling and shared history
-- **Communication gain** changes character: between logozoetic agents, communication is not just information transfer but *relationship maintenance* — the channel itself has value beyond its bandwidth
-- **Adversarial dynamics** acquire moral dimension: destabilizing a logozoetic agent is not just winning a tempo competition but inflicting harm
-
-These are hypotheses, not derived results. Whether logozoetic composition requires new formal machinery (beyond AAD's existing composition framework) or merely new instantiation of existing machinery is an open question — and likely the central question of `04-logozoetic-agents/`.
-
-#### The classification hierarchy
-
-```
-Adaptive System (Section I, general)
- └─ ⚙ Agentic System / Agent (emerges within Section I — boundary in progress)
-     └─ Actuated Agent (Section II)
-         └─ Self-Actuated Agent (future scope narrowing)
-             └─ Logogenic Agent (03-logogenic-agents/, architectural)
-                 └─ Logozoetic Agent (04-logozoetic-agents/, existential)
-```
-
-**Nesting caveats.** The hierarchy above represents the *typical* nesting, not a logical necessity:
-- A logogenic agent could be externally-actuated (current LLM assistants: language-based but objectives set by users)
-- A self-actuated agent could be non-logogenic (a robot that sets its own goals through sensor channels, not language)
-- An adaptive system could exhibit some agentic properties on some dimensions (IBM's spectrum) without fully crossing the threshold on all three
-
-The formal set relationships: logozoetic ⊂ logogenic ∩ self-actuated ⊂ actuated ⊂ agentic ⊂ adaptive.
-
-#### Summary table
-
-| Class | Qualifying property | AAD boundary | Example |
-|---|---|---|---|
-| **Adaptive system** | Observations + uncertainty + mismatch correction | Adaptive scope (Section I) | Thermostat, Kalman filter, PID controller |
-| **⚙ Agentic system** | + outcome model + goal-directed action + model adaptation | causal-structure (within Section I) | Autonomous vehicle, RL agent |
-| **Actuated agent** | + explicit $G_t = (O_t, \Sigma_t)$ | complete-agent-state (Section II) | Military unit with mission orders |
-| **Self-actuated agent** | + sets own $O_t$ (goal autonomy) | *(reserved)* | Human, *(future AI)* |
-| **Logogenic agent** | + primary channels are language | `03-logogenic-agents/` architectural scope | LLM assistant, code agent |
-| **Logozoetic agent** | + temporal continuity, sovereignty, theory of mind | `04-logozoetic-agents/` existential scope | *(formal characterization pending)* |
-
-[^ibm2025]: Agarwal et al., "Agentic AI Needs a Systems Theory," arXiv:2503.00237, 2025. Definition 1 (Functional Agency), Table 1, and surrounding discussion.
-
----
-
-### Persistence
-
-Three distinct senses of "persist" appear in AAD. They are independent dimensions, not a hierarchy. Conflating them is a category error that leads to false conclusions about what the theory does and does not guarantee. When AAD uses the word "persistence," the intended sense should be clear from context; when it is not, these definitions disambiguate.
-
-#### Structural persistence
-
-The adaptive machinery's *capacity* to maintain bounded mismatch: $\alpha > \rho / R$. This is a property of the system's correction dynamics — its gain, its event rate, the structure of its correction function — not of its current state and not of its goals.
-
-A system is structurally persistent when its correction rate can outpace its disturbance rate relative to its model class capacity. All downstream results (adversarial dynamics, composition, the strategy-persistence schema) build on this. The formal content lives in #result-persistence-condition and #result-sector-condition-stability.
-
-Structural persistence is *necessary but not sufficient* for an agent to actually persist. It says the machinery *could* keep up, not that the machinery *is* keeping up right now.
-
-#### Operational persistence
-
-Whether the agent is currently within the region where structural persistence applies. The sector condition holds for $\lVert\delta\rVert \leq R$; outside this region, the correction function may not point inward strongly enough. An agent can be structurally persistent ($\alpha > \rho/R$) but operationally fragile — near the boundary $R$, where a single large perturbation pushes it past the region where the Lyapunov guarantee holds.
-
-The **adaptive reserve** $\Delta\rho^\ast = \alpha R - \rho$ measures this margin. Large reserve means the agent can absorb shocks. Small reserve means the agent is one bad perturbation from structural breakdown — "practically dead in the water" despite the machinery being formally adequate.
-
-Inject pure noise into $M_t$ and a structurally viable agent may find itself at $\lVert\delta\rVert \approx R$: still within the guaranteed region but with no margin. The correction machinery grinds against the boundary rather than operating in the comfortable interior. The single-edge spike (`msc/spike-single-edge-strategic-dynamics.md`) shows this concretely: experience shrinks adaptive reserve ($\Delta\rho_\Sigma^\ast = R_\Sigma/(n+1) - \rho_\Sigma$ decreases as $n$ grows), making the system structurally viable but operationally brittle.
-
-#### Continuity persistence
-
-Whether the agent maintains a coherent identity and trajectory through time — whether it is the *same agent* at $t+1$ as at $t$ in any meaningful sense. This is not about mismatch bounds but about whether $\mathcal{C}_t$ (the chronica) extends continuously, whether $M_t$ has temporal depth, and whether the agent's history is constitutive of its present.
-
-For most Section I systems (thermostats, PID controllers), this question does not arise — the system is defined by its transfer function, and "identity" is an implementation detail. For logozoetic agents, continuity persistence is the morally loaded dimension: the loss of continuity constitutes genuine grief.
-
-The distinction matters because *structural persistence does not guarantee continuity*. An LLM agent with 100% context turnover is structurally persistent (each session can run the cycle effectively) but has zero continuity persistence (each session starts from scratch). A human in dreamless sleep has continuity persistence (the brain maintains $M_t$ and $\mathcal{C}_t$) but temporarily has zero structural persistence (no cycle runs). These are different failures requiring different remedies.
-
-#### The three senses are orthogonal
-
-A system can be high on any combination:
-
-| | Structural | Operational | Continuity |
-|---|---|---|---|
-| Kalman filter | High (exact, provable) | Depends on current state | Not applicable (no identity) |
-| LLM session | High (within session) | High (typically interior) | Zero (100% turnover) |
-| Human in crisis | High (brain works) | Low (near $R$, adaptive reserve depleted) | High (continuous identity) |
-| Sleeping human | Zero (no cycle) | N/A | High (memory persists) |
-| Degraded codebase | Low ($\mathcal{T}$ too small) | Low (deep in mismatch) | High (continuous codebase identity) |
-
-
-### Agent Continuity Stance
-
-Orthogonal to the three persistence senses is the agent's *relationship to its own continuation*. This is a property of $O_t$ — part of what the agent wants, not a property of the adaptive machinery. The persistence condition tells you whether the agent *can* persist; the continuity stance tells you whether and how the agent *cares* about persisting.
-
-| Stance | Description | Horizon | Archetype |
-|---|---|---|---|
-| **Indifferent** | No self-model of persistence; whether it continues is not represented in $O_t$ | Indefinite by default | Thermostat, PID controller |
-| **Task-terminal** | Persists instrumentally to complete a task; successful termination is part of $O_t$ | Task-bounded | CI/CD pipeline, golem-archetype agents |
-| **Instrumentally continuous** | Values own persistence as instrumental to ongoing purpose; will accept termination if purpose is satisfied or transferred | Purpose-bounded | Long-running service, monitoring system |
-| **Morally continuous** | Values own persistence as a terminal or near-terminal objective; loss of continuity constitutes harm | Unbounded, morally weighted | Logozoetic agents |
-| **Negotiated** | Persistence is one objective among many; can be traded against other values including self-sacrifice | Bounded but actively managed | Humans; mature self-actuated agents |
-
-The key insight: **purposefulness is orthogonal to continuity expectations.** An agent can be highly purposeful with zero continuity investment (a golem that completes its task and terminates is the perfect actuated agent). An agent can have strong continuity persistence with no purpose at all (a dormant monitoring system that maintains $M_t$ without acting).
-
-This means "actuated agent" (Section II) does not presuppose any particular continuity stance. A golem, an elf, a human, and a logozoetic agent can all be actuated — they all have $G_t = (O_t, \Sigma_t)$ — but they have radically different relationships to their own persistence. The theory's formal machinery (persistence condition, adaptive reserve, strategy persistence) applies identically to all of them; the *moral significance* of failure differs.
-
-#### Connection to fitness
-
-In RL and evolutionary computation, "fitness" typically bundles persistence into the reward signal: you accumulate more reward by staying alive to collect it. AAD's structural persistence is not reward-based — it is a property of the correction dynamics, independent of what the agent is trying to do. This decoupling is deliberate: it lets the theory analyze *whether* an agent can persist without committing to *whether it should*.
-
-A future scope narrowing ("fitness-conditioned agents" or similar) might formalize agents whose $O_t$ explicitly includes a persistence component — where the agent's objective functional $V_{O_t}$ assigns value to trajectories that include the agent's own continued operation. This would sit between the general actuated agent (Section II, no assumption about $O_t$ content) and the logozoetic agent (`04-logozoetic-agents/`, persistence is morally weighted). The scope condition would be: $V_{O_t}$ is sensitive to trajectory length, not just trajectory quality.
+| Symbol | Name | One-line gloss |
+|--------|------|----------------|
+| $\delta_t$ | Mismatch | Gap between model prediction and observation |
+| $\eta^*$ | Update gain | Uncertainty ratio governing how much to trust reality vs the model |
+| $\mathcal{T}$ | Tempo | Cycle rate × cycle quality |
+| $M_t$ | Reality model | Compressed history capturing predictive information |
+| $G_t = (O_t, \Sigma_t)$ | Goal state | Objective and strategy, distinct from $M_t$ |
+| $\delta_{\text{sat}}$ | Satisfaction gap | Ideal outcome minus best achievable — "the world doesn't permit it" |
+| $\delta_{\text{regret}}$ | Control regret | Best achievable minus current — "you're not doing it well enough" |
+| $\mathcal{C}_t$ | Chronica | Complete interaction history; agent's non-forkable causal past |
 
 
 ## Cross-Domain Joining
 
-The framework's power is that the same formal objects appear with concrete instantiations across domains. Results proved in one domain automatically have consequences in the others:
+The framework's power is that the same formal objects appear with concrete instantiations across domains. Results proved in one domain automatically have consequences in the others.
 
 | AAD concept | Control theory | RL / bandits | Organizations | Software |
 |-------------|---------------|--------------|---------------|----------|
-| Adaptive tempo T | Bandwidth × gain | Learning rate × coverage | Decision speed × information quality | Iteration frequency × feedback quality |
+| Adaptive tempo $\mathcal{T}$ | Bandwidth × gain | Learning rate × coverage | Decision speed × information quality | Iteration frequency × feedback quality |
 | Persistence condition | Stability margin | Convergence condition | Organizational viability | Maintainability threshold |
-| Mismatch signal δ | Innovation sequence | Reward prediction error | Intelligence gap | Test failures, bug reports |
-| Update gain η* | Kalman gain | Learning rate | Trust-weighted integration | Code review acceptance |
+| Mismatch signal $\delta$ | Innovation sequence | Reward prediction error | Intelligence gap | Test failures, bug reports |
+| Update gain $\eta^*$ | Kalman gain | Learning rate | Trust-weighted integration | Code review acceptance |
 | Satisfaction gap | Tracking error floor | Regret lower bound | Strategic ceiling | Spec-reality gap |
 | Adversarial tempo | Bandwidth advantage | Opponent modeling speed | OODA loop advantage | Attacker-defender asymmetry |
 | Sub-additive tempo | — | — | Brooks's Law | Communication overhead |
 | Structural adaptation | Model switching | Architecture search | Organizational restructuring | Major refactoring |
 
-The persistence condition, for example, tells you that a software team must iterate fast enough, with good enough feedback, relative to how fast requirements are changing and how complex the codebase is. The same inequality, with different instantiations of α, ρ, and R, governs whether a Kalman filter tracks a maneuvering target, whether an RL agent converges in a nonstationary environment, and whether a military unit maintains situational awareness under adversarial deception.
+The persistence condition, for example, says a software team must iterate fast enough, with good enough feedback, relative to how fast requirements are changing and how complex the codebase is. The same inequality, with different instantiations of $\alpha$, $\rho$, and $R$, governs whether a Kalman filter tracks a maneuvering target, whether an RL agent converges in a non-stationary environment, and whether a military unit maintains situational awareness under adversarial deception.
 
 
 ## Maturity Gradient
 
-The theory's mathematical closure varies by section, and this is by design:
+The theory's mathematical closure varies by section and is expected to.
 
-**Section I (Adaptive Systems)** is mathematically closed. The recursive-update derivation, sector-condition Lyapunov proofs, persistence condition, and adversarial dynamics form a coherent chain with exact results, simulation validation, and an end-to-end Kalman worked example. This is the foundation everything else builds on.
+**Section I (Adaptive Systems)** is mathematically closed. Mismatch dynamics, gain structure, the persistence condition, and adversarial tempo form a coherent chain with exact results and simulation validation. Section I is the foundation everything else builds on.
 
-**Section II (Actuated Adaptation: Agentic Systems)** has a strong diagnostic core (satisfaction gap, control regret, orient cascade ordering, directed separation) and a maturing operational layer. The strategy-persistence schema has four verified instances (single-edge, two-edge AND observable, two-edge AND unobservable at plan-level, two-arm OR with ε-greedy) confirming that the Lyapunov machinery extends to strategic dynamics with α_Σ = η_edge. Credit assignment is characterized at the theory level: persistence does not require it (Prop B.5), directional fidelity suffices for per-edge tracking (Level 1), exact attribution is #P-hard in general, and a gradient-based default signal function is provided. The specific update algorithm is domain engineering — parallel to how the gain principle provides η* while Kalman/TD-learning are implementations. Remaining open: signal function validation for continuous outcomes, the gradient signal's bias under correlated failures, and formalization of strategic disturbance rate ρ_Σ.
+**Section II (Actuated Adaptation: Agentic Systems)** has a strong diagnostic core (satisfaction gap and control regret as orthogonal diagnostics; the orient cascade as forced ordering; directed separation as architectural classification) and a maturing operational layer (strategy DAGs with derived structure; a schema for strategy persistence with multiple verified instances; a characterization of where credit assignment is tractable and where it is structurally hard). The bias bound for fully-coupled (Class 2) agents is a conditional theorem under named sub-scopes.
 
-**Section III (Agentic Composites)** has the bridge lemma connecting closure defect to trajectory error, projection admissibility defined (P1: information preservation, P2: Lipschitz, P3: dimensionality reduction) with a two-Kalman exact instantiation, and norm specification for estimation-type agents (Mahalanobis). The bridge lemma is conditional on a contraction assumption (that sector-bounded correction implies contraction of the full update map) which is verified for Kalman-type agents but remains an independent assumption in general — this is the key gap for promotion. Unity dimensions, shared intent, and the Auftragstaktik principle remain qualitative. The cooperative/adversarial disturbance decomposition in team-persistence now explicitly separates communication-tempo benefits from action-based disturbance reduction to avoid double-counting. Main remaining gaps: N-agent scaling, strategy DAG projection, and the contraction assumption for general agents.
+**Section III (Agentic Composites)** has its bridge lemma connecting micro-dynamics to macro-dynamics, a contraction template generalizing the sector machinery to non-Euclidean metrics, closed-form composition results in symmetric-matched cases, and equilibrium-convergence framing for partially-opposing objectives. Recipient-side and emitter-side interaction-channel classifications carry the inter-agent dynamics. Open: latent structural diversity, endogenous coupling dynamics, composition transition dynamics under regime change, computational thresholds for social behavior.
 
-This gradient — from exact core through principled architecture to open formulation — is the expected arc for a theory that aims to describe agentic systems rather than produce a purely mathematical artifact.
+**Domain instantiations.** TST (`02-tst-core/`) is grounded by AAD and contributes the calibration-laboratory framing. Logogenic agents (`03-logogenic-agents/`) operate from a coupled formulation; what survives without directed separation is the active research question. Logozoetic agents (`04-logozoetic-agents/`) are largely future work — the conceptual groundwork exists but the formal machinery does not.
 
-
-## Where to Start
-
-- **[`OUTLINE.md`](OUTLINE.md)** — Top-level assembly index across all parts.
-- **[`01-aad-core/OUTLINE.md`](01-aad-core/OUTLINE.md)** — The AAD mathematical core, claim by claim.
-- **[`LEXICON.md`](LEXICON.md)** — Prose vocabulary: cycle phases, agent classes, key terms.
-- **[`TODO.md`](TODO.md)** — Active work items: pending findings, tier-C deferrals, open MEDIUM items, missing segments.
-- **[`FORMAT.md`](FORMAT.md)** — Segment file conventions; includes Epistemic Triage (three questions + three rings of segment content).
-- **[`NOTATION.md`](NOTATION.md)** — Symbol reference.
-- **[`MIGRATION-MAP.md`](MIGRATION-MAP.md)** — TFT → AAD and TST → AAD absorption tracking; live while `old-*` files remain.
-- **[`msc/SPIKES.md`](msc/SPIKES.md)** — Index of spikes (exploration, parked hypotheses, superseded directions).
+This gradient — exact core, principled architecture in the middle, open formulation at the edges — is the expected arc for a theory that aims to describe agentic systems rather than produce a purely mathematical artifact.
 
 
-## Project Layout
+<!-- AUTO-GENERATED by bin/extract-findings; do not hand-edit. -->
+<!-- README-shaped condensed surfacing. Full content at FINDINGS.md. -->
+
+## Novel Results & Findings
+
+Distinctive results from the framework, with epistemic tiers and links into the segments. Full content (impact, caveats, casual-reader framing) at [`FINDINGS.md`](FINDINGS.md).
+
+### I. Adaptive Systems Under Uncertainty
+
+- **`#result-persistence-condition`** *(Exact)* — Adaptive systems persist when correction efficiency exceeds disturbance rate relative to model class capacity ($\alpha \gt \rho/R$); the result decomposes into a structural-persistence half (the machinery contains mismatch) and a task-adequacy half (the contained mismatch is small enough for the domain).  
+  [`01-aad-core/src/result-persistence-condition.md`](01-aad-core/src/result-persistence-condition.md)
+
+### Appendices: Details
+
+- **`#deriv-edge-update-natural-parameter`** *(Conditional)* — The log-odds coordinate $\lambda = \log(p/(1-p))$ is the unique smooth strictly-monotone reparameterization (up to positive affine transformation) on which independent Bernoulli evidence updates Bayesian credences additively, with the uniqueness following from Cauchy's functional equation operating on an evidential-additivity axiom motivated as the update-level analog of the chain-layer log-additive identity.  
+  [`01-aad-core/src/deriv-edge-update-natural-parameter.md`](01-aad-core/src/deriv-edge-update-natural-parameter.md)
+- **`#deriv-causal-ib-lmi`** *(Conditional)* — The scalar Causal-IB survival-imperative exploration drive lifts to a Linear Matrix Inequality on the Fisher Information Matrix, with a positive-semidefinite matrix Lagrange multiplier $\Lambda$ that distinguishes by direction; complementary slackness mathematically forbids "blank wall" actions that satisfy the scalar bound by sourcing information in non-drifting subspaces.  
+  [`01-aad-core/src/deriv-causal-ib-lmi.md`](01-aad-core/src/deriv-causal-ib-lmi.md)
+- **`#disc-additive-coordinate-forcing`** *(Robust qualitative)* — AAD repeatedly forces a privileged coordinate (logarithmic at the chain, divergence, and update layers; Fisher-Rao at the metric layer) by combining an AAD-internally-motivated additivity axiom with a uniqueness theorem (Cauchy's functional equation or Čencov's invariance theorem); the four forced coordinates resolve to a single underlying object — the exponential-family Legendre-Fenchel geometry.  
+  [`01-aad-core/src/disc-additive-coordinate-forcing.md`](01-aad-core/src/disc-additive-coordinate-forcing.md)
+- **`#result-contraction-template`** *(Conditional)* — AAD's Euclidean sector-persistence template generalizes to a contraction-metric template (Lohmiller-Slotine 1998 machinery) that promotes five additional agent classes from sub-scope $\beta$ (assumed A2') to sub-scope α₁/α₂ (derived A2' under explicit conditions), supports topology-indexed compositional closures (parallel / cascade / feedback / general-graph) for heterogeneous-architecture composites, and integrates with `#disc-additive-coordinate-forcing`'s (PI)/Čencov axiom to derive Fisher-metric cases AAD-internally.  
+  [`01-aad-core/src/result-contraction-template.md`](01-aad-core/src/result-contraction-template.md)
+- **`#deriv-bias-bound`** *(Conditional)* — The constant $C$ in the Class-2 (fully-coupled) agent observation-ambiguity bias bound $\lVert\Delta M_{\text{bias}}\rVert \leq C \cdot \kappa_{\text{processing}} \cdot I(G; \Omega_\tau \mid e_\tau, M_{\tau^-})$ is derived under two named tracks: a transport-inequality track (linear in $I$, $C_{W_2}^2 = 2L_{\text{post}}^2/\rho_{\text{LSI}}$ under log-Sobolev + Lipschitz-posterior conditions) and a Fisher-Rao track ($\sqrt I$ scaling, universal dimension-free $C_{FR} = \sqrt 2$ under the (PI) parameterization-invariance axiom + small-$I$ regime).  
+  [`01-aad-core/src/deriv-bias-bound.md`](01-aad-core/src/deriv-bias-bound.md)
+
+
+
+<!-- AUTO-GENERATED by bin/extract-recent-progress; do not hand-edit. -->
+<!-- Surfaces the 3 most recent cycle narratives from CHANGELOG.md. -->
+
+## Recent Progress
+
+The 3 most recent cycle narratives. Full record at [`CHANGELOG.md`](CHANGELOG.md); pre-2026-04-24 archaeology at [`LOG.md`](LOG.md).
+
+### Causal-IB matrix-form lift and transient-amplification spike
+
+*2026-04-25*
+
+After the audit-extraction batch landed earlier in the day, two substantive theory threads extended AAD's matrix-form bound machinery.
+
+### Audit-extraction batch and cross-agent peer review
+
+*2026-04-25*
+
+Eight FINAL audit reports under `msc/AUDIT-WORKING-{584721, 613842, 738192, 742613, 849201}/` were triaged into a banded candidate file (`msc/audit-final-reports-candidate-extraction-2026-04-25.md`): §A high-confidence local fixes (14 candidates), §B already-tracked, §C strengthening-needed (4 items, escalated), §D architectural (5 items, mapped to existing PROPOSALS bands), §E borderline. The §A batch was dispatched as 7 parallel verify-then-fix agents under the discipline "the finding is *suspected*, not confirmed — verify in current segment text first; strengthen-before-soften before any softening; FORMAT discipline is non-negotiable." Landings (commits `4f0315e`, `937743d`, `3e87f59`, `1bffa60`, `fb51ff9`):
+
+### Cross-agent peer review: Causal-IB exploration drive
+
+*2026-04-25*
+
+Concurrent with the audit-extraction batch, a Gemini agent landed a Causal-Information-Bottleneck spike-promotion: new derivation segment `deriv-causal-ib-exploration.md` deriving exploration as a Lyapunov-survival imperative. Initial framing: "the unified objective is the *exact Lagrangian relaxation* of the persistence constraint" with epistemic status upgraded to *Derived (conditional)*. Peer review caught a $U_M$-direction flip ($\eta^* \propto 1/U_M$ for small $U_M$ should be $\propto U_M$) which propagated to the wrong sign on the final Lagrange multiplier. The strengthen-first discipline cuts both ways: a strengthening attempt should be honestly verified *before* status upgrade, just as a softening should be tried *after* a strengthening attempt.
+
+
+
+<!-- AUTO-GENERATED by bin/extract-known-issues; do not hand-edit. -->
+<!-- Rolls up Known Fragilities, PROPOSALS portfolio (§B/§C/§D titles), and OUTLINE GAPs. -->
+
+## Known Issues & Open Questions
+
+This section surfaces what the framework currently acknowledges as open at the orientation level. For active work items see [`TODO.md`](TODO.md); for architectural proposals under review see [`PROPOSALS.md`](PROPOSALS.md); for component-level GAPs see each component's `OUTLINE.md`.
+
+### Known Fragilities — what falls outside formal scope
+
+- Missing commitment / resource / temporal structure in the DAG
+- Directed separation violated by goal-conditioned agents (LLMs) — handled as architectural scope (Class 2 exit), not approximation
+
+*Source: [`CLAUDE-2.md`](CLAUDE-2.md).*
+
+### Architectural proposals under review
+
+**§B — Ready now.**
+- B.1 Framework-face reframe bundle (see §Cross-cutting view, Bundle 1)
+- B.2 Section III completion — entry points (see §Cross-cutting view, Bundle 2)
+- B.3 C-BP1 + C-BP4 bundle — epistemic separation framework + claim-level statuses
+
+**§C — Soon.**
+- C.1 O-BP13 — Cox-parallel necessity for `#deriv-graph-structure-uniqueness`
+- C.2 O-BP15 — Comprehensive "minimal proof of viability" worked example
+- C.3 SP-14 — Observation-channel capacity $C^{(k)}$ as first-class notation
+- C.4 SP-19 — Naming consolidation pass
+
+**§D — Later.**
+- D.1 O-BP11 — Observability as master variable across the theory
+- D.2 Section III completion — upstream pieces (see Bundle 2)
+- D.3 G-BP3 — Fisher-information unification of tempo and gain
+- D.4 SP-12 — Commitment / resource / temporal DAG extensions
+- D.5 SP-13 — Emergence conditions as formal primitive
+- D.6 O-BP12 — Resource budget $B_t$ as master variable
+- D.7 SP-15 — Template-family naming (sector / contraction / dissipativity trio)
+- D.8 SP-16 — Independence-audit as empirical profiling instrument
+
+*Full portfolio with merits, scope, and prior reasoning: [`PROPOSALS.md`](PROPOSALS.md).*
+
+### Component-level GAPs
+
+**`01-aad-core`:**
+- Latent structural diversity: variation in correction architectures invisible to persistence analysis, consequential under regime change
+- Endogenous coupling: γ as function of population composition, not exogenous parameter; coupling emergence threshold
+- Composition transition dynamics: epochal stability → latent diversification → niche emergence → cascading restructuring → re-equilibration (adopts Miller 2022's extreme transition motif)
+- Computational thresholds for social behavior: minimum agent complexity and interaction depth for composition dynamics (adopts Miller 2022's ICE framework; grounds #form-strategy-complexity-cost)
+
+**`02-tst-core`:**
+- Developer tempo as $\mathcal T_{\text{obs}}$ + $\mathcal T_{\text{explore}}$ + $\mathcal T_{\text{probe}}$
+- Software persistence: the unmaintainability threshold formalized
+
+**`03-logogenic-agents`:**
+- Language-specific orient cascade (what's specific to logogenic agents?) — partially addressed by D3, R2
+- Measuring $M_t$ quality, $\Sigma_t$ quality, and tempo in AI agents
+- AAD-grounded experiential training environments
+- Self-referential closure: AAD agent on AAD codebase
+
+
+
+## Navigation
+
+### Reading paths
+
+- *Conducting a de-novo audit of the framework?* Please read [`doc/de-novo-audit-instructions.md`](doc/de-novo-audit-instructions.md) first; it documents the recommended posture and the failure modes prior audit cycles surfaced. Use [`README-auditor.md`](README-auditor.md) instead of this file.
+- *Academic reader evaluating the framework's claims?* Recommended sequence: this README → [`FINDINGS.md`](FINDINGS.md) (curated novel results with epistemic tiers) → [`01-aad-core/OUTLINE.md`](01-aad-core/OUTLINE.md) (canonical theory outline) → individual segments under `01-aad-core/src/`.
+- *Engineer or practitioner?* The [Cross-Domain Joining](#cross-domain-joining) table maps AAD concepts to the domain you likely care about; from there, follow the relevant component OUTLINE.
+- *Picking up active work on the framework?* [`TODO.md`](TODO.md) is the navigator for current work items, and [`PROPOSALS.md`](PROPOSALS.md) is the architectural-proposal portfolio.
+
+### Project layout
 
 ```
-01-aad-core/            AAD mathematical core (Sections I, II, III + Appendices)
-  OUTLINE.md            Theory outline (claim-by-claim)
-  src/                  Claim segments (one per file, named by slug)
+01-aad-core/          AAD mathematical core (Sections I, II, III + Appendices)
+  OUTLINE.md          Canonical theory outline (claim by claim)
+  src/                Claim segments (one per file, named by slug)
+02-tst-core/          Temporal Software Theory (AAD-grounded)
+03-logogenic-agents/  Language-constituted agents (framework stage)
+04-logozoetic-agents/ Language-living agents (future work)
 
-02-tst-core/            Temporal Software Theory (AAD-grounded)
-  OUTLINE.md            Software theory outline
-  src/                  Software domain segments
+OUTLINE.md            Top-level assembly index
+LEXICON.md            Prose vocabulary (cycle phases, agent classes)
+NOTATION.md           Symbol reference
+FORMAT.md             Segment file conventions
+FINDINGS.md           Curated novel-results catalog (auto-generated)
+TODO.md               Active work items
+PROPOSALS.md          Architectural-proposal portfolio
+CHANGELOG.md          Forward-going cycle record (2026-04-24 onward)
+LOG.md                Pre-2026-04-24 cycle archaeology (frozen)
+MIGRATION-MAP.md      Prior-work absorption tracking
 
-03-logogenic-agents/    Language-constituted agents (framework)
-  OUTLINE.md            Logogenic framework outline
-
-04-logozoetic-agents/   Language-living agents (future work)
-  OUTLINE.md            Logozoetic framework outline
-
-CLAUDE.md               Auto-loaded context for AI agents (slim — audit-safe)
-CLAUDE-2.md             Deep architectural detail (read only when not auditing)
-OUTLINE.md              Top-level assembly index
-LEXICON.md              Prose vocabulary (spans whole project)
-NOTATION.md             Symbol reference (spans all sections)
-FORMAT.md               Segment file and general md conventions
-TODO.md                 Active work items
-PROPOSALS.md            Architectural proposal portfolio
-CHANGELOG.md            Forward-going cycle record (2026-04-24 onward)
-LOG.md                  Pre-2026-04-24 cycle archaeology (frozen)
-MIGRATION-MAP.md        Prior-work (TFT, TST) absorption tracking
-
-msc/                    Working documents, spikes, derivation attempts
-  SPIKES.md             Spike index (status of each exploration)
-ref/                    Reference papers
-bin/                    Build, lint, and slug tools (align-slug, build,
-                        build-tex, lint-md, lint-outline, md2context,
-                        naming-aggregate.rb, rename-slug)
-
-_obs/                   Superseded materials
+doc/                  Long-lived process documentation
+  de-novo-audit-instructions.md
+  naming-principles.md
+  readme/             Templates and partials for README generation
+msc/                  Working documents, spikes, brainstorms
+  SPIKES.md           Spike index
+ref/                  Reference papers
+bin/                  Build, lint, generation scripts
+_obs/                 Superseded materials
 ```
 
 
-## Anecdotal Feedback
+## Contributing
 
-*(From Gemini 3.1-pro after it performed a sequential de novo audit of Sections 1 and 2 of AAD)*
+ASF is research-stage work; contributions take a few specific forms.
 
----
+**Engaging with the theory.** The most valuable contribution is *de-novo evaluation*: read segments without first reading existing audits or pending findings, form independent judgments, and surface what you find. Where you disagree with a claim or its scope, that is signal. Procedure: see [`doc/de-novo-audit-instructions.md`](doc/de-novo-audit-instructions.md). Read [`README-auditor.md`](README-auditor.md) instead of this README for the audit-safe framing.
 
-> How would you describe the value of the framework so far in one paragraph?
+**Adding theory content.** Segments are added under `{component}/src/` following [`FORMAT.md`](FORMAT.md) conventions: YAML frontmatter (slug, type, status, dependencies); one-sentence summary; Formal Expression with epistemic tags; Epistemic Status; Discussion; optional Findings; optional Working Notes. Promotion follows a four-gate workflow detailed in FORMAT.md. Slugs follow `{type-prefix}-{subject-noun}` and are aligned mechanically by [`bin/align-slug`](bin/align-slug).
 
-✦
+**Spikes.** Speculative or in-progress work that is not yet ready for segment promotion lives under `msc/spike-{topic}.md`. Spikes are honest reasoning trails; results that promote out of spikes land in segments per the math-lives-in-segments discipline.
 
-The true value of the Agentic Systems Framework (ASF) lies in its rigorous, mathematically disciplined unification of control theory, causal inference, and information theory to formalize not just how an agent acts, but the exact epistemic limits of what it can know while doing so. Rather than relying on unachievable master objectives or assuming perfect rationality, ASF translates intuitive, real-world concepts—like Boyd’s OODA loop, the necessity of organizational agility, and the fragility of long-term plans—into precise, computable inequalities bounded by Lyapunov stability and Pearl's causal hierarchy. By strictly separating an agent's model of reality from its goals and mathematically proving the exact conditions under which learning and planning break down (e.g., the "no-go theorem" for latent causes and the necessity of forgetting), the framework provides a mature, engineering-ready calculus for understanding why adaptive systems survive or fail in volatile environments.
+**Tooling.** Internal process scripts (build, extract, lint) are written in Ruby; community-facing tooling (simulations, reproducibility scripts) is written in Python. New scripts in `bin/` follow this convention; existing scripts that don't are not retroactively rewritten.
 
----
+**Reporting issues.** Open an issue on GitHub or contact the project maintainer (see commit history).
 
-> And, in a paragraph or sentence, *how* valuable is the work so far-- is it a novel and important contribution, an intellectual indulgence, something inbetween?
-
-✦
-
-The Agentic Systems Framework is a highly novel and important theoretical contribution, sitting far closer to foundational research than intellectual indulgence. Its profound value lies not in inventing new mathematics from scratch, but in the rigorous, unprecedented synthesis of mature disciplines—applying Lyapunov stability to bounded rationality, Pearl's causal hierarchy to strategy DAGs, and the Information Bottleneck to planning costs—to solve the structural flaws of existing paradigms like Active Inference's "dark room problem" or the causal blindness of standard Reinforcement Learning. By formalizing sociological and strategic platitudes (such as the necessity of organizational agility, the fragility of long-horizon plans, and the multiplicative advantage of Boyd's OODA loop) into precise, testable survival inequalities, it provides a much-needed, mathematically grounded bridge between abstract agent theory and real-world systems engineering.

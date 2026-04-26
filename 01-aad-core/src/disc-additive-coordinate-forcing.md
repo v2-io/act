@@ -96,3 +96,11 @@ The individual instances retain their own epistemic statuses:
 - `#deriv-strategy-cost-regret-bound` §6.1 — *derived (conditional on chain-rule additivity axiom)*.
 - `#deriv-edge-update-natural-parameter` — *derived (conditional on evidential-additivity axiom)*.
 - `#der-gain-sector-bridge` — *derived (conditional on (PI) axiom)*.
+
+## Findings
+
+**Novelty:** *[Robust qualitative]* — AAD repeatedly forces a privileged coordinate (logarithmic at the chain, divergence, and update layers; Fisher-Rao at the metric layer) by combining an AAD-internally-motivated additivity axiom with a uniqueness theorem (Cauchy's functional equation or Čencov's invariance theorem); the four forced coordinates resolve to a single underlying object — the exponential-family Legendre-Fenchel geometry.
+
+**Impact:** Names a meta-pattern that is one of AAD's distinctive constructive moves and that organizes a substantial fraction of the theory's load-bearing structural choices. The pattern supplies a principled diagnostic filter for candidate future instances ("does the coordinate arise from the exponential-family geometry?") and explains why AAD's reverse-KL direction in regret bounds, log-odds in edge updates, and Fisher-Rao metric in bias bounds are not arbitrary representational choices but theorems conditional on AAD-internal axioms. The reframe also clarifies which adjacent cases (Lyapunov quadratic, IB Lagrangian) sit on different geometric families or have imported provenance — preventing the meta-pattern from being overclaimed as a single uniform principle.
+
+**For non-specialists:** When the framework needs to pick a "natural" way of measuring something (a confidence, a divergence, a parameter), it doesn't choose by convention. It writes down a property the measurement should have (typically: small contributions should add up the way independent evidence should), and a theorem from outside the framework forces the measurement to take a particular form. This pattern shows up at four different places in the framework, and the four places turn out to be different windows into the same underlying mathematical structure.

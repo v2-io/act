@@ -11,4 +11,79 @@ Each entry is the segment's own self-assessment of novelty, impact, and a
 framing for non-specialists, followed by a link to the segment for derivation,
 scope, and caveats.
 
-*(No `## Findings` sections found yet. The segment-by-segment Findings sweep is in progress; entries will appear here as it proceeds.)*
+## I. Adaptive Systems Under Uncertainty
+
+### `#result-persistence-condition` *(Result)*
+
+[`01-aad-core/src/result-persistence-condition.md`](01-aad-core/src/result-persistence-condition.md)
+
+**Novelty:** *[Exact]* — Adaptive systems persist when correction efficiency exceeds disturbance rate relative to model class capacity ($\alpha \gt \rho/R$); the result decomposes into a structural-persistence half (the machinery contains mismatch) and a task-adequacy half (the contained mismatch is small enough for the domain).
+
+**Impact:** This is the framework's central inequality and the load-bearing connection between control-theoretic Lyapunov stability analysis and the broader question of when any adaptive system — thermostat, software team, immune system, RL agent — can maintain coherent function under change. The two-condition decomposition is itself non-obvious and consequential: prior work that conflated "the machinery works" with "the machinery works well enough" produced category errors in domain transfer (a structurally persistent codebase team can be task-inadequate; the remedies differ). The complementary information-rate bound from `#deriv-persistence-cost` ($\dot R \geq n\alpha/2$) shows the threshold has a sustained-cost shadow: two agents with identical persistence guarantees can face wildly different demands.
+
+**For non-specialists:** An adaptive system persists when its correction speed beats the rate at which its world is changing, relative to how forgiving the world is. Below this threshold the system doesn't merely degrade — it loses bounded behavior, the way a balance held just barely beneath a tipping point is qualitatively different from one well above it. The same inequality, with different inputs, governs whether a Kalman filter tracks a moving target, whether a development team keeps a codebase maintainable, and whether an organization keeps up with strategic change.
+
+---
+
+## Appendices: Details
+
+### `#deriv-edge-update-natural-parameter` *(Derivation)*
+
+[`01-aad-core/src/deriv-edge-update-natural-parameter.md`](01-aad-core/src/deriv-edge-update-natural-parameter.md)
+
+**Novelty:** *[Conditional]* — The log-odds coordinate $\lambda = \log(p/(1-p))$ is the unique smooth strictly-monotone reparameterization (up to positive affine transformation) on which independent Bernoulli evidence updates Bayesian credences additively, with the uniqueness following from Cauchy's functional equation operating on an evidential-additivity axiom motivated as the update-level analog of the chain-layer log-additive identity.
+
+**Impact:** Promotes a representational choice that previously had only convergent grounds (exponential-family canonicity, Fisher-information naturalness, sector-condition preservation) to a uniqueness theorem under an explicit AAD-internal axiom, joining the additive-coordinate-forcing meta-pattern (`#disc-additive-coordinate-forcing`) as one of its three theorem-grade instances. The result resolves a mechanical issue in the credit-assignment default signal function (`#disc-credit-assignment-boundary`), where unbounded gradient updates pushing credences outside [0,1] in the probability-space presentation become globally well-posed in the log-odds presentation (domain $\mathbb{R}$). It also positions log-odds as the coordinate against which downstream gain-and-update machinery should be analyzed for sub-scope $\alpha$ (Bayesian-coherent) agents.
+
+**For non-specialists:** When updating beliefs about whether something is true, there's a question of "what's the natural number to update?" — the probability itself, or some transformation of it. This result identifies a particular transformation (the log-odds, also used in logistic regression and Bayesian inference more broadly) as the *uniquely* natural one for agents updating on independent evidence, in the precise sense that any equivalent representation must be log-odds up to scale. The choice isn't aesthetic; it's forced by what "independent evidence should add up" means mathematically.
+
+---
+
+### `#deriv-causal-ib-lmi` *(Derivation)*
+
+[`01-aad-core/src/deriv-causal-ib-lmi.md`](01-aad-core/src/deriv-causal-ib-lmi.md)
+
+**Novelty:** *[Conditional]* — The scalar Causal-IB survival-imperative exploration drive lifts to a Linear Matrix Inequality on the Fisher Information Matrix, with a positive-semidefinite matrix Lagrange multiplier $\Lambda$ that distinguishes by direction; complementary slackness mathematically forbids "blank wall" actions that satisfy the scalar bound by sourcing information in non-drifting subspaces.
+
+**Impact:** Closes a structural failure of the scalar derivation that admitted trivially-satisfying-the-math actions (constant signals, walls, etc.) without actually probing the drifting modes the agent must track to survive. The matrix lift uses Fisher-geometric machinery already AAD-internal via `#deriv-fisher-whitened-update-rule` and `#disc-additive-coordinate-forcing`'s 4th instance — the same Fisher metric that grounds credit assignment now grounds survival, demonstrating that the same geometric object plays multiple structurally-distinct roles. The "Tragedy of the Confident Agent" insight (a confident agent in a drifting world is mathematically forced to specifically probe the drifting direction) survives the lift in sharper form: the matrix shadow price's eigenstructure picks out the directions where confidence has outpaced incoming information.
+
+**For non-specialists:** Imagine an agent that's supposed to track something changing but only checks for new information by staring at a blank wall. A scalar version of the survival argument would let this work — the agent satisfies "I gathered enough information" without gathering information about the thing that's actually moving. This result fixes the math by making the argument directional: the agent has to gather information in the *directions* where the world is changing, not just gather some-information-anywhere. The fix uses geometry the framework already needed for other reasons, not new machinery imported from outside.
+
+---
+
+### `#disc-additive-coordinate-forcing` *(Discussion)*
+
+[`01-aad-core/src/disc-additive-coordinate-forcing.md`](01-aad-core/src/disc-additive-coordinate-forcing.md)
+
+**Novelty:** *[Robust qualitative]* — AAD repeatedly forces a privileged coordinate (logarithmic at the chain, divergence, and update layers; Fisher-Rao at the metric layer) by combining an AAD-internally-motivated additivity axiom with a uniqueness theorem (Cauchy's functional equation or Čencov's invariance theorem); the four forced coordinates resolve to a single underlying object — the exponential-family Legendre-Fenchel geometry.
+
+**Impact:** Names a meta-pattern that is one of AAD's distinctive constructive moves and that organizes a substantial fraction of the theory's load-bearing structural choices. The pattern supplies a principled diagnostic filter for candidate future instances ("does the coordinate arise from the exponential-family geometry?") and explains why AAD's reverse-KL direction in regret bounds, log-odds in edge updates, and Fisher-Rao metric in bias bounds are not arbitrary representational choices but theorems conditional on AAD-internal axioms. The reframe also clarifies which adjacent cases (Lyapunov quadratic, IB Lagrangian) sit on different geometric families or have imported provenance — preventing the meta-pattern from being overclaimed as a single uniform principle.
+
+**For non-specialists:** When the framework needs to pick a "natural" way of measuring something (a confidence, a divergence, a parameter), it doesn't choose by convention. It writes down a property the measurement should have (typically: small contributions should add up the way independent evidence should), and a theorem from outside the framework forces the measurement to take a particular form. This pattern shows up at four different places in the framework, and the four places turn out to be different windows into the same underlying mathematical structure.
+
+---
+
+### `#result-contraction-template` *(Result)*
+
+[`01-aad-core/src/result-contraction-template.md`](01-aad-core/src/result-contraction-template.md)
+
+**Novelty:** *[Conditional]* — AAD's Euclidean sector-persistence template generalizes to a contraction-metric template (Lohmiller-Slotine 1998 machinery) that promotes five additional agent classes from sub-scope $\beta$ (assumed A2') to sub-scope α₁/α₂ (derived A2' under explicit conditions), supports topology-indexed compositional closures (parallel / cascade / feedback / general-graph) for heterogeneous-architecture composites, and integrates with `#disc-additive-coordinate-forcing`'s (PI)/Čencov axiom to derive Fisher-metric cases AAD-internally.
+
+**Impact:** Section III's largest single coverage expansion: from "closed-form persistence under matched-symmetric Tier-1" to "closed-form persistence under any of four topology classes with per-sub-agent contraction verification, and heterogeneous mixes thereof." For Section II, the structural-transparency observation that DA2'-inc ≡ (CT2)-at-$M=I$ shows AAD's existing Euclidean machinery was already carrying the Jacobian-level contraction commitment; what changes is making that commitment legible and lifting non-Euclidean cases (Fisher-metric Kalman, exp-family natural-parameter, ill-conditioned strongly-convex gradient, asymmetric-stable linear, PID with bounded plant) from theorem-imported to AAD-internally-derived under named axioms. The three independent obstructions to handling adversarial regimes (Slotine 2003 saddle-point limitation; passivity-universality; Daskalakis 2018 last-iterate non-convergence) bound the template's scope honestly — adversarial composition is structurally outside contraction analysis and properly handled by `#deriv-strategic-composition`'s equilibrium-convergence machinery.
+
+**For non-specialists:** The framework's central machinery for proving an adaptive system can hold its mismatch bounded was originally written in the simplest geometric setting (the equivalent of measuring distance with a ruler in flat space). Many real systems have a more natural geometry — a Kalman filter "thinks" in terms of an information ellipsoid, a learning agent thinks in Fisher-information geometry, a controller designed for an asymmetric plant thinks in a different metric still. This result restates the same machinery in a way that uses each system's natural geometry, which means more agents can be analyzed with the framework's tools without forcing them into a distorted representation.
+
+---
+
+### `#deriv-bias-bound` *(Derivation)*
+
+[`01-aad-core/src/deriv-bias-bound.md`](01-aad-core/src/deriv-bias-bound.md)
+
+**Novelty:** *[Conditional]* — The constant $C$ in the Class-2 (fully-coupled) agent observation-ambiguity bias bound $\lVert\Delta M_{\text{bias}}\rVert \leq C \cdot \kappa_{\text{processing}} \cdot I(G; \Omega_\tau \mid e_\tau, M_{\tau^-})$ is derived under two named tracks: a transport-inequality track (linear in $I$, $C_{W_2}^2 = 2L_{\text{post}}^2/\rho_{\text{LSI}}$ under log-Sobolev + Lipschitz-posterior conditions) and a Fisher-Rao track ($\sqrt I$ scaling, universal dimension-free $C_{FR} = \sqrt 2$ under the (PI) parameterization-invariance axiom + small-$I$ regime).
+
+**Impact:** Promotes the Class-2 bias bound — the load-bearing connection between AAD's Section II machinery and `03-logogenic-agents/`'s coupled-formulation results — from "order-of-magnitude guidance, not a theorem" to a conditional theorem under explicitly named sub-scopes. The no-go result (§4) showing that no universal $C$ exists under Euclidean-parameter norms makes the (PI) axiom load-bearing rather than coincidental: the axiom is what permits the dimension-free constant. The two failed derivation routes (Cramér-Rao inversion; rate-distortion inversion) are recorded so future agents do not repeat them. Downstream segments in `03-logogenic-agents/` previously carrying a "constant $C$ not computed" caveat can now cite this appendix for the quantitative apparatus.
+
+**For non-specialists:** When a goal-conditioned agent (like an LLM) processes evidence, its update can be biased by what it's trying to do, not just what it observes. Prior work could only say "this bias is bounded by some constant times the relevant information leakage" without computing the constant. This result computes it under two specific conditions, and shows that at least one of them — committing to a particular geometric structure on the model space — is necessary in a strong sense (without it, no universal constant exists at all). The result is a step from "we can prove there's a bound" to "here is the bound."
+
+---
+

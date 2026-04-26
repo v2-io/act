@@ -5,4 +5,21 @@
 
 Distinctive results from the framework, with epistemic tiers and links into the segments. Full content (impact, caveats, casual-reader framing) at [`FINDINGS.md`](FINDINGS.md).
 
-*(The segment-by-segment Findings sweep is in progress. Entries will appear here as the catalog is populated. See [`FINDINGS.md`](FINDINGS.md) for the canonical catalog.)*
+### I. Adaptive Systems Under Uncertainty
+
+- **`#result-persistence-condition`** *(Exact)* — Adaptive systems persist when correction efficiency exceeds disturbance rate relative to model class capacity ($\alpha \gt \rho/R$); the result decomposes into a structural-persistence half (the machinery contains mismatch) and a task-adequacy half (the contained mismatch is small enough for the domain).  
+  [`01-aad-core/src/result-persistence-condition.md`](01-aad-core/src/result-persistence-condition.md)
+
+### Appendices: Details
+
+- **`#deriv-edge-update-natural-parameter`** *(Conditional)* — The log-odds coordinate $\lambda = \log(p/(1-p))$ is the unique smooth strictly-monotone reparameterization (up to positive affine transformation) on which independent Bernoulli evidence updates Bayesian credences additively, with the uniqueness following from Cauchy's functional equation operating on an evidential-additivity axiom motivated as the update-level analog of the chain-layer log-additive identity.  
+  [`01-aad-core/src/deriv-edge-update-natural-parameter.md`](01-aad-core/src/deriv-edge-update-natural-parameter.md)
+- **`#deriv-causal-ib-lmi`** *(Conditional)* — The scalar Causal-IB survival-imperative exploration drive lifts to a Linear Matrix Inequality on the Fisher Information Matrix, with a positive-semidefinite matrix Lagrange multiplier $\Lambda$ that distinguishes by direction; complementary slackness mathematically forbids "blank wall" actions that satisfy the scalar bound by sourcing information in non-drifting subspaces.  
+  [`01-aad-core/src/deriv-causal-ib-lmi.md`](01-aad-core/src/deriv-causal-ib-lmi.md)
+- **`#disc-additive-coordinate-forcing`** *(Robust qualitative)* — AAD repeatedly forces a privileged coordinate (logarithmic at the chain, divergence, and update layers; Fisher-Rao at the metric layer) by combining an AAD-internally-motivated additivity axiom with a uniqueness theorem (Cauchy's functional equation or Čencov's invariance theorem); the four forced coordinates resolve to a single underlying object — the exponential-family Legendre-Fenchel geometry.  
+  [`01-aad-core/src/disc-additive-coordinate-forcing.md`](01-aad-core/src/disc-additive-coordinate-forcing.md)
+- **`#result-contraction-template`** *(Conditional)* — AAD's Euclidean sector-persistence template generalizes to a contraction-metric template (Lohmiller-Slotine 1998 machinery) that promotes five additional agent classes from sub-scope $\beta$ (assumed A2') to sub-scope α₁/α₂ (derived A2' under explicit conditions), supports topology-indexed compositional closures (parallel / cascade / feedback / general-graph) for heterogeneous-architecture composites, and integrates with `#disc-additive-coordinate-forcing`'s (PI)/Čencov axiom to derive Fisher-metric cases AAD-internally.  
+  [`01-aad-core/src/result-contraction-template.md`](01-aad-core/src/result-contraction-template.md)
+- **`#deriv-bias-bound`** *(Conditional)* — The constant $C$ in the Class-2 (fully-coupled) agent observation-ambiguity bias bound $\lVert\Delta M_{\text{bias}}\rVert \leq C \cdot \kappa_{\text{processing}} \cdot I(G; \Omega_\tau \mid e_\tau, M_{\tau^-})$ is derived under two named tracks: a transport-inequality track (linear in $I$, $C_{W_2}^2 = 2L_{\text{post}}^2/\rho_{\text{LSI}}$ under log-Sobolev + Lipschitz-posterior conditions) and a Fisher-Rao track ($\sqrt I$ scaling, universal dimension-free $C_{FR} = \sqrt 2$ under the (PI) parameterization-invariance axiom + small-$I$ regime).  
+  [`01-aad-core/src/deriv-bias-bound.md`](01-aad-core/src/deriv-bias-bound.md)
+

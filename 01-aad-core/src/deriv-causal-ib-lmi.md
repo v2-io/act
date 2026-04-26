@@ -129,6 +129,14 @@ The agent's total exploration shadow price is $\Lambda_{\text{info}} + \Lambda_{
 
 **Empirical signature.** A 2D drift environment with separable drifting/non-drifting subspaces is the simplest test: a scalar-Lagrangian agent succumbs to blank-wall traps; an LMI agent — with $\Lambda$ developing weight specifically in the drifting direction — must select actions whose $\mathcal I_o$ aligns with the drift. The directional discrimination is empirically visible in the agent's action-selection histogram across the two subspaces.
 
+## Findings
+
+**Novelty:** *[Conditional]* — The scalar Causal-IB survival-imperative exploration drive lifts to a Linear Matrix Inequality on the Fisher Information Matrix, with a positive-semidefinite matrix Lagrange multiplier $\Lambda$ that distinguishes by direction; complementary slackness mathematically forbids "blank wall" actions that satisfy the scalar bound by sourcing information in non-drifting subspaces.
+
+**Impact:** Closes a structural failure of the scalar derivation that admitted trivially-satisfying-the-math actions (constant signals, walls, etc.) without actually probing the drifting modes the agent must track to survive. The matrix lift uses Fisher-geometric machinery already AAD-internal via `#deriv-fisher-whitened-update-rule` and `#disc-additive-coordinate-forcing`'s 4th instance — the same Fisher metric that grounds credit assignment now grounds survival, demonstrating that the same geometric object plays multiple structurally-distinct roles. The "Tragedy of the Confident Agent" insight (a confident agent in a drifting world is mathematically forced to specifically probe the drifting direction) survives the lift in sharper form: the matrix shadow price's eigenstructure picks out the directions where confidence has outpaced incoming information.
+
+**For non-specialists:** Imagine an agent that's supposed to track something changing but only checks for new information by staring at a blank wall. A scalar version of the survival argument would let this work — the agent satisfies "I gathered enough information" without gathering information about the thing that's actually moving. This result fixes the math by making the argument directional: the agent has to gather information in the *directions* where the world is changing, not just gather some-information-anywhere. The fix uses geometry the framework already needed for other reasons, not new machinery imported from outside.
+
 ## Working Notes
 
 - **Tensor adaptive tempo.** `#def-adaptive-tempo` is currently scalar; the LMI repair requires tensor-valued $\mathcal T$ tracking per-direction rates for full alignment with this segment and with `#deriv-fisher-whitened-update-rule` and `#deriv-adaptive-gain-dynamics`. Queued in TODO.
