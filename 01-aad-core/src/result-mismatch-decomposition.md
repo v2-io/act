@@ -5,6 +5,7 @@ status: exact
 depends:
   - def-mismatch-signal
   - def-observation-function
+  - def-action-transition
   - form-agent-model
   - scope-adaptive-system
 stage: claims-verified

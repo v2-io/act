@@ -4,6 +4,7 @@ type: definition
 status: axiomatic
 depends:
   - def-agent-environment
+  - def-action-transition
 stage: deps-verified
 ---
 

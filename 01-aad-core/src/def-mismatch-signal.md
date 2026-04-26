@@ -5,6 +5,7 @@ status: axiomatic
 depends:
   - form-agent-model
   - def-observation-function
+  - def-action-transition
 stage: deps-verified
 ---
 
@@ -30,7 +31,7 @@ For models with probabilistic predictions, the mismatch generalizes to the **sco
 
 *[Definition (score-mismatch)]*
 
-$$\tilde{\delta}_t = -\nabla_M \log P(o_t \mid M_{t-1}, a_{t-1})$$
+$$\tilde{\delta}_t = \nabla_M \log P(o_t \mid M_{t-1}, a_{t-1})$$
 
 which points in the direction the model should move to increase the likelihood of the actual observation. $\tilde{\delta}_t$ lives in the tangent space $T_M\mathcal{M}$, while $\delta_t$ lives in observation space $\mathcal{O}$. Under Gaussian models, they coincide up to scaling.
 

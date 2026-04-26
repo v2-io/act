@@ -4,6 +4,7 @@ type: formulation
 status: exact
 depends:
   - form-agent-model
+  - def-action-transition
 stage: draft
 ---
 

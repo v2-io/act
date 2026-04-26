@@ -5,6 +5,7 @@ status: axiomatic
 depends:
   - form-agent-model
   - form-information-bottleneck
+  - def-action-transition
 stage: deps-verified
 ---
 
@@ -22,14 +23,16 @@ where:
 - The numerator $I(\mathcal C_t;\, o_{t+1:\infty} \mid M_t,\, a_{t:\infty})$ is the predictive information that the full history $\mathcal C_t$ carries about the future *beyond* what $M_t$ already captures — the information lost by compression
 - The denominator $I(\mathcal C_t;\, o_{t+1:\infty} \mid a_{t:\infty})$ is the total predictive information in the full history
 
-**Boundary values:**
+**Well-definedness.** $S(M_t)$ is defined when $I(\mathcal{C}_t;\, o_{t+1:\infty} \mid a_{t:\infty}) \gt 0$ — when the chronica carries some predictive information about future observations beyond what the action sequence alone supplies. When the denominator vanishes (saturated-noise environments, prediction-vacuous regimes, fully iid observations independent of history), $S(M_t)$ is undefined: predictive sufficiency is a property *of a prediction task*, and there is no prediction task to be sufficient for. Downstream constructs that build on $S$ — #def-model-class-fitness and #result-structural-adaptation-necessity — inherit the same scope and are correspondingly inapplicable in predictively-vacuous regimes.
+
+**Boundary values** (assuming the well-definedness clause holds):
 - $S(M_t) = 1$: $M_t$ is a sufficient statistic — it captures all predictive information in $\mathcal C_t$. Knowing the full history beyond $M_t$ adds nothing.
 - $S(M_t) = 0$: $M_t$ retains no predictive information. The model is useless for prediction.
 - $0 \lt S(M_t) \lt 1$: partial sufficiency — some predictive information is retained, some lost.
 
 ## Epistemic Status
 
-This is *definitional* — it names and formalizes a quantity. The definition is well-grounded in information theory (conditional mutual information ratios are standard). No substantive claim is made here about what value $S(M_t)$ takes or what happens when it is low; those claims belong to #def-model-class-fitness and #result-structural-adaptation-necessity.
+This is *definitional* — it names and formalizes a quantity. The definition is well-grounded in information theory (conditional mutual information ratios are standard). The scope clause ($I(\mathcal C_t; o_{t+1:\infty} \mid a_{t:\infty}) \gt 0$) is the natural domain for a predictive-sufficiency measure: a ratio whose denominator is zero is not a meaningful notion of "fraction retained," and "any model is sufficient when there is nothing to predict" would smuggle structure into a regime that has none. No substantive claim is made here about what value $S(M_t)$ takes or what happens when it is low; those claims belong to #def-model-class-fitness and #result-structural-adaptation-necessity.
 
 ## Discussion
 

@@ -84,7 +84,7 @@ The cycle is: Prolepsis → Aisthesis → Aporia → Epistrophe → Praxis → (
 |--------|------|---------|
 | $\hat o_t$ | $\in \mathcal{O}$ | Predicted observation: $\mathbb{E}[o_t \mid M_{t-1}, a_{t-1}]$ |
 | $\delta_t$ | $\in \mathcal{O}$ | Mismatch signal (prediction error): $o_t - \hat o_t$ |
-| $\tilde{\delta}_t$ | $\in T_M\mathcal{M}$ | Score-function mismatch: $-\nabla_M \log P(o_t \mid M_{t-1}, a_{t-1})$ |
+| $\tilde{\delta}_t$ | $\in T_M\mathcal{M}$ | Score-function mismatch: $\nabla_M \log P(o_t \mid M_{t-1}, a_{t-1})$ |
 
 
 ## Update Gain ( #emp-update-gain)

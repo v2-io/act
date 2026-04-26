@@ -28,8 +28,8 @@ Every slug is linked to its intended `src/{slug}.md` file, even when that file d
 | §   | Type        | N   | Tag                                                                        | Claim                                          | Stage           |
 | --- | ----------- | --- | -------------------------------------------------------------------------- | ---------------------------------------------- | --------------- |
 | I   | Definition  |     | [#def-agent-environment](src/def-agent-environment.md)                             | Agent-environment boundary                     | deps-verified   |
-| I   | Definition  |     | [#def-observation-function](src/def-observation-function.md)                       | Lossy, noisy observations                      | deps-verified   |
 | I   | Definition  |     | [#def-action-transition](src/def-action-transition.md)                             | Actions affect environment                     | deps-verified   |
+| I   | Definition  |     | [#def-observation-function](src/def-observation-function.md)                       | Lossy, noisy observations                      | deps-verified   |
 | I   | Scope       |     | [#scope-adaptive-system](src/scope-adaptive-system.md)                     | Broadest AAD scope: observe under uncertainty  | claims-verified |
 | I   | Scope       |     | [#scope-agency](src/scope-agency.md)                                       | Narrows to action with Pearl-level-2 contrast  | claims-verified |
 | I   | Postulate   |     | [#post-composition-consistency](src/post-composition-consistency.md)                 | Agent/subagent scale invariance                | deps-verified   |
