@@ -41,11 +41,19 @@ $\lambda$ carries units of [value per unit information]. In specific domains it 
 
 ## Epistemic Status
 
-Discussion-grade (heuristic). The structural claim — that a useful policy jointly considers value and causal information — is supported by convergent results in Bayesian RL, active inference, and information-directed sampling, but not derived from first principles within AAD. The use of CIY rather than proper expected information gain (EIG) makes this a *surrogate* formulation: the objective selects for causally distinctive actions, which approximately coincides with selecting for informative actions when model uncertainty is high but diverges when it is low. The $\lambda(M_t)$ weighting partially compensates (suppressing CIY when $U_M$ is low) but the compensation is heuristic, not derived.
+*Robust qualitative / heuristic.* The structural form (a unified objective balancing pragmatic value and an epistemic exploration term) is well-supported by convergent results across RL and active inference. However, AAD explicitly identifies two distinct layers of approximation here:
+1. **The Surrogate Assumption:** CIY measures action-distinguishability rather than true Expected Information Gain (EIG).
+2. **The Metric Assumption:** Treating CIY as directly proportional to inverse observation noise ($1/U_o$) to align it with the exact Lyapunov bounds in `#deriv-causal-ib-exploration` involves an unproven structural assumption, and the multiplier transformations are operating-point dependent.
 
-Max attainable: *heuristic* unless CIY is replaced by proper EIG. The structural form (value + information term) is well-supported, but the specific information term (CIY rather than EIG) is a tractability-motivated surrogate that selects for distinguishability rather than informativeness. The $\lambda$ parameterization is domain-dependent and the surrogate nature of CIY places a ceiling below robust-qualitative.
+Max attainable: *heuristic* (until CIY is replaced by proper EIG) and *robust qualitative* (regarding the structural separation of the two exploration drives described below).
 
 ## Discussion
+
+**Two Parallel Exploration Drives.** AAD dictates two correlated but distinct motivations for exploration, acting at opposite ends of the uncertainty spectrum:
+1. **Epistemic Information Gain ($\lambda_{\text{info}} \propto U_M$):** The primary CIY formulation. The agent explores to reduce its model uncertainty. This drive dominates when $U_M$ is high.
+2. **The Survival Imperative ($\lambda_{\text{surv}} \propto 1/U_M$):** As mathematically proven in `#deriv-causal-ib-exploration`, an agent with high confidence (low $U_M$) in a drifting environment ($\rho > 0$) mathematically guarantees its own death by ignoring noisy observations. To force the necessary correction, the Lyapunov persistence constraint dictates an immense shadow price ($\lambda_{\text{surv}} \to \infty$ as $U_M \to 0$) forcing the agent to seek unambiguous observations (low $U_o$ / high CIY). 
+
+The dark-room problem is bypassed entirely by the Survival Imperative: exploration is not driven by preferences-as-priors, but by the literal physical boundaries of the Lyapunov sector constraint.
 
 **Connection to the zero-mismatch ambiguity.** An agent that only exploits (acts to maximize predicted value) will tend toward confirmation bias — observing only what its model already explains ( #def-mismatch-signal, zero-mismatch ambiguity case (b)). Exploration via CIY-maximizing actions is the mechanism by which the agent actively tests its model.
 

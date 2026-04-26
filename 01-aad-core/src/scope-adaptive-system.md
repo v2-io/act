@@ -5,6 +5,7 @@ status: axiomatic
 depends:
   - def-agent-environment
   - def-observation-function
+  - def-chronica
 stage: claims-verified
 ---
 

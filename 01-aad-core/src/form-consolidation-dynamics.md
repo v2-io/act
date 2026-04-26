@@ -10,6 +10,8 @@ depends:
   - form-information-bottleneck
   - disc-compression-operations
   - result-structural-adaptation-necessity
+  - schema-strategy-persistence
+  - form-structural-change-as-parametric-limit
 stage: draft
 ---
 

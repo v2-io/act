@@ -23,10 +23,9 @@ where:
 - $I(M_t;\, o_{t+1:\infty} \mid a_{t:\infty})$ is the predictive power — how much the model tells the agent about future observations given future actions
 - $\beta \gt 0$ is the trade-off parameter controlling the compression-prediction balance
 
-**Dependence on volatility.** The trade-off $\beta$ depends on environment volatility $\rho$:
+**Dependence on volatility (The $\beta$ vs $\rho$ distinction).** It is tempting to claim that the trade-off parameter $\beta$ must be actively lowered by the agent in highly volatile environments (high $\rho$) to favor aggressive compression. However, this is a double-counting error. The environment's volatility already natively degrades the mutual information $I(\mathcal{C}_t; o_{t+1:\infty})$ — old history mathematically loses its predictive power as $\rho$ increases. The optimal $\phi^\ast$ will automatically discard this useless old information even if the agent's preference parameter $\beta$ remains completely constant. 
 
-- **Volatile environments** (high $\rho$): favor aggressive compression (low $\beta$). Old information decays in relevance quickly, so retaining it wastes capacity.
-- **Stable environments** (low $\rho$): favor dense retention (high $\beta$). Historical information remains predictive, so discarding it loses value.
+Therefore, adjusting $\beta$ reflects changes in the agent's *internal cost of memory* or *computational capacity*, not changes in environmental volatility. The agent adapts its *actions* in response to $\rho$ (by increasing exploration to survive, see `#deriv-causal-ib-exploration`), but the optimal IB representation adapts to $\rho$ natively through the joint probability distribution.
 
 ## Epistemic Status
 

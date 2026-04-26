@@ -30,10 +30,10 @@ Every slug is linked to its intended `src/{slug}.md` file, even when that file d
 | I   | Definition  |     | [#def-agent-environment](src/def-agent-environment.md)                             | Agent-environment boundary                     | deps-verified   |
 | I   | Definition  |     | [#def-action-transition](src/def-action-transition.md)                             | Actions affect environment                     | deps-verified   |
 | I   | Definition  |     | [#def-observation-function](src/def-observation-function.md)                       | Lossy, noisy observations                      | deps-verified   |
+| I   | Definition  |     | [#def-chronica](src/def-chronica.md)                                               | Complete interaction history                   | deps-verified   |
 | I   | Scope       |     | [#scope-adaptive-system](src/scope-adaptive-system.md)                     | Broadest AAD scope: observe under uncertainty  | claims-verified |
 | I   | Scope       |     | [#scope-agency](src/scope-agency.md)                                       | Narrows to action with Pearl-level-2 contrast  | claims-verified |
 | I   | Postulate   |     | [#post-composition-consistency](src/post-composition-consistency.md)                 | Agent/subagent scale invariance                | deps-verified   |
-| I   | Definition  |     | [#def-chronica](src/def-chronica.md)                                               | Complete interaction history                   | deps-verified   |
 | I   | Postulate   |     | [#post-causal-structure](src/post-causal-structure.md)                               | Irreducible causal structure                   | deps-verified   |
 | I   | Definition  |     | [#def-pearl-causal-hierarchy](src/def-pearl-causal-hierarchy.md)                   | Three levels of causal reasoning               | deps-verified   |
 | I   | Formulation |     | [#form-agent-model](src/form-agent-model.md)                                         | Compressed history as state                    | deps-verified   |
@@ -55,7 +55,6 @@ Every slug is linked to its intended `src/{slug}.md` file, even when that file d
 | I   | Result      |     | [#result-persistence-condition](src/result-persistence-condition.md)                     | Bounded mismatch condition                     | claims-verified |
 | I   | Result      |     | [#result-structural-adaptation-necessity](src/result-structural-adaptation-necessity.md) | When parametric update fails                   | claims-verified |
 | I   | Derived     |     | [#der-temporal-nesting](src/der-temporal-nesting.md)                               | Timescale stratification                       | deps-verified   |
-| I   | Formulation |     | [#form-consolidation-dynamics](src/form-consolidation-dynamics.md)                   | Offline regime of $g_M$ driven by replayed/pseudo-events with IB-gap-reduction objective; stability-plasticity feasibility window; necessity under sub-state factorization + bounded per-event budget | draft |
 | I   | Discussion  |     | [#scope-agent-identity](src/scope-agent-identity.md)                                   | Non-forkable causal trajectory                 | deps-verified   |
 
 
@@ -117,6 +116,7 @@ Every slug is linked to its intended `src/{slug}.md` file, even when that file d
 | II  | Definition      |     | [#def-strategic-tempo](src/def-strategic-tempo.md)                                             | Rate of useful $\Sigma_t$ revision                               | draft |
 | II  | Formulation     |     | [#form-strategy-complexity-cost](src/form-strategy-complexity-cost.md)                           | Complexity cost of maintaining $\Sigma_t$ (IB/MDL for DAGs)      | draft |
 | II  | Proposed schema |     | [#schema-strategy-persistence](src/schema-strategy-persistence.md)                     | Sector conditions for $\Sigma_t$                                 | draft |
+| II  | Formulation     |     | [#form-consolidation-dynamics](src/form-consolidation-dynamics.md)                     | Offline regime of $g_M$ driven by replayed/pseudo-events with IB-gap-reduction objective; stability-plasticity feasibility window; necessity under sub-state factorization + bounded per-event budget | draft |
 | II  | Derived         |     | [#der-orient-cascade](src/der-orient-cascade.md)                                               | Resolution order by info dep                                     | deps-verified |
 | II  | Discussion      |     | [#disc-exploit-explore-deliberate](src/disc-exploit-explore-deliberate.md)                       | Three-way exploit/explore/deliberate: extended deliberation threshold + conceptual framing | draft |
 
@@ -184,6 +184,7 @@ Every slug is linked to its intended `src/{slug}.md` file, even when that file d
 | A   | Derivation |     | [#deriv-edge-update-natural-parameter](src/deriv-edge-update-natural-parameter.md) | Log-odds as unique additive-evidence coordinate for edge credences (evidential-additivity axiom; update-level analog of #der-chain-confidence-decay) | draft |
 | A   | Derivation |     | [#deriv-adaptive-gain-dynamics](src/deriv-adaptive-gain-dynamics.md)               | A2' under adaptive gain: meta-gain conditions (MG-1)–(MG-4) + augmented-state Lyapunov compose #result-sector-persistence-template twice; refines A2' sub-scope partition into $\alpha_1$ (fixed-gain) / $\alpha_2$ (adaptive-gain under MG-1-MG-4) / $\beta$ | draft |
 | A   | Derivation |     | [#internal-external-decomposition](src/internal-external-decomposition.md)           | Log-additive split of viability into internal-operational health and environmental affordance | draft |
+| A   | Derivation |     | [#deriv-causal-ib-exploration](src/deriv-causal-ib-exploration.md)                 | Survival-imperative exploration drive: $U_o^{\max} \propto U_M$ from Lyapunov persistence forces a second exploration multiplier $\lambda_{\text{surv}} \propto 1/U_M$ parallel to the epistemic CIY drive — confident agents in drifting worlds must exploit-via-explore | draft |
 | A   | Derivation |     | [#deriv-detection-latency](src/deriv-detection-latency.md)                         | R1 within-class regime-change detection latency $\mathbb E[T_{\text{detect}}] = \Omega((n_{\min}+1)/\varepsilon)$ from #deriv-edge-update-natural-parameter log-odds forcing; sharpens #schema-strategy-persistence forgetting prerequisite to "required for bounded detection latency" | draft |
 | A   | Discussion |     | [#disc-independence-audit](src/disc-independence-audit.md)                       | Six load-bearing independence assumptions with failure regimes + repairs | draft |
 | A   | Discussion |     | [#disc-approximation-tiering](src/disc-approximation-tiering.md)                 | Meta-pattern: L0/L1/L2, C1/C2/C3, Tier 1/2/3 as common structure      | draft |
