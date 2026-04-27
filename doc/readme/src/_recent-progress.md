@@ -5,6 +5,12 @@
 
 The 3 most recent cycle narratives. Full record at [`CHANGELOG.md`](CHANGELOG.md); pre-2026-04-24 archaeology at [`LOG.md`](LOG.md).
 
+### Doc pipeline cycle: composable README, segment-level Findings, doc/ established
+
+*2026-04-26*
+
+A consolidation cycle on the project's documentation surface, motivated by Bundle 1 (framework-face reframe) in PROPOSALS.md and the long-standing observation that the public README had drifted from the convergent epistemic-architecture reframe and that the Lexicon section in particular was both very long (300+ lines) and partly duplicative of LEXICON.md. The cycle landed four interlocking moves rather than treating any one as standalone.
+
 ### Causal-IB matrix-form lift and transient-amplification spike
 
 *2026-04-25*
@@ -15,11 +21,5 @@ After the audit-extraction batch landed earlier in the day, two substantive theo
 
 *2026-04-25*
 
-Eight FINAL audit reports under `msc/AUDIT-WORKING-{584721, 613842, 738192, 742613, 849201}/` were triaged into a banded candidate file (`msc/audit-final-reports-candidate-extraction-2026-04-25.md`): §A high-confidence local fixes (14 candidates), §B already-tracked, §C strengthening-needed (4 items, escalated), §D architectural (5 items, mapped to existing PROPOSALS bands), §E borderline. The §A batch was dispatched as 7 parallel verify-then-fix agents under the discipline "the finding is *suspected*, not confirmed — verify in current segment text first; strengthen-before-soften before any softening; FORMAT discipline is non-negotiable." Landings (commits `4f0315e`, `937743d`, `3e87f59`, `1bffa60`, `fb51ff9`):
-
-### Cross-agent peer review: Causal-IB exploration drive
-
-*2026-04-25*
-
-Concurrent with the audit-extraction batch, a Gemini agent landed a Causal-Information-Bottleneck spike-promotion: new derivation segment `deriv-causal-ib-exploration.md` deriving exploration as a Lyapunov-survival imperative. Initial framing: "the unified objective is the *exact Lagrangian relaxation* of the persistence constraint" with epistemic status upgraded to *Derived (conditional)*. Peer review caught a $U_M$-direction flip ($\eta^* \propto 1/U_M$ for small $U_M$ should be $\propto U_M$) which propagated to the wrong sign on the final Lagrange multiplier. The strengthen-first discipline cuts both ways: a strengthening attempt should be honestly verified *before* status upgrade, just as a softening should be tried *after* a strengthening attempt.
+Eight FINAL audit reports under `msc/AUDIT-WORKING-{584721, 613842, 738192, 742613, 849201}/` were triaged into a banded candidate file (`msc/audit-final-reports-candidate-extraction-2026-04-25.md`): §A high-confidence local fixes (14 candidates), §B already-tracked, §C strengthening-needed (4 items, escalated), §D architectural (5 items, mapped to existing PROPOSALS bands), §E borderline. The §A batch was dispatched as 7 parallel verify-then-fix agents under the discipline "the finding is *suspected*, not confirmed — verify in current segment text first; strengthen-before-soften before any softening; FORMAT discipline is non-negotiable." Landings.
 

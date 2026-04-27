@@ -327,7 +327,7 @@ Related Work, Search Log. The segment's epistemic tier (frontmatter
 
 ---
 
-## 02-tst-core
+## Temporal Software Theory (TST)
 
 ### `#scope-developer-agent` *(Definition, status: axiomatic)*
 
@@ -425,7 +425,7 @@ Related Work, Search Log. The segment's epistemic tier (frontmatter
 
 ---
 
-## 03-logogenic-agents
+## Logogenic Agents
 
 ### `#scope-observation-ambiguity-modulation` *(Scope, status: conditional)*
 

@@ -7,6 +7,7 @@ If you are conducting a de-novo audit, please read [`doc/de-novo-audit-instructi
 The following files carry priming content and are best read only after your audit is complete, when the explicit purpose is to compare your independent findings against the project's existing record:
 
 - `README.md` — the public README (has Findings, Recent Progress, Known Issues sections)
+- `HISTORICAL-CONTEXT.md` — long-form positioning document with peer-framework comparisons that name specific contested positions
 - `FINDINGS.md` — curated novel-results catalog
 - `CHANGELOG.md` — cycle-by-cycle narrative of what has been judged settled
 - `LOG.md` — pre-2026-04-24 cycle archaeology

@@ -82,7 +82,12 @@ selected = narratives.first(options[:n])
 # carry detail that lives in CHANGELOG, not the README surfacing.
 def first_paragraph(body)
   paragraphs = body.split(/\n\s*\n/, 2)
-  paragraphs.first.to_s.strip
+  para = paragraphs.first.to_s.strip
+  # Trim trailing colon-introducing-list patterns ("Landings (commits A, B, C):"
+  # or just trailing ":") so the surfaced lead doesn't read as truncated mid-thought.
+  para = para.sub(/\s*\(commits?\s+[^)]+\)\s*:?\s*\z/i, '.')
+  para = para.sub(/:\s*\z/, '.')
+  para
 end
 
 output = +<<~HEADER

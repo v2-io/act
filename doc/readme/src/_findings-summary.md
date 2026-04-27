@@ -41,7 +41,7 @@ Distinctive results from the framework, with epistemic tiers and links into the 
 - **`#deriv-bias-bound`** *(status: conditional)* — *Universal Constant for the Coupled-Agent Bias Bound under Parameterization-Invariance* — *Claim differentiation* on the Lipschitz-posterior + Otto-Villani composition for AAD's coupled-agent bias bound, plus *claim novelty* on the no-go counterexample showing that universal $C$ in Euclidean-parameter norms cannot exist, which jointly elevates the (PI) axiom from convergent representational choice to load-bearing for theorem-level status.  
   [`01-aad-core/src/deriv-bias-bound.md`](01-aad-core/src/deriv-bias-bound.md)
 
-### 02-tst-core
+### Temporal Software Theory (TST)
 
 - **`#scope-developer-agent`** *(status: axiomatic)* — *Developer-Agent as AAD Instantiation* — *Claim transfer* of AAD's adaptive-agent formalism into developer-agent software economics.  
   [`02-tst-core/src/scope-developer-agent.md`](02-tst-core/src/scope-developer-agent.md)
@@ -52,7 +52,7 @@ Distinctive results from the framework, with epistemic tiers and links into the 
 - **`#hyp-causal-discovery-from-git`** *(status: discussion-grade)* — *Git Commits and Tests as Formal Interventions* — *Claim novelty* on the formal Pearl-Level-2 framing of commits and tests for developer agents, provisional pending deeper search.  
   [`02-tst-core/src/hyp-causal-discovery-from-git.md`](02-tst-core/src/hyp-causal-discovery-from-git.md)
 
-### 03-logogenic-agents
+### Logogenic Agents
 
 - **`#scope-observation-ambiguity-modulation`** *(status: conditional)* — *Ambiguity-Bounded Architectural Bias Law for Coupled Agents* — *Claim novelty* on the formal product-form bias law $\lVert\Delta M_{\text{bias}}\rVert \leq C \cdot \kappa_{\text{processing}} \cdot I(G;\Omega_\tau \mid e_\tau, M_{\tau^-})$ for coupled-architecture agents, where $\kappa$ is an architectural property of the processor and $I$ measures the goal-resolvable residual uncertainty left by the observation.  
   [`03-logogenic-agents/src/scope-observation-ambiguity-modulation.md`](03-logogenic-agents/src/scope-observation-ambiguity-modulation.md)

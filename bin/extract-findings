@@ -195,15 +195,22 @@ end
 
 # --- Section labeling ---------------------------------------------------
 
+COMPONENT_LABELS = {
+  '01-aad-core'         => 'AAD (uncategorized)',
+  '02-tst-core'         => 'Temporal Software Theory (TST)',
+  '03-logogenic-agents' => 'Logogenic Agents',
+  '04-logozoetic-agents' => 'Logozoetic Agents'
+}.freeze
+
 def section_label(component, section)
   if section && section =~ /^[IVX]+\./
     section
   elsif section && section.start_with?('Appendices')
     section
   elsif component == '01-aad-core'
-    section || 'AAD (uncategorized)'
+    section || COMPONENT_LABELS[component]
   else
-    component
+    COMPONENT_LABELS.fetch(component, component)
   end
 end
 
