@@ -16,11 +16,17 @@ Some of the framework's distinctive results, with epistemic tiers and links into
   [`01-aad-core/src/der-directed-separation.md`](01-aad-core/src/der-directed-separation.md)
 - **`#der-causal-insufficiency-detection`** *(status: conditional)* — *On-Policy L0 Insufficiency Is Structurally Undetectable* — *Claim differentiation* on the framing of why structure-aware exploration is required.  
   [`01-aad-core/src/der-causal-insufficiency-detection.md`](01-aad-core/src/der-causal-insufficiency-detection.md)
+- **`#schema-strategy-persistence`** *(status: sketch)* — *The Forgetting Prerequisite for Strategic Persistence* — *Claim differentiation* on Bayesian update dynamics with experience discounting.  
+  [`01-aad-core/src/schema-strategy-persistence.md`](01-aad-core/src/schema-strategy-persistence.md)
 
 ### III. Agentic Composites
 
 - **`#form-composition-closure`** *(status: conditional)* — *Composition-Closure Defect and Bridge Lemma* — *Claim differentiation* on bounded-loss composition as agent-boundary criterion.  
   [`01-aad-core/src/form-composition-closure.md`](01-aad-core/src/form-composition-closure.md)
+- **`#der-agent-opacity`** *(status: conditional)* — *Agent Opacity ($H_b$) as Dual to Observation Quality ($U_o$)* — *Claim differentiation* on Hafez's $H_b$.  
+  [`01-aad-core/src/der-agent-opacity.md`](01-aad-core/src/der-agent-opacity.md)
+- **`#result-per-dimension-persistence`** *(status: conditional)* — *The Weakest-Link Dimensional Persistence Law* — *Claim differentiation* on per-dimension Lyapunov stability.  
+  [`01-aad-core/src/result-per-dimension-persistence.md`](01-aad-core/src/result-per-dimension-persistence.md)
 
 ### Appendices: Details
 

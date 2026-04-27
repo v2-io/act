@@ -31,8 +31,8 @@ Agents are defined by progressive scope narrowings — each class is a restricti
 
 Three orthogonal dimensions; conflating them leads to category errors.
 
-- **Structural persistence** — the correction machinery's *capacity* to maintain bounded mismatch. Property of the dynamics ($\alpha > \rho/R$), not the current state.
-- **Operational persistence** — whether the agent is currently within the region where structural persistence applies. The adaptive reserve $\Delta\rho^* = \alpha R - \rho$ measures the margin.
+- **Structural persistence** ($\alpha \gt \rho/R$) — the correction machinery's *capacity* to maintain bounded mismatch. Property of the dynamics, not the current state.
+- **Operational persistence** ($\Delta\rho^* = \alpha R - \rho$) — whether the agent is currently within the region where structural persistence applies. The adaptive reserve $\Delta\rho^*$ measures the margin: positive means shock-absorbing capacity, zero means at the threshold.
 - **Continuity persistence** — whether the agent maintains coherent identity through time. Distinct from structural and operational; for thermostats it doesn't arise; for logozoetic agents it carries moral weight.
 
 ### Key quantities

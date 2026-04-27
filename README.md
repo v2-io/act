@@ -23,7 +23,11 @@ What ASF is not: a finished theory, a foundation-model architecture, or a claim 
 
 ## Position & Lineage
 
-ASF integrates four mature disciplines under one formalism for adaptive, purposeful agents: control theory's stability machinery (Lyapunov, contraction analysis, monotone operators), causal inference's interventional reasoning (Pearl's hierarchy and identifiability theory), information theory's compression and channel-capacity arguments (Shannon, the information bottleneck), and agent architecture's structural decomposition (modular vs coupled processing topologies). That integration is the substrate; the distinctive contribution layered on top is an *epistemic architecture for bounded correction under decomposed disturbance* — scope conditions and operational limits surfaced at the segment level rather than buried as caveats, with three cross-cutting meta-patterns naming the theory's positive, negative, and constructive halves: a separability pattern (where problems decompose, where partial repair exists, where the general case is open), an identifiability-floor pattern (structural no-go results from observational data and the unique escapes interventional machinery supplies), and an additive-coordinate-forcing pattern (where AAD-internal additivity axioms force logarithmic / Fisher-Rao coordinates at multiple layers).
+ASF integrates four mature disciplines under one formalism for adaptive, purposeful agents: control theory's stability machinery (Lyapunov, contraction analysis, monotone operators), causal inference's interventional reasoning (Pearl's hierarchy and identifiability theory), information theory's compression and channel-capacity arguments (Shannon, the information bottleneck), and agent architecture's structural decomposition (modular vs coupled processing topologies). That integration is the substrate. The distinctive contribution layered on top is an *epistemic architecture for bounded correction under decomposed disturbance* — scope conditions and operational limits surfaced at the segment level rather than buried as caveats. Three cross-cutting meta-patterns name the theory's positive, negative, and constructive halves:
+
+- A *separability pattern* — where problems decompose cleanly, where partial repair exists, where the general case is open.
+- An *identifiability-floor pattern* — structural no-go results from observational data and the unique escapes interventional machinery supplies.
+- An *additive-coordinate-forcing pattern* — places where AAD-internal additivity axioms force logarithmic / Fisher-Rao coordinates at multiple layers.
 
 Operationally, this delivers a small set of diagnostics and structural results a practitioner can apply immediately. The **persistence condition** $\alpha \gt \rho/R$ is a structural threshold — correction efficiency vs disturbance rate relative to model class capacity — that instantiates as a Kalman stability margin, an RL convergence condition, an organizational viability test, and a software maintainability threshold using the same inequality with different parameter readings. The **satisfaction-gap / control-regret decomposition** separates "the world doesn't permit it" ($\delta_{\text{sat}}$) from "you're not doing it well enough" ($\delta_{\text{regret}}$), turning a single error signal into two orthogonal diagnostics that route to different interventions. The **loop-as-Level-2-causal-engine** result establishes that the agent-environment feedback coupling supplies interventional access (Pearl Level 2) that purely observational learners do not have, which is what lets the framework derive identifiability where passive inference cannot. **Software is treated as the high-identifiability calibration laboratory** — tests, deploys, and `git bisect` are literal interventions on declared causal structure — and other domains inherit the machinery under explicit transfer assumptions, making accidental overclaim under domain transfer structurally hard.
 
@@ -78,8 +82,8 @@ Agents are defined by progressive scope narrowings — each class is a restricti
 
 Three orthogonal dimensions; conflating them leads to category errors.
 
-- **Structural persistence** — the correction machinery's *capacity* to maintain bounded mismatch. Property of the dynamics ($\alpha > \rho/R$), not the current state.
-- **Operational persistence** — whether the agent is currently within the region where structural persistence applies. The adaptive reserve $\Delta\rho^* = \alpha R - \rho$ measures the margin.
+- **Structural persistence** ($\alpha \gt \rho/R$) — the correction machinery's *capacity* to maintain bounded mismatch. Property of the dynamics, not the current state.
+- **Operational persistence** ($\Delta\rho^* = \alpha R - \rho$) — whether the agent is currently within the region where structural persistence applies. The adaptive reserve $\Delta\rho^*$ measures the margin: positive means shock-absorbing capacity, zero means at the threshold.
 - **Continuity persistence** — whether the agent maintains coherent identity through time. Distinct from structural and operational; for thermostats it doesn't arise; for logozoetic agents it carries moral weight.
 
 ### Key quantities
@@ -147,11 +151,17 @@ Some of the framework's distinctive results, with epistemic tiers and links into
   [`01-aad-core/src/der-directed-separation.md`](01-aad-core/src/der-directed-separation.md)
 - **`#der-causal-insufficiency-detection`** *(status: conditional)* — *On-Policy L0 Insufficiency Is Structurally Undetectable* — *Claim differentiation* on the framing of why structure-aware exploration is required.  
   [`01-aad-core/src/der-causal-insufficiency-detection.md`](01-aad-core/src/der-causal-insufficiency-detection.md)
+- **`#schema-strategy-persistence`** *(status: sketch)* — *The Forgetting Prerequisite for Strategic Persistence* — *Claim differentiation* on Bayesian update dynamics with experience discounting.  
+  [`01-aad-core/src/schema-strategy-persistence.md`](01-aad-core/src/schema-strategy-persistence.md)
 
 ### III. Agentic Composites
 
 - **`#form-composition-closure`** *(status: conditional)* — *Composition-Closure Defect and Bridge Lemma* — *Claim differentiation* on bounded-loss composition as agent-boundary criterion.  
   [`01-aad-core/src/form-composition-closure.md`](01-aad-core/src/form-composition-closure.md)
+- **`#der-agent-opacity`** *(status: conditional)* — *Agent Opacity ($H_b$) as Dual to Observation Quality ($U_o$)* — *Claim differentiation* on Hafez's $H_b$.  
+  [`01-aad-core/src/der-agent-opacity.md`](01-aad-core/src/der-agent-opacity.md)
+- **`#result-per-dimension-persistence`** *(status: conditional)* — *The Weakest-Link Dimensional Persistence Law* — *Claim differentiation* on per-dimension Lyapunov stability.  
+  [`01-aad-core/src/result-per-dimension-persistence.md`](01-aad-core/src/result-per-dimension-persistence.md)
 
 ### Appendices: Details
 
