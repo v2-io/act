@@ -21,16 +21,16 @@ See [`../FORMAT.md`](../FORMAT.md) for segment file conventions. See [`../NOTATI
 |---|------|---|-----|-------|-------|
 | S | Postulate | | [#post-temporal-optimality](src/post-temporal-optimality.md) | Least-time is optimal (given equivalent outcomes) | deps-verified |
 | S | Scope | | [#scope-software](src/scope-software.md) | Systems with $P(\text{change}) \gt \varepsilon$ | draft |
-| S | Observation | | [#obs-software-epistemic-properties](src/obs-software-epistemic-properties.md) | Software's 6 unique properties | missing |
+| S | Observation | | [#obs-software-epistemic-properties](src/obs-software-epistemic-properties.md) | Software's 6 unique properties | draft |
 | S | Definition | | [#def-feature](src/def-feature.md) | Unit of coherent change | draft |
 | S | Result | | [#result-specification-bound](src/result-specification-bound.md) | Can't implement unspecified; includes communication bottleneck corollary | draft |
 | S | Derived | | [#der-change-expectation-baseline](src/der-change-expectation-baseline.md) | Median future ≈ observed past; includes investment scale form | draft |
-| S | Definition | | [#scope-developer-agent](src/scope-developer-agent.md) | Developer as $(M_t, O_t, \Sigma_t)$ | missing |
+| S | Definition | | [#scope-developer-agent](src/scope-developer-agent.md) | Developer as $(M_t, O_t, \Sigma_t)$ | draft |
 | S | Definition | | [#def-comprehension-time](src/def-comprehension-time.md) | Cost of constructing local $M_t$ | draft |
 | S | Definition | | [#def-implementation-time](src/def-implementation-time.md) | Cost from first change to done | draft |
 | S | Derived | | [#der-dual-optimization](src/der-dual-optimization.md) | Min comprehension + impl time | draft |
 | S | Derived | | [#der-change-investment](src/der-change-investment.md) | When extra time now pays off | draft |
-| S | Discussion + Hypothesis | | [#der-code-quality-as-observation-infrastructure](src/der-code-quality-as-observation-infrastructure.md) | Code quality $\to U_o \to \eta^\ast \to \mathcal{T}$ | missing |
+| S | Discussion + Hypothesis | | [#der-code-quality-as-observation-infrastructure](src/der-code-quality-as-observation-infrastructure.md) | Code quality $\to U_o \to \eta^\ast \to \mathcal{T}$ | draft |
 | | --GAP-- | | | Developer tempo as $\mathcal T_{\text{obs}}$ + $\mathcal T_{\text{explore}}$ + $\mathcal T_{\text{probe}}$ | |
 | S | Hypothesis | | [#hyp-conceptual-alignment](src/hyp-conceptual-alignment.md) | Code-domain alignment; includes realignment corollary | draft |
 | S | Definition | | [#def-atomic-changeset](src/def-atomic-changeset.md) | The diff that is the feature | draft |
@@ -44,7 +44,7 @@ See [`../FORMAT.md`](../FORMAT.md) for segment file conventions. See [`../NOTATI
 | S | Derived | | [#der-principled-decision-integration](src/der-principled-decision-integration.md) | Optimal $C$ minimizes $E[T \vert C]$ | draft |
 | S | Definition | | [#def-system-availability](src/def-system-availability.md) | $\text{MTTF}/(\text{MTTF}+\text{MTTR})$ | draft |
 | S | Scope | | [#scope-continuous-operation](src/scope-continuous-operation.md) | Include $P(\text{fail}) \times T_{\text{recovery}}$ | draft |
-| S | Hypothesis | | [#hyp-causal-discovery-from-git](src/hyp-causal-discovery-from-git.md) | Git as interventional data | missing |
+| S | Hypothesis | | [#hyp-causal-discovery-from-git](src/hyp-causal-discovery-from-git.md) | Git as interventional data | draft |
 | | --GAP-- | | | Software persistence: the unmaintainability threshold formalized | |
 
 

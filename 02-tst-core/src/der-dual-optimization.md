@@ -65,6 +65,28 @@ The resolution depends on $\hat{n}_{\text{future}}$ and the turnover rate. Under
 
 **Practical implications for AI-maintained code.** When $k$ is very large (many AI sessions touching the code), the comprehension term dominates overwhelmingly. This is not a style preference — it is the mathematical consequence of the turnover multiplier. Explicit code, linear control flow, local comprehensibility, and intent-revealing names are temporal optimizations.
 
+## Findings
+
+### Comprehension Time Dominates Under Turnover
+
+**Brief:** A principled implementation choice minimizes the *sum* of immediate cost plus future-feature comprehension and implementation costs, weighted by the median predicted future feature count from the Lindy-style baseline. The decisive observation is that comprehension cost compounds *per reader* (every fresh agent who touches the code pays it again), while implementation cost is paid per feature. Under high agent turnover — most cleanly the limiting case of an AI agent with 100% per-session context turnover — the comprehension term dominates overwhelmingly, and a wide class of practitioner intuitions ("explicit code is better than clever code"; "intent-revealing names matter more than implementation efficiency") become temporal-optimization corollaries rather than style preferences.
+
+**Impact:** Reframes the architectural-style debate as a quantitative regime question: when the turnover multiplier $k$ is large, the dual-optimization weighting is dominated by comprehension, and the choices that practitioners commonly defend on aesthetic or methodological grounds are the choices the formalism prescribes. Conversely, when $k$ is small (one developer, short-lived code), the implementation term competes meaningfully — explaining why the same advice that is correct for production codebases is wrong for one-off scripts. The 100% AI context-turnover case is not a limit case but the *normal* case for AI-maintained code, which makes the comprehension-dominance regime the operating regime for a substantial and growing fraction of software work — not an edge case.
+
+**Novelty Claim:** *Claim novelty* on the comprehension-dominates result for AI-maintained code, provisional pending deeper search. The Lindy-style change-expectation baseline that supplies $\hat n_{\text{future}}$ is upstream prior art (Bayesian survival analysis, Jeffreys prior); the novel move here is the formal turnover-multiplier $k = (1+r) \cdot s$ that makes comprehension cost compound per agent in an AAD-grounded dual-optimization formula, with the AI-instance-as-fresh-reader limit as a structural prediction of the formula rather than as a separate observation.
+
+**Related Work:**
+
+| ASF concern | Prior-art language | Relationship / Positioning |
+|---|---|---|
+| Change rate as predictor of future cost | Lindy effect; Bayesian survival analysis with Jeffreys prior (standard probability theory; software-specific application discussed in TST's `lit-review/` and `simulations/` corpora) | *formal antecedent* — derivation of the median-prediction baseline is standard; the contribution here is its placement inside a multi-reader cost decomposition, not the baseline itself |
+| Context turnover in AI coding agents | Long-Context SWE-RL (Golubev et al. 2025, published 2025-08, found 2026-04 via Pillar-4 Undermind search) — trains long-context multi-turn coding agents specifically to address context-window limitations | *empirical instantiation supporting* — confirms that context turnover is a first-order practical concern for AI developer agents; addresses it through training-time interventions rather than through a formal cost model |
+| Code comprehension as a dominant work category | Long-standing software-engineering literature on program comprehension (von Mayrhauser-Vans, Storey, Maalej tradition; not surfaced as a single citation in Pillar-4 search) | *conceptual precursor* — qualitative observation that developers spend most of their time reading rather than writing; this finding gives the dominance a quantitative regime condition (high $k$) rather than asserting it as universal |
+| Ambiguity recovery through interaction | Ambig-SWE (Vijayvargiya et al. 2025, published 2025-02, found 2026-04) — underspecification losses partially recovered through interaction | *adjacent literature* — interaction reduces residual specification information $H_{\text{req}}$ in `#result-specification-bound`'s sense, which feeds the comprehension term in dual optimization; the connection is structural but not derived in either direction yet |
+
+**Search Log:**
+- 2026-04 (*nominally comprehensive at pillar level, with explicit thin-coverage caveat*, via `msc/Novelty_defense_and_integration.md` Pillar 4): Undermind retrieval surfaced no prior paper formalizing comprehension dominance via a Lindy-derived turnover-multiplier cost decomposition. The report's recommended follow-on search target — *software repository cognition* — was not exhausted at the searched depth; provisional novelty pending direct search of the program-comprehension literature (von Mayrhauser-Vans-lineage and successors), which the Pillar-4 search did not reach but which is the most likely locus of close anticipation for the dominance claim specifically.
+
 ## Working Notes
 
 - The "typical future feature" $F_{\text{typical}}$ is an idealization. Real futures have a distribution of feature types, and the optimal choice $C^\ast$ may depend on which features are more likely. #der-principled-decision-integration addresses this with the full probabilistic formulation. This simpler form is the single-feature-type approximation.

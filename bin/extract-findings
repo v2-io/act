@@ -8,35 +8,48 @@
 # artifacts:
 #
 #   1. FINDINGS.md (repo root) — full canonical catalog. Each entry
-#      carries the segment's full Findings content (Novelty, Impact,
-#      For non-specialists), the segment's type, and a link to the
-#      segment.
+#      carries one Finding's full content (Brief / Impact / Novelty
+#      Claim / Related Work / Search Log), the segment's type, the
+#      segment's frontmatter tier, and a link to the segment.
 #
 #   2. doc/readme/src/_findings-summary.md — README-shaped condensed
-#      surfacing. One block per finding with the headline claim, tier,
-#      and segment link; the impact and casual-reader paragraphs stay
-#      in FINDINGS.md.
+#      surfacing. One bullet per Finding with the Novelty-Claim
+#      sentence, segment link, and tier.
 #
 # Most segments will not have a `## Findings` section; that is the
 # correct default. Only segments with genuinely distinctive results
 # carry one. Empty by default keeps the catalog focused.
 #
-# Usage:
-#   bin/extract-findings           # write both outputs
-#   bin/extract-findings --stdout  # write to stdout (FINDINGS.md format only)
+# Per FORMAT.md `### Findings` schema:
 #
-# Findings-section schema (per FORMAT.md once landed):
 #   ## Findings
 #
-#   **Novelty:** *[tier]* — {one-sentence headline claim}.
+#   ### {Finding name}
 #
-#   **Impact:** {one short paragraph on what this unlocks/closes/forces}.
+#   **Brief:** {plain-language paragraph}
+#   **Impact:** {paragraph}
+#   **Novelty Claim:** {one-or-two sentences with claim posture}
+#   **Related Work:** {bulleted list OR table}
+#   **Search Log:** {dated entries with status}
 #
-#   **For non-specialists:** {2-3 sentences in plain language}.
+#   ### {Second Finding name, optional}
+#   ...
 #
-# The script is tolerant of variations: missing fields produce a
-# warning at the top of the output rather than a crash, so partial
-# adoption during the segment-Findings sweep doesn't break the build.
+# Tier is NOT carried inside the Findings section. The extractor pulls
+# the segment's `status:` value from the YAML frontmatter and surfaces
+# it alongside each Finding in the catalog.
+#
+# Each `### {Finding name}` sub-heading is one catalog entry. A
+# segment with multiple Findings contributes multiple entries.
+# A segment with `## Findings` but no `### {Finding name}` sub-heading
+# (single-finding case using the section header alone, the form the
+# 2026-04 pilots used) is tolerated — the whole block becomes one
+# anonymous Finding — but is flagged as a warning recommending the
+# retrofit to the named-sub-heading form.
+#
+# Usage:
+#   bin/extract-findings           # write both outputs
+#   bin/extract-findings --stdout  # write canonical FINDINGS.md to stdout
 
 require 'pathname'
 require 'optparse'
@@ -52,6 +65,10 @@ OUTLINE_FILES = [
 
 CANONICAL_OUT = REPO_ROOT.join('FINDINGS.md')
 SUMMARY_OUT = REPO_ROOT.join('doc/readme/src/_findings-summary.md')
+
+FIELD_KEYS = ['Brief', 'Impact', 'Novelty Claim', 'Related Work', 'Search Log'].freeze
+
+# --- Outline walker -----------------------------------------------------
 
 # Walks an OUTLINE.md and yields { component, section, slug, path,
 # segment_type } for each segment row. Section is the most recent H2
@@ -71,7 +88,6 @@ def walk_outline(outline_path)
       relpath = m[2]
       seg_path = outline_dir.join(relpath).cleanpath
       next unless seg_path.exist?
-      # Type cell is the second `|`-delimited cell in the row.
       cells = line.split('|').map(&:strip)
       seg_type = cells[2] # leading empty + section + type + ...
       results << {
@@ -86,37 +102,103 @@ def walk_outline(outline_path)
   results
 end
 
-# Extracts the body of `## Findings` from segment text, terminated by
-# the next `##` heading or EOF. Returns nil if no Findings section.
-def extract_findings_block(text)
-  return nil unless text =~ /^##\s+Findings\s*$/m
+# --- Frontmatter parser -------------------------------------------------
+
+# Pulls the `status:` value from a segment's YAML frontmatter.
+# Returns nil if no frontmatter or no status field.
+def extract_frontmatter_status(text)
+  return nil unless text.start_with?("---\n") || text.start_with?("---\r\n")
+  fm_end = text.index("\n---", 4)
+  return nil unless fm_end
+  fm = text[4...fm_end]
+  m = fm.match(/^status:\s*(.+?)\s*$/)
+  m ? m[1].strip : nil
+end
+
+# --- Findings parser ----------------------------------------------------
+
+# Parses a single Finding's body (the content under one `### {name}`
+# sub-heading, OR the entire `## Findings` block when no sub-headings
+# are present) into the five fields.
+def parse_finding_fields(body)
+  fields = {}
+  current_key = nil
+  current_lines = []
+  body.each_line do |line|
+    if (m = line.match(/^\*\*(Brief|Impact|Novelty Claim|Related Work|Search Log):\*\*\s*(.*)$/))
+      fields[current_key] = current_lines.join.strip if current_key
+      current_key = m[1]
+      tail = m[2]
+      current_lines = tail.empty? ? [] : ["#{tail}\n"]
+    elsif current_key
+      current_lines << line
+    end
+  end
+  fields[current_key] = current_lines.join.strip if current_key
+  fields
+end
+
+# Extracts all Findings from a segment's text. Returns an array of
+# { name, block, fields, schema_warnings } hashes — possibly empty.
+def extract_findings(text)
+  return [] unless text =~ /^##\s+Findings\s*$/m
   parts = text.split(/^##\s+Findings\s*$/m, 2)
-  return nil if parts.size < 2
+  return [] if parts.size < 2
   body_and_rest = parts[1]
-  # Stop at next H2 (or H1, but segments don't have additional H1s).
-  body = body_and_rest.split(/^##\s+/m, 2).first || ''
-  body.strip
+  body = (body_and_rest.split(/^##\s+/m, 2).first || '').strip
+
+  findings = []
+
+  if body.match?(/^###\s/m)
+    # Multi-finding (or single-finding-with-sub-heading) case.
+    chunks = body.split(/^###\s+(.+?)\s*$/)
+    # chunks[0] is any preamble before first ###; subsequent pairs are
+    # [name, content].
+    chunks.shift # discard preamble
+    chunks.each_slice(2) do |name, content|
+      content ||= ''
+      fields = parse_finding_fields(content.strip)
+      findings << {
+        name: name.strip,
+        block: content.strip,
+        fields: fields,
+        schema_warnings: validate_schema(fields)
+      }
+    end
+  else
+    # No sub-heading: tolerated but flagged.
+    fields = parse_finding_fields(body)
+    warnings = ['No `### {Finding name}` sub-heading; treating whole `## Findings` block as one anonymous Finding. Retrofit recommended per FORMAT.md.']
+    warnings += validate_schema(fields)
+    # Old-schema detection: presence of `**Novelty:**` (vs `**Novelty Claim:**`) or `**For non-specialists:**` indicates pre-2026-04-26 schema.
+    if body.match?(/^\*\*Novelty:\*\*/) || body.match?(/^\*\*For non-specialists:\*\*/)
+      warnings << 'Old-schema fields detected (`**Novelty:**` or `**For non-specialists:**`). Retrofit to new schema (Brief / Impact / Novelty Claim / Related Work / Search Log) per FORMAT.md.'
+    end
+    findings << {
+      name: nil,
+      block: body,
+      fields: fields,
+      schema_warnings: warnings
+    }
+  end
+
+  findings
 end
 
-# Pulls the headline claim out of a Findings block, looking for
-# `**Novelty:** *[tier]* — {claim}.` Returns { tier, claim, full_block }.
-# Tolerant: if the schema isn't matched exactly, returns nil for the
-# missing pieces and lets the caller decide how to surface that.
-def parse_findings_block(block)
-  novelty_re = /\*\*Novelty:\*\*\s*\*\[?(?<tier>[^\]\*]+?)\]?\*\s*[—-]\s*(?<claim>.+?)\.\s*\n/m
-  m = block.match(novelty_re)
-  {
-    tier: m && m[:tier]&.strip,
-    claim: m && m[:claim]&.strip,
-    full: block
-  }
+def validate_schema(fields)
+  warnings = []
+  FIELD_KEYS.each do |key|
+    warnings << "Missing field: **#{key}:**" unless fields.key?(key)
+  end
+  warnings
 end
 
-# Group entries by section for ordered output.
-# Sections we emit, in order; anything else falls through under the
-# component name as a section.
+# --- Section labeling ---------------------------------------------------
+
 def section_label(component, section)
   if section && section =~ /^[IVX]+\./
+    section
+  elsif section && section.start_with?('Appendices')
     section
   elsif component == '01-aad-core'
     section || 'AAD (uncategorized)'
@@ -125,31 +207,69 @@ def section_label(component, section)
   end
 end
 
+# --- Output rendering ---------------------------------------------------
+
+def render_finding_canonical(item, finding)
+  out = +''
+  fields = finding[:fields]
+  if finding[:name]
+    out << "#### #{finding[:name]}\n\n"
+  end
+  FIELD_KEYS.each do |key|
+    next unless fields[key]
+    out << "**#{key}:** #{fields[key]}\n\n"
+  end
+  out
+end
+
+def render_finding_summary(item, finding)
+  fields = finding[:fields]
+  novelty = fields['Novelty Claim']
+  if novelty
+    # Take just the first sentence (split on the first period at end of
+    # a clause, conservatively defined as period-space-capital or
+    # period-newline). For one- or two-sentence Novelty Claims this
+    # surfaces the whole thing; for longer ones it surfaces the lead.
+    first = novelty.split(/\.(?=\s+[A-Z]|\n|$)/, 2).first.to_s.strip
+    first << '.' unless first.end_with?('.')
+    first
+  else
+    '*(novelty claim missing — see segment)*'
+  end
+end
+
+# --- Main ---------------------------------------------------------------
+
 options = { stdout: false }
 OptionParser.new do |opts|
   opts.banner = 'Usage: bin/extract-findings [--stdout]'
   opts.on('--stdout', 'Write canonical FINDINGS.md format to stdout') { options[:stdout] = true }
 end.parse!
 
-# Walk every outline, collect every segment with a Findings section.
-all_findings = []
+# Walk every outline; collect every (segment, finding) pair.
+all_entries = []
 warnings = []
 
 OUTLINE_FILES.each do |outline|
   next unless outline.exist?
   walk_outline(outline).each do |entry|
     text = entry[:path].read
-    block = extract_findings_block(text)
-    next unless block
-    parsed = parse_findings_block(block)
-    unless parsed[:claim]
-      warnings << "Segment #{entry[:slug]} has a Findings section but the Novelty: line did not parse cleanly."
+    findings = extract_findings(text)
+    next if findings.empty?
+    tier = extract_frontmatter_status(text)
+    findings.each do |finding|
+      all_entries << entry.merge(
+        finding: finding,
+        tier: tier
+      )
+      finding[:schema_warnings].each do |w|
+        warnings << "[#{entry[:slug]}#{finding[:name] ? " — #{finding[:name]}" : ''}] #{w}"
+      end
     end
-    all_findings << entry.merge(findings: parsed)
   end
 end
 
-# --- FINDINGS.md (canonical) ---------------------------------------------
+# --- FINDINGS.md (canonical) -------------------------------------------
 
 canonical = +<<~HEADER
   # FINDINGS — Novel Results Catalog
@@ -160,25 +280,33 @@ canonical = +<<~HEADER
        Most segments do not carry a Findings section — that is the correct
        default. Only segments with genuinely distinctive results contribute. -->
 
-  This catalog surfaces the framework's distinctive results, organized by section.
-  Each entry is the segment's own self-assessment of novelty, impact, and a
-  framing for non-specialists, followed by a link to the segment for derivation,
-  scope, and caveats.
+  This catalog surfaces the framework's distinctive results, organized by
+  section. Each entry is the segment's own statement of the finding under the
+  schema in `FORMAT.md` § Findings: Brief, Impact, Novelty Claim,
+  Related Work, Search Log. The segment's epistemic tier (frontmatter
+  `status:`) is surfaced alongside the segment header.
 
 HEADER
 
-if all_findings.empty?
+if all_entries.empty?
   canonical << "*(No `## Findings` sections found yet. The segment-by-segment Findings sweep is in progress; entries will appear here as it proceeds.)*\n"
 else
-  by_section = all_findings.group_by { |f| section_label(f[:component], f[:section]) }
-  by_section.each do |section, items|
+  by_section = all_entries.group_by { |e| section_label(e[:component], e[:section]) }
+  by_segment_in_section = by_section.transform_values { |entries| entries.group_by { |e| e[:slug] } }
+
+  by_segment_in_section.each do |section, segments|
     canonical << "## #{section}\n\n"
-    items.each do |item|
-      seg_link = item[:path].relative_path_from(REPO_ROOT).to_s
-      type_str = item[:type] ? " *(#{item[:type]})*" : ''
-      canonical << "### `##{item[:slug]}`#{type_str}\n\n"
+    segments.each do |slug, entries|
+      head = entries.first
+      seg_link = head[:path].relative_path_from(REPO_ROOT).to_s
+      type_str = head[:type] ? "*(#{head[:type]}" : '*('
+      type_str << ", status: #{head[:tier]}" if head[:tier]
+      type_str << ')*'
+      canonical << "### `##{slug}` #{type_str}\n\n"
       canonical << "[`#{seg_link}`](#{seg_link})\n\n"
-      canonical << "#{item[:findings][:full]}\n\n"
+      entries.each do |entry|
+        canonical << render_finding_canonical(entry, entry[:finding])
+      end
       canonical << "---\n\n"
     end
   end
@@ -187,9 +315,10 @@ end
 unless warnings.empty?
   canonical << "## Extraction warnings\n\n"
   warnings.each { |w| canonical << "- #{w}\n" }
+  canonical << "\n"
 end
 
-# --- _findings-summary.md (README-shaped) -------------------------------
+# --- _findings-summary.md (README-shaped) ------------------------------
 
 summary = +<<~HEADER
   <!-- AUTO-GENERATED by bin/extract-findings; do not hand-edit. -->
@@ -197,21 +326,22 @@ summary = +<<~HEADER
 
   ## Novel Results & Findings
 
-  Distinctive results from the framework, with epistemic tiers and links into the segments. Full content (impact, caveats, casual-reader framing) at [`FINDINGS.md`](FINDINGS.md).
+  Distinctive results from the framework, with epistemic tiers and links into the segments. Full content (impact, related work, casual-reader brief, search log) at [`FINDINGS.md`](FINDINGS.md).
 
 HEADER
 
-if all_findings.empty?
+if all_entries.empty?
   summary << "*(The segment-by-segment Findings sweep is in progress. Entries will appear here as the catalog is populated. See [`FINDINGS.md`](FINDINGS.md) for the canonical catalog.)*\n"
 else
-  by_section = all_findings.group_by { |f| section_label(f[:component], f[:section]) }
-  by_section.each do |section, items|
+  by_section = all_entries.group_by { |e| section_label(e[:component], e[:section]) }
+  by_section.each do |section, entries|
     summary << "### #{section}\n\n"
-    items.each do |item|
-      seg_link = item[:path].relative_path_from(REPO_ROOT).to_s
-      tier = item[:findings][:tier] ? "*(#{item[:findings][:tier]})*" : ''
-      claim = item[:findings][:claim] || '*(headline claim missing — see segment)*'
-      summary << "- **`##{item[:slug]}`** #{tier} — #{claim}.  \n"
+    entries.each do |entry|
+      seg_link = entry[:path].relative_path_from(REPO_ROOT).to_s
+      tier = entry[:tier] ? " *(status: #{entry[:tier]})*" : ''
+      finding_name = entry[:finding][:name] ? " — *#{entry[:finding][:name]}*" : ''
+      novelty = render_finding_summary(entry, entry[:finding])
+      summary << "- **`##{entry[:slug]}`**#{tier}#{finding_name} — #{novelty}  \n"
       summary << "  [`#{seg_link}`](#{seg_link})\n"
     end
     summary << "\n"
@@ -223,7 +353,7 @@ if options[:stdout]
 else
   CANONICAL_OUT.write(canonical)
   SUMMARY_OUT.write(summary)
-  puts "Wrote #{CANONICAL_OUT.relative_path_from(REPO_ROOT)} (#{all_findings.size} findings, #{canonical.bytesize} bytes)"
-  puts "Wrote #{SUMMARY_OUT.relative_path_from(REPO_ROOT)} (#{all_findings.size} findings, #{summary.bytesize} bytes)"
+  puts "Wrote #{CANONICAL_OUT.relative_path_from(REPO_ROOT)} (#{all_entries.size} findings, #{canonical.bytesize} bytes)"
+  puts "Wrote #{SUMMARY_OUT.relative_path_from(REPO_ROOT)} (#{all_entries.size} findings, #{summary.bytesize} bytes)"
   warnings.each { |w| warn "warning: #{w}" }
 end
