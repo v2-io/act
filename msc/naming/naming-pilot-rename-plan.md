@@ -2,11 +2,14 @@
 
 Live record of specific rename mappings for the role-prefix pilot workstream.
 This file is **excluded** from `bin/rename-slug`'s substitution patterns
-(`msc/naming-*.md` glob) so the mappings below survive future renames verbatim
-and remain legible as a historical record of which names were executed.
+(`msc/naming/` directory-prefix exclusion in `EXCLUDED_DIR_PREFIXES`) so the
+mappings below survive future renames verbatim and remain legible as a
+historical record of which names were executed.
 
-See `TODO.md §"Active — Naming Discipline"` for the surrounding strategic plan
-(insights, role-prefix discipline, post-pilot workstream).
+See [`PRACTICA.md`](../../PRACTICA.md) §"🌟 Current naming conventions refactor"
+for the surrounding strategic pipeline and [`TODO.md`](../../TODO.md) §"Naming
+pipeline — specific deferred items" for the specific subject-noun renames
+queued for the refined Round 1 → Round 2 workflow.
 
 ## Landed — role-prefix pilot complete (2026-04-23)
 
@@ -94,7 +97,8 @@ TODO.md is live — references in its body must update with the rename. But a
 *table of rename mappings themselves* would be catastrophically corrupted by
 a rename sweeping through it (the old-slug column would get rewritten to match
 the new-slug column). So rename-specific tables live here, and the script's
-`msc/naming-*.md` exclusion glob keeps this file frozen.
+`msc/naming/` directory-prefix exclusion (`EXCLUDED_DIR_PREFIXES` in
+`bin/rename-slug`) keeps this file — and all naming-cycle artifacts — frozen.
 
 When a new rename lands or a pending row changes status, update this file by
 hand.
