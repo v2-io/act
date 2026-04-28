@@ -25,7 +25,7 @@ I also ran `bin/lint-outline`. Current output: 111 outline entries, 111 segment 
 
 I searched for score-function, likelihood-increasing direction, Gaussian-error equivalence, and mismatch-sign language across active docs, spikes, and source. Hits were ordinary references to `#def-mismatch-signal`, not a correction.
 
-Assessment: this appears to be a new durable finding. A prior audit reflection in `audits/AUDIT-WORKING-849201/17-def-mismatch-signal.md` praised the score-function formulation rather than flagging the sign, so this was probably missed rather than tracked elsewhere.
+Assessment: this appears to be a new durable finding. A prior audit reflection in `msc/AUDIT-WORKING-849201/17-def-mismatch-signal.md` praised the score-function formulation rather than flagging the sign, so this was probably missed rather than tracked elsewhere.
 
 Recommended repair: in `01-aad-core/src/def-mismatch-signal.md`, either remove the minus sign or redefine the prose so the object is explicitly a negative-gradient / loss-gradient direction. Given the current prose says likelihood-increasing and Gaussian-error-equivalent, the cleaner repair is:
 
@@ -122,8 +122,8 @@ Evidence from active tracking:
 
 Evidence from prior local audit material:
 
-- `audits/AUDIT-WORKING-584721/01-section-i-leaves.md:13-19` already identified `scope-adaptive-system` missing `def-chronica` and the passive-observer chronica subtlety.
-- `audits/AUDIT-WORKING-584721/08-def-mismatch-signal.md:32` noted `form-event-driven-dynamics -> form-agent-model` drift as an independent dependency issue.
+- `msc/AUDIT-WORKING-584721/01-section-i-leaves.md:13-19` already identified `scope-adaptive-system` missing `def-chronica` and the passive-observer chronica subtlety.
+- `msc/AUDIT-WORKING-584721/08-def-mismatch-signal.md:32` noted `form-event-driven-dynamics -> form-agent-model` drift as an independent dependency issue.
 
 Assessment: this cluster is mixed. Some individual issues were seen by prior audit agents but were not promoted into durable active tracking. Others are new or at least not durably tracked, especially wrong links like `discrete-sector-condition.md` versus `deriv-discrete-sector-condition.md` and source-body references that lint does not inspect.
 
@@ -143,7 +143,7 @@ Evidence:
 - `01-aad-core/src/scope-adaptive-system.md:41` explicitly includes passive observers / nominal agents in adaptive scope.
 - `01-aad-core/src/post-causal-structure.md:36-38` says zero-coupling systems remain inside adaptive scope if they observe under residual uncertainty.
 - `01-aad-core/src/def-agent-spectrum.md:44` says passive trackers, including passive Bayesian learners with no action choices, are fully within Section I's scope.
-- Prior audit notes also noticed this: `audits/AUDIT-WORKING-584721/01-section-i-leaves.md:19` and `audits/AUDIT-WORKING-742613/04-scope-adaptive-system.md`.
+- Prior audit notes also noticed this: `msc/AUDIT-WORKING-584721/01-section-i-leaves.md:19` and `msc/AUDIT-WORKING-742613/04-scope-adaptive-system.md`.
 
 Assessment: this is not a newly discovered conceptual requirement. It is a terminology/primitive integration problem. The theory wants a broad "adaptive system" primitive and a narrower "agency" primitive, but the first foundational definition uses action-affecting "agent" language too early.
 

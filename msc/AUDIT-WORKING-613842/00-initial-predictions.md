@@ -1,7 +1,7 @@
 # Initial Predictions
 
 Date: 2026-04-25
-Audit workspace: `audits/AUDIT-WORKING-613842/`
+Audit workspace: `msc/AUDIT-WORKING-613842/`
 
 ## Bias / bleed note
 

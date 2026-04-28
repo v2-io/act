@@ -197,8 +197,9 @@ doc/                  Long-lived process documentation
 spikes/               Research spikes (reasoning trails)
   INDEX.md            Spike index with per-spike status
   PROPOSED.md         High-risk research-direction proposals
-audits/               Audit working dirs + pending-findings tables
+audits/               Audit-cycle FINAL outputs + pending-findings tables
 msc/                  Other working artifacts (brainstorms, working notes)
+  AUDIT-WORKING-*/    Per-cycle audit intermediate workspaces
   naming/             Current naming-cycle votes + aggregates + rename plan
   reflections/        Author's philosophical/theoretical journal
 ref/                  Reference papers + internal references

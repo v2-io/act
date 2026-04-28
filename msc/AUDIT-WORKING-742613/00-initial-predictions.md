@@ -1,6 +1,6 @@
 # Initial Predictions
 
-Audit workspace: `audits/AUDIT-WORKING-742613/`
+Audit workspace: `msc/AUDIT-WORKING-742613/`
 Date: 2026-04-25
 
 ## Source-Ordering Notes

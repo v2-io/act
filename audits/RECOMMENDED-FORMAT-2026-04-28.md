@@ -1,6 +1,6 @@
 # Recommendation: Standardized Format for De Novo Audit Final Reports
 
-*Produced 2026-04-28 by a sub-agent surveying the audit corpus (`audits/AUDIT-WORKING-*/FINAL-*.md`, the older `audit-*.md` / `analysis-*.md` documents, the candidate-extraction meta-document, and `doc/de-novo-audit-instructions.md`). Awaiting Joseph's decisions on §5 open questions before any §11 content is added to `doc/de-novo-audit-instructions.md`.*
+*Produced 2026-04-28 by a sub-agent surveying the audit corpus (`msc/AUDIT-WORKING-*/FINAL-*.md`, the older `audit-*.md` / `analysis-*.md` documents, the candidate-extraction meta-document, and `doc/de-novo-audit-instructions.md`). Awaiting Joseph's decisions on §5 open questions before any §11 content is added to `doc/de-novo-audit-instructions.md`.*
 
 ## 1. Headline
 
@@ -73,7 +73,7 @@ Add the following content to `doc/de-novo-audit-instructions.md`, ideally as a n
 
 ### 3.1 The single required deliverable
 
-Every audit produces one primary deliverable: a markdown file at `audits/AUDIT-WORKING-NNNNNN/FINAL-YYYY-MM-DD.md` (or `FINAL-YYYY-MM-DD-pass-N.md` for continuations). Multi-file splits are permitted (see §3.6) but each split file must follow the same internal shape.
+Every audit produces one primary deliverable: a markdown file at `audits/audit-NNNNNN-FINAL-YYYY-MM-DD.md` (or `audits/audit-NNNNNN-FINAL-YYYY-MM-DD-pass-N.md` for continuations). The cycle's intermediate workspace lives at `msc/AUDIT-WORKING-NNNNNN/` (lowercase-named files: predictions, per-segment reflections, running outline). Multi-file splits are permitted (see §3.6) but each split file must follow the same internal shape and the same `audit-NNNNNN-FINAL-{suffix}.md` location pattern. *(Convention updated 2026-04-28: FINALs lifted out of working dirs to keep `audits/` purely consumable.)*
 
 ### 3.2 Required top-level sections (in this order)
 
@@ -118,9 +118,9 @@ Multi-file finals are appropriate when:
 - Coverage spans three or more components (AAD core / TST / logogenic / logozoetic), AND
 - Each component's audit is substantive enough to stand alone (more than ~5 findings or substantial Section D content)
 
-Naming convention for multi-file: `FINAL-YYYY-MM-DD-{component-slug}.md` where `component-slug` is `aad-section-i`, `aad-section-ii`, `aad-section-iii`, `aad-appendix-a`, `tst`, `logogenic`, `logozoetic`. The leading `000-` prefix used in 849201 is **not** required and discouraged; the date plus component slug suffices.
+Naming convention for multi-file: `audits/audit-NNNNNN-FINAL-{component-slug}.md` where `component-slug` is `aad-section-i`, `aad-section-ii`, `aad-section-iii`, `aad-appendix-a`, `tst`, `logogenic`, `logozoetic`. The leading `000-` prefix used in 849201 is **not** required and discouraged; the cycle-id prefix plus component slug suffices.
 
-When splitting, also produce a top-level `FINAL-YYYY-MM-DD.md` containing only:
+When splitting, also produce a top-level `audits/audit-NNNNNN-FINAL.md` containing only:
 
 - The required front matter
 - A pointer table to the split files
@@ -196,11 +196,11 @@ The candidate-extraction document `audit-final-reports-candidate-extraction-2026
 **Key files referenced:**
 
 - `doc/de-novo-audit-instructions.md` (target file; do not modify until decisions land)
-- `audits/AUDIT-WORKING-584721/FINAL-2026-04-25.md` (strongest worked example for §3.2-3.10 patterns)
-- `audits/AUDIT-WORKING-742613/FINAL-2026-04-25.md` + `SUPPLEMENT-PHASE-2-TRIAGE.md` (densest per-finding schema; canonical Phase-2 separation)
-- `audits/AUDIT-WORKING-849201/000-FINAL-AUDIT-REPORT*.md` (multi-file split precedent and its weaknesses)
-- `audits/AUDIT-WORKING-738192/AUDIT-FINAL-738192.md` (deviant naming; lighter-density finds)
-- `audits/AUDIT-WORKING-613842/FINAL-2026-04-25.md` + `00-running-outline.md` (running-outline pattern transcribed cleanly)
+- `audits/audit-584721-FINAL-2026-04-25.md` (strongest worked example for §3.2-3.10 patterns)
+- `audits/audit-742613-FINAL-2026-04-25.md` + `SUPPLEMENT-PHASE-2-TRIAGE.md` (densest per-finding schema; canonical Phase-2 separation)
+- `msc/AUDIT-WORKING-849201/000-FINAL-AUDIT-REPORT*.md` (multi-file split precedent and its weaknesses)
+- `audits/audit-738192-FINAL.md` (deviant naming; lighter-density finds)
+- `audits/audit-613842-FINAL-2026-04-25.md` + `00-running-outline.md` (running-outline pattern transcribed cleanly)
 - `audits/audit-final-reports-candidate-extraction-2026-04-25.md` (consumer-side need; AF-NN naming pattern; effort/strengthen-soften fields)
 - `audits/audits-2026-04-22-evening.md` (rescinded-findings preservation discipline; pre-AUDIT-WORKING multi-auditor consolidation pattern)
 - `audits/audit-2026-04-24-fresh-pass.md` (the "zero findings" → five-findings-after-cross-audit case; reading-mode-failures post-mortem worth modeling)

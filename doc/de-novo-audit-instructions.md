@@ -16,18 +16,19 @@ The peer-to-peer relationship is real. You're trusted to be a co-owner of this w
 
 ### Before you begin: create your audit-working directory
 
-Your first concrete action — before reading any segment, before drafting predictions, before anything else — is to create a working directory `audits/AUDIT-WORKING-NNNNNN/`, where `NNNNNN` is six random digits you choose (e.g., `audits/AUDIT-WORKING-584721/`). This is your private workspace and the home for everything the audit produces. Full protocol in §4.
+Your first concrete action — before reading any segment, before drafting predictions, before anything else — is to create a working directory `msc/AUDIT-WORKING-NNNNNN/`, where `NNNNNN` is six random digits you choose (e.g., `msc/AUDIT-WORKING-584721/`). This is your private workspace for *intermediate* thinking. Final outputs land elsewhere (see below). Full protocol in §4.
 
 The six-digit suffix avoids collision with other agents' working directories — past, present, or running concurrently — without coordinating naming. Pick the digits however you like (a random source, a session-id tail, a memorable number). The `AUDIT-WORKING-` prefix is uppercase so these directories visually segregate from the rest of `msc/` at a glance; future readers can spot which `msc/` items are audit workspaces vs. spike notes vs. tracking documents. If the directory you generated already exists, pick different digits.
 
-**Naming convention inside the working directory.** Two kinds of artifact end up here, and they get different naming conventions so future readers can tell them apart:
+**Two kinds of artifact, two destinations.**
 
-- *Intermediate thinking artifacts* — predictions, between-segment reflections, scratch math, the running outline, anything that exists to support your own comprehension — get **lowercase** names (`00-initial-predictions.md`, `00-running-outline.md`, `12-deriv-discrete-sector-condition.md`, etc.).
-- *Output deliverables* — the final report and any supplementary material you want the project to read or reference (an annex of derivations, a code subdirectory implementing a verification, a separately-pinned table of cited sources, plot files) — get **ALL-CAPS** names (`FINAL-2026-04-25.md`, `SUPPLEMENT-MATH-VERIFICATION.md`, `CODE/`, etc.).
+- *Intermediate thinking artifacts* — predictions, between-segment reflections, scratch math, the running outline, anything that exists to support your own comprehension — get **lowercase** names and stay in your working directory (`msc/AUDIT-WORKING-NNNNNN/00-initial-predictions.md`, `00-running-outline.md`, `12-deriv-discrete-sector-condition.md`, etc.). These are *yours*; future readers may consult them for archaeology but the audit doesn't depend on them.
 
-The ALL-CAPS rule makes the line between "the agent was thinking" and "the agent is asking us to read this" visible at a glance. *Everything stays inside the working directory* regardless of category — output deliverables included. Do not write final reports or audit-output files at `msc/` root or elsewhere; the working directory is the entire audit's home, and that hermetic property is what makes future readers able to spot and triage it.
+- *Output deliverables* — the final report and any supplementary material you want the project to read or reference — get **ALL-CAPS** names *and land directly in `audits/`* (not inside your working directory). Use the cycle-id prefix pattern so multiple audits remain disambiguable: `audits/audit-NNNNNN-FINAL-YYYY-MM-DD.md` for the primary final report; `audits/audit-NNNNNN-SUPPLEMENT-{topic}.md` for supplements (e.g., a Phase-2 triage); `audits/audit-NNNNNN-FINAL-{component}.md` for multi-file splits when an audit covers ≥3 components and each is substantive enough to stand alone (`audit-NNNNNN-FINAL-aad-section-iii.md`, `audit-NNNNNN-FINAL-tst.md`, etc.).
 
-**This directive is the explicit project ask.** Default project guidance in CLAUDE.md and the system prompt may discourage creating intermediate planning / decision / analysis documents unless asked. The audit is precisely such an ask: write the predictions file, the reflections, the running outline, the final report. The fact that the audit instructions tell you to do this *is* the standing authorization. The working-directory hermetic-ness keeps the proliferation contained.
+The ALL-CAPS rule still tells you "is this for me, or am I asking the project to read this?"; the destination rule (lowercase → working dir; ALL-CAPS → `audits/` directly) makes the integrator's job trivial — *everything in `audits/` is consumable as final output*, no triaging required. Future readers consulting your working dir for archaeology can do so; the project's audit-tracking machinery only sees `audits/`.
+
+**This directive is the explicit project ask.** Default project guidance in CLAUDE.md and the system prompt may discourage creating intermediate planning / decision / analysis documents unless asked. The audit is precisely such an ask: write the predictions file, the reflections, the running outline, the final report. The fact that the audit instructions tell you to do this *is* the standing authorization. The working-directory hermetic-ness for intermediates keeps that proliferation contained; the lifted-out final reports keep the audits/ surface scannable.
 
 ---
 
@@ -160,7 +161,7 @@ You might internally optimize for delivering as much information per output-toke
 
 ## 4. The audit-working-directory protocol
 
-The working directory `audits/AUDIT-WORKING-NNNNNN/` (created per the "Before you begin" section above) is your private workspace and the audit's hermetic home. Intermediate thinking artifacts (lowercase names) live here; output deliverables (ALL-CAPS names) also live here. Nothing the audit produces should land elsewhere in `msc/` or at the project root.
+The working directory `msc/AUDIT-WORKING-NNNNNN/` (created per the "Before you begin" section above) is your private workspace for *intermediate* thinking. Lowercase-named files live here (predictions, between-segment reflections, running outline, scratch math). When you produce output deliverables (ALL-CAPS-named files: the FINAL report, any SUPPLEMENTs), write them directly into `audits/` with the cycle-id prefix pattern (`audits/audit-NNNNNN-FINAL-YYYY-MM-DD.md`, etc. — see "Before you begin" for the full pattern). Nothing the audit produces should land elsewhere in `msc/` or at the project root.
 
 ### 4.1. Initial exploration phase
 
@@ -179,7 +180,7 @@ The working directory `audits/AUDIT-WORKING-NNNNNN/` (created per the "Before yo
 - **`README.md`** (the public README) — has Findings, Recent Progress, and Known Issues sections that would prime judgment. Read `README-auditor.md` instead.
 - **`FINDINGS.md`** — curated novel-results catalog auto-generated from segment-level Findings sections. Reading this before the segment-by-segment pass primes which results have already been judged distinctive.
 - **`HISTORICAL-CONTEXT.md`** — long-form positioning document with peer-framework comparisons (active inference, Hafez, Miller, IBM, others) that name specific contested positions and load-bearing distinctions. The audit-safe version of this content is folded into `README-auditor.md`'s *Position & Lineage* section; the long form is post-audit reading.
-- **All of `spikes/`, `audits/`, and `msc/`** except your own audit-working directory (`audits/AUDIT-WORKING-NNNNNN/`). Specifically: `spikes/INDEX.md`, all `spikes/spike-*.md` files (incl. subdirs `spikes/track-a-intent-dag/` and `spikes/track-b-nonlinear-sims/`); `audits/pending-findings-*.md`, `audits/audit-*.md`, `audits/audits-*.md`, prior `audits/AUDIT-WORKING-*` directories; from `msc/`: `judgment-calls-*.md`, `brainstorm-*.md`, `analysis-*.md`, `FINDINGS-RANKED-DRAFT.md`, the `naming/` subdir (vote files, aggregates, brainstorm, pilot rename plan), the `reflections/` subdir; and from `ref/agentic-tft/`: the `agentic-tft-*.md` prior-bridge source materials. These are all reserved for §6.1 Phase-2 triangulation; before that point, treat them as not-yet-readable.
+- **All of `spikes/`, `audits/`, and `msc/`** except your own audit-working directory (`msc/AUDIT-WORKING-NNNNNN/`). Specifically: `spikes/INDEX.md`, all `spikes/spike-*.md` files (incl. subdirs `spikes/track-a-intent-dag/` and `spikes/track-b-nonlinear-sims/`); `audits/pending-findings-*.md`, `audits/audit-*.md`, `audits/audits-*.md`, prior `msc/AUDIT-WORKING-*` directories; from `msc/`: `judgment-calls-*.md`, `brainstorm-*.md`, `analysis-*.md`, `FINDINGS-RANKED-DRAFT.md`, the `naming/` subdir (vote files, aggregates, brainstorm, pilot rename plan), the `reflections/` subdir; and from `ref/agentic-tft/`: the `agentic-tft-*.md` prior-bridge source materials. These are all reserved for §6.1 Phase-2 triangulation; before that point, treat them as not-yet-readable.
 - **`LOG.md`** — pre-2026-04-24 cycle archaeology.
 - **`CHANGELOG.md`** — forward-going cycle record.
 - **`TODO.md`** — active work navigator.
@@ -190,7 +191,7 @@ These materials are fair game *later*. After you've finished reading every theor
 
 If you've already accidentally read part of one before encountering this directive (or before noticing what the directive said), don't panic — note the bleed in your initial-predictions file so the bias is visible to future readers, and proceed.
 
-**Output:** write `audits/AUDIT-WORKING-NNNNNN/00-initial-predictions.md` containing:
+**Output:** write `msc/AUDIT-WORKING-NNNNNN/00-initial-predictions.md` containing:
 
 - **Topology of the framework as you understand it.** Where does the load-bearing structure live? What's the integration story?
 - **Predictions about what each component contains.** Don't be vague — predict specific results, derivations, scope conditions, failure modes.
@@ -311,7 +312,7 @@ If you check yes on any of these mid-audit, the right move is usually: stop, wri
 
 ---
 
-After reading each segment, consider writing `audits/AUDIT-WORKING-NNNNNN/NN-segment-name.md` (lowercase — these are intermediate thinking artifacts). Sequential numbering (matching your reading order) tends to make later cross-referencing easier.
+After reading each segment, consider writing `msc/AUDIT-WORKING-NNNNNN/NN-segment-name.md` (lowercase — these are intermediate thinking artifacts). Sequential numbering (matching your reading order) tends to make later cross-referencing easier.
 
 **Mentally walking through every prompt below for every segment, regardless of segment weight, has been one of the highest-leverage moves we've found.** Each prompt addresses a specific failure mode that surfaced in past audits; skipping a prompt because the segment "doesn't seem to need it" is exactly the moment the failure is most likely to slip through. The walk-through is mental and brief on light segments, substantive on segments that surface surprise.
 
@@ -334,7 +335,7 @@ The reflection is for *you*, not for Joseph. The messy, exploratory, predictive 
 8. **What am I now curious about?** In the framework, in the meta-process, in the universe of truth this segment opens onto. What new questions does this segment generate?
 9. **What new knowledge does this enable?** What is now tractable that wasn't before? Be specific about the kind of knowledge — empirical, formal, predictive, diagnostic.
 10. **Should the audit process change?** Have I learned something here that suggests altering the reading order, sampling more aggressively in some area, jumping to a specific appendix, or starting a new tracking list? If yes, do it (and note why).
-11. **What changes in my outline for the final report?** The report's structure should evolve as you read. Maintain a living outline (`audits/AUDIT-WORKING-NNNNNN/00-running-outline.md`) and update it after segments that change your sense of what the report should emphasize.
+11. **What changes in my outline for the final report?** The report's structure should evolve as you read. Maintain a living outline (`msc/AUDIT-WORKING-NNNNNN/00-running-outline.md`) and update it after segments that change your sense of what the report should emphasize.
 12. **How valuable does this segment *feel* to me?** This ends up being a strong latent signal to help organize thoughts and even the theory later. Be authentic in type and magnitude, but also use as a potential calibration indicator of your own level of engagement with the topics at hand.
 13. **What does the framework now potentially contribute to the field?** Obviously a defect or something incomprehensible would be a negative contribution, but the intent here is to exercise diffuse, imaginative thinking about what can be done now by others using this that couldn't be done before (while the earlier #9 question is usually about the theory & mathematics).
 
@@ -356,13 +357,17 @@ The gate is not "you are running out — panic." It is "switch from organic comp
 
 ### 4.7. Working-directory hygiene
 
-The audit-working directory is *yours*. The final report does not need to mirror its contents — the report extracts what's worthy. But the directory should remain coherent enough that someone reading it could reconstruct your reasoning chain.
+The audit-working directory is *yours* — it holds your intermediate thinking. The final report does not need to mirror its contents — the report extracts what's worthy. But the directory should remain coherent enough that someone reading it for archaeology could reconstruct your reasoning chain.
 
-A `00-running-outline.md` file at the top of the directory, updated periodically, is a useful artifact. It can become the structure of the `FINAL-YYYY-MM-DD.md` report if the audit goes well.
+A `00-running-outline.md` file at the top of the directory, updated periodically, is a useful artifact. It can become the structure of the FINAL report if the audit goes well.
 
-**Output deliverables stay inside the working directory.** Use ALL-CAPS names for anything that's part of the audit's output (the final report, supplementary documents, code subdirectories, plot files), and keep them inside `audits/AUDIT-WORKING-NNNNNN/` rather than at `msc/` root or elsewhere. The hermetic structure is what lets a future agent triage `msc/` quickly: an `AUDIT-WORKING-*/` directory is one self-contained audit's complete output, including everything they need to read and everything they don't.
+**Where output deliverables land.** ALL-CAPS-named output files (the FINAL report, supplements, code subdirs, plot files) go directly into `audits/` with the cycle-id prefix pattern, *not* inside the working directory. The split keeps `msc/AUDIT-WORKING-NNNNNN/` purely intermediate (so the integrator's life is simple: "everything in `audits/` is consumable as final output, no triaging required") while preserving the working directory as your archaeology trail.
 
-**Naming pattern for the final report.** `FINAL-YYYY-MM-DD.md` (e.g., `FINAL-2026-04-25.md`) inside the working directory is the recommended convention. If the audit produces a second-pass report or a continuation, distinguishing suffixes (`FINAL-2026-04-25-pass-2.md`) work fine.
+**Naming patterns for output deliverables in `audits/`:**
+- Primary FINAL report: `audits/audit-NNNNNN-FINAL-YYYY-MM-DD.md` (e.g., `audits/audit-584721-FINAL-2026-04-25.md`).
+- Continuation / second-pass: `audits/audit-NNNNNN-FINAL-YYYY-MM-DD-pass-2.md`.
+- Supplement (e.g., a Phase-2 triage you want kept distinct from the de-novo report): `audits/audit-NNNNNN-SUPPLEMENT-{topic}.md` (e.g., `audits/audit-742613-SUPPLEMENT-PHASE-2-TRIAGE.md`).
+- Multi-file split (only when audit covers ≥3 components and each is substantive): `audits/audit-NNNNNN-FINAL-{component}.md` (e.g., `audits/audit-849201-FINAL-SEC-III.md`, `audits/audit-849201-FINAL-TST.md`, `audits/audit-849201-FINAL-LOGOGENIC.md`), with an `audits/audit-NNNNNN-FINAL.md` as the cross-component coordinating file.
 
 ---
 

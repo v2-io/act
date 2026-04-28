@@ -1,14 +1,14 @@
 # Audit Final Reports — Candidate Local Fixes (2026-04-25 extraction)
 
 **Sources:**
-- `audits/AUDIT-WORKING-584721/FINAL-2026-04-25.md` (Opus 4.7 1M, partial AAD §I + §II rows 1–26 + 4 Appendix-A reads-in-context)
-- `audits/AUDIT-WORKING-613842/FINAL-2026-04-25.md` (substantial §I/§II + §III composition + targeted logogenic + targeted TST)
-- `audits/AUDIT-WORKING-738192/AUDIT-FINAL-738192.md` (Gemini CLI, AAD §I/§II/§III)
-- `audits/AUDIT-WORKING-742613/FINAL-2026-04-25.md` + `SUPPLEMENT-PHASE-2-TRIAGE.md` (Codex, partial AAD §I)
-- `audits/AUDIT-WORKING-849201/000-FINAL-AUDIT-REPORT.md` (Sections I+II)
-- `audits/AUDIT-WORKING-849201/000-FINAL-AUDIT-REPORT-SEC-III.md`
-- `audits/AUDIT-WORKING-849201/000-FINAL-AUDIT-REPORT-TST.md`
-- `audits/AUDIT-WORKING-849201/000-FINAL-AUDIT-REPORT-LOGOGENIC.md`
+- `audits/audit-584721-FINAL-2026-04-25.md` (Opus 4.7 1M, partial AAD §I + §II rows 1–26 + 4 Appendix-A reads-in-context)
+- `audits/audit-613842-FINAL-2026-04-25.md` (substantial §I/§II + §III composition + targeted logogenic + targeted TST)
+- `audits/audit-738192-FINAL.md` (Gemini CLI, AAD §I/§II/§III)
+- `audits/audit-742613-FINAL-2026-04-25.md` + `SUPPLEMENT-PHASE-2-TRIAGE.md` (Codex, partial AAD §I)
+- `audits/audit-849201-FINAL.md` (Sections I+II)
+- `audits/audit-849201-FINAL-SEC-III.md`
+- `audits/audit-849201-FINAL-TST.md`
+- `audits/audit-849201-FINAL-LOGOGENIC.md`
 
 **Cross-referenced against:** `TODO.md` (Active — Pending Findings: 2026-04-25 F-V/P-V batch + F8 + 2026-04-22 F1–F15 + 2026-04-23 F22–F31), `PROPOSALS.md` §A–§G (especially Bundle 1, Bundle 2, §B/§C/§G membership, SP-21), `audits/pending-findings-2026-04-25.md`.
 
