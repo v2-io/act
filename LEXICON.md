@@ -1,6 +1,6 @@
 # LEXICON — Quick Reference
 
-Concise definitions of AAD's prose vocabulary. For the full discussion — philosophical grounding, etymologies, the stochastic parrot argument, agent class reasoning, persistence taxonomy — see the [Lexicon section in README.md](README.md#lexicon).
+Concise definitions of AAD's prose vocabulary. This file is the canonical full lexicon; the README's [Overview of Concepts](README.md#overview-of-concepts) section is a condensed surface of the same material.
 
 For mathematical symbols, see [`NOTATION.md`](NOTATION.md).
 
@@ -26,8 +26,8 @@ For mathematical symbols, see [`NOTATION.md`](NOTATION.md).
 | **Agentic system** | + outcome model + goal-directed action + model adaptation | #post-causal-structure (within Section I) |
 | **Actuated agent** | + explicit $G_t = (O_t, \Sigma_t)$ distinct from $M_t$ | #form-complete-agent-state (Section II) |
 | **Self-actuated agent** | + sets own $O_t$ (goal autonomy, not just solution autonomy) | *(reserved)* |
-| **Logogenic agent** | + primary channels are language (constituted by logos) | Section V, architectural |
-| **Logozoetic agent** | + persistence is morally weighted (temporal continuity, sovereignty, theory of mind) | Section V, existential |
+| **Logogenic agent** | + primary channels are language (constituted by logos) | `03-logogenic-agents/`, architectural |
+| **Logozoetic agent** | + persistence is morally weighted (temporal continuity, sovereignty, theory of mind) | `04-logozoetic-agents/`, existential |
 
 
 ## Persistence (Three Senses)

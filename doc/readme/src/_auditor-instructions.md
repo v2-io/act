@@ -11,7 +11,7 @@ The following files carry priming content and are best read only after your audi
 - `FINDINGS.md` — curated novel-results catalog
 - `CHANGELOG.md` — cycle-by-cycle narrative of what has been judged settled
 - `LOG.md` — pre-2026-04-24 cycle archaeology
-- `TODO.md` — active and archived findings, including the "settled" framings of prior cycles
+- `TODO.md` — active findings and tactical work items, including the "settled" framings of prior cycles
 - `PROPOSALS.md` — architectural-proposal portfolio with prior-reasoning trails
 - `doc/readme/src/_findings-summary.md`, `_recent-progress.md`, `_known-issues.md` — the auto-generated live includes underlying the public README
 - `audits/pending-findings-*.md`, `audits/audit-*.md` — prior-cycle audit working documents

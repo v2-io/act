@@ -4,13 +4,13 @@
 *This file names the **areas** of active work. The systematic project workflow each area implies — audit cycles, segment refinement and promotion, citation checks, prior-art searches, the named workflow steps below — is mostly not enumerated piece-by-piece. For specific items that don't fit a more systematic home: [`TODO.md`](TODO.md) is the misc-and-details layer (open audit-finding routing decisions, queued spike follow-ups, deferred items, lower-priority specifics). For architectural moves under review: [`PROPOSALS.md`](PROPOSALS.md). Sister-files: [`README.md`](README.md) external-facing snapshot, [`CLAUDE.md`](CLAUDE.md) agent-onboarding, [`CHANGELOG.md`](CHANGELOG.md) historical record. PRACTICA itself is **auditor-safe** — readable during de-novo audits — but linked entries into TODO / PROPOSALS / CHANGELOG are priming-heavy and should be skipped until the initial stages of audits are complete.*
 
 ## ⭐Theory
-- [ ] ⭐ [[TODO]]
-- [ ] [[PROPOSALS]]
+- [ ] ⭐ [TODO](TODO.md)
+- [ ] [PROPOSALS](PROPOSALS.md)
 - [ ] Principle Theory, Structure, & Dependency Graphs (via feedback & audits)
-  1. [[01-aad-core/OUTLINE|AAD OUTLINE]],  Segment Refinement & Promotion
-  2. [[02-tst-core/OUTLINE|TST OUTLINE]], Segment Refinement & Promotion
-  3. [[03-logogenic-agents/OUTLINE|LOGOGENIC OUTLINE]], Segment Refinement & Promotion
-  4. [[04-logozoetic-agents/OUTLINE|LOGOZOETIC OUTLINE]], Segment Refinement & Promotion
+  1. [AAD OUTLINE](01-aad-core/OUTLINE.md),  Segment Refinement & Promotion
+  2. [TST OUTLINE](02-tst-core/OUTLINE.md), Segment Refinement & Promotion
+  3. [LOGOGENIC OUTLINE](03-logogenic-agents/OUTLINE.md), Segment Refinement & Promotion
+  4. [LOGOZOETIC OUTLINE](04-logozoetic-agents/OUTLINE.md), Segment Refinement & Promotion
 - [ ] Empirical Experiments & Analysis
 - [ ] Prior/Adjacent Art, Novelty Analysis, & Citations
 - [ ] Pedagogy (initially needs vision & plan)

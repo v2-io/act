@@ -37,7 +37,7 @@ See [`../LEXICON.md`](../LEXICON.md) for the logogenic/logozoetic vocabulary.
 
 ### Working documents (from agentic-tft corpus, Feb 2026)
 
-*The following working documents in `msc/` contain substantial prior thinking for the gaps above. They predate the AAD restructuring (written when the theory was still TFT) and use PROPRIUM terminology from `~/src/firmatum/`. They are sources to distill from, not finished content.*
+*The following working documents in `ref/agentic-tft/` contain substantial prior thinking for the gaps above. They predate the AAD restructuring (written when the theory was still TFT) and use PROPRIUM terminology from `~/src/firmatum/`. They are sources to distill from, not finished content.*
 
 | Gap | Primary source | Also relevant |
 |-----|---------------|---------------|

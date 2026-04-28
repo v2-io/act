@@ -439,7 +439,7 @@ Current members include: #emp-update-gain, #hyp-mismatch-dynamics, #hyp-edge-upd
 
 ## Equation-Level Tags
 
-Inline tags before equations mark their epistemic status. These follow TFT conventions (see `notation.md` and `_obs/old-tf-00-notation-conventions.md`):
+Inline tags before equations mark their epistemic status. These follow TFT conventions (see `NOTATION.md` and `_obs/old-tf-00-notation-conventions.md`):
 
 ```
 *[Definition (slug-name)]*
@@ -457,14 +457,15 @@ Inline tags before equations mark their epistemic status. These follow TFT conve
 ## Cross-References
 
 - **In running text**: `#slug-name` — readable, grep-able, meaningful
-- **As links from src/ files**: `[#slug-name](slug-name.md)` (relative)
-- **As links from root files**: `[#slug-name](src/slug-name.md)`
+- **As links from src/ files** (within the same component): `[#slug-name](slug-name.md)` (relative)
+- **As links from a component-root outline** (e.g., `01-aad-core/OUTLINE.md`): `[#slug-name](src/slug-name.md)`
+- **As links from a repo-root file** (e.g., `OUTLINE.md`, `README.md`, `LEXICON.md`): include the component prefix, e.g., `[#slug-name](01-aad-core/src/slug-name.md)`
 
 Both forms work in GitHub and Obsidian. The plain `#slug-name` form is preferred in running prose where clickability is less important than readability.
 
 **Forward references are expected.** Segments routinely reference not-yet-written segments via `#slug-name`. These are intentional dependency markers — they document the claim's connections within the theory even before the target segment exists. Do not treat them as broken links or remove them.
 
-**Obsidian tag recognition**: Obsidian treats `#word` as a tag only when preceded by a space (or start of line). Always ensure a space before `#slug-name` — write `( #scope-agency)` not `( #scope-agency)`, and `see #emp-update-gain` not `see#emp-update-gain`.
+**Obsidian tag recognition**: Obsidian treats `#word` as a tag only when preceded by a space (or start of line). Always ensure a space before `#slug-name` — write `( #scope-agency)` not `(#scope-agency)`, and `see #emp-update-gain` not `see#emp-update-gain`.
 
 
 ## Math Formatting
@@ -495,7 +496,7 @@ GitHub's math renderer is stricter than Obsidian's. To keep both working:
 
 ## Notation Conventions
 
-Follow TFT conventions. See `notation.md` for AAD's symbol reference. The original TFT conventions are in `_obs/old-tf-00-notation-conventions.md`. Key points:
+Follow TFT conventions. See `NOTATION.md` for AAD's symbol reference. The original TFT conventions are in `_obs/old-tf-00-notation-conventions.md`. Key points:
 
 - **Calligraphic** ($\mathcal{M}$, $\mathcal{O}$, $\mathcal{A}$, $\mathcal{C}$, $\mathcal{E}$) for sets and spaces
 - **$\mathcal{T}$** for adaptive tempo (calligraphic to distinguish from temperature)

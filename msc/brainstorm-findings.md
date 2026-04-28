@@ -20,7 +20,7 @@
 **2026-04-28 — Pulled back from FINDINGS-RANKED.**
 - **#34 Misspecification-Cost as Adjacent Identifiability Floor** (was Tier 2) — speculative; segment-flagged as open extension. Full content in [§Pulled back](#pulled-back-from-findings-ranked-2026-04-28) below.
 - **#55 The Tragedy of the Confident Agent — Thermodynamic Reading** (was Tier 3) — speculative-medium; was P1-E. Continue to develop as P1-E below; no separate copy needed.
-- **§Speculative S1–S8** (was a section in FINDINGS-RANKED) — moved back to this file's [§Speculative section](#speculative--worth-flagging-s1s8) (which is the canonical home — same items the agent originally surfaced here).
+- **§Speculative S1–S8** (was a section in FINDINGS-RANKED) — moved back to this file's [§Speculative section](#speculative-worth-flagging-section) (which is the canonical home — same items the agent originally surfaced here).
 
 **2026-04-27 — Promoted to FINDINGS-RANKED.** Most Pass 1 + Pass 2 candidates from the original brainstorm pass; meta-finding M3 (separability-pattern; landed as M2 in catalog after structural reordering); cross-domain implication-map content distributed across catalog Tier 1/2/3 + Open Questions sections. See per-entry promotion markers below in the Pass 1 / Pass 2 sections.
 
@@ -347,6 +347,7 @@ The two successful routes — Track 1 (Otto-Villani transport inequality + Bakry
 
 ---
 
+<a id="speculative-worth-flagging-section"></a>
 ## Speculative / "Worth Flagging" Section (S1–S8)
 
 ### S1. Singular-Trajectory Commitment Implies AGI Continuity Has a Hard Floor
