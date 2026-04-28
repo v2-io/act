@@ -37,7 +37,7 @@ These hits are real, but they behave more like project-management or audit recor
 | `TODO.md` | open findings still refer to `#developer-as-act-agent`; resolved note quotes the older "richest operationalization domain" framing | Update only if the TODO list is expected to reflect post-rename slugs; otherwise treat as session history. |
 | `audits/pending-findings-2026-04-22.md` | audit findings reference `#developer-as-act-agent` and the older software framing | Leave unless the project has a policy of keeping historical findings synchronized with current slugs. |
 | `audits/audits-2026-04-22-evening.md` | finding text references `#developer-as-act-agent` | Same: this reads as a historical record, not active surface debt. |
-| `msc/analysis-2026-04-06.md` | analysis text lists `developer-as-act-agent` and related surfaces | Treat as historical analysis unless there is a broader cleanup policy for `msc/analysis-*`. |
+| `audits/analysis-2026-04-06.md` | analysis text lists `developer-as-act-agent` and related surfaces | Treat as historical analysis unless there is a broader cleanup policy for `msc/analysis-*`. |
 
 ## Intentional Historical Or Archival Surfaces
 
@@ -48,7 +48,7 @@ These should not be bulk-cleaned by search/replace.
 | `msc/name-transition-aad.md` | This is the authoritative record of the ACT -> AAD rename and should preserve the old names explicitly. |
 | `LOG.md` | Historical notes such as "ACT -> AAD rename" are part of the chronology, not debt. |
 | `_obs/**` | These are older observation / predecessor materials and contain large amounts of pre-rename vocabulary by design. |
-| `msc/2026-03-13-landscape-research/**` and similar dated research notes | These preserve earlier analytical framing and source-era terminology. |
+| `_obs/2026-03-13-landscape-research/**` and similar dated research notes | These preserve earlier analytical framing and source-era terminology. |
 | `env/env-act.tex` | Historical environment/template naming; rename only if there is a deliberate environment cleanup. |
 | `spikes/sim-three-way-tradeoff.py` and similar exploratory files | Exploratory code and reasoning trails often preserve source-era naming; only touch if these become active artifacts again. |
 

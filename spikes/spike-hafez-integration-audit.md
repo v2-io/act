@@ -8,9 +8,9 @@
 ## Current State of Integration
 
 **Extensive analysis exists in working documents:**
-- `msc/02-prior-art-assessment.md` — thorough cross-mapping (P as complementary diagnostic, H_b gap, agency/intelligence mapping)
+- `_obs/02-prior-art-assessment.md` — thorough cross-mapping (P as complementary diagnostic, H_b gap, agency/intelligence mapping)
 - `spikes/track-b-nonlinear-sims/variants/variant_hafez_results.md` — six-experiment empirical bridge (P vs. tempo, passive vs. active, observation noise, adversarial coupling)
-- `msc/2026-03-13-landscape-research/hafez-semarx-research.md` — author/context research
+- `_obs/2026-03-13-landscape-research/hafez-semarx-research.md` — author/context research
 - `spikes/spike-kappa-topology-insight.md` — IDT as modular sidecar for Class 2 agents
 
 **What made it into theory segments:**
@@ -63,7 +63,7 @@
 
 ## Recommendations
 
-1. **Write `#prior-art-positioning`** as the primary vehicle. It's already planned (WORKBENCH lists it as a missing appendix). This is where the full Hafez cross-mapping belongs: P as complementary diagnostic, the bridge simulation results, the H_b gap, and the agency/intelligence mapping. Source material is ready in `msc/02-prior-art-assessment.md`. Priority: medium (next appendix batch).
+1. **Write `#prior-art-positioning`** as the primary vehicle. It's already planned (WORKBENCH lists it as a missing appendix). This is where the full Hafez cross-mapping belongs: P as complementary diagnostic, the bridge simulation results, the H_b gap, and the agency/intelligence mapping. Source material is ready in `_obs/02-prior-art-assessment.md`. Priority: medium (next appendix batch).
 
 2. **Promote the H_b gap to a named open question** in WORKBENCH.md. It's currently buried in a simulation result. The gap is real: AAD has no formalization of agent legibility/opacity, and this matters for Section III cooperative dynamics. When `#der-team-persistence` is written, H_b should appear as a candidate quantity for coordination cost.
 

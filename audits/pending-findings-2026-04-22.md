@@ -212,7 +212,7 @@ Under standard Shannon information theory, $\pi^\ast$ is a deterministic functio
 
 **Why this stands.** The narrowing from agency to learning-purposeful in `#der-causal-hierarchy-requirement` is defensible as a sub-scope, but it is not integrated as a named Section II-wide commitment. The repo oscillates between "Section II applies to actuated agents" (in scope-condition and agent-spectrum) and "Section II applies to learning purposeful agents" (in causal-hierarchy-requirement). A reader cannot tell whether a downstream Section II claim uses the narrower or wider scope.
 
-**msc/ lineage (not yet integrated).** `msc/analysis-2026-04-06.md` (line 265) and `spikes/spike-purposeful-agent-derivation.md` (line 648) contain reasoning about the sub-scope but the integration pass has not happened.
+**msc/ lineage (not yet integrated).** `audits/analysis-2026-04-06.md` (line 265) and `spikes/spike-purposeful-agent-derivation.md` (line 648) contain reasoning about the sub-scope but the integration pass has not happened.
 
 **Repair direction.** Reconciliation pass: name the Section II-wide sub-scope explicitly (e.g., $S_{\text{learning}} \subsetneq S_{\text{agency}}$), amend `#scope-agency`, `#def-agent-spectrum`, and the Section II preamble in `01-aad-core/OUTLINE.md` so the narrowing is declared once and inherited by downstream Section II results. 45–60 min.
 
@@ -303,7 +303,7 @@ Under standard Shannon information theory, $\pi^\ast$ is a deterministic functio
 
 **Why this stands.** Git records committed state transitions exactly; it does not record the full software chronica. Its causal use remains materially confounded by shared requirements, bundling conventions, and developer knowledge state that never enters commits. The current framing overstates by dropping the "committed-state subset" qualifier.
 
-**msc/ lineage (not yet integrated).** `msc/2026-03-13-feedback.md` (line 80) and `msc/2026-03-14-section-iv-paper-outline.md` (line 60) already flag this as an empirical research program, not a derived equivalence.
+**msc/ lineage (not yet integrated).** `audits/2026-03-13-feedback.md` (line 80) and `msc/2026-03-14-section-iv-paper-outline.md` (line 60) already flag this as an empirical research program, not a derived equivalence.
 
 **Repair direction.** Narrow P1 to "committed-state subset of chronica"; preserve the software-domain-advantage claim at a lower strength ("git captures a structured subset of the chronica with lower sampling and recall bias than self-report in other domains"). Revise P5 (causal-discovery implications) to explicitly flag the empirical chain. 30–45 min. This is sharp, contained, and does not require any other coordination.
 
@@ -513,7 +513,7 @@ Second Codex audit, after the morning audit trio. One finding duplicates Finding
 
 **Why this stands.** The segment collapses two distinct regimes — human developer (with implicit, non-externalized planning structures) and AI developer (with externalized planning artifacts: commits, PRs, reasoning traces, explicit DAGs) — into one `exact`-tagged mapping. The segment's own Working Note identifies that explicit-DAG applicability to implicit human planning is open; an `exact` status is inconsistent with this.
 
-**msc/ lineage.** No mature msc repair for the human-developer exactness claim. Adjacent: `msc/feedback.md` (line 43) discusses software as the privileged high-identifiability domain, which suggests the cleaner framing (C-BP3 below) but does not itself address the human/AI regime split.
+**msc/ lineage.** No mature msc repair for the human-developer exactness claim. Adjacent: `audits/feedback-2026-03.md` (line 43) discusses software as the privileged high-identifiability domain, which suggests the cleaner framing (C-BP3 below) but does not itself address the human/AI regime split.
 
 **Repair direction (two options).**
 

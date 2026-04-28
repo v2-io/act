@@ -157,7 +157,7 @@ Verify: same as Stage 3.
 
 ### Stage 5: `msc/` working documents
 
-Scope: `msc/*.md` and subdirectories (`msc/reflections/`, `msc/2026-03-13-landscape-research/`, `spikes/track-a-intent-dag/`, `spikes/track-b-nonlinear-sims/` where relevant).
+Scope: `msc/*.md` and subdirectories (`msc/reflections/`, `_obs/2026-03-13-landscape-research/`, `spikes/track-a-intent-dag/`, `spikes/track-b-nonlinear-sims/` where relevant).
 
 These are spikes, reflections, and landscape research. Many use ACT casually throughout.
 
@@ -167,9 +167,9 @@ These are spikes, reflections, and landscape research. Many use ACT casually thr
 
 **Exceptions (historical record — do NOT rename):**
 - `msc/name-transition-aad.md` (this plan — documents the rename itself)
-- `msc/2026-03-13--hypothetical-theory-choice.md` (naming deliberation)
-- `msc/2026-03-13-landscape-research/*` (collision research — records the landscape *at the time* of the decision)
-- `msc/00-founding-notes.md` (founding retrospective — historical record of theory's original identity)
+- `_obs/2026-03-13-hypothetical-theory-choice.md` (naming deliberation)
+- `_obs/2026-03-13-landscape-research/*` (collision research — records the landscape *at the time* of the decision)
+- `_obs/00-founding-notes.md` (founding retrospective — historical record of theory's original identity)
 
 Verify: same pattern.
 

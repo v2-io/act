@@ -98,7 +98,7 @@ The following relationships deserve explicit treatment (dedicated segments or sc
 
 - **Active inference / FEP.** Structural isomorphism with expected free energy noted in CIY segment. AAD's differentiators: persistence condition (no FEP analog), adversarial dynamics, composition machinery. These should be stated explicitly.
 - **POMDP planning.** Strategy DAG is close to a policy tree. AAD adds: mismatch dynamics, persistence condition, composition. The embedding is the contribution, not the DAG itself.
-- **BDI architecture.** Named the parts; AAD adds dynamics. Brief positioning exists in `msc/02-prior-art-assessment.md` but not in the segments.
+- **BDI architecture.** Named the parts; AAD adds dynamics. Brief positioning exists in `_obs/02-prior-art-assessment.md` but not in the segments.
 
 ### Computational Tractability
 

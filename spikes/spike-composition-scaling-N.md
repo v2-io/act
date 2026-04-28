@@ -6,7 +6,7 @@
 
 **Motivation.** #form-composition-closure Working Notes log "$N$-agent scaling of $\varepsilon^\ast$" as an open question (is it polynomial or exponential in team size?), and `TODO.md` flags this as "critical for applying the theory to large teams." For $N = 2$, there is one fully worked case (`spikes/spike-composition-correlated-kalman.md`) and a two-agent sketch of the bridge lemma (`spikes/spike-composition-bridge-2agent.md`, absorbed). For general $N$, there is nothing but the weakest-link bound $\alpha_c \geq \min_i(\alpha_i - \Delta\mathcal T_i^{\text{cost}})$ from #der-team-persistence. The conjectural folklore is that coupling *structure* dominates: sparse/tree-like coupling should allow efficient dimensionality reduction, fully-connected coupling should not, and real teams live somewhere between. This spike lays out the scaffolding so a future working pass can attack the question without re-deriving the frame.
 
-**Depends on**: #form-composition-closure, #scope-composite-agent, #result-sector-persistence-template, #der-tempo-composition, #der-team-persistence, #def-unity-dimensions, #result-unity-closure-mapping, #disc-compression-operations, `spikes/spike-composition-correlated-kalman.md`, `spikes/spike-agent-composition.md`, `msc/speculation-soc-composition.md`, `spikes/spike-unity-closure-mapping.md`, `spikes/spike-mori-zwanzig-composition.md`.
+**Depends on**: #form-composition-closure, #scope-composite-agent, #result-sector-persistence-template, #der-tempo-composition, #der-team-persistence, #def-unity-dimensions, #result-unity-closure-mapping, #disc-compression-operations, `spikes/spike-composition-correlated-kalman.md`, `spikes/spike-agent-composition.md`, `spikes/spike-soc-composition.md`, `spikes/spike-unity-closure-mapping.md`, `spikes/spike-mori-zwanzig-composition.md`.
 
 ---
 
@@ -105,7 +105,7 @@ Each agent couples to $k$ neighbors, $k$ fixed as $N$ grows. Motivates: distribu
 
 *Intuition.* $k$-regular gives $O(N)$ edges rather than $O(N^2)$; local-neighborhood projections should give $\varepsilon^\ast(N)$ bounded or growing sublinearly if the coupling is local and contracting. Close in spirit to Mori–Zwanzig projection on lattice systems — the zero-lag kernel bound ( #form-composition-closure Working Notes, Mori-Zwanzig partial note) is the candidate quantitative estimate.
 
-*Why this intuition might be wrong.* Long-range correlations can propagate through short-range couplings (critical phenomena, percolation). Even with $k$ fixed, correlation lengths can diverge and the mean-field approximation fails near criticality — the SOC speculation (`msc/speculation-soc-composition.md`) is exactly the claim that AAD composites may sit near such a critical point.
+*Why this intuition might be wrong.* Long-range correlations can propagate through short-range couplings (critical phenomena, percolation). Even with $k$ fixed, correlation lengths can diverge and the mean-field approximation fails near criticality — the SOC speculation (`spikes/spike-soc-composition.md`) is exactly the claim that AAD composites may sit near such a critical point.
 
 ### 4.4 Small-world coupling
 
@@ -196,7 +196,7 @@ Effort: high. Payoff: the cleanest framing of the question, and the one most lik
 
 ## 7. Connection to Other Open Questions
 
-- **SOC / RG speculation** ( `msc/speculation-soc-composition.md`). Scaling of $\varepsilon^\ast$ with $N$ is *exactly* the question the RG inverse-argument addresses: requiring scale-invariance of agent-level distributions constrains which composition operations are admissible. If the inverse argument goes through, it would characterize $\varepsilon^\ast(N)$ as the fixed-point property rather than as a separately-derived scaling law. This is speculation-grade; it is not available as machinery yet.
+- **SOC / RG speculation** ( `spikes/spike-soc-composition.md`). Scaling of $\varepsilon^\ast$ with $N$ is *exactly* the question the RG inverse-argument addresses: requiring scale-invariance of agent-level distributions constrains which composition operations are admissible. If the inverse argument goes through, it would characterize $\varepsilon^\ast(N)$ as the fixed-point property rather than as a separately-derived scaling law. This is speculation-grade; it is not available as machinery yet.
 
 - **Mori–Zwanzig connection** ( #form-composition-closure Working Notes, `spikes/spike-mori-zwanzig-composition.md`). The zero-lag kernel bound gives a lower bound on $\varepsilon^\ast$ in terms of an operator-norm quantity that depends explicitly on the micro-propagator's spectrum. For structured $N$-agent propagators, this spectrum has known $N$-scaling (tridiagonal: $O(1/N^2)$ gap; dense: $O(1)$; hierarchical: level-dependent). The MZ bound is the most direct link between $N$-structure and $\varepsilon^\ast$ currently available — but it closes only on the zero-lag piece, not the full kernel, and relies on stationarity (which fails for Beta-Bernoulli purposeful agents).
 
@@ -215,7 +215,7 @@ Per FORMAT.md's three-ring analysis, a scaling result $\varepsilon^\ast(N) \sim 
 
 The honest ring placement is **canonical formulation** (second ring) for the framing — what counts as "the" scaling law, which aggregates to measure, which normalizations to use. Specific scaling claims for specific families (tree vs complete vs $k$-regular) are probably **empirical/heuristic** (third ring) at their ceiling: derivable exactly in tractable special cases (linear-Gaussian, exchangeable, stationary), heuristic elsewhere.
 
-*Exception.* If the RG inverse argument from `msc/speculation-soc-composition.md` works, the scaling exponents would fall out as universal properties of the composition operation's fixed points, which is inevitability-core shape. This is speculation; nothing in this spike assumes it.
+*Exception.* If the RG inverse argument from `spikes/spike-soc-composition.md` works, the scaling exponents would fall out as universal properties of the composition operation's fixed points, which is inevitability-core shape. This is speculation; nothing in this spike assumes it.
 
 The "max attainable status" for a future #composition-scaling-N segment is therefore *robust-qualitative* (or *conditional*) in general, *exact* in tractable special cases. Promoting it beyond that without the RG argument would be overreach.
 

@@ -175,7 +175,7 @@ Point estimate **+6** reflecting branching-outcome distribution. **Primary aspec
 
 External literature rich: Moran model, replicator-Fokker-Planck (Traulsen-Claussen-Hauert 2008), Kullback-Leibler as Lyapunov for ESS (Baez 2014), Baez-Pollard 2016. Directly reusable under prior-art-integration convention.
 
-**SP-17 goal-information-leakage $\mathcal{L}_{G \to M}^c = I(o_c; G_t^c \mid \Omega_t)$** — newly surfaced in 2026-04-24 audit from `msc/sketch-composition-gaps.md` §"Formalizing the goal-contamination." Makes $\mathcal{L}$ a first-class AAD quantity; gives Case 3 (emergent goal-conditioning under Class-2-composition boundary) a quantitative handle rather than a qualitative case-distinction. Scoping question: own segment vs. subsection of `#hyp-directed-separation-under-composition`? **1–2 sessions.** **Value: +4.** **Independence: high** if new segment; **medium** if landed as subsection (conflicts with any concurrent `#hyp-directed-separation-under-composition` work).
+**SP-17 goal-information-leakage $\mathcal{L}_{G \to M}^c = I(o_c; G_t^c \mid \Omega_t)$** — newly surfaced in 2026-04-24 audit from `spikes/spike-composition-gaps.md` §"Formalizing the goal-contamination." Makes $\mathcal{L}$ a first-class AAD quantity; gives Case 3 (emergent goal-conditioning under Class-2-composition boundary) a quantitative handle rather than a qualitative case-distinction. Scoping question: own segment vs. subsection of `#hyp-directed-separation-under-composition`? **1–2 sessions.** **Value: +4.** **Independence: high** if new segment; **medium** if landed as subsection (conflicts with any concurrent `#hyp-directed-separation-under-composition` work).
 
 **O-BP16 independence: medium.** New segment + cross-refs to existing Section III segments (`#der-agent-opacity`, `#der-interaction-channel-classification`, `#disc-identifiability-floor`). Light touches only; safe to parallelize with non-Section-III work. Conflicts with O-BP9 if both edit `#scope-composite-agent` concurrently.
 
@@ -284,8 +284,8 @@ These proposals are either absorbed by other landings or have been structurally 
 
 Beyond SP-11 through SP-19 referenced above, two additional candidates deserve acknowledgment but not top-level status:
 
-- **SP-18 Internal-aporia / sub-agent adversarial dynamics** — `msc/brainstorm-aporia-sub-agent-adversarial.md`. Institutions as "aporia amplifiers"; per-dimension $U_O$; theory-of-mind as productivity gate. Load-bearing for `04-logozoetic-agents/` and for Section III adversarial/cooperative integration. **Brainstorm-grade; not yet scoped.** Reopen when logozoetic work matures. Value +3 to +5.
-- **SP-20 DAG vulnerability / redundancy metrics** — `msc/sketch-strategy-dynamics-gaps.md` §Gap 2. Adjacent to `#der-agent-opacity` / `#adversarial-edge-targeting`; probably lands as extension rather than standalone. Value +3.
+- **SP-18 Internal-aporia / sub-agent adversarial dynamics** — `spikes/spike-aporia-sub-agent-adversarial.md`. Institutions as "aporia amplifiers"; per-dimension $U_O$; theory-of-mind as productivity gate. Load-bearing for `04-logozoetic-agents/` and for Section III adversarial/cooperative integration. **Brainstorm-grade; not yet scoped.** Reopen when logozoetic work matures. Value +3 to +5.
+- **SP-20 DAG vulnerability / redundancy metrics** — `spikes/spike-strategy-dynamics-gaps.md` §Gap 2. Adjacent to `#der-agent-opacity` / `#adversarial-edge-targeting`; probably lands as extension rather than standalone. Value +3.
 
 ### SP-21 — Composite-agent scope-route ontology split
 

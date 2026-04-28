@@ -170,7 +170,7 @@ Six pilot Findings landed hand-drafted. The sweep across remaining qualifying se
 - Segment text outside the Findings sections (no edits to formal expressions or discussions)
 - LEXICON.md, NOTATION.md (no changes)
 - ref/, _obs/ (no changes)
-- The msc/proposal-readme-refactor.md beyond the synthesis-prose decision (no further edits to the proposal once committed)
+- The _obs/proposal-readme-refactor.md beyond the synthesis-prose decision (no further edits to the proposal once committed)
 
 ---
 

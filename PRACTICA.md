@@ -73,6 +73,7 @@ Status: pilot complete; full role-prefix sweep complete (142 segments under `{ty
 
 ## Misc
 - [x] ~~Review new README outline & partials available~~ — landed via 2026-04-26 doc-pipeline cycle (commits `653cfeb`, `6389e4d`, `b1c61a0`, `104b777`); pipeline at `doc/readme/`, scripts in `bin/` (`build-readme`, `extract-findings`, etc.)
+- [ ] Joseph review new README outline & partials available
 - [ ] Consider modifying & updating link formatting + policy, and tagging (better optimized for both obsidian, plain text, and github)
 - [ ] Footnote and citation procedure
 - [ ] Historical provenance and relic cleanup (e.g., unimportant TFT mentions even if effectively in footnotes)

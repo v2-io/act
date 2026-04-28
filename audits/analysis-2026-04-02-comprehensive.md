@@ -113,10 +113,10 @@ Flagged in strategy-dag, strategic-calibration, chain-confidence-decay, credit-a
 
 **P1. Three-way presentation split.**
 All three original reviewers recommend splitting into: (a) core results, (b) conditional architecture, (c) empirical programs. "Single highest-leverage presentation change." Not yet done. README's Maturity Gradient captures conceptually but segments don't distinguish layers.
-- *Source:* analysis-2026-04-01-remaining, msc/2026-03-13-feedback.md
+- *Source:* analysis-2026-04-01-remaining, audits/2026-03-13-feedback.md
 
 **P2. Prior art positioning.**
-Active inference/FEP, POMDP, BDI relationships deserve explicit treatment. Segment #prior-art-positioning is missing. Brief positioning exists in msc/02-prior-art-assessment.md but not in segments. AAD's differentiators vs. active inference: persistence condition (no FEP analog), adversarial dynamics, composition machinery.
+Active inference/FEP, POMDP, BDI relationships deserve explicit treatment. Segment #prior-art-positioning is missing. Brief positioning exists in _obs/02-prior-art-assessment.md but not in segments. AAD's differentiators vs. active inference: persistence condition (no FEP analog), adversarial dynamics, composition machinery.
 - *Source:* analysis-2026-04-01, analysis-2026-04-01-remaining
 
 **P3. **NEW** "Forced" vs "strongly motivated" language inconsistency.**
@@ -178,7 +178,7 @@ Both labeled "exact" but are convention-dependent on value-object's horizon/poli
 | Gap | Type | Description | Difficulty |
 |-----|------|-------------|------------|
 | #intent-dag-development | Aside | Convergence history: three independent formalism attempts all arrived at AND/OR + single-parameter edges. Currently described in README's Convergent Choices; a segment would preserve the archaeological record. | Small |
-| #prior-art-positioning | Detail | Hafez, IBM, BDI, active inference positioning. Source material in msc/02-prior-art-assessment.md. | Medium |
+| #prior-art-positioning | Detail | Hafez, IBM, BDI, active inference positioning. Source material in _obs/02-prior-art-assessment.md. | Medium |
 
 ### 4.3 Segments at Sketch Status Needing Development
 

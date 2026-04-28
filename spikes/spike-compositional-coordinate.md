@@ -378,7 +378,7 @@ I recommend a *conjunction* of Option A (lightly) and Option C (substantively), 
 
 ---
 
-## §8 — Relation to SOC Speculation (`msc/speculation-soc-composition.md`)
+## §8 — Relation to SOC Speculation (`spikes/spike-soc-composition.md`)
 
 The SOC-speculation spike conjectured an RG-style fixed-point argument on composition — self-similarity under coarse-graining producing power-law tails and an "optimal-at-critical" conjecture. Does this interact with the spike's candidates?
 
@@ -386,7 +386,7 @@ The SOC-speculation spike conjectured an RG-style fixed-point argument on compos
 
 **But the RG-fixed-point argument is structurally different from the Cauchy-FE argument.** RG operates on **parameter flow** under coarse-graining: does $(\alpha, \rho, R, \gamma)$ at one scale map (under a coarse-graining projection) into $(\alpha', \rho', R', \gamma')$ at the next scale, with a fixed point of the flow? The Cauchy-FE argument operates on **coordinate forcing** for a single quantity, not on parameter flow.
 
-**They are complementary, not competing.** RG-speculation asks: how do AAD parameters flow under coarse-graining? Cauchy-FE-at-composition asks: how does a single compositional quantity decompose across levels? Both are structural questions about Section III, addressing different aspects. The RG-speculation is currently parked (`msc/speculation-soc-composition.md`); this spike does not activate it.
+**They are complementary, not competing.** RG-speculation asks: how do AAD parameters flow under coarse-graining? Cauchy-FE-at-composition asks: how does a single compositional quantity decompose across levels? Both are structural questions about Section III, addressing different aspects. The RG-speculation is currently parked (`spikes/spike-soc-composition.md`); this spike does not activate it.
 
 ---
 
