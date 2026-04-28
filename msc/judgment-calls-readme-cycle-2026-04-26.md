@@ -177,7 +177,7 @@ Six pilot Findings landed hand-drafted. The sweep across remaining qualifying se
 ## Things that came up but weren't acted on
 
 - **PROPOSALS.md needs a status update** for Bundle 1: the README rewrite is now landed, the OUTLINE preamble already had the auditor-safe reframe, and several other Bundle 1 elements are partially addressed. A "Bundle 1 status" mini-update would be useful housekeeping.
-- **TODO.md `## Active — Pending-Review Spikes` cleanup** — several spikes there have landed; archival pass is overdue but out of scope for this cycle.
+- ~~**TODO.md `## Active — Pending-Review Spikes` cleanup**~~ — **DONE 2026-04-28**: three Pending-Review Spikes sections (~180 lines) consolidated into a single `## Queued spike work` section in TODO; per-spike status now lives in `msc/SPIKES.md`. Spike E status corrected (was DEFERRED, actually PROMOTED in commit `8f9a3ca`).
 - **FORMAT.md should document the `## Findings` section** — currently FORMAT.md lists the segment cadence (frontmatter / Title / summary / Formal Expression / Epistemic Status / Discussion / Working Notes); adding Findings as the optional H2 between Discussion and Working Notes is needed before any sweep instructions can refer to FORMAT.md as authoritative.
 - **`bin/lint-readme`** — flagged above (J-15). Quick win.
 - **The `_obs/CLAUDE-2-superseded-2026-XX-XX.md` placeholder** — when CLAUDE-2 sunsets, the timestamp-stamped archive name needs choosing.
