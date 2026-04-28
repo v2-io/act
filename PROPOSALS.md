@@ -94,7 +94,7 @@ Seven proposals landed as one coordinated pass. Value **+9 framework / +10 paper
 
 Three of the five bundle members are ready now; two need upstream scoping. Ready-now entries:
 
-- **SP-11 Composition-monotonicity meta-segment** — from existing C2 spike (`msc/spike-compositional-coordinate.md`); would give Section III its fourth meta-segment parallel to `#additive-coordinate-forcing` / `#disc-identifiability-floor` / `#disc-separability-pattern`. Newly surfaced in 2026-04-24 audit. **1–2 sessions.**
+- **SP-11 Composition-monotonicity meta-segment** — from existing C2 spike (`spikes/spike-compositional-coordinate.md`); would give Section III its fourth meta-segment parallel to `#additive-coordinate-forcing` / `#disc-identifiability-floor` / `#disc-separability-pattern`. Newly surfaced in 2026-04-24 audit. **1–2 sessions.**
 - **SP-6 composition-closure consolidation (residue)** — majority absorbed by 2026-04-24 Tier 1 DA2'-inc ≡ (CT2) equivalence. Remaining: scope-statement-level consolidation in `#form-composition-closure` + scope adjustments in `#der-team-persistence` / `#post-composition-consistency` / `#der-tempo-composition`. **~1 session.**
 - **O-BP9 typed admissibility for composition** — well-defined, clear Section-III-completion-via-F8 target. 1–2 session scoping spike then 2–3 session execution. **Total 3–5 sessions.**
 
@@ -138,7 +138,7 @@ Primary aspect: unification. Composes with O-BP11 (partial unblock for the obser
 
 **Independence: medium.** NOTATION.md addition is self-contained; the ~6 cross-reference edits are each light touches but the target segments (`#der-observability-dominance`, `#hyp-communication-gain`, `#der-interaction-channel-classification`, `#deriv-persistence-cost`, `#def-adaptive-tempo`) may be in flight under other proposals. Conflict risk: if O-BP11 scoping spike runs concurrently and touches the same segments, coordinate. Otherwise parallelizable.
 
-**SP-14 confirmation from 2026-04-25 audit (B6 in `msc/pending-findings-2026-04-25.md`).** Audit's J4 marks `#deriv-persistence-cost` as "appendix-grade in placement, framework-grade in importance" — the channel-capacity floor $C_{\text{channel}} \geq \mathcal T/2$ pairs naturally with the threshold inequality $\alpha R > \rho$ as a two-prerequisite persistence story (one rate, one capacity), connects AAD to Landauer thermodynamic foundations without committing to thermodynamic-machinery-as-master, and gives Kalman-Bucy a privileged role (saturates the bound per Mitter-Newton 2005). Worth elevating SP-14's framing from "modest unification" to "substantive positive contribution" when executed.
+**SP-14 confirmation from 2026-04-25 audit (B6 in `audits/pending-findings-2026-04-25.md`).** Audit's J4 marks `#deriv-persistence-cost` as "appendix-grade in placement, framework-grade in importance" — the channel-capacity floor $C_{\text{channel}} \geq \mathcal T/2$ pairs naturally with the threshold inequality $\alpha R > \rho$ as a two-prerequisite persistence story (one rate, one capacity), connects AAD to Landauer thermodynamic foundations without committing to thermodynamic-machinery-as-master, and gives Kalman-Bucy a privileged role (saturates the bound per Mitter-Newton 2005). Worth elevating SP-14's framing from "modest unification" to "substantive positive contribution" when executed.
 
 ### C.4 SP-19 — Naming consolidation pass
 
@@ -243,7 +243,7 @@ Newly surfaced. `#disc-independence-audit` Working Notes flag the idea: score an
 
 ### E.1 G-BP2 V-strong — full VFE reformulation
 
-Paper-writing-time decision per `msc/spike-active-inference-vs-aad.md` §I action 5. V-medium is landed; V-strong stays open as a rhetorical-framing choice. Would commit AAD as a control-theoretic specialization of active inference; V-medium preserves both options. **Do not execute until a paper draft is in preparation.**
+Paper-writing-time decision per `spikes/spike-active-inference-vs-aad.md` §I action 5. V-medium is landed; V-strong stays open as a rhetorical-framing choice. Would commit AAD as a control-theoretic specialization of active inference; V-medium preserves both options. **Do not execute until a paper draft is in preparation.**
 
 **Independence: not applicable while waiting.** If eventually executed: **low** — major Section II framing rewrite touching strategy layer and multiple distinctive-claim segments.
 
@@ -261,7 +261,7 @@ Tier-3 architectural proposal from 2026-04-24 cycle. Would reframe the meta-segm
 
 **Independence: low.** Rewrites `#additive-coordinate-forcing` substantially; adds Discussion paragraphs to each of the four instance segments (`#der-chain-confidence-decay`, `#deriv-strategy-cost-regret-bound`, `#deriv-edge-update-natural-parameter`, `#der-gain-sector-bridge`). Conflicts with any concurrent work on those segments or on the meta-architecture framing (Bundle 1). Must serialize with Bundle 1.
 
-**SP-9 confirmation from 2026-04-25 audit (B5 in `msc/pending-findings-2026-04-25.md`).** Audit's J3 (Hypothesis-grade, high confidence) confirms the Bregman-Fenchel observation is *real geometric convergence*, not coincidence: two AAD-internal axioms (chain-rule additivity at the divergence layer; evidential additivity at the update layer) are *logically independent* (they constrain different objects via Cauchy-FE on different functional equations), yet they force coordinates that turn out to be the *primal-dual pair* of one Legendre-Fenchel structure on the categorical simplex. Two independent axioms converging on dual coordinates of one geometric object is structural evidence the object is the right object. SP-9 is on the right track; the audit didn't change the gating but did confirm the structural payoff is genuine.
+**SP-9 confirmation from 2026-04-25 audit (B5 in `audits/pending-findings-2026-04-25.md`).** Audit's J3 (Hypothesis-grade, high confidence) confirms the Bregman-Fenchel observation is *real geometric convergence*, not coincidence: two AAD-internal axioms (chain-rule additivity at the divergence layer; evidential additivity at the update layer) are *logically independent* (they constrain different objects via Cauchy-FE on different functional equations), yet they force coordinates that turn out to be the *primal-dual pair* of one Legendre-Fenchel structure on the categorical simplex. Two independent axioms converging on dual coordinates of one geometric object is structural evidence the object is the right object. SP-9 is on the right track; the audit didn't change the gating but did confirm the structural payoff is genuine.
 
 ---
 
@@ -289,7 +289,7 @@ Beyond SP-11 through SP-19 referenced above, two additional candidates deserve a
 
 ### SP-21 — Composite-agent scope-route ontology split
 
-**Source:** 2026-04-24 fresh-pass audit (B7 in `msc/audit-2026-04-24-fresh-pass.md`; extracted into `msc/pending-findings-2026-04-25.md`).
+**Source:** 2026-04-24 fresh-pass audit (B7 in `audits/audit-2026-04-24-fresh-pass.md`; extracted into `audits/pending-findings-2026-04-25.md`).
 
 **Decision needed from Joseph before scoping execution.** This proposal would *reverse* a deliberate architectural choice made 2026-04-22/23 — see "What this proposal reverses" below. Routing it correctly is more important than executing it quickly.
 
@@ -307,7 +307,7 @@ The current single-disjunction form papers over the fact that C-iv composites re
 **What this proposal reverses (CRITICAL CONTEXT).** The unified disjunctive form is recent (2026-04-22/23) and was an *explicit* architectural choice with stated reasoning, not a default that drifted in:
 
 - **The unification logic** (`scope-composite-agent.md` Discussion §"Why this is a scope condition, not merely a quality metric"): "Making this a scope condition resolves the category issue: composition applies where $G_c$ is well-defined." All four routes answer the same question — "Is there a well-defined composite-level structure that makes the group a meaningful agent rather than a projection artifact?" — so they unify under a single scope gate. The four routes give qualitatively distinct answers to "what does it mean for $G_c$ to be well-defined?"
-- **The C-iv inclusion choice** (`msc/spike-strategic-composition.md` lines 99–108): "Whether this distinction is worth surfacing as a formal scope addition, or whether strategic composites are better handled as a separate Section III segment parallel to `#form-composition-closure`, is one of this spike's landing decisions. **Preferred reading: treat as a different type within the same scope condition, via (C-iv).** Reason: the composite is still a coherent object with a joint persistence story; calling it 'not a composite' overclaims the alignment requirement." This is the explicit decision SP-21 would reverse.
+- **The C-iv inclusion choice** (`spikes/spike-strategic-composition.md` lines 99–108): "Whether this distinction is worth surfacing as a formal scope addition, or whether strategic composites are better handled as a separate Section III segment parallel to `#form-composition-closure`, is one of this spike's landing decisions. **Preferred reading: treat as a different type within the same scope condition, via (C-iv).** Reason: the composite is still a coherent object with a joint persistence story; calling it 'not a composite' overclaims the alignment requirement." This is the explicit decision SP-21 would reverse.
 - **The "no-reduction-to-scalar" honesty.** The disjunction form was chosen because no single scalar (like $U_O$) reduces all four to a unified threshold; the disjunction "captures at least one of these qualitatively distinct mechanisms applies" without forcing premature reduction. Splitting would replace this with four parallel scope conditions, each with its own operationalization.
 
 If SP-21 lands, the framework loses the "one scope gate, multiple qualitative routes" framing that the 2026-04-23 cycle deliberately chose. Whether that loss is worth the cleaner per-route theorem families is the architectural decision Joseph needs to weigh.

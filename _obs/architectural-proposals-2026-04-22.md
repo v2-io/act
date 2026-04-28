@@ -10,9 +10,9 @@
 
 **Execution status (2026-04-22 strengthening cycle, post-AI-integration):**
 
-- **G-BP2 V-medium — EXECUTED** (commit `a14682e`). Variational form of the strategy IB objective: KL-divergence to the optimal-policy posterior replaces Shannon-MI relevance term in `#strategy-complexity-cost`, with cross-references in `#compression-operations`, `#exploit-explore-deliberate`, `#ciy-unified-objective`. Closes Gemini Findings 2 (Shannon-zero degeneracy) and 3. **V-strong remains open** as a paper-writing-time decision per `msc/spike-active-inference-vs-aad.md` §I action 5 — V-medium does not preclude either V-strong or V-weak; both options stay open.
-- **O-BP2 partially executed.** The synthesis-segment route landed in 2026-04-21 (`#compression-operations`); the §H Overlap-2 honest credit landed in commit `a14682e`. Full four-segment rewrite remains open per `msc/spike-ib-unification-plan.md`.
-- **AI engagement at the segment level — EXECUTED** for the §H Underclaim 1+2+3 positioning moves and §H Overlap 1+2 honest credits (commit `a14682e`). See `msc/spike-active-inference-vs-aad.md` §I and `msc/spike-ai-integration-pass.md` for the per-segment proposed text.
+- **G-BP2 V-medium — EXECUTED** (commit `a14682e`). Variational form of the strategy IB objective: KL-divergence to the optimal-policy posterior replaces Shannon-MI relevance term in `#strategy-complexity-cost`, with cross-references in `#compression-operations`, `#exploit-explore-deliberate`, `#ciy-unified-objective`. Closes Gemini Findings 2 (Shannon-zero degeneracy) and 3. **V-strong remains open** as a paper-writing-time decision per `spikes/spike-active-inference-vs-aad.md` §I action 5 — V-medium does not preclude either V-strong or V-weak; both options stay open.
+- **O-BP2 partially executed.** The synthesis-segment route landed in 2026-04-21 (`#compression-operations`); the §H Overlap-2 honest credit landed in commit `a14682e`. Full four-segment rewrite remains open per `spikes/spike-ib-unification-plan.md`.
+- **AI engagement at the segment level — EXECUTED** for the §H Underclaim 1+2+3 positioning moves and §H Overlap 1+2 honest credits (commit `a14682e`). See `spikes/spike-active-inference-vs-aad.md` §I and `spikes/spike-ai-integration-pass.md` for the per-segment proposed text.
 - All other proposals (G-BP1, G-BP3, O-BP1, O-BP3, O-BP4, O-BP5, O-BP6, O-BP7, C-BP1, C-BP2, C-BP3, C-BP4) remain in the original characterization below; see `TODO.md` for current status and recommended ordering.
 
 **Identifier conventions:** G-BP = Gemini bigger-picture; O-BP = Opus bigger-picture; C-BP = Codex round-2 bigger-picture. Codex round-1 did not have a bigger-picture section.
@@ -62,7 +62,7 @@ Decisions about whether to pursue, scope, or defer a proposal are made by Joseph
 - **Natural support for O-BP4 (continuous strategy DAG).** If the DAG is continuous-valued, natural parameterization is the obvious move.
 - No direct conflict with other proposals.
 
-**Effort shape.** Framing touch in `#strategy-dag` is small; the propagation through the derivation segments and worked examples is 2–3 focused sessions. A 90-minute scoping spike would characterize the exact scope and expose any edge cases before execution. The prior spike `msc/spike-gain-sector-bridge-nonlinear.md` already explores gradient descent on logistic loss and notes that natural parameter spaces satisfy the sector condition while keeping probabilities bounded — the groundwork is partially done.
+**Effort shape.** Framing touch in `#strategy-dag` is small; the propagation through the derivation segments and worked examples is 2–3 focused sessions. A 90-minute scoping spike would characterize the exact scope and expose any edge cases before execution. The prior spike `spikes/spike-gain-sector-bridge-nonlinear.md` already explores gradient descent on logistic loss and notes that natural parameter spaces satisfy the sector condition while keeping probabilities bounded — the groundwork is partially done.
 
 **Risks.** May expose other places in the strategy layer where probability updates are happening naively (not just in credit-assignment). May require rewriting worked examples in two representations (natural for dynamics, probability for interpretation). The Beta-Bernoulli update machinery is well-developed; recasting it in log-odds must preserve its pedagogical clarity.
 
@@ -266,7 +266,7 @@ Decisions about whether to pursue, scope, or defer a proposal are made by Joseph
 - **Some tension with O-BP2 (four compressions).** Continuous $\Sigma_t$ may require different compression formulation (value-based rather than structure-based).
 - **Strong with G-BP2 (variational free energy).** Continuous policies are naturally variational.
 
-**Effort shape.** Substantial rewrite. Scoping spike essential — and this proposal probably wants a *dedicated* spike (similar to `msc/spike-composition-scaling-N.md`), not just an evaluation in this portfolio.
+**Effort shape.** Substantial rewrite. Scoping spike essential — and this proposal probably wants a *dedicated* spike (similar to `spikes/spike-composition-scaling-N.md`), not just an evaluation in this portfolio.
 
 **Risks.** AND/OR has been convergent across three independent formalism attempts (noted in `#and-or-scope`) — there's a real reason for it, and a continuous form may not have the same parsimony properties. The scoping spike must genuinely test whether the continuous form is as clean as the Boolean one, not just whether it handles more cases.
 
@@ -563,7 +563,7 @@ Same Gemini §4 — the natural-gradient-on-Riemannian-manifold form is exactly 
 
 **O-BP2 (four compressions as one hierarchy) — Codex reframes via "predictive relevance under bounded loss"; Gemini explicitly dissolves Class 2 problem.**
 
-- *Codex bigger-picture (evening) §4 phrasing:* "the same projection/compression shape recurs: $M_t$, $\Sigma_t$, shared intent, and macro-projection all preserve predictive relevance under bounded loss. That feels like the deepest available simplification without overclaiming." This adds a precise epistemic-tier qualifier ("without overclaiming") that O-BP2's original characterization lacked — specifically pointing at the U-medium ceiling found in `msc/spike-ib-unification-plan.md`. Codex's framing is consonant with `#compression-operations` already at U-medium and explicitly cautions against the U-strong overreach.
+- *Codex bigger-picture (evening) §4 phrasing:* "the same projection/compression shape recurs: $M_t$, $\Sigma_t$, shared intent, and macro-projection all preserve predictive relevance under bounded loss. That feels like the deepest available simplification without overclaiming." This adds a precise epistemic-tier qualifier ("without overclaiming") that O-BP2's original characterization lacked — specifically pointing at the U-medium ceiling found in `spikes/spike-ib-unification-plan.md`. Codex's framing is consonant with `#compression-operations` already at U-medium and explicitly cautions against the U-strong overreach.
 - *Gemini bigger-picture (evening) §2 phrasing:* The strict separation between $M_t$ and $\Sigma_t$ "forces immense complexity (like the L1 common-cause node repair). If an agent is viewed purely as a collection of compression maps over its causal history, $M_t$ and $\Sigma_t$ are not distinct objects, but merely two projections of the same causal source tuned to different relevance variables (prediction vs. guidance). This perspective elegantly dissolves the Class 2 Agent problem: an LLM's forward pass is simply one holistic compression producing both projections simultaneously, making logogenic agents native to the theory rather than a scope-violating exception." Gemini's evening framing adds a major motivation O-BP2's original entry only hinted at: under O-BP2, the Class 2 logogenic-agent scope-exit ceases to be a scope violation and becomes a natural special case (one compression producing all projections at once). This substantially strengthens the case for O-BP2 by promising to dissolve, not just relabel, a long-standing open scope problem.
 
 **O-BP3 (continuous-parameter approximation tiering) — Gemini explicit parameter form.**
@@ -735,7 +735,7 @@ A single segment (or reorganization around) **"Observability: what can be seen, 
 
 **Source:** Gemini bigger-picture (2026-04-22 evening), §3.
 
-**Thesis.** The sector condition successfully proves persistence for individual agents but acts as a behavioral black box at the population level. To complete Section III for multi-agent and composition dynamics, the Lyapunov machinery should be elevated from agent-level to population-level — tracking the *distribution* of correction architectures and endogenous coupling coefficients ($\gamma$) rather than just static bounds. `msc/spike-neutral-drift-lyapunov.md` already noted that the sector condition is blind to "neutral drift" (agents that behave identically now but will fail differently later), which is exactly the population-level missing structure.
+**Thesis.** The sector condition successfully proves persistence for individual agents but acts as a behavioral black box at the population level. To complete Section III for multi-agent and composition dynamics, the Lyapunov machinery should be elevated from agent-level to population-level — tracking the *distribution* of correction architectures and endogenous coupling coefficients ($\gamma$) rather than just static bounds. `spikes/spike-neutral-drift-lyapunov.md` already noted that the sector condition is blind to "neutral drift" (agents that behave identically now but will fail differently later), which is exactly the population-level missing structure.
 
 **Merits.** Fundamentality (medium-high — closes a known Section III gap), correctness (medium). Maps onto the existing Section III gaps in TODO ("Latent structural diversity," "Endogenous coupling," "Composition transition dynamics") — population-Lyapunov is the apparatus that would let those gaps be addressed coherently rather than as separate ad-hoc extensions.
 
@@ -776,7 +776,7 @@ The new meta-segment composes with `#identifiability-floor` (negative-scope half
 
 ## Post-2026-04-23-audit architectural extensions (SP-2 through SP-8)
 
-Three de novo audits (Codex, Gemini, Opus) ran after the 2026-04-22/23 cascading strengthening cycle closed. Their big-picture observations include seven session-discovered structural proposals, numbered SP-2 through SP-8 in continuation of SP-1 (the three-layer additive-decomposition pattern discovered during the cycle). These are not audit-surfaced *findings* (those are in `msc/pending-findings-2026-04-23.md`) but audit-surfaced *architectural suggestions*, distinguished the same way the G-BP / O-BP / C-BP portfolio is. The S-prefix marks "session-or-post-session discovered" to preserve the provenance distinction.
+Three de novo audits (Codex, Gemini, Opus) ran after the 2026-04-22/23 cascading strengthening cycle closed. Their big-picture observations include seven session-discovered structural proposals, numbered SP-2 through SP-8 in continuation of SP-1 (the three-layer additive-decomposition pattern discovered during the cycle). These are not audit-surfaced *findings* (those are in `audits/pending-findings-2026-04-23.md`) but audit-surfaced *architectural suggestions*, distinguished the same way the G-BP / O-BP / C-BP portfolio is. The S-prefix marks "session-or-post-session discovered" to preserve the provenance distinction.
 
 ### SP-2 — Additive-coordinate-forcing meta-pattern (5–6 instances, not 3)
 
@@ -930,7 +930,7 @@ The 2026-04-24 Gemini pressure-point cycle surfaced two new architectural propos
 
 ### SP-9 — Fenchel-Bregman reframe of `#additive-coordinate-forcing`
 
-**Source:** Follow-up spike `msc/spike-fenchel-bregman-reframe-additive-coordinate-forcing-2026-04-24.md`, triggered by Path 7 of the IB-purity spike (2026-04-24 cycle).
+**Source:** Follow-up spike `spikes/spike-fenchel-bregman-reframe-additive-coordinate-forcing-2026-04-24.md`, triggered by Path 7 of the IB-purity spike (2026-04-24 cycle).
 
 **Thesis.** The current `#additive-coordinate-forcing` framing as "1-anchor-plus-3-theorem" (chain-layer identity + divergence/update/metric theorems + adjacent family members) **over-separates what is geometrically one object**. The three theorem-level axioms (chain-rule additivity for divergence; evidential additivity for update; parameterization-invariance for metric) are logically independent, but the coordinates they force *coincide on one geometric object* — the exponential-family Legendre-Fenchel structure on categorical distributions, with negative-entropy potential, log-partition dual, softmax primal-dual correspondence, reverse-KL Bregman divergence, Fisher metric as $\nabla^2\phi^\ast$.
 
@@ -979,7 +979,7 @@ The *convergence of independent axioms on one geometric object* is the meta-patt
 
 ### SP-10 — `#posterior-displacement-template` extraction (narrow)
 
-**Source:** Follow-up spike `msc/spike-kl-to-state-distance-template-extraction-2026-04-24.md`, triggered by the observation that Pinsker / Otto-Villani / Lipschitz-posterior machinery appears in multiple AAD contexts with varying degrees of overlap (2026-04-24 cycle).
+**Source:** Follow-up spike `spikes/spike-kl-to-state-distance-template-extraction-2026-04-24.md`, triggered by the observation that Pinsker / Otto-Villani / Lipschitz-posterior machinery appears in multiple AAD contexts with varying degrees of overlap (2026-04-24 cycle).
 
 **Thesis.** Two primary clients — `#variational-sector-condition` (already landed in 2026-04-23 Gap A/B cycle) and the newly-landed `#bias-bound-derivation` (2026-04-24 Tier 1) — share Pinsker's inequality as a first step in propagating a KL bound. But the *cascade after Pinsker* differs: `#variational-sector-condition` uses Pinsker + Cauchy-Schwarz → scalar sector-constant degradation; `#bias-bound-derivation` uses Pinsker → Otto-Villani under LSI → Lipschitz-posterior → $W_2$ on state-space pushforward.
 

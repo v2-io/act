@@ -8,7 +8,7 @@
 
 **Related**:
 - `WORKBENCH.md` — composition-closure bridge lemma listed as open
-- `msc/spike-agent-composition.md` — existing composition spike
+- `spikes/spike-agent-composition.md` — existing composition spike
 - `msc/2026-03-13-feedback.md` — three-model review naming composition closure as top priority
 - Cognitive-cost and tempo segments in `01-aad-core/src/` — load-bearing for the "optimal-at-critical" conjecture below
 
@@ -48,7 +48,7 @@ The ingredients are present. The question is what is *forced* by having them.
 
 **The argument:**
 
-1. Holonic composition: each level of the composed system is itself an AAD agent (this is the consistency requirement from `msc/spike-agent-composition.md`).
+1. Holonic composition: each level of the composed system is itself an AAD agent (this is the consistency requirement from `spikes/spike-agent-composition.md`).
 2. Non-trivial dynamics exist at each level: Orient cascades, strategy revisions, mismatch events.
 3. Composition preserves enough structure that "what is the distribution of cascade sizes?" is well-posed at every level.
 4. Then the distribution must be a fixed point of the composition operation acting as a rescaling.

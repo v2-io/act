@@ -160,6 +160,6 @@ The agent's total exploration shadow price is $\Lambda_{\text{info}} + \Lambda_{
 
 - **Tensor adaptive tempo.** `#def-adaptive-tempo` is currently scalar; the LMI repair requires tensor-valued $\mathcal T$ tracking per-direction rates for full alignment with this segment and with `#deriv-fisher-whitened-update-rule` and `#deriv-adaptive-gain-dynamics`. Queued in TODO.
 - **Worked 2D example.** A concrete 2D drift environment showing $\text{Tr}(\Lambda \mathcal I_o)$ distinguishing wall-channel from drift-channel actions would sharpen the blank-wall resolution. Queued.
-- **2D simulation.** Generalization of `msc/track-b-nonlinear-sims/variants/variant_causal_ib.py` to 2D with separable drifting/non-drifting subspaces would empirically validate the matrix Lagrangian's directional discrimination. Queued.
+- **2D simulation.** Generalization of `spikes/track-b-nonlinear-sims/variants/variant_causal_ib.py` to 2D with separable drifting/non-drifting subspaces would empirically validate the matrix Lagrangian's directional discrimination. Queued.
 - **EIG vs FIM gap.** For non-Gaussian or non-local observation models, FIM diverges from EIG. The CIY-vs-EIG concern in `#disc-ciy-unified-objective` Epistemic Status persists; the matrix lift removes the CIY-$U_o$ surrogate but not the CIY-EIG surrogate.
-- **Reasoning trail.** `msc/spike-causal-ib-lmi-repair.md` records the spike that surfaced the LMI repair from the scalar segment's blank-wall critique.
+- **Reasoning trail.** `spikes/spike-causal-ib-lmi-repair.md` records the spike that surfaced the LMI repair from the scalar segment's blank-wall critique.

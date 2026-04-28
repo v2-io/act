@@ -14,6 +14,6 @@ The following files carry priming content and are best read only after your audi
 - `TODO.md` — active and archived findings, including the "settled" framings of prior cycles
 - `PROPOSALS.md` — architectural-proposal portfolio with prior-reasoning trails
 - `doc/readme/src/_findings-summary.md`, `_recent-progress.md`, `_known-issues.md` — the auto-generated live includes underlying the public README
-- `msc/pending-findings-*.md`, `msc/audit-*.md` — prior-cycle audit working documents
+- `audits/pending-findings-*.md`, `audits/audit-*.md` — prior-cycle audit working documents
 
 Reading these is not forbidden — nothing in this project is — but tends to bias toward ideas previous auditors have already heavily visited, and that's not in the spirit of a *de novo* audit. The most useful contributions from a fresh pass come from genuinely-fresh perspectives.

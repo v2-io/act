@@ -61,7 +61,7 @@ The strategy-persistence schema is now verified for three cases, but the full lo
 
 - **Signal function for continuous outcomes.** Binary outcomes are resolved (proportional-blame = exact marginal Bayesian). Continuous outcomes, multi-valued signals, and partial observability remain open.
 - **Credit assignment for general DAG topologies.** The two-edge spike showed clean attribution for observable intermediates and plan-level fallback for unobservable ones. General multi-parent AND/OR nodes with mixed observability are not addressed.
-- ~~**OR-node sector condition.** All verified cases use AND-nodes.~~ **DONE 2026-04-02.** OR-node sector condition verified in `msc/spike-or-node-strategic-dynamics.md`. Key result: OR-nodes are exploration-gated (not depth-gated like AND). Sector condition holds with ε-greedy exploration; pure greedy fails. SA3 condition added to persistence schema. Scales as 1/k with k alternatives — creates pressure toward pruning.
+- ~~**OR-node sector condition.** All verified cases use AND-nodes.~~ **DONE 2026-04-02.** OR-node sector condition verified in `spikes/spike-or-node-strategic-dynamics.md`. Key result: OR-nodes are exploration-gated (not depth-gated like AND). Sector condition holds with ε-greedy exploration; pure greedy fails. SA3 condition added to persistence schema. Scales as 1/k with k alternatives — creates pressure toward pruning.
 
 ### Composition — Remaining Pieces
 

@@ -82,7 +82,7 @@ Every slug is linked to its intended `src/{slug}.md` file, even when that file d
 
 ***Section I machinery applies regardless of architecture.** Adaptive dynamics on the epistemic substate $M_t$ — mismatch, gain, tempo, persistence — operate independently of how $f_M$ relates to $G_t$. Class 2 agents are adaptive systems in the Section I sense; what they lose is the clean factorization that gives Section II's coupled-formulation results their definitional simplicity. The coupled formulation Class 2 agents require is the subject of [`03-logogenic-agents/`](../03-logogenic-agents/OUTLINE.md), which inherits Section II's surviving 16/24 architecture and adds the additional machinery ( #scope-observation-ambiguity-modulation, ambiguity-gated bias bounds) that the coupled regime calls for.*
 
-*The derivation chain for this section is mature (see `msc/spike-v3-purposeful-agent.md`). Much of it provides better justification and epistemic labels for architecture that already existed; the headline contribution above names what is genuinely novel.*
+*The derivation chain for this section is mature (see `spikes/spike-v3-purposeful-agent.md`). Much of it provides better justification and epistemic labels for architecture that already existed; the headline contribution above names what is genuinely novel.*
 
 *"If a man knows not to which port he sails, no wind is favorable." — Seneca*
 
@@ -129,7 +129,7 @@ Every slug is linked to its intended `src/{slug}.md` file, even when that file d
 
 *Correlated observations as default; independence as the special case requiring justification. Adversarial dynamics are one end of a teleological unity spectrum, not a separate theory.*
 
-*Three primary sources: the simulation-validated adversarial dynamics from TFT (TF-11/Appendix F, track-b simulations); the composition spike (`msc/spike-agent-composition.md`) which derives composition consistency from the scope condition's level-independence; and Miller's Coevolving Automata Model (Ex Machina, 2022), which provides constructive mechanisms for composition dynamics — how composites form, undergo phase transitions, and restructure through neutral drift and niche creation. Agent opacity ($H_b$) is adopted from Hafez et al. (2026).*
+*Three primary sources: the simulation-validated adversarial dynamics from TFT (TF-11/Appendix F, track-b simulations); the composition spike (`spikes/spike-agent-composition.md`) which derives composition consistency from the scope condition's level-independence; and Miller's Coevolving Automata Model (Ex Machina, 2022), which provides constructive mechanisms for composition dynamics — how composites form, undergo phase transitions, and restructure through neutral drift and niche creation. Agent opacity ($H_b$) is adopted from Hafez et al. (2026).*
 
 ![Dependency Graph](src/img/dep-graph-section-III.svg)
 

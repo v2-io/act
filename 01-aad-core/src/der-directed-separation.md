@@ -98,7 +98,7 @@ Class membership is therefore a property of composites, not just of individual a
 
 *Conditional* on the scope condition above. The conditional claim (IF epistemic update is goal-blind, THEN the separation holds) is exact. Whether a particular agent satisfies the condition is determined by its processing architecture (Class 1/2/3).
 
-The architectural classification: **robust qualitative**. The three classes are structurally distinct (modular vs merged vs partial), well-motivated by examples across domains, and supported by a formal operationalization ($\kappa_{\text{processing}}$). The classification replaces the earlier $\kappa$-as-scalar framing, which is documented in `msc/spike-kappa-topology-insight.md`. The operationalization of $\kappa_{\text{processing}}$ as conditional mutual information is well-defined but typically not computable in closed form for real architectures — it serves as a conceptual anchor rather than a practical measurement tool.
+The architectural classification: **robust qualitative**. The three classes are structurally distinct (modular vs merged vs partial), well-motivated by examples across domains, and supported by a formal operationalization ($\kappa_{\text{processing}}$). The classification replaces the earlier $\kappa$-as-scalar framing, which is documented in `spikes/spike-kappa-topology-insight.md`. The operationalization of $\kappa_{\text{processing}}$ as conditional mutual information is well-defined but typically not computable in closed form for real architectures — it serves as a conceptual anchor rather than a practical measurement tool.
 
 ## Discussion
 

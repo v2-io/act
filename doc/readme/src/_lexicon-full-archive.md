@@ -311,7 +311,7 @@ Whether the agent is currently within the region where structural persistence ap
 
 The **adaptive reserve** $\Delta\rho^\ast = \alpha R - \rho$ measures this margin. Large reserve means the agent can absorb shocks. Small reserve means the agent is one bad perturbation from structural breakdown — "practically dead in the water" despite the machinery being formally adequate.
 
-Inject pure noise into $M_t$ and a structurally viable agent may find itself at $\lVert\delta\rVert \approx R$: still within the guaranteed region but with no margin. The correction machinery grinds against the boundary rather than operating in the comfortable interior. The single-edge spike (`msc/spike-single-edge-strategic-dynamics.md`) shows this concretely: experience shrinks adaptive reserve ($\Delta\rho_\Sigma^\ast = R_\Sigma/(n+1) - \rho_\Sigma$ decreases as $n$ grows), making the system structurally viable but operationally brittle.
+Inject pure noise into $M_t$ and a structurally viable agent may find itself at $\lVert\delta\rVert \approx R$: still within the guaranteed region but with no margin. The correction machinery grinds against the boundary rather than operating in the comfortable interior. The single-edge spike (`spikes/spike-single-edge-strategic-dynamics.md`) shows this concretely: experience shrinks adaptive reserve ($\Delta\rho_\Sigma^\ast = R_\Sigma/(n+1) - \rho_\Sigma$ decreases as $n$ grows), making the system structurally viable but operationally brittle.
 
 #### Continuity persistence
 

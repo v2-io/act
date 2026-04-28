@@ -163,7 +163,7 @@ This is a standing check rather than a gate because spike→segment compression 
 
 ### Math lives in segments, not spikes
 
-Math derived in a spike must land in a segment — never reside only in `msc/spike-*.md`. Two destinations:
+Math derived in a spike must land in a segment — never reside only in `spikes/spike-*.md`. Two destinations:
 
 1. **An existing segment**, if the new math tightens, replaces, or extends that segment's content.
 2. **A new appendix segment** (more likely for novel derivations with their own claim identity) — added to `01-aad-core/src/` (typically `appendix-*` or a similarly named slug) and recorded in `01-aad-core/OUTLINE.md` under the appendix section.
@@ -330,7 +330,7 @@ The `## Working Notes` section is for active development: open questions about t
 
 ### Voice and provenance
 
-**Segment voice, not diff voice.** Formal Expression, Epistemic Status, and Discussion present the current state of the theory. Avoid phrasing like "landed 2026-04-23", "the prior version of this segment treated X as...", "the msc/spike-Y.md cycle lifted...", or "promoted from spike Z" in those sections — that voice positions the content *against* the theory rather than presenting the segment *as* the theory. State what the theory **is**, not what changed: "Instance 3 of #disc-identifiability-floor derives..." rather than "Instance 3 (landed 2026-04-23 from spike X) derives..."; "the four instances of the meta-pattern..." rather than "the meta-pattern was extended to four instances after the 2026-04-23 cycle...".
+**Segment voice, not diff voice.** Formal Expression, Epistemic Status, and Discussion present the current state of the theory. Avoid phrasing like "landed 2026-04-23", "the prior version of this segment treated X as...", "the spikes/spike-Y.md cycle lifted...", or "promoted from spike Z" in those sections — that voice positions the content *against* the theory rather than presenting the segment *as* the theory. State what the theory **is**, not what changed: "Instance 3 of #disc-identifiability-floor derives..." rather than "Instance 3 (landed 2026-04-23 from spike X) derives..."; "the four instances of the meta-pattern..." rather than "the meta-pattern was extended to four instances after the 2026-04-23 cycle...".
 
 A segment is read by future agents and reviewers who have no context for the chronicle of changes; diff voice forces them to imagine the prior state in order to parse the new state, dates the segment, and positions the content as contingent. Date / commit / spike references belong only in `## Working Notes`.
 
@@ -338,7 +338,7 @@ A segment is read by future agents and reviewers who have no context for the chr
 
 Spike references in `## Working Notes` are permitted in two narrow forms:
 
-1. **Pointer to unfinished follow-on work.** "The N-agent scaling is unresolved; framing lives in `msc/spike-composition-scaling-N.md`." Once the follow-on lands, the Working Note is replaced by segment content and the spike reference comes out with it.
+1. **Pointer to unfinished follow-on work.** "The N-agent scaling is unresolved; framing lives in `spikes/spike-composition-scaling-N.md`." Once the follow-on lands, the Working Note is replaced by segment content and the spike reference comes out with it.
 2. **Brief landing-context provenance.** "Derived in the 2026-04 Gap-cycle work trail (`spike-X.md`)." Permissible, but preferred lean over verbose — the segment's `depends` list and citations carry most of what a future reviewer needs.
 
 Cross-references between segments (`#other-segment`) are unrestricted in any section — they are the normal way segments interoperate. The rule is specifically about spike references, which are transient artifacts. The test: a reader with no knowledge of which spike produced which segment should be able to read any segment as a coherent piece of theory; spike files can vanish without invalidating it.

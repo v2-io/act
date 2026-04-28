@@ -4118,17 +4118,17 @@ This is the aggregated candidate list from Round 1, sorted most-popular to least
 
 - ``MIGRATION-MAP.md`` — **opus-4-7-b:** Keep. Lifecycle-aware name (it retires when absorption completes).
 
-## 623. ``msc/SPIKES.md``
+## 623. ``spikes/INDEX.md``
 
-**Alternatives proposed:** ``msc/SPIKES.md``
+**Alternatives proposed:** ``spikes/INDEX.md``
 
-- ``msc/SPIKES.md`` — **opus-4-7-b:** Keep. The all-caps SPIKES signals index-document status parallel to OUTLINE.md / FORMAT.md / CLAUDE.md. Good.
+- ``spikes/INDEX.md`` — **opus-4-7-b:** Keep. The all-caps SPIKES signals index-document status parallel to OUTLINE.md / FORMAT.md / CLAUDE.md. Good.
 
-## 624. ``msc/SPIKES.md` (spike index)`
+## 624. ``spikes/INDEX.md` (spike index)`
 
-**Alternatives proposed:** ``msc/SPIKES.md``
+**Alternatives proposed:** ``spikes/INDEX.md``
 
-- ``msc/SPIKES.md`` — **opus-4-7-b:** Keep. All-caps index convention.
+- ``spikes/INDEX.md`` — **opus-4-7-b:** Keep. All-caps index convention.
 
 ## 625. ``msc/architectural-proposals-{YYYY-MM-DD}.md``
 
@@ -4136,7 +4136,7 @@ This is the aggregated candidate list from Round 1, sorted most-popular to least
 
 - `*(retire once consolidated into PROPOSALS.md)*` — **opus-4-7-b:** PROPOSALS.md has already absorbed these; the dated proposal files are historical artifacts. Not a rename; a retirement when MIGRATION-MAP convention allows.
 
-## 626. ``msc/pending-findings-{YYYY-MM-DD}.md``
+## 626. ``audits/pending-findings-{YYYY-MM-DD}.md``
 
 **Alternatives proposed:** `*(retire once items reconcile into TODO / segments)*`
 
@@ -4148,17 +4148,17 @@ This is the aggregated candidate list from Round 1, sorted most-popular to least
 
 - ``msc/reflections/`` — **opus-4-7-b:** Keep. The `reflections/` subdirectory is a legitimate separate register from spikes/brainstorms.
 
-## 628. ``msc/spike-{topic}-{YYYY-MM-DD}.md``
+## 628. ``spikes/spike-{topic}-{YYYY-MM-DD}.md``
 
-**Alternatives proposed:** ``msc/spike-{topic}-{YYYY-MM-DD}.md``
+**Alternatives proposed:** ``spikes/spike-{topic}-{YYYY-MM-DD}.md``
 
-- ``msc/spike-{topic}-{YYYY-MM-DD}.md`` — **opus-4-7-b:** Keep the dated variant for recurring-topic spikes. Date suffix makes second-iteration spikes findable.
+- ``spikes/spike-{topic}-{YYYY-MM-DD}.md`` — **opus-4-7-b:** Keep the dated variant for recurring-topic spikes. Date suffix makes second-iteration spikes findable.
 
-## 629. ``msc/spike-{topic}.md``
+## 629. ``spikes/spike-{topic}.md``
 
-**Alternatives proposed:** ``msc/spike-{topic}.md``
+**Alternatives proposed:** ``spikes/spike-{topic}.md``
 
-- ``msc/spike-{topic}.md`` — **opus-4-7-b:** Keep. The `spike-` prefix is a clean filename convention signaling "exploratory, reasoning-trail, not the theory proper."
+- ``spikes/spike-{topic}.md`` — **opus-4-7-b:** Keep. The `spike-` prefix is a clean filename convention signaling "exploratory, reasoning-trail, not the theory proper."
 
 ## 630. ``old-tst-*` files (~40 files)`
 

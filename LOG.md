@@ -121,7 +121,7 @@ Twelve parallel research spikes against two gaps surfaced in Gemini's audit: (A)
 
 Segment count: 103 → 109. Thirteen spike files retained in `msc/` as reasoning trails.
 
-**Cross-segment reverse-check** (Gate-3-sidebar per `FORMAT.md`) on the six newly-promoted segments is flagged in TODO as future-session work — the spike-to-segment compression should be verified against the original spike content to confirm no over-aggressive compression. Each spike is preserved in `msc/spike-*.md` per `feedback_math_lives_in_segments`.
+**Cross-segment reverse-check** (Gate-3-sidebar per `FORMAT.md`) on the six newly-promoted segments is flagged in TODO as future-session work — the spike-to-segment compression should be verified against the original spike content to confirm no over-aggressive compression. Each spike is preserved in `spikes/spike-*.md` per `feedback_math_lives_in_segments`.
 
 ---
 
@@ -191,7 +191,7 @@ This was the cycle that established the three-document pattern (findings doc + p
 
 - **2026-04-21 audit cycle** (commits `6d3f219`, `98179f9`, `70c306d`, `ba2597c`, `499afa3`, `1c3a2d9`, `853888c`) — IB unification + sector-Lyapunov template factoring landed; six AAD persistence-flavored results re-expressed as instances of `#result-sector-persistence-template`. See `TODO.md §Archive` for commit-level detail.
 
-- **2026-04-20** — SOC/renormalization speculation (parked in `msc/speculation-soc-composition.md`); Section III unity-closure investigation (`msc/spike-unity-closure-mapping.md`, `msc/spike-mori-zwanzig-composition.md`) finding two-axis closure structure exposing gap in `#def-unity-dimensions`.
+- **2026-04-20** — SOC/renormalization speculation (parked in `msc/speculation-soc-composition.md`); Section III unity-closure investigation (`spikes/spike-unity-closure-mapping.md`, `spikes/spike-mori-zwanzig-composition.md`) finding two-axis closure structure exposing gap in `#def-unity-dimensions`.
 
 - **2026-04-16** — ACT → AAD rename to resolve collision with "AI Consciousness Test" (Schneider & Turner). See `msc/name-transition-aad.md`.
 
@@ -203,7 +203,7 @@ This was the cycle that established the three-document pattern (findings doc + p
 
 - **2026-03-11** — TST conversion. The original monolithic TFT documents split into segment files; `02-tst-core/` reorganized with slug filenames and an explicit OUTLINE.md.
 
-- **March 2026** — Spike-driven foundation: `msc/spike-purposeful-agent-derivation.md`, `msc/spike-v3-purposeful-agent.md` (definitive), `msc/spike-graph-uniqueness.md` (DAG with Markov property forced from four operational postulates; acyclicity derived from temporal ordering), `msc/spike-agent-composition.md` (Section III "Composition Dynamics" framed). Codex three-round review established the X_t lift, Level 2 scoping, satisfaction gap / control regret split, directed separation scope condition.
+- **March 2026** — Spike-driven foundation: `spikes/spike-purposeful-agent-derivation.md`, `spikes/spike-v3-purposeful-agent.md` (definitive), `spikes/spike-graph-uniqueness.md` (DAG with Markov property forced from four operational postulates; acyclicity derived from temporal ordering), `spikes/spike-agent-composition.md` (Section III "Composition Dynamics" framed). Codex three-round review established the X_t lift, Level 2 scoping, satisfaction gap / control regret split, directed separation scope condition.
 
 - **March 2026 — terminology rename**: axiom→postulate, theorem→result, proof→derivation; `first-principled` status label → `axiomatic`. See `feedback_terminology_rename.md` in agent memory; the rationale ("avoid physics-envy framing") and the migration applied across all then-existing segments.
 

@@ -157,7 +157,7 @@ Verify: same as Stage 3.
 
 ### Stage 5: `msc/` working documents
 
-Scope: `msc/*.md` and subdirectories (`msc/reflections/`, `msc/2026-03-13-landscape-research/`, `msc/track-a-intent-dag/`, `msc/track-b-nonlinear-sims/` where relevant).
+Scope: `msc/*.md` and subdirectories (`msc/reflections/`, `msc/2026-03-13-landscape-research/`, `spikes/track-a-intent-dag/`, `spikes/track-b-nonlinear-sims/` where relevant).
 
 These are spikes, reflections, and landscape research. Many use ACT casually throughout.
 

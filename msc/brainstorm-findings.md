@@ -387,7 +387,7 @@ By `scope-agent-identity`, $N$ parallel LLM instances are each their own agent o
 
 - **Most of TST.** I read three TST segments out of 121. The change-proximity / coherence-coupling / atomic-changeset machinery has direct cross-domain relevance to organizational change-management, AI-coding-agent design that I did not systematically work through. The 14 EXACT estimators in #12's P5 are likely each a finding-shaped object; I did not work that list.
 - **Logozoetic agents (`04-logozoetic-agents/`).** I read no segments. AI-welfare implications likely much richer than P1-I and S1 suggest; I'd need to read PROPRIUM ontology to ground them.
-- **Empirical-validation simulations (`msc/track-b-nonlinear-sims/`).** Did not check what other empirical findings they ground.
+- **Empirical-validation simulations (`spikes/track-b-nonlinear-sims/`).** Did not check what other empirical findings they ground.
 - **Hafez et al. 2026 IDT empirical result.** Did not check whether other implications exist.
 - **Reflections in `msc/reflections/`.** Did not read.
 - **Adjacent fields where I lack background:** Population genetics formalisms; quantum information theory; macroeconomic monetary theory.

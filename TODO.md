@@ -1,15 +1,15 @@
 # TODO — Miscellaneous & details
 
-**Last reconciled:** 2026-04-28 (TODO reimagined as the misc-and-details layer; ~180 lines of cycle-aftermath spike status moved to [`msc/SPIKES.md`](msc/SPIKES.md); resolved audit-findings tables collapsed; ~78 lines of historical "Recommendations for next session" dropped; §Archive collapsed; Naming Discipline section compressed to specific deferred items only).
+**Last reconciled:** 2026-04-28 (TODO reimagined as the misc-and-details layer; ~180 lines of cycle-aftermath spike status moved to [`spikes/INDEX.md`](spikes/INDEX.md); resolved audit-findings tables collapsed; ~78 lines of historical "Recommendations for next session" dropped; §Archive collapsed; Naming Discipline section compressed to specific deferred items only).
 
 This file holds the *miscellaneous* layer of project work — open routing decisions whose call belongs to Joseph, multi-cycle queued work-packages, theory items that don't fit elsewhere, queued spike follow-ups, naming-pipeline-specific deferrals, standing editorial hygiene, and lower-priority specifics. The bulk of project work is *not* enumerated here; it lives in:
 
 - [`PRACTICA.md`](PRACTICA.md) — strategic-portfolio navigator (top of the strategy DAG; areas of active work; auditor-safe).
 - Component `OUTLINE.md` files — per-component canonical outline + GAPs. Run `bin/lint-outline` for current segment-stage distribution, ordering violations, missing dependencies, and orphans.
 - [`PROPOSALS.md`](PROPOSALS.md) — architectural moves under review (banded by readiness; cross-cutting bundles named).
-- [`msc/SPIKES.md`](msc/SPIKES.md) — spike index with per-spike status (per cycle).
+- [`spikes/INDEX.md`](spikes/INDEX.md) — spike index with per-spike status (per cycle).
 - [`CHANGELOG.md`](CHANGELOG.md) (post-2026-04-24) and [`LOG.md`](LOG.md) (frozen pre-2026-04-24) — cycle narratives, what landed, and the *why* behind structural moves.
-- `msc/pending-findings-YYYY-MM-DD.md` — original audit-finding characterizations and resolution trails.
+- `audits/pending-findings-YYYY-MM-DD.md` — original audit-finding characterizations and resolution trails.
 
 **Terminology note.** "Audit-findings" are the F#/F-V# items surfaced by audit cycles. "Findings" without the prefix means the catalog of ASF discoveries (see [`FINDINGS.md`](FINDINGS.md) and segment-level `## Findings` sections).
 
@@ -73,13 +73,13 @@ This is a single-cycle pass, not a multi-session arc. Suggested order:
 
 Items where the question is well-framed but the work hasn't been done. Each is a candidate scoping spike or substantive derivation.
 
-- **Composition scaling with $N$** — whether closure defect scales polynomially or exponentially with team size. Scoping spike done (`msc/spike-composition-scaling-N.md`, 2026-04-22): four readings identified, five candidate first moves, two composing axes ($K_c$ macro-timescale; unity × update-heterogeneity). Question is well-framed but unresolved; execution deferred. Critical for large-team applications.
+- **Composition scaling with $N$** — whether closure defect scales polynomially or exponentially with team size. Scoping spike done (`spikes/spike-composition-scaling-N.md`, 2026-04-22): four readings identified, five candidate first moves, two composing axes ($K_c$ macro-timescale; unity × update-heterogeneity). Question is well-framed but unresolved; execution deferred. Critical for large-team applications.
 - **Multi-timescale stability formalization** — `#sketch-multi-timescale-stability` is stage `sketch`; `#der-temporal-nesting` leans on it. Needs formal $N$-timescale singular-perturbation treatment.
 - **Communication-gain adversarial scope** — `#hyp-communication-gain`'s additive model fails for deception (trust is game-theoretic). Either extend or add explicit scope limitation.
-- **Exploit/Explore/Deliberate spike findings** — `#disc-exploit-explore-deliberate` was written, but the adversarial spike (`msc/spike-three-way-tradeoff.md`) noted that the two-stage decomposition and $\Delta V_\Sigma$ approximation are hand-waving. Segment may be substantially rewritten. The 2026-04-22 AI integration added an EFE pragmatic/epistemic + sophisticated-inference cross-reference; the rewrite question remains.
+- **Exploit/Explore/Deliberate spike findings** — `#disc-exploit-explore-deliberate` was written, but the adversarial spike (`spikes/spike-three-way-tradeoff.md`) noted that the two-stage decomposition and $\Delta V_\Sigma$ approximation are hand-waving. Segment may be substantially rewritten. The 2026-04-22 AI integration added an EFE pragmatic/epistemic + sophisticated-inference cross-reference; the rewrite question remains.
 - **Adjacent identifiability floors** (`#disc-identifiability-floor` §"Adjacent Floors") — three open extensions: (1) causal-IB for interventional relevance variables (Wieczorek-Roth 2017 and follow-ups); (2) misspecification-cost quantification under finite information budget; (3) tier-switching policy cost. Each is a candidate scoping spike.
 - **F28 — $\rho_\Sigma$ operationalization.** $\rho_\Sigma$ is an unmeasurable threshold parameter on which trajectory guarantee depends (genuinely substantive open audit-finding from 2026-04-23 triple audit; not absorbed by any PROPOSALS bundle). Strengthen-first attempt: try to derive $\rho_\Sigma$ from observable quantities; honest scope-narrowing fallback if strengthening fails. 1–2 sessions.
-- **Transient dependency amplification** — spike landed 2026-04-25 (`msc/spike-transient-dependency-amplification.md`); promotion to TST-side `02-tst-core/src/der-transient-dependency-amplification.md` blocked on priority-ordered obligations:
+- **Transient dependency amplification** — spike landed 2026-04-25 (`spikes/spike-transient-dependency-amplification.md`); promotion to TST-side `02-tst-core/src/der-transient-dependency-amplification.md` blocked on priority-ordered obligations:
   - Formal sub-scope canonical pin-down (largely already done — acyclic feature DAG + linearized + affine readout).
   - Nonsmooth $A_O$ via Clarke subgradients (policy-switching kinks the current Lemma 1 covers in Lipschitz form but not differentiable form).
   - Checkpoint coverage theorem in observable terms ($P_k = I - \eta_k C_k$ where $C_k$ projects onto observation-detectable error directions).
@@ -90,13 +90,13 @@ Items where the question is well-framed but the work hasn't been done. Each is a
 - **Causal-IB LMI follow-ons** (segment landed `#deriv-causal-ib-lmi`):
   - Tensor adaptive tempo — `#def-adaptive-tempo` is currently scalar; the LMI requires tensor-valued $\mathcal T$ for per-direction adaptive rates.
   - Worked 2D blank-wall example (~30–60 min editorial).
-  - 2D simulation update (`msc/track-b-nonlinear-sims/variants/variant_causal_ib.py` to 2D with separable drifting/non-drifting subspaces).
+  - 2D simulation update (`spikes/track-b-nonlinear-sims/variants/variant_causal_ib.py` to 2D with separable drifting/non-drifting subspaces).
   - Closed-form $\mathcal I_{\min}$ via DARE (currently theorem-imported per Boyd et al. 1994).
 
 
 ## Queued spike work
 
-Per-spike status detail in [`msc/SPIKES.md`](msc/SPIKES.md); reasoning trails in `msc/spike-*.md`. Items below are queued follow-ups whose target landing-segment is named but whose work is not yet started.
+Per-spike status detail in [`spikes/INDEX.md`](spikes/INDEX.md); reasoning trails in `spikes/spike-*.md`. Items below are queued follow-ups whose target landing-segment is named but whose work is not yet started.
 
 **Section II / Identifiability Floor:**
 - Mechanism-design Instance 5 promotion in `#disc-identifiability-floor` (segment §"Adjacent Floors" carries the candidacy as Open; impossibility-route via Arrow / Gibbard-Satterthwaite / Myerson-Satterthwaite under the broad reading).
@@ -142,7 +142,7 @@ Detail in [`msc/naming-pilot-rename-plan.md`](msc/naming-pilot-rename-plan.md); 
 ## Documentation queued
 
 - **Three-way presentation split** — multi-agent reviewers recommend (a) core results / (b) conditional architecture / (c) empirical programs. Cheap as parallel outline-views per [`PROPOSALS.md`](PROPOSALS.md) §H affordance ("outlines are cheap; segments are expensive").
-- **AAD-vs-AI introductory positioning** — paper-writing-time follow-through per `msc/spike-active-inference-vs-aad.md` §I action 2; surface §C distinctive-claims and §D refusals at introductory level when a paper draft is being prepared. Three underclaim moves named: persistence template's broader validity (Aguilera 2022 contrast); directed-separation as Pearl-blanket conservative form (Bruineberg 2022); satisfaction-gap as decision-theory content (Sun & Firestone 2020 dark-room).
+- **AAD-vs-AI introductory positioning** — paper-writing-time follow-through per `spikes/spike-active-inference-vs-aad.md` §I action 2; surface §C distinctive-claims and §D refusals at introductory level when a paper draft is being prepared. Three underclaim moves named: persistence template's broader validity (Aguilera 2022 contrast); directed-separation as Pearl-blanket conservative form (Bruineberg 2022); satisfaction-gap as decision-theory content (Sun & Firestone 2020 dark-room).
 - **Prior-art positioning synthesis** — active inference / FEP / POMDP / BDI relationships now in individual segments; a synthesis pass surfacing the cross-segment pattern may still be valuable.
 - **`bin/lint-readme`** (J-15 from `msc/judgment-calls-readme-cycle-2026-04-26.md`) — slug-existence + cross-reference link validation. Quick to write; should land before heavy reliance on the README pipeline.
 
@@ -182,4 +182,4 @@ Detail in [`msc/naming-pilot-rename-plan.md`](msc/naming-pilot-rename-plan.md); 
 
 ---
 
-*Cycle-by-cycle history of audit-findings, spike promotions, and architectural moves: see [`CHANGELOG.md`](CHANGELOG.md) (post-2026-04-24) and [`LOG.md`](LOG.md) (frozen pre-2026-04-24). Per-spike disposition: [`msc/SPIKES.md`](msc/SPIKES.md). Original audit-finding characterizations: `msc/pending-findings-YYYY-MM-DD.md`.*
+*Cycle-by-cycle history of audit-findings, spike promotions, and architectural moves: see [`CHANGELOG.md`](CHANGELOG.md) (post-2026-04-24) and [`LOG.md`](LOG.md) (frozen pre-2026-04-24). Per-spike disposition: [`spikes/INDEX.md`](spikes/INDEX.md). Original audit-finding characterizations: `audits/pending-findings-YYYY-MM-DD.md`.*

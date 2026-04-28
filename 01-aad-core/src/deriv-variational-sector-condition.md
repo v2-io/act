@@ -61,7 +61,7 @@ The $\alpha'$-membership depends on the specific variational scheme:
 
 **Diffusion-posterior / energy-based with uncontrolled MCMC.** No controlled $\varepsilon$ bound; $\varepsilon$ grows with mixing time. Stays firmly in sub-scope $\beta$.
 
-**Active inference (variational free energy).** Conditional α' under exponential-family $q$ + natural-gradient; ε-degraded α' otherwise. This does **not** force V-strong G-BP2 (presentation of AAD as control-theoretic specialization of active inference) — V-medium (KL-divergence-based cognitive cost) remains the appropriate scope commitment per `msc/spike-active-inference-vs-aad.md`.
+**Active inference (variational free energy).** Conditional α' under exponential-family $q$ + natural-gradient; ε-degraded α' otherwise. This does **not** force V-strong G-BP2 (presentation of AAD as control-theoretic specialization of active inference) — V-medium (KL-divergence-based cognitive cost) remains the appropriate scope commitment per `spikes/spike-active-inference-vs-aad.md`.
 
 ### Sub-scope $\alpha'$ in the A2' partition
 
@@ -114,7 +114,7 @@ This gives the full current picture: {α, α₁, α₂, α₃, α', β}.
 
 ## Working Notes
 
-- Landing context: `msc/spike-variational-a2prime.md` (2026-04-23 Gap A/B cycle).
+- Landing context: `spikes/spike-variational-a2prime.md` (2026-04-23 Gap A/B cycle).
 - **Open: $O(\varepsilon)$ rate via Talagrand T2.** For concentration-preserving variational families with log-Sobolev or T2-Talagrand inequalities, the Pinsker bound can be sharpened to $O(\varepsilon)$ directly (without square-root). Not chased here; would extend α' to a tighter sub-tier for specific family classes.
 - **Amortization gap bounds.** Generalization-gap analysis for VAEs (Rainforth et al. 2018; Nowozin 2018) gives function-class error bounds; composing with variational-family error gives the full $\delta_0$ in amortized VI. Follow-up work.
 - **Connection to natural-gradient VI.** Khan & Lin 2017's conjugate-computation framing makes natural-gradient VI full sub-scope $\alpha$ (not just α'). The α' tier is for *non-natural-gradient* VI under KL control.

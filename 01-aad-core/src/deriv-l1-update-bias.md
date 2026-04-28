@@ -89,7 +89,7 @@ Numerical simulation (400 trials × 5000 cycles, four scenarios: OR-cooperative,
 - Initial-cycle rate $dB_k/dt \mid_{t=0}$ matches closed form quantitatively.
 - Logarithmic cumulative drift matches (biased-fixed-point convergence rate).
 
-Full simulation parameters and results in `msc/spike-l1-update-bias.md` §7.
+Full simulation parameters and results in `spikes/spike-l1-update-bias.md` §7.
 
 ## Epistemic Status
 
@@ -118,6 +118,6 @@ Full simulation parameters and results in `msc/spike-l1-update-bias.md` §7.
 
 ## Working Notes
 
-- Landing context: `msc/spike-l1-update-bias.md` (2026-04-23 Gap A/B cycle). Closed-form derivation + Monte Carlo verification in the spike.
+- Landing context: `spikes/spike-l1-update-bias.md` (2026-04-23 Gap A/B cycle). Closed-form derivation + Monte Carlo verification in the spike.
 - **Open: non-matched-marginal transient bias.** Closed-form for arbitrary initial conditions is messier but numerically tractable. A tighter analytic treatment would compose `#deriv-edge-update-natural-parameter`'s $\beta$-Bernoulli dynamics with the L1' mixture and likely requires Markov-chain convergence-rate analysis.
 - **Open: $N$-edge common-cause extensions.** Three or more children of a single common cause produce a tensor of Jacobian factors. The structural scaling likely remains $O(\rho)$ per edge, but the exact coefficients need working out.

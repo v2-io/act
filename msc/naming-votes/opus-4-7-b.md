@@ -220,7 +220,7 @@ These are the highest-leverage rows in the vote. Each names a *concept that AAD 
 | CLAUDE.md § "Key Architectural Decisions" | CLAUDE.md § "Architectural Decisions" | -1 | Considered dropping "Key." Reject: "Key" signals these are load-bearing (not all decisions are listed here). Keep. |
 | CLAUDE.md § "Working Conventions" | CLAUDE.md § "Working Conventions" | +1 | Keep. "Convention" here is used in its project-work-posture sense ("how we work"), not the C1/C2/C3 sense. Minor overload with convention hierarchy but contextually unambiguous. |
 | OUTLINE.md (01-aad-core) preamble | "Reading AAD" | +1 | The preamble opens with "Working draft..." and "Reading AAD..." — the "Reading AAD" paragraph is doing framing work and deserves its own section-name in the doc table of contents. Light edit. |
-| `msc/SPIKES.md` | `msc/SPIKES.md` | +1 | Keep. The all-caps SPIKES signals index-document status parallel to OUTLINE.md / FORMAT.md / CLAUDE.md. Good. |
+| `spikes/INDEX.md` | `spikes/INDEX.md` | +1 | Keep. The all-caps SPIKES signals index-document status parallel to OUTLINE.md / FORMAT.md / CLAUDE.md. Good. |
 | `MIGRATION-MAP.md` | `MIGRATION-MAP.md` | +1 | Keep. Lifecycle-aware name (it retires when absorption completes). |
 
 ### Segment section header names
@@ -315,12 +315,12 @@ These are *public API* for outline-filtering per PROPOSALS §H.5 — renaming ri
 
 | current-name | new-name-candidate | weight | notes |
 |---|---|---|---|
-| `msc/spike-{topic}.md` | `msc/spike-{topic}.md` | +1 | Keep. The `spike-` prefix is a clean filename convention signaling "exploratory, reasoning-trail, not the theory proper." |
-| `msc/spike-{topic}-{YYYY-MM-DD}.md` | `msc/spike-{topic}-{YYYY-MM-DD}.md` | +1 | Keep the dated variant for recurring-topic spikes. Date suffix makes second-iteration spikes findable. |
+| `spikes/spike-{topic}.md` | `spikes/spike-{topic}.md` | +1 | Keep. The `spike-` prefix is a clean filename convention signaling "exploratory, reasoning-trail, not the theory proper." |
+| `spikes/spike-{topic}-{YYYY-MM-DD}.md` | `spikes/spike-{topic}-{YYYY-MM-DD}.md` | +1 | Keep the dated variant for recurring-topic spikes. Date suffix makes second-iteration spikes findable. |
 | `msc/architectural-proposals-{YYYY-MM-DD}.md` | *(retire once consolidated into PROPOSALS.md)* | +1 | PROPOSALS.md has already absorbed these; the dated proposal files are historical artifacts. Not a rename; a retirement when MIGRATION-MAP convention allows. |
-| `msc/pending-findings-{YYYY-MM-DD}.md` | *(retire once items reconcile into TODO / segments)* | +1 | Same lifecycle. |
+| `audits/pending-findings-{YYYY-MM-DD}.md` | *(retire once items reconcile into TODO / segments)* | +1 | Same lifecycle. |
 | `msc/reflections/` | `msc/reflections/` | +1 | Keep. The `reflections/` subdirectory is a legitimate separate register from spikes/brainstorms. |
-| `msc/SPIKES.md` (spike index) | `msc/SPIKES.md` | +1 | Keep. All-caps index convention. |
+| `spikes/INDEX.md` (spike index) | `spikes/INDEX.md` | +1 | Keep. All-caps index convention. |
 
 ### Explicit "do not rename" reminders
 

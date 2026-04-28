@@ -43,7 +43,7 @@ This is theoretical research, not software engineering. The primary artifacts ar
 
 **Read `NOTATION.md`** for the symbol reference. For the full original TFT conventions and epistemic system, see `_obs/old-tf-00-notation-conventions.md`.
 
-**See [`PRACTICA.md`](PRACTICA.md)** for the strategic-portfolio navigator (active areas of work; auditor-safe), and **[`TODO.md`](TODO.md)** for tactical work items beneath it. **`msc/SPIKES.md`** is the spike index. What's settled/architectural lives in `msc/FINDINGS-RANKED-DRAFT.md` (curated catalog) and segment-level `## Findings` sections; what's in-flight belongs in TODO.md; what's been explored belongs in `msc/` with SPIKES.md as the entry point.
+**See [`PRACTICA.md`](PRACTICA.md)** for the strategic-portfolio navigator (active areas of work; auditor-safe), and **[`TODO.md`](TODO.md)** for tactical work items beneath it. **`spikes/INDEX.md`** is the spike index. What's settled/architectural lives in `msc/FINDINGS-RANKED-DRAFT.md` (curated catalog) and segment-level `## Findings` sections; what's in-flight belongs in TODO.md; what's been explored belongs in `spikes/` (with `spikes/INDEX.md` as the entry point) and `msc/` (other working artifacts: brainstorms, reflections, naming-cycle votes, prior-bridge agentic-tft notes).
 
 ## Theory Structure
 
@@ -211,12 +211,13 @@ If you are conducting a de-novo audit, see [`doc/de-novo-audit-instructions.md`]
 
 **Supporting:**
 - `bin/` — Build, lint, generation, and slug tools. Per project convention, internal process scripts are Ruby (`align-slug`, `rename-slug`, `naming-aggregate.rb`, `build-readme`, `extract-findings`, `extract-recent-progress`, `extract-known-issues`, `refresh-all`); existing Python tools (`build`, `build-tex`, `lint-md`, `lint-outline`, `md2context`) remain Python without retroactive rewrite.
-- `doc/` — **Long-lived process documentation.** `de-novo-audit-instructions.md`, `naming-principles.md`, `readme/` (Liquid templates and partials for README generation). Distinguished from `msc/` (cycle-specific working material).
+- `doc/` — **Long-lived process documentation.** `de-novo-audit-instructions.md`, `naming-principles.md`, `readme/` (Liquid templates and partials for README generation). Distinguished from `msc/` (other working artifacts) and `spikes/` / `audits/` (research-process artifacts with their own homes).
+- `spikes/` — **Research spikes** (reasoning trails). Every `spike-*.md` file plus the `track-a-intent-dag/` and `track-b-nonlinear-sims/` subdirs and the `sim-*.py` simulation files. **`spikes/INDEX.md`** is the spike index — every spike, its location, and current status (promoted, parked, archaeology). Established 2026-04-28 (previously `msc/spike-*.md` + `msc/SPIKES.md`).
+- `audits/` — **Audit working artifacts.** `audits/AUDIT-WORKING-NNNNNN/` for in-flight audits, `audits/audit-*.md` and `audits/audits-*.md` for audit-cycle reports, `audits/pending-findings-YYYY-MM-DD.md` for the original audit-finding characterizations and resolution trails. Established 2026-04-28 (previously under `msc/`).
+- `msc/` — Other working documents: brainstorms, reflections, naming-cycle votes and aggregates, judgment-calls logs, prior-bridge `agentic-tft-*` source materials, dependency-graph SVGs, March-2026-era founding notes. The non-spike, non-audit residue of session work.
 - `_obs/` — Superseded docs. Preserved for archaeology.
-- `ref/` — Reference papers
-- `msc/` — Working documents, spikes, brainstorms, cycle-specific artifacts.
-- `msc/SPIKES.md` — **Spike index.** Every spike, its location, and current status (promoted, parked, archaeology).
-- `msc/reflections/` — Author's philosophical/theoretical journal
+- `ref/` — Reference papers.
+- `msc/reflections/` — Author's philosophical/theoretical journal.
 - `msc/agentic-tft-*.md` — Prior bridge work (TFT → AI agents, Feb 2026, pre-AAD). Eight documents absorbed from `~/src/agentic-tft/`: cognitive loop spec, evaluation framework, crèche concept, ontology unification, foundational premises, narrative-as-implementation, experiential training design, and review response. These are source material for `03-logogenic-agents/` and `04-logozoetic-agents/` gaps. Superseded synthesis docs (00-02, 05, slide deck) are in `_obs/agentic-tft-*`.
 
 **Sibling projects** (not part of this repo but relevant):

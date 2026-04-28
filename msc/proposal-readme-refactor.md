@@ -69,7 +69,7 @@ doc/
 **What `msc/` retains** (and what `doc/` is *not* for): spikes, brainstorms, reflections, working notes, audit-cycle pending-findings docs, superseded proposals — anything cycle-specific or exploratory. The `doc/` vs `msc/` distinction is *long-lived process documentation* vs *cycle-specific working material*.
 
 **Other candidates to consider later** (not part of this proposal — flagged for a future audit):
-- `msc/SPIKES.md` — could be `doc/spikes-index.md`, but it's an index *of* spike content in `msc/` so it's reasonable to leave it there.
+- `spikes/INDEX.md` — could be `doc/spikes-index.md`, but it's an index *of* spike content in `msc/` so it's reasonable to leave it there.
 - Older `msc/architectural-proposals-2026-04-22.md` and similar dated artifacts are already superseded; belong in `_obs/` if they aren't already.
 
 ### 2. Liquid templates
@@ -270,7 +270,7 @@ Mechanism: separate Liquid template (`doc/readme/README-auditor.md.liquid`) that
 > - `TODO.md` (active and archived findings, including the "Settled" framings of prior cycles)
 > - `PROPOSALS.md` (architectural-proposal portfolio with prior-reasoning trails)
 > - `doc/readme/src/_findings-summary.md`, `_recent-progress.md`, `_known-issues.md` (the README's auto-generated live includes)
-> - `msc/pending-findings-*.md`, `msc/audit-*.md` (prior-cycle audit working documents)
+> - `audits/pending-findings-*.md`, `audits/audit-*.md` (prior-cycle audit working documents)
 >
 > Read these only after your audit is complete, when comparing your independent findings against the project's existing record is the explicit purpose.
 

@@ -142,13 +142,13 @@ Both reviews independently recommend the same next steps:
 
 Two spikes completed, investigating the theory's softest structural joint:
 
-### Spike 1: Kalman Case (`msc/spike-gain-sector-bridge.md`)
+### Spike 1: Kalman Case (`spikes/spike-gain-sector-bridge.md`)
 
 **Result:** For the Kalman filter, the sector condition is DERIVED, not assumed. The sector parameter α = K (scalar case) = η* exactly. The bridge holds because the correction is linear (F(e) = KHe) and KH has non-negative eigenvalues in the (P⁻)⁻¹-weighted inner product.
 
 **Generalization:** The "Gain-to-Sector Bridge Theorem" — the gain-based update satisfies the sector condition whenever the mismatch transform g has **directional fidelity** (B1): δᵀg(δ) ≥ c‖δ‖². For optimal Bayesian updates, B1 holds by construction. Five failure modes precisely characterized: directional infidelity, gain collapse, nonlinear saturation, unobservable directions, model misspecification.
 
-### Spike 2: Nonlinear / Gradient Descent Case (`msc/spike-gain-sector-bridge-nonlinear.md`)
+### Spike 2: Nonlinear / Gradient Descent Case (`spikes/spike-gain-sector-bridge-nonlinear.md`)
 
 **Result:** For any gradient-based agent, GA-3 is **mathematically equivalent** to local strong convexity of the loss function. The equivalence is exact:
 

@@ -46,7 +46,7 @@ See CHANGELOG.md (current cycles) and LOG.md (pre-2026-04-24 archaeology) for fu
 
 ## What's Settled vs. Open
 
-The summary below is the architectural snapshot — settled load-bearing results and the open structural questions. For live work-in-flight (pending findings, tier-C deferrals, open MEDIUM items, missing segments), see `TODO.md`. For the spike trail that produced these, see `msc/SPIKES.md`.
+The summary below is the architectural snapshot — settled load-bearing results and the open structural questions. For live work-in-flight (pending findings, tier-C deferrals, open MEDIUM items, missing segments), see `TODO.md`. For the spike trail that produced these, see `spikes/INDEX.md`.
 
 **Note on settled vs. under-review.** Several items in the Settled list below have *architectural proposals under review* in [`PROPOSALS.md`](PROPOSALS.md) — moves that would reframe or generalize the item rather than overturn it. Notable examples: the $G_t = (O_t, \Sigma_t)$ decomposition would become a *property* rather than axiomatic under the retired O-BP2 descendants (compressions-as-projections, partially landed in `#disc-compression-operations`); directed separation's classification is relatively stable but may interact with SP-9 (Fenchel-Bregman reframe). "Settled" here means "the current working commitment"; portfolio moves may change them.
 
@@ -130,7 +130,7 @@ The summary below is the architectural snapshot — settled load-bearing results
 - Causal-IB extension for interventional relevance variables (open per #disc-identifiability-floor)
 - Misspecification-cost quantification under finite information budget (open per #disc-identifiability-floor)
 - Tier-switching policy cost (open per #disc-identifiability-floor; overlaps with O-BP7)
-- V-strong G-BP2 — paper-writing-time decision on whether to ever present AAD as control-theoretic specialization of active inference (deferred per `msc/spike-active-inference-vs-aad.md` §I action 5)
+- V-strong G-BP2 — paper-writing-time decision on whether to ever present AAD as control-theoretic specialization of active inference (deferred per `spikes/spike-active-inference-vs-aad.md` §I action 5)
 
 ### Known Fragilities
 - Missing commitment / resource / temporal structure in the DAG

@@ -9,10 +9,10 @@ Full read of the entire corpus (TFT, TST, via-tft, AAD src/, all appendices, msc
 | File | What it is |
 |------|-----------|
 | `msc/opus-analysis-2026-03-09.md` | Initial reading analysis |
-| `msc/spike-purposeful-agent-derivation.md` | v1: exploratory spike (preserved for archaeology) |
-| `msc/spike-v2-purposeful-agent.md` | v2: first clean rewrite |
-| `msc/spike-v3-purposeful-agent.md` | v3: definitive version for src/ porting |
-| `msc/spike-graph-uniqueness.md` | Graph structure uniqueness argument |
+| `spikes/spike-purposeful-agent-derivation.md` | v1: exploratory spike (preserved for archaeology) |
+| `spikes/spike-v2-purposeful-agent.md` | v2: first clean rewrite |
+| `spikes/spike-v3-purposeful-agent.md` | v3: definitive version for src/ porting |
+| `spikes/spike-graph-uniqueness.md` | Graph structure uniqueness argument |
 | `msc/llm-causal-access-note.md` | Pearl reconciliation / LLM causal access |
 | `PLANS.md` | Updated with governing objectives |
 

@@ -15,7 +15,7 @@ See [`../LEXICON.md`](../LEXICON.md) for the logogenic/logozoetic vocabulary.
 
 *Extending the arc: AI agents operating on code are AAD agents whose domain is software, creating a recursive structure — AAD theory → software domain → agents that embody AAD. This is where the 100% context turnover problem, $M_t$ preservation, and the cognitive loop connect the theory back to the systems being built with it.*
 
-**2026-04-02:** The coupled survival analysis (`msc/spike-coupled-survival-analysis.md`) maps which Section II results survive without directed separation: 16 of 24 exactly, 5 approximately, 2 require modification. The minimal viable coupled formulation requires 7 segments (3 definitions, 3 results, 1 scope condition). See the spike for the full classification.
+**2026-04-02:** The coupled survival analysis (`spikes/spike-coupled-survival-analysis.md`) maps which Section II results survive without directed separation: 16 of 24 exactly, 5 approximately, 2 require modification. The minimal viable coupled formulation requires 7 segments (3 definitions, 3 results, 1 scope condition). See the spike for the full classification.
 
 | § | Type | N | Tag | Claim | Stage |
 |---|------|---|-----|-------|-------|

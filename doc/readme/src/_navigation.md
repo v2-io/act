@@ -33,8 +33,10 @@ doc/                  Long-lived process documentation
   de-novo-audit-instructions.md
   naming-principles.md
   readme/             Templates and partials for README generation
-msc/                  Working documents, spikes, brainstorms
-  SPIKES.md           Spike index
+spikes/               Research spikes (reasoning trails)
+  INDEX.md            Spike index with per-spike status
+audits/               Audit working dirs + pending-findings tables
+msc/                  Other working documents, brainstorms, reflections
 ref/                  Reference papers
 bin/                  Build, lint, generation scripts
 _obs/                 Superseded materials
