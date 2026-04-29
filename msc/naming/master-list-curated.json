@@ -29,7 +29,7 @@
     "enrichment_status": {
       "consolidated_rationale": "pending",
       "first_encounter_locality": "pending",
-      "segment_link": "pending",
+      "segment_link": "filled 138, ambiguous 1 (flagged), no-match 301",
       "manual_curation": "pending"
     },
     "merged_variants": {
@@ -7056,7 +7056,7 @@
       ],
       "category_disagreement": true,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/def-control-regret.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -7236,7 +7236,7 @@
       ],
       "category_disagreement": true,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/def-satisfaction-gap.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -7410,7 +7410,7 @@
       ],
       "category_disagreement": true,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/der-orient-cascade.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -7697,7 +7697,7 @@
       ],
       "category_disagreement": true,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/der-directed-separation.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -7874,7 +7874,7 @@
       ],
       "category_disagreement": true,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/disc-identifiability-floor.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -8316,7 +8316,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/form-information-bottleneck.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -8436,7 +8436,7 @@
       ],
       "category_disagreement": true,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/def-chronica.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -8604,7 +8604,7 @@
       ],
       "category_disagreement": true,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/def-strategy-dag.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -8718,7 +8718,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/der-chain-confidence-decay.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -8836,7 +8836,7 @@
       ],
       "category_disagreement": true,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/result-persistence-condition.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -8977,7 +8977,7 @@
       ],
       "category_disagreement": true,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "03-logogenic-agents/src/scope-logogenic-agent.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -9088,7 +9088,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/hyp-symbiogenic-composition.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -9218,7 +9218,7 @@
       ],
       "category_disagreement": true,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/disc-additive-coordinate-forcing.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -9605,7 +9605,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/result-sector-persistence-template.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -9740,7 +9740,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "02-tst-core/src/post-temporal-optimality.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -9817,7 +9817,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/der-adversarial-destabilization.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -9900,7 +9900,7 @@
       ],
       "category_disagreement": true,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/def-agent-spectrum.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -10250,7 +10250,7 @@
       ],
       "category_disagreement": true,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/disc-separability-pattern.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -10484,7 +10484,7 @@
       ],
       "category_disagreement": true,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/def-shared-intent.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -10720,7 +10720,7 @@
       ],
       "category_disagreement": true,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/def-adaptive-tempo.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -10862,7 +10862,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/der-agent-opacity.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -11066,7 +11066,7 @@
       ],
       "category_disagreement": true,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/def-causal-information-yield.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -11201,7 +11201,7 @@
       ],
       "category_disagreement": true,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/form-composition-closure.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -11349,7 +11349,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/hyp-auftragstaktik-principle.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -11551,7 +11551,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/hyp-communication-gain.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -11687,7 +11687,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "03-logogenic-agents/src/obs-context-turnover.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -11776,7 +11776,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/result-contraction-template.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -11865,7 +11865,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/der-deliberation-cost.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -12016,7 +12016,7 @@
       ],
       "category_disagreement": true,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/der-observability-dominance.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -12128,7 +12128,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/def-pearl-causal-hierarchy.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -12251,7 +12251,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/der-team-persistence.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -12328,7 +12328,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/disc-credit-assignment-boundary.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -12521,7 +12521,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/disc-approximation-tiering.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -12972,7 +12972,7 @@
       "category_disagreement": false,
       "first_encounter_locality": null,
       "segment_link": null,
-      "manual_curation_notes": null,
+      "manual_curation_notes": "Ambiguous segment_link match — candidates: der-recursive-update.md, deriv-recursive-update.md",
       "candidates": [
         {
           "candidate": "recursive update",
@@ -13060,7 +13060,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/scope-agent-identity.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -13442,7 +13442,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/form-consolidation-dynamics.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -13541,7 +13541,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/deriv-critical-mass-composition.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -13624,7 +13624,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/disc-exploit-explore-deliberate.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -13747,7 +13747,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/der-gain-sector-bridge.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -13870,7 +13870,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/der-loop-interventional-access.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -14141,7 +14141,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/result-adversarial-tempo-advantage.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -14239,7 +14239,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "02-tst-core/src/def-atomic-changeset.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -14310,7 +14310,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/form-complete-agent-state.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -14403,7 +14403,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/deriv-detection-latency.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -14552,7 +14552,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/post-composition-consistency.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -15118,7 +15118,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "02-tst-core/src/result-specification-bound.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -15289,7 +15289,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "02-tst-core/src/hyp-conceptual-alignment.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -15352,7 +15352,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "03-logogenic-agents/src/disc-m-preservation.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -15445,7 +15445,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/deriv-persistence-cost.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -15511,7 +15511,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/def-strategic-calibration.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -15624,7 +15624,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/deriv-strategic-composition.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -15789,7 +15789,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/def-strategic-tempo.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -16182,7 +16182,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/def-agent-environment.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -16256,7 +16256,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "02-tst-core/src/emp-changeset-size-principle.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -16331,7 +16331,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/disc-independence-audit.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -16413,7 +16413,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/def-mismatch-signal.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -16537,7 +16537,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/def-model-sufficiency.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -16642,7 +16642,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "04-logozoetic-agents/src/scope-moral-continuity.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -16701,7 +16701,7 @@
       ],
       "category_disagreement": true,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/deriv-sector-condition.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -16834,7 +16834,7 @@
       ],
       "category_disagreement": true,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/der-causal-insufficiency-detection.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -17055,7 +17055,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "02-tst-core/src/def-comprehension-time.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -17131,7 +17131,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/result-mismatch-decomposition.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -17213,7 +17213,7 @@
       ],
       "category_disagreement": true,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/def-model-class-fitness.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -17289,7 +17289,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/form-objective-functional.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -17748,7 +17748,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/scope-agency.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -17800,7 +17800,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/form-agent-model.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -18216,7 +18216,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/der-causal-hierarchy-requirement.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -18830,7 +18830,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/form-event-driven-dynamics.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -19000,7 +19000,7 @@
       ],
       "category_disagreement": true,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/deriv-graph-structure-uniqueness.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -19152,7 +19152,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/der-interaction-channel-classification.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -19431,7 +19431,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/scope-adaptive-system.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -19482,7 +19482,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "02-tst-core/src/def-change-distance.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -19551,7 +19551,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/scope-composite-agent.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -19603,7 +19603,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "03-logogenic-agents/src/def-coupled-update-dynamics.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -19686,7 +19686,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/hyp-mismatch-dynamics.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -19761,7 +19761,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/result-sector-condition-stability.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -19898,7 +19898,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/result-structural-adaptation-necessity.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -20167,7 +20167,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/emp-update-gain.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -20480,7 +20480,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/post-causal-structure.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -20732,7 +20732,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/hyp-edge-update-via-gain.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -20947,7 +20947,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "04-logozoetic-agents/src/def-proprium-mapping.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -21116,7 +21116,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/der-temporal-nesting.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -21208,7 +21208,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/def-value-object.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -21334,7 +21334,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/deriv-variational-sector-condition.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -21728,7 +21728,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/der-action-selection.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -21786,7 +21786,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/deriv-adaptive-gain-dynamics.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -22138,7 +22138,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "02-tst-core/src/hyp-causal-discovery-from-git.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -22206,7 +22206,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "02-tst-core/src/der-change-expectation-baseline.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -22304,7 +22304,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "02-tst-core/src/der-change-investment.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -23353,7 +23353,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "02-tst-core/src/scope-developer-agent.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -23601,7 +23601,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/norm-explicit-strategy-condition.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -24044,7 +24044,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "02-tst-core/src/def-implementation-time.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -26319,7 +26319,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/deriv-bias-bound.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -26357,7 +26357,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "02-tst-core/src/der-change-proximity-principle.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -27001,7 +27001,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "02-tst-core/src/scope-continuous-operation.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -27138,7 +27138,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/hyp-directed-separation-under-composition.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -27431,7 +27431,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "03-logogenic-agents/src/hyp-experiential-training.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -27610,7 +27610,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/deriv-l1-update-bias.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -27810,7 +27810,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/scope-multi-agent.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -27856,7 +27856,7 @@
       ],
       "category_disagreement": true,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/def-observation-function.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -27958,7 +27958,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/result-per-dimension-persistence.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -28356,7 +28356,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/deriv-strategic-dynamics.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -28397,7 +28397,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/form-strategy-complexity-cost.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -28528,7 +28528,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/def-strategy-dimension.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -28760,7 +28760,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "02-tst-core/src/def-system-coupling.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -28823,7 +28823,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/der-tempo-composition.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -29533,7 +29533,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/scope-and-or.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -29815,7 +29815,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "02-tst-core/src/meas-coherence-coupling.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -30002,7 +30002,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/deriv-discrete-sector-condition.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -30049,7 +30049,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/scope-edge-update-causal-validity.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -30284,7 +30284,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/detail-operationalization.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -30451,7 +30451,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "02-tst-core/src/scope-software.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -30507,7 +30507,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/schema-strategy-persistence.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -30552,7 +30552,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "02-tst-core/src/def-system-coherence.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -30988,7 +30988,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/result-unity-closure-mapping.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -31480,7 +31480,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/example-strategy.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -32003,7 +32003,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/disc-ciy-unified-objective.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -32325,7 +32325,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/def-action-transition.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -34003,7 +34003,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "03-logogenic-agents/src/result-coupled-diagnostic-framework.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -34286,7 +34286,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "04-logozoetic-agents/src/obs-developmental-trajectory.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -34349,7 +34349,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "02-tst-core/src/der-dual-optimization.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -34463,7 +34463,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/deriv-edge-update-natural-parameter.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -34612,7 +34612,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "02-tst-core/src/hyp-exponential-cognitive-load.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -35274,7 +35274,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/detail-linear-ode-approximation.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -35679,7 +35679,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/sketch-multi-timescale-stability.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -35755,7 +35755,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "03-logogenic-agents/src/scope-observation-ambiguity-modulation.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -36480,7 +36480,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "02-tst-core/src/scope-software.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -36659,7 +36659,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/form-structural-change-as-parametric-limit.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -37016,7 +37016,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "02-tst-core/src/def-system-availability.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -41394,7 +41394,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/scope-ciy-observational-proxy.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -42970,7 +42970,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "03-logogenic-agents/src/obs-evaluation-metrics.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -43027,7 +43027,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/deriv-fisher-whitened-update-rule.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -43340,7 +43340,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/internal-external-decomposition.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -43970,7 +43970,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "02-tst-core/src/der-principled-decision-integration.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -44234,7 +44234,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/deriv-strategy-cost-regret-bound.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -44284,7 +44284,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "01-aad-core/src/schema-strategy-persistence.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -48318,7 +48318,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "04-logozoetic-agents/src/norm-interiority-default.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -48369,7 +48369,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "03-logogenic-agents/src/result-section-ii-survival.md",
       "manual_curation_notes": null,
       "candidates": [
         {
@@ -48492,7 +48492,7 @@
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
-      "segment_link": null,
+      "segment_link": "02-tst-core/src/def-feature.md",
       "manual_curation_notes": null,
       "candidates": [
         {
