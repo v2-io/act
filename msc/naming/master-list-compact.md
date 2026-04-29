@@ -423,8 +423,7 @@ Single-table compact view of the master list. One row per (original, candidate) 
 |  | Additive structure derivation | +2 |
 | [Concept] *Agent identity as one non-forkable causal record* | **Singular trajectory commitment [canonicalize]** | +6 |
 |  | Trajectory bound identity | +2 |
-| aporia ἀπορία | **Aporia** | +6 |
-|  | _(keep)_ ⭑ | +1 |
+| aporia ἀπορία | **_(keep)_ ⭑** | +7 |
 | blind pursuer | **_(keep)_ ⭑** | +6 |
 |  | Model degenerate pursuer | +2 |
 |  | Reality blind agent | +1 |
@@ -472,7 +471,7 @@ Single-table compact view of the master list. One row per (original, candidate) 
 | developer agent | **_(keep)_ ⭑** | +6 |
 | directional fidelity condition b1 | **Directional fidelity [canonicalize × 1, rename × 1]** | +6 |
 | edge credence | **_(keep)_ ⭑** | +10 |
-| "epistemic substate" / "purposeful substate" | **Epistemic substate purposeful substate [canonicalize]** | +6 |
+| "epistemic substate" / "purposeful substate" | **_(keep)_ ⭑** | +6 |
 | epistrophe | **_(keep)_ ⭑** | +9 |
 |  | Epistrophe model update [add-alias] | +2 |
 |  | ✗ Turn | -1 |
@@ -503,8 +502,7 @@ Single-table compact view of the master list. One row per (original, candidate) 
 | p ij | **Edge credence [add-alias × 1, canonicalize × 1]** | +6 |
 | plan confidence | **_(keep)_ ⭑** | +6 |
 | postulate not axiom | **Postulate [canonicalize × 1, rename × 1]** | +6 |
-| praxis πρᾶξις | **Praxis** | +6 |
-|  | _(keep)_ ⭑ | +1 |
+| praxis πρᾶξις | **_(keep)_ ⭑** | +7 |
 | purposeful substate | **_(keep)_ ⭑** | +9 |
 |  | Purposeful state [name-unnamed] | +1 |
 | Regime II-A | **Magnitude shock regime [add-alias × 1, canonicalize × 1]** | +6 |
@@ -533,7 +531,7 @@ Single-table compact view of the master list. One row per (original, candidate) 
 |  | ✗ Trajectory singularity [name-unnamed] | -1 |
 | [Concept] *The phenomenon where persistence success makes an agent less likely to detect the conditions requiring structural adaptation* | **Stability-induced myopia [canonicalize × 1, name-unnamed × 1]** | +6 |
 | Čencov invariance | **_(keep)_** | +5 |
-| 𝒯 adaptive tempo | **Adaptive tempo [canonicalize × 1, add-alias × 1]** | +6 |
+| 𝒯 adaptive tempo | **_(keep)_ ⭑** | +6 |
 | model uncertainty | **_(keep)_** | +5 |
 | observation uncertainty | **_(keep)_** | +7 |
 |  | Observation uncertainty $U_o$ [canonicalize] | +3 |
@@ -675,8 +673,7 @@ Single-table compact view of the master list. One row per (original, candidate) 
 | aisthesis | **_(keep)_ ⭑** | +4 |
 |  | Aisthesis observation alignment [add-alias] | +2 |
 |  | ✗ Intake | -1 |
-| aisthesis αἴσθησις | **Aisthesis** | +4 |
-|  | _(keep)_ ⭑ | +1 |
+| aisthesis αἴσθησις | **_(keep)_ ⭑** | +5 |
 | and or | **And or combination** | +4 |
 |  | _(keep)_ ⭑ | +3 |
 |  | Strategy DAG topology | +3 |
@@ -702,12 +699,10 @@ Single-table compact view of the master list. One row per (original, candidate) 
 |  | Causal validity | +2 |
 |  | Identification regime | +1 |
 | epistemic opacity | **_(keep)_ ⭑** | +4 |
-| epistrophe ἐπιστροφή | **Epistrophe** | +4 |
-|  | _(keep)_ ⭑ | +1 |
+| epistrophe ἐπιστροφή | **_(keep)_ ⭑** | +5 |
 | extreme transition motif | **_(keep)_ ⭑** | +4 |
 | operationalization | **_(keep)_ ⭑** | +4 |
-| prolepsis πρόληψις | **Prolepsis** | +4 |
-|  | _(keep)_ ⭑ | +1 |
+| prolepsis πρόληψις | **_(keep)_ ⭑** | +5 |
 | recursive update derivation | **_(keep)_ ⭑** | +4 |
 | separable core structured repair general open | **_(keep)_ ⭑** | +4 |
 | software | **_(keep)_ ⭑** | +4 |
@@ -738,7 +733,7 @@ Single-table compact view of the master list. One row per (original, candidate) 
 | worked example kalman | **_(keep)_ ⭑** | +4 |
 | worked example l1 | **_(keep)_ ⭑** | +4 |
 | worked example strategy | **_(keep)_ ⭑** | +4 |
-| 𝒯 σ strategic tempo | **Strategic tempo [canonicalize × 1, rename × 1]** | +4 |
+| 𝒯 σ strategic tempo | **_(keep)_ ⭑** | +4 |
 | objective | **_(keep)_** | +4 |
 |  | $O_t$ objective [keep] | +3 |
 |  | Objective functional $O_t$ [canonicalize] | +3 |
@@ -885,7 +880,7 @@ Single-table compact view of the master list. One row per (original, candidate) 
 |  | _(keep)_ ⭑ | +1 |
 |  | Natural edge update | +1 |
 |  | Log odds update | +1 |
-| exact / robust-qualitative / heuristic / conditional (claim tier) | **Exact robust qualitative heuristic conditional claim tier [canonicalize]** | +3 |
+| exact / robust-qualitative / heuristic / conditional (claim tier) | **_(keep)_ ⭑** | +3 |
 |  | Epistemic claim tier | +3 |
 | exponential cognitive load | **_(keep)_ ⭑** | +3 |
 | fisher whitened update | **_(keep)_ ⭑** | +3 |
@@ -965,7 +960,7 @@ Single-table compact view of the master list. One row per (original, candidate) 
 |  | (PI) parameterization invariance | +1 |
 | [Concept] *Predictive relevance depending on the policy the agent will run* | **Policy conditional relevance** | +3 |
 | "purpose" / "purposeful" | **Purposeful [canonicalize]** | +3 |
-|  | Purpose purposeful [canonicalize] | +2 |
+|  | _(keep)_ ⭑ | +2 |
 | [Concept] *Regime I / II-A / II-B / III* | **Reception regime [canonicalize]** | +3 |
 |  | Destabilization regime partition | +2 |
 | [Concept] *Section header: logogenic agent / logozoetic agent* | **Logogenic agent logozoetic agent [canonicalize]** | +3 |

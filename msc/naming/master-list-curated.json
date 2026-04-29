@@ -7060,7 +7060,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Control regret",
+          "candidate": "control regret",
           "is_keep": true,
           "total_weight": 63,
           "category_tally": {
@@ -7234,7 +7234,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Satisfaction gap",
+          "candidate": "satisfaction gap",
           "is_keep": true,
           "total_weight": 60,
           "category_tally": {
@@ -7402,7 +7402,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Orient cascade",
+          "candidate": "orient cascade",
           "is_keep": true,
           "total_weight": 56,
           "category_tally": {
@@ -7689,7 +7689,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Directed separation",
+          "candidate": "directed separation",
           "is_keep": true,
           "total_weight": 45,
           "category_tally": {
@@ -7866,7 +7866,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Identifiability floor",
+          "candidate": "identifiability floor",
           "is_keep": true,
           "total_weight": 51,
           "category_tally": {
@@ -8307,7 +8307,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Information bottleneck",
+          "candidate": "information bottleneck",
           "is_keep": true,
           "total_weight": 30,
           "category_tally": {
@@ -8421,7 +8421,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Chronica",
+          "candidate": "chronica",
           "is_keep": true,
           "total_weight": 55,
           "category_tally": {
@@ -8566,7 +8566,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Strategy DAG",
+          "candidate": "strategy DAG",
           "is_keep": true,
           "total_weight": 37,
           "category_tally": {
@@ -8680,7 +8680,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Chain confidence decay",
+          "candidate": "chain confidence decay",
           "is_keep": true,
           "total_weight": 27,
           "category_tally": {
@@ -8798,7 +8798,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Persistence condition",
+          "candidate": "persistence condition",
           "is_keep": true,
           "total_weight": 39,
           "category_tally": {
@@ -8939,7 +8939,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Logogenic agent",
+          "candidate": "logogenic agent",
           "is_keep": true,
           "total_weight": 24,
           "category_tally": {
@@ -9050,7 +9050,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Symbiogenic composition",
+          "candidate": "symbiogenic composition",
           "is_keep": true,
           "total_weight": 24,
           "category_tally": {
@@ -9388,7 +9388,7 @@
           ]
         },
         {
-          "candidate": "Additive coordinate forcing",
+          "candidate": "additive coordinate forcing",
           "is_keep": true,
           "total_weight": 1,
           "category_tally": {
@@ -9567,7 +9567,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Sector persistence template",
+          "candidate": "sector persistence template",
           "is_keep": true,
           "total_weight": 23,
           "category_tally": {
@@ -9702,7 +9702,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Temporal optimality",
+          "candidate": "temporal optimality",
           "is_keep": true,
           "total_weight": 23,
           "category_tally": {
@@ -9779,7 +9779,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Adversarial destabilization",
+          "candidate": "adversarial destabilization",
           "is_keep": true,
           "total_weight": 22,
           "category_tally": {
@@ -9862,7 +9862,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Agent spectrum",
+          "candidate": "agent spectrum",
           "is_keep": true,
           "total_weight": 22,
           "category_tally": {
@@ -10284,7 +10284,7 @@
           ]
         },
         {
-          "candidate": "Separability pattern",
+          "candidate": "separability pattern",
           "is_keep": true,
           "total_weight": 10,
           "category_tally": {
@@ -10446,7 +10446,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Shared intent",
+          "candidate": "shared intent",
           "is_keep": true,
           "total_weight": 22,
           "category_tally": {
@@ -10682,7 +10682,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Adaptive tempo",
+          "candidate": "adaptive tempo",
           "is_keep": true,
           "total_weight": 32,
           "category_tally": {
@@ -10795,7 +10795,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Agent opacity",
+          "candidate": "agent opacity",
           "is_keep": true,
           "total_weight": 37,
           "category_tally": {
@@ -10999,7 +10999,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Causal information yield",
+          "candidate": "causal information yield",
           "is_keep": true,
           "total_weight": 20,
           "category_tally": {
@@ -11099,7 +11099,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Composition closure",
+          "candidate": "composition closure",
           "is_keep": true,
           "total_weight": 19,
           "category_tally": {
@@ -11247,7 +11247,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Auftragstaktik principle",
+          "candidate": "auftragstaktik principle",
           "is_keep": true,
           "total_weight": 18,
           "category_tally": {
@@ -11449,7 +11449,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Communication gain",
+          "candidate": "communication gain",
           "is_keep": true,
           "total_weight": 21,
           "category_tally": {
@@ -11561,7 +11561,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Context turnover",
+          "candidate": "context turnover",
           "is_keep": true,
           "total_weight": 18,
           "category_tally": {
@@ -11650,7 +11650,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Contraction template",
+          "candidate": "contraction template",
           "is_keep": true,
           "total_weight": 18,
           "category_tally": {
@@ -11739,7 +11739,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Deliberation cost",
+          "candidate": "deliberation cost",
           "is_keep": true,
           "total_weight": 21,
           "category_tally": {
@@ -11890,7 +11890,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Observability dominance",
+          "candidate": "observability dominance",
           "is_keep": true,
           "total_weight": 18,
           "category_tally": {
@@ -12125,7 +12125,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Team persistence",
+          "candidate": "team persistence",
           "is_keep": true,
           "total_weight": 18,
           "category_tally": {
@@ -12202,7 +12202,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Credit assignment boundary",
+          "candidate": "credit assignment boundary",
           "is_keep": true,
           "total_weight": 17,
           "category_tally": {
@@ -12289,7 +12289,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Honesty as architecture",
+          "candidate": "honesty as architecture",
           "is_keep": true,
           "total_weight": 17,
           "category_tally": {
@@ -12395,7 +12395,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Approximation tiering",
+          "candidate": "approximation tiering",
           "is_keep": true,
           "total_weight": 16,
           "category_tally": {
@@ -12845,7 +12845,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Recursive update",
+          "candidate": "recursive update",
           "is_keep": true,
           "total_weight": 16,
           "category_tally": {
@@ -12934,7 +12934,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Agent identity",
+          "candidate": "agent identity",
           "is_keep": true,
           "total_weight": 15,
           "category_tally": {
@@ -13084,7 +13084,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Aporia",
+          "candidate": "aporia",
           "is_keep": true,
           "total_weight": 18,
           "category_tally": {
@@ -13316,7 +13316,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Consolidation dynamics",
+          "candidate": "consolidation dynamics",
           "is_keep": true,
           "total_weight": 15,
           "category_tally": {
@@ -13415,7 +13415,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Critical mass composition",
+          "candidate": "critical mass composition",
           "is_keep": true,
           "total_weight": 15,
           "category_tally": {
@@ -13498,7 +13498,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Exploit explore deliberate",
+          "candidate": "exploit explore deliberate",
           "is_keep": true,
           "total_weight": 15,
           "category_tally": {
@@ -13621,7 +13621,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Gain sector bridge",
+          "candidate": "gain sector bridge",
           "is_keep": true,
           "total_weight": 15,
           "category_tally": {
@@ -13744,7 +13744,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Loop interventional access",
+          "candidate": "loop interventional access",
           "is_keep": true,
           "total_weight": 24,
           "category_tally": {
@@ -14015,7 +14015,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Adversarial tempo advantage",
+          "candidate": "adversarial tempo advantage",
           "is_keep": true,
           "total_weight": 14,
           "category_tally": {
@@ -14113,7 +14113,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Atomic changeset",
+          "candidate": "atomic changeset",
           "is_keep": true,
           "total_weight": 14,
           "category_tally": {
@@ -14184,7 +14184,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Complete agent state",
+          "candidate": "complete agent state",
           "is_keep": true,
           "total_weight": 14,
           "category_tally": {
@@ -14277,7 +14277,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Detection latency",
+          "candidate": "detection latency",
           "is_keep": true,
           "total_weight": 14,
           "category_tally": {
@@ -14333,7 +14333,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Logogenic logozoetic",
+          "candidate": "logogenic logozoetic",
           "is_keep": true,
           "total_weight": 14,
           "category_tally": {
@@ -14426,7 +14426,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Composition consistency",
+          "candidate": "composition consistency",
           "is_keep": true,
           "total_weight": 13,
           "category_tally": {
@@ -14559,7 +14559,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Compression operation",
+          "candidate": "compression operation",
           "is_keep": true,
           "total_weight": 13,
           "category_tally": {
@@ -14670,7 +14670,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Epistemic architecture",
+          "candidate": "epistemic architecture",
           "is_keep": true,
           "total_weight": 35,
           "category_tally": {
@@ -14895,7 +14895,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Logozoetic agent",
+          "candidate": "logozoetic agent",
           "is_keep": true,
           "total_weight": 13,
           "category_tally": {
@@ -14992,7 +14992,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Specification bound",
+          "candidate": "specification bound",
           "is_keep": true,
           "total_weight": 13,
           "category_tally": {
@@ -15055,7 +15055,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Adaptive cycle",
+          "candidate": "adaptive cycle",
           "is_keep": true,
           "total_weight": 15,
           "category_tally": {
@@ -15163,7 +15163,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Conceptual alignment",
+          "candidate": "conceptual alignment",
           "is_keep": true,
           "total_weight": 12,
           "category_tally": {
@@ -15319,7 +15319,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Persistence cost",
+          "candidate": "persistence cost",
           "is_keep": true,
           "total_weight": 13,
           "category_tally": {
@@ -15385,7 +15385,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Strategic calibration",
+          "candidate": "strategic calibration",
           "is_keep": true,
           "total_weight": 12,
           "category_tally": {
@@ -15550,7 +15550,7 @@
           ]
         },
         {
-          "candidate": "Strategic composition",
+          "candidate": "strategic composition",
           "is_keep": true,
           "total_weight": 9,
           "category_tally": {
@@ -15656,7 +15656,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Strategic tempo",
+          "candidate": "strategic tempo",
           "is_keep": true,
           "total_weight": 20,
           "category_tally": {
@@ -15741,7 +15741,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Unity dimension",
+          "candidate": "unity dimension",
           "is_keep": true,
           "total_weight": 18,
           "category_tally": {
@@ -15918,7 +15918,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Adaptive reserve",
+          "candidate": "adaptive reserve",
           "is_keep": true,
           "total_weight": 41,
           "category_tally": {
@@ -16031,7 +16031,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Agent environment",
+          "candidate": "agent environment",
           "is_keep": true,
           "total_weight": 11,
           "category_tally": {
@@ -16105,7 +16105,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Changeset size principle",
+          "candidate": "changeset size principle",
           "is_keep": true,
           "total_weight": 11,
           "category_tally": {
@@ -16180,7 +16180,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Independence audit",
+          "candidate": "independence audit",
           "is_keep": true,
           "total_weight": 11,
           "category_tally": {
@@ -16262,7 +16262,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Mismatch signal",
+          "candidate": "mismatch signal",
           "is_keep": true,
           "total_weight": 24,
           "category_tally": {
@@ -16386,7 +16386,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Model sufficiency",
+          "candidate": "model sufficiency",
           "is_keep": true,
           "total_weight": 14,
           "category_tally": {
@@ -16491,7 +16491,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Moral continuity",
+          "candidate": "moral continuity",
           "is_keep": true,
           "total_weight": 11,
           "category_tally": {
@@ -16549,7 +16549,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Sector condition",
+          "candidate": "sector condition",
           "is_keep": true,
           "total_weight": 14,
           "category_tally": {
@@ -16659,7 +16659,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Causal insufficiency detection",
+          "candidate": "causal insufficiency detection",
           "is_keep": true,
           "total_weight": 10,
           "category_tally": {
@@ -16834,7 +16834,7 @@
           ]
         },
         {
-          "candidate": "Code quality as observation infrastructure",
+          "candidate": "code quality as observation infrastructure",
           "is_keep": true,
           "total_weight": 5,
           "category_tally": {
@@ -16880,7 +16880,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Comprehension time",
+          "candidate": "comprehension time",
           "is_keep": true,
           "total_weight": 13,
           "category_tally": {
@@ -16956,7 +16956,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Mismatch decomposition",
+          "candidate": "mismatch decomposition",
           "is_keep": true,
           "total_weight": 10,
           "category_tally": {
@@ -17038,7 +17038,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Model-class fitness",
+          "candidate": "model-class fitness",
           "is_keep": true,
           "total_weight": 10,
           "category_tally": {
@@ -17114,7 +17114,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Objective functional",
+          "candidate": "objective functional",
           "is_keep": true,
           "total_weight": 10,
           "category_tally": {
@@ -17194,7 +17194,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Software epistemic property",
+          "candidate": "software epistemic property",
           "is_keep": true,
           "total_weight": 10,
           "category_tally": {
@@ -17264,7 +17264,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Strengthen first posture",
+          "candidate": "strengthen first posture",
           "is_keep": true,
           "total_weight": 34,
           "category_tally": {
@@ -17588,7 +17588,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Agency",
+          "candidate": "agency",
           "is_keep": true,
           "total_weight": 9,
           "category_tally": {
@@ -17640,7 +17640,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Agent model",
+          "candidate": "agent model",
           "is_keep": true,
           "total_weight": 9,
           "category_tally": {
@@ -17722,7 +17722,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Calibration laboratory",
+          "candidate": "calibration laboratory",
           "is_keep": true,
           "total_weight": 44,
           "category_tally": {
@@ -18056,7 +18056,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Causal hierarchy requirement",
+          "candidate": "causal hierarchy requirement",
           "is_keep": true,
           "total_weight": 9,
           "category_tally": {
@@ -18350,7 +18350,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Cycle vs loop",
+          "candidate": "cycle vs loop",
           "is_keep": true,
           "total_weight": 9,
           "category_tally": {
@@ -18526,7 +18526,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Effect spiral",
+          "candidate": "effect spiral",
           "is_keep": true,
           "total_weight": 12,
           "category_tally": {
@@ -18670,7 +18670,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Event driven dynamics",
+          "candidate": "event driven dynamics",
           "is_keep": true,
           "total_weight": 9,
           "category_tally": {
@@ -18734,7 +18734,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Evidence starvation",
+          "candidate": "evidence starvation",
           "is_keep": true,
           "total_weight": 21,
           "category_tally": {
@@ -18900,7 +18900,7 @@
           ]
         },
         {
-          "candidate": "Graph structure uniqueness",
+          "candidate": "graph structure uniqueness",
           "is_keep": true,
           "total_weight": 4,
           "category_tally": {
@@ -19021,7 +19021,7 @@
           ]
         },
         {
-          "candidate": "Interaction channel classification",
+          "candidate": "interaction channel classification",
           "is_keep": true,
           "total_weight": 5,
           "category_tally": {
@@ -19271,7 +19271,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Adaptive system",
+          "candidate": "adaptive system",
           "is_keep": true,
           "total_weight": 8,
           "category_tally": {
@@ -19322,7 +19322,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Change distance",
+          "candidate": "change distance",
           "is_keep": true,
           "total_weight": 8,
           "category_tally": {
@@ -19391,7 +19391,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Composite agent",
+          "candidate": "composite agent",
           "is_keep": true,
           "total_weight": 8,
           "category_tally": {
@@ -19443,7 +19443,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Coupled update dynamics",
+          "candidate": "coupled update dynamics",
           "is_keep": true,
           "total_weight": 11,
           "category_tally": {
@@ -19526,7 +19526,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Mismatch dynamics",
+          "candidate": "mismatch dynamics",
           "is_keep": true,
           "total_weight": 8,
           "category_tally": {
@@ -19601,7 +19601,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Sector condition stability",
+          "candidate": "sector condition stability",
           "is_keep": true,
           "total_weight": 8,
           "category_tally": {
@@ -19675,7 +19675,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Stability plasticity window",
+          "candidate": "stability plasticity window",
           "is_keep": true,
           "total_weight": 8,
           "category_tally": {
@@ -19738,7 +19738,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Structural adaptation necessity",
+          "candidate": "structural adaptation necessity",
           "is_keep": true,
           "total_weight": 8,
           "category_tally": {
@@ -19811,7 +19811,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Task terminal stance",
+          "candidate": "task terminal stance",
           "is_keep": true,
           "total_weight": 8,
           "category_tally": {
@@ -19890,7 +19890,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Triple depth penalty",
+          "candidate": "triple depth penalty",
           "is_keep": true,
           "total_weight": 8,
           "category_tally": {
@@ -20007,7 +20007,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Update gain",
+          "candidate": "update gain",
           "is_keep": true,
           "total_weight": 20,
           "category_tally": {
@@ -20215,7 +20215,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Bias bound derivation",
+          "candidate": "bias bound derivation",
           "is_keep": true,
           "total_weight": 7,
           "category_tally": {
@@ -20278,7 +20278,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Causal structure",
+          "candidate": "causal structure",
           "is_keep": true,
           "total_weight": 7,
           "category_tally": {
@@ -20372,7 +20372,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Constitutive utterance",
+          "candidate": "constitutive utterance",
           "is_keep": true,
           "total_weight": 7,
           "category_tally": {
@@ -20484,7 +20484,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Discussion",
+          "candidate": "discussion",
           "is_keep": true,
           "total_weight": 7,
           "category_tally": {
@@ -20530,7 +20530,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Edge update via gain",
+          "candidate": "edge update via gain",
           "is_keep": true,
           "total_weight": 7,
           "category_tally": {
@@ -20604,7 +20604,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Praxis",
+          "candidate": "praxis",
           "is_keep": true,
           "total_weight": 7,
           "category_tally": {
@@ -20666,7 +20666,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Prolepsis",
+          "candidate": "prolepsis",
           "is_keep": true,
           "total_weight": 7,
           "category_tally": {
@@ -20745,7 +20745,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Proprium mapping",
+          "candidate": "proprium mapping",
           "is_keep": true,
           "total_weight": 7,
           "category_tally": {
@@ -20790,7 +20790,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Structural adaptation",
+          "candidate": "structural adaptation",
           "is_keep": true,
           "total_weight": 7,
           "category_tally": {
@@ -20851,7 +20851,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Substrate independence",
+          "candidate": "substrate independence",
           "is_keep": true,
           "total_weight": 7,
           "category_tally": {
@@ -20914,7 +20914,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Temporal nesting",
+          "candidate": "temporal nesting",
           "is_keep": true,
           "total_weight": 7,
           "category_tally": {
@@ -21006,7 +21006,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Value object",
+          "candidate": "value object",
           "is_keep": true,
           "total_weight": 7,
           "category_tally": {
@@ -21132,7 +21132,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Variational sector condition",
+          "candidate": "variational sector condition",
           "is_keep": true,
           "total_weight": 7,
           "category_tally": {
@@ -21347,7 +21347,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Teleological unity",
+          "candidate": "teleological unity",
           "is_keep": true,
           "total_weight": 11,
           "category_tally": {
@@ -21510,7 +21510,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Action selection",
+          "candidate": "action selection",
           "is_keep": true,
           "total_weight": 6,
           "category_tally": {
@@ -21568,7 +21568,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Adaptive gain dynamics",
+          "candidate": "adaptive gain dynamics",
           "is_keep": true,
           "total_weight": 6,
           "category_tally": {
@@ -21748,11 +21748,12 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Aporia",
-          "is_keep": false,
-          "total_weight": 6,
+          "candidate": "aporia ἀπορία",
+          "is_keep": true,
+          "total_weight": 7,
           "category_tally": {
-            "rename": 2
+            "rename": 2,
+            "canonicalize": 1
           },
           "consolidated_rationale": null,
           "votes": [
@@ -21767,18 +21768,7 @@
               "weight": 3,
               "category": "rename",
               "notes": "Particularly apt: the productive perplexity that drives the adaptive cycle. Keep."
-            }
-          ]
-        },
-        {
-          "candidate": "Aporia ἀπορία",
-          "is_keep": true,
-          "total_weight": 1,
-          "category_tally": {
-            "canonicalize": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
+            },
             {
               "agent": "haiku-4-5-r2",
               "weight": 1,
@@ -21804,7 +21794,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Blind pursuer",
+          "candidate": "blind pursuer",
           "is_keep": true,
           "total_weight": 6,
           "category_tally": {
@@ -21900,7 +21890,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Causal discovery from git",
+          "candidate": "causal discovery from git",
           "is_keep": true,
           "total_weight": 6,
           "category_tally": {
@@ -21968,7 +21958,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Change expectation baseline",
+          "candidate": "change expectation baseline",
           "is_keep": true,
           "total_weight": 9,
           "category_tally": {
@@ -22066,7 +22056,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Change investment",
+          "candidate": "change investment",
           "is_keep": true,
           "total_weight": 6,
           "category_tally": {
@@ -22130,7 +22120,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Closure defect",
+          "candidate": "closure defect",
           "is_keep": true,
           "total_weight": 26,
           "category_tally": {
@@ -23055,7 +23045,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Developer agent",
+          "candidate": "developer agent",
           "is_keep": true,
           "total_weight": 6,
           "category_tally": {
@@ -23139,7 +23129,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Edge credence",
+          "candidate": "edge credence",
           "is_keep": true,
           "total_weight": 10,
           "category_tally": {
@@ -23190,8 +23180,8 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Epistemic substate purposeful substate",
-          "is_keep": false,
+          "candidate": "\"epistemic substate\" / \"purposeful substate\"",
+          "is_keep": true,
           "total_weight": 6,
           "category_tally": {
             "canonicalize": 2
@@ -23230,7 +23220,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Epistrophe",
+          "candidate": "epistrophe",
           "is_keep": true,
           "total_weight": 9,
           "category_tally": {
@@ -23323,7 +23313,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Explicit strategy condition",
+          "candidate": "explicit strategy condition",
           "is_keep": true,
           "total_weight": 6,
           "category_tally": {
@@ -23503,7 +23493,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Goal-blind routing",
+          "candidate": "goal-blind routing",
           "is_keep": true,
           "total_weight": 6,
           "category_tally": {
@@ -23609,7 +23599,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Gradient causal memory",
+          "candidate": "gradient causal memory",
           "is_keep": true,
           "total_weight": 6,
           "category_tally": {
@@ -23687,7 +23677,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Honest activation",
+          "candidate": "honest activation",
           "is_keep": true,
           "total_weight": 6,
           "category_tally": {
@@ -23766,7 +23756,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Implementation time",
+          "candidate": "implementation time",
           "is_keep": true,
           "total_weight": 6,
           "category_tally": {
@@ -23811,7 +23801,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Inevitability core",
+          "candidate": "inevitability core",
           "is_keep": true,
           "total_weight": 17,
           "category_tally": {
@@ -23897,7 +23887,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Logogenic",
+          "candidate": "logogenic",
           "is_keep": true,
           "total_weight": 6,
           "category_tally": {
@@ -23935,7 +23925,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Logozoetic",
+          "candidate": "logozoetic",
           "is_keep": true,
           "total_weight": 6,
           "category_tally": {
@@ -24094,7 +24084,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Plan confidence",
+          "candidate": "plan confidence",
           "is_keep": true,
           "total_weight": 6,
           "category_tally": {
@@ -24172,11 +24162,12 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Praxis",
-          "is_keep": false,
-          "total_weight": 6,
+          "candidate": "praxis πρᾶξις",
+          "is_keep": true,
+          "total_weight": 7,
           "category_tally": {
-            "rename": 2
+            "rename": 2,
+            "canonicalize": 1
           },
           "consolidated_rationale": null,
           "votes": [
@@ -24191,18 +24182,7 @@
               "weight": 3,
               "category": "rename",
               "notes": "Keep."
-            }
-          ]
-        },
-        {
-          "candidate": "Praxis πρᾶξις",
-          "is_keep": true,
-          "total_weight": 1,
-          "category_tally": {
-            "canonicalize": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
+            },
             {
               "agent": "haiku-4-5-r2",
               "weight": 1,
@@ -24242,7 +24222,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Purposeful substate",
+          "candidate": "purposeful substate",
           "is_keep": true,
           "total_weight": 9,
           "category_tally": {
@@ -24382,7 +24362,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Stability plasticity feasibility window",
+          "candidate": "stability plasticity feasibility window",
           "is_keep": true,
           "total_weight": 6,
           "category_tally": {
@@ -24459,7 +24439,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Structural persistence",
+          "candidate": "structural persistence",
           "is_keep": true,
           "total_weight": 6,
           "category_tally": {
@@ -24519,7 +24499,7 @@
           ]
         },
         {
-          "candidate": "Tempo",
+          "candidate": "tempo",
           "is_keep": true,
           "total_weight": 3,
           "category_tally": {
@@ -24551,7 +24531,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Temporal software theory",
+          "candidate": "temporal software theory",
           "is_keep": true,
           "total_weight": 6,
           "category_tally": {
@@ -24589,7 +24569,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "The crèche",
+          "candidate": "the crèche",
           "is_keep": true,
           "total_weight": 6,
           "category_tally": {
@@ -25084,8 +25064,8 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Adaptive tempo",
-          "is_keep": false,
+          "candidate": "𝒯 adaptive tempo",
+          "is_keep": true,
           "total_weight": 6,
           "category_tally": {
             "canonicalize": 1,
@@ -25122,7 +25102,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Model uncertainty",
+          "candidate": "model uncertainty",
           "is_keep": true,
           "total_weight": 5,
           "category_tally": {
@@ -25160,7 +25140,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Observation uncertainty",
+          "candidate": "observation uncertainty",
           "is_keep": true,
           "total_weight": 7,
           "category_tally": {
@@ -25408,7 +25388,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Active salience management",
+          "candidate": "active salience management",
           "is_keep": true,
           "total_weight": 5,
           "category_tally": {
@@ -25487,7 +25467,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Actuated agent",
+          "candidate": "actuated agent",
           "is_keep": true,
           "total_weight": 5,
           "category_tally": {
@@ -25579,7 +25559,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Adaptive tracker",
+          "candidate": "adaptive tracker",
           "is_keep": true,
           "total_weight": 5,
           "category_tally": {
@@ -25667,7 +25647,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Adversarial edge targeting",
+          "candidate": "adversarial edge targeting",
           "is_keep": true,
           "total_weight": 5,
           "category_tally": {
@@ -25779,7 +25759,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Alignment uncertainty",
+          "candidate": "alignment uncertainty",
           "is_keep": true,
           "total_weight": 5,
           "category_tally": {
@@ -25817,7 +25797,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Auftragstaktik",
+          "candidate": "auftragstaktik",
           "is_keep": true,
           "total_weight": 5,
           "category_tally": {
@@ -25872,7 +25852,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Axiom genesis",
+          "candidate": "axiom genesis",
           "is_keep": true,
           "total_weight": 5,
           "category_tally": {
@@ -25961,7 +25941,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Backward inference empathy",
+          "candidate": "backward inference empathy",
           "is_keep": true,
           "total_weight": 8,
           "category_tally": {
@@ -26062,7 +26042,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Bias bound",
+          "candidate": "bias bound",
           "is_keep": true,
           "total_weight": 5,
           "category_tally": {
@@ -26177,7 +26157,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Change proximity principle",
+          "candidate": "change proximity principle",
           "is_keep": true,
           "total_weight": 5,
           "category_tally": {
@@ -26434,7 +26414,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Cognitive fusion",
+          "candidate": "cognitive fusion",
           "is_keep": true,
           "total_weight": 8,
           "category_tally": {
@@ -26821,7 +26801,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Continuous operation",
+          "candidate": "continuous operation",
           "is_keep": true,
           "total_weight": 5,
           "category_tally": {
@@ -26871,7 +26851,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Default signal function",
+          "candidate": "default signal function",
           "is_keep": true,
           "total_weight": 5,
           "category_tally": {
@@ -26910,7 +26890,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Deliberation threshold",
+          "candidate": "deliberation threshold",
           "is_keep": true,
           "total_weight": 6,
           "category_tally": {
@@ -26958,7 +26938,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Directed separation under composition",
+          "candidate": "directed separation under composition",
           "is_keep": true,
           "total_weight": 5,
           "category_tally": {
@@ -27026,7 +27006,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Directional fidelity",
+          "candidate": "directional fidelity",
           "is_keep": true,
           "total_weight": 5,
           "category_tally": {
@@ -27115,7 +27095,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Effective disturbance",
+          "candidate": "effective disturbance",
           "is_keep": true,
           "total_weight": 5,
           "category_tally": {
@@ -27153,7 +27133,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Epistemic shadow",
+          "candidate": "epistemic shadow",
           "is_keep": true,
           "total_weight": 5,
           "category_tally": {
@@ -27191,7 +27171,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Equilibrium convergence",
+          "candidate": "equilibrium convergence",
           "is_keep": true,
           "total_weight": 5,
           "category_tally": {
@@ -27230,7 +27210,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Experiential training",
+          "candidate": "experiential training",
           "is_keep": true,
           "total_weight": 5,
           "category_tally": {
@@ -27341,7 +27321,7 @@
           ]
         },
         {
-          "candidate": "Indivisum",
+          "candidate": "indivisum",
           "is_keep": true,
           "total_weight": 2,
           "category_tally": {
@@ -27409,7 +27389,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "L1 update bias",
+          "candidate": "l1 update bias",
           "is_keep": true,
           "total_weight": 5,
           "category_tally": {
@@ -27525,7 +27505,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Macro step ratio",
+          "candidate": "macro step ratio",
           "is_keep": true,
           "total_weight": 5,
           "category_tally": {
@@ -27563,7 +27543,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Matrix exploration bonus",
+          "candidate": "matrix exploration bonus",
           "is_keep": true,
           "total_weight": 5,
           "category_tally": {
@@ -27602,7 +27582,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Multi agent",
+          "candidate": "multi agent",
           "is_keep": true,
           "total_weight": 5,
           "category_tally": {
@@ -27672,7 +27652,7 @@
           ]
         },
         {
-          "candidate": "Observation function",
+          "candidate": "observation function",
           "is_keep": true,
           "total_weight": 3,
           "category_tally": {
@@ -27710,7 +27690,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Operational persistence",
+          "candidate": "operational persistence",
           "is_keep": true,
           "total_weight": 5,
           "category_tally": {
@@ -27750,7 +27730,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Per dimension persistence",
+          "candidate": "per dimension persistence",
           "is_keep": true,
           "total_weight": 5,
           "category_tally": {
@@ -27883,7 +27863,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Reactive system",
+          "candidate": "reactive system",
           "is_keep": true,
           "total_weight": 5,
           "category_tally": {
@@ -27960,7 +27940,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Routing structure",
+          "candidate": "routing structure",
           "is_keep": true,
           "total_weight": 5,
           "category_tally": {
@@ -28036,7 +28016,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Self-referential closure",
+          "candidate": "self-referential closure",
           "is_keep": true,
           "total_weight": 5,
           "category_tally": {
@@ -28124,7 +28104,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Strategic dynamics",
+          "candidate": "strategic dynamics",
           "is_keep": true,
           "total_weight": 5,
           "category_tally": {
@@ -28165,7 +28145,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Strategy complexity cost",
+          "candidate": "strategy complexity cost",
           "is_keep": true,
           "total_weight": 5,
           "category_tally": {
@@ -28255,7 +28235,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Strategy description length",
+          "candidate": "strategy description length",
           "is_keep": true,
           "total_weight": 5,
           "category_tally": {
@@ -28393,7 +28373,7 @@
           ]
         },
         {
-          "candidate": "Strategy dimension",
+          "candidate": "strategy dimension",
           "is_keep": true,
           "total_weight": 1,
           "category_tally": {
@@ -28528,7 +28508,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "System coupling",
+          "candidate": "system coupling",
           "is_keep": true,
           "total_weight": 5,
           "category_tally": {
@@ -28591,7 +28571,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Tempo composition",
+          "candidate": "tempo composition",
           "is_keep": true,
           "total_weight": 5,
           "category_tally": {
@@ -28675,7 +28655,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Trust meta model",
+          "candidate": "trust meta model",
           "is_keep": true,
           "total_weight": 5,
           "category_tally": {
@@ -28806,7 +28786,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Plan confidence",
+          "candidate": "plan confidence",
           "is_keep": true,
           "total_weight": 4,
           "category_tally": {
@@ -28920,7 +28900,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Action distinguishability",
+          "candidate": "action distinguishability",
           "is_keep": true,
           "total_weight": 4,
           "category_tally": {
@@ -28959,7 +28939,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Action fluency",
+          "candidate": "action fluency",
           "is_keep": true,
           "total_weight": 4,
           "category_tally": {
@@ -28999,7 +28979,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Adversarial exponent regime",
+          "candidate": "adversarial exponent regime",
           "is_keep": true,
           "total_weight": 4,
           "category_tally": {
@@ -29116,7 +29096,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Aisthesis",
+          "candidate": "aisthesis",
           "is_keep": true,
           "total_weight": 4,
           "category_tally": {
@@ -29195,11 +29175,12 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Aisthesis",
-          "is_keep": false,
-          "total_weight": 4,
+          "candidate": "aisthesis αἴσθησις",
+          "is_keep": true,
+          "total_weight": 5,
           "category_tally": {
-            "rename": 2
+            "rename": 2,
+            "canonicalize": 1
           },
           "consolidated_rationale": null,
           "votes": [
@@ -29214,18 +29195,7 @@
               "weight": 3,
               "category": "rename",
               "notes": "Keep — see Prolepsis note."
-            }
-          ]
-        },
-        {
-          "candidate": "Aisthesis αἴσθησις",
-          "is_keep": true,
-          "total_weight": 1,
-          "category_tally": {
-            "canonicalize": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
+            },
             {
               "agent": "haiku-4-5-r2",
               "weight": 1,
@@ -29276,7 +29246,7 @@
           ]
         },
         {
-          "candidate": "And or",
+          "candidate": "and or",
           "is_keep": true,
           "total_weight": 3,
           "category_tally": {
@@ -29383,7 +29353,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Auxilia hierarchy",
+          "candidate": "auxilia hierarchy",
           "is_keep": true,
           "total_weight": 6,
           "category_tally": {
@@ -29507,7 +29477,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Century scale event log",
+          "candidate": "century scale event log",
           "is_keep": true,
           "total_weight": 4,
           "category_tally": {
@@ -29597,7 +29567,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Coherence coupling",
+          "candidate": "coherence coupling",
           "is_keep": true,
           "total_weight": 4,
           "category_tally": {
@@ -29655,7 +29625,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Convention hierarchy",
+          "candidate": "convention hierarchy",
           "is_keep": true,
           "total_weight": 15,
           "category_tally": {
@@ -29772,7 +29742,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Discrete sector condition",
+          "candidate": "discrete sector condition",
           "is_keep": true,
           "total_weight": 4,
           "category_tally": {
@@ -29842,7 +29812,7 @@
           ]
         },
         {
-          "candidate": "Edge update causal validity",
+          "candidate": "edge update causal validity",
           "is_keep": true,
           "total_weight": 3,
           "category_tally": {
@@ -29931,7 +29901,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Epistemic opacity",
+          "candidate": "epistemic opacity",
           "is_keep": true,
           "total_weight": 4,
           "category_tally": {
@@ -29970,11 +29940,12 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Epistrophe",
-          "is_keep": false,
-          "total_weight": 4,
+          "candidate": "epistrophe ἐπιστροφή",
+          "is_keep": true,
+          "total_weight": 5,
           "category_tally": {
-            "rename": 2
+            "rename": 2,
+            "canonicalize": 1
           },
           "consolidated_rationale": null,
           "votes": [
@@ -29989,18 +29960,7 @@
               "weight": 3,
               "category": "rename",
               "notes": "\"Turning toward\" is a beautiful description of model update. Keep."
-            }
-          ]
-        },
-        {
-          "candidate": "Epistrophe ἐπιστροφή",
-          "is_keep": true,
-          "total_weight": 1,
-          "category_tally": {
-            "canonicalize": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
+            },
             {
               "agent": "haiku-4-5-r2",
               "weight": 1,
@@ -30025,7 +29985,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Extreme transition motif",
+          "candidate": "extreme transition motif",
           "is_keep": true,
           "total_weight": 4,
           "category_tally": {
@@ -30064,7 +30024,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Operationalization",
+          "candidate": "operationalization",
           "is_keep": true,
           "total_weight": 4,
           "category_tally": {
@@ -30109,11 +30069,12 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Prolepsis",
-          "is_keep": false,
-          "total_weight": 4,
+          "candidate": "prolepsis πρόληψις",
+          "is_keep": true,
+          "total_weight": 5,
           "category_tally": {
-            "rename": 2
+            "rename": 2,
+            "canonicalize": 1
           },
           "consolidated_rationale": null,
           "votes": [
@@ -30128,18 +30089,7 @@
               "weight": 3,
               "category": "rename",
               "notes": "The five-phase Greek vocabulary is one of the project's most distinctive features. Prolepsis = anticipation is a real philosophical term (Epicurean preconception); the etymology is apt. The five names form a coherent philosophical vocabulary. Keep the set."
-            }
-          ]
-        },
-        {
-          "candidate": "Prolepsis πρόληψις",
-          "is_keep": true,
-          "total_weight": 1,
-          "category_tally": {
-            "canonicalize": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
+            },
             {
               "agent": "haiku-4-5-r2",
               "weight": 1,
@@ -30164,7 +30114,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Recursive update derivation",
+          "candidate": "recursive update derivation",
           "is_keep": true,
           "total_weight": 4,
           "category_tally": {
@@ -30202,7 +30152,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Separable core structured repair general open",
+          "candidate": "separable core structured repair general open",
           "is_keep": true,
           "total_weight": 4,
           "category_tally": {
@@ -30241,7 +30191,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Software",
+          "candidate": "software",
           "is_keep": true,
           "total_weight": 4,
           "category_tally": {
@@ -30297,7 +30247,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Strategy persistence",
+          "candidate": "strategy persistence",
           "is_keep": true,
           "total_weight": 4,
           "category_tally": {
@@ -30342,7 +30292,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "System coherence",
+          "candidate": "system coherence",
           "is_keep": true,
           "total_weight": 4,
           "category_tally": {
@@ -30402,7 +30352,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Temporal coherence marker",
+          "candidate": "temporal coherence marker",
           "is_keep": true,
           "total_weight": 4,
           "category_tally": {
@@ -30673,7 +30623,7 @@
           ]
         },
         {
-          "candidate": "The four view",
+          "candidate": "the four view",
           "is_keep": true,
           "total_weight": 2,
           "category_tally": {
@@ -30778,7 +30728,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Unity closure mapping",
+          "candidate": "unity closure mapping",
           "is_keep": true,
           "total_weight": 4,
           "category_tally": {
@@ -30862,7 +30812,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Worked example bandit",
+          "candidate": "worked example bandit",
           "is_keep": true,
           "total_weight": 4,
           "category_tally": {
@@ -30900,7 +30850,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Worked example kalman",
+          "candidate": "worked example kalman",
           "is_keep": true,
           "total_weight": 4,
           "category_tally": {
@@ -30938,7 +30888,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Worked example l1",
+          "candidate": "worked example l1",
           "is_keep": true,
           "total_weight": 4,
           "category_tally": {
@@ -30976,7 +30926,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Worked example strategy",
+          "candidate": "worked example strategy",
           "is_keep": true,
           "total_weight": 4,
           "category_tally": {
@@ -31014,8 +30964,8 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Strategic tempo",
-          "is_keep": false,
+          "candidate": "𝒯 σ strategic tempo",
+          "is_keep": true,
           "total_weight": 4,
           "category_tally": {
             "canonicalize": 1,
@@ -31054,7 +31004,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Objective",
+          "candidate": "objective",
           "is_keep": true,
           "total_weight": 4,
           "category_tally": {
@@ -31263,7 +31213,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Strategy",
+          "candidate": "strategy",
           "is_keep": true,
           "total_weight": 5,
           "category_tally": {
@@ -32361,7 +32311,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Action transition",
+          "candidate": "action transition",
           "is_keep": true,
           "total_weight": 3,
           "category_tally": {
@@ -32588,7 +32538,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Aporia prolepsis aisthesis epistrophe praxis",
+          "candidate": "aporia prolepsis aisthesis epistrophe praxis",
           "is_keep": true,
           "total_weight": 3,
           "category_tally": {
@@ -32735,7 +32685,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Boundary condition",
+          "candidate": "boundary condition",
           "is_keep": true,
           "total_weight": 3,
           "category_tally": {
@@ -33070,7 +33020,7 @@
           ]
         },
         {
-          "candidate": "Candidate stage",
+          "candidate": "candidate stage",
           "is_keep": true,
           "total_weight": 2,
           "category_tally": {
@@ -33539,7 +33489,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Coherence coupling measurement",
+          "candidate": "coherence coupling measurement",
           "is_keep": true,
           "total_weight": 3,
           "category_tally": {
@@ -33826,7 +33776,7 @@
           ]
         },
         {
-          "candidate": "Continuity persistence",
+          "candidate": "continuity persistence",
           "is_keep": true,
           "total_weight": 2,
           "category_tally": {
@@ -33859,7 +33809,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Contraction hierarchy",
+          "candidate": "contraction hierarchy",
           "is_keep": true,
           "total_weight": 5,
           "category_tally": {
@@ -33924,7 +33874,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Contraction over drift principle",
+          "candidate": "contraction over drift principle",
           "is_keep": true,
           "total_weight": 27,
           "category_tally": {
@@ -34208,7 +34158,7 @@
           ]
         },
         {
-          "candidate": "Coupled diagnostic framework",
+          "candidate": "coupled diagnostic framework",
           "is_keep": true,
           "total_weight": 3,
           "category_tally": {
@@ -34426,7 +34376,7 @@
           ]
         },
         {
-          "candidate": "Dark room exploration drive",
+          "candidate": "dark room exploration drive",
           "is_keep": true,
           "total_weight": -1,
           "category_tally": {
@@ -34508,7 +34458,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Developmental trajectory",
+          "candidate": "developmental trajectory",
           "is_keep": true,
           "total_weight": 3,
           "category_tally": {
@@ -34571,7 +34521,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Dual optimization",
+          "candidate": "dual optimization",
           "is_keep": true,
           "total_weight": 3,
           "category_tally": {
@@ -34719,7 +34669,7 @@
           ]
         },
         {
-          "candidate": "Edge update natural parameter",
+          "candidate": "edge update natural parameter",
           "is_keep": true,
           "total_weight": 1,
           "category_tally": {
@@ -34785,8 +34735,8 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Exact robust qualitative heuristic conditional claim tier",
-          "is_keep": false,
+          "candidate": "exact / robust-qualitative / heuristic / conditional (claim tier)",
+          "is_keep": true,
           "total_weight": 3,
           "category_tally": {
             "canonicalize": 1
@@ -34834,7 +34784,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Exponential cognitive load",
+          "candidate": "exponential cognitive load",
           "is_keep": true,
           "total_weight": 3,
           "category_tally": {
@@ -34872,7 +34822,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Fisher whitened update",
+          "candidate": "fisher whitened update",
           "is_keep": true,
           "total_weight": 3,
           "category_tally": {
@@ -35005,7 +34955,7 @@
           ]
         },
         {
-          "candidate": "Gate advantage",
+          "candidate": "gate advantage",
           "is_keep": true,
           "total_weight": 2,
           "category_tally": {
@@ -35143,7 +35093,7 @@
           ]
         },
         {
-          "candidate": "Grafting",
+          "candidate": "grafting",
           "is_keep": true,
           "total_weight": 2,
           "category_tally": {
@@ -35675,7 +35625,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Linear ode approximation",
+          "candidate": "linear ode approximation",
           "is_keep": true,
           "total_weight": 3,
           "category_tally": {
@@ -35736,7 +35686,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Log odds edge coordinate",
+          "candidate": "log odds edge coordinate",
           "is_keep": true,
           "total_weight": 3,
           "category_tally": {
@@ -35917,7 +35867,7 @@
           ]
         },
         {
-          "candidate": "Matrix survival constraint",
+          "candidate": "matrix survival constraint",
           "is_keep": true,
           "total_weight": 2,
           "category_tally": {
@@ -36080,7 +36030,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Multi timescale stability",
+          "candidate": "multi timescale stability",
           "is_keep": true,
           "total_weight": 3,
           "category_tally": {
@@ -36173,7 +36123,7 @@
           ]
         },
         {
-          "candidate": "Observation ambiguity modulation",
+          "candidate": "observation ambiguity modulation",
           "is_keep": true,
           "total_weight": 2,
           "category_tally": {
@@ -36279,7 +36229,7 @@
           ]
         },
         {
-          "candidate": "Observation gate advantage",
+          "candidate": "observation gate advantage",
           "is_keep": true,
           "total_weight": 1,
           "category_tally": {
@@ -36794,8 +36744,8 @@
           ]
         },
         {
-          "candidate": "Purpose purposeful",
-          "is_keep": false,
+          "candidate": "\"purpose\" / \"purposeful\"",
+          "is_keep": true,
           "total_weight": 2,
           "category_tally": {
             "canonicalize": 1
@@ -36941,7 +36891,7 @@
           ]
         },
         {
-          "candidate": "Sector condition derivation",
+          "candidate": "sector condition derivation",
           "is_keep": true,
           "total_weight": 1,
           "category_tally": {
@@ -37086,7 +37036,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Software scope",
+          "candidate": "software scope",
           "is_keep": true,
           "total_weight": 3,
           "category_tally": {
@@ -37213,7 +37163,7 @@
           ]
         },
         {
-          "candidate": "Strategic composite",
+          "candidate": "strategic composite",
           "is_keep": true,
           "total_weight": 3,
           "category_tally": {
@@ -37314,7 +37264,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Structural change as parametric limit",
+          "candidate": "structural change as parametric limit",
           "is_keep": true,
           "total_weight": 3,
           "category_tally": {
@@ -37500,7 +37450,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Sufficiency discontinuity",
+          "candidate": "sufficiency discontinuity",
           "is_keep": true,
           "total_weight": 3,
           "category_tally": {
@@ -37713,7 +37663,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "System availability",
+          "candidate": "system availability",
           "is_keep": true,
           "total_weight": 3,
           "category_tally": {
@@ -37768,7 +37718,7 @@
           ]
         },
         {
-          "candidate": "Teleological unity",
+          "candidate": "teleological unity",
           "is_keep": true,
           "total_weight": 3,
           "category_tally": {
@@ -38092,7 +38042,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Transfer assumption table",
+          "candidate": "transfer assumption table",
           "is_keep": true,
           "total_weight": 3,
           "category_tally": {
@@ -38141,7 +38091,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Transition opacity",
+          "candidate": "transition opacity",
           "is_keep": true,
           "total_weight": 3,
           "category_tally": {
@@ -38172,7 +38122,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Type formulation",
+          "candidate": "type formulation",
           "is_keep": true,
           "total_weight": 3,
           "category_tally": {
@@ -41161,7 +41111,7 @@
           ]
         },
         {
-          "candidate": "Ε greedy",
+          "candidate": "ε greedy",
           "is_keep": true,
           "total_weight": 3,
           "category_tally": {
@@ -42838,7 +42788,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "And or scope",
+          "candidate": "and or scope",
           "is_keep": true,
           "total_weight": 2,
           "category_tally": {
@@ -43008,7 +42958,7 @@
           ]
         },
         {
-          "candidate": "Cadentia",
+          "candidate": "cadentia",
           "is_keep": true,
           "total_weight": 2,
           "category_tally": {
@@ -43079,7 +43029,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Canonical formulation",
+          "candidate": "canonical formulation",
           "is_keep": true,
           "total_weight": 2,
           "category_tally": {
@@ -43134,7 +43084,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Catastrophic forgetting regime",
+          "candidate": "catastrophic forgetting regime",
           "is_keep": true,
           "total_weight": 11,
           "category_tally": {
@@ -43402,7 +43352,7 @@
           ]
         },
         {
-          "candidate": "Class 2 scope exit",
+          "candidate": "class 2 scope exit",
           "is_keep": true,
           "total_weight": 2,
           "category_tally": {
@@ -43533,7 +43483,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Composition scope condition",
+          "candidate": "composition scope condition",
           "is_keep": true,
           "total_weight": 2,
           "category_tally": {
@@ -43766,7 +43716,7 @@
           ]
         },
         {
-          "candidate": "Conspectus",
+          "candidate": "conspectus",
           "is_keep": true,
           "total_weight": 2,
           "category_tally": {
@@ -43819,7 +43769,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Correlation hierarchy",
+          "candidate": "correlation hierarchy",
           "is_keep": true,
           "total_weight": 19,
           "category_tally": {
@@ -44038,7 +43988,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Distributed tempo",
+          "candidate": "distributed tempo",
           "is_keep": true,
           "total_weight": 5,
           "category_tally": {
@@ -44207,7 +44157,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Escape route",
+          "candidate": "escape route",
           "is_keep": true,
           "total_weight": 3,
           "category_tally": {
@@ -44281,7 +44231,7 @@
           ]
         },
         {
-          "candidate": "Evaluation metrics",
+          "candidate": "evaluation metrics",
           "is_keep": true,
           "total_weight": 2,
           "category_tally": {
@@ -44321,7 +44271,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Fisher whitened update rule",
+          "candidate": "fisher whitened update rule",
           "is_keep": true,
           "total_weight": 2,
           "category_tally": {
@@ -44392,7 +44342,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Gate 1 2 3 4",
+          "candidate": "gate 1 2 3 4",
           "is_keep": true,
           "total_weight": 2,
           "category_tally": {
@@ -44555,7 +44505,7 @@
           ]
         },
         {
-          "candidate": "Greek rooted vocabulary",
+          "candidate": "greek rooted vocabulary",
           "is_keep": true,
           "total_weight": 2,
           "category_tally": {
@@ -44683,7 +44633,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Lindy baseline",
+          "candidate": "lindy baseline",
           "is_keep": true,
           "total_weight": 2,
           "category_tally": {
@@ -44731,7 +44681,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Logostratum",
+          "candidate": "logostratum",
           "is_keep": true,
           "total_weight": 4,
           "category_tally": {
@@ -44901,7 +44851,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Maximum useful chain depth",
+          "candidate": "maximum useful chain depth",
           "is_keep": true,
           "total_weight": 2,
           "category_tally": {
@@ -45264,7 +45214,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Principled decision integration",
+          "candidate": "principled decision integration",
           "is_keep": true,
           "total_weight": 2,
           "category_tally": {
@@ -45465,7 +45415,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Simulation result",
+          "candidate": "simulation result",
           "is_keep": true,
           "total_weight": 2,
           "category_tally": {
@@ -45520,7 +45470,7 @@
           ]
         },
         {
-          "candidate": "Strategy cost regret bound",
+          "candidate": "strategy cost regret bound",
           "is_keep": true,
           "total_weight": 1,
           "category_tally": {
@@ -45553,7 +45503,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Strategy persistence schema",
+          "candidate": "strategy persistence schema",
           "is_keep": true,
           "total_weight": 2,
           "category_tally": {
@@ -45657,7 +45607,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Structured rich context",
+          "candidate": "structured rich context",
           "is_keep": true,
           "total_weight": 2,
           "category_tally": {
@@ -45723,7 +45673,7 @@
           ]
         },
         {
-          "candidate": "Survival fisher floor",
+          "candidate": "survival fisher floor",
           "is_keep": true,
           "total_weight": 2,
           "category_tally": {
@@ -46015,7 +45965,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Turnover multiplier",
+          "candidate": "turnover multiplier",
           "is_keep": true,
           "total_weight": 8,
           "category_tally": {
@@ -46190,7 +46140,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Strategic unity",
+          "candidate": "strategic unity",
           "is_keep": true,
           "total_weight": 2,
           "category_tally": {
@@ -48121,7 +48071,7 @@
           ]
         },
         {
-          "candidate": "Strategic disturbance rate",
+          "candidate": "strategic disturbance rate",
           "is_keep": true,
           "total_weight": 1,
           "category_tally": {
@@ -48431,7 +48381,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Interior baseline",
+          "candidate": "interior baseline",
           "is_keep": true,
           "total_weight": 1,
           "category_tally": {
@@ -48594,7 +48544,7 @@
           ]
         },
         {
-          "candidate": "Multi agent scope",
+          "candidate": "multi agent scope",
           "is_keep": true,
           "total_weight": 1,
           "category_tally": {
@@ -48781,7 +48731,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Strategic dynamics derivation",
+          "candidate": "strategic dynamics derivation",
           "is_keep": true,
           "total_weight": 1,
           "category_tally": {
@@ -49777,7 +49727,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Epistemic status",
+          "candidate": "epistemic status",
           "is_keep": true,
           "total_weight": 12,
           "category_tally": {
@@ -49827,7 +49777,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Working note",
+          "candidate": "working note",
           "is_keep": true,
           "total_weight": 12,
           "category_tally": {
@@ -49877,7 +49827,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Formal expression",
+          "candidate": "formal expression",
           "is_keep": true,
           "total_weight": 9,
           "category_tally": {
@@ -49922,7 +49872,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Condition",
+          "candidate": "condition",
           "is_keep": true,
           "total_weight": 7,
           "category_tally": {
@@ -49967,7 +49917,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Interiority default",
+          "candidate": "interiority default",
           "is_keep": true,
           "total_weight": 7,
           "category_tally": {
@@ -50141,7 +50091,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Feature",
+          "candidate": "feature",
           "is_keep": true,
           "total_weight": 3,
           "category_tally": {
@@ -50179,7 +50129,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Honest limit",
+          "candidate": "honest limit",
           "is_keep": true,
           "total_weight": 3,
           "category_tally": {
@@ -50228,7 +50178,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Readme md maturity gradient",
+          "candidate": "readme md maturity gradient",
           "is_keep": true,
           "total_weight": 2,
           "category_tally": {
