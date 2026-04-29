@@ -25,7 +25,7 @@
     ],
     "total_vote_rows": 2967,
     "total_pairs": 1805,
-    "total_currents": 686,
+    "total_currents": 658,
     "enrichment_status": {
       "consolidated_rationale": "pending",
       "first_encounter_locality": "pending",
@@ -7062,10 +7062,10 @@
         {
           "candidate": "control regret",
           "is_keep": true,
-          "total_weight": 63,
+          "total_weight": 66,
           "category_tally": {
             "canonicalize": 20,
-            "add-alias": 1
+            "add-alias": 2
           },
           "consolidated_rationale": null,
           "votes": [
@@ -7194,6 +7194,12 @@
               "weight": 3,
               "category": "add-alias",
               "notes": "Already canonical and load-bearing; confirm."
+            },
+            {
+              "agent": "sonnet-4-6-r2",
+              "weight": 3,
+              "category": "add-alias",
+              "notes": "Same as above for the control-regret quantity."
             }
           ]
         },
@@ -7236,10 +7242,10 @@
         {
           "candidate": "satisfaction gap",
           "is_keep": true,
-          "total_weight": 60,
+          "total_weight": 63,
           "category_tally": {
             "canonicalize": 19,
-            "add-alias": 1
+            "add-alias": 2
           },
           "consolidated_rationale": null,
           "votes": [
@@ -7362,6 +7368,12 @@
               "weight": 3,
               "category": "add-alias",
               "notes": "Already canonical and load-bearing; confirm."
+            },
+            {
+              "agent": "sonnet-4-6-r2",
+              "weight": 3,
+              "category": "add-alias",
+              "notes": "Already established in NOTATION.md. This vote canonicalizes the alias relationship: $\\delta_{\\text{sat}}$ in formulas = \"satisfaction gap\" in prose."
             }
           ]
         },
@@ -8299,6 +8311,7 @@
         "Haiku",
         "Opus",
         "Sonnet",
+        "agent1",
         "audit"
       ],
       "category_disagreement": false,
@@ -8309,9 +8322,9 @@
         {
           "candidate": "information bottleneck",
           "is_keep": true,
-          "total_weight": 30,
+          "total_weight": 33,
           "category_tally": {
-            "canonicalize": 11
+            "canonicalize": 12
           },
           "consolidated_rationale": null,
           "votes": [
@@ -8380,6 +8393,12 @@
               "weight": 3,
               "category": "canonicalize",
               "notes": "External vocabulary adopted directly (Tishby, Pereira & Bialek). Per prior-art-integration principle, adopt with original name."
+            },
+            {
+              "agent": "agent1-original-brainstorm",
+              "weight": 3,
+              "category": "canonicalize",
+              "notes": "Adopted concept; keep."
             }
           ]
         },
@@ -8423,9 +8442,9 @@
         {
           "candidate": "chronica",
           "is_keep": true,
-          "total_weight": 55,
+          "total_weight": 58,
           "category_tally": {
-            "canonicalize": 18,
+            "canonicalize": 19,
             "rename": 1
           },
           "consolidated_rationale": null,
@@ -8543,6 +8562,29 @@
               "weight": 3,
               "category": "rename",
               "notes": "Greek-rooted term (\"records of time\") for the complete interaction history. Self-descriptive once learned; memorable. Lowercase notation 𝒞_t is appropriate. Keep."
+            },
+            {
+              "agent": "gemini-targeted-alternatives",
+              "weight": 3,
+              "category": "canonicalize",
+              "notes": "Maintains the Greek-rooted term for the causal record."
+            }
+          ]
+        },
+        {
+          "candidate": "Lowercase italic chronica",
+          "is_keep": false,
+          "total_weight": 1,
+          "category_tally": {
+            "canonicalize": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "codex-gpt-5-r2",
+              "weight": 1,
+              "category": "canonicalize",
+              "notes": "Useful style convention: capitalize in headings, use lowercase in prose like aporia or praxis."
             }
           ]
         }
@@ -10684,9 +10726,9 @@
         {
           "candidate": "adaptive tempo",
           "is_keep": true,
-          "total_weight": 32,
+          "total_weight": 38,
           "category_tally": {
-            "canonicalize": 11
+            "canonicalize": 13
           },
           "consolidated_rationale": null,
           "votes": [
@@ -10755,6 +10797,35 @@
               "weight": 3,
               "category": "canonicalize",
               "notes": "Per `#def-adaptive-tempo`: $\\mathcal T = \\sum_k \\nu^{(k)} \\eta^{(k)\\ast}$ — rate × quality compound. \"Tempo\" carries both senses (musical tempo = rate; engineering tempo = pace-with-quality). Confirms keep across architectures. The symbol-decoration variant (with $\\mathcal T$) is an alias-only artifact, not a primary form."
+            },
+            {
+              "agent": "gemini-2",
+              "weight": 3,
+              "category": "canonicalize",
+              "notes": "\"Tempo\" alone is too general. \"Adaptive tempo\" bounds it strictly to the rate of useful info acquisition."
+            },
+            {
+              "agent": "gemini-targeted-alternatives",
+              "weight": 3,
+              "category": "canonicalize",
+              "notes": "Ensures the prose explicitly names the $\\mathcal{T}$ symbol."
+            }
+          ]
+        },
+        {
+          "candidate": "tempo",
+          "is_keep": false,
+          "total_weight": 3,
+          "category_tally": {
+            "canonicalize": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "gemini-1",
+              "weight": 3,
+              "category": "canonicalize",
+              "notes": "\"Tempo\" is a fantastic foundational term."
             }
           ]
         },
@@ -11001,9 +11072,9 @@
         {
           "candidate": "causal information yield",
           "is_keep": true,
-          "total_weight": 20,
+          "total_weight": 24,
           "category_tally": {
-            "canonicalize": 9
+            "canonicalize": 11
           },
           "consolidated_rationale": null,
           "votes": [
@@ -11060,6 +11131,18 @@
               "weight": 2,
               "category": "canonicalize",
               "notes": "CIY is established vocabulary. \"Yield\" correctly names the information gained from interventions."
+            },
+            {
+              "agent": "opus-4-7-b",
+              "weight": 1,
+              "category": "canonicalize",
+              "notes": "Keep. The CIY acronym is useful and the slug is self-contained."
+            },
+            {
+              "agent": "sonnet-4-6",
+              "weight": 3,
+              "category": "canonicalize",
+              "notes": "Three-word noun with a natural acronym. Used consistently. Keep."
             }
           ]
         },
@@ -11077,6 +11160,29 @@
               "weight": 2,
               "category": "add-alias",
               "notes": "Symbol-to-name alias: $\\text{CIY}(a)$ in math; \"causal information yield\" or \"CIY\" in prose. The acronym survives the communal-imagination test (acronym discipline check passes — used 10+ times in nearby prose, no obvious AI/ML collisions). Solidify the symbol+acronym pair as a maintained convention."
+            }
+          ]
+        },
+        {
+          "candidate": "Interventional yield",
+          "is_keep": false,
+          "total_weight": 2,
+          "category_tally": {
+            "rename": 2
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "gemini-1",
+              "weight": 1,
+              "category": "rename",
+              "notes": "Shorter, punchier. \"Causal\" is implied by \"Interventional\" in this context."
+            },
+            {
+              "agent": "gemini-2",
+              "weight": 1,
+              "category": "rename",
+              "notes": "CIY is slightly wordy. \"Interventional yield\" contrasts nicely with observational proxies."
             }
           ]
         }
@@ -11451,9 +11557,10 @@
         {
           "candidate": "communication gain",
           "is_keep": true,
-          "total_weight": 21,
+          "total_weight": 24,
           "category_tally": {
-            "canonicalize": 9
+            "canonicalize": 9,
+            "add-alias": 1
           },
           "consolidated_rationale": null,
           "votes": [
@@ -11510,6 +11617,29 @@
               "weight": 3,
               "category": "canonicalize",
               "notes": "Standardizes the optimal trust parameter."
+            },
+            {
+              "agent": "sonnet-4-6-r2",
+              "weight": 3,
+              "category": "add-alias",
+              "notes": "The trust-weighted uncertainty ratio for inter-agent channels. LEXICON.md already uses \"communication gain.\" Canonicalize."
+            }
+          ]
+        },
+        {
+          "candidate": "Trust weighted communication gain",
+          "is_keep": false,
+          "total_weight": 2,
+          "category_tally": {
+            "add-alias": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "codex-gpt-5-r2",
+              "weight": 2,
+              "category": "add-alias",
+              "notes": "Useful alias when explaining the communication-gain formula."
             }
           ]
         },
@@ -15387,9 +15517,10 @@
         {
           "candidate": "strategic calibration",
           "is_keep": true,
-          "total_weight": 12,
+          "total_weight": 14,
           "category_tally": {
-            "canonicalize": 7
+            "canonicalize": 7,
+            "add-alias": 1
           },
           "consolidated_rationale": null,
           "votes": [
@@ -15434,6 +15565,12 @@
               "weight": 2,
               "category": "canonicalize",
               "notes": "\"Strategic calibration\" names the edge residual aggregate that measures how well the strategy DAG is calibrated. Accurate and memorable."
+            },
+            {
+              "agent": "sonnet-4-6-r2",
+              "weight": 2,
+              "category": "add-alias",
+              "notes": "Edge residual aggregate. \"Strategic calibration\" is the established prose form in LEXICON.md. Formalize the alias."
             }
           ]
         },
@@ -15920,10 +16057,10 @@
         {
           "candidate": "adaptive reserve",
           "is_keep": true,
-          "total_weight": 41,
+          "total_weight": 50,
           "category_tally": {
             "canonicalize": 11,
-            "add-alias": 3
+            "add-alias": 6
           },
           "consolidated_rationale": null,
           "votes": [
@@ -16010,6 +16147,24 @@
               "weight": 3,
               "category": "add-alias",
               "notes": "NOTATION.md and LEXICON.md already use \"adaptive reserve\" as the English gloss. This is a successful symbol-to-English match. Keep both — the symbol in equations, the English in prose."
+            },
+            {
+              "agent": "codex-2",
+              "weight": 3,
+              "category": "add-alias",
+              "notes": "This is the right English name and should dominate prose use."
+            },
+            {
+              "agent": "codex-gpt-5-r2",
+              "weight": 3,
+              "category": "add-alias",
+              "notes": "The symbol should always have the reserve gloss nearby."
+            },
+            {
+              "agent": "sonnet-4-6-r2",
+              "weight": 3,
+              "category": "add-alias",
+              "notes": "$\\Delta\\rho^\\ast = \\alpha R - \\rho$ appears in formulas but readers need a prose handle. \"Adaptive reserve\" is already used in NOTATION.md and LEXICON.md — this vote formalizes it as the canonical alias."
             }
           ]
         }
@@ -16539,6 +16694,7 @@
       "is_concept_cluster": false,
       "voted_by_architectures": [
         "Gemini",
+        "Haiku",
         "Opus",
         "Sonnet",
         "agent1"
@@ -16551,9 +16707,9 @@
         {
           "candidate": "sector condition",
           "is_keep": true,
-          "total_weight": 14,
+          "total_weight": 17,
           "category_tally": {
-            "canonicalize": 4,
+            "canonicalize": 5,
             "rename": 1
           },
           "consolidated_rationale": null,
@@ -16587,6 +16743,12 @@
               "weight": 3,
               "category": "rename",
               "notes": "Keep. The \"(continuous)\" qualifier is important to distinguish from the discrete-time DA2'."
+            },
+            {
+              "agent": "gemini-targeted-alternatives",
+              "weight": 3,
+              "category": "canonicalize",
+              "notes": "The underlying control-theoretic boundary constraint."
             }
           ]
         },
@@ -16638,6 +16800,23 @@
               "weight": 1,
               "category": "rename",
               "notes": "Preserves the geometric intuition if \"sector\" must be kept."
+            }
+          ]
+        },
+        {
+          "candidate": "sector condition derivation",
+          "is_keep": false,
+          "total_weight": 1,
+          "category_tally": {
+            "canonicalize": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "haiku-4-5",
+              "weight": 1,
+              "category": "canonicalize",
+              "notes": "Lyapunov derivations for bounded mismatch and adaptive reserve. Self-descriptive. Keep."
             }
           ]
         }
@@ -17451,50 +17630,6 @@
               "weight": 1,
               "category": "name-unnamed",
               "notes": "CLAUDE.md and MEMORY.md both discuss this as \"strengthen-first posture\" or \"strengthen before softening.\" The working vocabulary is established; it just doesn't have a single memorable noun. \"Strengthening posture\" is the current best; it's in CLAUDE.md. [original phrasing: unnamed: the \"strengthen-before-soften\" posture applied to apparent overclaims]"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "current": "$\\Delta\\rho^\\ast$",
-      "current_description": null,
-      "is_concept_cluster": false,
-      "voted_by_architectures": [
-        "Codex",
-        "Sonnet"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "Adaptive reserve",
-          "is_keep": false,
-          "total_weight": 9,
-          "category_tally": {
-            "add-alias": 3
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "codex-2",
-              "weight": 3,
-              "category": "add-alias",
-              "notes": "This is the right English name and should dominate prose use."
-            },
-            {
-              "agent": "codex-gpt-5-r2",
-              "weight": 3,
-              "category": "add-alias",
-              "notes": "The symbol should always have the reserve gloss nearby."
-            },
-            {
-              "agent": "sonnet-4-6-r2",
-              "weight": 3,
-              "category": "add-alias",
-              "notes": "$\\Delta\\rho^\\ast = \\alpha R - \\rho$ appears in formulas but readers need a prose handle. \"Adaptive reserve\" is already used in NOTATION.md and LEXICON.md — this vote formalizes it as the canonical alias."
             }
           ]
         }
@@ -20009,9 +20144,10 @@
         {
           "candidate": "update gain",
           "is_keep": true,
-          "total_weight": 20,
+          "total_weight": 26,
           "category_tally": {
-            "canonicalize": 8
+            "canonicalize": 8,
+            "add-alias": 2
           },
           "consolidated_rationale": null,
           "votes": [
@@ -20062,6 +20198,18 @@
               "weight": 3,
               "category": "canonicalize",
               "notes": "Kalman-resonance lineage name, self-descriptive. Keep."
+            },
+            {
+              "agent": "gemini-3-1-pro-preview-r2",
+              "weight": 3,
+              "category": "add-alias",
+              "notes": "Solidifies the prose form of the optimal gain."
+            },
+            {
+              "agent": "opus-targeted-alternatives-v2",
+              "weight": 3,
+              "category": "add-alias",
+              "notes": "Per NOTATION and LEXICON. Confirms Gemini r1 +3 single-vote. The English alias is already in widespread use."
             }
           ]
         },
@@ -20103,6 +20251,23 @@
               "weight": 1,
               "category": "canonicalize",
               "notes": "Standard term; doesn't carry the *uncertainty-ratio* insight. The equation tag's \"uncertainty-ratio-principle\" is more evocative. Brief-grade hint, possibly visible in title. [from 20-emp-update-gain.md]"
+            }
+          ]
+        },
+        {
+          "candidate": "Learning rate",
+          "is_keep": false,
+          "total_weight": -1,
+          "category_tally": {
+            "add-alias": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "opus-targeted-alternatives-v2",
+              "weight": -1,
+              "category": "add-alias",
+              "notes": "Considered. ML-standard term. Rejected: the segment-derivation in `#emp-update-gain` shows $\\eta^\\ast = U_M / (U_M + U_o)$ — a Bayesian uncertainty ratio, not a stochastic-gradient-descent step size. The collision with ML's \"learning rate\" creates false familiarity."
             }
           ]
         }
@@ -21349,9 +21514,9 @@
         {
           "candidate": "teleological unity",
           "is_keep": true,
-          "total_weight": 14,
+          "total_weight": 16,
           "category_tally": {
-            "add-alias": 3,
+            "add-alias": 4,
             "canonicalize": 2
           },
           "consolidated_rationale": null,
@@ -21385,6 +21550,12 @@
               "weight": 3,
               "category": "canonicalize",
               "notes": "The three unity dimensions (epistemic, teleological, strategic) form a coherent vocabulary. Keep all three."
+            },
+            {
+              "agent": "sonnet-4-6-r2",
+              "weight": 2,
+              "category": "add-alias",
+              "notes": "Same — established in NOTATION.md."
             }
           ]
         },
@@ -21419,61 +21590,6 @@
               "weight": 1,
               "category": "add-alias",
               "notes": "Considered as an alternative-prose alias for non-philosophical contexts where \"teleological\" reads heavy. \"Objective alignment\" is the engineering register; \"teleological unity\" is the integrative register. Both could coexist as register-specific aliases."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "current": "$\\eta^\\ast$",
-      "current_description": null,
-      "is_concept_cluster": false,
-      "voted_by_architectures": [
-        "Gemini",
-        "Opus"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "Update gain",
-          "is_keep": false,
-          "total_weight": 6,
-          "category_tally": {
-            "add-alias": 2
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "gemini-3-1-pro-preview-r2",
-              "weight": 3,
-              "category": "add-alias",
-              "notes": "Solidifies the prose form of the optimal gain."
-            },
-            {
-              "agent": "opus-targeted-alternatives-v2",
-              "weight": 3,
-              "category": "add-alias",
-              "notes": "Per NOTATION and LEXICON. Confirms Gemini r1 +3 single-vote. The English alias is already in widespread use."
-            }
-          ]
-        },
-        {
-          "candidate": "Learning rate",
-          "is_keep": false,
-          "total_weight": -1,
-          "category_tally": {
-            "add-alias": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "opus-targeted-alternatives-v2",
-              "weight": -1,
-              "category": "add-alias",
-              "notes": "Considered. ML-standard term. Rejected: the segment-derivation in `#emp-update-gain` shows $\\eta^\\ast = U_M / (U_M + U_o)$ — a Bayesian uncertainty ratio, not a stochastic-gradient-descent step size. The collision with ML's \"learning rate\" creates false familiarity."
             }
           ]
         }
@@ -22145,10 +22261,10 @@
         {
           "candidate": "closure defect",
           "is_keep": true,
-          "total_weight": 26,
+          "total_weight": 31,
           "category_tally": {
             "canonicalize": 6,
-            "add-alias": 4
+            "add-alias": 6
           },
           "consolidated_rationale": null,
           "votes": [
@@ -22211,6 +22327,18 @@
               "weight": 3,
               "category": "canonicalize",
               "notes": "Compact, accurate, memorable. \"Defect\" has the right connotations (something to be minimized, not just characterized). Keep."
+            },
+            {
+              "agent": "codex-gpt-5-r2",
+              "weight": 3,
+              "category": "add-alias",
+              "notes": "Essential symbol-to-name binding for composition work."
+            },
+            {
+              "agent": "sonnet-4-6-r2",
+              "weight": 2,
+              "category": "add-alias",
+              "notes": "The minimum achievable approximation error for a composite agent. Prose uses \"closure defect\" in LEXICON.md. Canonicalize."
             }
           ]
         },
@@ -22228,6 +22356,23 @@
               "weight": 2,
               "category": "rename",
               "notes": "Highlights that the defect is specific to the composition-layer math."
+            }
+          ]
+        },
+        {
+          "candidate": "Minimal closure defect",
+          "is_keep": false,
+          "total_weight": 1,
+          "category_tally": {
+            "add-alias": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "gemini-2",
+              "weight": 1,
+              "category": "add-alias",
+              "notes": "Clarifies that it's the *minimum* achievable."
             }
           ]
         },
@@ -23099,49 +23244,11 @@
       ]
     },
     {
-      "current": "directional fidelity condition b1",
-      "current_description": null,
-      "is_concept_cluster": false,
-      "voted_by_architectures": [
-        "Gemini",
-        "Sonnet"
-      ],
-      "category_disagreement": true,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "Directional fidelity",
-          "is_keep": false,
-          "total_weight": 6,
-          "category_tally": {
-            "canonicalize": 1,
-            "rename": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "gemini-targeted-alternatives",
-              "weight": 3,
-              "category": "canonicalize",
-              "notes": "Perfectly captures the accuracy commitment (correction points toward reality)."
-            },
-            {
-              "agent": "sonnet-4-6",
-              "weight": 3,
-              "category": "rename",
-              "notes": "The name earns its place — \"fidelity\" captures the accuracy commitment (the correction points approximately toward reality) and \"directional\" qualifies it (it's about direction, not magnitude). Used in #gain-sector-bridge and carried forward into the sector sub-scope partition. Keep."
-            }
-          ]
-        }
-      ]
-    },
-    {
       "current": "edge credence",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
+        "Codex",
         "Gemini",
         "Haiku",
         "Sonnet"
@@ -23154,10 +23261,10 @@
         {
           "candidate": "edge credence",
           "is_keep": true,
-          "total_weight": 10,
+          "total_weight": 18,
           "category_tally": {
-            "canonicalize": 3,
-            "add-alias": 1
+            "canonicalize": 4,
+            "add-alias": 3
           },
           "consolidated_rationale": null,
           "votes": [
@@ -23184,6 +23291,24 @@
               "weight": 1,
               "category": "add-alias",
               "notes": "LEXICON already names this \"edge credence\" (distinct from \"probability\"); NOTATION uses p_ij. The prose name \"credence\" (Bayesian terminology) is better than \"confidence weight\" for indicating belief, not frequentist probability. Current setup is good; English name already established."
+            },
+            {
+              "agent": "codex-gpt-5-r2",
+              "weight": 3,
+              "category": "add-alias",
+              "notes": "Strong Bayesian prose default. Better than confidence weight because it signals degree of belief."
+            },
+            {
+              "agent": "gemini-targeted-alternatives",
+              "weight": 3,
+              "category": "canonicalize",
+              "notes": "Replaces the broader \"probability\" with proper Bayesian vocabulary for subjective belief."
+            },
+            {
+              "agent": "gemini-3-1-pro-preview-r2",
+              "weight": 2,
+              "category": "add-alias",
+              "notes": "Better than \"edge confidence weight\", aligns with belief networks."
             }
           ]
         }
@@ -24055,55 +24180,11 @@
       ]
     },
     {
-      "current": "$p_{ij}$",
-      "current_description": null,
-      "is_concept_cluster": false,
-      "voted_by_architectures": [
-        "Codex",
-        "Gemini"
-      ],
-      "category_disagreement": true,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "Edge credence",
-          "is_keep": false,
-          "total_weight": 8,
-          "category_tally": {
-            "add-alias": 2,
-            "canonicalize": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "codex-gpt-5-r2",
-              "weight": 3,
-              "category": "add-alias",
-              "notes": "Strong Bayesian prose default. Better than confidence weight because it signals degree of belief."
-            },
-            {
-              "agent": "gemini-targeted-alternatives",
-              "weight": 3,
-              "category": "canonicalize",
-              "notes": "Replaces the broader \"probability\" with proper Bayesian vocabulary for subjective belief."
-            },
-            {
-              "agent": "gemini-3-1-pro-preview-r2",
-              "weight": 2,
-              "category": "add-alias",
-              "notes": "Better than \"edge confidence weight\", aligns with belief networks."
-            }
-          ]
-        }
-      ]
-    },
-    {
       "current": "plan confidence",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
+        "Codex",
         "Gemini",
         "Opus",
         "Sonnet"
@@ -24116,10 +24197,10 @@
         {
           "candidate": "plan confidence",
           "is_keep": true,
-          "total_weight": 10,
+          "total_weight": 13,
           "category_tally": {
             "canonicalize": 2,
-            "add-alias": 2
+            "add-alias": 3
           },
           "consolidated_rationale": null,
           "votes": [
@@ -24146,6 +24227,29 @@
               "weight": 3,
               "category": "add-alias",
               "notes": "LEXICON.md already lists \"plan confidence\" as a term to be added. The English is superior to the symbol in any Discussion section. Recommend promoting this to the main LEXICON entries (not just Terms to Be Added)."
+            },
+            {
+              "agent": "codex-gpt-5-r2",
+              "weight": 3,
+              "category": "add-alias",
+              "notes": "Strong alias already present in the lexicon direction. Keep canonical."
+            }
+          ]
+        },
+        {
+          "candidate": "Plan confidence score",
+          "is_keep": false,
+          "total_weight": 2,
+          "category_tally": {
+            "add-alias": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "sonnet-4-6-r2",
+              "weight": 2,
+              "category": "add-alias",
+              "notes": "The root-node propagated DAG status is called \"plan-confidence score\" in the segment but has no explicit alias established. Adding this makes prose references natural: \"the plan-confidence score reached 0.73.\""
             }
           ]
         }
@@ -24493,65 +24597,13 @@
       ]
     },
     {
-      "current": "tempo",
-      "current_description": null,
-      "is_concept_cluster": false,
-      "voted_by_architectures": [
-        "Gemini"
-      ],
-      "category_disagreement": true,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "Adaptive tempo",
-          "is_keep": false,
-          "total_weight": 6,
-          "category_tally": {
-            "canonicalize": 2
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "gemini-2",
-              "weight": 3,
-              "category": "canonicalize",
-              "notes": "\"Tempo\" alone is too general. \"Adaptive tempo\" bounds it strictly to the rate of useful info acquisition."
-            },
-            {
-              "agent": "gemini-targeted-alternatives",
-              "weight": 3,
-              "category": "canonicalize",
-              "notes": "Ensures the prose explicitly names the $\\mathcal{T}$ symbol."
-            }
-          ]
-        },
-        {
-          "candidate": "tempo",
-          "is_keep": true,
-          "total_weight": 3,
-          "category_tally": {
-            "canonicalize": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "gemini-1",
-              "weight": 3,
-              "category": "canonicalize",
-              "notes": "\"Tempo\" is a fantastic foundational term."
-            }
-          ]
-        }
-      ]
-    },
-    {
       "current": "temporal software theory",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
         "Codex",
+        "Gemini",
+        "Opus",
         "Sonnet"
       ],
       "category_disagreement": false,
@@ -24562,9 +24614,9 @@
         {
           "candidate": "temporal software theory",
           "is_keep": true,
-          "total_weight": 6,
+          "total_weight": 9,
           "category_tally": {
-            "canonicalize": 2
+            "canonicalize": 3
           },
           "consolidated_rationale": null,
           "votes": [
@@ -24579,6 +24631,29 @@
               "weight": 3,
               "category": "canonicalize",
               "notes": "TST's name is descriptive and distinctive. \"Temporal\" captures the time-centrality of the theory (temporal optimality postulate, change-proximity, chronica-based analysis)."
+            },
+            {
+              "agent": "gemini-targeted-alternatives",
+              "weight": 3,
+              "category": "canonicalize",
+              "notes": "The full name of TST."
+            }
+          ]
+        },
+        {
+          "candidate": "Temporal Software Theory (TST)",
+          "is_keep": false,
+          "total_weight": 3,
+          "category_tally": {
+            "canonicalize": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "opus-4-7-b",
+              "weight": 3,
+              "category": "canonicalize",
+              "notes": "Keep. The name has history (prior to AAD absorption and subsequent restoration) and \"temporal\" is load-bearing — it signals the AAD-native view that software is a time-optimality problem rather than a correctness problem. The acronym TST is pronounceable and has existing citation velocity from the 14,000-file prior corpus."
             }
           ]
         }
@@ -24600,9 +24675,9 @@
         {
           "candidate": "the crèche",
           "is_keep": true,
-          "total_weight": 6,
+          "total_weight": 9,
           "category_tally": {
-            "canonicalize": 2
+            "canonicalize": 3
           },
           "consolidated_rationale": null,
           "votes": [
@@ -24617,6 +24692,12 @@
               "weight": 3,
               "category": "canonicalize",
               "notes": "Per `#obs-developmental-trajectory`: \"controlled operational locus characterized by Low Volatility ($\\rho$), High Adaptive Reserve ($\\Delta\\rho^\\ast$), Graduated Tempo ($\\nu$), Honest Feedback.\" The biological metaphor (crèche = nursery) is precisely apt — it names a *developmental* environment, not just a low-stakes one. The accent on \"ê\" is preserved for the same reason auftragstaktik is: the loanword's foreignness is doing identifying work. Strong keep."
+            },
+            {
+              "agent": "gemini-targeted-alternatives",
+              "weight": 3,
+              "category": "canonicalize",
+              "notes": "The high-margin developmental environment."
             }
           ]
         },
@@ -24634,6 +24715,23 @@
               "weight": 3,
               "category": "rename",
               "notes": "\"The Crèche\" is an excellent metaphor that isn't a metaphor. Adding \"Experiential\" anchors it to the mechanism."
+            }
+          ]
+        },
+        {
+          "candidate": "Crèche with diacritic in framing prose creche in slug",
+          "is_keep": false,
+          "total_weight": 2,
+          "category_tally": {
+            "canonicalize": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "opus-4-7-r2",
+              "weight": 2,
+              "category": "canonicalize",
+              "notes": "Mixed usage. Canonicalize: in segment titles and prose, \"Crèche\" with the grave accent (consistent with the agentic-tft source); in slugs, \"creche\" without the accent (since slug-tooling rules disallow non-ASCII)."
             }
           ]
         },
@@ -25345,62 +25443,6 @@
       ]
     },
     {
-      "current": "$\\varepsilon^\\ast$",
-      "current_description": null,
-      "is_concept_cluster": false,
-      "voted_by_architectures": [
-        "Codex",
-        "Gemini",
-        "Sonnet"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "Closure defect",
-          "is_keep": false,
-          "total_weight": 5,
-          "category_tally": {
-            "add-alias": 2
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "codex-gpt-5-r2",
-              "weight": 3,
-              "category": "add-alias",
-              "notes": "Essential symbol-to-name binding for composition work."
-            },
-            {
-              "agent": "sonnet-4-6-r2",
-              "weight": 2,
-              "category": "add-alias",
-              "notes": "The minimum achievable approximation error for a composite agent. Prose uses \"closure defect\" in LEXICON.md. Canonicalize."
-            }
-          ]
-        },
-        {
-          "candidate": "Minimal closure defect",
-          "is_keep": false,
-          "total_weight": 1,
-          "category_tally": {
-            "add-alias": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "gemini-2",
-              "weight": 1,
-              "category": "add-alias",
-              "notes": "Clarifies that it's the *minimum* achievable."
-            }
-          ]
-        }
-      ]
-    },
-    {
       "current": "ASF (acronym)",
       "current_description": null,
       "is_concept_cluster": false,
@@ -25825,9 +25867,9 @@
         {
           "candidate": "alignment uncertainty",
           "is_keep": true,
-          "total_weight": 5,
+          "total_weight": 8,
           "category_tally": {
-            "canonicalize": 2
+            "canonicalize": 3
           },
           "consolidated_rationale": null,
           "votes": [
@@ -25842,6 +25884,29 @@
               "weight": 3,
               "category": "canonicalize",
               "notes": "Essential component of the multi-agent gain equation ($U_{\\text{align}}$)."
+            },
+            {
+              "agent": "gemini-targeted-alternatives",
+              "weight": 3,
+              "category": "canonicalize",
+              "notes": "Maps directly to the $U_{\\text{align}}$ variable in the multi-agent gain."
+            }
+          ]
+        },
+        {
+          "candidate": "Source uncertainty",
+          "is_keep": false,
+          "total_weight": 1,
+          "category_tally": {
+            "canonicalize": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "codex-gpt-5-r2",
+              "weight": 1,
+              "category": "canonicalize",
+              "notes": "Shorter in prose; keep the full term when disambiguation matters."
             }
           ]
         }
@@ -26125,83 +26190,6 @@
               "weight": 3,
               "category": "canonicalize",
               "notes": "The canonical term for the limit on model degradation."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "current": "C1 / C2 / C3",
-      "current_description": null,
-      "is_concept_cluster": false,
-      "voted_by_architectures": [
-        "Codex",
-        "Gemini"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "Convention hierarchy",
-          "is_keep": false,
-          "total_weight": 5,
-          "category_tally": {
-            "canonicalize": 2
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "codex-gpt-5-r2",
-              "weight": 2,
-              "category": "canonicalize",
-              "notes": "Canonicalize this as the value-object convention family."
-            },
-            {
-              "agent": "gemini-targeted-alternatives",
-              "weight": 3,
-              "category": "canonicalize",
-              "notes": "Replaces raw class numbers with the structural property they measure."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "current": "canonical formulation second ring",
-      "current_description": null,
-      "is_concept_cluster": false,
-      "voted_by_architectures": [
-        "Gemini",
-        "Sonnet"
-      ],
-      "category_disagreement": true,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "Canonical formulation",
-          "is_keep": false,
-          "total_weight": 5,
-          "category_tally": {
-            "canonicalize": 1,
-            "rename": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "gemini-targeted-alternatives",
-              "weight": 2,
-              "category": "canonicalize",
-              "notes": "Retains the epistemic tier designation."
-            },
-            {
-              "agent": "sonnet-4-6",
-              "weight": 3,
-              "category": "rename",
-              "notes": "Keep."
             }
           ]
         }
@@ -27061,6 +27049,7 @@
       "is_concept_cluster": false,
       "voted_by_architectures": [
         "Codex",
+        "Gemini",
         "Opus",
         "Sonnet"
       ],
@@ -27072,9 +27061,10 @@
         {
           "candidate": "directional fidelity",
           "is_keep": true,
-          "total_weight": 5,
+          "total_weight": 11,
           "category_tally": {
-            "canonicalize": 2
+            "canonicalize": 3,
+            "rename": 1
           },
           "consolidated_rationale": null,
           "votes": [
@@ -27089,6 +27079,18 @@
               "weight": 2,
               "category": "canonicalize",
               "notes": "Per `#der-gain-sector-bridge` (B1): the correction must point at-least-roughly toward reality — $\\delta^T H g(\\delta) \\geq c|\\delta|^2$. \"Directional\" specifies \"about angle, not magnitude\"; \"fidelity\" carries the correctness-with-respect-to-truth sense rather than mere proximity. The segment is careful to distinguish *direction is correct* (B1) from *magnitude is correctly scaled* (sector constant), and the name reflects the distinction. Confirms keep."
+            },
+            {
+              "agent": "gemini-targeted-alternatives",
+              "weight": 3,
+              "category": "canonicalize",
+              "notes": "Perfectly captures the accuracy commitment (correction points toward reality)."
+            },
+            {
+              "agent": "sonnet-4-6",
+              "weight": 3,
+              "category": "rename",
+              "notes": "The name earns its place — \"fidelity\" captures the accuracy commitment (the correction points approximately toward reality) and \"directional\" qualifies it (it's about direction, not magnitude). Used in #gain-sector-bridge and carried forward into the sector sub-scope partition. Keep."
             }
           ]
         },
@@ -27161,9 +27163,10 @@
         {
           "candidate": "effective disturbance",
           "is_keep": true,
-          "total_weight": 5,
+          "total_weight": 7,
           "category_tally": {
-            "canonicalize": 2
+            "canonicalize": 2,
+            "add-alias": 1
           },
           "consolidated_rationale": null,
           "votes": [
@@ -27178,6 +27181,12 @@
               "weight": 3,
               "category": "canonicalize",
               "notes": "Central unifying term ($\\rho_{\\text{eff}}$) for the sector-persistence template."
+            },
+            {
+              "agent": "codex-gpt-5-r2",
+              "weight": 2,
+              "category": "add-alias",
+              "notes": "Use the name wherever the max-with-zero construction is active."
             }
           ]
         }
@@ -27571,9 +27580,10 @@
         {
           "candidate": "macro step ratio",
           "is_keep": true,
-          "total_weight": 5,
+          "total_weight": 7,
           "category_tally": {
-            "canonicalize": 2
+            "canonicalize": 2,
+            "add-alias": 1
           },
           "consolidated_rationale": null,
           "votes": [
@@ -27588,6 +27598,12 @@
               "weight": 3,
               "category": "canonicalize",
               "notes": "Essential timing parameter."
+            },
+            {
+              "agent": "codex-gpt-5-r2",
+              "weight": 2,
+              "category": "add-alias",
+              "notes": "The variable needs a stable prose handle."
             }
           ]
         }
@@ -28749,13 +28765,61 @@
       "is_concept_cluster": false,
       "voted_by_architectures": [
         "Codex",
-        "Opus"
+        "Gemini",
+        "Opus",
+        "agent1"
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
       "segment_link": null,
       "manual_curation_notes": null,
       "candidates": [
+        {
+          "candidate": "$H_b$",
+          "is_keep": true,
+          "total_weight": 6,
+          "category_tally": {
+            "canonicalize": 2
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "opus-1m",
+              "weight": 3,
+              "category": "canonicalize",
+              "notes": "Adopted; keep."
+            },
+            {
+              "agent": "agent1-original-brainstorm",
+              "weight": 3,
+              "category": "canonicalize",
+              "notes": "Adopted concept; AAD adds observer/horizon/trajectory indexing but keeps the symbol."
+            }
+          ]
+        },
+        {
+          "candidate": "Agent opacity $H_b$",
+          "is_keep": false,
+          "total_weight": 6,
+          "category_tally": {
+            "canonicalize": 2
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "gemini-targeted-alternatives",
+              "weight": 3,
+              "category": "canonicalize",
+              "notes": "Hafez opacity metric applied to adversarial dynamics."
+            },
+            {
+              "agent": "gemini-targeted-alternatives",
+              "weight": 3,
+              "category": "canonicalize",
+              "notes": "Standardizes the opacity metric."
+            }
+          ]
+        },
         {
           "candidate": "Backward opacity",
           "is_keep": false,
@@ -29428,68 +29492,6 @@
       ]
     },
     {
-      "current": "causal information yield (CIY)",
-      "current_description": null,
-      "is_concept_cluster": false,
-      "voted_by_architectures": [
-        "Gemini",
-        "Opus",
-        "Sonnet"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "Causal information yield",
-          "is_keep": false,
-          "total_weight": 4,
-          "category_tally": {
-            "canonicalize": 2
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "opus-4-7-b",
-              "weight": 1,
-              "category": "canonicalize",
-              "notes": "Keep. The CIY acronym is useful and the slug is self-contained."
-            },
-            {
-              "agent": "sonnet-4-6",
-              "weight": 3,
-              "category": "canonicalize",
-              "notes": "Three-word noun with a natural acronym. Used consistently. Keep."
-            }
-          ]
-        },
-        {
-          "candidate": "Interventional yield",
-          "is_keep": false,
-          "total_weight": 2,
-          "category_tally": {
-            "rename": 2
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "gemini-1",
-              "weight": 1,
-              "category": "rename",
-              "notes": "Shorter, punchier. \"Causal\" is implied by \"Interventional\" in this context."
-            },
-            {
-              "agent": "gemini-2",
-              "weight": 1,
-              "category": "rename",
-              "notes": "CIY is slightly wordy. \"Interventional yield\" contrasts nicely with observational proxies."
-            }
-          ]
-        }
-      ]
-    },
-    {
       "current": "century scale event log",
       "current_description": null,
       "is_concept_cluster": false,
@@ -29653,10 +29655,10 @@
         {
           "candidate": "convention hierarchy",
           "is_keep": true,
-          "total_weight": 15,
+          "total_weight": 20,
           "category_tally": {
             "rename": 2,
-            "canonicalize": 2,
+            "canonicalize": 4,
             "name-unnamed": 1
           },
           "consolidated_rationale": null,
@@ -29690,6 +29692,18 @@
               "weight": 3,
               "category": "name-unnamed",
               "notes": "Same move — capitalize as proper noun, preserve as named object. The monotonicity result is load-bearing and the Hierarchy is what the result is about."
+            },
+            {
+              "agent": "codex-gpt-5-r2",
+              "weight": 2,
+              "category": "canonicalize",
+              "notes": "Canonicalize this as the value-object convention family."
+            },
+            {
+              "agent": "gemini-targeted-alternatives",
+              "weight": 3,
+              "category": "canonicalize",
+              "notes": "Replaces raw class numbers with the structural property they measure."
             }
           ]
         },
@@ -31570,117 +31584,6 @@
       ]
     },
     {
-      "current": "$\\delta_{\\text{regret}}$",
-      "current_description": null,
-      "is_concept_cluster": false,
-      "voted_by_architectures": [
-        "Sonnet"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "Control regret",
-          "is_keep": false,
-          "total_weight": 3,
-          "category_tally": {
-            "add-alias": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "sonnet-4-6-r2",
-              "weight": 3,
-              "category": "add-alias",
-              "notes": "Same as above for the control-regret quantity."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "current": "$\\delta_{\\text{sat}}$",
-      "current_description": null,
-      "is_concept_cluster": false,
-      "voted_by_architectures": [
-        "Sonnet"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "Satisfaction gap",
-          "is_keep": false,
-          "total_weight": 3,
-          "category_tally": {
-            "add-alias": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "sonnet-4-6-r2",
-              "weight": 3,
-              "category": "add-alias",
-              "notes": "Already established in NOTATION.md. This vote canonicalizes the alias relationship: $\\delta_{\\text{sat}}$ in formulas = \"satisfaction gap\" in prose."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "current": "$\\eta_{ji}^\\ast$",
-      "current_description": null,
-      "is_concept_cluster": false,
-      "voted_by_architectures": [
-        "Codex",
-        "Sonnet"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "Communication gain",
-          "is_keep": false,
-          "total_weight": 3,
-          "category_tally": {
-            "add-alias": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "sonnet-4-6-r2",
-              "weight": 3,
-              "category": "add-alias",
-              "notes": "The trust-weighted uncertainty ratio for inter-agent channels. LEXICON.md already uses \"communication gain.\" Canonicalize."
-            }
-          ]
-        },
-        {
-          "candidate": "Trust weighted communication gain",
-          "is_keep": false,
-          "total_weight": 2,
-          "category_tally": {
-            "add-alias": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "codex-gpt-5-r2",
-              "weight": 2,
-              "category": "add-alias",
-              "notes": "Useful alias when explaining the communication-gain formula."
-            }
-          ]
-        }
-      ]
-    },
-    {
       "current": "$\\gamma_{\\text{adv}}$ and $\\gamma_{\\text{coop}}$",
       "current_description": null,
       "is_concept_cluster": false,
@@ -31761,55 +31664,6 @@
               "weight": 1,
               "category": "add-alias",
               "notes": "Plain-language alternative. Weaker because \"proleptic prediction\" anchors to the cycle vocabulary the framework already commits to; \"predicted observation\" is generic."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "current": "$\\hat{P}_\\Sigma$",
-      "current_description": null,
-      "is_concept_cluster": false,
-      "voted_by_architectures": [
-        "Codex",
-        "Sonnet"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "Plan confidence",
-          "is_keep": false,
-          "total_weight": 3,
-          "category_tally": {
-            "add-alias": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "codex-gpt-5-r2",
-              "weight": 3,
-              "category": "add-alias",
-              "notes": "Strong alias already present in the lexicon direction. Keep canonical."
-            }
-          ]
-        },
-        {
-          "candidate": "Plan confidence score",
-          "is_keep": false,
-          "total_weight": 2,
-          "category_tally": {
-            "add-alias": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "sonnet-4-6-r2",
-              "weight": 2,
-              "category": "add-alias",
-              "notes": "The root-node propagated DAG status is called \"plan-confidence score\" in the segment but has no explicit alias established. Adding this makes prose references natural: \"the plan-confidence score reached 0.73.\""
             }
           ]
         }
@@ -31921,6 +31775,23 @@
               "weight": 2,
               "category": "add-alias",
               "notes": "$\\rho$ appears in formulas throughout and has two prose forms used interchangeably. \"Environmental change rate\" in Section I context; \"disturbance rate\" in Section II/III contexts. Both are acceptable; at minimum canonicalize \"disturbance rate\" as the short form."
+            }
+          ]
+        },
+        {
+          "candidate": "$\\rho$",
+          "is_keep": true,
+          "total_weight": 1,
+          "category_tally": {
+            "rename": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "opus-4-7-b",
+              "weight": 1,
+              "category": "rename",
+              "notes": "Keep. Widely used; collisions with \"density\" in physics but AAD's usage is internally consistent."
             }
           ]
         }
@@ -33059,103 +32930,6 @@
               "weight": 2,
               "category": "canonicalize",
               "notes": "Standard segment maturity status."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "current": "catastrophic forgetting",
-      "current_description": null,
-      "is_concept_cluster": false,
-      "voted_by_architectures": [
-        "Gemini"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "Catastrophic forgetting regime",
-          "is_keep": false,
-          "total_weight": 3,
-          "category_tally": {
-            "canonicalize": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "gemini-targeted-alternatives",
-              "weight": 3,
-              "category": "canonicalize",
-              "notes": "Forces the specific regime formulation over the generic ML term."
-            }
-          ]
-        },
-        {
-          "candidate": "Empty window pathology",
-          "is_keep": false,
-          "total_weight": 2,
-          "category_tally": {
-            "rename": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "gemini-3-1-pro-preview-r2",
-              "weight": 2,
-              "category": "rename",
-              "notes": "Too vague and ML-generic. Prefer AAD's \"empty-window pathology\"."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "current": "chronica in running prose",
-      "current_description": null,
-      "is_concept_cluster": false,
-      "voted_by_architectures": [
-        "Codex",
-        "Gemini"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "Chronica",
-          "is_keep": false,
-          "total_weight": 3,
-          "category_tally": {
-            "canonicalize": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "gemini-targeted-alternatives",
-              "weight": 3,
-              "category": "canonicalize",
-              "notes": "Maintains the Greek-rooted term for the causal record."
-            }
-          ]
-        },
-        {
-          "candidate": "Lowercase italic chronica",
-          "is_keep": false,
-          "total_weight": 1,
-          "category_tally": {
-            "canonicalize": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "codex-gpt-5-r2",
-              "weight": 1,
-              "category": "canonicalize",
-              "notes": "Useful style convention: capitalize in headings, use lowercase in prose like aporia or praxis."
             }
           ]
         }
@@ -34309,55 +34083,6 @@
       ]
     },
     {
-      "current": "\"crèche\" / \"creche\" (diacritic vs slug)",
-      "current_description": null,
-      "is_concept_cluster": false,
-      "voted_by_architectures": [
-        "Gemini",
-        "Opus"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "The crèche",
-          "is_keep": false,
-          "total_weight": 3,
-          "category_tally": {
-            "canonicalize": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "gemini-targeted-alternatives",
-              "weight": 3,
-              "category": "canonicalize",
-              "notes": "The high-margin developmental environment."
-            }
-          ]
-        },
-        {
-          "candidate": "Crèche with diacritic in framing prose creche in slug",
-          "is_keep": false,
-          "total_weight": 2,
-          "category_tally": {
-            "canonicalize": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "opus-4-7-r2",
-              "weight": 2,
-              "category": "canonicalize",
-              "notes": "Mixed usage. Canonicalize: in segment titles and prose, \"Crèche\" with the grave accent (consistent with the agentic-tft source); in slugs, \"creche\" without the accent (since slug-tooling rules disallow non-ASCII)."
-            }
-          ]
-        }
-      ]
-    },
-    {
       "current": "dark room exploration drive",
       "current_description": null,
       "is_concept_cluster": false,
@@ -35158,68 +34883,6 @@
       ]
     },
     {
-      "current": "Hafez's $H_b$",
-      "current_description": null,
-      "is_concept_cluster": false,
-      "voted_by_architectures": [
-        "Gemini",
-        "Opus",
-        "agent1"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "$H_b$",
-          "is_keep": false,
-          "total_weight": 6,
-          "category_tally": {
-            "canonicalize": 2
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "opus-1m",
-              "weight": 3,
-              "category": "canonicalize",
-              "notes": "Adopted; keep."
-            },
-            {
-              "agent": "agent1-original-brainstorm",
-              "weight": 3,
-              "category": "canonicalize",
-              "notes": "Adopted concept; AAD adds observer/horizon/trajectory indexing but keeps the symbol."
-            }
-          ]
-        },
-        {
-          "candidate": "Agent opacity $H_b$",
-          "is_keep": false,
-          "total_weight": 6,
-          "category_tally": {
-            "canonicalize": 2
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "gemini-targeted-alternatives",
-              "weight": 3,
-              "category": "canonicalize",
-              "notes": "Hafez opacity metric applied to adversarial dynamics."
-            },
-            {
-              "agent": "gemini-targeted-alternatives",
-              "weight": 3,
-              "category": "canonicalize",
-              "notes": "Standardizes the opacity metric."
-            }
-          ]
-        }
-      ]
-    },
-    {
       "current": "Section I. Adaptive Systems Under Uncertainty",
       "current_description": null,
       "is_concept_cluster": false,
@@ -35312,38 +34975,6 @@
               "weight": 1,
               "category": "rename",
               "notes": "Adding \"Composition\" as a leading term would make the section's topic clear without opening the file. \"Agentic Composites\" alone sounds like a noun phrase without a verb. Minor."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "current": "information bottleneck Tishby",
-      "current_description": null,
-      "is_concept_cluster": false,
-      "voted_by_architectures": [
-        "Opus",
-        "agent1"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "Information bottleneck",
-          "is_keep": false,
-          "total_weight": 3,
-          "category_tally": {
-            "canonicalize": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "agent1-original-brainstorm",
-              "weight": 3,
-              "category": "canonicalize",
-              "notes": "Adopted concept; keep."
             }
           ]
         }
@@ -36823,55 +36454,6 @@
       ]
     },
     {
-      "current": "sector condition derivation",
-      "current_description": null,
-      "is_concept_cluster": false,
-      "voted_by_architectures": [
-        "Gemini",
-        "Haiku"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "Sector condition",
-          "is_keep": false,
-          "total_weight": 3,
-          "category_tally": {
-            "canonicalize": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "gemini-targeted-alternatives",
-              "weight": 3,
-              "category": "canonicalize",
-              "notes": "The underlying control-theoretic boundary constraint."
-            }
-          ]
-        },
-        {
-          "candidate": "sector condition derivation",
-          "is_keep": true,
-          "total_weight": 1,
-          "category_tally": {
-            "canonicalize": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "haiku-4-5",
-              "weight": 1,
-              "category": "canonicalize",
-              "notes": "Lyapunov derivations for bounded mismatch and adaptive reserve. Self-descriptive. Keep."
-            }
-          ]
-        }
-      ]
-    },
-    {
       "current": "segment claim file",
       "current_description": null,
       "is_concept_cluster": false,
@@ -37034,55 +36616,6 @@
               "weight": -1,
               "category": "rename",
               "notes": "Redundant — \"scope\" already implies the domain-specificity. Rejected."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "current": "source quality uncertainty",
-      "current_description": null,
-      "is_concept_cluster": false,
-      "voted_by_architectures": [
-        "Codex",
-        "Gemini"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "Alignment uncertainty",
-          "is_keep": false,
-          "total_weight": 3,
-          "category_tally": {
-            "canonicalize": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "gemini-targeted-alternatives",
-              "weight": 3,
-              "category": "canonicalize",
-              "notes": "Maps directly to the $U_{\\text{align}}$ variable in the multi-agent gain."
-            }
-          ]
-        },
-        {
-          "candidate": "Source uncertainty",
-          "is_keep": false,
-          "total_weight": 1,
-          "category_tally": {
-            "canonicalize": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "codex-gpt-5-r2",
-              "weight": 1,
-              "category": "canonicalize",
-              "notes": "Shorter in prose; keep the full term when disambiguation matters."
             }
           ]
         }
@@ -37644,55 +37177,6 @@
               "weight": 2,
               "category": "canonicalize",
               "notes": "Standard availability definition (MTTF/(MTTF+MTTR)). Adopts external vocabulary correctly."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "current": "Temporal Software Theory (TST)",
-      "current_description": null,
-      "is_concept_cluster": false,
-      "voted_by_architectures": [
-        "Gemini",
-        "Opus"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "Temporal software theory",
-          "is_keep": false,
-          "total_weight": 3,
-          "category_tally": {
-            "canonicalize": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "gemini-targeted-alternatives",
-              "weight": 3,
-              "category": "canonicalize",
-              "notes": "The full name of TST."
-            }
-          ]
-        },
-        {
-          "candidate": "Temporal Software Theory (TST)",
-          "is_keep": true,
-          "total_weight": 3,
-          "category_tally": {
-            "canonicalize": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "opus-4-7-b",
-              "weight": 3,
-              "category": "canonicalize",
-              "notes": "Keep. The name has history (prior to AAD absorption and subsequent restoration) and \"temporal\" is load-bearing — it signals the AAD-native view that software is a time-optimality problem rather than a correctness problem. The acronym TST is pronounceable and has existing citation velocity from the 14,000-file prior corpus."
             }
           ]
         }
@@ -41296,37 +40780,6 @@
       ]
     },
     {
-      "current": "$K_c$",
-      "current_description": null,
-      "is_concept_cluster": false,
-      "voted_by_architectures": [
-        "Codex"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "Macro step ratio",
-          "is_keep": false,
-          "total_weight": 2,
-          "category_tally": {
-            "add-alias": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "codex-gpt-5-r2",
-              "weight": 2,
-              "category": "add-alias",
-              "notes": "The variable needs a stable prose handle."
-            }
-          ]
-        }
-      ]
-    },
-    {
       "current": "$M_t$",
       "current_description": null,
       "is_concept_cluster": false,
@@ -41414,68 +40867,6 @@
               "weight": 2,
               "category": "add-alias",
               "notes": "Good compact umbrella for the components of unity dimensions."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "current": "$U_O$",
-      "current_description": null,
-      "is_concept_cluster": false,
-      "voted_by_architectures": [
-        "Sonnet"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "Teleological unity",
-          "is_keep": false,
-          "total_weight": 2,
-          "category_tally": {
-            "add-alias": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "sonnet-4-6-r2",
-              "weight": 2,
-              "category": "add-alias",
-              "notes": "Same — established in NOTATION.md."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "current": "$U_\\Sigma$",
-      "current_description": null,
-      "is_concept_cluster": false,
-      "voted_by_architectures": [
-        "Sonnet"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "Strategic unity",
-          "is_keep": false,
-          "total_weight": 2,
-          "category_tally": {
-            "add-alias": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "sonnet-4-6-r2",
-              "weight": 2,
-              "category": "add-alias",
-              "notes": "Same — established in NOTATION.md."
             }
           ]
         }
@@ -41780,37 +41171,6 @@
               "weight": 2,
               "category": "add-alias",
               "notes": "Confirm. The dual alias (\"mismatch\" in engineering register, \"aporia signal\" in cycle-phase register) is intentional and supported by the LEXICON; preserve both."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "current": "$\\delta_{\\text{strategic}}$",
-      "current_description": null,
-      "is_concept_cluster": false,
-      "voted_by_architectures": [
-        "Sonnet"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "Strategic calibration",
-          "is_keep": false,
-          "total_weight": 2,
-          "category_tally": {
-            "add-alias": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "sonnet-4-6-r2",
-              "weight": 2,
-              "category": "add-alias",
-              "notes": "Edge residual aggregate. \"Strategic calibration\" is the established prose form in LEXICON.md. Formalize the alias."
             }
           ]
         }
@@ -42187,6 +41547,29 @@
       "manual_curation_notes": null,
       "candidates": [
         {
+          "candidate": "Strategic disturbance rate",
+          "is_keep": false,
+          "total_weight": 3,
+          "category_tally": {
+            "add-alias": 2
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "opus-targeted-alternatives-v2",
+              "weight": 2,
+              "category": "add-alias",
+              "notes": "Alternative. Parallels $\\rho$ (disturbance rate) → $\\rho_\\Sigma$ (strategic disturbance rate) in vocabulary. Pairs cleanly with strategic-tempo $\\mathcal{T}_\\Sigma$ in the same register."
+            },
+            {
+              "agent": "sonnet-4-6",
+              "weight": 1,
+              "category": "add-alias",
+              "notes": "Currently only in NOTATION.md. The phrase is somewhat long; \"strategy drift rate\" might be more memorable in prose."
+            }
+          ]
+        },
+        {
           "candidate": "Strategy drift rate",
           "is_keep": false,
           "total_weight": 2,
@@ -42210,50 +41593,19 @@
           ]
         },
         {
-          "candidate": "Strategic disturbance rate",
-          "is_keep": false,
-          "total_weight": 2,
+          "candidate": "$\\rho_\\Sigma$",
+          "is_keep": true,
+          "total_weight": 1,
           "category_tally": {
-            "add-alias": 1
+            "rename": 1
           },
           "consolidated_rationale": null,
           "votes": [
             {
-              "agent": "opus-targeted-alternatives-v2",
-              "weight": 2,
-              "category": "add-alias",
-              "notes": "Alternative. Parallels $\\rho$ (disturbance rate) → $\\rho_\\Sigma$ (strategic disturbance rate) in vocabulary. Pairs cleanly with strategic-tempo $\\mathcal{T}_\\Sigma$ in the same register."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "current": "$\\rho_{i,\\text{eff}}$",
-      "current_description": null,
-      "is_concept_cluster": false,
-      "voted_by_architectures": [
-        "Codex"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "Effective disturbance",
-          "is_keep": false,
-          "total_weight": 2,
-          "category_tally": {
-            "add-alias": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "codex-gpt-5-r2",
-              "weight": 2,
-              "category": "add-alias",
-              "notes": "Use the name wherever the max-with-zero construction is active."
+              "agent": "opus-4-7-b",
+              "weight": 1,
+              "category": "rename",
+              "notes": "Keep. Subscript is load-bearing."
             }
           ]
         }
@@ -42854,7 +42206,9 @@
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
-        "Opus"
+        "Gemini",
+        "Opus",
+        "Sonnet"
       ],
       "category_disagreement": true,
       "first_encounter_locality": null,
@@ -42864,9 +42218,10 @@
         {
           "candidate": "canonical formulation",
           "is_keep": true,
-          "total_weight": 2,
+          "total_weight": 7,
           "category_tally": {
-            "canonicalize": 2
+            "canonicalize": 3,
+            "rename": 1
           },
           "consolidated_rationale": null,
           "votes": [
@@ -42881,6 +42236,18 @@
               "weight": 1,
               "category": "canonicalize",
               "notes": "Per FORMAT.md three-ring framing: inevitability core / canonical formulations / empirical-heuristic-discussion. \"Canonical\" carries the second-ring sense (well-grounded, project-standard, not necessarily the unique form). Keep."
+            },
+            {
+              "agent": "gemini-targeted-alternatives",
+              "weight": 2,
+              "category": "canonicalize",
+              "notes": "Retains the epistemic tier designation."
+            },
+            {
+              "agent": "sonnet-4-6",
+              "weight": 3,
+              "category": "rename",
+              "notes": "Keep."
             }
           ]
         },
@@ -42919,9 +42286,9 @@
         {
           "candidate": "catastrophic forgetting regime",
           "is_keep": true,
-          "total_weight": 11,
+          "total_weight": 14,
           "category_tally": {
-            "canonicalize": 4
+            "canonicalize": 5
           },
           "consolidated_rationale": null,
           "votes": [
@@ -42948,6 +42315,12 @@
               "weight": 3,
               "category": "canonicalize",
               "notes": "Resolving another instance of the forgetting limit. [original phrasing: unnamed the AAD expressible failure mode of an empty stability plasticity window]"
+            },
+            {
+              "agent": "gemini-targeted-alternatives",
+              "weight": 3,
+              "category": "canonicalize",
+              "notes": "Forces the specific regime formulation over the generic ML term."
             }
           ]
         },
@@ -43005,6 +42378,30 @@
           ]
         },
         {
+          "candidate": "Empty window pathology",
+          "is_keep": false,
+          "total_weight": 4,
+          "category_tally": {
+            "add-alias": 1,
+            "rename": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "codex-gpt-5-r2",
+              "weight": 2,
+              "category": "add-alias",
+              "notes": "Good mechanism alias. Do not replace catastrophic forgetting when citing ML lineage."
+            },
+            {
+              "agent": "gemini-3-1-pro-preview-r2",
+              "weight": 2,
+              "category": "rename",
+              "notes": "Too vague and ML-generic. Prefer AAD's \"empty-window pathology\"."
+            }
+          ]
+        },
+        {
           "candidate": "Empty feasibility window",
           "is_keep": false,
           "total_weight": 3,
@@ -43018,23 +42415,6 @@
               "weight": 3,
               "category": "canonicalize",
               "notes": "The text specifically defines this as the \"empty window limit\" of the stability-plasticity window. This grounds it in AAD math rather than an ML imported term. [original phrasing: catastrophic forgetting regime]"
-            }
-          ]
-        },
-        {
-          "candidate": "Empty window pathology",
-          "is_keep": false,
-          "total_weight": 2,
-          "category_tally": {
-            "add-alias": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "codex-gpt-5-r2",
-              "weight": 2,
-              "category": "add-alias",
-              "notes": "Good mechanism alias. Do not replace catastrophic forgetting when citing ML lineage."
             }
           ]
         },
@@ -45965,7 +45345,8 @@
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
-        "Opus"
+        "Opus",
+        "Sonnet"
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
@@ -45975,9 +45356,9 @@
         {
           "candidate": "strategic unity",
           "is_keep": true,
-          "total_weight": 2,
+          "total_weight": 4,
           "category_tally": {
-            "add-alias": 1
+            "add-alias": 2
           },
           "consolidated_rationale": null,
           "votes": [
@@ -45986,6 +45367,12 @@
               "weight": 2,
               "category": "add-alias",
               "notes": "Confirm."
+            },
+            {
+              "agent": "sonnet-4-6-r2",
+              "weight": 2,
+              "category": "add-alias",
+              "notes": "Same — established in NOTATION.md."
             }
           ]
         }
@@ -47837,86 +47224,6 @@
               "weight": 1,
               "category": "add-alias",
               "notes": "TST-specific subset of chronica; prose form would help the 14-EXACT-estimator audit table read more naturally."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "current": "$\\rho$ (environment change rate / mismatch injection rate)",
-      "current_description": null,
-      "is_concept_cluster": false,
-      "voted_by_architectures": [
-        "Opus"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "$\\rho$",
-          "is_keep": false,
-          "total_weight": 1,
-          "category_tally": {
-            "rename": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "opus-4-7-b",
-              "weight": 1,
-              "category": "rename",
-              "notes": "Keep. Widely used; collisions with \"density\" in physics but AAD's usage is internally consistent."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "current": "strategic disturbance rate",
-      "current_description": null,
-      "is_concept_cluster": false,
-      "voted_by_architectures": [
-        "Opus",
-        "Sonnet"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "$\\rho_\\Sigma$",
-          "is_keep": false,
-          "total_weight": 1,
-          "category_tally": {
-            "rename": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "opus-4-7-b",
-              "weight": 1,
-              "category": "rename",
-              "notes": "Keep. Subscript is load-bearing."
-            }
-          ]
-        },
-        {
-          "candidate": "strategic disturbance rate",
-          "is_keep": true,
-          "total_weight": 1,
-          "category_tally": {
-            "add-alias": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "sonnet-4-6",
-              "weight": 1,
-              "category": "add-alias",
-              "notes": "Currently only in NOTATION.md. The phrase is somewhat long; \"strategy drift rate\" might be more memorable in prose."
             }
           ]
         }
