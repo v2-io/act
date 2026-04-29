@@ -21,7 +21,7 @@ Single-table compact view of the master list. One row per (original, candidate) 
 |  | Goal-blind processing | +1 |
 | identifiability floor | **_(keep)_ ⭑** | +51 |
 |  | Epistemic lower bound | +3 |
-|  | Persistence pathology [name-unnamed] | +3 |
+|  | Persistence pathology | +3 |
 |  | Observational limit | +2 |
 |  | ✗ No-go theorem | -1 |
 | [Concept] *The parameter-space region within which an agent maintains bounded mismatch indefinitely* | **Persistence envelope [name-unnamed × 8, canonicalize × 4, rename × 2, add-alias × 1]** | +39 |
@@ -39,7 +39,7 @@ Single-table compact view of the master list. One row per (original, candidate) 
 | chain confidence decay | **_(keep)_** | +27 |
 |  | Log confidence additive | +1 |
 | persistence condition | **_(keep)_ ⭑** | +39 |
-|  | The survival equation [name-unnamed] | +3 |
+|  | The survival equation | +3 |
 |  | Survival equation [add-alias] | +1 |
 | [Concept] *The slogan capturing AAD's organizing principle that an adaptive system's correction rate must exceed its target's change rate* | **Contraction over drift principle [canonicalize × 5, name-unnamed × 3]** | +24 |
 |  | Contraction imperative [name-unnamed] | +1 |
@@ -188,11 +188,11 @@ Single-table compact view of the master list. One row per (original, candidate) 
 |  | Interventional loop property [canonicalize] | +3 |
 |  | Loop causal engine | +2 |
 |  | Loop as causal engine | +2 |
-|  | Embodiment upgrade [name-unnamed] | +2 |
+|  | Embodiment upgrade | +2 |
 |  | Interventional loop access | +1 |
 |  | Interventional feedback | +1 |
 |  | Adaptive loop access | +1 |
-|  | Interventional character [name-unnamed] | +1 |
+|  | Interventional character | +1 |
 |  | The perpetual experiment [canonicalize] | +1 |
 |  | ✗ Loop level2 access | -1 |
 | adversarial tempo advantage | **_(keep)_** | +14 |
@@ -214,10 +214,10 @@ Single-table compact view of the master list. One row per (original, candidate) 
 |  | History compression | +1 |
 |  | ✗ OODA1 unification | -1 |
 | epistemic architecture | **_(keep)_ ⭑** | +31 |
-|  | The meta segment triad [name-unnamed] | +2 |
-|  | AAD meta architecture [name-unnamed] | +2 |
+|  | The meta segment triad | +2 |
+|  | AAD meta architecture | +2 |
 |  | Bounded correction architecture | +1 |
-|  | ✗ AAD epistemic triptych [name-unnamed] | -1 |
+|  | ✗ AAD epistemic triptych | -1 |
 | logozoetic agent | **_(keep)_** | +13 |
 |  | Section IV logozoetic agent [canonicalize] | +3 |
 |  | ✗ Sentient agent | -1 |
@@ -275,7 +275,7 @@ Single-table compact view of the master list. One row per (original, candidate) 
 | [Concept] *Code quality as observation infrastructure* | **Observation infrastructure [rename × 4, canonicalize × 1]** | +10 |
 |  | _(keep)_ | +5 |
 | comprehension time | **_(keep)_ ⭑** | +13 |
-|  | Comprehension drag [name-unnamed] | +1 |
+|  | Comprehension drag | +1 |
 | mismatch decomposition | **_(keep)_** | +10 |
 |  | Aporia decomposition | +2 |
 | model-class fitness | **_(keep)_ ⭑** | +10 |
@@ -989,10 +989,10 @@ Single-table compact view of the master list. One row per (original, candidate) 
 |  | Pearl-blanket interpretation [canonicalize] | +6 |
 |  | Pearl-blanket Friston-blanket [canonicalize × 1, keep × 1] | +6 |
 | persistence structural operational continuity | **Persistence taxonomy [canonicalize]** | +6 |
-|  | Structural persistence [name-unnamed] | +2 |
-|  | Continuity persistence [name-unnamed] | +2 |
-|  | Task adequacy [name-unnamed] | +2 |
-|  | Operational persistence [name-unnamed] | +2 |
+|  | Structural persistence | +2 |
+|  | Continuity persistence | +2 |
+|  | Task adequacy | +2 |
+|  | Operational persistence | +2 |
 | persistent residual autocorrelation | **Structured residual [canonicalize]** | +3 |
 |  | Persistent mismatch autocorrelation | +2 |
 | (PI) parameterization invariance | **Parameterization invariance [canonicalize]** | +3 |
@@ -1259,7 +1259,7 @@ Single-table compact view of the master list. One row per (original, candidate) 
 | CIY observational proxy | **Observational CIY** | +2 |
 |  | _(keep)_ | +2 |
 |  | Observational proxy | +1 |
-| adversarial edge-target arg-max | **Edge targeting optimum [name-unnamed]** | +2 |
+| adversarial edge-target arg-max | **Edge targeting optimum** | +2 |
 |  | Adversarial edge targeting | +2 |
 | [Concept] *Agent-visible but objective-irrelevant metric* | **Vanity metric [add-alias]** | +2 |
 |  | Irrelevant visibility artifact | +2 |
@@ -1283,7 +1283,7 @@ Single-table compact view of the master list. One row per (original, candidate) 
 | class 2 scope exit | **Class 2 scope boundary** | +2 |
 |  | _(keep)_ ⭑ | +2 |
 | [Concept] *Cognitive substrate / Gemini's logostratum proposal* | **Logostratum** | +2 |
-| completeness (C3) | **Predictive completeness behavioral completeness [name-unnamed]** | +2 |
+| completeness (C3) | **Predictive completeness behavioral completeness** | +2 |
 |  | Predictive completeness | +2 |
 | [Concept] *Composition route C-I / C-II / C-III / C-IV* | **Composition route [canonicalize]** | +2 |
 |  | Composition pathway | +1 |
@@ -1374,7 +1374,7 @@ Single-table compact view of the master list. One row per (original, candidate) 
 |  | Structured context | +2 |
 | survival fisher floor | **Survival FIM floor** | +2 |
 |  | _(keep)_ ⭑ | +2 |
-| symbiogenic consolidation time | **Consolidation horizon [name-unnamed]** | +2 |
+| symbiogenic consolidation time | **Consolidation horizon** | +2 |
 |  | Consolidation epoch | +2 |
 | [Concept] *Symbol default bias-bound Track 1 / Track 2* | **Class 2 bias bound** | +2 |
 |  | Transport track / Fisher track [name-unnamed] | +1 |

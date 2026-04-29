@@ -2,7 +2,7 @@
 
 **Voter:** `opus-r2`
 **Card seed:** `opus-r2` (deterministic shuffle; same agent-id always produces the same card)
-**Generated:** 2026-04-29T22:48:31Z
+**Generated:** 2026-04-29T22:50:50Z
 
 ## Voting instructions
 

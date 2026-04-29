@@ -55,9 +55,24 @@ end
 # where the candidate is not the current name (some voters used `keep` to mean
 # "support this candidate" — semantically `canonicalize` — and the bare `[keep]`
 # suffix on non-keep rows is more confusing than illuminating).
-def category_suffix(category_tally, is_keep: false)
+#
+# `is_concept_cluster` is passed through so we can drop `name-unnamed` from
+# the tally on non-cluster parents (the category meant "propose this for an
+# unnamed concept"; after duplicate-merging an unnamed-concept-cluster row
+# into a named-current row, the historical `name-unnamed` classification on
+# the merged candidate is misleading — the parent concept IS now named).
+def category_suffix(category_tally, is_keep: false, is_concept_cluster: false)
   return '' if category_tally.nil? || category_tally.empty?
+
   pairs = category_tally.sort_by { |_, c| -c }
+
+  # Strip `name-unnamed` on non-cluster parents — semantically stale after merges.
+  unless is_concept_cluster
+    pairs = pairs.reject { |cat, _| cat.to_s.downcase == 'name-unnamed' }
+  end
+
+  return '' if pairs.empty?
+
   if pairs.size == 1
     cat = pairs.first.first
     return '' if cat.to_s.downcase == 'rename'
@@ -102,7 +117,7 @@ def render_compact(master)
       candidate_cell = if is_keep
                          "_(keep)_#{has_canon_vote ? ' ⭑' : ''}"
                        else
-                         "#{pipe_safe(alt['candidate'])}#{category_suffix(alt['category_tally'], is_keep: is_keep)}"
+                         "#{pipe_safe(alt['candidate'])}#{category_suffix(alt['category_tally'], is_keep: is_keep, is_concept_cluster: c['is_concept_cluster'])}"
                        end
       candidate_cell = "✗ #{candidate_cell}" if alt['total_weight'].to_i < 0 && !is_keep
       candidate_cell = "**#{candidate_cell}**" if is_winner
