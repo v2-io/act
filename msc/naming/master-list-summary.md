@@ -1,14 +1,14 @@
 # Naming Vote — Master List, Summary
 
 **Generated from:** `msc/naming/naming-aggregate-r2-votes.json`
-**Generated at:** 2026-04-29T21:19:03Z
+**Generated at:** 2026-04-29T21:43:09Z
 
 ## Totals
 
 - Agents contributing: **19**
 - Vote rows: **2967**
 - Distinct (current, candidate) pairs: **1805**
-- Distinct currents (vote-targets): **790**
+- Distinct currents (vote-targets): **814**
 
 ## Enrichment status
 
@@ -19,7 +19,7 @@
 
 ## Architecture-disagreement flags
 
-- Currents with category disagreement on top finalist: **105**
+- Currents with category disagreement on top finalist: **103**
 
 These are targets where the top-weight candidate received votes in more than one category — the rename-vs-add-alias-vs-canonicalize action is contested. They warrant explicit attention in Round 2.
 
@@ -46,11 +46,11 @@ These are targets where the top-weight candidate received votes in more than one
 | `causal information yield` | `causal information yield` | keep × 8, canonicalize × 1 |
 | `composition closure` | `composition closure` | keep × 9, canonicalize × 1 |
 
-_(showing first 20 of 105; full list in master-list.json)_
+_(showing first 20 of 103; full list in master-list.json)_
 
 ## Single-architecture currents
 
-- Currents voted by 1 architecture only: **234** (Bucket-1 territory; cross-architecture pressure-testing high-value)
-- Currents voted by 2 architectures: **357**
-- Currents voted by 3+ architectures: **199**
+- Currents voted by 1 architecture only: **270** (Bucket-1 territory; cross-architecture pressure-testing high-value)
+- Currents voted by 2 architectures: **342**
+- Currents voted by 3+ architectures: **202**
 

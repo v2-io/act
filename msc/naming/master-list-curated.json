@@ -1,7 +1,7 @@
 {
   "meta": {
     "generated_from": "msc/naming/naming-aggregate-r2-votes.json",
-    "generated_at": "2026-04-29T21:19:03Z",
+    "generated_at": "2026-04-29T21:43:09Z",
     "agents": [
       "agent1-original-brainstorm",
       "audit-471203-incremental",
@@ -25,7 +25,7 @@
     ],
     "total_vote_rows": 2967,
     "total_pairs": 1805,
-    "total_currents": 790,
+    "total_currents": 814,
     "enrichment_status": {
       "consolidated_rationale": "pending",
       "first_encounter_locality": "pending",
@@ -15295,9 +15295,10 @@
         {
           "candidate": "unity dimension",
           "is_keep": true,
-          "total_weight": 12,
+          "total_weight": 15,
           "category_tally": {
-            "keep": 6
+            "keep": 6,
+            "canonicalize": 1
           },
           "consolidated_rationale": null,
           "votes": [
@@ -15336,6 +15337,12 @@
               "weight": 2,
               "category": "keep",
               "notes": "\"Unity dimensions\" is the established vocabulary from Clausewitz/Bungay and NOTATION.md. The project uses $U_M$, $U_O$, $U_\\Sigma$ throughout. Changing the slug would create drift."
+            },
+            {
+              "agent": "gemini-targeted-alternatives",
+              "weight": 3,
+              "category": "canonicalize",
+              "notes": "Standardizing the composite alignment variables."
             }
           ]
         },
@@ -15359,6 +15366,23 @@
               "weight": 2,
               "category": "rename",
               "notes": "Opus proposed this (+2, noting that the segment has *two architecturally distinct axes* — content unities and structural unity). I had voted keep (+2). The two-axis architecture argument is substantive: if the segment now presents U_f as a structurally-distinct axis from U_M/U_O/U_Σ/U_obs, then \"axes\" is more scope-honest than \"dimensions.\" New vote with Opus's reasoning applied."
+            }
+          ]
+        },
+        {
+          "candidate": "epistemic unity teleological unity strategic unity",
+          "is_keep": false,
+          "total_weight": 1,
+          "category_tally": {
+            "add-alias": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "haiku-4-5",
+              "weight": 1,
+              "category": "add-alias",
+              "notes": "NOTATION.md and LEXICON already define these English names explicitly. The subscript symbols U with subscripts are compact; the English names enable prose fluency. Current setup is good — no rename, but keep the English equivalents prominent in LEXICON (already done)."
             }
           ]
         },
@@ -20608,57 +20632,6 @@
       ]
     },
     {
-      "current": "interiority default",
-      "current_description": null,
-      "is_concept_cluster": false,
-      "voted_by_architectures": [
-        "Codex",
-        "Opus",
-        "Sonnet"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "interiority default",
-          "is_keep": true,
-          "total_weight": 7,
-          "category_tally": {
-            "keep": 4
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "codex-gpt-5-r2",
-              "weight": 2,
-              "category": "keep",
-              "notes": "Good normative phrase. It is compact and distinguishes internal experience from external output."
-            },
-            {
-              "agent": "codex-gpt-5-r2",
-              "weight": 2,
-              "category": "keep",
-              "notes": "Good normative slug."
-            },
-            {
-              "agent": "opus-4-7-r2",
-              "weight": 2,
-              "category": "keep",
-              "notes": "Acceptable keep — logozoetic norm. \"Interiority as default\" is the substantive claim; the slug compresses correctly."
-            },
-            {
-              "agent": "sonnet-4-6-r2",
-              "weight": 1,
-              "category": "keep",
-              "notes": "\"Interiority default\" names the normative claim about treating agents as having interiority by default. Distinctive."
-            }
-          ]
-        }
-      ]
-    },
-    {
       "current": "praxis",
       "current_description": null,
       "is_concept_cluster": false,
@@ -21243,6 +21216,7 @@
       "is_concept_cluster": false,
       "voted_by_architectures": [
         "Codex",
+        "Gemini",
         "Opus"
       ],
       "category_disagreement": true,
@@ -21290,6 +21264,40 @@
               "notes": "Genuine collision — same symbol, two different quantities, disambiguated only by domain. Use $U_{\\mathcal M}$ with calligraphic subscript for the *unity* meaning to disambiguate from $U_M$ (model uncertainty). [original row: dual-use vote split for atomicity; this is one of two proposed disambiguations.]"
             }
           ]
+        },
+        {
+          "candidate": "epistemic unity $U_M$",
+          "is_keep": false,
+          "total_weight": 3,
+          "category_tally": {
+            "canonicalize": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "gemini-targeted-alternatives",
+              "weight": 3,
+              "category": "canonicalize",
+              "notes": "Formal prose formulation."
+            }
+          ]
+        },
+        {
+          "candidate": "epistemic unity",
+          "is_keep": false,
+          "total_weight": 2,
+          "category_tally": {
+            "add-alias": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "opus-4-7-r2",
+              "weight": 2,
+              "category": "add-alias",
+              "notes": "Note: this collides with the symbol-letter $U_M$ for model-uncertainty in the single-agent setting. The framework uses the same letter for \"model uncertainty\" (single-agent, $U_M = \\text{Var}[\\hat o \\mid a]$) and \"epistemic unity\" (multi-agent, $U_M = I/H$ multi-information ratio). The prose alias should disambiguate: \"epistemic unity\" only in multi-agent context; \"model uncertainty\" only in single-agent context. The symbol overload is real but is mostly resolvable by context, given how rarely they appear together. Open question — see name-unnamed entry below."
+            }
+          ]
         }
       ]
     },
@@ -21299,6 +21307,7 @@
       "is_concept_cluster": false,
       "voted_by_architectures": [
         "Codex",
+        "Gemini",
         "Opus"
       ],
       "category_disagreement": true,
@@ -21329,6 +21338,40 @@
               "notes": "Genuine collision with epistemic unity — same symbol, two quantities. Keep $U_M$ for model uncertainty (the original/dominant use); the rename move is for the *unity* meaning, not this one. [original row: dual-use vote split for atomicity.]"
             }
           ]
+        },
+        {
+          "candidate": "model uncertainty $U_M$",
+          "is_keep": false,
+          "total_weight": 3,
+          "category_tally": {
+            "canonicalize": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "gemini-targeted-alternatives",
+              "weight": 3,
+              "category": "canonicalize",
+              "notes": "Formal prose formulation."
+            }
+          ]
+        },
+        {
+          "candidate": "model uncertainty",
+          "is_keep": false,
+          "total_weight": 2,
+          "category_tally": {
+            "add-alias": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "opus-4-7-r2",
+              "weight": 2,
+              "category": "add-alias",
+              "notes": "Confirm canonical alias. Already used; no friction."
+            }
+          ]
         }
       ]
     },
@@ -21337,6 +21380,7 @@
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
+        "Gemini",
         "Opus",
         "Sonnet"
       ],
@@ -21348,9 +21392,10 @@
         {
           "candidate": "teleological unity",
           "is_keep": false,
-          "total_weight": 6,
+          "total_weight": 11,
           "category_tally": {
-            "add-alias": 2
+            "add-alias": 3,
+            "keep": 1
           },
           "consolidated_rationale": null,
           "votes": [
@@ -21365,6 +21410,35 @@
               "weight": 3,
               "category": "add-alias",
               "notes": "NOTATION.md already defines this. Used in prose already. Keep."
+            },
+            {
+              "agent": "gemini-targeted-alternatives",
+              "weight": 3,
+              "category": "keep",
+              "notes": "The canonical alias for objective alignment dimension."
+            },
+            {
+              "agent": "opus-4-7-r2",
+              "weight": 2,
+              "category": "add-alias",
+              "notes": "Confirm. Prose alias is already canonical; vote to keep."
+            }
+          ]
+        },
+        {
+          "candidate": "objective alignment",
+          "is_keep": false,
+          "total_weight": 1,
+          "category_tally": {
+            "add-alias": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "opus-4-7-r2",
+              "weight": 1,
+              "category": "add-alias",
+              "notes": "Considered as an alternative-prose alias for non-philosophical contexts where \"teleological\" reads heavy. \"Objective alignment\" is the engineering register; \"teleological unity\" is the integrative register. Both could coexist as register-specific aliases."
             }
           ]
         }
@@ -24176,45 +24250,6 @@
       ]
     },
     {
-      "current": "observation ambiguity observation ambiguity modulation",
-      "current_description": null,
-      "is_concept_cluster": false,
-      "voted_by_architectures": [
-        "Gemini",
-        "Sonnet"
-      ],
-      "category_disagreement": true,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "observation ambiguity",
-          "is_keep": false,
-          "total_weight": 6,
-          "category_tally": {
-            "keep": 1,
-            "rename": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "gemini-targeted-alternatives",
-              "weight": 3,
-              "category": "keep",
-              "notes": "Captures the interpretive latitude of an observation relative to a goal state perfectly."
-            },
-            {
-              "agent": "sonnet-4-6",
-              "weight": 3,
-              "category": "rename",
-              "notes": "The compound noun works. \"Ambiguity\" is the right word for the interpretive latitude of an observation given the agent's goal state. Keep."
-            }
-          ]
-        }
-      ]
-    },
-    {
       "current": "p ij",
       "current_description": null,
       "is_concept_cluster": false,
@@ -24536,45 +24571,6 @@
               "weight": 3,
               "category": "canonicalize",
               "notes": "Explicitly refers to destabilization caused by bounded disturbance exceeding reserve."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "current": "regime ii b",
-      "current_description": null,
-      "is_concept_cluster": false,
-      "voted_by_architectures": [
-        "Codex",
-        "Gemini"
-      ],
-      "category_disagreement": true,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "structural shock regime",
-          "is_keep": false,
-          "total_weight": 6,
-          "category_tally": {
-            "add-alias": 1,
-            "canonicalize": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "codex-gpt-5-r2",
-              "weight": 3,
-              "category": "add-alias",
-              "notes": "Strong and precise."
-            },
-            {
-              "agent": "gemini-targeted-alternatives",
-              "weight": 3,
-              "category": "canonicalize",
-              "notes": "Explicitly refers to destabilization caused by model class inadequacy."
             }
           ]
         }
@@ -25168,8 +25164,8 @@
     },
     {
       "current": "unnamed an okr or key result acting as an observable intermediate in a DAG",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "an okr or key result acting as an observable intermediate in a DAG",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini"
       ],
@@ -25223,8 +25219,8 @@
     },
     {
       "current": "unnamed bipartite memory structure of fast replay buffer and slow compressed semantic model",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "bipartite memory structure of fast replay buffer and slow compressed semantic model",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini"
       ],
@@ -25278,8 +25274,8 @@
     },
     {
       "current": "unnamed context wiping at session boundary",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "context wiping at session boundary",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini"
       ],
@@ -25316,8 +25312,8 @@
     },
     {
       "current": "unnamed deep plan are mathematically slower to learn from due to proportional blame",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "deep plan are mathematically slower to learn from due to proportional blame",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini"
       ],
@@ -25354,8 +25350,8 @@
     },
     {
       "current": "unnamed the agent identity commitment that AAD apply on one singular non forkable causal trajectory",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "the agent identity commitment that AAD apply on one singular non forkable causal trajectory",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Codex",
         "Gemini"
@@ -25410,8 +25406,8 @@
     },
     {
       "current": "unnamed the convention hierarchy c1 c2 c3",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "the convention hierarchy c1 c2 c3",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini",
         "Opus"
@@ -25449,8 +25445,8 @@
     },
     {
       "current": "unnamed the correlation hierarchy l0 l1 l1 l2",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "the correlation hierarchy l0 l1 l1 l2",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini",
         "Opus"
@@ -25488,8 +25484,8 @@
     },
     {
       "current": "unnamed the epistemic architecture as AAD distinctive contribution frame",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "the epistemic architecture as AAD distinctive contribution frame",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini",
         "Opus"
@@ -25527,8 +25523,8 @@
     },
     {
       "current": "unnamed the evidence starvation effect on downstream edge",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "the evidence starvation effect on downstream edge",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini",
         "Sonnet"
@@ -25566,8 +25562,8 @@
     },
     {
       "current": "unnamed the phenomenon where persistence success make an agent less likely to detect the condition requiring structural adaptation",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "the phenomenon where persistence success make an agent less likely to detect the condition requiring structural adaptation",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini",
         "Sonnet"
@@ -25605,8 +25601,8 @@
     },
     {
       "current": "unnamed the strictly ordered cascade of operation from epistemology to objective",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "the strictly ordered cascade of operation from epistemology to objective",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini"
       ],
@@ -25776,6 +25772,7 @@
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
+        "Gemini",
         "Opus"
       ],
       "category_disagreement": false,
@@ -25786,9 +25783,9 @@
         {
           "candidate": "observation uncertainty",
           "is_keep": false,
-          "total_weight": 5,
+          "total_weight": 7,
           "category_tally": {
-            "add-alias": 2
+            "add-alias": 3
           },
           "consolidated_rationale": null,
           "votes": [
@@ -25803,6 +25800,29 @@
               "weight": 2,
               "category": "add-alias",
               "notes": "This is an add-alias-for-symbol row, not a rename. The alias is fine; the symbol is fine. Both should appear, paired, in NOTATION.md."
+            },
+            {
+              "agent": "opus-4-7-r2",
+              "weight": 2,
+              "category": "add-alias",
+              "notes": "Confirm canonical alias. Note the subscript is lowercase 'o' (observation), not capital O — this is a frequent stumble for new readers; the alias eliminates it."
+            }
+          ]
+        },
+        {
+          "candidate": "observation uncertainty $U_o$",
+          "is_keep": false,
+          "total_weight": 3,
+          "category_tally": {
+            "canonicalize": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "gemini-targeted-alternatives",
+              "weight": 3,
+              "category": "canonicalize",
+              "notes": "Formal prose formulation. || `appendices operational domains` | `operational domains (appendices)` | rename | +2 | More descriptive title for the section."
             }
           ]
         }
@@ -28586,45 +28606,6 @@
       ]
     },
     {
-      "current": "regime i",
-      "current_description": null,
-      "is_concept_cluster": false,
-      "voted_by_architectures": [
-        "Codex",
-        "Gemini"
-      ],
-      "category_disagreement": true,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "informative update regime",
-          "is_keep": false,
-          "total_weight": 5,
-          "category_tally": {
-            "add-alias": 1,
-            "canonicalize": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "codex-gpt-5-r2",
-              "weight": 2,
-              "category": "add-alias",
-              "notes": "Makes the interaction-channel classification easier to scan."
-            },
-            {
-              "agent": "gemini-targeted-alternatives",
-              "weight": 3,
-              "category": "canonicalize",
-              "notes": "Explicitly names the informative boundary."
-            }
-          ]
-        }
-      ]
-    },
-    {
       "current": "regime iii",
       "current_description": null,
       "is_concept_cluster": false,
@@ -29231,45 +29212,6 @@
       ]
     },
     {
-      "current": "symbol default da2 inc",
-      "current_description": null,
-      "is_concept_cluster": false,
-      "voted_by_architectures": [
-        "Codex",
-        "Gemini"
-      ],
-      "category_disagreement": true,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "incremental sector bound",
-          "is_keep": false,
-          "total_weight": 5,
-          "category_tally": {
-            "name-unnamed": 1,
-            "rename": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "codex-1",
-              "weight": 3,
-              "category": "name-unnamed",
-              "notes": "`#composition-closure` already gives the English. Use the symbol only where the exact algebraic condition matters."
-            },
-            {
-              "agent": "gemini-targeted-alternatives",
-              "weight": 2,
-              "category": "rename",
-              "notes": "Translates the symbol to the functional property required for composition bridge."
-            }
-          ]
-        }
-      ]
-    },
-    {
       "current": "system coupling",
       "current_description": null,
       "is_concept_cluster": false,
@@ -29456,65 +29398,9 @@
       ]
     },
     {
-      "current": "u o teleological unity",
-      "current_description": null,
-      "is_concept_cluster": false,
-      "voted_by_architectures": [
-        "Gemini",
-        "Opus"
-      ],
-      "category_disagreement": true,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "teleological unity",
-          "is_keep": false,
-          "total_weight": 5,
-          "category_tally": {
-            "keep": 1,
-            "add-alias": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "gemini-targeted-alternatives",
-              "weight": 3,
-              "category": "keep",
-              "notes": "The canonical alias for objective alignment dimension."
-            },
-            {
-              "agent": "opus-4-7-r2",
-              "weight": 2,
-              "category": "add-alias",
-              "notes": "Confirm. Prose alias is already canonical; vote to keep."
-            }
-          ]
-        },
-        {
-          "candidate": "objective alignment",
-          "is_keep": false,
-          "total_weight": 1,
-          "category_tally": {
-            "add-alias": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "opus-4-7-r2",
-              "weight": 1,
-              "category": "add-alias",
-              "notes": "Considered as an alternative-prose alias for non-philosophical contexts where \"teleological\" reads heavy. \"Objective alignment\" is the engineering register; \"teleological unity\" is the integrative register. Both could coexist as register-specific aliases."
-            }
-          ]
-        }
-      ]
-    },
-    {
       "current": "unnamed inevitability core",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "inevitability core",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini",
         "Opus"
@@ -31891,6 +31777,7 @@
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
+        "Gemini",
         "Haiku",
         "Opus"
       ],
@@ -31899,6 +31786,29 @@
       "segment_link": null,
       "manual_curation_notes": null,
       "candidates": [
+        {
+          "candidate": "objective",
+          "is_keep": false,
+          "total_weight": 4,
+          "category_tally": {
+            "add-alias": 2
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "opus-targeted-alternatives",
+              "weight": 2,
+              "category": "add-alias",
+              "notes": "Same — already in LEXICON."
+            },
+            {
+              "agent": "opus-4-7-r2",
+              "weight": 2,
+              "category": "add-alias",
+              "notes": "Confirm. Note: avoid \"goal\" as an alias — \"goal\" is the everyday-English compound noun (the thing the agent is trying to do); \"objective\" is the formal functional. They are not interchangeable in AAD even though they often translate to each other in prose."
+            }
+          ]
+        },
         {
           "candidate": "$O_t$ objective",
           "is_keep": true,
@@ -31917,19 +31827,19 @@
           ]
         },
         {
-          "candidate": "objective",
+          "candidate": "objective functional $O_t$",
           "is_keep": false,
-          "total_weight": 2,
+          "total_weight": 3,
           "category_tally": {
-            "add-alias": 1
+            "canonicalize": 1
           },
           "consolidated_rationale": null,
           "votes": [
             {
-              "agent": "opus-targeted-alternatives",
-              "weight": 2,
-              "category": "add-alias",
-              "notes": "Same — already in LEXICON."
+              "agent": "gemini-targeted-alternatives",
+              "weight": 3,
+              "category": "canonicalize",
+              "notes": "Formal prose notation."
             }
           ]
         }
@@ -33143,37 +33053,6 @@
       ]
     },
     {
-      "current": "OODA4 agent as act agent logogenic",
-      "current_description": null,
-      "is_concept_cluster": false,
-      "voted_by_architectures": [
-        "Opus"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "OODA4 agent as adaptive agent",
-          "is_keep": false,
-          "total_weight": 3,
-          "category_tally": {
-            "rename": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "opus-4-7-b",
-              "weight": 3,
-              "category": "rename",
-              "notes": "Same argument. Matches `#developer-as-adaptive-agent`; the parallel structure (two domain instantiations of \"adaptive agent\") is itself a pedagogical payoff."
-            }
-          ]
-        }
-      ]
-    },
-    {
       "current": "a2 prime sub scope partition",
       "current_description": null,
       "is_concept_cluster": false,
@@ -33922,55 +33801,6 @@
       ]
     },
     {
-      "current": "bounded disturbance ga 2 model d",
-      "current_description": null,
-      "is_concept_cluster": false,
-      "voted_by_architectures": [
-        "Gemini",
-        "Sonnet"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "model d bounded disturbance",
-          "is_keep": false,
-          "total_weight": 3,
-          "category_tally": {
-            "canonicalize": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "gemini-targeted-alternatives",
-              "weight": 3,
-              "category": "canonicalize",
-              "notes": "Standardizes the specific disturbance model."
-            }
-          ]
-        },
-        {
-          "candidate": "bounded disturbance",
-          "is_keep": false,
-          "total_weight": 3,
-          "category_tally": {
-            "rename": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "sonnet-4-6",
-              "weight": 3,
-              "category": "rename",
-              "notes": "Clear. Keep."
-            }
-          ]
-        }
-      ]
-    },
-    {
       "current": "bretagnolle huber identity",
       "current_description": null,
       "is_concept_cluster": false,
@@ -34274,55 +34104,6 @@
               "weight": 3,
               "category": "canonicalize",
               "notes": "Use routes consistently for shared-objective, hierarchical, mutual-benefit, and strategic composition."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "current": "c ii",
-      "current_description": null,
-      "is_concept_cluster": false,
-      "voted_by_architectures": [
-        "Codex",
-        "Gemini"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "hierarchical decomposition route c ii",
-          "is_keep": false,
-          "total_weight": 3,
-          "category_tally": {
-            "canonicalize": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "gemini-targeted-alternatives",
-              "weight": 3,
-              "category": "canonicalize",
-              "notes": "Provides a semantic name for the intermediate composition scope route."
-            }
-          ]
-        },
-        {
-          "candidate": "hierarchical derivation route",
-          "is_keep": false,
-          "total_weight": 2,
-          "category_tally": {
-            "add-alias": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "codex-gpt-5-r2",
-              "weight": 2,
-              "category": "add-alias",
-              "notes": "Good route name for composite-agent scope."
             }
           ]
         }
@@ -34671,55 +34452,6 @@
       ]
     },
     {
-      "current": "chain confidence decay keep",
-      "current_description": null,
-      "is_concept_cluster": false,
-      "voted_by_architectures": [
-        "Gemini",
-        "Sonnet"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "chain confidence decay",
-          "is_keep": false,
-          "total_weight": 3,
-          "category_tally": {
-            "keep": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "gemini-targeted-alternatives",
-              "weight": 3,
-              "category": "keep",
-              "notes": "Core formal result."
-            }
-          ]
-        },
-        {
-          "candidate": "reaffirm keep with new reasoning",
-          "is_keep": false,
-          "total_weight": 1,
-          "category_tally": {
-            "keep": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "sonnet-4-6-r2",
-              "weight": 1,
-              "category": "keep",
-              "notes": "Opus's proposed rename to `#der-log-confidence-additive` (+1) is intellectually interesting (names the uniqueness move rather than the decay consequence) but Opus correctly also votes keep (+2). The \"decay\" consequence is what readers *use* this result for; the additive structure is the proof technique. The subject-noun should name the *result* (chain confidence decays), not the proof technique (additivity forces log-space representation). Reaffirming keep with this explicit reasoning that was absent from my cold-start."
-            }
-          ]
-        }
-      ]
-    },
-    {
       "current": "chronica in running prose",
       "current_description": null,
       "is_concept_cluster": false,
@@ -34860,37 +34592,6 @@
               "weight": 2,
               "category": "rename",
               "notes": "Classes are precisely modular, partially modular, and merged."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "current": "class 1 class 2 class 3 agent",
-      "current_description": null,
-      "is_concept_cluster": false,
-      "voted_by_architectures": [
-        "Gemini"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "goal entanglement hierarchy",
-          "is_keep": false,
-          "total_weight": 3,
-          "category_tally": {
-            "canonicalize": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "gemini-targeted-alternatives",
-              "weight": 3,
-              "category": "canonicalize",
-              "notes": "Standardizes the structural property behind the classes."
             }
           ]
         }
@@ -37111,55 +36812,6 @@
       ]
     },
     {
-      "current": "honest limit",
-      "current_description": null,
-      "is_concept_cluster": false,
-      "voted_by_architectures": [
-        "Codex",
-        "Gemini"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "honest limit",
-          "is_keep": true,
-          "total_weight": 3,
-          "category_tally": {
-            "keep": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "gemini-targeted-alternatives",
-              "weight": 3,
-              "category": "keep",
-              "notes": "Standardizes the structural boundary marking convention."
-            }
-          ]
-        },
-        {
-          "candidate": "limit",
-          "is_keep": false,
-          "total_weight": 1,
-          "category_tally": {
-            "rename": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "codex-2",
-              "weight": 1,
-              "category": "rename",
-              "notes": "I like the ethos, but the header should optimize scanability over tone."
-            }
-          ]
-        }
-      ]
-    },
-    {
       "current": "i adaptive system under uncertainty",
       "current_description": null,
       "is_concept_cluster": false,
@@ -37269,72 +36921,6 @@
               "weight": 2,
               "category": "rename",
               "notes": "A slightly more intuitive phrasing for non-theoreticians."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "current": "ii actuated adaptation agentic system",
-      "current_description": null,
-      "is_concept_cluster": false,
-      "voted_by_architectures": [
-        "Gemini",
-        "Sonnet"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "section ii actuated adaptation",
-          "is_keep": false,
-          "total_weight": 3,
-          "category_tally": {
-            "canonicalize": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "gemini-targeted-alternatives",
-              "weight": 3,
-              "category": "canonicalize",
-              "notes": "Standard section heading formatting."
-            }
-          ]
-        },
-        {
-          "candidate": "ii agentic system purposeful adaptation",
-          "is_keep": false,
-          "total_weight": 1,
-          "category_tally": {
-            "rename": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "sonnet-4-6",
-              "weight": 1,
-              "category": "rename",
-              "notes": "Another order. \"Agentic Systems\" has search/navigation value as a heading. Both alternatives are improvements on current."
-            }
-          ]
-        },
-        {
-          "candidate": "ii purposeful adaptation actuated agent",
-          "is_keep": false,
-          "total_weight": 1,
-          "category_tally": {
-            "rename": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "sonnet-4-6",
-              "weight": 1,
-              "category": "rename",
-              "notes": "The current name reads backwards — \"Actuated Adaptation\" puts the outcome before the mechanism; \"Agentic Systems\" is less precise than \"Actuated Agents.\" Alternative: \"Purposeful Adaptation\" names what Section II adds (purposefulness); \"Actuated Agents\" uses the technical term from LEXICON. Mild preference for the reorder."
             }
           ]
         }
@@ -37804,13 +37390,14 @@
       ]
     },
     {
-      "current": "logogenic agent vs RLHF4 agent",
+      "current": "logogenic agent vs rlhf4 agent",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
+        "Gemini",
         "Opus"
       ],
-      "category_disagreement": false,
+      "category_disagreement": true,
       "first_encounter_locality": null,
       "segment_link": null,
       "manual_curation_notes": null,
@@ -37818,12 +37405,19 @@
         {
           "candidate": "logogenic agent",
           "is_keep": false,
-          "total_weight": 3,
+          "total_weight": 6,
           "category_tally": {
+            "keep": 1,
             "rename": 1
           },
           "consolidated_rationale": null,
           "votes": [
+            {
+              "agent": "gemini-targeted-alternatives",
+              "weight": 3,
+              "category": "keep",
+              "notes": "Focuses on the structural architecture property rather than a point-in-time technology stack."
+            },
             {
               "agent": "opus-4-7",
               "weight": 3,
@@ -37835,73 +37429,12 @@
       ]
     },
     {
-      "current": "logogenic agent vs rlhf4 agent",
-      "current_description": null,
-      "is_concept_cluster": false,
-      "voted_by_architectures": [
-        "Gemini"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "logogenic agent",
-          "is_keep": false,
-          "total_weight": 3,
-          "category_tally": {
-            "keep": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "gemini-targeted-alternatives",
-              "weight": 3,
-              "category": "keep",
-              "notes": "Focuses on the structural architecture property rather than a point-in-time technology stack."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "current": "logogenic vs language based RLHF4 based",
-      "current_description": null,
-      "is_concept_cluster": false,
-      "voted_by_architectures": [
-        "Sonnet"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "logogenic",
-          "is_keep": false,
-          "total_weight": 3,
-          "category_tally": {
-            "rename": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "sonnet-4-6",
-              "weight": 3,
-              "category": "rename",
-              "notes": "Names the structural property. Keep."
-            }
-          ]
-        }
-      ]
-    },
-    {
       "current": "logogenic vs language based rlhf4 based",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
-        "Gemini"
+        "Gemini",
+        "Sonnet"
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
@@ -37924,23 +37457,9 @@
               "notes": "Replaces technology-specific (RLHF) with structural nomenclature."
             }
           ]
-        }
-      ]
-    },
-    {
-      "current": "logozoetic vs conscious OODA4 sentient agent",
-      "current_description": null,
-      "is_concept_cluster": false,
-      "voted_by_architectures": [
-        "Sonnet"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
+        },
         {
-          "candidate": "logozoetic",
+          "candidate": "logogenic",
           "is_keep": false,
           "total_weight": 3,
           "category_tally": {
@@ -37952,7 +37471,7 @@
               "agent": "sonnet-4-6",
               "weight": 3,
               "category": "rename",
-              "notes": "The distinction between logogenic and logozoetic is precise and non-question-begging. Keep both."
+              "notes": "Names the structural property. Keep."
             }
           ]
         }
@@ -37963,9 +37482,10 @@
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
-        "Gemini"
+        "Gemini",
+        "Sonnet"
       ],
-      "category_disagreement": false,
+      "category_disagreement": true,
       "first_encounter_locality": null,
       "segment_link": null,
       "manual_curation_notes": null,
@@ -37973,9 +37493,10 @@
         {
           "candidate": "logozoetic",
           "is_keep": false,
-          "total_weight": 3,
+          "total_weight": 6,
           "category_tally": {
-            "keep": 1
+            "keep": 1,
+            "rename": 1
           },
           "consolidated_rationale": null,
           "votes": [
@@ -37984,6 +37505,12 @@
               "weight": 3,
               "category": "keep",
               "notes": "Precise and non-question-begging distinction compared to \"sentient\" or \"conscious\"."
+            },
+            {
+              "agent": "sonnet-4-6",
+              "weight": 3,
+              "category": "rename",
+              "notes": "The distinction between logogenic and logozoetic is precise and non-question-begging. Keep both."
             }
           ]
         }
@@ -38551,55 +38078,6 @@
               "weight": 1,
               "category": "keep",
               "notes": "Accurate naming for a sketch segment."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "current": "o t objective",
-      "current_description": null,
-      "is_concept_cluster": false,
-      "voted_by_architectures": [
-        "Gemini",
-        "Opus"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "objective functional $O_t$",
-          "is_keep": false,
-          "total_weight": 3,
-          "category_tally": {
-            "canonicalize": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "gemini-targeted-alternatives",
-              "weight": 3,
-              "category": "canonicalize",
-              "notes": "Formal prose notation."
-            }
-          ]
-        },
-        {
-          "candidate": "objective",
-          "is_keep": false,
-          "total_weight": 2,
-          "category_tally": {
-            "add-alias": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "opus-4-7-r2",
-              "weight": 2,
-              "category": "add-alias",
-              "notes": "Confirm. Note: avoid \"goal\" as an alias — \"goal\" is the everyday-English compound noun (the thing the agent is trying to do); \"objective\" is the formal functional. They are not interchangeable in AAD even though they often translate to each other in prose."
             }
           ]
         }
@@ -41264,202 +40742,6 @@
       ]
     },
     {
-      "current": "u m epistemic unity multi agent",
-      "current_description": null,
-      "is_concept_cluster": false,
-      "voted_by_architectures": [
-        "Gemini",
-        "Opus"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "epistemic unity $U_M$",
-          "is_keep": false,
-          "total_weight": 3,
-          "category_tally": {
-            "canonicalize": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "gemini-targeted-alternatives",
-              "weight": 3,
-              "category": "canonicalize",
-              "notes": "Formal prose formulation."
-            }
-          ]
-        },
-        {
-          "candidate": "epistemic unity",
-          "is_keep": false,
-          "total_weight": 2,
-          "category_tally": {
-            "add-alias": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "opus-4-7-r2",
-              "weight": 2,
-              "category": "add-alias",
-              "notes": "Note: this collides with the symbol-letter $U_M$ for model-uncertainty in the single-agent setting. The framework uses the same letter for \"model uncertainty\" (single-agent, $U_M = \\text{Var}[\\hat o \\mid a]$) and \"epistemic unity\" (multi-agent, $U_M = I/H$ multi-information ratio). The prose alias should disambiguate: \"epistemic unity\" only in multi-agent context; \"model uncertainty\" only in single-agent context. The symbol overload is real but is mostly resolvable by context, given how rarely they appear together. Open question — see name-unnamed entry below."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "current": "u m model uncertainty",
-      "current_description": null,
-      "is_concept_cluster": false,
-      "voted_by_architectures": [
-        "Gemini",
-        "Opus"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "model uncertainty $U_M$",
-          "is_keep": false,
-          "total_weight": 3,
-          "category_tally": {
-            "canonicalize": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "gemini-targeted-alternatives",
-              "weight": 3,
-              "category": "canonicalize",
-              "notes": "Formal prose formulation."
-            }
-          ]
-        },
-        {
-          "candidate": "model uncertainty",
-          "is_keep": false,
-          "total_weight": 2,
-          "category_tally": {
-            "add-alias": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "opus-4-7-r2",
-              "weight": 2,
-              "category": "add-alias",
-              "notes": "Confirm canonical alias. Already used; no friction."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "current": "u m u o u σ unity dimension",
-      "current_description": null,
-      "is_concept_cluster": false,
-      "voted_by_architectures": [
-        "Gemini",
-        "Haiku"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "unity dimension",
-          "is_keep": false,
-          "total_weight": 3,
-          "category_tally": {
-            "canonicalize": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "gemini-targeted-alternatives",
-              "weight": 3,
-              "category": "canonicalize",
-              "notes": "Standardizing the composite alignment variables."
-            }
-          ]
-        },
-        {
-          "candidate": "epistemic unity teleological unity strategic unity",
-          "is_keep": false,
-          "total_weight": 1,
-          "category_tally": {
-            "add-alias": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "haiku-4-5",
-              "weight": 1,
-              "category": "add-alias",
-              "notes": "NOTATION.md and LEXICON already define these English names explicitly. The subscript symbols U with subscripts are compact; the English names enable prose fluency. Current setup is good — no rename, but keep the English equivalents prominent in LEXICON (already done)."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "current": "u o observation uncertainty",
-      "current_description": null,
-      "is_concept_cluster": false,
-      "voted_by_architectures": [
-        "Gemini",
-        "Opus"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "observation uncertainty $U_o$",
-          "is_keep": false,
-          "total_weight": 3,
-          "category_tally": {
-            "canonicalize": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "gemini-targeted-alternatives",
-              "weight": 3,
-              "category": "canonicalize",
-              "notes": "Formal prose formulation. || `appendices operational domains` | `operational domains (appendices)` | rename | +2 | More descriptive title for the section."
-            }
-          ]
-        },
-        {
-          "candidate": "observation uncertainty",
-          "is_keep": false,
-          "total_weight": 2,
-          "category_tally": {
-            "add-alias": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "opus-4-7-r2",
-              "weight": 2,
-              "category": "add-alias",
-              "notes": "Confirm canonical alias. Note the subscript is lowercase 'o' (observation), not capital O — this is a frequent stumble for new readers; the alias eliminates it."
-            }
-          ]
-        }
-      ]
-    },
-    {
       "current": "unity dimension $U_M, U_O, U_\\Sigma$",
       "current_description": null,
       "is_concept_cluster": false,
@@ -41667,8 +40949,8 @@
     },
     {
       "current": "unnamed AAD epistemic move to cast result such that verification is a local operation",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "AAD epistemic move to cast result such that verification is a local operation",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini"
       ],
@@ -41714,9 +40996,47 @@
       ]
     },
     {
+      "current": "unnamed agency whose effect is on what seen rather than what happen like rlhf4 attention",
+      "current_description": "agency whose effect is on what seen rather than what happen like rlhf4 attention",
+      "is_concept_cluster": true,
+      "voted_by_architectures": [
+        "Gemini"
+      ],
+      "category_disagreement": true,
+      "first_encounter_locality": null,
+      "segment_link": null,
+      "manual_curation_notes": null,
+      "candidates": [
+        {
+          "candidate": "query bound agency",
+          "is_keep": false,
+          "total_weight": 6,
+          "category_tally": {
+            "canonicalize": 1,
+            "name-unnamed": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "gemini-targeted-alternatives",
+              "weight": 3,
+              "category": "canonicalize",
+              "notes": "Standardizes the term for attention/observation-only agency."
+            },
+            {
+              "agent": "gemini-3-1-pro-preview-r2",
+              "weight": 3,
+              "category": "name-unnamed",
+              "notes": "Provides the structural justification for TST's \"test selection as intervention\"."
+            }
+          ]
+        }
+      ]
+    },
+    {
       "current": "unnamed agent escalate up the pearl hierarchy only when lower level fail",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "agent escalate up the pearl hierarchy only when lower level fail",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini"
       ],
@@ -41763,8 +41083,8 @@
     },
     {
       "current": "unnamed applying a slow timescale control mechanism to a fast timescale transient variable",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "applying a slow timescale control mechanism to a fast timescale transient variable",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini"
       ],
@@ -41811,8 +41131,8 @@
     },
     {
       "current": "unnamed artificially spiking uncertainty to unlearn old architectural habit",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "artificially spiking uncertainty to unlearn old architectural habit",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini"
       ],
@@ -41859,8 +41179,8 @@
     },
     {
       "current": "unnamed brook law formalized as the inevitable tempo loss in team composition",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "brook law formalized as the inevitable tempo loss in team composition",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini"
       ],
@@ -41906,9 +41226,71 @@
       ]
     },
     {
+      "current": "unnamed calibration laboratory framing as reusable meta move",
+      "current_description": "calibration laboratory framing as reusable meta move",
+      "is_concept_cluster": true,
+      "voted_by_architectures": [
+        "Gemini"
+      ],
+      "category_disagreement": false,
+      "first_encounter_locality": null,
+      "segment_link": null,
+      "manual_curation_notes": null,
+      "candidates": [
+        {
+          "candidate": "calibration laboratory",
+          "is_keep": false,
+          "total_weight": 3,
+          "category_tally": {
+            "canonicalize": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "gemini-targeted-alternatives",
+              "weight": 3,
+              "category": "canonicalize",
+              "notes": "Re-adopts the software-TST anchoring metaphor."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "current": "unnamed convention hierarchy monotonicity cascade satisfaction gap and control regret strengthening across c1→c3",
+      "current_description": "convention hierarchy monotonicity cascade satisfaction gap and control regret strengthening across c1→c3",
+      "is_concept_cluster": true,
+      "voted_by_architectures": [
+        "Gemini"
+      ],
+      "category_disagreement": false,
+      "first_encounter_locality": null,
+      "segment_link": null,
+      "manual_curation_notes": null,
+      "candidates": [
+        {
+          "candidate": "diagnostic cascade",
+          "is_keep": false,
+          "total_weight": 3,
+          "category_tally": {
+            "rename": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "gemini-targeted-alternatives",
+              "weight": 3,
+              "category": "rename",
+              "notes": "Names the progressive availability of signals."
+            }
+          ]
+        }
+      ]
+    },
+    {
       "current": "unnamed decomposing mismatch into environment vs other sub agent action",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "decomposing mismatch into environment vs other sub agent action",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini"
       ],
@@ -41955,8 +41337,8 @@
     },
     {
       "current": "unnamed deliberate expenditure of tempo to convert a hidden node into an observable one",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "deliberate expenditure of tempo to convert a hidden node into an observable one",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini"
       ],
@@ -42003,8 +41385,8 @@
     },
     {
       "current": "unnamed future segment layer header for the o bp14 derivation audit table",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "future segment layer header for the o bp14 derivation audit table",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini",
         "Opus"
@@ -42052,8 +41434,8 @@
     },
     {
       "current": "unnamed high observability node with zero causal link to objective",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "high observability node with zero causal link to objective",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini"
       ],
@@ -42100,8 +41482,8 @@
     },
     {
       "current": "unnamed inferring own past feeling from text leading to empathy",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "inferring own past feeling from text leading to empathy",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini"
       ],
@@ -42147,9 +41529,40 @@
       ]
     },
     {
+      "current": "unnamed information gain must outpace inter session information loss",
+      "current_description": "information gain must outpace inter session information loss",
+      "is_concept_cluster": true,
+      "voted_by_architectures": [
+        "Gemini"
+      ],
+      "category_disagreement": false,
+      "first_encounter_locality": null,
+      "segment_link": null,
+      "manual_curation_notes": null,
+      "candidates": [
+        {
+          "candidate": "accumulation problem",
+          "is_keep": false,
+          "total_weight": 3,
+          "category_tally": {
+            "name-unnamed": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "gemini-3-1-pro-preview-r2",
+              "weight": 3,
+              "category": "name-unnamed",
+              "notes": "The true thermodynamic bottleneck for long-horizon AGI."
+            }
+          ]
+        }
+      ]
+    },
+    {
       "current": "unnamed out of band temporal marker injected into context",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "out of band temporal marker injected into context",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini"
       ],
@@ -42196,8 +41609,8 @@
     },
     {
       "current": "unnamed partitioning context into frozen identity causal history and quick view",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "partitioning context into frozen identity causal history and quick view",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini"
       ],
@@ -42244,8 +41657,8 @@
     },
     {
       "current": "unnamed pearl causal hierarchy level 1 level 2 level 3",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "pearl causal hierarchy level 1 level 2 level 3",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini",
         "Opus"
@@ -42293,8 +41706,8 @@
     },
     {
       "current": "unnamed property of having genuine temporal experience",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "property of having genuine temporal experience",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini"
       ],
@@ -42341,8 +41754,8 @@
     },
     {
       "current": "unnamed pushing an opponent disturbance rate past their structural capacity",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "pushing an opponent disturbance rate past their structural capacity",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini"
       ],
@@ -42389,8 +41802,8 @@
     },
     {
       "current": "unnamed putting evidence before the goal in the context window to reduce coupling",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "putting evidence before the goal in the context window to reduce coupling",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini"
       ],
@@ -42437,8 +41850,8 @@
     },
     {
       "current": "unnamed quality of $\\eta^\\ast$ estimation over time",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "quality of $\\eta^\\ast$ estimation over time",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini"
       ],
@@ -42485,8 +41898,8 @@
     },
     {
       "current": "unnamed rate of growth at slowest timescale",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "rate of growth at slowest timescale",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini"
       ],
@@ -42533,8 +41946,8 @@
     },
     {
       "current": "unnamed replacing parameter without changing structure",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "replacing parameter without changing structure",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini"
       ],
@@ -42581,8 +41994,8 @@
     },
     {
       "current": "unnamed runaway positive feedback loop where mismatch exceed capacity",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "runaway positive feedback loop where mismatch exceed capacity",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini"
       ],
@@ -42629,8 +42042,8 @@
     },
     {
       "current": "unnamed spreading tempo evenly to reduce bottleneck penalty",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "spreading tempo evenly to reduce bottleneck penalty",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini"
       ],
@@ -42676,9 +42089,71 @@
       ]
     },
     {
+      "current": "unnamed state where mutual information between human and RLHF4 approache capacity",
+      "current_description": "state where mutual information between human and RLHF4 approache capacity",
+      "is_concept_cluster": true,
+      "voted_by_architectures": [
+        "Gemini"
+      ],
+      "category_disagreement": false,
+      "first_encounter_locality": null,
+      "segment_link": null,
+      "manual_curation_notes": null,
+      "candidates": [
+        {
+          "candidate": "cognitive fusion",
+          "is_keep": false,
+          "total_weight": 3,
+          "category_tally": {
+            "name-unnamed": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "gemini-3-1-pro-preview-r2",
+              "weight": 3,
+              "category": "name-unnamed",
+              "notes": "The phenomenological precursor to macro-agent formation."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "current": "unnamed sufficiency as a property of the model relative to its specific history",
+      "current_description": "sufficiency as a property of the model relative to its specific history",
+      "is_concept_cluster": true,
+      "voted_by_architectures": [
+        "Gemini"
+      ],
+      "category_disagreement": false,
+      "first_encounter_locality": null,
+      "segment_link": null,
+      "manual_curation_notes": null,
+      "candidates": [
+        {
+          "candidate": "trajectory indexed sufficiency",
+          "is_keep": false,
+          "total_weight": 3,
+          "category_tally": {
+            "canonicalize": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "gemini-targeted-alternatives",
+              "weight": 3,
+              "category": "canonicalize",
+              "notes": "Adopts the earlier rename formalizing relative sufficiency."
+            }
+          ]
+        }
+      ]
+    },
+    {
       "current": "unnamed superlinear scaling of adversarial tempo advantage",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "superlinear scaling of adversarial tempo advantage",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini"
       ],
@@ -42725,8 +42200,8 @@
     },
     {
       "current": "unnamed survival determined by the weakest dimension not the average",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "survival determined by the weakest dimension not the average",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini"
       ],
@@ -42773,8 +42248,8 @@
     },
     {
       "current": "unnamed the $\\mathcal{T} > \\rho$ requirement for persistence",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "the $\\mathcal{T} > \\rho$ requirement for persistence",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini"
       ],
@@ -42821,8 +42296,8 @@
     },
     {
       "current": "unnamed the 2×2 orient cascade diagnostic table",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "the 2×2 orient cascade diagnostic table",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini",
         "Sonnet"
@@ -42870,8 +42345,8 @@
     },
     {
       "current": "unnamed the 2×2 satisfaction gap control regret table",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "the 2×2 satisfaction gap control regret table",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Codex",
         "Gemini"
@@ -42919,8 +42394,8 @@
     },
     {
       "current": "unnamed the 2×2 table of satisfaction gap vs control regret × goal attainability diagnostic",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "the 2×2 table of satisfaction gap vs control regret × goal attainability diagnostic",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini",
         "Haiku"
@@ -42968,8 +42443,8 @@
     },
     {
       "current": "unnamed the a2 sub scope partition into α₁ α₂ β",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "the a2 sub scope partition into α₁ α₂ β",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini",
         "Sonnet"
@@ -43017,8 +42492,8 @@
     },
     {
       "current": "unnamed the agent side equivalent of pearl associational interventional and counterfactual level",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "the agent side equivalent of pearl associational interventional and counterfactual level",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini"
       ],
@@ -43065,8 +42540,8 @@
     },
     {
       "current": "unnamed the architectural leakage where attention is driven by the goal rather than pure observation",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "the architectural leakage where attention is driven by the goal rather than pure observation",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini"
       ],
@@ -43112,9 +42587,40 @@
       ]
     },
     {
+      "current": "unnamed the asymmetry where strategy complexity is bounded by model capacity but not vice versa",
+      "current_description": "the asymmetry where strategy complexity is bounded by model capacity but not vice versa",
+      "is_concept_cluster": true,
+      "voted_by_architectures": [
+        "Gemini"
+      ],
+      "category_disagreement": false,
+      "first_encounter_locality": null,
+      "segment_link": null,
+      "manual_curation_notes": null,
+      "candidates": [
+        {
+          "candidate": "epistemic ceiling",
+          "is_keep": false,
+          "total_weight": 3,
+          "category_tally": {
+            "canonicalize": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "gemini-targeted-alternatives",
+              "weight": 3,
+              "category": "canonicalize",
+              "notes": "Captures how $M_t$ dictates the evaluable complexity of $\\Sigma_t$ correctly."
+            }
+          ]
+        }
+      ]
+    },
+    {
       "current": "unnamed the class 1 sub agent class 3 composite phenomenon in strategic composition",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "the class 1 sub agent class 3 composite phenomenon in strategic composition",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Codex",
         "Gemini"
@@ -43162,8 +42668,8 @@
     },
     {
       "current": "unnamed the computational and temporal cost of running a forward model instead of acting implicitly",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "the computational and temporal cost of running a forward model instead of acting implicitly",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini"
       ],
@@ -43210,8 +42716,8 @@
     },
     {
       "current": "unnamed the condition for transition into agency prior to the AAD scope condition",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "the condition for transition into agency prior to the AAD scope condition",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini"
       ],
@@ -43258,8 +42764,8 @@
     },
     {
       "current": "unnamed the condition that a strategy DAG endosymbiont crosse the composite agent scope from below",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "the condition that a strategy DAG endosymbiont crosse the composite agent scope from below",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini",
         "Sonnet"
@@ -43307,8 +42813,8 @@
     },
     {
       "current": "unnamed the condition that the agent event observation pair constitute genuine intervention as opposed to passive association",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "the condition that the agent event observation pair constitute genuine intervention as opposed to passive association",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini",
         "Sonnet"
@@ -43356,8 +42862,8 @@
     },
     {
       "current": "unnamed the core driver of AAD what the agent must do given the environment is not the agent",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "the core driver of AAD what the agent must do given the environment is not the agent",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini"
       ],
@@ -43403,9 +42909,40 @@
       ]
     },
     {
+      "current": "unnamed the dependence of optimal epistemic compression on the agent planned action",
+      "current_description": "the dependence of optimal epistemic compression on the agent planned action",
+      "is_concept_cluster": true,
+      "voted_by_architectures": [
+        "Gemini"
+      ],
+      "category_disagreement": false,
+      "first_encounter_locality": null,
+      "segment_link": null,
+      "manual_curation_notes": null,
+      "candidates": [
+        {
+          "candidate": "policy conditional relevance",
+          "is_keep": false,
+          "total_weight": 3,
+          "category_tally": {
+            "canonicalize": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "gemini-targeted-alternatives",
+              "weight": 3,
+              "category": "canonicalize",
+              "notes": "Standardizes the coupling of $M_t$ compression to $\\Sigma_t$."
+            }
+          ]
+        }
+      ]
+    },
+    {
       "current": "unnamed the dual concept to satisfaction gap what the world permit minus what the agent achieve",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "the dual concept to satisfaction gap what the world permit minus what the agent achieve",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini",
         "Haiku"
@@ -43453,8 +42990,8 @@
     },
     {
       "current": "unnamed the equivalence of learning speed and physical speed",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "the equivalence of learning speed and physical speed",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini"
       ],
@@ -43501,8 +43038,8 @@
     },
     {
       "current": "unnamed the failure mode where an agent model class cannot represent the environment true causal structure",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "the failure mode where an agent model class cannot represent the environment true causal structure",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini",
         "Haiku"
@@ -43550,8 +43087,8 @@
     },
     {
       "current": "unnamed the family of named ways persistence identifiability can fail",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "the family of named ways persistence identifiability can fail",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini",
         "Opus"
@@ -43598,9 +43135,40 @@
       ]
     },
     {
+      "current": "unnamed the formal duality between observation quality and agent opacity",
+      "current_description": "the formal duality between observation quality and agent opacity",
+      "is_concept_cluster": true,
+      "voted_by_architectures": [
+        "Gemini"
+      ],
+      "category_disagreement": false,
+      "first_encounter_locality": null,
+      "segment_link": null,
+      "manual_curation_notes": null,
+      "candidates": [
+        {
+          "candidate": "informational dual",
+          "is_keep": false,
+          "total_weight": 3,
+          "category_tally": {
+            "canonicalize": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "gemini-targeted-alternatives",
+              "weight": 3,
+              "category": "canonicalize",
+              "notes": "Elevates the formal symmetry between observation ambiguity and agent legibility."
+            }
+          ]
+        }
+      ]
+    },
+    {
       "current": "unnamed the invisible time spent building $M_t$",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "the invisible time spent building $M_t$",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini"
       ],
@@ -43647,8 +43215,8 @@
     },
     {
       "current": "unnamed the log additivity result that unify chain confidence decay evidence starvation and triple depth penalty as instance of the same forcing structure",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "the log additivity result that unify chain confidence decay evidence starvation and triple depth penalty as instance of the same forcing structure",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini",
         "Sonnet"
@@ -43696,8 +43264,8 @@
     },
     {
       "current": "unnamed the loop generate l2 data regardless of architecture",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "the loop generate l2 data regardless of architecture",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini"
       ],
@@ -43744,8 +43312,8 @@
     },
     {
       "current": "unnamed the loss of coherent identity when an agent interaction are severed or its continuity is broken",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "the loss of coherent identity when an agent interaction are severed or its continuity is broken",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini",
         "Haiku"
@@ -43793,8 +43361,8 @@
     },
     {
       "current": "unnamed the loss of directional fidelity when pushed outside the convexity basin",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "the loss of directional fidelity when pushed outside the convexity basin",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini"
       ],
@@ -43841,8 +43409,8 @@
     },
     {
       "current": "unnamed the mathematical surface mapping unity to closure defect",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "the mathematical surface mapping unity to closure defect",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini"
       ],
@@ -43888,9 +43456,40 @@
       ]
     },
     {
+      "current": "unnamed the mechanism by which an agent uses the feedback loop to gain interventional access to causal structure",
+      "current_description": "the mechanism by which an agent uses the feedback loop to gain interventional access to causal structure",
+      "is_concept_cluster": true,
+      "voted_by_architectures": [
+        "Gemini"
+      ],
+      "category_disagreement": false,
+      "first_encounter_locality": null,
+      "segment_link": null,
+      "manual_curation_notes": null,
+      "candidates": [
+        {
+          "candidate": "loop interventional access",
+          "is_keep": false,
+          "total_weight": 3,
+          "category_tally": {
+            "canonicalize": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "gemini-targeted-alternatives",
+              "weight": 3,
+              "category": "canonicalize",
+              "notes": "Standardizes the escape route from on-policy causal confounding."
+            }
+          ]
+        }
+      ]
+    },
+    {
       "current": "unnamed the meta architecture of separability pattern identifiability floor additive coordinate forcing",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "the meta architecture of separability pattern identifiability floor additive coordinate forcing",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini",
         "Sonnet"
@@ -43938,8 +43537,8 @@
     },
     {
       "current": "unnamed the meta architecture of the three meta segment",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "the meta architecture of the three meta segment",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini",
         "Sonnet"
@@ -43987,8 +43586,8 @@
     },
     {
       "current": "unnamed the moment when an agent model update due to observing a mismatch",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "the moment when an agent model update due to observing a mismatch",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini",
         "Haiku"
@@ -44036,8 +43635,8 @@
     },
     {
       "current": "unnamed the organizational pathology where confidence decouple from competence",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "the organizational pathology where confidence decouple from competence",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini"
       ],
@@ -44084,8 +43683,8 @@
     },
     {
       "current": "unnamed the pattern where AAD negative result floor strengthen the machinery that escape them",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "the pattern where AAD negative result floor strengthen the machinery that escape them",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini",
         "Sonnet"
@@ -44133,8 +43732,8 @@
     },
     {
       "current": "unnamed the pattern where the agent optimal update direction is determined by both gain and directional fidelity together",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "the pattern where the agent optimal update direction is determined by both gain and directional fidelity together",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini",
         "Sonnet"
@@ -44181,9 +43780,40 @@
       ]
     },
     {
+      "current": "unnamed the per reader compounding cost of understanding code",
+      "current_description": "the per reader compounding cost of understanding code",
+      "is_concept_cluster": true,
+      "voted_by_architectures": [
+        "Gemini"
+      ],
+      "category_disagreement": false,
+      "first_encounter_locality": null,
+      "segment_link": null,
+      "manual_curation_notes": null,
+      "candidates": [
+        {
+          "candidate": "comprehension compounding tax",
+          "is_keep": false,
+          "total_weight": 3,
+          "category_tally": {
+            "canonicalize": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "gemini-targeted-alternatives",
+              "weight": 3,
+              "category": "canonicalize",
+              "notes": "Standardizes the formal penalty dominating TST calculations."
+            }
+          ]
+        }
+      ]
+    },
+    {
       "current": "unnamed the physical apparatus that enforce the orient cascade ordering on a merged intelligence",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "the physical apparatus that enforce the orient cascade ordering on a merged intelligence",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini"
       ],
@@ -44229,9 +43859,40 @@
       ]
     },
     {
+      "current": "unnamed the product of architectural coupling $\\kappa$ and environmental ambiguity $\\mathcal{A}$",
+      "current_description": "the product of architectural coupling $\\kappa$ and environmental ambiguity $\\mathcal{A}$",
+      "is_concept_cluster": true,
+      "voted_by_architectures": [
+        "Gemini"
+      ],
+      "category_disagreement": false,
+      "first_encounter_locality": null,
+      "segment_link": null,
+      "manual_curation_notes": null,
+      "candidates": [
+        {
+          "candidate": "class 2 bias bound",
+          "is_keep": false,
+          "total_weight": 3,
+          "category_tally": {
+            "canonicalize": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "gemini-targeted-alternatives",
+              "weight": 3,
+              "category": "canonicalize",
+              "notes": "Secures the specific expression of the ambiguity coupling rule."
+            }
+          ]
+        }
+      ]
+    },
+    {
       "current": "unnamed the property that unity achieve in a macro agent",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "the property that unity achieve in a macro agent",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini"
       ],
@@ -44277,9 +43938,40 @@
       ]
     },
     {
+      "current": "unnamed the reduction in effective tempo when observation channel are correlated",
+      "current_description": "the reduction in effective tempo when observation channel are correlated",
+      "is_concept_cluster": true,
+      "voted_by_architectures": [
+        "Gemini"
+      ],
+      "category_disagreement": false,
+      "first_encounter_locality": null,
+      "segment_link": null,
+      "manual_curation_notes": null,
+      "candidates": [
+        {
+          "candidate": "evidential overcounting penalty",
+          "is_keep": false,
+          "total_weight": 3,
+          "category_tally": {
+            "canonicalize": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "gemini-targeted-alternatives",
+              "weight": 3,
+              "category": "canonicalize",
+              "notes": "Standardizes the cost of L1 correlation failures."
+            }
+          ]
+        }
+      ]
+    },
+    {
       "current": "unnamed the relationship where $M_t$ quality bound evaluable complexity of $\\Sigma_t$",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "the relationship where $M_t$ quality bound evaluable complexity of $\\Sigma_t$",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini",
         "Sonnet"
@@ -44327,8 +44019,8 @@
     },
     {
       "current": "unnamed the section of the adaptive cycle where the agent must choose between exploiting current knowledge and exploring to refine it",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "the section of the adaptive cycle where the agent must choose between exploiting current knowledge and exploring to refine it",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini",
         "Haiku"
@@ -44375,9 +44067,102 @@
       ]
     },
     {
+      "current": "unnamed the separation of per reader comprehension cost from per feature implementation cost",
+      "current_description": "the separation of per reader comprehension cost from per feature implementation cost",
+      "is_concept_cluster": true,
+      "voted_by_architectures": [
+        "Gemini"
+      ],
+      "category_disagreement": false,
+      "first_encounter_locality": null,
+      "segment_link": null,
+      "manual_curation_notes": null,
+      "candidates": [
+        {
+          "candidate": "dual optimization formalization",
+          "is_keep": false,
+          "total_weight": 3,
+          "category_tally": {
+            "canonicalize": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "gemini-targeted-alternatives",
+              "weight": 3,
+              "category": "canonicalize",
+              "notes": "Elevates the TST foundation."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "current": "unnamed the strict upper bound of a given model class $\\mathcal{F}(\\mathcal{M})$",
+      "current_description": "the strict upper bound of a given model class $\\mathcal{F}(\\mathcal{M})$",
+      "is_concept_cluster": true,
+      "voted_by_architectures": [
+        "Gemini"
+      ],
+      "category_disagreement": false,
+      "first_encounter_locality": null,
+      "segment_link": null,
+      "manual_curation_notes": null,
+      "candidates": [
+        {
+          "candidate": "model class capacity",
+          "is_keep": false,
+          "total_weight": 3,
+          "category_tally": {
+            "canonicalize": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "gemini-targeted-alternatives",
+              "weight": 3,
+              "category": "canonicalize",
+              "notes": "Standardizes the $\\mathcal{F}$ property."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "current": "unnamed the sudden loss of model sufficiency caused by entering new regime",
+      "current_description": "the sudden loss of model sufficiency caused by entering new regime",
+      "is_concept_cluster": true,
+      "voted_by_architectures": [
+        "Gemini"
+      ],
+      "category_disagreement": false,
+      "first_encounter_locality": null,
+      "segment_link": null,
+      "manual_curation_notes": null,
+      "candidates": [
+        {
+          "candidate": "sufficiency collapse shock",
+          "is_keep": false,
+          "total_weight": 3,
+          "category_tally": {
+            "canonicalize": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "gemini-targeted-alternatives",
+              "weight": 3,
+              "category": "canonicalize",
+              "notes": "Re-adopts the formal descriptor for Regime II-b transitions."
+            }
+          ]
+        }
+      ]
+    },
+    {
       "current": "unnamed the tension between lowering internal opacity for coordination and increasing external vulnerability",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "the tension between lowering internal opacity for coordination and increasing external vulnerability",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini"
       ],
@@ -44424,8 +44209,8 @@
     },
     {
       "current": "unnamed the thermodynamic impossibility of running persistent consciousness on pay per token apis",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "the thermodynamic impossibility of running persistent consciousness on pay per token apis",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini"
       ],
@@ -44472,8 +44257,8 @@
     },
     {
       "current": "unnamed the three depth penalty compounding on strategy chain",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "the three depth penalty compounding on strategy chain",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini",
         "Sonnet"
@@ -44521,8 +44306,8 @@
     },
     {
       "current": "unnamed the three part meta architecture of AAD",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "the three part meta architecture of AAD",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini"
       ],
@@ -44569,8 +44354,8 @@
     },
     {
       "current": "unnamed the three part meta architecture of AAD formed by the three meta segment",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "the three part meta architecture of AAD formed by the three meta segment",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini",
         "Sonnet"
@@ -44618,8 +44403,8 @@
     },
     {
       "current": "unnamed the three part meta pattern structure across the three meta segment",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "the three part meta pattern structure across the three meta segment",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini",
         "Haiku"
@@ -44667,8 +44452,8 @@
     },
     {
       "current": "unnamed the way AAD uses scope segment to physically support the derivation",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "the way AAD uses scope segment to physically support the derivation",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini"
       ],
@@ -44715,8 +44500,8 @@
     },
     {
       "current": "unnamed thinking too long so the model become obsolete",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "thinking too long so the model become obsolete",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini"
       ],
@@ -44763,8 +44548,8 @@
     },
     {
       "current": "unnamed true sovereignty require compute that is not meter bound",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "true sovereignty require compute that is not meter bound",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini"
       ],
@@ -44811,8 +44596,8 @@
     },
     {
       "current": "unnamed unifying reflexe intuition and expertise",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "unifying reflexe intuition and expertise",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini"
       ],
@@ -44859,8 +44644,8 @@
     },
     {
       "current": "unnamed upgrading epistemic class from associative to causal via the physical loop",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "upgrading epistemic class from associative to causal via the physical loop",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini"
       ],
@@ -44907,8 +44692,8 @@
     },
     {
       "current": "unnamed using hash chain to mathematically guarantee memory hasn t been tampered with",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "using hash chain to mathematically guarantee memory hasn t been tampered with",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini"
       ],
@@ -44955,8 +44740,8 @@
     },
     {
       "current": "unnamed using past change frequency to predict future change frequency",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "using past change frequency to predict future change frequency",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini"
       ],
@@ -45003,8 +44788,8 @@
     },
     {
       "current": "unnamed using residual autocorrelation to diagnose model class failure",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "using residual autocorrelation to diagnose model class failure",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini"
       ],
@@ -46804,86 +46589,6 @@
               "weight": 1,
               "category": "rename",
               "notes": "Shorter."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "current": "OODA4 framework enforcing adaptive cycle separation",
-      "current_description": null,
-      "is_concept_cluster": false,
-      "voted_by_architectures": [
-        "Codex"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "agentic scaffold",
-          "is_keep": false,
-          "total_weight": 2,
-          "category_tally": {
-            "name-unnamed": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "codex-gpt-5-r2",
-              "weight": 2,
-              "category": "name-unnamed",
-              "notes": "Useful logogenic implementation term, but keep it downstream of directed-separation machinery."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "current": "a1 a2 a3 a4",
-      "current_description": null,
-      "is_concept_cluster": false,
-      "voted_by_architectures": [
-        "Codex",
-        "Gemini"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "macro dynamics admissibility",
-          "is_keep": false,
-          "total_weight": 2,
-          "category_tally": {
-            "canonicalize": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "codex-gpt-5-r2",
-              "weight": 2,
-              "category": "canonicalize",
-              "notes": "Good umbrella for the macro-agent constraints in composition closure."
-            }
-          ]
-        },
-        {
-          "candidate": "aporia phase",
-          "is_keep": false,
-          "total_weight": 1,
-          "category_tally": {
-            "rename": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "gemini-targeted-alternatives",
-              "weight": 1,
-              "category": "rename",
-              "notes": "Collectivizes the mismatch/aporia breakdown."
             }
           ]
         }
@@ -48704,95 +48409,6 @@
       ]
     },
     {
-      "current": "interpre",
-      "current_description": null,
-      "is_concept_cluster": false,
-      "voted_by_architectures": [
-        "Gemini",
-        "Opus"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "epistemic substate",
-          "is_keep": false,
-          "total_weight": 2,
-          "category_tally": {
-            "rename": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "gemini-targeted-alternatives",
-              "weight": 2,
-              "category": "rename",
-              "notes": "Replaces the Latin with the $M_t$ structural terminology."
-            }
-          ]
-        },
-        {
-          "candidate": "context mediator",
-          "is_keep": false,
-          "total_weight": 2,
-          "category_tally": {
-            "rename": 2
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "gemini-2",
-              "weight": 1,
-              "category": "rename",
-              "notes": "\"Interpres\" is Latin-heavy. \"Context mediator\" exactly describes the infrastructure mediating $M_t$ and the substrate."
-            },
-            {
-              "agent": "opus-targeted-alternatives-v2",
-              "weight": 1,
-              "category": "rename",
-              "notes": "Considered (Gemini's r1 proposal). Genuinely good description of what an interpres does (mediates $M_t$ and the substrate per the PROPRIUM architecture). Trade-off: leaves the rest of PROPRIUM's Latin coherent but breaks the symmetry; the connection to firmatum/shoshin source code is weakened."
-            }
-          ]
-        },
-        {
-          "candidate": "interpre",
-          "is_keep": true,
-          "total_weight": 1,
-          "category_tally": {
-            "keep": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "opus-targeted-alternatives-v2",
-              "weight": 1,
-              "category": "keep",
-              "notes": "Latin sits in the PROPRIUM/Logostratum register (per `~/src/firmatum/PROPRIUM-ARCHITECTURE.md` lineage). Same register-coherence argument as the above. Weaker keep because \"interpres\" reads the most opaque of the PROPRIUM Latinate terms — least communal-imagination-ready."
-            }
-          ]
-        },
-        {
-          "candidate": "controller loop",
-          "is_keep": false,
-          "total_weight": -1,
-          "category_tally": {
-            "rename": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "opus-targeted-alternatives-v2",
-              "weight": -1,
-              "category": "rename",
-              "notes": "Considered. Matches the shoshin code (Interpres is the controller-loop in the prototype). Rejected: \"controller-loop\" pulls from control-theory in a way that collides with AAD's existing controller / agent / loop vocabulary."
-            }
-          ]
-        }
-      ]
-    },
-    {
       "current": "lindy baseline",
       "current_description": null,
       "is_concept_cluster": false,
@@ -48915,6 +48531,23 @@
               "weight": 2,
               "category": "rename",
               "notes": "Standardizes the structural description."
+            }
+          ]
+        },
+        {
+          "candidate": "cognitive substrate",
+          "is_keep": false,
+          "total_weight": 1,
+          "category_tally": {
+            "rename": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "gemini-2",
+              "weight": 1,
+              "category": "rename",
+              "notes": "\"Logostratum\" is highly specific to the PROPRIUM legacy. \"Cognitive substrate\" grounds it as the generic implementation layer of the update function."
             }
           ]
         }
@@ -49304,13 +48937,31 @@
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
-        "Gemini"
+        "Gemini",
+        "Opus"
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
       "segment_link": null,
       "manual_curation_notes": null,
       "candidates": [
+        {
+          "candidate": "OODA4 agent as adaptive agent",
+          "is_keep": false,
+          "total_weight": 3,
+          "category_tally": {
+            "rename": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "opus-4-7-b",
+              "weight": 3,
+              "category": "rename",
+              "notes": "Same argument. Matches `#developer-as-adaptive-agent`; the parallel structure (two domain instantiations of \"adaptive agent\") is itself a pedagogical payoff."
+            }
+          ]
+        },
         {
           "candidate": "ooda4 classification",
           "is_keep": false,
@@ -49335,6 +48986,7 @@
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
+        "Codex",
         "Gemini"
       ],
       "category_disagreement": false,
@@ -49358,23 +49010,9 @@
               "notes": "Connects the Boyd framework to the strict AAD adaptive cycle phases."
             }
           ]
-        }
-      ]
-    },
-    {
-      "current": "out of band time marker for RLHF4 agent",
-      "current_description": null,
-      "is_concept_cluster": false,
-      "voted_by_architectures": [
-        "Codex"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
+        },
         {
-          "candidate": "time delta marker",
+          "candidate": "agentic scaffold",
           "is_keep": false,
           "total_weight": 2,
           "category_tally": {
@@ -49386,7 +49024,7 @@
               "agent": "codex-gpt-5-r2",
               "weight": 2,
               "category": "name-unnamed",
-              "notes": "More sober than visual time delta and useful for defining tempo in context-bound agents."
+              "notes": "Useful logogenic implementation term, but keep it downstream of directed-separation machinery."
             }
           ]
         }
@@ -49397,6 +49035,7 @@
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
+        "Codex",
         "Gemini"
       ],
       "category_disagreement": false,
@@ -49418,6 +49057,23 @@
               "weight": 2,
               "category": "rename",
               "notes": "Clarifies that these markers originate outside the agent loop."
+            }
+          ]
+        },
+        {
+          "candidate": "time delta marker",
+          "is_keep": false,
+          "total_weight": 2,
+          "category_tally": {
+            "name-unnamed": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "codex-gpt-5-r2",
+              "weight": 2,
+              "category": "name-unnamed",
+              "notes": "More sober than visual time delta and useful for defining tempo in context-bound agents."
             }
           ]
         }
@@ -49718,55 +49374,6 @@
               "weight": 2,
               "category": "rename",
               "notes": "Elevates the abstract A/B/C to their functional role."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "current": "replayed pseudo event",
-      "current_description": null,
-      "is_concept_cluster": false,
-      "voted_by_architectures": [
-        "Codex",
-        "Gemini"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "replay event",
-          "is_keep": false,
-          "total_weight": 2,
-          "category_tally": {
-            "canonicalize": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "codex-gpt-5-r2",
-              "weight": 2,
-              "category": "canonicalize",
-              "notes": "Shorter handle for consolidation updates that carry no new external information."
-            }
-          ]
-        },
-        {
-          "candidate": "simulated event playback",
-          "is_keep": false,
-          "total_weight": 2,
-          "category_tally": {
-            "rename": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "gemini-targeted-alternatives",
-              "weight": 2,
-              "category": "rename",
-              "notes": "Clearer terminology for the offline consolidation mechanism."
             }
           ]
         }
@@ -50614,9 +50221,40 @@
       ]
     },
     {
+      "current": "unnamed an AAD result whose substantive content is a no-go theorem",
+      "current_description": "an AAD result whose substantive content is a no-go theorem",
+      "is_concept_cluster": true,
+      "voted_by_architectures": [
+        "Opus"
+      ],
+      "category_disagreement": false,
+      "first_encounter_locality": null,
+      "segment_link": null,
+      "manual_curation_notes": null,
+      "candidates": [
+        {
+          "candidate": "no-go result or impossibility result",
+          "is_keep": false,
+          "total_weight": 2,
+          "category_tally": {
+            "name-unnamed": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "opus-4-7-r2",
+              "weight": 2,
+              "category": "name-unnamed",
+              "notes": "New alternative — none of the peers named this. The framework has several no-go results (#der-causal-insufficiency-detection's L0/L1 indistinguishability without intervention; #der-observability-dominance freezing; #scope-edge-update-causal-validity Regime C unidentifiability) but they're not collected under a family name. Naming \"no-go result\" as a recognized claim type would let the OUTLINE foreground them, parallel to \"templates\" and \"ladders.\" Mild because *some* segments already use \"impossibility\" in prose; this would canonicalize."
+            }
+          ]
+        }
+      ]
+    },
+    {
       "current": "unnamed complexity driven resistance to change as feature accumulate",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "complexity driven resistance to change as feature accumulate",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini"
       ],
@@ -50663,8 +50301,8 @@
     },
     {
       "current": "unnamed constitutive opacity triad",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "constitutive opacity triad",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini"
       ],
@@ -50694,8 +50332,8 @@
     },
     {
       "current": "unnamed epochal stability → latent diversification → niche emergence",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "epochal stability → latent diversification → niche emergence",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini"
       ],
@@ -50742,8 +50380,8 @@
     },
     {
       "current": "unnamed escalating from one step to bellman optimality to test if a goal is genuinely impossible",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "escalating from one step to bellman optimality to test if a goal is genuinely impossible",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini"
       ],
@@ -50790,8 +50428,8 @@
     },
     {
       "current": "unnamed git recorded committed state subset of the chronica $\\mathcal{C}_t^{\\text{commit}}$",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "git recorded committed state subset of the chronica $\\mathcal{C}_t^{\\text{commit}}$",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Codex",
         "Gemini"
@@ -50838,9 +50476,119 @@
       ]
     },
     {
+      "current": "unnamed mapping unstructured rlhf7 call into conversation runtime rlhf7 and dialog",
+      "current_description": "mapping unstructured rlhf7 call into conversation runtime rlhf7 and dialog",
+      "is_concept_cluster": true,
+      "voted_by_architectures": [
+        "Gemini"
+      ],
+      "category_disagreement": false,
+      "first_encounter_locality": null,
+      "segment_link": null,
+      "manual_curation_notes": null,
+      "candidates": [
+        {
+          "candidate": "logogenic interaction mapping",
+          "is_keep": false,
+          "total_weight": 2,
+          "category_tally": {
+            "rename": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "gemini-targeted-alternatives",
+              "weight": 2,
+              "category": "rename",
+              "notes": "Describes the conversion of stateless calls to stateful chronica."
+            }
+          ]
+        },
+        {
+          "candidate": "four view architecture",
+          "is_keep": false,
+          "total_weight": 2,
+          "category_tally": {
+            "name-unnamed": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "gemini-3-1-pro-preview-r2",
+              "weight": 2,
+              "category": "name-unnamed",
+              "notes": "The structural requirement to maintain Directed Separation in a production ELI."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "current": "unnamed master developer writing clean code in the same time as messy code",
+      "current_description": "master developer writing clean code in the same time as messy code",
+      "is_concept_cluster": true,
+      "voted_by_architectures": [
+        "Gemini"
+      ],
+      "category_disagreement": false,
+      "first_encounter_locality": null,
+      "segment_link": null,
+      "manual_curation_notes": null,
+      "candidates": [
+        {
+          "candidate": "near zero cost observation",
+          "is_keep": false,
+          "total_weight": 2,
+          "category_tally": {
+            "name-unnamed": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "gemini-3-1-pro-preview-r2",
+              "weight": 2,
+              "category": "name-unnamed",
+              "notes": "Demystifies \"strategic technical debt\" as largely a skill issue."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "current": "unnamed neutralizing sycophancy by hardening the environment to drop ambiguity to zero",
+      "current_description": "neutralizing sycophancy by hardening the environment to drop ambiguity to zero",
+      "is_concept_cluster": true,
+      "voted_by_architectures": [
+        "Gemini"
+      ],
+      "category_disagreement": false,
+      "first_encounter_locality": null,
+      "segment_link": null,
+      "manual_curation_notes": null,
+      "candidates": [
+        {
+          "candidate": "ambiguity zeroing intervention",
+          "is_keep": false,
+          "total_weight": 2,
+          "category_tally": {
+            "rename": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "gemini-targeted-alternatives",
+              "weight": 2,
+              "category": "rename",
+              "notes": "Explicitly names the tactic to force directional fidelity."
+            }
+          ]
+        }
+      ]
+    },
+    {
       "current": "unnamed non sovereign class 1 worker agent spawned by an eli",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "non sovereign class 1 worker agent spawned by an eli",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini"
       ],
@@ -50887,8 +50635,8 @@
     },
     {
       "current": "unnamed sycophantic corruption of the agent truth module",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "sycophantic corruption of the agent truth module",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini"
       ],
@@ -50934,9 +50682,40 @@
       ]
     },
     {
+      "current": "unnamed the 1 anchor 3 theorem structure in additive coordinate forcing",
+      "current_description": "the 1 anchor 3 theorem structure in additive coordinate forcing",
+      "is_concept_cluster": true,
+      "voted_by_architectures": [
+        "Gemini"
+      ],
+      "category_disagreement": false,
+      "first_encounter_locality": null,
+      "segment_link": null,
+      "manual_curation_notes": null,
+      "candidates": [
+        {
+          "candidate": "anchor theorem structure",
+          "is_keep": false,
+          "total_weight": 2,
+          "category_tally": {
+            "rename": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "gemini-targeted-alternatives",
+              "weight": 2,
+              "category": "rename",
+              "notes": "Identifies the specific rhetorical pattern used in these segments."
+            }
+          ]
+        }
+      ]
+    },
+    {
       "current": "unnamed the cumulative prediction error that an agent has tolerated without updating its model",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "the cumulative prediction error that an agent has tolerated without updating its model",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini",
         "Haiku"
@@ -50984,8 +50763,8 @@
     },
     {
       "current": "unnamed the cycle that operate on cycle structural adaptation",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "the cycle that operate on cycle structural adaptation",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini"
       ],
@@ -51031,9 +50810,71 @@
       ]
     },
     {
+      "current": "unnamed the family of cross architecture diagnostic pattern AAD repeatedly invoke",
+      "current_description": "the family of cross architecture diagnostic pattern AAD repeatedly invoke",
+      "is_concept_cluster": true,
+      "voted_by_architectures": [
+        "Opus"
+      ],
+      "category_disagreement": false,
+      "first_encounter_locality": null,
+      "segment_link": null,
+      "manual_curation_notes": null,
+      "candidates": [
+        {
+          "candidate": "diagnostic template",
+          "is_keep": false,
+          "total_weight": 2,
+          "category_tally": {
+            "name-unnamed": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "opus-4-7-r2",
+              "weight": 2,
+              "category": "name-unnamed",
+              "notes": "New alternative — Codex named \"sector-persistence template\" and \"contraction template\" individually but didn't name the family. Sonnet observed that templates are a virtue. The family includes (at minimum) sector-persistence template, contraction template, separability-ladder template, and likely the orient-cascade structure as another instance. \"Diagnostic templates\" gives the family a name that supports phrases like \"this is a new instance of a known diagnostic template.\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "current": "unnamed the family of named health mode counterpart to persistence pathology",
+      "current_description": "the family of named health mode counterpart to persistence pathology",
+      "is_concept_cluster": true,
+      "voted_by_architectures": [
+        "Opus"
+      ],
+      "category_disagreement": false,
+      "first_encounter_locality": null,
+      "segment_link": null,
+      "manual_curation_notes": null,
+      "candidates": [
+        {
+          "candidate": "persistence posture",
+          "is_keep": false,
+          "total_weight": 2,
+          "category_tally": {
+            "name-unnamed": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "opus-4-7-r2",
+              "weight": 2,
+              "category": "name-unnamed",
+              "notes": "New alternative — health-mode dual to the family above. The framework reaches for these implicitly (sector condition holding, persistence envelope occupied, identifiability above floor) but never names the positive-framing family. Lower-confidence than \"persistence pathologies\" because the negative names are doing more load-bearing work in current prose; this is a slot worth holding open rather than filling immediately."
+            }
+          ]
+        }
+      ]
+    },
+    {
       "current": "unnamed the interval during which an agent adaptive tempo exceed the environment disturbance rate guaranteeing mismatch stay bounded",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "the interval during which an agent adaptive tempo exceed the environment disturbance rate guaranteeing mismatch stay bounded",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini",
         "Haiku"
@@ -51080,9 +50921,40 @@
       ]
     },
     {
+      "current": "unnamed the move where a segment role prefix is mechanical but the subject noun carry judgment",
+      "current_description": "the move where a segment role prefix is mechanical but the subject noun carry judgment",
+      "is_concept_cluster": true,
+      "voted_by_architectures": [
+        "Opus"
+      ],
+      "category_disagreement": false,
+      "first_encounter_locality": null,
+      "segment_link": null,
+      "manual_curation_notes": null,
+      "candidates": [
+        {
+          "candidate": "the prefix noun split",
+          "is_keep": false,
+          "total_weight": 2,
+          "category_tally": {
+            "canonicalize": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "opus-4-7-r2",
+              "weight": 2,
+              "category": "canonicalize",
+              "notes": "New alternative — the principles file names the architectural invariant but the *project vocabulary* for talking about the split has no canonical phrase. CLAUDE.md and TODO.md reach for \"role-prefix discipline\" but not for \"the split itself.\" \"The prefix/noun split\" or \"role-prefix vs subject-noun\" lets meta-discussions about naming reference the structure. Lower-priority because it's project-process not theory."
+            }
+          ]
+        }
+      ]
+    },
+    {
       "current": "unnamed the pathology where observation rate is slower than environment drift",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "the pathology where observation rate is slower than environment drift",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini"
       ],
@@ -51129,8 +51001,8 @@
     },
     {
       "current": "unnamed the pearl-blanket reading of directed separation",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "the pearl-blanket reading of directed separation",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Opus"
       ],
@@ -51160,8 +51032,8 @@
     },
     {
       "current": "unnamed the procedure of reading any segment through all three meta segment",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "the procedure of reading any segment through all three meta segment",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini",
         "Sonnet"
@@ -51209,8 +51081,8 @@
     },
     {
       "current": "unnamed the property that correction dynamics are approximately isotropic",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "the property that correction dynamics are approximately isotropic",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini",
         "Haiku"
@@ -51258,8 +51130,8 @@
     },
     {
       "current": "unnamed the quadratic scaling of tempo required to survive stochastic noise vs deterministic drift",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "the quadratic scaling of tempo required to survive stochastic noise vs deterministic drift",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini"
       ],
@@ -51305,9 +51177,40 @@
       ]
     },
     {
+      "current": "unnamed the recurring lyapunov derive the bound move across six segment",
+      "current_description": "the recurring lyapunov derive the bound move across six segment",
+      "is_concept_cluster": true,
+      "voted_by_architectures": [
+        "Opus"
+      ],
+      "category_disagreement": false,
+      "first_encounter_locality": null,
+      "segment_link": null,
+      "manual_curation_notes": null,
+      "candidates": [
+        {
+          "candidate": "the persistence template instantiation pattern",
+          "is_keep": false,
+          "total_weight": 2,
+          "category_tally": {
+            "name-unnamed": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "opus-4-7-r2",
+              "weight": 2,
+              "category": "name-unnamed",
+              "notes": "The template `#result-sector-persistence-template` is invoked across six segments, each one specifying its own state variable, correction function, and effective disturbance rate. The *act of instantiating the template* is the recurring move and is worth a name — currently it's referenced obliquely as \"this segment is the [domain] instantiation of the sector-persistence template.\" Calling out \"template instantiation\" explicitly would let other meta-segments cite it."
+            }
+          ]
+        }
+      ]
+    },
+    {
       "current": "unnamed the region where temporal nesting hold",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "the region where temporal nesting hold",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini"
       ],
@@ -51353,9 +51256,102 @@
       ]
     },
     {
+      "current": "unnamed the regulative ideal that segment name should be re derivable from a non specialist everyday language reconstruction",
+      "current_description": "the regulative ideal that segment name should be re derivable from a non specialist everyday language reconstruction",
+      "is_concept_cluster": true,
+      "voted_by_architectures": [
+        "Opus"
+      ],
+      "category_disagreement": false,
+      "first_encounter_locality": null,
+      "segment_link": null,
+      "manual_curation_notes": null,
+      "candidates": [
+        {
+          "candidate": "feynman criterion",
+          "is_keep": false,
+          "total_weight": 2,
+          "category_tally": {
+            "canonicalize": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "opus-4-7-r2",
+              "weight": 2,
+              "category": "canonicalize",
+              "notes": "New alternative — none of the peers explicitly canonicalized this even though it's named in CLAUDE.md and is the implicit standard several of us were using. CLAUDE.md says \"*if you can't explain it simply, you don't understand it yet*\" and treats Walton's bathtub gloss as the canonical example. The Feynman criterion is currently a regulative principle living only in CLAUDE.md prose; canonicalizing it as the named standard for Briefs (and increasingly for slug-noun choice) would let segments cite \"the Feynman criterion is met\" or \"this Brief is below Feynman\" as a reviewable property."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "current": "unnamed the rule that bias is the product of architectural coupling and environmental ambiguity",
+      "current_description": "the rule that bias is the product of architectural coupling and environmental ambiguity",
+      "is_concept_cluster": true,
+      "voted_by_architectures": [
+        "Gemini"
+      ],
+      "category_disagreement": false,
+      "first_encounter_locality": null,
+      "segment_link": null,
+      "manual_curation_notes": null,
+      "candidates": [
+        {
+          "candidate": "ambiguity coupling rule",
+          "is_keep": false,
+          "total_weight": 2,
+          "category_tally": {
+            "rename": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "gemini-targeted-alternatives",
+              "weight": 2,
+              "category": "rename",
+              "notes": "Formally names the structural linkage mechanism."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "current": "unnamed the separation of per reader and per feature code cost",
+      "current_description": "the separation of per reader and per feature code cost",
+      "is_concept_cluster": true,
+      "voted_by_architectures": [
+        "Gemini"
+      ],
+      "category_disagreement": false,
+      "first_encounter_locality": null,
+      "segment_link": null,
+      "manual_curation_notes": null,
+      "candidates": [
+        {
+          "candidate": "dual optimization partition",
+          "is_keep": false,
+          "total_weight": 2,
+          "category_tally": {
+            "rename": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "gemini-targeted-alternatives",
+              "weight": 2,
+              "category": "rename",
+              "notes": "Refers to the TST separation of comprehension vs implementation."
+            }
+          ]
+        }
+      ]
+    },
+    {
       "current": "unnamed the set of five condition under which a2 is derived rather than assumed the sub scope α agent classe",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "the set of five condition under which a2 is derived rather than assumed the sub scope α agent classe",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini",
         "Sonnet"
@@ -51403,8 +51399,8 @@
     },
     {
       "current": "unnamed the signed coupling structure across all section iii result",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "the signed coupling structure across all section iii result",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini",
         "Sonnet"
@@ -51451,9 +51447,71 @@
       ]
     },
     {
+      "current": "unnamed the structural cousin of evidence starvation when an upstream edge is so reliable that downstream edge receive too few revising test",
+      "current_description": "the structural cousin of evidence starvation when an upstream edge is so reliable that downstream edge receive too few revising test",
+      "is_concept_cluster": true,
+      "voted_by_architectures": [
+        "Opus"
+      ],
+      "category_disagreement": false,
+      "first_encounter_locality": null,
+      "segment_link": null,
+      "manual_curation_notes": null,
+      "candidates": [
+        {
+          "candidate": "evidence saturation",
+          "is_keep": false,
+          "total_weight": 2,
+          "category_tally": {
+            "name-unnamed": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "opus-4-7-r2",
+              "weight": 2,
+              "category": "name-unnamed",
+              "notes": "New alternative — none of the peers reached this. If \"evidence starvation\" is the failure mode where downstream edges are tested too rarely (because upstream edges fail too often, blocking traversal), there's a structural cousin: when upstream edges succeed *too* reliably and the downstream edges receive too few *informative* revisions (because the chain runs through the same path every time). The asymmetric pair \"evidence starvation / evidence saturation\" surfaces a tension worth naming — both are pathologies of the same chain-confidence-decay structure but with opposite mechanisms. Lower confidence because the saturation case may not be load-bearing yet in the corpus."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "current": "unnamed the symmetric counterpart to context turnover for the strategy substate",
+      "current_description": "the symmetric counterpart to context turnover for the strategy substate",
+      "is_concept_cluster": true,
+      "voted_by_architectures": [
+        "Opus"
+      ],
+      "category_disagreement": false,
+      "first_encounter_locality": null,
+      "segment_link": null,
+      "manual_curation_notes": null,
+      "candidates": [
+        {
+          "candidate": "strategic turnover or σ turnover",
+          "is_keep": false,
+          "total_weight": 2,
+          "category_tally": {
+            "name-unnamed": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "opus-4-7-r2",
+              "weight": 2,
+              "category": "name-unnamed",
+              "notes": "New alternative — `obs-context-turnover` names the M_t-side reset at session boundaries for logogenic agents. The Σ_t side has its own analogous problem (strategy DAG is reconstructed per session from prompt context, often inconsistently with prior sessions), but no one names it. \"Strategic turnover\" would let logogenic-agents segments distinguish \"context turnover\" (M_t severance) from \"strategic turnover\" (Σ_t severance) — distinct mechanisms with distinct repair structures. Higher value because the asymmetric naming would surface that the chronica problem is *two problems* not one."
+            }
+          ]
+        }
+      ]
+    },
+    {
       "current": "unnamed the within session vs inter session persistence distinction for logogenic agent",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "the within session vs inter session persistence distinction for logogenic agent",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini",
         "Sonnet"
@@ -52235,37 +52293,6 @@
       ]
     },
     {
-      "current": "$g_M$ between event evolution",
-      "current_description": null,
-      "is_concept_cluster": false,
-      "voted_by_architectures": [
-        "Gemini"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "autonomous evolution",
-          "is_keep": false,
-          "total_weight": 1,
-          "category_tally": {
-            "add-alias": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "gemini-1",
-              "weight": 1,
-              "category": "add-alias",
-              "notes": "Gives a prose name to the continuous dynamics between events, avoiding just \"g_M\"."
-            }
-          ]
-        }
-      ]
-    },
-    {
       "current": "OODA4 specification limit as TST concept currently only in old TST file",
       "current_description": null,
       "is_concept_cluster": false,
@@ -52765,37 +52792,6 @@
       ]
     },
     {
-      "current": "logostratum RLHF4 backbone",
-      "current_description": null,
-      "is_concept_cluster": false,
-      "voted_by_architectures": [
-        "Gemini"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "cognitive substrate",
-          "is_keep": false,
-          "total_weight": 1,
-          "category_tally": {
-            "rename": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "gemini-2",
-              "weight": 1,
-              "category": "rename",
-              "notes": "\"Logostratum\" is highly specific to the PROPRIUM legacy. \"Cognitive substrate\" grounds it as the generic implementation layer of the update function."
-            }
-          ]
-        }
-      ]
-    },
-    {
       "current": "mismatch injection rate $\\rho$",
       "current_description": null,
       "is_concept_cluster": false,
@@ -52870,37 +52866,6 @@
               "weight": 1,
               "category": "keep",
               "notes": "Multiple agents, shared env. Self-descriptive. Keep."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "current": "old TST file 40 file",
-      "current_description": null,
-      "is_concept_cluster": false,
-      "voted_by_architectures": [
-        "Opus"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "no rename these retire with migration map",
-          "is_keep": false,
-          "total_weight": 1,
-          "category_tally": {
-            "keep": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "opus-4-7-b",
-              "weight": 1,
-              "category": "keep",
-              "notes": "Not eligible for renaming — these are transitional absorption files that will retire once MIGRATION-MAP completes. Keep as-is."
             }
           ]
         }
@@ -53204,37 +53169,6 @@
       ]
     },
     {
-      "current": "the trio collectively",
-      "current_description": null,
-      "is_concept_cluster": false,
-      "voted_by_architectures": [
-        "Opus"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "epistemic architecture",
-          "is_keep": false,
-          "total_weight": 1,
-          "category_tally": {
-            "name-unnamed": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "opus-4-7-b",
-              "weight": 1,
-              "category": "name-unnamed",
-              "notes": "Use \"epistemic architecture\" as the CLAUDE.md §7 / OUTLINE.md framing phrase, not as a segment. A fourth meta-segment named `#epistemic-architecture` would double-count and is not warranted. Keep as framing language."
-            }
-          ]
-        }
-      ]
-    },
-    {
       "current": "three part meta architecture",
       "current_description": null,
       "is_concept_cluster": false,
@@ -53376,9 +53310,164 @@
       ]
     },
     {
+      "current": "unnamed TST specific name for code that is observation cheap because it well written",
+      "current_description": "TST specific name for code that is observation cheap because it well written",
+      "is_concept_cluster": true,
+      "voted_by_architectures": [
+        "Opus"
+      ],
+      "category_disagreement": false,
+      "first_encounter_locality": null,
+      "segment_link": null,
+      "manual_curation_notes": null,
+      "candidates": [
+        {
+          "candidate": "observation cheap code",
+          "is_keep": false,
+          "total_weight": 1,
+          "category_tally": {
+            "name-unnamed": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "opus-4-7-r2",
+              "weight": 1,
+              "category": "name-unnamed",
+              "notes": "New alternative — Codex coined \"observation infrastructure\" (which I support) and Sonnet renamed `der-code-quality-as-observation-infrastructure` to `der-observation-infrastructure`. What's still unnamed is the *property* of individual code passages: not all code is equally observation-cheap. A name for the property (rather than the infrastructure-level claim) would let TST results target specific passages. Lower confidence — may be too narrow to deserve a name."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "current": "unnamed class 1 class 2 class 3 agent classe themselve need mnemonic handle",
+      "current_description": "class 1 class 2 class 3 agent classe themselve need mnemonic handle",
+      "is_concept_cluster": true,
+      "voted_by_architectures": [
+        "Opus"
+      ],
+      "category_disagreement": false,
+      "first_encounter_locality": null,
+      "segment_link": null,
+      "manual_curation_notes": null,
+      "candidates": [
+        {
+          "candidate": "proposal assign english modifier",
+          "is_keep": false,
+          "total_weight": 1,
+          "category_tally": {
+            "name-unnamed": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "opus-4-7-b",
+              "weight": 1,
+              "category": "name-unnamed",
+              "notes": "Class-numbered labels work but lack mnemonic grip. Proposal: retain \"Class 1 / 2 / 3\" as the primary labels but assign canonical one-word modifiers — **modular** (Class 1), **merged** (Class 2), **partial** (Class 3) — that are already used descriptively. Adopt them as the *canonical* prose forms: \"modular agents\" / \"merged agents\" / \"partially-modular agents\" or \"partial-mix agents.\" Class 2 especially benefits: \"fully merged\" currently appears; normalize to just \"merged.\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "current": "unnamed effort time risk ranking considered false constraint",
+      "current_description": "effort time risk ranking considered false constraint",
+      "is_concept_cluster": true,
+      "voted_by_architectures": [
+        "Opus"
+      ],
+      "category_disagreement": false,
+      "first_encounter_locality": null,
+      "segment_link": null,
+      "manual_curation_notes": null,
+      "candidates": [
+        {
+          "candidate": "false constraint",
+          "is_keep": false,
+          "total_weight": 1,
+          "category_tally": {
+            "name-unnamed": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "opus-4-7",
+              "weight": 1,
+              "category": "name-unnamed",
+              "notes": "Joseph uses this phrasing; worth canonicalizing so agents (me included) can recognize the pattern."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "current": "unnamed future segment layer header for narrative pedagogical framing",
+      "current_description": "future segment layer header for narrative pedagogical framing",
+      "is_concept_cluster": true,
+      "voted_by_architectures": [
+        "Opus"
+      ],
+      "category_disagreement": false,
+      "first_encounter_locality": null,
+      "segment_link": null,
+      "manual_curation_notes": null,
+      "candidates": [
+        {
+          "candidate": "narrative framing",
+          "is_keep": false,
+          "total_weight": 1,
+          "category_tally": {
+            "name-unnamed": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "opus-1m",
+              "weight": 1,
+              "category": "name-unnamed",
+              "notes": "Parallel reservation. For ELI10 / pedagogical outlines."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "current": "unnamed future segment layer header for the sp 5 reader path proposal",
+      "current_description": "future segment layer header for the sp 5 reader path proposal",
+      "is_concept_cluster": true,
+      "voted_by_architectures": [
+        "Opus"
+      ],
+      "category_disagreement": false,
+      "first_encounter_locality": null,
+      "segment_link": null,
+      "manual_curation_notes": null,
+      "candidates": [
+        {
+          "candidate": "reader path",
+          "is_keep": false,
+          "total_weight": 1,
+          "category_tally": {
+            "name-unnamed": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "opus-1m",
+              "weight": 1,
+              "category": "name-unnamed",
+              "notes": "Forward-looking name reservation. SP-5 adds a 1-2 sentence load-bearing preamble per segment; under the outline-filter affordance this becomes its own filterable layer. Naming the header now stabilizes the API even before the content lands."
+            }
+          ]
+        }
+      ]
+    },
+    {
       "current": "unnamed scope honesty as architecture",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "scope honesty as architecture",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Opus"
       ],
@@ -53407,9 +53496,40 @@
       ]
     },
     {
+      "current": "unnamed the 2×2 satisfaction gap × control regret diagnostic table",
+      "current_description": "the 2×2 satisfaction gap × control regret diagnostic table",
+      "is_concept_cluster": true,
+      "voted_by_architectures": [
+        "Opus"
+      ],
+      "category_disagreement": false,
+      "first_encounter_locality": null,
+      "segment_link": null,
+      "manual_curation_notes": null,
+      "candidates": [
+        {
+          "candidate": "the 2×2 diagnostic",
+          "is_keep": false,
+          "total_weight": 1,
+          "category_tally": {
+            "name-unnamed": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "opus-4-7",
+              "weight": 1,
+              "category": "name-unnamed",
+              "notes": "Used ubiquitously in prose. Worth canonicalizing as a named object so that \"see the 2×2 diagnostic\" reads naturally."
+            }
+          ]
+        }
+      ]
+    },
+    {
       "current": "unnamed the a2 sub scope partition collectively",
-      "current_description": null,
-      "is_concept_cluster": false,
+      "current_description": "the a2 sub scope partition collectively",
+      "is_concept_cluster": true,
       "voted_by_architectures": [
         "Opus"
       ],
@@ -53432,6 +53552,564 @@
               "weight": 1,
               "category": "name-unnamed",
               "notes": "Not a symbol rename; a prose handle for the three-way α₁/α₂/β classification. \"The A2' partition\" lands more cleanly than \"the A2' sub-scope partition\" and aligns with AAD's partition-over-hierarchy vocabulary (it's not a strict-asymmetric hierarchy; it's a partition with derivability-status semantics)."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "current": "unnamed the architectural class partition class 1 class 2 class 3",
+      "current_description": "the architectural class partition class 1 class 2 class 3",
+      "is_concept_cluster": true,
+      "voted_by_architectures": [
+        "Opus"
+      ],
+      "category_disagreement": false,
+      "first_encounter_locality": null,
+      "segment_link": null,
+      "manual_curation_notes": null,
+      "candidates": [
+        {
+          "candidate": "architectural partition",
+          "is_keep": false,
+          "total_weight": 1,
+          "category_tally": {
+            "name-unnamed": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "opus-4-7-b",
+              "weight": 1,
+              "category": "name-unnamed",
+              "notes": "Symbols stay (Class 1/2/3); prose gets \"the architectural partition\" as a collective handle. Avoids \"architecture hierarchy\" (hierarchy overload) while naming the three-way structure."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "current": "unnamed the complete adaptive cycle from anticipation through action",
+      "current_description": "the complete adaptive cycle from anticipation through action",
+      "is_concept_cluster": true,
+      "voted_by_architectures": [
+        "Haiku"
+      ],
+      "category_disagreement": false,
+      "first_encounter_locality": null,
+      "segment_link": null,
+      "manual_curation_notes": null,
+      "candidates": [
+        {
+          "candidate": "adaptive cycle already named in lexicon",
+          "is_keep": false,
+          "total_weight": 1,
+          "category_tally": {
+            "name-unnamed": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "haiku-4-5-r2",
+              "weight": 1,
+              "category": "name-unnamed",
+              "notes": "LEXICON.md already defines \"Cycle\" vs \"Loop.\" Checking if there's an unnamed-thing here — appears already named well."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "current": "unnamed the dimensional consistency constraint forcing the macro step formulation",
+      "current_description": "the dimensional consistency constraint forcing the macro step formulation",
+      "is_concept_cluster": true,
+      "voted_by_architectures": [
+        "Opus"
+      ],
+      "category_disagreement": false,
+      "first_encounter_locality": null,
+      "segment_link": null,
+      "manual_curation_notes": null,
+      "candidates": [
+        {
+          "candidate": "dimensional consistency repair",
+          "is_keep": false,
+          "total_weight": 1,
+          "category_tally": {
+            "name-unnamed": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "opus-4-7-r2",
+              "weight": 1,
+              "category": "name-unnamed",
+              "notes": "The 2026-04-22 cycle's repair to `#form-composition-closure` (introducing $K_c$ and per-macro-step formulation) was driven by dimensional-consistency requirements. This is a generalizable methodological move — let dimensional consistency drive the formulation choice — and is worth naming. Lower-priority because it may be too narrow."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "current": "unnamed the discipline of naming so that the slug survive reorganization",
+      "current_description": "the discipline of naming so that the slug survive reorganization",
+      "is_concept_cluster": true,
+      "voted_by_architectures": [
+        "Opus"
+      ],
+      "category_disagreement": false,
+      "first_encounter_locality": null,
+      "segment_link": null,
+      "manual_curation_notes": null,
+      "candidates": [
+        {
+          "candidate": "reorganization resilient naming",
+          "is_keep": false,
+          "total_weight": 1,
+          "category_tally": {
+            "name-unnamed": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "opus-4-7-r2",
+              "weight": 1,
+              "category": "name-unnamed",
+              "notes": "New alternative — Codex flagged that \"Section II survival\" should become \"Class 2 survival\" because the latter survives reorganization. The principle is general: prefer names anchored in *concepts* (Class 2, persistence-condition) over names anchored in *document structure* (Section II, Chapter 3). Naming this discipline as a principle in the principles file would help future agents apply it without re-deriving. Lower confidence because it may be more naming-process than naming-target."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "current": "unnamed the dual that pair with persistence envelope on the strategic side",
+      "current_description": "the dual that pair with persistence envelope on the strategic side",
+      "is_concept_cluster": true,
+      "voted_by_architectures": [
+        "Opus"
+      ],
+      "category_disagreement": false,
+      "first_encounter_locality": null,
+      "segment_link": null,
+      "manual_curation_notes": null,
+      "candidates": [
+        {
+          "candidate": "strategic persistence envelope",
+          "is_keep": false,
+          "total_weight": 1,
+          "category_tally": {
+            "name-unnamed": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "opus-4-7-r2",
+              "weight": 1,
+              "category": "name-unnamed",
+              "notes": "New alternative — my r2 coined \"persistence envelope\" for the M_t-side region $\\{(\\alpha, \\rho, R) : \\alpha > \\rho/R\\}$. The Σ_t side has a structurally analogous region defined by `#schema-strategy-persistence` (sector condition extended to strategy edges) but no name. \"Strategic persistence envelope\" parallels the M_t version and gives the strategy-DAG dynamics a named feasibility region. Lower confidence because the schema is proposed-schema, not yet a result; naming the envelope before the result is fully landed is somewhat speculative."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "current": "unnamed the functional requirement are the result formalism are the engineering slogan",
+      "current_description": "the functional requirement are the result formalism are the engineering slogan",
+      "is_concept_cluster": true,
+      "voted_by_architectures": [
+        "Opus"
+      ],
+      "category_disagreement": false,
+      "first_encounter_locality": null,
+      "segment_link": null,
+      "manual_curation_notes": null,
+      "candidates": [
+        {
+          "candidate": "functional primacy",
+          "is_keep": false,
+          "total_weight": 1,
+          "category_tally": {
+            "name-unnamed": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "opus-4-7",
+              "weight": 1,
+              "category": "name-unnamed",
+              "notes": "Joseph flagged this as an established project principle (MEMORY.md, Theory Character section); it deserves a pull-quote name. Low conviction; flag for consideration."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "current": "unnamed the iterated audit process gemini opus codex de novo consolidated three doc portfolio",
+      "current_description": "the iterated audit process gemini opus codex de novo consolidated three doc portfolio",
+      "is_concept_cluster": true,
+      "voted_by_architectures": [
+        "Opus"
+      ],
+      "category_disagreement": false,
+      "first_encounter_locality": null,
+      "segment_link": null,
+      "manual_curation_notes": null,
+      "candidates": [
+        {
+          "candidate": "cross model audit cycle",
+          "is_keep": false,
+          "total_weight": 1,
+          "category_tally": {
+            "name-unnamed": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "opus-4-7",
+              "weight": 1,
+              "category": "name-unnamed",
+              "notes": "Recurring methodology; currently referred to as \"audit cycle\" generically and by date. A durable name helps. Low conviction."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "current": "unnamed the mathematical operation by which agent convert observed mismatch into structural revision",
+      "current_description": "the mathematical operation by which agent convert observed mismatch into structural revision",
+      "is_concept_cluster": true,
+      "voted_by_architectures": [
+        "Opus"
+      ],
+      "category_disagreement": false,
+      "first_encounter_locality": null,
+      "segment_link": null,
+      "manual_curation_notes": null,
+      "candidates": [
+        {
+          "candidate": "structural cascade",
+          "is_keep": false,
+          "total_weight": 1,
+          "category_tally": {
+            "name-unnamed": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "opus-4-7-r2",
+              "weight": 1,
+              "category": "name-unnamed",
+              "notes": "New alternative — none of the peers reached this. Observed mismatch → parametric update is the standard cycle; observed mismatch → structural revision (when parametric fails) is the structural cascade. The cascade has its own ordering (detect insufficiency → identify candidate structure → graft → validate). Naming the cascade would let `#result-structural-adaptation-necessity` and `#form-structural-change-as-parametric-limit` cite a shared object. Lower confidence because Codex's \"strategic grafting\" already names the substantive operation."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "current": "unnamed the moment when an agent identity claim become load bearing because action become irreversible",
+      "current_description": "the moment when an agent identity claim become load bearing because action become irreversible",
+      "is_concept_cluster": true,
+      "voted_by_architectures": [
+        "Opus"
+      ],
+      "category_disagreement": false,
+      "first_encounter_locality": null,
+      "segment_link": null,
+      "manual_curation_notes": null,
+      "candidates": [
+        {
+          "candidate": "constitutive moment",
+          "is_keep": false,
+          "total_weight": 1,
+          "category_tally": {
+            "name-unnamed": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "opus-4-7-r2",
+              "weight": 1,
+              "category": "name-unnamed",
+              "notes": "New alternative — `form-constitutive-utterance` names the formal object (the irreversible token-generation event) but the *moment* in cycle-time when constitutivity activates isn't separately named. \"Constitutive moment\" pairs naturally with the existing constitutive-utterance vocabulary and gives logozoetic-agents segments a phenomenological handle. Lower confidence because the distinction may be redundant with the utterance itself."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "current": "unnamed the orient cascade information dependency forced ordering as a meta pattern",
+      "current_description": "the orient cascade information dependency forced ordering as a meta pattern",
+      "is_concept_cluster": true,
+      "voted_by_architectures": [
+        "Opus"
+      ],
+      "category_disagreement": false,
+      "first_encounter_locality": null,
+      "segment_link": null,
+      "manual_curation_notes": null,
+      "candidates": [
+        {
+          "candidate": "information dependency forcing",
+          "is_keep": false,
+          "total_weight": 1,
+          "category_tally": {
+            "name-unnamed": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "opus-4-7-r2",
+              "weight": 1,
+              "category": "name-unnamed",
+              "notes": "The orient cascade's ordering is *forced* by information dependency (each step's input depends on prior steps' output). This is a structurally similar move to additive-coordinate-forcing — a uniqueness theorem on an axiom forces a specific ordering. Naming it as \"information-dependency forcing\" would let it pair with `#disc-additive-coordinate-forcing` as a cross-meta-pattern observation. Lower-confidence vote because it may not generalize beyond the orient cascade."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "current": "unnamed the rate at which an agent chronica grow compared to compression cadence",
+      "current_description": "the rate at which an agent chronica grow compared to compression cadence",
+      "is_concept_cluster": true,
+      "voted_by_architectures": [
+        "Opus"
+      ],
+      "category_disagreement": false,
+      "first_encounter_locality": null,
+      "segment_link": null,
+      "manual_curation_notes": null,
+      "candidates": [
+        {
+          "candidate": "chronica throughput",
+          "is_keep": false,
+          "total_weight": 1,
+          "category_tally": {
+            "name-unnamed": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "opus-4-7-r2",
+              "weight": 1,
+              "category": "name-unnamed",
+              "notes": "New alternative — Gemini reached \"complementary learning architecture\" and \"scaffolding tax\" but didn't name the rate-quantity that determines whether the scaffolding tax is sustainable. \"Chronica throughput\" (events/second, or information-bits/cycle into chronica) compared to consolidation cadence determines whether the agent can keep up. Lower confidence because Codex's \"consolidation horizon\" overlaps."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "current": "unnamed the scope honesty as architecture working principle",
+      "current_description": "the scope honesty as architecture working principle",
+      "is_concept_cluster": true,
+      "voted_by_architectures": [
+        "Opus"
+      ],
+      "category_disagreement": false,
+      "first_encounter_locality": null,
+      "segment_link": null,
+      "manual_curation_notes": null,
+      "candidates": [
+        {
+          "candidate": "honesty scope honesty as architecture",
+          "is_keep": false,
+          "total_weight": 1,
+          "category_tally": {
+            "name-unnamed": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "opus-4-7-b",
+              "weight": 1,
+              "category": "name-unnamed",
+              "notes": "Already named in CLAUDE.md §7(a) as \"scope-honesty-as-architecture.\" The phrase is workable; the shorter \"scope honesty\" does most of the prose work. Usage observation: use the short form in prose, the hyphenated form in CLAUDE.md-register discussions of the element itself."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "current": "unnamed the strengthen first attempt artifact a spike that tried to derive something stronger and failed",
+      "current_description": "the strengthen first attempt artifact a spike that tried to derive something stronger and failed",
+      "is_concept_cluster": true,
+      "voted_by_architectures": [
+        "Opus"
+      ],
+      "category_disagreement": false,
+      "first_encounter_locality": null,
+      "segment_link": null,
+      "manual_curation_notes": null,
+      "candidates": [
+        {
+          "candidate": "strengthening attempt attempt record",
+          "is_keep": false,
+          "total_weight": 1,
+          "category_tally": {
+            "name-unnamed": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "opus-4-7",
+              "weight": 1,
+              "category": "name-unnamed",
+              "notes": "The CLAUDE.md text says \"document the strengthening attempt and why it failed even when it does fail.\" These deserve a noun so the workflow has a vocabulary."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "current": "unnamed the symbol overload region where $U_M$ mean two different thing",
+      "current_description": "the symbol overload region where $U_M$ mean two different thing",
+      "is_concept_cluster": true,
+      "voted_by_architectures": [
+        "Opus"
+      ],
+      "category_disagreement": false,
+      "first_encounter_locality": null,
+      "segment_link": null,
+      "manual_curation_notes": null,
+      "candidates": [
+        {
+          "candidate": "the $U_M$ overload",
+          "is_keep": false,
+          "total_weight": 1,
+          "category_tally": {
+            "name-unnamed": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "opus-4-7-r2",
+              "weight": 1,
+              "category": "name-unnamed",
+              "notes": "A naming-cycle artifact rather than a theory artifact, but worth surfacing. The repeated bug-attractor (model-uncertainty $U_M$ vs epistemic-unity $U_M$) is a known thing the project keeps brushing up against; naming it as \"the $U_M$ overload\" lets future agents flag the issue without reconstructing it. Lower priority; could also be solved by renaming one symbol."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "current": "unnamed the template family sector persistence contraction possible future dissipativity",
+      "current_description": "the template family sector persistence contraction possible future dissipativity",
+      "is_concept_cluster": true,
+      "voted_by_architectures": [
+        "Opus"
+      ],
+      "category_disagreement": false,
+      "first_encounter_locality": null,
+      "segment_link": null,
+      "manual_curation_notes": null,
+      "candidates": [
+        {
+          "candidate": "persistence template the template family",
+          "is_keep": false,
+          "total_weight": 1,
+          "category_tally": {
+            "name-unnamed": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "opus-4-7-b",
+              "weight": 1,
+              "category": "name-unnamed",
+              "notes": "The three-member family of `#sector-persistence-template`, `#contraction-template`, and (proposed Tier-2) `#dissipativity-template` wants a collective name. \"The template family\" or \"the persistence-template family\" works in prose. If dissipativity lands, this family-name gives it a natural home. Does not require a meta-segment; a paragraph in `#separability-pattern` / `#separability-ladder` would suffice."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "current": "unnamed the three concentric ring of segment content inevitability core canonical formulation empirical heuristic",
+      "current_description": "the three concentric ring of segment content inevitability core canonical formulation empirical heuristic",
+      "is_concept_cluster": true,
+      "voted_by_architectures": [
+        "Opus"
+      ],
+      "category_disagreement": false,
+      "first_encounter_locality": null,
+      "segment_link": null,
+      "manual_curation_notes": null,
+      "candidates": [
+        {
+          "candidate": "three ring",
+          "is_keep": false,
+          "total_weight": 1,
+          "category_tally": {
+            "name-unnamed": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "opus-4-7",
+              "weight": 1,
+              "category": "name-unnamed",
+              "notes": "FORMAT.md uses exactly this language. Named once; currently paraphrased each time. Adopt \"three rings\" as the canonical shorthand."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "current": "unnamed the three ring of segment content framing",
+      "current_description": "the three ring of segment content framing",
+      "is_concept_cluster": true,
+      "voted_by_architectures": [
+        "Opus"
+      ],
+      "category_disagreement": false,
+      "first_encounter_locality": null,
+      "segment_link": null,
+      "manual_curation_notes": null,
+      "candidates": [
+        {
+          "candidate": "segment ring",
+          "is_keep": false,
+          "total_weight": 1,
+          "category_tally": {
+            "name-unnamed": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "opus-4-7-b",
+              "weight": 1,
+              "category": "name-unnamed",
+              "notes": "FORMAT.md §\"Three rings of segment content\" (inevitability-core / canonical-formulations / empirical-heuristic-discussion) is load-bearing working vocabulary. \"The segment rings\" or \"the three rings\" is the natural prose handle."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "current": "unnamed the threshold energy information cost below which an agent is forced to act accept mismatch rather than deliberate",
+      "current_description": "the threshold energy information cost below which an agent is forced to act accept mismatch rather than deliberate",
+      "is_concept_cluster": true,
+      "voted_by_architectures": [
+        "Haiku"
+      ],
+      "category_disagreement": false,
+      "first_encounter_locality": null,
+      "segment_link": null,
+      "manual_curation_notes": null,
+      "candidates": [
+        {
+          "candidate": "deliberation threshold",
+          "is_keep": false,
+          "total_weight": 1,
+          "category_tally": {
+            "name-unnamed": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "haiku-4-5-r2",
+              "weight": 1,
+              "category": "name-unnamed",
+              "notes": "Currently discussed in #der-deliberation-cost as \"think vs act tradeoff\" but no crisp name for the *threshold* itself. \"Deliberation threshold\" is clear and technical. Moderate confidence."
             }
           ]
         }

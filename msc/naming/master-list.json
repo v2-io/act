@@ -1,7 +1,7 @@
 {
   "meta": {
     "generated_from": "msc/naming/naming-aggregate-r2-votes.json",
-    "generated_at": "2026-04-29T21:12:59Z",
+    "generated_at": "2026-04-29T21:43:09Z",
     "agents": [
       "agent1-original-brainstorm",
       "audit-471203-incremental",
@@ -69,7 +69,7 @@
         "aporia",
         "`aporia`"
       ],
-      "prolepsis aisthesis aporia epistrophe praxi": [
+      "prolepsis aisthesis aporia epistrophe praxis": [
         "prolepsis / aisthesis / aporia / epistrophe / praxis",
         "Prolepsis / Aisthesis / Aporia / Epistrophe / Praxis"
       ],
@@ -377,7 +377,7 @@
       "calibration domain calibration lab": [
         "calibration domain / calibration lab"
       ],
-      "concept the sequence of cycle phase prolepsis aisthesis aporia epistrophe praxi considered as a single named whole": [
+      "concept the sequence of cycle phase prolepsis aisthesis aporia epistrophe praxis considered as a single named whole": [
         "[concept: the sequence of cycle phases (Prolepsis–Aisthesis–Aporia–Epistrophe–Praxis) considered as a single named whole]",
         "`[concept: the sequence of cycle phases (Prolepsis–Aisthesis–Aporia–Epistrophe–Praxis) considered as a single named whole]`"
       ],
@@ -1359,7 +1359,7 @@
         "`aisthesis`",
         "aisthesis"
       ],
-      "praxi": [
+      "praxis": [
         "Praxis",
         "`praxis`",
         "praxis"
@@ -2530,7 +2530,7 @@
       "epistrophe ἐπιστροφή": [
         "Epistrophe (ἐπιστροφή)"
       ],
-      "praxi πρᾶξις": [
+      "praxis πρᾶξις": [
         "Praxis (πρᾶξις)"
       ],
       "linguistic agent": [
@@ -3993,7 +3993,7 @@
       "epistrophe model update": [
         "`epistrophe (model update)`"
       ],
-      "praxi informed action": [
+      "praxis informed action": [
         "`praxis (informed action)`"
       ],
       "agentic system framework": [
@@ -4626,7 +4626,7 @@
       "ooda4 classification": [
         "`OODA4 classification`"
       ],
-      "aporia prolepsis aisthesis epistrophe praxi": [
+      "aporia prolepsis aisthesis epistrophe praxis": [
         "aporia / prolepsis / aisthesis / epistrophe / praxis",
         "`aporia prolepsis aisthesis epistrophe praxis`"
       ],
@@ -6310,7 +6310,7 @@
       "the prefix noun split": [
         "\"the prefix/noun split\""
       ],
-      "the five cycle phase prolepsis aisthesis aporia epistrophe praxi": [
+      "the five cycle phase prolepsis aisthesis aporia epistrophe praxis": [
         "the five cycle phases (Prolepsis / Aisthesis / Aporia / Epistrophe / Praxis)"
       ],
       "three rung posture": [
@@ -20848,7 +20848,7 @@
       ]
     },
     {
-      "current": "praxi",
+      "current": "praxis",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -20862,7 +20862,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "praxi",
+          "candidate": "praxis",
           "is_keep": true,
           "total_weight": 7,
           "category_tally": {
@@ -20891,7 +20891,7 @@
           ]
         },
         {
-          "candidate": "praxi informed action",
+          "candidate": "praxis informed action",
           "is_keep": false,
           "total_weight": 3,
           "category_tally": {
@@ -24825,7 +24825,7 @@
       ]
     },
     {
-      "current": "praxi πρᾶξις",
+      "current": "praxis πρᾶξις",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -24839,7 +24839,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "praxi",
+          "candidate": "praxis",
           "is_keep": false,
           "total_weight": 6,
           "category_tally": {
@@ -24862,7 +24862,7 @@
           ]
         },
         {
-          "candidate": "praxi πρᾶξις",
+          "candidate": "praxis πρᾶξις",
           "is_keep": true,
           "total_weight": 1,
           "category_tally": {
@@ -24881,7 +24881,7 @@
       ]
     },
     {
-      "current": "prolepsis aisthesis aporia epistrophe praxi",
+      "current": "prolepsis aisthesis aporia epistrophe praxis",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -34649,7 +34649,7 @@
       ]
     },
     {
-      "current": "aporia prolepsis aisthesis epistrophe praxi",
+      "current": "aporia prolepsis aisthesis epistrophe praxis",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -34662,7 +34662,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "aporia prolepsis aisthesis epistrophe praxi",
+          "candidate": "aporia prolepsis aisthesis epistrophe praxis",
           "is_keep": true,
           "total_weight": 3,
           "category_tally": {
@@ -36330,8 +36330,8 @@
       ]
     },
     {
-      "current": "concept the sequence of cycle phase prolepsis aisthesis aporia epistrophe praxi considered as a single named whole",
-      "current_description": "the sequence of cycle phase prolepsis aisthesis aporia epistrophe praxi considered as a single named whole",
+      "current": "concept the sequence of cycle phase prolepsis aisthesis aporia epistrophe praxis considered as a single named whole",
+      "current_description": "the sequence of cycle phase prolepsis aisthesis aporia epistrophe praxis considered as a single named whole",
       "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini",
@@ -43080,7 +43080,7 @@
       ]
     },
     {
-      "current": "the five cycle phase prolepsis aisthesis aporia epistrophe praxi",
+      "current": "the five cycle phase prolepsis aisthesis aporia epistrophe praxis",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -43092,7 +43092,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "prolepsis aisthesis aporia epistrophe praxi",
+          "candidate": "prolepsis aisthesis aporia epistrophe praxis",
           "is_keep": false,
           "total_weight": 3,
           "category_tally": {
