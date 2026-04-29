@@ -4,7 +4,7 @@
 **Agents:** 19 (agent1-original-brainstorm, audit-471203-incremental, codex-1, codex-2, codex-gpt-5-r2, gemini-1, gemini-2, gemini-3-1-pro-preview-r2, gemini-targeted-alternatives, haiku-4-5, haiku-4-5-r2, opus-1m, opus-4-7, opus-4-7-b, opus-4-7-r2, opus-targeted-alternatives, opus-targeted-alternatives-v2, sonnet-4-6, sonnet-4-6-r2)
 **Total vote rows:** 2967
 **Distinct pairs:** 1805
-**Distinct currents:** 695
+**Distinct currents:** 690
 
 Single-table compact view of the master list. One row per (original, candidate) pair; rows for the same `original` are grouped adjacently with the original cell shown only on the first row. Currents are sorted by their top candidate's aggregate weight descending. Within each group, candidates sort by aggregate weight descending; the first row (the winning candidate) is bolded. `(keep)` marks candidate = original; the ⭑ suffix on `(keep)` means at least one vote on that row used the `canonicalize` category. ✗ prefix marks net-rejected candidates (aggregate < 0). Category suffix on non-keep candidates surfaces the per-pair category mix when it differs from the default `rename` action.
 
@@ -411,7 +411,8 @@ Single-table compact view of the master list. One row per (original, candidate) 
 | $U_M$ as model uncertainty | **$U_M$ [canonicalize]** | +6 |
 |  | Model uncertainty $U_M$ [canonicalize] | +3 |
 |  | Model uncertainty [add-alias] | +2 |
-| teleological unity | **_(keep)_ ⭑** | +11 |
+| teleological unity | **_(keep)_ ⭑** | +14 |
+|  | Teleological unity $U_o$ [canonicalize] | +3 |
 |  | Objective alignment [add-alias] | +1 |
 | $\eta^\ast$ | **Update gain [add-alias]** | +6 |
 |  | ✗ Learning rate [add-alias] | -1 |
@@ -499,8 +500,8 @@ Single-table compact view of the master list. One row per (original, candidate) 
 | logozoetic | **_(keep)_ ⭑** | +6 |
 | Lohmiller-Slotine contraction | **_(keep)_** | +5 |
 | Miller's meta-machine / extreme transition motif | **Meta machine extreme transition motif [canonicalize]** | +6 |
-| $p_{ij}$ | **Edge credence [add-alias × 1, canonicalize × 1]** | +6 |
-| plan confidence | **_(keep)_ ⭑** | +6 |
+| $p_{ij}$ | **Edge credence [add-alias × 2, canonicalize × 1]** | +8 |
+| plan confidence | **_(keep)_ ⭑** | +10 |
 | postulate not axiom | **Postulate [canonicalize × 1, rename × 1]** | +6 |
 | praxis πρᾶξις | **_(keep)_ ⭑** | +7 |
 | purposeful substate | **_(keep)_ ⭑** | +9 |
@@ -531,7 +532,9 @@ Single-table compact view of the master list. One row per (original, candidate) 
 |  | ✗ Trajectory singularity [name-unnamed] | -1 |
 | [Concept] *The phenomenon where persistence success makes an agent less likely to detect the conditions requiring structural adaptation* | **Stability-induced myopia [canonicalize × 1, name-unnamed × 1]** | +6 |
 | Čencov invariance | **_(keep)_** | +5 |
-| $\mathcal{T}$ adaptive tempo | **𝒯 adaptive tempo [canonicalize × 1, add-alias × 1]** | +6 |
+| $\mathcal{T}$ adaptive tempo | **_(keep)_ ⭑** | +6 |
+|  | Tempo [add-alias] | +3 |
+|  | Adaptive tempo $\mathcal{T}$ [canonicalize] | +3 |
 | model uncertainty | **_(keep)_** | +5 |
 | observation uncertainty | **_(keep)_** | +7 |
 |  | Observation uncertainty $U_o$ [canonicalize] | +3 |
@@ -614,7 +617,7 @@ Single-table compact view of the master list. One row per (original, candidate) 
 |  | _(keep)_ ⭑ | +2 |
 |  | Trajectory singularity constraint | +2 |
 |  | ✗ Causal singularity anchor | -1 |
-| l1 update bias | **_(keep)_ ⭑** | +5 |
+| L1 update bias | **_(keep)_ ⭑** | +5 |
 |  | L1 bias formula | +2 |
 | loop | **_(keep)_ ⭑** | +5 |
 |  | ✗ Feedback loop | -1 |
@@ -661,7 +664,6 @@ Single-table compact view of the master list. One row per (original, candidate) 
 | $H_b$ | **Backward opacity [add-alias]** | +4 |
 |  | Agent opacity [add-alias] | +3 |
 | $R$ (sector radius) | **Capacity radius [add-alias]** | +4 |
-| plan confidence | **_(keep)_** | +4 |
 | $\iota_{ij}$ | **Identifiability coefficient [add-alias]** | +4 |
 | 1 anchor plus 3 theorem | **_(keep)_** | +4 |
 | action distinguishability | **_(keep)_ ⭑** | +4 |
@@ -681,7 +683,7 @@ Single-table compact view of the master list. One row per (original, candidate) 
 |  | And or semantics | +1 |
 | auxilia hierarchy | **_(keep)_ ⭑** | +6 |
 |  | Sub-agent instantiation | +2 |
-| causal information yield CIY | **Causal information yield [canonicalize]** | +4 |
+| causal information yield (CIY) | **Causal information yield [canonicalize]** | +4 |
 |  | Interventional yield | +2 |
 | century scale event log | **_(keep)_ ⭑** | +4 |
 |  | Century scale chronica | +2 |
@@ -898,10 +900,8 @@ Single-table compact view of the master list. One row per (original, candidate) 
 |  | _(keep)_ ⭑ | +2 |
 |  | ✗ Branch insertion | -1 |
 |  | ✗ Hypothesis introduction | -1 |
-| Hafez's $H_b$ | **$H_b$ [canonicalize]** | +3 |
-|  | Agent opacity $H_b$ [canonicalize] | +3 |
-| Hafez's $H_b$ | **Agent opacity $H_b$ [canonicalize]** | +3 |
-|  | $H_b$ [canonicalize] | +3 |
+| Hafez's $H_b$ | **$H_b$ [canonicalize]** | +6 |
+|  | Agent opacity $H_b$ [canonicalize] | +6 |
 | Section I. Adaptive Systems Under Uncertainty | **Section I adaptive system under uncertainty [canonicalize]** | +3 |
 |  | I adaptive system under uncertainty [canonicalize] | +3 |
 | Section III. Agentic Composites | **Section III agentic composite [canonicalize]** | +3 |
@@ -911,7 +911,7 @@ Single-table compact view of the master list. One row per (original, candidate) 
 | instance 1 of identifiability floor | **Latent common cause floor** | +3 |
 | [Concept] *Instance 2 of identifiability floor* | **Unobservable mixture floor** | +3 |
 | [Concept] *Instance 3 of identifiability floor* | **Coupling sign floor** | +3 |
-| l1 correlation hierarchy prime decoration | **L1 soft facilitator mixture [canonicalize]** | +3 |
+| L1' correlation-hierarchy prime decoration | **L1 soft facilitator mixture [canonicalize]** | +3 |
 |  | L1-observable | +1 |
 | L1' (prime decoration) | **L1 soft facilitator mixture [canonicalize]** | +3 |
 |  | L1-observable [add-alias] | +2 |
@@ -998,8 +998,6 @@ Single-table compact view of the master list. One row per (original, candidate) 
 |  | Parameterization invariance axiom [canonicalize] | +3 |
 |  | ✗ Coordinate invariance [name-unnamed] | -1 |
 | system availability | **_(keep)_ ⭑** | +3 |
-| teleological unity | **Teleological unity $U_o$ [canonicalize]** | +3 |
-|  | _(keep)_ ⭑ | +3 |
 | Temporal Software Theory (TST) | **Temporal software theory [canonicalize]** | +3 |
 |  | _(keep)_ ⭑ | +3 |
 | test as reusable intervention | **Interventional probe library [add-alias]** | +3 |
@@ -1138,8 +1136,6 @@ Single-table compact view of the master list. One row per (original, candidate) 
 |  | _(keep)_ ⭑ | +3 |
 | [Concept] *𝒜, e, τ observation ambiguity* | **Observation ambiguity $\mathcal{A}$ [canonicalize]** | +3 |
 |  | Observation ambiguity [add-alias] | +3 |
-| $\mathcal{T}$ adaptive tempo | **Tempo [add-alias]** | +3 |
-|  | Adaptive tempo $\mathcal{T}$ [canonicalize] | +3 |
 | $A_O(M_t; \Pi, N_h)$ | **Achievable value [add-alias]** | +2 |
 | $C_{\text{coord}}$ | **Coordination overhead [add-alias]** | +2 |
 | $G_t = (O_t, \Sigma_t)$ | **Purposeful state [add-alias]** | +2 |
@@ -1183,7 +1179,6 @@ Single-table compact view of the master list. One row per (original, candidate) 
 |  | Strategic disturbance rate [add-alias] | +2 |
 | $\rho_{i,\text{eff}}$ | **Effective disturbance [add-alias]** | +2 |
 | $\tilde{\delta}_t$ | **Variational aporia [add-alias]** | +2 |
-| $p_{ij}$ | **Edge credence [add-alias]** | +2 |
 | $w(t)$ | **Mismatch injection [add-alias]** | +2 |
 | [Concept] *AAD (theoretical core) vs ASF (framework)* | **AAD vs ASF distinction** | +2 |
 |  | AAD ASF disambiguation [canonicalize] | +2 |
@@ -1312,8 +1307,8 @@ Single-table compact view of the master list. One row per (original, candidate) 
 |  | Structural adaptation trigger | +2 |
 | structured rich context | **_(keep)_ ⭑** | +2 |
 |  | Structured context | +2 |
-| survival fisher floor | **Survival FIM floor** | +2 |
-|  | _(keep)_ ⭑ | +2 |
+| survival FIM floor | **_(keep)_** | +2 |
+|  | survival fisher floor [canonicalize] | +2 |
 | symbiogenic consolidation time | **Consolidation horizon** | +2 |
 |  | Consolidation epoch | +2 |
 | [Concept] *Symbol default bias-bound Track 1 / Track 2* | **Class 2 bias bound** | +2 |

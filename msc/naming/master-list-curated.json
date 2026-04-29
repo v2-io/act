@@ -25,7 +25,7 @@
     ],
     "total_vote_rows": 2967,
     "total_pairs": 1805,
-    "total_currents": 695,
+    "total_currents": 690,
     "enrichment_status": {
       "consolidated_rationale": "pending",
       "first_encounter_locality": "pending",
@@ -21349,10 +21349,10 @@
         {
           "candidate": "teleological unity",
           "is_keep": true,
-          "total_weight": 11,
+          "total_weight": 14,
           "category_tally": {
             "add-alias": 3,
-            "canonicalize": 1
+            "canonicalize": 2
           },
           "consolidated_rationale": null,
           "votes": [
@@ -21379,6 +21379,29 @@
               "weight": 2,
               "category": "add-alias",
               "notes": "Confirm. Prose alias is already canonical; vote to keep."
+            },
+            {
+              "agent": "sonnet-4-6",
+              "weight": 3,
+              "category": "canonicalize",
+              "notes": "The three unity dimensions (epistemic, teleological, strategic) form a coherent vocabulary. Keep all three."
+            }
+          ]
+        },
+        {
+          "candidate": "Teleological unity $U_o$",
+          "is_keep": false,
+          "total_weight": 3,
+          "category_tally": {
+            "canonicalize": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "gemini-targeted-alternatives",
+              "weight": 3,
+              "category": "canonicalize",
+              "notes": "Standardizes capitalization on the subscript."
             }
           ]
         },
@@ -24047,9 +24070,9 @@
         {
           "candidate": "Edge credence",
           "is_keep": false,
-          "total_weight": 6,
+          "total_weight": 8,
           "category_tally": {
-            "add-alias": 1,
+            "add-alias": 2,
             "canonicalize": 1
           },
           "consolidated_rationale": null,
@@ -24065,6 +24088,12 @@
               "weight": 3,
               "category": "canonicalize",
               "notes": "Replaces the broader \"probability\" with proper Bayesian vocabulary for subjective belief."
+            },
+            {
+              "agent": "gemini-3-1-pro-preview-r2",
+              "weight": 2,
+              "category": "add-alias",
+              "notes": "Better than \"edge confidence weight\", aligns with belief networks."
             }
           ]
         }
@@ -24076,6 +24105,7 @@
       "is_concept_cluster": false,
       "voted_by_architectures": [
         "Gemini",
+        "Opus",
         "Sonnet"
       ],
       "category_disagreement": true,
@@ -24086,9 +24116,10 @@
         {
           "candidate": "plan confidence",
           "is_keep": true,
-          "total_weight": 6,
+          "total_weight": 10,
           "category_tally": {
-            "canonicalize": 2
+            "canonicalize": 2,
+            "add-alias": 2
           },
           "consolidated_rationale": null,
           "votes": [
@@ -24103,6 +24134,18 @@
               "weight": 3,
               "category": "canonicalize",
               "notes": "More evocative than \"root-node propagated status.\" LEXICON.md lists this under \"Terms to Be Added.\" Promote to main LEXICON."
+            },
+            {
+              "agent": "opus-4-7",
+              "weight": 1,
+              "category": "add-alias",
+              "notes": "LEXICON \"Terms to Be Added\" flags this. Symbol is fine; adopt the English name as first-class in prose."
+            },
+            {
+              "agent": "sonnet-4-6",
+              "weight": 3,
+              "category": "add-alias",
+              "notes": "LEXICON.md already lists \"plan confidence\" as a term to be added. The English is superior to the symbol in any Discussion section. Recommend promoting this to the main LEXICON entries (not just Terms to Be Added)."
             }
           ]
         }
@@ -25056,7 +25099,8 @@
       "is_concept_cluster": false,
       "voted_by_architectures": [
         "Gemini",
-        "Haiku"
+        "Haiku",
+        "Opus"
       ],
       "category_disagreement": true,
       "first_encounter_locality": null,
@@ -25064,8 +25108,8 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "𝒯 adaptive tempo",
-          "is_keep": false,
+          "candidate": "$\\mathcal{T}$ adaptive tempo",
+          "is_keep": true,
           "total_weight": 6,
           "category_tally": {
             "canonicalize": 1,
@@ -25084,6 +25128,40 @@
               "weight": 3,
               "category": "add-alias",
               "notes": "The symbolic reference 𝒯 is set; the English name \"adaptive tempo\" is already established in LEXICON and prose. The script-T notation is appropriate for a central quantity. Keep."
+            }
+          ]
+        },
+        {
+          "candidate": "Tempo",
+          "is_keep": false,
+          "total_weight": 3,
+          "category_tally": {
+            "add-alias": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "opus-4-7-r2",
+              "weight": 3,
+              "category": "add-alias",
+              "notes": "Already canonical; vote to confirm. \"Tempo\" alone is the prose default; \"adaptive tempo $\\mathcal{T}$\" when the strategic-tempo / adaptive-tempo distinction is in play."
+            }
+          ]
+        },
+        {
+          "candidate": "Adaptive tempo $\\mathcal{T}$",
+          "is_keep": false,
+          "total_weight": 3,
+          "category_tally": {
+            "canonicalize": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "gemini-targeted-alternatives",
+              "weight": 3,
+              "category": "canonicalize",
+              "notes": "Formal prose notation."
             }
           ]
         }
@@ -27374,7 +27452,7 @@
       ]
     },
     {
-      "current": "l1 update bias",
+      "current": "L1 update bias",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -28773,44 +28851,6 @@
       ]
     },
     {
-      "current": "plan confidence",
-      "current_description": null,
-      "is_concept_cluster": false,
-      "voted_by_architectures": [
-        "Opus",
-        "Sonnet"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "plan confidence",
-          "is_keep": true,
-          "total_weight": 4,
-          "category_tally": {
-            "add-alias": 2
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "opus-4-7",
-              "weight": 1,
-              "category": "add-alias",
-              "notes": "LEXICON \"Terms to Be Added\" flags this. Symbol is fine; adopt the English name as first-class in prose."
-            },
-            {
-              "agent": "sonnet-4-6",
-              "weight": 3,
-              "category": "add-alias",
-              "notes": "LEXICON.md already lists \"plan confidence\" as a term to be added. The English is superior to the symbol in any Discussion section. Recommend promoting this to the main LEXICON entries (not just Terms to Be Added)."
-            }
-          ]
-        }
-      ]
-    },
-    {
       "current": "$\\iota_{ij}$",
       "current_description": null,
       "is_concept_cluster": false,
@@ -29402,7 +29442,7 @@
       ]
     },
     {
-      "current": "causal information yield CIY",
+      "current": "causal information yield (CIY)",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -35151,7 +35191,8 @@
       "is_concept_cluster": false,
       "voted_by_architectures": [
         "Gemini",
-        "Opus"
+        "Opus",
+        "agent1"
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
@@ -35161,9 +35202,9 @@
         {
           "candidate": "$H_b$",
           "is_keep": false,
-          "total_weight": 3,
+          "total_weight": 6,
           "category_tally": {
-            "canonicalize": 1
+            "canonicalize": 2
           },
           "consolidated_rationale": null,
           "votes": [
@@ -35172,15 +35213,21 @@
               "weight": 3,
               "category": "canonicalize",
               "notes": "Adopted; keep."
+            },
+            {
+              "agent": "agent1-original-brainstorm",
+              "weight": 3,
+              "category": "canonicalize",
+              "notes": "Adopted concept; AAD adds observer/horizon/trajectory indexing but keeps the symbol."
             }
           ]
         },
         {
           "candidate": "Agent opacity $H_b$",
           "is_keep": false,
-          "total_weight": 3,
+          "total_weight": 6,
           "category_tally": {
-            "canonicalize": 1
+            "canonicalize": 2
           },
           "consolidated_rationale": null,
           "votes": [
@@ -35189,6 +35236,12 @@
               "weight": 3,
               "category": "canonicalize",
               "notes": "Hafez opacity metric applied to adversarial dynamics."
+            },
+            {
+              "agent": "gemini-targeted-alternatives",
+              "weight": 3,
+              "category": "canonicalize",
+              "notes": "Standardizes the opacity metric."
             }
           ]
         }
@@ -35207,55 +35260,6 @@
       "segment_link": null,
       "manual_curation_notes": null,
       "candidates": []
-    },
-    {
-      "current": "Hafez's $H_b$",
-      "current_description": null,
-      "is_concept_cluster": false,
-      "voted_by_architectures": [
-        "Gemini",
-        "agent1"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "Agent opacity $H_b$",
-          "is_keep": false,
-          "total_weight": 3,
-          "category_tally": {
-            "canonicalize": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "gemini-targeted-alternatives",
-              "weight": 3,
-              "category": "canonicalize",
-              "notes": "Standardizes the opacity metric."
-            }
-          ]
-        },
-        {
-          "candidate": "$H_b$",
-          "is_keep": false,
-          "total_weight": 3,
-          "category_tally": {
-            "canonicalize": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "agent1-original-brainstorm",
-              "weight": 3,
-              "category": "canonicalize",
-              "notes": "Adopted concept; AAD adds observer/horizon/trajectory indexing but keeps the symbol."
-            }
-          ]
-        }
-      ]
     },
     {
       "current": "Section I. Adaptive Systems Under Uncertainty",
@@ -35512,7 +35516,7 @@
       ]
     },
     {
-      "current": "l1 correlation hierarchy prime decoration",
+      "current": "L1' correlation-hierarchy prime decoration",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -37682,55 +37686,6 @@
               "weight": 2,
               "category": "canonicalize",
               "notes": "Standard availability definition (MTTF/(MTTF+MTTR)). Adopts external vocabulary correctly."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "current": "teleological unity",
-      "current_description": null,
-      "is_concept_cluster": false,
-      "voted_by_architectures": [
-        "Gemini",
-        "Sonnet"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "Teleological unity $U_o$",
-          "is_keep": false,
-          "total_weight": 3,
-          "category_tally": {
-            "canonicalize": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "gemini-targeted-alternatives",
-              "weight": 3,
-              "category": "canonicalize",
-              "notes": "Standardizes capitalization on the subscript."
-            }
-          ]
-        },
-        {
-          "candidate": "teleological unity",
-          "is_keep": true,
-          "total_weight": 3,
-          "category_tally": {
-            "canonicalize": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "sonnet-4-6",
-              "weight": 3,
-              "category": "canonicalize",
-              "notes": "The three unity dimensions (epistemic, teleological, strategic) form a coherent vocabulary. Keep all three."
             }
           ]
         }
@@ -41179,55 +41134,6 @@
       ]
     },
     {
-      "current": "$\\mathcal{T}$ adaptive tempo",
-      "current_description": null,
-      "is_concept_cluster": false,
-      "voted_by_architectures": [
-        "Gemini",
-        "Opus"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "Tempo",
-          "is_keep": false,
-          "total_weight": 3,
-          "category_tally": {
-            "add-alias": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "opus-4-7-r2",
-              "weight": 3,
-              "category": "add-alias",
-              "notes": "Already canonical; vote to confirm. \"Tempo\" alone is the prose default; \"adaptive tempo $\\mathcal{T}$\" when the strategic-tempo / adaptive-tempo distinction is in play."
-            }
-          ]
-        },
-        {
-          "candidate": "Adaptive tempo $\\mathcal{T}$",
-          "is_keep": false,
-          "total_weight": 3,
-          "category_tally": {
-            "canonicalize": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "gemini-targeted-alternatives",
-              "weight": 3,
-              "category": "canonicalize",
-              "notes": "Formal prose notation."
-            }
-          ]
-        }
-      ]
-    },
-    {
       "current": "$A_O(M_t; \\Pi, N_h)$",
       "current_description": null,
       "is_concept_cluster": false,
@@ -42421,37 +42327,6 @@
               "weight": 2,
               "category": "add-alias",
               "notes": "Greek equivalent for the score-function mismatch."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "current": "$p_{ij}$",
-      "current_description": null,
-      "is_concept_cluster": false,
-      "voted_by_architectures": [
-        "Gemini"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "Edge credence",
-          "is_keep": false,
-          "total_weight": 2,
-          "category_tally": {
-            "add-alias": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "gemini-3-1-pro-preview-r2",
-              "weight": 2,
-              "category": "add-alias",
-              "notes": "Better than \"edge confidence weight\", aligns with belief networks."
             }
           ]
         }
@@ -45643,7 +45518,7 @@
       ]
     },
     {
-      "current": "survival fisher floor",
+      "current": "survival FIM floor",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -45657,7 +45532,7 @@
       "candidates": [
         {
           "candidate": "Survival FIM floor",
-          "is_keep": false,
+          "is_keep": true,
           "total_weight": 2,
           "category_tally": {
             "rename": 1
@@ -45674,7 +45549,7 @@
         },
         {
           "candidate": "survival fisher floor",
-          "is_keep": true,
+          "is_keep": false,
           "total_weight": 2,
           "category_tally": {
             "canonicalize": 1
