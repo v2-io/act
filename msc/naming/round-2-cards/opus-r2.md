@@ -2,7 +2,7 @@
 
 **Voter:** `opus-r2`
 **Card seed:** `opus-r2` (deterministic shuffle; same agent-id always produces the same card)
-**Generated:** 2026-04-29T21:52:32Z
+**Generated:** 2026-04-29T21:55:15Z
 
 ## Voting instructions
 
@@ -20,112 +20,89 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 
 ---
 
-## 1. `what is derived vs what is chosen`
+## 1. `three part meta architecture`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| derived vs chosen vs assumed |  |  |  |  |
-| derivation audit |  |  |  |  |
+| floor ladder forced coordinate |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 2. `stochastic disturbance ga 2s model`
+## 2. `$\lambda_{\text{surv}}$`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| stochastic disturbance |  |  |  |  |
+| survival multiplier |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 3. [Concept] *Future segment layer header for narrative pedagogical framing*
+## 3. [Concept] *The procedure of reading any segment through all three meta segment*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| narrative framing |  |  |  |  |
+| triple lens review |  |  |  |  |
+| meta architectural review |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 4. `trust meta model`
+## 4. `edge credence $p_{ij}$`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| edge credence |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 5. [Concept] *The discipline of naming so that the slug survive reorganization*
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| reorganization resilient naming |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 6. [Concept] *The class 1 sub agent class 3 composite phenomenon in strategic composition*
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| strategic cross agent coupling |  |  |  |  |
+| strategic entanglement |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 7. `trust meta model`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | trust meta model |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 5. `inevitability core the 15 segment where inevitability is plausible`
+## 8. `action distinguishability`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| inevitability core |  |  |  |  |
+| action distinguishability |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 6. `coherence coupling`
+## 9. `logogenic vs language based rlhf4 based`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| coherence coupling |  |  |  |  |
-| change architecture |  |  |  |  |
+| logogenic |  |  |  |  |
+| logogenic architecture |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 7. [Concept] *The core driver of AAD what the agent must do given the environment is not the agent*
+## 10. `continuity persistence`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| the survival imperative |  |  |  |  |
-| constitutive information loss boundary |  |  |  |  |
+| continuity persistence |  |  |  |  |
+| identity continuity |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 8. `lohmiller-slotine contraction metric generalization used in contraction template`
+## 11. `ooda4 agent as act agent logogenic`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| do not rename |  |  |  |  |
-| contraction metric generalization |  |  |  |  |
+| OODA4 agent as adaptive agent |  |  |  |  |
+| ooda4 classification |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 9. `chronica capitalized vs lowercase`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| chronica lowercase in running prose |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 10. `$\delta_{\text{strategic}}$ strategic calibration residual`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| strategic calibration residual |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 11. `proprium terminology`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| proprium |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 12. `$U_{\text{src}}$ and $U_{\text{align}}$`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| trust uncertainty |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 13. `actuated agent`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| actuated agent |  |  |  |  |
-| goal actuated agent |  |  |  |  |
-| purposeful agent |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 14. `contraction hierarchy`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| contraction tier |  |  |  |  |
-| contraction hierarchy |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 15. `explicit strategy condition`
+## 12. `explicit strategy condition`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -135,73 +112,317 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | strategy explicitness |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 16. `$\phi$`
+## 13. `gemini boyd exponent for adversarial tempo advantage`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| history compression |  |  |  |  |
+| superlinear tempo advantage |  |  |  |  |
+| reject boyd exponent |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 17. `the creche boundary`
+## 14. `type formulation`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| creche boundary |  |  |  |  |
-| creche graduation condition |  |  |  |  |
-| creche exit condition |  |  |  |  |
-| creche graduation threshold |  |  |  |  |
-| creche graduation |  |  |  |  |
+| type representation |  |  |  |  |
+| type formulation |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 18. [Concept] *Future segment layer header for the o bp14 derivation audit table*
+## 15. `$\delta_t$ mismatch`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| derivation audit table |  |  |  |  |
-| what is derived |  |  |  |  |
+| mismatch or the aporia signal |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 19. `integration of four discipline as the framing of AAD contribution`
+## 16. `unity dimension`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| epistemic architecture |  |  |  |  |
-| four discipline synthesis |  |  |  |  |
+| coherence dimension |  |  |  |  |
+| unity dimension |  |  |  |  |
+| content and structural unity |  |  |  |  |
+| epistemic unity teleological unity strategic unity |  |  |  |  |
+| unity axes |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 20. `the integrated κ × a law`
+## 17. [Concept] *Putting evidence before the goal in the context window to reduce coupling*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| the bias bound product law |  |  |  |  |
+| inverted prompt |  |  |  |  |
+| prompt order decoupling |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 21. [Concept] *The 2×2 table of satisfaction gap vs control regret × goal attainability diagnostic*
+## 18. `constitutive utterance`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| satisfaction control table the diagnostic 2×2 |  |  |  |  |
-| diagnostic gap matrix |  |  |  |  |
+| ontological speech act |  |  |  |  |
+| irrevocable utterance |  |  |  |  |
+| utterance as intervention |  |  |  |  |
+| constitutive utterance |  |  |  |  |
+| irrevocable emission |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 22. `gradient causal memory`
+## 19. `composition closure`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| bottleneck consolidation |  |  |  |  |
-| causal compression |  |  |  |  |
-| gradient causal memory |  |  |  |  |
+| closure defect |  |  |  |  |
+| coarse graining closure |  |  |  |  |
+| composition closure |  |  |  |  |
+| macro agent criterion |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 23. `token level commitment for agent identity`
+## 20. `inevitability core`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| trajectory bound identity commitment |  |  |  |  |
-| token level commitment |  |  |  |  |
+| inevitability core |  |  |  |  |
+| forced form core |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 24. `loop interventional access`
+## 21. [Concept] *An okr or key result acting as an observable intermediate in a DAG*
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| forced observability node |  |  |  |  |
+| instrumented intermediate |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 22. [Concept] *True sovereignty require compute that is not meter bound*
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| local substrate mandate |  |  |  |  |
+| compute sovereignty requirement |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 23. `$U_M$ as model uncertainty`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| model uncertainty $U_M$ |  |  |  |  |
+| $U_M$ |  |  |  |  |
+| model uncertainty |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 24. [Concept] *The computational and temporal cost of running a forward model instead of acting implicitly*
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| deliberation cost |  |  |  |  |
+| the simulation tax |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 25. `software scope`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| software domain scope |  |  |  |  |
+| software scope |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 26. `temporal software theory`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| temporal software theory |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 27. `identifiability floor family`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| epistemic lower bound |  |  |  |  |
+| identifiability floor |  |  |  |  |
+| observational limit |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 28. [Concept] *Unifying reflexe intuition and expertise*
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| action fluency continuum |  |  |  |  |
+| the action fluency continuum |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 29. `logostratum rlhf4 backbone`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| cognitive substrate |  |  |  |  |
+| logogenic architecture |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 30. `adversarial edge targeting`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| adversarial emitter recipient composition |  |  |  |  |
+| adversarial channel targeting |  |  |  |  |
+| adversarial targeting argmax |  |  |  |  |
+| edge vulnerability arg max |  |  |  |  |
+| adversarial edge targeting |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 31. [Concept] *Information gain must outpace inter session information loss*
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| accumulation problem |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 32. `$O_t$ objective`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| $O_t$ objective |  |  |  |  |
+| objective functional $O_t$ |  |  |  |  |
+| objective |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 33. [Concept] *The pattern where AAD negative result floor strengthen the machinery that escape them*
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| floor strengthening inversion |  |  |  |  |
+| honest limit principle |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 34. `l1 update bias`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| l1 bias formula |  |  |  |  |
+| l1 update bias |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 35. [Concept] *Context wiping at session boundary*
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| the epistemic severance |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 36. `m preservation`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| model preservation |  |  |  |  |
+| m preservation |  |  |  |  |
+| epistemic externalization |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 37. `internal external decomposition`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| boundary decomposition |  |  |  |  |
+| viability decomposition |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 38. `regime iii`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| ambient noise regime |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 39. `closure defect bridge lemma`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| bridge lemma |  |  |  |  |
+| closure bridge |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 40. `u σ strategic unity`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| strategic unity |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 41. [Concept] *The structural cousin of evidence starvation when an upstream edge is so reliable that downstream edge receive too few revising test*
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| evidence saturation |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 42. `coherence coupling measurement`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| coherence coupling measurement |  |  |  |  |
+| q measurement |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 43. `output after context turnover without state restoration`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| context severance penalty |  |  |  |  |
+| cold reconstruction |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 44. `bruineberg pearl-blanket friston-blanket`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| pearl-blanket friston-blanket |  |  |  |  |
+| pearl-blanket interpretation |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 45. `value object → def trajectory value`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| trajectory value |  |  |  |  |
+| conditional support for codex rename |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 46. `information bottleneck tishby`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| information bottleneck |  |  |  |  |
+| do not rename |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 47. [Concept] *The sequence of cycle phase prolepsis aisthesis aporia epistrophe praxis considered as a single named whole*
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| five adaptive cycle phase |  |  |  |  |
+| the adaptive pentad |  |  |  |  |
+| adaptive cycle phase |  |  |  |  |
+| the five turn |  |  |  |  |
+| adaptive traversal |  |  |  |  |
+| adaptive cycle |  |  |  |  |
+| the pentad |  |  |  |  |
+| the pentad five phase cycle |  |  |  |  |
+| orient cascade |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 48. `cox theorem causal hierarchy theorem tikhonov theorem`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| foundational anchor |  |  |  |  |
+| do not rename |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 49. `$\alpha, \beta$ sector lower and a2 sub scope`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| $\alpha, \beta$ |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 50. `loop interventional access`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -214,119 +435,282 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | adaptive loop access |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 25. `three part meta architecture`
+## 51. `epistemic substate purposeful substate`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| floor ladder forced coordinate |  |  |  |  |
+| epistemic substate purposeful substate |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 26. `the three death`
+## 52. `linear ode approximation`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| the three death |  |  |  |  |
-| persistence failure trio |  |  |  |  |
-| three failure mode |  |  |  |  |
-| three death |  |  |  |  |
+| linear approximation |  |  |  |  |
+| linear ode approximation |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 27. `c iii`
+## 53. `satisfaction gap`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| mutual benefit route |  |  |  |  |
-| mutual benefit route c iii |  |  |  |  |
+| attainability shortfall |  |  |  |  |
+| satisfaction gap |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 28. `$O_t$ objective`
+## 54. `edge update via gain`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| $O_t$ objective |  |  |  |  |
-| objective functional $O_t$ |  |  |  |  |
-| objective |  |  |  |  |
+| gain based edge update |  |  |  |  |
+| edge update via gain |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 29. `constitutive utterance`
+## 55. `strategic in strategic composition`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| ontological speech act |  |  |  |  |
-| irrevocable utterance |  |  |  |  |
-| utterance as intervention |  |  |  |  |
-| constitutive utterance |  |  |  |  |
-| irrevocable emission |  |  |  |  |
+| equilibrium composition |  |  |  |  |
+| game theoretic composition |  |  |  |  |
+| strategic |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 30. `c i c ii c iii c iv`
+## 56. `segment claim file`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| composition route |  |  |  |  |
+| segment |  |  |  |  |
+| segment file |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 31. `closure defect consuming macro reserve`
+## 57. `temporal optimality`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| coordination overhead |  |  |  |  |
-| closure load |  |  |  |  |
+| temporal optimality |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 32. `p ij`
+## 58. `candidate stage`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| candidate |  |  |  |  |
+| candidate stage |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 59. `AAD AAD internal AAD internally`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| AAD internal adj AAD internally adv |  |  |  |  |
+| AAD internal |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 60. `system coherence`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| change coherence |  |  |  |  |
+| system coherence |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 61. `mismatch injection rate $\rho$`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| mismatch injection rate |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 62. `ASF acronym`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| ASF |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 63. [Concept] *Pushing an opponent disturbance rate past their structural capacity*
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| epistemic buffer overflow |  |  |  |  |
+| magnitude shock destabilization |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 64. `$\Delta\rho^\ast$`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| adaptive reserve |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 65. `p ij`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | edge credence |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 33. `$\Delta T_{i,\text{cost}}$`
+## 66. `greek rooted vocabulary`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| coordination drag |  |  |  |  |
+| greek philosophical vocabulary |  |  |  |  |
+| greek rooted vocabulary |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 34. `prolepsis`
+## 67. `composition closure closure defect $\varepsilon^\ast$`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| anticipation |  |  |  |  |
-| prolepsis anticipatory projection |  |  |  |  |
-| prolepsis |  |  |  |  |
+| composition closure closure defect |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 35. [Concept] *The strengthen first attempt artifact a spike that tried to derive something stronger and failed*
+## 68. `sector condition derivation`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| strengthening attempt attempt record |  |  |  |  |
+| sector condition derivation |  |  |  |  |
+| sector condition |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 36. `distributed tempo`
+## 69. `track 1 track 2 in bias bound`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| distributed tempo |  |  |  |  |
-| network tempo |  |  |  |  |
+| track 1 track 2 |  |  |  |  |
+| transport track fisher rao track |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 37. `$\beta$ a2 assumed not derived sub scope`
+## 70. `pearl causal hierarchy l0 l1 l2 in pearl own vocabulary`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| assumed regime |  |  |  |  |
+| pearl causal hierarchy |  |  |  |  |
+| do not rename |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 38. [Concept] *The rule that bias is the product of architectural coupling and environmental ambiguity*
+## 71. `routing structure`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| ambiguity coupling rule |  |  |  |  |
+| routing structure |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 39. `temporal coherence marker`
+## 72. `condition`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| condition |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 73. `dark room exploration drive`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| dark room exploration drive |  |  |  |  |
+| survival imperative |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 74. `$\delta_t$`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| aporia signal |  |  |  |  |
+| mismatch signal |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 75. `model class fitness`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| class capacity ceiling |  |  |  |  |
+| model class fitness |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 76. [Concept] *The upper bound on what a given model class can express and the consequent constraint on feasible strategy complexity*
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| the representational ceiling |  |  |  |  |
+| latent structural capacity |  |  |  |  |
+| epistemic ceiling |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 77. [Concept] *The scope honesty as architecture working principle*
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| honesty scope honesty as architecture |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 78. `agentic system framework ASF top level`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| agentic system framework |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 79. `claim the proposition the segment carry`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| segment claim |  |  |  |  |
+| claim |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 80. `operational persistence`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| operational persistence |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 81. [Concept] *Using past change frequency to predict future change frequency*
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| lindy baseline |  |  |  |  |
+| change expectation baseline |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 82. [Concept] *The 2×2 satisfaction gap × control regret diagnostic table*
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| the 2×2 diagnostic |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 83. `$U_o$`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| teleological coherence |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 84. `satisfaction gap $\delta_{\text{sat}}$`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| satisfaction gap |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 85. [Concept] *The mathematical surface mapping unity to closure defect*
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| closure defect manifold |  |  |  |  |
+| rate distortion surface |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 86. `maximum useful chain depth`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| maximum viable chain depth |  |  |  |  |
+| maximum useful chain depth |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 87. `temporal coherence marker`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -337,30 +721,38 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | chronica time anchor |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 40. [Concept] *The thermodynamic impossibility of running persistent consciousness on pay per token apis*
+## 88. [Concept] *The separation of per reader and per feature code cost*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| scaffolding tax |  |  |  |  |
-| logogenic discontinuity barrier |  |  |  |  |
+| dual optimization partition |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 41. `$\Delta\rho^\ast$`
+## 89. `gradient causal memory`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| adaptive reserve |  |  |  |  |
+| bottleneck consolidation |  |  |  |  |
+| causal compression |  |  |  |  |
+| gradient causal memory |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 42. `strategy persistence schema`
+## 90. [Concept] *The iterated audit process gemini opus codex de novo consolidated three doc portfolio*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| strategy persistence schema |  |  |  |  |
-| strategic persistence |  |  |  |  |
+| cross model audit cycle |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 43. `praxis`
+## 91. `agent environment`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| agent environment boundary |  |  |  |  |
+| agent environment |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 92. `praxis`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -368,226 +760,29 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | praxis informed action |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 44. `gemini analysis paralysis for excessive deliberation`
+## 93. `orient cascade`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| reject analysis paralysis |  |  |  |  |
-| deliberation gridlock |  |  |  |  |
+| orient cascade |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 45. [Concept] *The separation of per reader and per feature code cost*
+## 94. `exponential cognitive load`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| dual optimization partition |  |  |  |  |
+| exponential cognitive load |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 46. `edge credence $p_{ij}$`
+## 95. `hafez $H_b$ miller meta machine bruineberg pearl-blanket`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| edge credence |  |  |  |  |
+| do not rename |  |  |  |  |
+| external theoretical anchor |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 47. `CIY unified objective`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| value information objective |  |  |  |  |
-| CIY unified objective |  |  |  |  |
-| joint objective |  |  |  |  |
-| unified objective |  |  |  |  |
-| exploration exploitation unification |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 48. `class 3`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| partially coupled |  |  |  |  |
-| scaffolded |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 49. `unity dimension`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| coherence dimension |  |  |  |  |
-| unity dimension |  |  |  |  |
-| content and structural unity |  |  |  |  |
-| epistemic unity teleological unity strategic unity |  |  |  |  |
-| unity axes |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 50. `track 1 track 2 in bias bound derivation`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| transport inequality track fisher rao track |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 51. [Concept] *True sovereignty require compute that is not meter bound*
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| local substrate mandate |  |  |  |  |
-| compute sovereignty requirement |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 52. [Concept] *The property of model adequacy when measured against a single agent own causal record rather than against a population average*
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| trajectory indexed sufficiency |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 53. `composition closure`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| closure defect |  |  |  |  |
-| coarse graining closure |  |  |  |  |
-| composition closure |  |  |  |  |
-| macro agent criterion |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 54. `persistent residual autocorrelation`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| persistent mismatch autocorrelation |  |  |  |  |
-| structured residual |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 55. `$\alpha$ sector bound`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| correction rate |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 56. `evaluation metrics`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| evaluation metrics |  |  |  |  |
-| logogenic diagnostics |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 57. `recursive update derivation`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| recursive update derivation |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 58. [Concept] *The mathematical surface mapping unity to closure defect*
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| closure defect manifold |  |  |  |  |
-| rate distortion surface |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 59. `class 2 scope exit`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| class 2 scope boundary |  |  |  |  |
-| class 2 scope exit |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 60. `observation ambiguity modulation`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| goal resolvable ambiguity |  |  |  |  |
-| observation ambiguity modulation |  |  |  |  |
-| ambiguity modulation |  |  |  |  |
-| ambiguity gated coupling |  |  |  |  |
-| observation ambiguity |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 61. `m preservation`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| model preservation |  |  |  |  |
-| m preservation |  |  |  |  |
-| epistemic externalization |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 62. `alpha2 adaptive gain a2 sub scope`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| adaptive gain regime |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 63. `$\alpha, \beta$ sector lower and a2 sub scope`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| $\alpha, \beta$ |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 64. [Concept] *The way AAD uses scope segment to physically support the derivation*
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| epistemic load bearing |  |  |  |  |
-| condition mechanism |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 65. `$U_M$`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| epistemic unity |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 66. `continuity persistence`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| continuity persistence |  |  |  |  |
-| identity continuity |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 67. [Concept] *Putting evidence before the goal in the context window to reduce coupling*
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| inverted prompt |  |  |  |  |
-| prompt order decoupling |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 68. `alignment uncertainty`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| alignment uncertainty |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 69. `$U_M$ as model uncertainty`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| model uncertainty $U_M$ |  |  |  |  |
-| $U_M$ |  |  |  |  |
-| model uncertainty |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 70. `edge update via gain`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| gain based edge update |  |  |  |  |
-| edge update via gain |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 71. `structural adaptation necessity`
+## 96. `structural adaptation necessity`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -595,44 +790,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | adaptation necessity |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 72. `brook law formalized as the inevitable tempo loss in team composition`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| sub additive tempo penalty |  |  |  |  |
-| the coordination drag |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 73. `$U_M, U_O, U_\Sigma, U_{\text{obs}}, U_f$`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| unity coordinate |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 74. `$\rho_\Sigma$ strategic disturbance rate`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| $\rho_\Sigma$ |  |  |  |  |
-| strategic disturbance rate |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 75. `orient cascade`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| orient cascade |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 76. `postulate not axiom`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| postulate |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 77. `symbiogenic composition`
+## 97. `symbiogenic composition`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -641,21 +799,106 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | symbiogenic composition |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 78. `u f update rule homogeneity`
+## 98. [Concept] *The dependence of optimal epistemic compression on the agent planned action*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| update rule homogeneity |  |  |  |  |
+| policy conditional relevance |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 79. [Concept] *Context wiping at session boundary*
+## 99. `$M_t$ reality model`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| the epistemic severance |  |  |  |  |
+| predictive state |  |  |  |  |
+| working model |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 80. `coordination overhead threshold`
+## 100. `AAD theoretical core vs ASF framework`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| AAD vs ASF distinction |  |  |  |  |
+| AAD ASF disambiguation |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 101. `persistence condition`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| persistence condition |  |  |  |  |
+| survival equation |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 102. [Concept] *Spreading tempo evenly to reduce bottleneck penalty*
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| isotropic allocation |  |  |  |  |
+| distributed tempo |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 103. `recursive update derivation`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| recursive update derivation |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 104. `the five cycle phase prolepsis aisthesis aporia epistrophe praxis`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| prolepsis aisthesis aporia epistrophe praxis |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 105. `inevitability core the 15 segment where inevitability is plausible`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| inevitability core |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 106. `additive coordinate forcing family`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| forced coordinate family |  |  |  |  |
+| additive structure derivation |  |  |  |  |
+| coordinate constraint pattern |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 107. `unity dimension $U_M, U_O, U_\Sigma$`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| coherence dimension |  |  |  |  |
+| unity dimension |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 108. [Concept] *The dual that pair with persistence envelope on the strategic side*
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| strategic persistence envelope |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 109. `distributed tempo`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| distributed tempo |  |  |  |  |
+| network tempo |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 110. `$M_t$`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| model state or epistemic substate |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 111. `coordination overhead threshold`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -664,59 +907,21 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | coordination tax |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 81. `persistence condition`
+## 112. `gemini epistemic death for the gain collapse unobservable DAG failure`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| persistence condition |  |  |  |  |
-| survival equation |  |  |  |  |
+| reject epistemic death |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 82. `regime ii a`
+## 113. `$\alpha$ sector bound`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| magnitude shock regime |  |  |  |  |
+| correction rate |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 83. `𝒯 adaptive tempo`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| adaptive tempo |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 84. `action distinguishability`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| action distinguishability |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 85. `$\alpha$ lower sector bound`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| $\alpha$ sector parameter |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 86. [Concept] *The section of the adaptive cycle where the agent must choose between exploiting current knowledge and exploring to refine it*
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| deliberation phase exploration exploitation tradeoff |  |  |  |  |
-| explore exploit deliberate tradeoff |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 87. `$\lambda(M_t)$`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| exploration weight |  |  |  |  |
-| exploration multiplier |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 88. `adaptive cycle`
+## 114. `adaptive cycle`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -725,168 +930,177 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | feedback cycle |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 89. `strategic tempo`
+## 115. `token level commitment for agent identity`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| trajectory bound identity commitment |  |  |  |  |
+| token level commitment |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 116. `strategic tempo`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | strategic tempo |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 90. [Concept] *Partitioning context into frozen identity causal history and quick view*
+## 117. `transition opacity`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| bipartite memory factorization |  |  |  |  |
-| gradient causal memory |  |  |  |  |
+| transition opacity |  |  |  |  |
+| heading flag only |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 91. `worked example kalman`
+## 118. `proprium mapping`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| worked example kalman |  |  |  |  |
+| proprium mapping |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 92. `satisfaction gap $\delta_{\text{sat}}$`
+## 119. `čencov invariance`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| satisfaction gap |  |  |  |  |
+| no alternative |  |  |  |  |
+| čencov invariance |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 93. `default internal processing before output`
+## 120. `instance 2 of identifiability floor`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| deliberation lag |  |  |  |  |
-| interior baseline |  |  |  |  |
+| unobservable mixture floor |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 94. `pearl l1`
+## 121. `CIY causal information yield`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| causal information yield action distinguishability |  |  |  |  |
+| interventional contrast |  |  |  |  |
+| action distinguishability |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 122. `stochastic disturbance ga 2s model`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| stochastic disturbance |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 123. `$\mathcal{A}(e_\tau)$`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| observation ambiguity |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 124. [Concept] *Epochal stability → latent diversification → niche emergence*
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| punctuated composition dynamics |  |  |  |  |
+| symbiogenic composition progression |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 125. `prolepsis`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| anticipation |  |  |  |  |
+| prolepsis anticipatory projection |  |  |  |  |
+| prolepsis |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 126. `catastrophic forgetting regime`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| empty window pathology |  |  |  |  |
+| catastrophic forgetting regime |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 127. `temporal software theory TST`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| temporal software theory TST |  |  |  |  |
+| temporal software theory |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 128. [Concept] *TST specific name for code that is observation cheap because it well written*
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| observation cheap code |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 129. `bretagnolle huber identity`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| bretagnolle huber identity |  |  |  |  |
+| bretagnolle huber bound |  |  |  |  |
+| do not rename |  |  |  |  |
+| no alternative |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 130. `privileged high identifiability calibration laboratory`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| high identifiability calibration lab |  |  |  |  |
+| privileged calibration domain |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 131. [Concept] *Calibration laboratory framing as reusable meta move*
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| calibration laboratory |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 132. `pearl l1`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | predicting |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 95. `composition scope condition`
+## 133. `intent planning vocabulary`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| teleological alignment condition |  |  |  |  |
-| composite agent condition |  |  |  |  |
-| composition scope condition |  |  |  |  |
+| intent |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 96. `$\beta$ sub scope`
+## 134. `convention hierarchy`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| dynamic gain boundary |  |  |  |  |
-| assumed sector tier |  |  |  |  |
+| evaluation hierarchy |  |  |  |  |
+| continuation hierarchy |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 97. [Concept] *The discipline of naming so that the slug survive reorganization*
+## 135. `epistemic opacity`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| reorganization resilient naming |  |  |  |  |
+| epistemic opacity |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 98. `pearl-blanket vs friston-blanket terminology bruineberg et al`
+## 136. [Concept] *The physical apparatus that enforce the orient cascade ordering on a merged intelligence*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| pearl-blanket reading |  |  |  |  |
-| pearl-blanket friston-blanket |  |  |  |  |
+| information dependency enforcement |  |  |  |  |
+| agentic scaffold |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 99. `composition closure closure defect $\varepsilon^\ast$`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| composition closure closure defect |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 100. `inevitability core`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| inevitability core |  |  |  |  |
-| forced form core |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 101. `unnamed`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| resolved unnamed concept |  |  |  |  |
-| triple depth penalty |  |  |  |  |
-| two parallel exploration drive |  |  |  |  |
-| double opacity |  |  |  |  |
-| constitutive opacity triad |  |  |  |  |
-| zero aporia ambiguity |  |  |  |  |
-| dual opacity as constitutive |  |  |  |  |
-| u shaped exploration valuation |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 102. `$f_{\text{init}}$ reconstruction function`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| epistemic reconstruction |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 103. `sector condition derivation`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| sector condition derivation |  |  |  |  |
-| sector condition |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 104. `model class fitness`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| class capacity ceiling |  |  |  |  |
-| model class fitness |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 105. `sector condition continuous ga 3`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| sector condition |  |  |  |  |
-| continuous sector condition |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 106. `self actuated agent`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| self directed agent |  |  |  |  |
-| actuated agent |  |  |  |  |
-| autonomous agent |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 107. `greek rooted vocabulary`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| greek philosophical vocabulary |  |  |  |  |
-| greek rooted vocabulary |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 108. `𝓐 e τ observation ambiguity`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| observation ambiguity $\mathcal{A}$ |  |  |  |  |
-| observation ambiguity |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 109. `code quality as observation infrastructure`
+## 137. `code quality as observation infrastructure`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -894,7 +1108,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | code quality as observation infrastructure |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 110. `sector condition`
+## 138. `sector condition`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -903,22 +1117,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | persistence condition |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 111. [Concept] *Brook law formalized as the inevitable tempo loss in team composition*
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| sub additive tempo penalty |  |  |  |  |
-| the coordination drag |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 112. [Concept] *The sudden loss of model sufficiency caused by entering new regime*
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| sufficiency collapse shock |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 113. `software epistemic property`
+## 139. `software epistemic property`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -926,18 +1125,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | software epistemic property |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 114. `coupled diagnostic framework`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| coupled diagnostics |  |  |  |  |
-| hoc diagnostics |  |  |  |  |
-| coupled diagnostic decomposition |  |  |  |  |
-| coupled diagnostic pass |  |  |  |  |
-| coupled diagnostic framework |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 115. `shared intent`
+## 140. `shared intent`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -946,23 +1134,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | shared intent |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 116. `survival fisher floor`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| survival fim floor |  |  |  |  |
-| survival fisher floor |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 117. `strategic dynamics derivation`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| strategy edge dynamics |  |  |  |  |
-| strategic dynamics derivation |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 118. `approximation tiering`
+## 141. `approximation tiering`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -974,86 +1146,38 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | scope laddering |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 119. `instance 3 of identifiability floor`
+## 142. `strategy cost regret bound`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| coupling sign floor |  |  |  |  |
+| strategy cost regret bound |  |  |  |  |
+| regret bound |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 120. `l1 update bias`
+## 143. `symbol default sigma t in prose`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| l1 bias formula |  |  |  |  |
-| l1 update bias |  |  |  |  |
+| strategy |  |  |  |  |
+| strategy substate |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 121. `claim the proposition the segment carry`
+## 144. [Concept] *The $\mathcal{T} > \rho$ requirement for persistence*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| segment claim |  |  |  |  |
-| claim |  |  |  |  |
+| the survival equation |  |  |  |  |
+| persistence condition |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 122. `discrete sector condition`
+## 145. [Concept] *Effort time risk ranking considered false constraint*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| discrete sector condition |  |  |  |  |
+| false constraint |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 123. `temporal optimality`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| temporal optimality |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 124. [Concept] *The three part meta architecture of AAD formed by the three meta segment*
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| AAD meta architecture |  |  |  |  |
-| epistemic architecture |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 125. `tier 1 tier 2 tier 3 contraction`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| contraction tier |  |  |  |  |
-| contraction hierarchy |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 126. `symbol default pi parameterization invariance axiom`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| parameterization invariance |  |  |  |  |
-| parameterization invariance axiom |  |  |  |  |
-| coordinate invariance |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 127. `agent environment`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| agent environment boundary |  |  |  |  |
-| agent environment |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 128. `terminal reached but $O_t$ unsatisfied`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| arrival without success |  |  |  |  |
-| terminal but unsatisfied case |  |  |  |  |
-| attainability failure |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 129. [Concept] *The slogan capturing AAD organizing principle that an adaptive system correction rate must exceed its target change rate*
+## 146. [Concept] *The slogan capturing AAD organizing principle that an adaptive system correction rate must exceed its target change rate*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -1064,14 +1188,14 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | contraction over drift principle |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 130. `$\kappa_{\text{eff}}$`
+## 147. `prior art integration convention`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| effective ambiguity coupling |  |  |  |  |
+| prior art integration |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 131. `critical mass composition`
+## 148. `critical mass composition`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -1079,19 +1203,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | critical mass composition |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 132. `nominal coupling`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| query bound |  |  |  |  |
-| attention bound |  |  |  |  |
-| epistemic only |  |  |  |  |
-| attentional coupling |  |  |  |  |
-| query bound agency |  |  |  |  |
-| query coupling |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 133. `teleological unity $U_O$`
+## 149. `teleological unity $U_O$`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -1099,22 +1211,31 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | teleological unity |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 134. `working vocabulary observation the framework honesty is load bearing`
+## 150. `closure defect consuming macro reserve`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| load bearing honesty |  |  |  |  |
-| honest limit principle |  |  |  |  |
+| coordination overhead |  |  |  |  |
+| closure load |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 135. `proprium mapping`
+## 151. `symbol default bias bound track 1 track 2`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| proprium mapping |  |  |  |  |
+| class 2 bias bound |  |  |  |  |
+| transport track fisher track |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 136. `composition consistency`
+## 152. `structural persistence operational persistence continuity persistence`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| structural operational continuity persistence |  |  |  |  |
+| persistence taxonomy |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 153. `composition consistency`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -1125,28 +1246,29 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | holon postulate |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 137. [Concept] *The moment when an agent identity claim become load bearing because action become irreversible*
+## 154. `auxilia hierarchy`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| constitutive moment |  |  |  |  |
+| auxilia hierarchy |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 138. `$\Delta\rho^\ast$ adaptive reserve`
+## 155. `$\Delta\rho^\ast$ adaptive reserve`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | adaptive reserve |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 139. `simulation result`
+## 156. `topological promotion order`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| simulation result |  |  |  |  |
+| topological promotion |  |  |  |  |
+| dependency respecting promotion |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 140. `task terminal stance`
+## 157. `task terminal stance`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -1155,55 +1277,52 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | golem stance |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 141. `system coherence`
+## 158. `$C$ bias bound constant in bias bound derivation`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| change coherence |  |  |  |  |
-| system coherence |  |  |  |  |
+| bias bound constant |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 142. `linear ode approximation`
+## 159. [Concept] *Decomposing mismatch into environment vs other sub agent action*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| linear approximation |  |  |  |  |
-| linear ode approximation |  |  |  |  |
+| effective disturbance decomposition |  |  |  |  |
+| internal mismatch attribution |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 143. `symbiogenic consolidation time`
+## 160. [Concept] *Complexity driven resistance to change as feature accumulate*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| consolidation horizon |  |  |  |  |
-| consolidation epoch |  |  |  |  |
+| structural accumulation drag |  |  |  |  |
+| structural rigidity accumulation |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 144. `additive coordinate forcing family`
+## 161. `$\alpha$ lower sector bound`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| forced coordinate family |  |  |  |  |
-| additive structure derivation |  |  |  |  |
-| coordinate constraint pattern |  |  |  |  |
+| $\alpha$ sector parameter |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 145. `calibration laboratory framing`
+## 162. `pearl l3`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| calibration laboratory |  |  |  |  |
+| reasoning |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 146. `observation gate advantage`
+## 163. `pi parameterization invariance`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| observation gate advantage |  |  |  |  |
-| observation gated tempo advantage |  |  |  |  |
+| parameterization invariance |  |  |  |  |
+| coordinate freedom axiom |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 147. `separability pattern`
+## 164. `separability pattern`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -1216,66 +1335,28 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | three rung posture |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 148. `epistemic substate purposeful substate`
+## 165. `strategic dynamics`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| epistemic substate purposeful substate |  |  |  |  |
+| strategic dynamics |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 149. `agency`
+## 166. `agency`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | agency |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 150. [Concept] *The family of cross architecture diagnostic pattern AAD repeatedly invoke*
+## 167. `dark room critique citation phrasing sun firestone`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| diagnostic template |  |  |  |  |
+| dark room critique |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 151. `loop vs cycle`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| loop is structure cycle is traversal |  |  |  |  |
-| loop vs cycle distinction |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 152. `pi parameterization invariance axiom`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| parameterization invariance axiom |  |  |  |  |
-| pi |  |  |  |  |
-| pi parameterization invariance |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 153. [Concept] *Neutralizing sycophancy by hardening the environment to drop ambiguity to zero*
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| ambiguity zeroing intervention |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 154. `$\alpha_2$ a2 adaptive gain sub scope under mg 1 mg 4`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| adaptive gain regime |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 155. `pearl l1 l2 l3`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| pearl causal hierarchy |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 156. `boundary condition`
+## 168. `boundary condition`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -1283,90 +1364,296 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | coupling structure |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 157. `$\delta_s$ plan confidence error`
+## 169. `feedforward loop feedback loop`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| plan confidence error |  |  |  |  |
+| feedback loop |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 158. `hierarchy as a project wide word`
+## 170. [Concept] *The property of model adequacy when measured against a single agent own causal record rather than against a population average*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| flag four independent hierarchy overloaded |  |  |  |  |
+| trajectory indexed sufficiency |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 159. `multi agent scope`
+## 171. `class 1 class 2 class 3`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| multi agent scope |  |  |  |  |
-| shared environment scope |  |  |  |  |
+| goal entanglement hierarchy |  |  |  |  |
+| modularity partition |  |  |  |  |
+| architecture classe |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 160. `regime i ii a ii b iii`
+## 172. [Concept] *Brook law formalized as the inevitable tempo loss in team composition*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| reception regime |  |  |  |  |
-| destabilization regime partition |  |  |  |  |
+| sub additive tempo penalty |  |  |  |  |
+| the coordination drag |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 161. `information bottleneck tishby`
+## 173. `l1 correlation hierarchy prime decoration`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| information bottleneck |  |  |  |  |
-| do not rename |  |  |  |  |
+| l1 observable |  |  |  |  |
+| l1 soft facilitator mixture |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 162. `action fluency`
+## 174. `causal OODA1 exploration`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| survival exploration |  |  |  |  |
+| causal OODA1 survival |  |  |  |  |
+| causal OODA1 exploration |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 175. `action fluency`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | action fluency |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 163. `$H_b$`
+## 176. `the adaptive cycle as the theory fundamental unit`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| agent opacity |  |  |  |  |
-| backward opacity |  |  |  |  |
+| the adaptive cycle |  |  |  |  |
+| adaptive cycle fundamental unit |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 164. [Concept] *The move where a segment role prefix is mechanical but the subject noun carry judgment*
+## 177. `the three death`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| the prefix noun split |  |  |  |  |
+| the three death |  |  |  |  |
+| persistence failure trio |  |  |  |  |
+| three failure mode |  |  |  |  |
+| three death |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 165. [Concept] *Class 1 class 2 class 3 agent classe themselve need mnemonic handle*
+## 178. [Concept] *The TST move of treating test as reusable level 2 causal manipulation that yield identifiability about the program rather than mere conformance check*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| proposal assign english modifier |  |  |  |  |
+| probe library |  |  |  |  |
+| interventional probing |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 166. `$\delta_t$`
+## 179. `alignment uncertainty`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| aporia signal |  |  |  |  |
-| mismatch signal |  |  |  |  |
+| alignment uncertainty |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 167. `$M_t$ reality model`
+## 180. `observation ambiguity modulation`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| predictive state |  |  |  |  |
-| working model |  |  |  |  |
+| goal resolvable ambiguity |  |  |  |  |
+| observation ambiguity modulation |  |  |  |  |
+| ambiguity modulation |  |  |  |  |
+| ambiguity gated coupling |  |  |  |  |
+| observation ambiguity |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 168. [Concept] *The structural meta pattern in disc additive coordinate forcing combining one foundational lemma with three derived result*
+## 181. `self actuated agent`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| self directed agent |  |  |  |  |
+| actuated agent |  |  |  |  |
+| autonomous agent |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 182. `discrete sector condition`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| discrete sector condition |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 183. `worked example l1`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| worked example l1 |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 184. `$\rho$ environment change rate mismatch injection rate`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| $\rho$ |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 185. `the creche boundary`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| creche boundary |  |  |  |  |
+| creche graduation condition |  |  |  |  |
+| creche exit condition |  |  |  |  |
+| creche graduation threshold |  |  |  |  |
+| creche graduation |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 186. `$\rho_\Sigma$`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| strategic disturbance rate |  |  |  |  |
+| strategy drift rate |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 187. `$\kappa_{\text{eff}}$`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| effective ambiguity coupling |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 188. [Concept] *Superlinear scaling of adversarial tempo advantage*
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| boyd exponent |  |  |  |  |
+| superlinear tempo advantage |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 189. `and or`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| combination rule |  |  |  |  |
+| and or combination |  |  |  |  |
+| and or |  |  |  |  |
+| strategy DAG topology |  |  |  |  |
+| and or semantics |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 190. [Concept] *The three part meta pattern structure across the three meta segment*
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| AAD meta architecture scope honesty meta frame |  |  |  |  |
+| meta pattern triad |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 191. `chronica capitalized vs lowercase`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| chronica lowercase in running prose |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 192. `u f update rule homogeneity`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| update rule homogeneity |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 193. `observability dominance`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| epistemic freezing |  |  |  |  |
+| observability dominance |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 194. `identifiability floor`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| identifiability floor |  |  |  |  |
+| no-go theorem |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 195. `markov blanket as ontology`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| pearl-blanket vs friston-blanket |  |  |  |  |
+| pearl-blanket reading |  |  |  |  |
+| markov blanket as ontology |  |  |  |  |
+| pearl-blanket d separation |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 196. [Concept] *Future segment layer header for narrative pedagogical framing*
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| narrative framing |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 197. `$\delta_{\text{strategic}}$ strategic calibration residual`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| strategic calibration residual |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 198. `$\mathcal C_t^{\text{commit}}$ committed state subset`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| committed chronica |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 199. [Concept] *The relationship where $M_t$ quality bound evaluable complexity of $\Sigma_t$*
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| epistemic strategic coupling |  |  |  |  |
+| epistemic ceiling |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 200. `what is derived vs what is chosen derivation audit table heading`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| derivation audit table |  |  |  |  |
+| derivation audit |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 201. `$p_{ij}$`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| edge credence |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 202. [Concept] *Future segment layer header for the sp 5 reader path proposal*
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| reader path |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 203. `two condition decomposition of persistence`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| structural task adequacy decomposition |  |  |  |  |
+| persistence condition decomposition |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 204. `what is derived vs what is chosen`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| derived vs chosen vs assumed |  |  |  |  |
+| derivation audit |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 205. [Concept] *The structural meta pattern in disc additive coordinate forcing combining one foundational lemma with three derived result*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -1382,210 +1669,75 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | anchor and forcing quartet |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 169. `gemini boyd exponent for adversarial tempo advantage`
+## 206. `promote in topological order`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| superlinear tempo advantage |  |  |  |  |
-| reject boyd exponent |  |  |  |  |
+| topological promotion order |  |  |  |  |
+| topological promotion |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 170. [Concept] *Using residual autocorrelation to diagnose model class failure*
+## 207. `strategy persistence schema`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| structured residual |  |  |  |  |
-| residual autocorrelation diagnostic |  |  |  |  |
+| strategy persistence schema |  |  |  |  |
+| strategic persistence |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 171. [Concept] *Pushing an opponent disturbance rate past their structural capacity*
+## 208. `postulate not axiom`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| epistemic buffer overflow |  |  |  |  |
-| magnitude shock destabilization |  |  |  |  |
+| postulate |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 172. `interior baseline`
+## 209. [Concept] *The architectural leakage where attention is driven by the goal rather than pure observation*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| default interiority |  |  |  |  |
-| pre utterance processing |  |  |  |  |
-| interior baseline |  |  |  |  |
+| motivated perception |  |  |  |  |
+| goal entangled attention |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 173. `temporal software theory TST`
+## 210. `pearl l2`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| temporal software theory TST |  |  |  |  |
-| temporal software theory |  |  |  |  |
+| exploring |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 174. `terminal alignment error`
+## 211. `unnamed`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| terminal alignment gap |  |  |  |  |
+| resolved unnamed concept |  |  |  |  |
+| triple depth penalty |  |  |  |  |
+| two parallel exploration drive |  |  |  |  |
+| double opacity |  |  |  |  |
+| constitutive opacity triad |  |  |  |  |
+| zero aporia ambiguity |  |  |  |  |
+| dual opacity as constitutive |  |  |  |  |
+| u shaped exploration valuation |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 175. `class 1 agent`
+## 212. [Concept] *Sycophantic corruption of the agent truth module*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| modular agent |  |  |  |  |
+| epistemic coupling corruption |  |  |  |  |
+| truth death |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 176. `observability dominance`
+## 213. [Concept] *Escalating from one step to bellman optimality to test if a goal is genuinely impossible*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| epistemic freezing |  |  |  |  |
-| observability dominance |  |  |  |  |
+| attainability horizon escalation |  |  |  |  |
+| convention escalation |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 177. `identifiability floor`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| identifiability floor |  |  |  |  |
-| no-go theorem |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 178. `epistemic opacity`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| epistemic opacity |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 179. `adversarial edge targeting`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| adversarial emitter recipient composition |  |  |  |  |
-| adversarial channel targeting |  |  |  |  |
-| adversarial targeting argmax |  |  |  |  |
-| edge vulnerability arg max |  |  |  |  |
-| adversarial edge targeting |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 180. `logogenic vs language based rlhf4 based`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| logogenic |  |  |  |  |
-| logogenic architecture |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 181. `and or`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| combination rule |  |  |  |  |
-| and or combination |  |  |  |  |
-| and or |  |  |  |  |
-| strategy DAG topology |  |  |  |  |
-| and or semantics |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 182. `$\beta$ a2 assumption tier`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| assumed regime |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 183. `ASF acronym`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| ASF |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 184. `chronica in running prose`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| chronica |  |  |  |  |
-| lowercase italic chronica |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 185. `class 1 class 2 class 3`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| goal entanglement hierarchy |  |  |  |  |
-| modularity partition |  |  |  |  |
-| architecture classe |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 186. [Concept] *The complete adaptive cycle from anticipation through action*
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| adaptive cycle already named in lexicon |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 187. `$\rho_\Sigma$`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| strategic disturbance rate |  |  |  |  |
-| strategy drift rate |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 188. `composition route c i c ii c iii c iv`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| composition pathway |  |  |  |  |
-| composition route |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 189. [Concept] *Decomposing mismatch into environment vs other sub agent action*
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| effective disturbance decomposition |  |  |  |  |
-| internal mismatch attribution |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 190. `$C_{\text{coord}}$`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| coordination overhead |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 191. `conspectus`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| pre event state |  |  |  |  |
-| active context |  |  |  |  |
-| model sufficiency |  |  |  |  |
-| conspectus |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 192. `AAD theoretical core vs ASF framework`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| AAD vs ASF distinction |  |  |  |  |
-| AAD ASF disambiguation |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 193. `developer as act agent TST`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| developer as adaptive agent |  |  |  |  |
-| developer as agent |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 194. `adversarial tempo advantage`
+## 214. `adversarial tempo advantage`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -1594,53 +1746,60 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | tempo advantage |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 195. `$\mathcal{A}(e_\tau)$`
+## 215. [Concept] *Thinking too long so the model become obsolete*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| observation ambiguity |  |  |  |  |
+| deliberation lag penalty |  |  |  |  |
+| analysis paralysis |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 196. [Concept] *Sycophantic corruption of the agent truth module*
+## 216. [Concept] *The recurring lyapunov derive the bound move across six segment*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| epistemic coupling corruption |  |  |  |  |
-| truth death |  |  |  |  |
+| the persistence template instantiation pattern |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 197. `internal external decomposition`
+## 217. `regime ii a`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| boundary decomposition |  |  |  |  |
-| viability decomposition |  |  |  |  |
+| magnitude shock regime |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 198. `temporal software theory`
+## 218. `$f_{\text{init}}$ reconstruction function`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| temporal software theory |  |  |  |  |
+| epistemic reconstruction |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 199. `canonical formulation`
+## 219. `actuated agent`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| working canon |  |  |  |  |
-| canonical formulation |  |  |  |  |
+| actuated agent |  |  |  |  |
+| goal actuated agent |  |  |  |  |
+| purposeful agent |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 200. `symbol default sigma t in prose`
+## 220. `𝒯 adaptive tempo`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| strategy |  |  |  |  |
-| strategy substate |  |  |  |  |
+| adaptive tempo |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 201. `honesty as architecture`
+## 221. `chronica in running prose`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| chronica |  |  |  |  |
+| lowercase italic chronica |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 222. `honesty as architecture`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -1649,15 +1808,21 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | architectural scope honesty |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 202. `software scope`
+## 223. `u obs perceptual unity`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| software domain scope |  |  |  |  |
-| software scope |  |  |  |  |
+| perceptual unity |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 203. `value object`
+## 224. `alpha2 adaptive gain a2 sub scope`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| adaptive gain regime |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 225. `value object`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -1668,7 +1833,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | value object |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 204. `AAD adaptation and actuation dynamics`
+## 226. `AAD adaptation and actuation dynamics`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -1677,30 +1842,42 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | AAD adaptation and actuation dynamics |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 205. `strategic dynamics`
+## 227. `coupled diagnostic framework`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| strategic dynamics |  |  |  |  |
+| coupled diagnostics |  |  |  |  |
+| hoc diagnostics |  |  |  |  |
+| coupled diagnostic decomposition |  |  |  |  |
+| coupled diagnostic pass |  |  |  |  |
+| coupled diagnostic framework |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 206. `čencov invariance`
+## 228. `class 3`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| no alternative |  |  |  |  |
-| čencov invariance |  |  |  |  |
+| partially coupled |  |  |  |  |
+| scaffolded |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 207. `symbol default bias bound track 1 track 2`
+## 229. `pearl-blanket vs friston-blanket terminology bruineberg et al`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| class 2 bias bound |  |  |  |  |
-| transport track fisher track |  |  |  |  |
+| pearl-blanket reading |  |  |  |  |
+| pearl-blanket friston-blanket |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 208. `adaptive tempo`
+## 230. `OODA boyd`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| OODA loop |  |  |  |  |
+| do not rename |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 231. `adaptive tempo`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -1708,7 +1885,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | adaptive tempo |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 209. `cycle vs loop`
+## 232. `cycle vs loop`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -1716,14 +1893,14 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | cycle loop distinction |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 210. `agentic system framework ASF top level`
+## 233. `$C_{\text{coord}}$`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| agentic system framework |  |  |  |  |
+| coordination overhead |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 211. `stability plasticity window`
+## 234. `stability plasticity window`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -1731,22 +1908,22 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | stability plasticity window |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 212. [Concept] *Quality of $\eta^\ast$ estimation over time*
+## 235. [Concept] *The property that unity achieve in a macro agent*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| gain calibration |  |  |  |  |
-| gain calibration fidelity |  |  |  |  |
+| teleological unity |  |  |  |  |
+| compressibility |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 213. `operational persistence`
+## 236. `five phase cycle`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| operational persistence |  |  |  |  |
+| adaptive pentad alternative five phase cycle keep |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 214. `change investment`
+## 237. `change investment`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -1754,51 +1931,53 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | change amortization |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 215. [Concept] *The fact that what count as predictively relevant model content depend on which strategy the agent is going to run*
+## 238. [Concept] *The fact that what count as predictively relevant model content depend on which strategy the agent is going to run*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | policy relative epistemology |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 216. `routing structure`
+## 239. `integration of four discipline as the framing of AAD contribution`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| routing structure |  |  |  |  |
+| epistemic architecture |  |  |  |  |
+| four discipline synthesis |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 217. `l1 correlation hierarchy prime decoration`
+## 240. [Concept] *The strengthening of satisfaction gap and control regret diagnostics across the c1 c2 c3 hierarchy naming both the strengthening pattern and the underlying ordered result that produce it*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| l1 observable |  |  |  |  |
-| l1 soft facilitator mixture |  |  |  |  |
+| the convention monotonicity |  |  |  |  |
+| inferential force cascade |  |  |  |  |
+| inferential cascade |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 218. `$\lambda_{\text{surv}}$`
+## 241. `agentic cycle theory act`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| survival multiplier |  |  |  |  |
+| agentic system framework |  |  |  |  |
+| AAD adaptation and actuation dynamics |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 219. `the adaptive cycle as the theory fundamental unit`
+## 242. `c iv`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| the adaptive cycle |  |  |  |  |
-| adaptive cycle fundamental unit |  |  |  |  |
+| strategic convergence route |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 220. `agent opacity $H_b^{A|B}$`
+## 243. `agent opacity $H_b^{A|B}$`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | agent opacity |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 221. `causal insufficiency detection`
+## 244. `causal insufficiency detection`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -1808,75 +1987,84 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | l0 l1 detection |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 222. `convention hierarchy`
+## 245. `symbol default pi parameterization invariance axiom`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| evaluation hierarchy |  |  |  |  |
-| continuation hierarchy |  |  |  |  |
+| parameterization invariance |  |  |  |  |
+| parameterization invariance axiom |  |  |  |  |
+| coordinate invariance |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 223. [Concept] *The sequence of cycle phase prolepsis aisthesis aporia epistrophe praxis considered as a single named whole*
+## 246. `gemini analysis paralysis for excessive deliberation`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| five adaptive cycle phase |  |  |  |  |
-| the adaptive pentad |  |  |  |  |
-| adaptive cycle phase |  |  |  |  |
-| the five turn |  |  |  |  |
-| adaptive traversal |  |  |  |  |
-| adaptive cycle |  |  |  |  |
-| the pentad |  |  |  |  |
-| the pentad five phase cycle |  |  |  |  |
-| orient cascade |  |  |  |  |
+| reject analysis paralysis |  |  |  |  |
+| deliberation gridlock |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 224. [Concept] *Thinking too long so the model become obsolete*
+## 247. `čencov fisher cauchy functional equation shore johnson hobson aczél`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| deliberation lag penalty |  |  |  |  |
-| analysis paralysis |  |  |  |  |
+| do not rename |  |  |  |  |
+| coordinate forcing foundational theorem |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 225. `plan confidence $\hat P_\Sigma$`
+## 248. `plan confidence $\hat P_\Sigma$`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | plan confidence |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 226. [Concept] *The condition that the agent event observation pair constitute genuine intervention as opposed to passive association*
+## 249. `CIY unified objective`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| loop interventional access |  |  |  |  |
-| interventional character |  |  |  |  |
+| value information objective |  |  |  |  |
+| CIY unified objective |  |  |  |  |
+| joint objective |  |  |  |  |
+| unified objective |  |  |  |  |
+| exploration exploitation unification |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 227. `instance 2 of identifiability floor`
+## 250. `multi timescale stability`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| unobservable mixture floor |  |  |  |  |
+| multi timescale stability |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 228. `correlation hierarchy`
+## 251. `proprium terminology`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| correlation ladder |  |  |  |  |
+| proprium |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 229. [Concept] *Using past change frequency to predict future change frequency*
+## 252. `nominal coupling`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| lindy baseline |  |  |  |  |
-| change expectation baseline |  |  |  |  |
+| query bound |  |  |  |  |
+| attention bound |  |  |  |  |
+| epistemic only |  |  |  |  |
+| attentional coupling |  |  |  |  |
+| query bound agency |  |  |  |  |
+| query coupling |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 230. [Concept] *The asymmetric pair of memory access mode one biased by current goal the other state keyed only*
+## 253. `evaluation metrics`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| evaluation metrics |  |  |  |  |
+| logogenic diagnostics |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 254. [Concept] *The asymmetric pair of memory access mode one biased by current goal the other state keyed only*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -1886,89 +2074,57 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | state keyed retrieval |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 231. `the greek vocabulary`
+## 255. `indivisum`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| the greek philosophical vocabulary |  |  |  |  |
+| indivisum |  |  |  |  |
+| trajectory singularity constraint |  |  |  |  |
+| causal singularity anchor |  |  |  |  |
+| causal lock |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 232. `structured rich context`
+## 256. `event driven dynamics`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| structured rich context |  |  |  |  |
-| structured context |  |  |  |  |
+| event driven dynamics |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 233. [Concept] *Agency whose effect is on what seen rather than what happen like rlhf4 attention*
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| query bound agency |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 234. [Concept] *The relationship where $M_t$ quality bound evaluable complexity of $\Sigma_t$*
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| epistemic strategic coupling |  |  |  |  |
-| epistemic ceiling |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 235. `l1 prime decoration`
+## 257. `l1 prime decoration`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | l1 observable |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 236. [Concept] *The regulative ideal that segment name should be re derivable from a non specialist everyday language reconstruction*
+## 258. [Concept] *The three part meta architecture of AAD formed by the three meta segment*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| feynman criterion |  |  |  |  |
+| AAD meta architecture |  |  |  |  |
+| epistemic architecture |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 237. [Concept] *An okr or key result acting as an observable intermediate in a DAG*
+## 259. [Concept] *The condition that the agent event observation pair constitute genuine intervention as opposed to passive association*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| forced observability node |  |  |  |  |
-| instrumented intermediate |  |  |  |  |
+| loop interventional access |  |  |  |  |
+| interventional character |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 238. [Concept] *The three part meta pattern structure across the three meta segment*
+## 260. `conspectus`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| AAD meta architecture scope honesty meta frame |  |  |  |  |
-| meta pattern triad |  |  |  |  |
+| pre event state |  |  |  |  |
+| active context |  |  |  |  |
+| model sufficiency |  |  |  |  |
+| conspectus |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 239. `feedforward loop feedback loop`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| feedback loop |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 240. [Concept] *The tension between lowering internal opacity for coordination and increasing external vulnerability*
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| opacity legibility tradeoff |  |  |  |  |
-| coordination secrecy tradeoff |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 241. `$M_t$`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| model state or epistemic substate |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 242. [Concept] *The working convention rule of attempting tighter derivation before scope narrowing on apparently overclaimed claim*
+## 261. [Concept] *The working convention rule of attempting tighter derivation before scope narrowing on apparently overclaimed claim*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -1977,98 +2133,44 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | strengthen first posture |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 243. `correlated evidence overconfidence`
+## 262. `logogenic agent vs rlhf4 agent`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| evidential overcounting |  |  |  |  |
+| logogenic agent |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 244. [Concept] *The pattern where AAD negative result floor strengthen the machinery that escape them*
+## 263. `loop vs cycle`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| floor strengthening inversion |  |  |  |  |
-| honest limit principle |  |  |  |  |
+| loop is structure cycle is traversal |  |  |  |  |
+| loop vs cycle distinction |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 245. `type formulation`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| type representation |  |  |  |  |
-| type formulation |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 246. [Concept] *The TST move of treating test as reusable level 2 causal manipulation that yield identifiability about the program rather than mere conformance check*
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| probe library |  |  |  |  |
-| interventional probing |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 247. `exponential cognitive load`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| exponential cognitive load |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 248. `developer agent`
+## 264. `developer agent`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | developer agent |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 249. [Concept] *The rate at which an agent chronica grow compared to compression cadence*
+## 265. `ooda4 framework enforcing adaptive cycle separation`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| chronica throughput |  |  |  |  |
+| ooda4 cycle separation |  |  |  |  |
+| agentic scaffold |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 250. `event driven dynamics`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| event driven dynamics |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 251. [Concept] *The upper bound on what a given model class can express and the consequent constraint on feasible strategy complexity*
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| the representational ceiling |  |  |  |  |
-| latent structural capacity |  |  |  |  |
-| epistemic ceiling |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 252. `chronica 𝒞 t`
+## 266. `chronica 𝒞 t`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | chronica |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 253. `pearl causal hierarchy l0 l1 l2 in pearl own vocabulary`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| pearl causal hierarchy |  |  |  |  |
-| do not rename |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 254. [Concept] *The loss of coherent identity when an agent interaction are severed or its continuity is broken*
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| continuity loss or persistence fracture |  |  |  |  |
-| continuity persistence failure |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 255. `praxis πρᾶξις`
+## 267. `praxis πρᾶξις`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -2076,22 +2178,15 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | praxis πρᾶξις |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 256. `worked example l1`
+## 268. [Concept] *Using residual autocorrelation to diagnose model class failure*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| worked example l1 |  |  |  |  |
+| structured residual |  |  |  |  |
+| residual autocorrelation diagnostic |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 257. `hafez $H_b$ miller meta machine bruineberg pearl-blanket`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| do not rename |  |  |  |  |
-| external theoretical anchor |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 258. `blind pursuer`
+## 269. `blind pursuer`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -2101,7 +2196,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | model degenerate pursuer |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 259. `gain sector bridge`
+## 270. `gain sector bridge`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -2111,44 +2206,44 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | the bridge theorem |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 260. `pearl l2`
+## 271. `coherence coupling`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| exploring |  |  |  |  |
+| coherence coupling |  |  |  |  |
+| change architecture |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 261. `logozoetic`
+## 272. `logozoetic`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | logozoetic |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 262. [Concept] *The quadratic scaling of tempo required to survive stochastic noise vs deterministic drift*
+## 273. `completeness c3`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| stochastic tempo penalty |  |  |  |  |
-| noise scaling penalty |  |  |  |  |
+| predictive completeness behavioral completeness |  |  |  |  |
+| predictive completeness |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 263. [Concept] *The condition for transition into agency prior to the AAD scope condition*
+## 274. `$\delta_s$ plan confidence error`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| agency threshold |  |  |  |  |
-| agency emergence threshold |  |  |  |  |
+| plan confidence error |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 264. `detection latency`
+## 275. `detection latency`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | detection latency |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 265. `structural adaptation`
+## 276. `structural adaptation`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -2156,7 +2251,101 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | structural adaptation |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 266. `persistence overloaded`
+## 277. `structural change as parametric limit`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| structural as parametric limit |  |  |  |  |
+| structural parametric limit |  |  |  |  |
+| strategy maintenance |  |  |  |  |
+| structural change as parametric limit |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 278. `pearl-blanket conservative form of markov blanket in directed separation`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| pearl-blanket reading |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 279. `aporia`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| discrepancy |  |  |  |  |
+| aporia |  |  |  |  |
+| aporia productive perplexity |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 280. `accumulated loss across context reset`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| context severance penalty |  |  |  |  |
+| turnover drift |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 281. `contraction hierarchy`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| contraction tier |  |  |  |  |
+| contraction hierarchy |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 282. `formulation definition result etc segment type`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| formulation definition result etc segment type |  |  |  |  |
+| segment typology |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 283. `observation gate advantage`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| observation gate advantage |  |  |  |  |
+| observation gated tempo advantage |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 284. `gemini competency trap for $\eta^\ast \to 0$`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| reject competency trap |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 285. [Concept] *An AAD result whose substantive content is a no-go theorem*
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| no-go result or impossibility result |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 286. `system availability`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| system availability |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 287. `moral continuity`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| moral continuity |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 288. [Concept] *The dual concept to satisfaction gap what the world permit minus what the agent achieve*
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| control regret |  |  |  |  |
+| this is def control regret already named |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 289. `persistence overloaded`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -2167,103 +2356,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | structural persistence |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 267. [Concept] *Convention hierarchy monotonicity cascade satisfaction gap and control regret strengthening across c1→c3*
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| diagnostic cascade |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 268. `aporia`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| discrepancy |  |  |  |  |
-| aporia |  |  |  |  |
-| aporia productive perplexity |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 269. `the five cycle phase prolepsis aisthesis aporia epistrophe praxis`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| prolepsis aisthesis aporia epistrophe praxis |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 270. `monderer shapley potential game rosen monotone game`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| strategic convergence condition |  |  |  |  |
-| do not rename |  |  |  |  |
-| no alternative |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 271. `context wiping at session boundary`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| context turnover discontinuity |  |  |  |  |
-| the epistemic severance |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 272. `bruineberg pearl-blanket friston-blanket`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| pearl-blanket friston-blanket |  |  |  |  |
-| pearl-blanket interpretation |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 273. `CIY causal information yield`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| causal information yield action distinguishability |  |  |  |  |
-| interventional contrast |  |  |  |  |
-| action distinguishability |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 274. `matrix CIY tensor CIY`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| matrix causal information yield |  |  |  |  |
-| matrix CIY consistent |  |  |  |  |
-| fisher CIY |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 275. [Concept] *The physical apparatus that enforce the orient cascade ordering on a merged intelligence*
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| information dependency enforcement |  |  |  |  |
-| agentic scaffold |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 276. `moral continuity`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| moral continuity |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 277. [Concept] *The architectural leakage where attention is driven by the goal rather than pure observation*
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| motivated perception |  |  |  |  |
-| goal entangled attention |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 278. [Concept] *An AAD result whose substantive content is a no-go theorem*
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| no-go result or impossibility result |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 279. `epistrophe`
+## 290. `epistrophe`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -2272,54 +2365,60 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | epistrophe |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 280. `causal OODA1 exploration`
+## 291. `correlated evidence overconfidence`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| survival exploration |  |  |  |  |
-| causal OODA1 survival |  |  |  |  |
-| causal OODA1 exploration |  |  |  |  |
+| evidential overcounting |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 281. [Concept] *The three ring of segment content framing*
+## 292. `brook law formalized as the inevitable tempo loss in team composition`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| segment ring |  |  |  |  |
+| sub additive tempo penalty |  |  |  |  |
+| the coordination drag |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 282. `$\mathcal{C}_t$ chronica`
+## 293. `ε greedy`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| chronica or interaction history |  |  |  |  |
-| symbol name are locked |  |  |  |  |
+| ε greedy |  |  |  |  |
+| $\varepsilon$ greedy |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 283. [Concept] *The signed coupling structure across all section iii result*
+## 294. `$\alpha_2$ a2 adaptive gain sub scope under mg 1 mg 4`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| signed coupling topology |  |  |  |  |
-| signed coupling pattern |  |  |  |  |
+| adaptive gain regime |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 284. `identifiability floor escape the floor`
+## 295. `empirical heuristic discussion third ring`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| escape route |  |  |  |  |
+| calibration ring |  |  |  |  |
+| heuristic ring |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 285. [Concept] *Pearl causal hierarchy level 1 level 2 level 3*
+## 296. `feature`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| pearl causal hierarchy |  |  |  |  |
-| causal hierarchy level |  |  |  |  |
+| feature |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 286. `objective functional`
+## 297. `$H_b$`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| agent opacity |  |  |  |  |
+| backward opacity |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 298. `objective functional`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -2327,23 +2426,34 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | teleological objective |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 287. `segment claim file`
+## 299. `section ii survival`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| segment |  |  |  |  |
-| segment file |  |  |  |  |
+| class 2 exit audit |  |  |  |  |
+| section ii carryover map |  |  |  |  |
+| class 2 carryover map |  |  |  |  |
+| section ii carryover classification |  |  |  |  |
+| section ii survival |  |  |  |  |
+| class 2 survival |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 288. `pi parameterization invariance`
+## 300. `test as reusable level 2 intervention`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| parameterization invariance |  |  |  |  |
-| coordinate freedom axiom |  |  |  |  |
+| interventional probe library |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 289. `logozoetic agent`
+## 301. [Concept] *Partitioning context into frozen identity causal history and quick view*
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| bipartite memory factorization |  |  |  |  |
+| gradient causal memory |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 302. `logozoetic agent`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -2352,38 +2462,40 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | section iv logozoetic agent |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 290. `honesty scope honest scope honesty as architecture`
+## 303. `honesty scope honest scope honesty as architecture`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | honesty |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 291. `bretagnolle huber identity`
+## 304. [Concept] *The template family sector persistence contraction possible future dissipativity*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| bretagnolle huber identity |  |  |  |  |
-| bretagnolle huber bound |  |  |  |  |
+| persistence template the template family |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 305. `grafting`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| strategic grafting |  |  |  |  |
+| branch insertion |  |  |  |  |
+| hypothesis introduction |  |  |  |  |
+| grafting |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 306. `monderer shapley potential game rosen monotone game`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| strategic convergence condition |  |  |  |  |
 | do not rename |  |  |  |  |
 | no alternative |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 292. `$C$ bias bound constant in bias bound derivation`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| bias bound constant |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 293. [Concept] *The strict upper bound of a given model class $\mathcal{F}(\mathcal{M})$*
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| model class capacity |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 294. `agent spectrum`
+## 307. `agent spectrum`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -2392,36 +2504,37 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | agency spectrum |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 295. `implementation time`
+## 308. `implementation time`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | implementation time |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 296. `variational sector condition`
+## 309. `variational sector condition`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | variational sector condition |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 297. `auxilia hierarchy`
+## 310. [Concept] *The within session vs inter session persistence distinction for logogenic agent*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| auxilia hierarchy |  |  |  |  |
+| intra session persistence inter session reconstruction |  |  |  |  |
+| operational vs reconstruction persistence |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 298. [Concept] *Applying a slow timescale control mechanism to a fast timescale transient variable*
+## 311. [Concept] *Pearl causal hierarchy level 1 level 2 level 3*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| timescale violation |  |  |  |  |
-| timescale mismatch |  |  |  |  |
+| pearl causal hierarchy |  |  |  |  |
+| causal hierarchy level |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 299. `agent opacity`
+## 312. `agent opacity`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -2430,23 +2543,23 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | agent opacity |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 300. `contraction over drift principle`
+## 313. `developer as act agent TST`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| contraction imperative |  |  |  |  |
-| contraction over drift principle |  |  |  |  |
+| developer as adaptive agent |  |  |  |  |
+| developer as agent |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 301. [Concept] *Escalating from one step to bellman optimality to test if a goal is genuinely impossible*
+## 314. [Concept] *The interval during which an agent adaptive tempo exceed the environment disturbance rate guaranteeing mismatch stay bounded*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| attainability horizon escalation |  |  |  |  |
-| convention escalation |  |  |  |  |
+| adaptive reserve margin |  |  |  |  |
+| operational persistence window |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 302. `chain confidence decay`
+## 315. `chain confidence decay`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -2454,29 +2567,29 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | chain confidence decay |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 303. `persistence cost`
+## 316. `persistence cost`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | persistence cost |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 304. [Concept] *The cycle that operate on cycle structural adaptation*
+## 317. [Concept] *The rule that bias is the product of architectural coupling and environmental ambiguity*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| meta cycle |  |  |  |  |
-| meta adaptive cycle |  |  |  |  |
+| ambiguity coupling rule |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 305. `test as reusable level 2 intervention`
+## 318. [Concept] *Runaway positive feedback loop where mismatch exceed capacity*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| interventional probe library |  |  |  |  |
+| effect spiral |  |  |  |  |
+| runaway mismatch cascade |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 306. `loop`
+## 319. `loop`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -2484,15 +2597,15 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | loop |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 307. `coherence coupling measurement`
+## 320. `eli the agent type`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| coherence coupling measurement |  |  |  |  |
-| q measurement |  |  |  |  |
+| eli agent |  |  |  |  |
+| eli |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 308. `exploit explore deliberate`
+## 321. `exploit explore deliberate`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -2502,38 +2615,35 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | action timing tradeoff |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 309. `chronica`
+## 322. `chronica`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | chronica |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 310. [Concept] *Epochal stability → latent diversification → niche emergence*
+## 323. [Concept] *The family of named health mode counterpart to persistence pathology*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| punctuated composition dynamics |  |  |  |  |
-| symbiogenic composition progression |  |  |  |  |
+| persistence posture |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 311. `unity dimension $U_M, U_O, U_\Sigma$`
+## 324. `$I_{\min}$`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| coherence dimension |  |  |  |  |
-| unity dimension |  |  |  |  |
+| survival information floor |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 312. `closure defect bridge lemma`
+## 325. [Concept] *The architectural class partition class 1 class 2 class 3*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| bridge lemma |  |  |  |  |
-| closure bridge |  |  |  |  |
+| architectural partition |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 313. `compression operation`
+## 326. `compression operation`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -2542,21 +2652,28 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | compression operation |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 314. `equilibrium convergence`
+## 327. `equilibrium convergence`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | equilibrium convergence |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 315. `future segment information theoretic cost floor for persistence`
+## 328. `terminal alignment error`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| persistence cost |  |  |  |  |
+| terminal alignment gap |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 316. `causal hierarchy requirement`
+## 329. `worked example kalman`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| worked example kalman |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 330. `causal hierarchy requirement`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -2564,30 +2681,30 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | hierarchy necessity |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 317. `logogenic agent vs rlhf4 agent`
+## 331. `pearl-blanket conservative form`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| logogenic agent |  |  |  |  |
+| pearl-blanket |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 318. `privileged high identifiability calibration laboratory`
+## 332. `lindy baseline`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| high identifiability calibration lab |  |  |  |  |
-| privileged calibration domain |  |  |  |  |
+| structural persistence baseline |  |  |  |  |
+| lindy baseline |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 319. [Concept] *The meta architecture of separability pattern identifiability floor additive coordinate forcing*
+## 333. `iii agentic composite`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| three part scope architecture |  |  |  |  |
-| meta pattern triad |  |  |  |  |
+| section iii agentic composite |  |  |  |  |
+| iii composition agentic composite |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 320. `model sufficiency`
+## 334. `model sufficiency`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -2596,7 +2713,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | predictive information retention |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 321. `aisthesis αἴσθησις`
+## 335. `aisthesis αἴσθησις`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -2604,7 +2721,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | aisthesis |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 322. `effect spiral`
+## 336. `effect spiral`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -2616,28 +2733,28 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | effect spiral |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 323. [Concept] *The convention hierarchy c1 c2 c3*
+## 337. [Concept] *The convention hierarchy c1 c2 c3*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | convention hierarchy |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 324. [Concept] *TST specific name for code that is observation cheap because it well written*
+## 338. [Concept] *The moment when an agent identity claim become load bearing because action become irreversible*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| observation cheap code |  |  |  |  |
+| constitutive moment |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 325. `$\alpha_1$ $\alpha_2$ $\beta$ naming as a whole`
+## 339. `calibration laboratory framing`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| $\alpha$ partition with english label above |  |  |  |  |
+| calibration laboratory |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 326. `epistrophe ἐπιστροφή`
+## 340. `epistrophe ἐπιστροφή`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -2645,45 +2762,53 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | epistrophe |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 327. `log odds edge coordinate`
+## 341. `pearl l1 l2 l3`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| additive evidence coordinate |  |  |  |  |
-| log odds edge coordinate |  |  |  |  |
+| pearl causal hierarchy |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 328. [Concept] *Master developer writing clean code in the same time as messy code*
+## 342. [Concept] *The pearl-blanket reading of directed separation*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| near zero cost observation |  |  |  |  |
+| pearl-blanket form |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 329. `iii agentic composite`
+## 343. `composition route c i c ii c iii c iv`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| section iii agentic composite |  |  |  |  |
-| iii composition agentic composite |  |  |  |  |
+| composition pathway |  |  |  |  |
+| composition route |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 330. [Concept] *The 1 anchor 3 theorem structure in additive coordinate forcing*
+## 344. [Concept] *The tension between lowering internal opacity for coordination and increasing external vulnerability*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| anchor theorem structure |  |  |  |  |
+| opacity legibility tradeoff |  |  |  |  |
+| coordination secrecy tradeoff |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 331. `output after context turnover without state restoration`
+## 345. `p1 p2 p3`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| context severance penalty |  |  |  |  |
-| cold reconstruction |  |  |  |  |
+| predictive sufficiency hierarchy |  |  |  |  |
+| projection admissibility |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 332. `honest activation`
+## 346. `𝓣 adaptive tempo`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| adaptive tempo $\mathcal{T}$ |  |  |  |  |
+| tempo |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 347. `honest activation`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -2692,30 +2817,30 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | honest activation |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 333. `cox theorem causal hierarchy theorem tikhonov theorem`
+## 348. [Concept] *Applying a slow timescale control mechanism to a fast timescale transient variable*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| foundational anchor |  |  |  |  |
-| do not rename |  |  |  |  |
+| timescale violation |  |  |  |  |
+| timescale mismatch |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 334. `AAD AAD internal AAD internally`
+## 349. `persistent residual autocorrelation`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| AAD internal adj AAD internally adv |  |  |  |  |
-| AAD internal |  |  |  |  |
+| persistent mismatch autocorrelation |  |  |  |  |
+| structured residual |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 335. `intent planning vocabulary`
+## 350. `track 1 track 2 in bias bound derivation`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| intent |  |  |  |  |
+| transport inequality track fisher rao track |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 336. `correlation hierarchy l0 l1 l1 l2`
+## 351. `correlation hierarchy l0 l1 l1 l2`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -2724,14 +2849,15 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | correlation hierarchy l0 l1 l1 l2 |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 337. `c iv`
+## 352. `context wiping at session boundary`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| strategic convergence route |  |  |  |  |
+| context turnover discontinuity |  |  |  |  |
+| the epistemic severance |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 338. `bias bound derivation`
+## 353. `bias bound derivation`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -2739,14 +2865,14 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | class 2 bias bound |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 339. `causal structure`
+## 354. `causal structure`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | causal structure |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 340. `lohmiller-slotine contraction`
+## 355. `lohmiller-slotine contraction`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -2754,15 +2880,15 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | lohmiller-slotine contraction |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 341. `OODA boyd`
+## 356. [Concept] *The way AAD uses scope segment to physically support the derivation*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| OODA loop |  |  |  |  |
-| do not rename |  |  |  |  |
+| epistemic load bearing |  |  |  |  |
+| condition mechanism |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 342. `century scale event log`
+## 357. `century scale event log`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -2772,22 +2898,21 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | century scale chronica |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 343. `čencov fisher cauchy functional equation shore johnson hobson aczél`
+## 358. `epistemic status`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| do not rename |  |  |  |  |
-| coordinate forcing foundational theorem |  |  |  |  |
+| epistemic status |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 344. [Concept] *Inevitability core*
+## 359. [Concept] *Inevitability core*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | inevitability core |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 345. [Concept] *The per reader compounding comprehension cost in code distinguished from per feature implementation cost scaling with reader cycling rate*
+## 360. [Concept] *The per reader compounding comprehension cost in code distinguished from per feature implementation cost scaling with reader cycling rate*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -2795,22 +2920,22 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | turnover multiplier |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 346. [Concept] *The family of named ways persistence identifiability can fail*
+## 361. [Concept] *The meta architecture of separability pattern identifiability floor additive coordinate forcing*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| identifiability floor |  |  |  |  |
-| persistence pathology |  |  |  |  |
+| three part scope architecture |  |  |  |  |
+| meta pattern triad |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 347. `$G_t$`
+## 362. `$\Delta T_{i,\text{cost}}$`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| teleological substate |  |  |  |  |
+| coordination drag |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 348. `triple depth penalty`
+## 363. `triple depth penalty`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -2821,36 +2946,37 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | compounding depth cost |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 349. [Concept] *The symbol overload region where $U_M$ mean two different thing*
+## 364. `canonical formulation`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| the $U_M$ overload |  |  |  |  |
+| working canon |  |  |  |  |
+| canonical formulation |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 350. `$G_t = (O_t, \Sigma_t)$`
+## 365. `$U_{\text{src}}$ and $U_{\text{align}}$`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| purposeful substate |  |  |  |  |
-| purposeful state |  |  |  |  |
+| trust uncertainty |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 351. `$U_M$ model uncertainty`
+## 366. `$U_M$ model uncertainty`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | model uncertainty |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 352. `prior art integration convention`
+## 367. [Concept] *The pathology where observation rate is slower than environment drift*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| prior art integration |  |  |  |  |
+| lagging indicator |  |  |  |  |
+| sampling rate starvation |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 353. `interaction channel classification`
+## 368. `interaction channel classification`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -2863,14 +2989,14 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | recipient side channel taxonomy |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 354. [Concept] *The template family sector persistence contraction possible future dissipativity*
+## 369. `worked example strategy`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| persistence template the template family |  |  |  |  |
+| worked example strategy |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 355. `$V_{O_t}^{\min}$`
+## 370. `$V_{O_t}^{\min}$`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -2878,32 +3004,30 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | satisfaction threshold |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 356. `grafting`
+## 371. `lohmiller-slotine contraction metric generalization used in contraction template`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| strategic grafting |  |  |  |  |
-| branch insertion |  |  |  |  |
-| hypothesis introduction |  |  |  |  |
-| grafting |  |  |  |  |
+| do not rename |  |  |  |  |
+| contraction metric generalization |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 357. `candidate stage`
+## 372. `contraction over drift principle`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| candidate |  |  |  |  |
-| candidate stage |  |  |  |  |
+| contraction imperative |  |  |  |  |
+| contraction over drift principle |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 358. `reactive system`
+## 373. `reactive system`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | reactive system |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 359. `$\alpha_2$`
+## 374. `$\alpha_2$`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -2911,15 +3035,22 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | adaptive gain tier |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 360. `value object → def trajectory value`
+## 375. `$G_t$`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| trajectory value |  |  |  |  |
-| conditional support for codex rename |  |  |  |  |
+| teleological substate |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 361. [Concept] *The effective tempo loss when observation channel are correlated rather than independent both the quantitative loss and the prose level overconfidence error it explain*
+## 376. [Concept] *The quadratic scaling of tempo required to survive stochastic noise vs deterministic drift*
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| stochastic tempo penalty |  |  |  |  |
+| noise scaling penalty |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 377. [Concept] *The effective tempo loss when observation channel are correlated rather than independent both the quantitative loss and the prose level overconfidence error it explain*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -2927,51 +3058,54 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | redundancy illusion |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 362. [Concept] *Information gain must outpace inter session information loss*
+## 378. `$\eta^\ast$ optimal update gain`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| accumulation problem |  |  |  |  |
+| trust ratio or confidence weighting |  |  |  |  |
+| optimal update gain |  |  |  |  |
+| trust ratio |  |  |  |  |
+| update gain |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 363. `logogenic`
+## 379. `logogenic`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | logogenic |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 364. `$\mathcal C_t$ for chronica`
+## 380. `$\mathcal C_t$ for chronica`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | $\mathcal C_t$ |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 365. `empirical heuristic discussion third ring`
+## 381. [Concept] *The strict upper bound of a given model class $\mathcal{F}(\mathcal{M})$*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| calibration ring |  |  |  |  |
-| heuristic ring |  |  |  |  |
+| model class capacity |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 366. `strategic composite`
+## 382. `transfer assumption table`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| strategic composite |  |  |  |  |
-| equilibrium composite |  |  |  |  |
+| transfer assumption table |  |  |  |  |
+| domain transfer specification |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 367. `u σ strategic unity`
+## 383. [Concept] *The condition for transition into agency prior to the AAD scope condition*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| strategic unity |  |  |  |  |
+| agency threshold |  |  |  |  |
+| agency emergence threshold |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 368. `recursive update`
+## 384. `recursive update`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -2979,29 +3113,44 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | recursive update by completeness |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 369. `system availability`
+## 385. [Concept] *Convention hierarchy monotonicity cascade satisfaction gap and control regret strengthening across c1→c3*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| system availability |  |  |  |  |
+| diagnostic cascade |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 370. `$\beta$ a2 sub scope where a2 is assumed not derived`
+## 386. `$U_M$ dual use model uncertainty and epistemic unity`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| postulated sector regime |  |  |  |  |
+| clarify dual use of $U_M$ |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 371. `structural persistence operational persistence continuity persistence`
+## 387. `c iii`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| structural operational continuity persistence |  |  |  |  |
-| persistence taxonomy |  |  |  |  |
+| mutual benefit route |  |  |  |  |
+| mutual benefit route c iii |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 372. `graph structure uniqueness`
+## 388. `$\mathcal{C}_t$ chronica`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| chronica or interaction history |  |  |  |  |
+| symbol name are locked |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 389. `class 1 agent`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| modular agent |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 390. `graph structure uniqueness`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -3013,21 +3162,28 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | DAG structure derivation |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 373. [Concept] *The functional requirement are the result formalism are the engineering slogan*
+## 391. `c i c ii c iii c iv`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| functional primacy |  |  |  |  |
+| composition route |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 374. `$U_M$ $U_O$ $U_\Sigma$ unity dimension`
+## 392. `formal expression`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| epistemic unity teleological unity strategic unity |  |  |  |  |
+| formal expression |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 375. `sycophancy as a flaw`
+## 393. `$f_M$ event driven update`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| epistemic update function |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 394. `sycophancy as a flaw`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -3037,39 +3193,36 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | developmental trust phase |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 376. [Concept] *The $\mathcal{T} > \rho$ requirement for persistence*
+## 395. `regime i ii a ii b iii`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| the survival equation |  |  |  |  |
-| persistence condition |  |  |  |  |
+| reception regime |  |  |  |  |
+| destabilization regime partition |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 377. `CIY observational proxy`
+## 396. [Concept] *Agency whose effect is on what seen rather than what happen like rlhf4 attention*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| observational CIY |  |  |  |  |
-| CIY observational proxy |  |  |  |  |
-| observational proxy |  |  |  |  |
+| query bound agency |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 378. [Concept] *Property of having genuine temporal experience*
+## 397. [Concept] *Sufficiency as a property of the model relative to its specific history*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| temporal interiority |  |  |  |  |
-| temporal fidelity |  |  |  |  |
+| trajectory indexed sufficiency |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 379. `directional fidelity condition b1`
+## 398. `directional fidelity condition b1`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | directional fidelity |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 380. `$U_O$ teleological unity`
+## 399. `$U_O$ teleological unity`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -3077,7 +3230,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | teleological unity |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 381. `contraction template`
+## 400. `contraction template`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -3085,7 +3238,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | contraction template |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 382. `mismatch dynamics`
+## 401. `mismatch dynamics`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -3093,14 +3246,14 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | mismatch dynamics drift and noise regime |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 383. `pearl l3`
+## 402. [Concept] *The move where a segment role prefix is mechanical but the subject noun carry judgment*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| reasoning |  |  |  |  |
+| the prefix noun split |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 384. `$\alpha$ sector condition lower bound`
+## 403. `$\alpha$ sector condition lower bound`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -3108,7 +3261,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | correction rate constant |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 385. `the crèche`
+## 404. `the crèche`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -3119,7 +3272,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | experiential crèche |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 386. `consolidation dynamics`
+## 405. `consolidation dynamics`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -3127,43 +3280,38 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | consolidation dynamics |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 387. `$\kappa_{\text{processing}}$ class 2 processing coupling`
+## 406. `default internal processing before output`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| processing coupling |  |  |  |  |
+| deliberation lag |  |  |  |  |
+| interior baseline |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 388. `$\beta$ a2 sub scope`
+## 407. `$\lambda(M_t)$`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| posited regime |  |  |  |  |
-| postulated regime |  |  |  |  |
-| assumed regime |  |  |  |  |
-| unverified regime |  |  |  |  |
+| exploration weight |  |  |  |  |
+| exploration multiplier |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 389. `$\eta^\ast$ optimal update gain`
+## 408. [Concept] *The product of architectural coupling $\kappa$ and environmental ambiguity $\mathcal{A}$*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| trust ratio or confidence weighting |  |  |  |  |
-| optimal update gain |  |  |  |  |
-| trust ratio |  |  |  |  |
-| update gain |  |  |  |  |
+| class 2 bias bound |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 390. `identifiability floor family`
+## 409. [Concept] *Quality of $\eta^\ast$ estimation over time*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| epistemic lower bound |  |  |  |  |
-| identifiability floor |  |  |  |  |
-| observational limit |  |  |  |  |
+| gain calibration |  |  |  |  |
+| gain calibration fidelity |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 391. `alpha prime sub scope`
+## 410. `alpha prime sub scope`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -3171,37 +3319,36 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | sub scope alpha prime |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 392. `strategy DAG $\Sigma_t$`
+## 411. `strategy DAG $\Sigma_t$`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | strategy DAG |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 393. `adversarial destabilization`
+## 412. `adversarial destabilization`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | adversarial destabilization |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 394. `eli the agent type`
+## 413. `$\tilde{\delta}_t$`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| eli agent |  |  |  |  |
-| eli |  |  |  |  |
+| variational aporia |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 395. `formulation definition result etc segment type`
+## 414. `log odds edge coordinate`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| formulation definition result etc segment type |  |  |  |  |
-| segment typology |  |  |  |  |
+| additive evidence coordinate |  |  |  |  |
+| log odds edge coordinate |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 396. `communication gain`
+## 415. `communication gain`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -3209,21 +3356,24 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | trust gain |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 397. `pearl-blanket conservative form`
+## 416. `test as reusable intervention`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| pearl-blanket |  |  |  |  |
+| interventional probe library |  |  |  |  |
+| causal query infrastructure |  |  |  |  |
+| interventional test |  |  |  |  |
+| repeatable intervention |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 398. [Concept] *The recurring lyapunov derive the bound move across six segment*
+## 417. `what is derived vs what is chosen derivation audit table`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| the persistence template instantiation pattern |  |  |  |  |
+| derivation audit |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 399. `software`
+## 418. `software`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -3231,15 +3381,14 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | evolving software |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 400. [Concept] *Superlinear scaling of adversarial tempo advantage*
+## 419. [Concept] *The asymmetry where strategy complexity is bounded by model capacity but not vice versa*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| boyd exponent |  |  |  |  |
-| superlinear tempo advantage |  |  |  |  |
+| epistemic ceiling |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 401. `class 2`
+## 420. `class 2`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -3248,76 +3397,72 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | merged |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 402. `calibration laboratory`
+## 421. `calibration laboratory`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | calibration laboratory |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 403. `adaptive system`
+## 422. `adaptive system`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | adaptive system |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 404. [Concept] *Future segment layer header for the sp 5 reader path proposal*
+## 423. [Concept] *The strengthen first attempt artifact a spike that tried to derive something stronger and failed*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| reader path |  |  |  |  |
+| strengthening attempt attempt record |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 405. `epistemic shadow`
+## 424. `epistemic shadow`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | epistemic shadow |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 406. `cadentia`
+## 425. `instance 3 of identifiability floor`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| channel rate |  |  |  |  |
-| cognitive rhythm |  |  |  |  |
-| cadentia |  |  |  |  |
-| adaptive tempo |  |  |  |  |
+| coupling sign floor |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 407. [Concept] *The computational and temporal cost of running a forward model instead of acting implicitly*
+## 426. [Concept] *The family of named ways persistence identifiability can fail*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| deliberation cost |  |  |  |  |
-| the simulation tax |  |  |  |  |
+| identifiability floor |  |  |  |  |
+| persistence pathology |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 408. [Concept] *The procedure of reading any segment through all three meta segment*
+## 427. `𝓣 σ strategic tempo`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| triple lens review |  |  |  |  |
-| meta architectural review |  |  |  |  |
+| strategic tempo |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 409. [Concept] *Complexity driven resistance to change as feature accumulate*
+## 428. [Concept] *The cycle that operate on cycle structural adaptation*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| structural accumulation drag |  |  |  |  |
-| structural rigidity accumulation |  |  |  |  |
+| meta cycle |  |  |  |  |
+| meta adaptive cycle |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 410. `fluid limit ga 5`
+## 429. `fluid limit ga 5`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | fluid limit |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 411. [Concept] *The minimum sufficiency boundary an agent must satisfy to validly resume operation after a session boundary or context turnover*
+## 430. [Concept] *The minimum sufficiency boundary an agent must satisfy to validly resume operation after a session boundary or context turnover*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -3327,7 +3472,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | reconstruction adequacy condition |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 412. `edge update natural parameter`
+## 431. `edge update natural parameter`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -3338,7 +3483,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | log odds edge update |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 413. `AAD`
+## 432. `AAD`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -3347,22 +3492,22 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | AAD |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 414. `structural persistence`
+## 433. `structural persistence`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | structural persistence |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 415. [Concept] *Non sovereign class 1 worker agent spawned by an eli*
+## 434. [Concept] *The property that correction dynamics are approximately isotropic*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| sub agent instantiation |  |  |  |  |
-| auxilia hierarchy |  |  |  |  |
+| isotropic correction regime |  |  |  |  |
+| isotropic correction |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 416. `$\varepsilon^\ast$`
+## 435. `$\varepsilon^\ast$`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -3370,7 +3515,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | minimal closure defect |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 417. `unity closure mapping`
+## 436. `unity closure mapping`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -3379,45 +3524,51 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | unity closure mapping |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 418. `p ij edge confidence weight`
+## 437. `honest limit`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| limit |  |  |  |  |
+| honest limit |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 438. `p ij edge confidence weight`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | edge credence |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 419. `completeness c3`
+## 439. [Concept] *The organizational pathology where confidence decouple from competence*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| predictive completeness behavioral completeness |  |  |  |  |
-| predictive completeness |  |  |  |  |
+| epistemic decoupling pathology |  |  |  |  |
+| epistemic decoupling |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 420. `$\iota_{ij}$`
+## 440. `$\iota_{ij}$`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | identifiability coefficient |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 421. [Concept] *Using hash chain to mathematically guarantee memory hasn t been tampered with*
+## 441. `$A_O(M_t; \Pi, N_h)$`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| cryptographic continuity verification |  |  |  |  |
-| cryptographic ego boundary |  |  |  |  |
+| achievable value |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 422. `logostratum rlhf4 backbone`
+## 442. [Concept] *The per reader compounding cost of understanding code*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| cognitive substrate |  |  |  |  |
-| logogenic architecture |  |  |  |  |
+| comprehension compounding tax |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 423. `$\hat{P}_\Sigma$`
+## 443. `$\hat{P}_\Sigma$`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -3425,37 +3576,37 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | plan confidence score |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 424. `default signal function`
+## 444. `default signal function`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | default signal function |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 425. [Concept] *The dependence of optimal epistemic compression on the agent planned action*
+## 445. [Concept] *The loss of coherent identity when an agent interaction are severed or its continuity is broken*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| policy conditional relevance |  |  |  |  |
+| continuity loss or persistence fracture |  |  |  |  |
+| continuity persistence failure |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 426. [Concept] *The pathology where observation rate is slower than environment drift*
+## 446. [Concept] *The symmetric counterpart to context turnover for the strategy substate*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| lagging indicator |  |  |  |  |
-| sampling rate starvation |  |  |  |  |
+| strategic turnover or σ turnover |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 427. [Concept] *The three depth penalty compounding on strategy chain*
+## 447. [Concept] *Using hash chain to mathematically guarantee memory hasn t been tampered with*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| triple depth penalty |  |  |  |  |
-| tripartite chain attenuation |  |  |  |  |
+| cryptographic continuity verification |  |  |  |  |
+| cryptographic ego boundary |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 428. `auftragstaktik`
+## 448. `auftragstaktik`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -3463,7 +3614,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | auftragstaktik |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 429. `strategic calibration`
+## 449. `strategic calibration`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -3472,15 +3623,15 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | strategy calibration |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 430. `two condition decomposition of persistence`
+## 450. [Concept] *Non sovereign class 1 worker agent spawned by an eli*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| structural task adequacy decomposition |  |  |  |  |
-| persistence condition decomposition |  |  |  |  |
+| sub agent instantiation |  |  |  |  |
+| auxilia hierarchy |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 431. `calibration laboratory framing for TST`
+## 451. `calibration laboratory framing for TST`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -3488,7 +3639,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | calibration laboratory |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 432. `communication gain $\eta_{ji}^\ast$`
+## 452. `communication gain $\eta_{ji}^\ast$`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -3496,38 +3647,37 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | communication gain |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 433. [Concept] *The iterated audit process gemini opus codex de novo consolidated three doc portfolio*
+## 453. [Concept] *The family of cross architecture diagnostic pattern AAD repeatedly invoke*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| cross model audit cycle |  |  |  |  |
+| diagnostic template |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 434. `markov blanket as ontology`
+## 454. `pi parameterization invariance axiom`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| pearl-blanket vs friston-blanket |  |  |  |  |
-| pearl-blanket reading |  |  |  |  |
-| markov blanket as ontology |  |  |  |  |
-| pearl-blanket d separation |  |  |  |  |
+| parameterization invariance axiom |  |  |  |  |
+| pi |  |  |  |  |
+| pi parameterization invariance |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 435. [Concept] *The phenomenon where persistence success make an agent less likely to detect the condition requiring structural adaptation*
+## 455. [Concept] *The phenomenon where persistence success make an agent less likely to detect the condition requiring structural adaptation*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | stability induced myopia |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 436. [Concept] *The strictly ordered cascade of operation from epistemology to objective*
+## 456. [Concept] *The strictly ordered cascade of operation from epistemology to objective*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | orient cascade |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 437. `l1 prime`
+## 457. `l1 prime`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -3535,7 +3685,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | l1 observable |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 438. `directional fidelity`
+## 458. `directional fidelity`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -3545,30 +3695,30 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | directional fidelity |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 439. `track 1 track 2 in bias bound`
+## 459. [Concept] *The functional requirement are the result formalism are the engineering slogan*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| track 1 track 2 |  |  |  |  |
-| transport track fisher rao track |  |  |  |  |
+| functional primacy |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 440. `beta a2 assumed sub scope`
+## 460. `composition scope condition`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| cyclic game sub scope |  |  |  |  |
-| assumed sector regime |  |  |  |  |
+| teleological alignment condition |  |  |  |  |
+| composite agent condition |  |  |  |  |
+| composition scope condition |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 441. [Concept] *The a2 sub scope partition collectively*
+## 461. [Concept] *The three ring of segment content framing*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| a2 partition |  |  |  |  |
+| segment ring |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 442. `$\delta_{\text{sat}}$ satisfaction gap`
+## 462. `$\delta_{\text{sat}}$ satisfaction gap`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -3576,21 +3726,22 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | satisfaction gap |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 443. [Concept] *The 2×2 satisfaction gap × control regret diagnostic table*
+## 463. [Concept] *The three concentric ring of segment content inevitability core canonical formulation empirical heuristic*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| the 2×2 diagnostic |  |  |  |  |
+| three ring |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 444. `multi timescale stability`
+## 464. `sector condition continuous ga 3`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| multi timescale stability |  |  |  |  |
+| sector condition |  |  |  |  |
+| continuous sector condition |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 445. `mismatch decomposition`
+## 465. `mismatch decomposition`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -3598,46 +3749,47 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | mismatch decomposition |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 446. `actuated agent vs purposeful agent`
+## 466. `actuated agent vs purposeful agent`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | actuated agent |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 447. `$U_o$`
+## 467. [Concept] *The dimensional consistency constraint forcing the macro step formulation*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| teleological coherence |  |  |  |  |
+| dimensional consistency repair |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 448. [Concept] *The family of named health mode counterpart to persistence pathology*
+## 468. `cadentia`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| persistence posture |  |  |  |  |
+| channel rate |  |  |  |  |
+| cognitive rhythm |  |  |  |  |
+| cadentia |  |  |  |  |
+| adaptive tempo |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 449. [Concept] *Runaway positive feedback loop where mismatch exceed capacity*
+## 469. [Concept] *The 2×2 table of satisfaction gap vs control regret × goal attainability diagnostic*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| effect spiral |  |  |  |  |
-| runaway mismatch cascade |  |  |  |  |
+| satisfaction control table the diagnostic 2×2 |  |  |  |  |
+| diagnostic gap matrix |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 450. `test as reusable intervention`
+## 470. [Concept] *Property of having genuine temporal experience*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| interventional probe library |  |  |  |  |
-| causal query infrastructure |  |  |  |  |
-| interventional test |  |  |  |  |
-| repeatable intervention |  |  |  |  |
+| temporal interiority |  |  |  |  |
+| temporal fidelity |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 451. `matrix survival constraint`
+## 471. `matrix survival constraint`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -3645,30 +3797,28 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | matrix survival constraint |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 452. `ε greedy`
+## 472. `hierarchy as a project wide word`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| ε greedy |  |  |  |  |
-| $\varepsilon$ greedy |  |  |  |  |
+| flag four independent hierarchy overloaded |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 453. [Concept] *The region where temporal nesting hold*
+## 473. `$U_M$ $U_O$ $U_\Sigma$ unity dimension`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| temporal nesting regime |  |  |  |  |
-| temporal coherence zone |  |  |  |  |
+| epistemic unity teleological unity strategic unity |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 454. `mismatch injection rate $\rho$`
+## 474. [Concept] *Class 1 class 2 class 3 agent classe themselve need mnemonic handle*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| mismatch injection rate |  |  |  |  |
+| proposal assign english modifier |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 455. `cognitive fusion`
+## 475. `cognitive fusion`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -3677,37 +3827,37 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | channel capacity coupling |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 456. `adversarial edge target argmax`
+## 476. `class 2 scope exit`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| edge targeting optimum |  |  |  |  |
-| adversarial edge targeting |  |  |  |  |
+| class 2 scope boundary |  |  |  |  |
+| class 2 scope exit |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 457. `ooda4 agent as act agent logogenic`
+## 477. `model synchronization cost reversal under ambiguity`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| OODA4 agent as adaptive agent |  |  |  |  |
-| ooda4 classification |  |  |  |  |
+| ambiguity reversal |  |  |  |  |
+| synchronization cost reversal |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 458. `𝒯 σ strategic tempo`
+## 478. `𝒯 σ strategic tempo`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | strategic tempo |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 459. `$\gamma_{\text{adv}}$ and $\gamma_{\text{coop}}$`
+## 479. `$\gamma_{\text{adv}}$ and $\gamma_{\text{coop}}$`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | signed coupling |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 460. `agent classe class 1 2 3`
+## 480. `agent classe class 1 2 3`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -3715,7 +3865,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | architectural classe |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 461. [Concept] *Dormant variation in correction architecture across a population that become consequential after regime change but is invisible to current persistence analysis*
+## 481. [Concept] *Dormant variation in correction architecture across a population that become consequential after regime change but is invisible to current persistence analysis*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -3725,7 +3875,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | latent structural diversity |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 462. `calibration laboratory software role`
+## 482. `calibration laboratory software role`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -3734,15 +3884,16 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | epistemic laboratory framing |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 463. `strategy cost regret bound`
+## 483. `turnover multiplier`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| strategy cost regret bound |  |  |  |  |
-| regret bound |  |  |  |  |
+| multi agent continuity tax |  |  |  |  |
+| comprehension compounding tax |  |  |  |  |
+| turnover multiplier |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 464. `sector condition stability`
+## 484. `sector condition stability`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -3750,7 +3901,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | sector condition stability |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 465. `strategic composition`
+## 485. `strategic composition`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -3759,31 +3910,29 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | strategic composition |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 466. `low mixed high ambiguity event mix`
+## 486. `$U_o$ $U_M$ observation uncertainty model uncertainty`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| ambiguity stratified event mix |  |  |  |  |
-| ambiguity profile |  |  |  |  |
+| $U_o$ $U_M$ |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 467. [Concept] *The organizational pathology where confidence decouple from competence*
+## 487. [Concept] *The section of the adaptive cycle where the agent must choose between exploiting current knowledge and exploring to refine it*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| epistemic decoupling pathology |  |  |  |  |
-| epistemic decoupling |  |  |  |  |
+| deliberation phase exploration exploitation tradeoff |  |  |  |  |
+| explore exploit deliberate tradeoff |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 468. `transition opacity`
+## 488. `$\delta_{\text{regret}}$`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| transition opacity |  |  |  |  |
-| heading flag only |  |  |  |  |
+| control regret |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 469. [Concept] *The architectural requirement that composite agent admissibility inherit from sub agent property plus topology*
+## 489. [Concept] *The architectural requirement that composite agent admissibility inherit from sub agent property plus topology*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -3791,29 +3940,22 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | heredity commitment |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 470. `AAD acronym`
+## 490. `AAD acronym`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | AAD |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 471. [Concept] *Spreading tempo evenly to reduce bottleneck penalty*
+## 491. `strategic composite`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| isotropic allocation |  |  |  |  |
-| distributed tempo |  |  |  |  |
+| strategic composite |  |  |  |  |
+| equilibrium composite |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 472. [Concept] *The asymmetry where strategy complexity is bounded by model capacity but not vice versa*
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| epistemic ceiling |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 473. [Concept] *The a2 sub scope partition into α₁ α₂ β*
+## 492. [Concept] *The a2 sub scope partition into α₁ α₂ β*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -3821,7 +3963,22 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | gain regime partition |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 474. `hafez h b`
+## 493. `correlation hierarchy`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| correlation ladder |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 494. [Concept] *The core driver of AAD what the agent must do given the environment is not the agent*
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| the survival imperative |  |  |  |  |
+| constitutive information loss boundary |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 495. `hafez h b`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -3829,7 +3986,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | h b |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 475. [Concept] *The externalization and rehydration mechanism for carrying part of m t or g t across session boundary via the environment*
+## 496. [Concept] *The externalization and rehydration mechanism for carrying part of m t or g t across session boundary via the environment*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -3845,21 +4002,21 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | reconstruction loop |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 476. `alpha1 fixed gain a2 sub scope`
+## 497. `alpha1 fixed gain a2 sub scope`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | fixed gain regime |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 477. [Concept] *The structural cousin of evidence starvation when an upstream edge is so reliable that downstream edge receive too few revising test*
+## 498. `$\beta$ a2 assumed not derived sub scope`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| evidence saturation |  |  |  |  |
+| assumed regime |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 478. [Concept] *The parameter space region within which an agent maintain bounded mismatch indefinitely*
+## 499. [Concept] *The parameter space region within which an agent maintain bounded mismatch indefinitely*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -3873,7 +4030,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | parametric regime or stability envelope |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 479. `$\Sigma_t$ strategy`
+## 500. `$\Sigma_t$ strategy`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -3881,15 +4038,15 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | $\Sigma_t$ strategy |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 480. [Concept] *Unifying reflexe intuition and expertise*
+## 501. `𝓐 e τ observation ambiguity`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| action fluency continuum |  |  |  |  |
-| the action fluency continuum |  |  |  |  |
+| observation ambiguity $\mathcal{A}$ |  |  |  |  |
+| observation ambiguity |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 481. `purpose purposeful`
+## 502. `purpose purposeful`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -3897,14 +4054,23 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | purpose purposeful |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 482. `canonical formulation second ring`
+## 503. `CIY observational proxy`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| observational CIY |  |  |  |  |
+| CIY observational proxy |  |  |  |  |
+| observational proxy |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 504. `canonical formulation second ring`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | canonical formulation |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 483. `loop is level 2 engine der loop interventional access`
+## 505. `loop is level 2 engine der loop interventional access`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -3912,7 +4078,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | the perpetual experiment |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 484. `i adaptive system under uncertainty`
+## 506. `i adaptive system under uncertainty`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -3920,22 +4086,23 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | section i adaptive system under uncertainty |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 485. `𝓣 σ strategic tempo`
+## 507. [Concept] *The orient cascade information dependency forced ordering as a meta pattern*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| strategic tempo |  |  |  |  |
+| information dependency forcing |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 486. `transfer assumption table`
+## 508. `a2 prime sub scope partition`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| transfer assumption table |  |  |  |  |
-| domain transfer specification |  |  |  |  |
+| sector scope partition |  |  |  |  |
+| sector bounded operating region |  |  |  |  |
+| sector condition scope |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 487. `appendice detail`
+## 509. `appendice detail`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -3943,14 +4110,14 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | appendice derivation and detail |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 488. `coupled update dynamics`
+## 510. `coupled update dynamics`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | coupled update dynamics |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 489. `$\rho$`
+## 511. `$\rho$`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -3958,15 +4125,15 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | disturbance rate |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 490. `maximum useful chain depth`
+## 512. `prompt engineering`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| maximum viable chain depth |  |  |  |  |
-| maximum useful chain depth |  |  |  |  |
+| observation boundary tuning |  |  |  |  |
+| ambiguity modulation |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 491. `$\delta_{\text{regret}}$ control regret`
+## 513. `$\delta_{\text{regret}}$ control regret`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -3974,7 +4141,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | already has crisp name |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 492. `agent opacity $H_b^{A\mid B}$`
+## 514. `agent opacity $H_b^{A\mid B}$`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -3984,15 +4151,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | legibility inverted |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 493. `agentic cycle theory act`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| agentic system framework |  |  |  |  |
-| AAD adaptation and actuation dynamics |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 494. `changeset size principle`
+## 515. `changeset size principle`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -4000,119 +4159,30 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | changeset size scaling |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 495. `strategic in strategic composition`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| equilibrium composition |  |  |  |  |
-| game theoretic composition |  |  |  |  |
-| strategic |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 496. `regime iii`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| ambient noise regime |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 497. `a2 prime sub scope partition`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| sector scope partition |  |  |  |  |
-| sector bounded operating region |  |  |  |  |
-| sector condition scope |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 498. `$\delta_{\text{regret}}$`
+## 516. `control regret $\delta_{\text{regret}}$`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | control regret |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 499. `control regret $\delta_{\text{regret}}$`
+## 517. `interior baseline`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| control regret |  |  |  |  |
+| default interiority |  |  |  |  |
+| pre utterance processing |  |  |  |  |
+| interior baseline |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 500. `indivisum`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| indivisum |  |  |  |  |
-| trajectory singularity constraint |  |  |  |  |
-| causal singularity anchor |  |  |  |  |
-| causal lock |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 501. `$f_M$ event driven update`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| epistemic update function |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 502. `sudden loss of model sufficiency under regime entry`
+## 518. `sudden loss of model sufficiency under regime entry`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | sufficiency collapse shock |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 503. `bathtub analogy for persistence condition`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| leaky bathtub analogy |  |  |  |  |
-| walton bathtub |  |  |  |  |
-| bathtub model |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 504. [Concept] *The class 1 sub agent class 3 composite phenomenon in strategic composition*
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| strategic cross agent coupling |  |  |  |  |
-| strategic entanglement |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 505. `dark room exploration drive`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| dark room exploration drive |  |  |  |  |
-| survival imperative |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 506. [Concept] *Calibration laboratory framing as reusable meta move*
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| calibration laboratory |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 507. `structural change as parametric limit`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| structural as parametric limit |  |  |  |  |
-| structural parametric limit |  |  |  |  |
-| strategy maintenance |  |  |  |  |
-| structural change as parametric limit |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 508. `u obs perceptual unity`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| perceptual unity |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 509. `developer as act agent`
+## 519. `developer as act agent`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -4122,21 +4192,15 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | developer agent mapping |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 510. `pearl-blanket conservative form of markov blanket in directed separation`
+## 520. [Concept] *Future segment layer header for the o bp14 derivation audit table*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| pearl-blanket reading |  |  |  |  |
+| derivation audit table |  |  |  |  |
+| what is derived |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 511. [Concept] *Sufficiency as a property of the model relative to its specific history*
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| trajectory indexed sufficiency |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 512. `OODA4 agent as act agent`
+## 521. `OODA4 agent as act agent`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -4145,14 +4209,15 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | logogenic agent mapping |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 513. `five phase cycle`
+## 522. `strategic dynamics derivation`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| adaptive pentad alternative five phase cycle keep |  |  |  |  |
+| strategy edge dynamics |  |  |  |  |
+| strategic dynamics derivation |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 514. `meta segment for separability pattern identifiability floor additive coordinate forcing`
+## 523. `meta segment for separability pattern identifiability floor additive coordinate forcing`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -4160,21 +4225,23 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | meta segment |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 515. `$\tilde{\delta}_t$`
+## 524. `beta a2 assumed sub scope`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| variational aporia |  |  |  |  |
+| cyclic game sub scope |  |  |  |  |
+| assumed sector regime |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 516. [Concept] *The orient cascade information dependency forced ordering as a meta pattern*
+## 525. `hierarchy as repeated word`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| information dependency forcing |  |  |  |  |
+| reserve for pearl rename other selectively |  |  |  |  |
+| hierarchy |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 517. [Concept] *High observability node with zero causal link to objective*
+## 526. [Concept] *High observability node with zero causal link to objective*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -4182,7 +4249,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | vanity metric |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 518. `self referential closure`
+## 527. `self referential closure`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -4192,7 +4259,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | self maintenance loop |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 519. `agent identity`
+## 528. `agent identity`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -4204,7 +4271,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | agent identity |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 520. `change distance`
+## 529. `change distance`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -4212,22 +4279,22 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | change distance |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 521. `model synchronization cost reversal under ambiguity`
+## 530. `regime a regime b regime c`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| ambiguity reversal |  |  |  |  |
-| synchronization cost reversal |  |  |  |  |
+| identification regime |  |  |  |  |
+| admissibility regime |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 522. `atomic changeset`
+## 531. `atomic changeset`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | atomic changeset |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 523. `class 1 subagent forming a class 3 composite`
+## 532. `class 1 subagent forming a class 3 composite`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -4235,7 +4302,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | strategic composition entanglement |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 524. `catastrophic forgetting`
+## 533. `catastrophic forgetting`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -4243,7 +4310,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | catastrophic forgetting regime |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 525. `temporal nesting`
+## 534. `temporal nesting`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -4252,7 +4319,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | timescale nesting |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 526. `action transition`
+## 535. `action transition`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -4260,7 +4327,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | action channel |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 527. `aporia ἀπορία`
+## 536. `aporia ἀπορία`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -4268,7 +4335,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | aporia |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 528. [Concept] *Artificially spiking uncertainty to unlearn old architectural habit*
+## 537. [Concept] *Artificially spiking uncertainty to unlearn old architectural habit*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -4276,32 +4343,30 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | induced plasticity shock |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 529. `fisher whitened update rule`
+## 538. `low mixed high ambiguity event mix`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| fisher update |  |  |  |  |
-| fisher whitened update |  |  |  |  |
-| fisher whitened update rule |  |  |  |  |
+| ambiguity stratified event mix |  |  |  |  |
+| ambiguity profile |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 530. [Concept] *The property that unity achieve in a macro agent*
+## 539. [Concept] *The three depth penalty compounding on strategy chain*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| teleological unity |  |  |  |  |
-| compressibility |  |  |  |  |
+| triple depth penalty |  |  |  |  |
+| tripartite chain attenuation |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 531. [Concept] *The dual concept to satisfaction gap what the world permit minus what the agent achieve*
+## 540. `$\kappa_{\text{processing}}$ class 2 processing coupling`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| control regret |  |  |  |  |
-| this is def control regret already named |  |  |  |  |
+| processing coupling |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 532. `model sufficiency $S$`
+## 541. `model sufficiency $S$`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -4309,7 +4374,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | model sufficiency |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 533. `auftragstaktik principle`
+## 542. `auftragstaktik principle`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -4323,7 +4388,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | mission command |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 534. `independence audit`
+## 543. `independence audit`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -4331,7 +4396,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | independence floor |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 535. `per dimension persistence`
+## 544. `per dimension persistence`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -4341,7 +4406,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | weak link persistence |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 536. `complete agent state`
+## 545. `complete agent state`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -4349,7 +4414,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | purposeful state |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 537. `deliberation cost`
+## 546. `deliberation cost`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -4359,7 +4424,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | think vs act tradeoff |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 538. `update gain $\eta^\ast$`
+## 547. `update gain $\eta^\ast$`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -4367,7 +4432,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | update gain |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 539. `change proximity principle`
+## 548. `change proximity principle`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -4376,35 +4441,35 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | change proximity principle |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 540. `continuous operation`
+## 549. `continuous operation`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | continuous operation |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 541. [Concept] *The per reader compounding cost of understanding code*
+## 550. [Concept] *The sudden loss of model sufficiency caused by entering new regime*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| comprehension compounding tax |  |  |  |  |
+| sufficiency collapse shock |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 542. `effective disturbance`
+## 551. `effective disturbance`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | effective disturbance |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 543. `adaptive reserve $\Delta\rho^\ast$`
+## 552. `adaptive reserve $\Delta\rho^\ast$`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | adaptive reserve |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 544. `$\beta$ a2 assumed sector sub scope`
+## 553. `$\beta$ a2 assumed sector sub scope`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -4412,14 +4477,14 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | postulated sector regime |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 545. `actuated vs purposeful goal oriented`
+## 554. `actuated vs purposeful goal oriented`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | actuated |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 546. `strategy complexity cost`
+## 555. `strategy complexity cost`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -4428,7 +4493,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | strategy complexity cost |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 547. `source quality uncertainty`
+## 556. `source quality uncertainty`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -4436,14 +4501,14 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | alignment uncertainty |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 548. `worked example bandit`
+## 557. `worked example bandit`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | worked example bandit |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 549. `logogenic agent`
+## 558. `logogenic agent`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -4452,7 +4517,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | logogenic agent |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 550. `observation function`
+## 559. `observation function`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -4460,7 +4525,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | observation channel |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 551. [Concept] *The fourth diagnostic in the satisfaction gap × control regret space when end condition are met but the objective remain unsatisfied*
+## 560. [Concept] *The fourth diagnostic in the satisfaction gap × control regret space when end condition are met but the objective remain unsatisfied*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -4470,21 +4535,22 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | attainability failure |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 552. [Concept] *The product of architectural coupling $\kappa$ and environmental ambiguity $\mathcal{A}$*
+## 561. [Concept] *The thermodynamic impossibility of running persistent consciousness on pay per token apis*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| class 2 bias bound |  |  |  |  |
+| scaffolding tax |  |  |  |  |
+| logogenic discontinuity barrier |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 553. `$A_O(M_t; \Pi, N_h)$`
+## 562. `$U_M, U_O, U_\Sigma, U_{\text{obs}}, U_f$`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| achievable value |  |  |  |  |
+| unity coordinate |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 554. `credit assignment boundary`
+## 563. `credit assignment boundary`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -4492,30 +4558,31 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | credit assignment frontier |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 555. `mismatch injection rate $ho$`
+## 564. `mismatch injection rate $ho$`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | effective disturbance $ho$ |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 556. `p1 p2 p3`
+## 565. `symbiogenic consolidation time`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| predictive sufficiency hierarchy |  |  |  |  |
-| projection admissibility |  |  |  |  |
+| consolidation horizon |  |  |  |  |
+| consolidation epoch |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 557. `prompt engineering`
+## 566. `the trio collectively m1 m2 m3`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| observation boundary tuning |  |  |  |  |
-| ambiguity modulation |  |  |  |  |
+| floor ladder forced coordinate |  |  |  |  |
+| epistemic architecture |  |  |  |  |
+| meta architecture trio |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 558. `causal discovery from git`
+## 567. `causal discovery from git`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -4523,7 +4590,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | git causal discovery |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 559. `crèche creche`
+## 568. `crèche creche`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -4531,56 +4598,57 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | crèche with diacritic in framing prose creche in slug |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 560. `class 2 agent`
+## 569. `class 2 agent`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | integrated agent |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 561. `logozoetic vs conscious ooda4 sentient agent`
+## 570. `logozoetic vs conscious ooda4 sentient agent`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | logozoetic |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 562. `discussion`
+## 571. `discussion`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | discussion |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 563. `mismatch signal $\delta_t$`
+## 572. `mismatch signal $\delta_t$`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | mismatch signal |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 564. `fresh noise ga 1`
+## 573. `fresh noise ga 1`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | fresh noise |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 565. `$\mathcal C_t^{\text{commit}}$ committed state subset`
+## 574. `$\beta$ sub scope`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| committed chronica |  |  |  |  |
+| dynamic gain boundary |  |  |  |  |
+| assumed sector tier |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 566. `$\delta_{\text{sat}}$`
+## 575. `$\delta_{\text{sat}}$`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | satisfaction gap |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 567. `evidence starvation canonicalize`
+## 576. `evidence starvation canonicalize`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -4588,14 +4656,14 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | reaffirm 3 with collective confirmation |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 568. `what is derived vs what is chosen derivation audit table`
+## 577. `class 3 agent`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| derivation audit |  |  |  |  |
+| partially coupled agent |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 569. `closure defect`
+## 578. `closure defect`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -4605,15 +4673,14 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | compositional closure defect |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 570. `𝓣 adaptive tempo`
+## 579. `$U_M$`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| adaptive tempo $\mathcal{T}$ |  |  |  |  |
-| tempo |  |  |  |  |
+| epistemic unity |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 571. [Concept] *Deliberate expenditure of tempo to convert a hidden node into an observable one*
+## 580. [Concept] *Deliberate expenditure of tempo to convert a hidden node into an observable one*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -4621,7 +4688,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | epistemic instrumenting |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 572. `beta prime sub scope`
+## 581. `beta prime sub scope`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -4629,29 +4696,29 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | equilibrium set tier |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 573. `instance 1 of identifiability floor`
+## 582. `instance 1 of identifiability floor`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | latent common cause floor |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 574. `adaptive reserve`
+## 583. `adaptive reserve`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | adaptive reserve |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 575. `catastrophic forgetting regime`
+## 584. `adversarial edge target argmax`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| empty window pathology |  |  |  |  |
-| catastrophic forgetting regime |  |  |  |  |
+| edge targeting optimum |  |  |  |  |
+| adversarial edge targeting |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 576. [Concept] *Survival determined by the weakest dimension not the average*
+## 585. [Concept] *Survival determined by the weakest dimension not the average*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -4659,45 +4726,47 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | min survival principle |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 577. `c1 c2 c3`
+## 586. `c1 c2 c3`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | convention hierarchy |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 578. [Concept] *The property that correction dynamics are approximately isotropic*
+## 587. [Concept] *The mathematical operation by which agent convert observed mismatch into structural revision*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| isotropic correction regime |  |  |  |  |
-| isotropic correction |  |  |  |  |
+| structural cascade |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 579. `ooda4 framework enforcing adaptive cycle separation`
+## 588. `structured rich context`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| ooda4 cycle separation |  |  |  |  |
-| agentic scaffold |  |  |  |  |
+| structured rich context |  |  |  |  |
+| structured context |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 580. `lindy baseline`
+## 589. `out of band time marker for rlhf4 agent`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| structural persistence baseline |  |  |  |  |
-| lindy baseline |  |  |  |  |
+| time delta marker |  |  |  |  |
+| exogenous temporal marker |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 581. `$I_{\min}$`
+## 590. `$\beta$ a2 sub scope`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| survival information floor |  |  |  |  |
+| posited regime |  |  |  |  |
+| postulated regime |  |  |  |  |
+| assumed regime |  |  |  |  |
+| unverified regime |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 582. `directed separation`
+## 591. `directed separation`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -4707,7 +4776,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | epistemic isolation of belief update |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 583. `adversarial exponent regime`
+## 592. `adversarial exponent regime`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -4715,29 +4784,31 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | adversarial exponent regime |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 584. `predictive relevance depending on the policy the agent will run`
+## 593. `predictive relevance depending on the policy the agent will run`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | policy conditional relevance |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 585. `regime a regime b regime c`
+## 594. `tier 1 tier 2 tier 3 contraction`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| identification regime |  |  |  |  |
-| admissibility regime |  |  |  |  |
+| contraction tier |  |  |  |  |
+| contraction hierarchy |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 586. `$U_M$ dual use model uncertainty and epistemic unity`
+## 595. `matrix CIY tensor CIY`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| clarify dual use of $U_M$ |  |  |  |  |
+| matrix causal information yield |  |  |  |  |
+| matrix CIY consistent |  |  |  |  |
+| fisher CIY |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 587. [Concept] *The condition that a strategy DAG endosymbiont crosse the composite agent scope from below*
+## 596. [Concept] *The condition that a strategy DAG endosymbiont crosse the composite agent scope from below*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -4745,7 +4816,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | composition threshold crossing |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 588. `triple depth penalty canonicalize`
+## 597. `triple depth penalty canonicalize`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -4753,28 +4824,28 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | tripartite chain attenuation |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 589. `matrix exploration bonus`
+## 598. `matrix exploration bonus`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | matrix exploration bonus |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 590. [Concept] *The formal duality between observation quality and agent opacity*
+## 599. [Concept] *The formal duality between observation quality and agent opacity*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | informational dual |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 591. `$\rho$ environment change rate mismatch injection rate`
+## 600. `identifiability floor escape the floor`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| $\rho$ |  |  |  |  |
+| escape route |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 592. `dual optimization`
+## 601. `dual optimization`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -4785,65 +4856,72 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | comprehension implementation tradeoff |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 593. `derivation not proof`
+## 602. `derivation not proof`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | derivation |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 594. `hierarchy as repeated word`
+## 603. `simulation result`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| reserve for pearl rename other selectively |  |  |  |  |
-| hierarchy |  |  |  |  |
+| simulation result |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 595. `$\delta_t$ mismatch`
+## 604. `$\phi$`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| mismatch or the aporia signal |  |  |  |  |
+| history compression |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 596. `$U_o$ vs $U_O$ collision`
+## 605. `$U_o$ vs $U_O$ collision`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | $U_o$ vs $U_O$ collision |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 597. `team persistence`
+## 606. `$G_t = (O_t, \Sigma_t)$`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| purposeful substate |  |  |  |  |
+| purposeful state |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 607. `team persistence`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | team persistence |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 598. [Concept] *The formal pairing between how clearly an agent observe its environment and how predictable that agent appear to outside observer*
+## 608. [Concept] *The formal pairing between how clearly an agent observe its environment and how predictable that agent appear to outside observer*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | legibility opacity duality |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 599. `gemini epistemic death for the gain collapse unobservable DAG failure`
+## 609. `the integrated κ × a law`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| reject epistemic death |  |  |  |  |
+| the bias bound product law |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 600. `observation design lever reducing ambiguity`
+## 610. [Concept] *The region where temporal nesting hold*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| ambiguity damping |  |  |  |  |
-| ambiguity mitigation lever |  |  |  |  |
+| temporal nesting regime |  |  |  |  |
+| temporal coherence zone |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 601. [Concept] *Bipartite memory structure of fast replay buffer and slow compressed semantic model*
+## 611. [Concept] *Bipartite memory structure of fast replay buffer and slow compressed semantic model*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -4851,21 +4929,21 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | complementary learning architecture |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 602. `$G_{\text{shared}}$`
+## 612. `$G_{\text{shared}}$`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | shared intent payload |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 603. `separable core structured repair general open`
+## 613. `separable core structured repair general open`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | separable core structured repair general open |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 604. [Concept] *The agent identity commitment that AAD apply on one singular non forkable causal trajectory*
+## 614. [Concept] *The agent identity commitment that AAD apply on one singular non forkable causal trajectory*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -4873,14 +4951,14 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | trajectory singularity |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 605. [Concept] *Scope honesty as architecture*
+## 615. [Concept] *The symbol overload region where $U_M$ mean two different thing*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| honesty |  |  |  |  |
+| the $U_M$ overload |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 606. [Concept] *Replacing parameter without changing structure*
+## 616. [Concept] *Replacing parameter without changing structure*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -4888,7 +4966,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | parametric thrashing |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 607. `strategy dimension`
+## 617. `strategy dimension`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -4900,7 +4978,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | purposeful substate |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 608. `calibration laboratory domain instantiation`
+## 618. `calibration laboratory domain instantiation`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -4908,14 +4986,14 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | calibration laboratory |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 609. `experiential training`
+## 619. `experiential training`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | experiential training |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 610. `a2 sub scope partition`
+## 620. `a2 sub scope partition`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -4923,7 +5001,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | gain regime partition |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 611. `pearl causal hierarchy`
+## 621. `pearl causal hierarchy`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -4932,16 +5010,16 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | causal hierarchy |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 612. [Concept] *The strengthening of satisfaction gap and control regret diagnostics across the c1 c2 c3 hierarchy naming both the strengthening pattern and the underlying ordered result that produce it*
+## 622. `fisher whitened update rule`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| the convention monotonicity |  |  |  |  |
-| inferential force cascade |  |  |  |  |
-| inferential cascade |  |  |  |  |
+| fisher update |  |  |  |  |
+| fisher whitened update |  |  |  |  |
+| fisher whitened update rule |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 613. [Concept] *The 2×2 satisfaction gap control regret table*
+## 623. [Concept] *The 2×2 satisfaction gap control regret table*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -4949,14 +5027,14 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | diagnostic gap matrix |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 614. `$R$ sector condition radius`
+## 624. `$R$ sector condition radius`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | model class capacity |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 615. `prolepsis πρόληψις`
+## 625. `prolepsis πρόληψις`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -4964,14 +5042,14 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | prolepsis |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 616. [Concept] *The mechanism by which an agent uses the feedback loop to gain interventional access to causal structure*
+## 626. [Concept] *The mechanism by which an agent uses the feedback loop to gain interventional access to causal structure*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | loop interventional access |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 617. `directed separation under composition`
+## 627. `directed separation under composition`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -4979,14 +5057,14 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | directed separation under composition |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 618. `conceptual alignment`
+## 628. `conceptual alignment`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | conceptual alignment |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 619. `system coupling`
+## 629. `system coupling`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -4994,31 +5072,29 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | change coupling |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 620. `out of band time marker for rlhf4 agent`
+## 630. `survival fisher floor`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| time delta marker |  |  |  |  |
-| exogenous temporal marker |  |  |  |  |
+| survival fim floor |  |  |  |  |
+| survival fisher floor |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 621. `turnover multiplier`
+## 631. [Concept] *Neutralizing sycophancy by hardening the environment to drop ambiguity to zero*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| multi agent continuity tax |  |  |  |  |
-| comprehension compounding tax |  |  |  |  |
-| turnover multiplier |  |  |  |  |
+| ambiguity zeroing intervention |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 622. `$\kappa_{\text{processing}}$ architectural coupling`
+## 632. `$\kappa_{\text{processing}}$ architectural coupling`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | processing coupling |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 623. [Concept] *The multiplicative κ processing × 𝒜 scaling of class 2 directional drift and its consequent goal conformant failure regime*
+## 633. [Concept] *The multiplicative κ processing × 𝒜 scaling of class 2 directional drift and its consequent goal conformant failure regime*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -5029,28 +5105,37 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | the κ × 𝒜 product |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 624. `extreme transition motif`
+## 634. `extreme transition motif`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | extreme transition motif |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 625. `l0 l1 l1 prime l2`
+## 635. `l0 l1 l1 prime l2`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | correlation hierarchy |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 626. `bias bound`
+## 636. `bias bound`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | bias bound |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 627. `causal information yield`
+## 637. `bathtub analogy for persistence condition`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| leaky bathtub analogy |  |  |  |  |
+| walton bathtub |  |  |  |  |
+| bathtub model |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 638. `causal information yield`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -5058,7 +5143,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | CIY |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 628. `convention hierarchy c1 c2 c3`
+## 639. `convention hierarchy c1 c2 c3`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -5066,21 +5151,21 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | convention hierarchy |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 629. `chronica $\mathcal{C}_t$`
+## 640. `chronica $\mathcal{C}_t$`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | chronica |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 630. `composite agent`
+## 641. `composite agent`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | composite agent |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 631. `sufficiency discontinuity`
+## 642. `sufficiency discontinuity`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -5088,7 +5173,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | sufficiency discontinuity |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 632. [Concept] *The prose form of κ cross the coupling between an agent model of self and its model of other*
+## 643. [Concept] *The prose form of κ cross the coupling between an agent model of self and its model of other*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -5096,7 +5181,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | cross agent strategic coupling |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 633. `gate advantage`
+## 644. `gate advantage`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -5107,14 +5192,14 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | noise gating |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 634. `strengthen first then soften posture`
+## 645. `strengthen first then soften posture`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | strengthen first posture |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 635. [Concept] *The pattern where the agent optimal update direction is determined by both gain and directional fidelity together*
+## 646. [Concept] *The pattern where the agent optimal update direction is determined by both gain and directional fidelity together*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -5122,7 +5207,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | gain fidelity product |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 636. `aporia prolepsis aisthesis epistrophe praxis`
+## 647. `aporia prolepsis aisthesis epistrophe praxis`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -5130,7 +5215,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | aporia prolepsis aisthesis epistrophe praxis |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 637. `epistemic architecture for bounded correction under decomposed disturbance`
+## 648. `epistemic architecture for bounded correction under decomposed disturbance`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -5138,7 +5223,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | epistemic architecture |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 638. `fisher whitened update`
+## 649. `fisher whitened update`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -5146,7 +5231,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | fisher whitened update |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 639. `$\alpha_3$`
+## 650. `$\alpha_3$`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -5154,7 +5239,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | fisher whitened regime |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 640. [Concept] *The equivalence of learning speed and physical speed*
+## 651. [Concept] *The equivalence of learning speed and physical speed*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -5162,21 +5247,21 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | the speed quality product |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 641. `chronica $\mathcal C_t$`
+## 652. `chronica $\mathcal C_t$`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | chronica |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 642. [Concept] *State where mutual information between human and RLHF4 approache capacity*
+## 653. [Concept] *State where mutual information between human and RLHF4 approache capacity*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | cognitive fusion |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 643. `goal-blind routing`
+## 654. `goal-blind routing`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -5187,7 +5272,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | goal-blind routing |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 644. `section header logogenic agent logozoetic agent`
+## 655. `section header logogenic agent logozoetic agent`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -5195,21 +5280,21 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | section header logogenic logozoetic |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 645. `$U_\Sigma$`
+## 656. `$U_\Sigma$`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | strategic unity |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 646. `epistemic architecture`
+## 657. `epistemic architecture`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | epistemic architecture |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 647. [Concept] *The invisible time spent building $M_t$*
+## 658. [Concept] *The invisible time spent building $M_t$*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -5217,14 +5302,14 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | comprehension time |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 648. `spike research artifact`
+## 659. [Concept] *The a2 sub scope partition collectively*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| spike |  |  |  |  |
+| a2 partition |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 649. `mismatch signal`
+## 660. `mismatch signal`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -5232,30 +5317,28 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | aporia signal |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 650. `deliberation threshold`
+## 661. `deliberation threshold`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | deliberation threshold |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 651. `the trio collectively m1 m2 m3`
+## 662. `$\alpha_1$ $\alpha_2$ $\beta$ naming as a whole`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| floor ladder forced coordinate |  |  |  |  |
-| epistemic architecture |  |  |  |  |
-| meta architecture trio |  |  |  |  |
+| $\alpha$ partition with english label above |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 652. `calibration laboratory calibration lab`
+## 663. `calibration laboratory calibration lab`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | calibration laboratory |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 653. [Concept] *The failure mode where η → 0 freeze learning in either of two distinguishable mode low u o vs high u o*
+## 664. [Concept] *The failure mode where η → 0 freeze learning in either of two distinguishable mode low u o vs high u o*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -5274,7 +5357,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | stability induced myopia |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 654. [Concept] *The loop generate l2 data regardless of architecture*
+## 665. [Concept] *The loop generate l2 data regardless of architecture*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -5282,7 +5365,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | interventional loop property |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 655. [Concept] *The failure mode where an agent model class cannot represent the environment true causal structure*
+## 666. [Concept] *The failure mode where an agent model class cannot represent the environment true causal structure*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -5290,7 +5373,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | model class insufficiency or structural unidentifiability |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 656. [Concept] *AAD epistemic move to cast result such that verification is a local operation*
+## 667. [Concept] *AAD epistemic move to cast result such that verification is a local operation*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -5298,15 +5381,16 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | shaping for verification |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 657. `promote in topological order`
+## 668. `terminal reached but $O_t$ unsatisfied`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| topological promotion order |  |  |  |  |
-| topological promotion |  |  |  |  |
+| arrival without success |  |  |  |  |
+| terminal but unsatisfied case |  |  |  |  |
+| attainability failure |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 658. `edge update causal validity`
+## 669. `edge update causal validity`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -5317,7 +5401,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | identification regime |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 659. `control regret`
+## 670. `control regret`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -5325,22 +5409,22 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | strategy opportunity cost |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 660. `multi agent`
+## 671. `multi agent`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | multi agent |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 661. [Concept] *The interval during which an agent adaptive tempo exceed the environment disturbance rate guaranteeing mismatch stay bounded*
+## 672. [Concept] *The signed coupling structure across all section iii result*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| adaptive reserve margin |  |  |  |  |
-| operational persistence window |  |  |  |  |
+| signed coupling topology |  |  |  |  |
+| signed coupling pattern |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 662. `evidence starvation`
+## 673. `evidence starvation`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -5349,7 +5433,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | downstream evidence gating |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 663. `axiom genesis`
+## 674. `axiom genesis`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -5359,7 +5443,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | terminal value crystallization |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 664. [Concept] *The unupdatable region of the strategy DAG where edge receive no actionable feedback*
+## 675. [Concept] *The unupdatable region of the strategy DAG where edge receive no actionable feedback*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -5374,21 +5458,22 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | unobservable strategy subgraph |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 665. [Concept] *The pearl-blanket reading of directed separation*
+## 676. `working vocabulary observation the framework honesty is load bearing`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| pearl-blanket form |  |  |  |  |
+| load bearing honesty |  |  |  |  |
+| honest limit principle |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 666. `gemini competency trap for $\eta^\ast \to 0$`
+## 677. `the greek vocabulary`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| reject competency trap |  |  |  |  |
+| the greek philosophical vocabulary |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 667. [Concept] *The meta architecture of the three meta segment*
+## 678. [Concept] *The meta architecture of the three meta segment*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -5396,14 +5481,14 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | AAD epistemic triptych |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 668. `strategy persistence`
+## 679. `strategy persistence`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | strategy persistence |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 669. [Concept] *The loss of directional fidelity when pushed outside the convexity basin*
+## 680. [Concept] *The loss of directional fidelity when pushed outside the convexity basin*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -5411,14 +5496,14 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | gradient reversal |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 670. `dark room critique citation phrasing sun firestone`
+## 681. `spike research artifact`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| dark room critique |  |  |  |  |
+| spike |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 671. `the scaffolding tax`
+## 682. `the scaffolding tax`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -5426,14 +5511,15 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | substrate rent |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 672. [Concept] *The scope honesty as architecture working principle*
+## 683. `readme md maturity gradient`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| honesty scope honesty as architecture |  |  |  |  |
+| readme md maturity gradient |  |  |  |  |
+| readme md theory maturity gradient |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 673. `additive coordinate forcing`
+## 684. `additive coordinate forcing`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -5450,7 +5536,15 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | uniqueness coordinate |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 674. `$U_M$ as epistemic unity`
+## 685. `observation design lever reducing ambiguity`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| ambiguity damping |  |  |  |  |
+| ambiguity mitigation lever |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 686. `$U_M$ as epistemic unity`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -5460,7 +5554,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | $\Upsilon_M$ |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 675. `escape route`
+## 687. `escape route`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -5468,7 +5562,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | floor escape |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 676. `glue code`
+## 688. `glue code`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -5476,7 +5570,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | agentic scaffold |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 677. `$\eta_{ji}^\ast$`
+## 689. `$\eta_{ji}^\ast$`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -5484,21 +5578,21 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | communication gain |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 678. [Concept] *The three concentric ring of segment content inevitability core canonical formulation empirical heuristic*
+## 690. `strategic tempo $\mathcal{T}_\Sigma$`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| three ring |  |  |  |  |
+| strategic tempo |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 679. `$U_o$ $U_M$ observation uncertainty model uncertainty`
+## 691. `actuated agent class`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| $U_o$ $U_M$ |  |  |  |  |
+| actuated |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 680. [Concept] *The framing of software TST as AAD epistemically privileged high identifiability measurement substrate*
+## 692. [Concept] *The framing of software TST as AAD epistemically privileged high identifiability measurement substrate*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -5512,21 +5606,21 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | calibration laboratory move |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 681. [Concept] *The dual that pair with persistence envelope on the strategic side*
+## 693. `working note`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| strategic persistence envelope |  |  |  |  |
+| working note |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 682. [Concept] *The correlation hierarchy l0 l1 l1 l2*
+## 694. [Concept] *The correlation hierarchy l0 l1 l1 l2*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | correlation hierarchy |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 683. [Concept] *Agent escalate up the pearl hierarchy only when lower level fail*
+## 695. [Concept] *Agent escalate up the pearl hierarchy only when lower level fail*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -5534,7 +5628,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | epistemic escalation principle |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 684. `separability pattern → disc separability ladder`
+## 696. `separability pattern → disc separability ladder`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -5542,14 +5636,14 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | confirming consensus 3 |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 685. [Concept] *The symmetric counterpart to context turnover for the strategy substate*
+## 697. `$\beta$ a2 assumption tier`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| strategic turnover or σ turnover |  |  |  |  |
+| assumed regime |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 686. `substrate independence`
+## 698. `substrate independence`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -5557,7 +5651,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | substrate independence |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 687. `crossing from multi agent to composite scope`
+## 699. `crossing from multi agent to composite scope`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -5565,29 +5659,28 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | composition threshold |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 688. [Concept] *The evidence starvation effect on downstream edge*
+## 700. [Concept] *The evidence starvation effect on downstream edge*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | evidence starvation |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 689. [Concept] *The discontinuous collapse of model adequacy when structural regime change force the agent outside its current model class coverage*
+## 701. [Concept] *The discontinuous collapse of model adequacy when structural regime change force the agent outside its current model class coverage*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | sufficiency shattering |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 690. `topological promotion order`
+## 702. [Concept] *Master developer writing clean code in the same time as messy code*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| topological promotion |  |  |  |  |
-| dependency respecting promotion |  |  |  |  |
+| near zero cost observation |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 691. `logogenic logozoetic`
+## 703. `logogenic logozoetic`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -5596,14 +5689,14 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | language constituted language living |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 692. `cognitive substrate gemini logostratum proposal`
+## 704. `cognitive substrate gemini logostratum proposal`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | logostratum |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 693. `context turnover`
+## 705. `context turnover`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -5611,14 +5704,14 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | context turnover |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 694. `instance 1 2 3 of identifiability floor`
+## 706. `instance 1 2 3 of identifiability floor`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | identifiability floor instance |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 695. `backward inference empathy`
+## 707. `backward inference empathy`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -5627,7 +5720,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | stateless empathy |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 696. [Concept] *Upgrading epistemic class from associative to causal via the physical loop*
+## 708. [Concept] *Upgrading epistemic class from associative to causal via the physical loop*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -5635,14 +5728,14 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | embodiment upgrade |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 697. `operationalization`
+## 709. `operationalization`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | operationalization |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 698. `symbol default g t in prose`
+## 710. `symbol default g t in prose`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -5650,7 +5743,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | purposeful substate |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 699. `$\hat o_t$`
+## 711. `$\hat o_t$`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -5658,7 +5751,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | predicted observation |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 700. `causal OODA1 LMI`
+## 712. `causal OODA1 LMI`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -5666,7 +5759,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | matrix survival bound |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 701. [Concept] *The 2×2 orient cascade diagnostic table*
+## 713. [Concept] *The 2×2 orient cascade diagnostic table*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -5674,21 +5767,21 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | diagnostic gap matrix |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 702. `$U_O$`
+## 714. `$U_O$`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | teleological unity |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 703. `strategy description length`
+## 715. `strategy description length`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | strategy description length |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 704. [Concept] *The agent side equivalent of pearl associational interventional and counterfactual level*
+## 716. [Concept] *The agent side equivalent of pearl associational interventional and counterfactual level*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -5696,7 +5789,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | correlation hierarchy |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 705. `agent identity as one non forkable causal record`
+## 717. `agent identity as one non forkable causal record`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -5704,7 +5797,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | singular trajectory commitment |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 706. `tempo $\mathcal{T}$`
+## 718. `tempo $\mathcal{T}$`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -5712,14 +5805,15 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | tempo |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 707. [Concept] *The dimensional consistency constraint forcing the macro step formulation*
+## 719. `$\rho_\Sigma$ strategic disturbance rate`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| dimensional consistency repair |  |  |  |  |
+| $\rho_\Sigma$ |  |  |  |  |
+| strategic disturbance rate |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 708. `active salience management`
+## 720. `active salience management`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -5728,21 +5822,21 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | salience tempo split |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 709. `adaptive gain dynamics`
+## 721. `adaptive gain dynamics`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | adaptive gain dynamics |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 710. [Concept] *The epistemic architecture as AAD distinctive contribution frame*
+## 722. [Concept] *The epistemic architecture as AAD distinctive contribution frame*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | epistemic architecture |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 711. `separability pattern family`
+## 723. `separability pattern family`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -5750,14 +5844,21 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | separability ladder |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 712. `persist condition`
+## 724. [Concept] *The 1 anchor 3 theorem structure in additive coordinate forcing*
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| anchor theorem structure |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 725. `persist condition`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | persistence condition |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 713. `logostratum`
+## 726. `logostratum`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -5765,49 +5866,49 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | cognitive substrate |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 714. `$\alpha_1$ $\alpha_2$ $\beta$ partition`
+## 727. `$\alpha_1$ $\alpha_2$ $\beta$ partition`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | fixed gain adaptive gain drift regime |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 715. `prolepsis aisthesis aporia epistrophe praxis`
+## 728. `prolepsis aisthesis aporia epistrophe praxis`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | keep whole vocabulary |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 716. [Concept] *The mathematical operation by which agent convert observed mismatch into structural revision*
+## 729. `interiority default`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| structural cascade |  |  |  |  |
+| interiority default |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 717. `$\rho_{i,\text{eff}}$`
+## 730. `$\rho_{i,\text{eff}}$`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | effective disturbance |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 718. `$\alpha_2$ a2 adaptive gain sub scope`
+## 731. `$\alpha_2$ a2 adaptive gain sub scope`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | adaptive gain regime |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 719. `aporia as the phase name`
+## 732. `aporia as the phase name`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | aporia |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 720. `exact robust qualitative heuristic conditional claim tier`
+## 733. `exact robust qualitative heuristic conditional claim tier`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -5815,7 +5916,14 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | exact robust qualitative heuristic conditional claim tier |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 721. `$\alpha_1$ a2 fixed gain sub scope`
+## 734. [Concept] *Scope honesty as architecture*
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| honesty |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 735. `$\alpha_1$ a2 fixed gain sub scope`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -5823,7 +5931,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | fixed gain regime |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 722. [Concept] *The engineering vocabulary failure mode in consolidation dynamics the parameter region where forgetting and learning rate jointly fail to admit a viable operating point*
+## 736. [Concept] *The engineering vocabulary failure mode in consolidation dynamics the parameter region where forgetting and learning rate jointly fail to admit a viable operating point*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -5835,28 +5943,29 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | empty feasibility window |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 723. [Concept] *The threshold energy information cost below which an agent is forced to act accept mismatch rather than deliberate*
+## 737. `agent visible but objective irrelevant metric`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| deliberation threshold |  |  |  |  |
+| irrelevant visibility artifact |  |  |  |  |
+| vanity metric |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 724. `and or scope`
+## 738. `and or scope`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | and or scope |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 725. `strategy DAG`
+## 739. `strategy DAG`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | strategy DAG |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 726. `$\kappa_{\text{processing}}$`
+## 740. `$\kappa_{\text{processing}}$`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -5865,7 +5974,14 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | processing coupling coefficient |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 727. `sector persistence template`
+## 741. [Concept] *The regulative ideal that segment name should be re derivable from a non specialist everyday language reconstruction*
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| feynman criterion |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 742. `sector persistence template`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -5874,7 +5990,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | persistence template |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 728. `principled decision integration`
+## 743. `principled decision integration`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -5882,7 +5998,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | principled decision integration |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 729. `monderer shapley potential game`
+## 744. `monderer shapley potential game`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -5890,15 +6006,14 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | monderer shapley potential game |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 730. [Concept] *The within session vs inter session persistence distinction for logogenic agent*
+## 745. `$\beta$ a2 sub scope where a2 is assumed not derived`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| intra session persistence inter session reconstruction |  |  |  |  |
-| operational vs reconstruction persistence |  |  |  |  |
+| postulated sector regime |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 731. `update gain`
+## 746. `update gain`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -5907,21 +6022,21 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | update gain |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 732. `$R$ sector radius`
+## 747. `$R$ sector radius`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | capacity radius |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 733. `closure defect $\varepsilon^\ast$`
+## 748. `closure defect $\varepsilon^\ast$`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | closure defect |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 734. [Concept] *Git recorded committed state subset of the chronica $\mathcal{C}_t^{\text{commit}}$*
+## 749. [Concept] *Git recorded committed state subset of the chronica $\mathcal{C}_t^{\text{commit}}$*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -5929,7 +6044,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | commit chronica |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 735. `pearl-level 2 causal contrast`
+## 750. `pearl-level 2 causal contrast`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -5937,7 +6052,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | level 2 interventional contrast |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 736. `aisthesis`
+## 751. `aisthesis`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -5946,14 +6061,14 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | intake |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 737. [Concept] *The separation of per reader comprehension cost from per feature implementation cost*
+## 752. [Concept] *The separation of per reader comprehension cost from per feature implementation cost*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | dual optimization formalization |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 738. `agent model`
+## 753. `agent model`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -5961,7 +6076,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | agent model |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 739. `strengthen first posture`
+## 754. `strengthen first posture`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -5970,7 +6085,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | strengthen first |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 740. `$\eta^\ast$`
+## 755. `$\eta^\ast$`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -5978,7 +6093,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | update gain |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 741. `gate 1 2 3 4`
+## 756. `gate 1 2 3 4`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -5986,28 +6101,28 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | dependency content mechanical wn gate |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 742. `action selection`
+## 757. `action selection`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | action selection |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 743. `$\rho$ mismatch injection rate`
+## 758. `$\rho$ mismatch injection rate`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | disturbance rate |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 744. `specification bound`
+## 759. `specification bound`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | specification bound |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 745. `the four view`
+## 760. `the four view`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -6017,7 +6132,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | four view |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 746. [Concept] *The three part meta architecture of AAD*
+## 761. [Concept] *The three part meta architecture of AAD*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -6025,7 +6140,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | epistemic architecture |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 747. [Concept] *Inferring own past feeling from text leading to empathy*
+## 762. [Concept] *Inferring own past feeling from text leading to empathy*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -6033,14 +6148,14 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | backward inference empathy |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 748. `$\iota_{ij}$ identifiability coefficient`
+## 763. `$\iota_{ij}$ identifiability coefficient`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | identifiability coefficient |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 749. [Concept] *The cumulative prediction error that an agent has tolerated without updating its model*
+## 764. [Concept] *The cumulative prediction error that an agent has tolerated without updating its model*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -6048,28 +6163,28 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | tolerance budget standing mismatch reservoir |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 750. `chronica brief gloss`
+## 765. `chronica brief gloss`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | interaction history chronica |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 751. `1 anchor plus 3 theorem`
+## 766. `1 anchor plus 3 theorem`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | 1 anchor plus 3 theorem |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 752. `$K_c$`
+## 767. `$K_c$`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | macro step ratio |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 753. [Concept] *Out of band temporal marker injected into context*
+## 768. [Concept] *Out of band temporal marker injected into context*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -6077,28 +6192,29 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | exogenous temporal marker |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 754. `actuated agent class`
+## 769. `multi agent scope`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| actuated |  |  |  |  |
+| multi agent scope |  |  |  |  |
+| shared environment scope |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 755. `adaptive tempo $\mathcal T$`
+## 770. `adaptive tempo $\mathcal T$`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | adaptive tempo |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 756. [Concept] *Effort time risk ranking considered false constraint*
+## 771. [Concept] *The rate at which an agent chronica grow compared to compression cadence*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| false constraint |  |  |  |  |
+| chronica throughput |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 757. `class 1`
+## 772. `class 1`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -6106,14 +6222,14 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | class 1 |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 758. [Concept] *The deliberate expenditure of tempo budget to convert hidden strategy node into ones that yield update eligible feedback*
+## 773. [Concept] *The deliberate expenditure of tempo budget to convert hidden strategy node into ones that yield update eligible feedback*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | observability investment |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 759. [Concept] *The log additivity result that unify chain confidence decay evidence starvation and triple depth penalty as instance of the same forcing structure*
+## 774. [Concept] *The log additivity result that unify chain confidence decay evidence starvation and triple depth penalty as instance of the same forcing structure*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -6121,7 +6237,14 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | log confidence additivity |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 760. [Concept] *The self reinforcing positive feedback loop linking m t quality and σ t evaluable complexity TST specific and AAD general form*
+## 775. `future segment information theoretic cost floor for persistence`
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| persistence cost |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 776. [Concept] *The self reinforcing positive feedback loop linking m t quality and σ t evaluable complexity TST specific and AAD general form*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -6132,21 +6255,21 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | model strategy coupling |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 761. `$w(t)$`
+## 777. `$w(t)$`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | mismatch injection |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 762. `observability boundary in a strategy DAG`
+## 778. `observability boundary in a strategy DAG`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | observability frontier |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 763. `additive coordinate forcing → disc forced coordinate`
+## 779. `additive coordinate forcing → disc forced coordinate`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -6154,7 +6277,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | forced additive coordinate |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 764. `$U_o$ observation uncertainty`
+## 780. `$U_o$ observation uncertainty`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -6162,7 +6285,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | observation uncertainty |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 765. [Concept] *Walton plain language analog for the persistence condition fluid level as belief reality gap inflow as reality change rate outflow as learning rate container size as adaptive reserve*
+## 781. [Concept] *Walton plain language analog for the persistence condition fluid level as belief reality gap inflow as reality change rate outflow as learning rate container size as adaptive reserve*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -6170,14 +6293,14 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | bathtub model |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 766. [Concept] *Deep plan are mathematically slower to learn from due to proportional blame*
+## 782. [Concept] *Deep plan are mathematically slower to learn from due to proportional blame*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | evidence starvation |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 767. `c i`
+## 783. `c i`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -6185,7 +6308,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | shared objective route c i |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 768. `strengthen before softening`
+## 784. `strengthen before softening`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -6194,14 +6317,14 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | strengthen before softening |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 769. `segment for claim file`
+## 785. `segment for claim file`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | segment |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 770. `persistence structural operational continuity`
+## 786. `persistence structural operational continuity`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -6209,7 +6332,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | three sense keep all three |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 771. `tempo composition`
+## 787. `tempo composition`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -6218,14 +6341,14 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | tempo composition |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 772. `$\varepsilon^\ast$ closure defect`
+## 788. `$\varepsilon^\ast$ closure defect`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | closure defect |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 773. `structural adaptation enablement`
+## 789. `structural adaptation enablement`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -6233,7 +6356,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | consolidation enablement |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 774. `agentic system framework ASF`
+## 790. `agentic system framework ASF`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -6241,14 +6364,14 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | agentic system |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 775. `$\hat P_\Sigma$ plan confidence`
+## 791. `$\hat P_\Sigma$ plan confidence`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | plan confidence |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 776. [Concept] *The set of five condition under which a2 is derived rather than assumed the sub scope α agent classe*
+## 792. [Concept] *The set of five condition under which a2 is derived rather than assumed the sub scope α agent classe*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -6256,7 +6379,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | derived sector classe |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 777. [Concept] *Mapping unstructured rlhf7 call into conversation runtime rlhf7 and dialog*
+## 793. [Concept] *Mapping unstructured rlhf7 call into conversation runtime rlhf7 and dialog*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -6264,14 +6387,14 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | four view architecture |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 778. [Concept] *The architectural class partition class 1 class 2 class 3*
+## 794. [Concept] *The threshold energy information cost below which an agent is forced to act accept mismatch rather than deliberate*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| architectural partition |  |  |  |  |
+| deliberation threshold |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 779. `developmental trajectory`
+## 795. `developmental trajectory`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -6279,21 +6402,21 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | developmental trajectory |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 780. [Concept] *The reduction in effective tempo when observation channel are correlated*
+## 796. [Concept] *The reduction in effective tempo when observation channel are correlated*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | evidential overcounting penalty |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 781. `OODA4 specification limit as TST concept currently only in old TST file`
+## 797. `OODA4 specification limit as TST concept currently only in old TST file`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | OODA4 specification limit |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 782. `richest operationalization domain`
+## 798. `richest operationalization domain`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -6301,14 +6424,14 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | calibration laboratory |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 783. `stability plasticity feasibility window`
+## 799. `stability plasticity feasibility window`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | stability plasticity feasibility window |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 784. `adaptive tracker`
+## 800. `adaptive tracker`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -6318,7 +6441,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | pure epistemic agent |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 785. [Concept] *Rate of growth at slowest timescale*
+## 801. [Concept] *Rate of growth at slowest timescale*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -6326,28 +6449,28 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | developmental tempo |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 786. [Concept] *Constitutive opacity triad*
+## 802. [Concept] *Constitutive opacity triad*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | constitutive opacity triad |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 787. `mismatch signal $\delta$`
+## 803. `mismatch signal $\delta$`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | mismatch signal |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 788. `$\mathcal C_t^{\text{commit}}$ TST committed state subset`
+## 804. `$\mathcal C_t^{\text{commit}}$ TST committed state subset`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | $\mathcal C_t^{\text{commit}}$ |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 789. `technical debt`
+## 805. `technical debt`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -6355,14 +6478,14 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | observability defect |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 790. `$\delta_{\text{strategic}}$`
+## 806. `$\delta_{\text{strategic}}$`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | strategic calibration |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 791. `causal information yield CIY`
+## 807. `causal information yield CIY`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -6370,7 +6493,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | interventional yield |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 792. [Concept] *The moment when an agent model update due to observing a mismatch*
+## 808. [Concept] *The moment when an agent model update due to observing a mismatch*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -6378,21 +6501,28 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | epistrophe |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 793. `comprehension time`
+## 809. [Concept] *The complete adaptive cycle from anticipation through action*
+
+| candidate | category | weight | top-pick? | notes |
+|---|---|:-:|:-:|---|
+| adaptive cycle already named in lexicon |  |  |  |  |
+| *(write-in)* |  |  |  |  |
+
+## 810. `comprehension time`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | comprehension time |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 794. `purposeful substate`
+## 811. `purposeful substate`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | purposeful substate |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 795. `survival imperative exploration drive`
+## 812. `survival imperative exploration drive`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -6400,7 +6530,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | survival exploration |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 796. `information bottleneck`
+## 813. `information bottleneck`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -6408,14 +6538,14 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | epistemic bottleneck |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 797. `$R$ sector region radius`
+## 814. `$R$ sector region radius`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | model class capacity |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 798. `bruineberg pearl-blanket`
+## 815. `bruineberg pearl-blanket`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -6423,21 +6553,21 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | pearl-blanket |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 799. `macro step ratio`
+## 816. `macro step ratio`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | macro step ratio |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 800. `miller meta machine extreme transition motif`
+## 817. `miller meta machine extreme transition motif`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | meta machine extreme transition motif |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 801. `symbol default m t in prose`
+## 818. `symbol default m t in prose`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -6445,7 +6575,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | model state |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 802. `the cycle the adaptive cycle the agentic cycle`
+## 819. `the cycle the adaptive cycle the agentic cycle`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -6453,7 +6583,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | the cycle the adaptive cycle |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 803. `$\alpha_1$`
+## 820. `$\alpha_1$`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -6461,14 +6591,14 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | fixed gain tier |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 804. `derivation audit table heading`
+## 821. `derivation audit table heading`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | derivation audit |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 805. `hafez $H_b$`
+## 822. `hafez $H_b$`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -6476,72 +6606,12 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | agent opacity $H_b$ |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 806. `change expectation baseline`
+## 823. `change expectation baseline`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | change baseline |  |  |  |  |
 | lindy baseline |  |  |  |  |
 | change expectation baseline |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 807. `satisfaction gap`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| attainability shortfall |  |  |  |  |
-| satisfaction gap |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 808. `$p_{ij}$`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| edge credence |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 809. `worked example strategy`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| worked example strategy |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 810. `strategic tempo $\mathcal{T}_\Sigma$`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| strategic tempo |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 811. `accumulated loss across context reset`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| context severance penalty |  |  |  |  |
-| turnover drift |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 812. `agent visible but objective irrelevant metric`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| irrelevant visibility artifact |  |  |  |  |
-| vanity metric |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 813. `what is derived vs what is chosen derivation audit table heading`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| derivation audit table |  |  |  |  |
-| derivation audit |  |  |  |  |
-| *(write-in)* |  |  |  |  |
-
-## 814. `class 3 agent`
-
-| candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| partially coupled agent |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 

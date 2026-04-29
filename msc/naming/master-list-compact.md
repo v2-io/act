@@ -4,7 +4,7 @@
 **Agents:** 19 (agent1-original-brainstorm, audit-471203-incremental, codex-1, codex-2, codex-gpt-5-r2, gemini-1, gemini-2, gemini-3-1-pro-preview-r2, gemini-targeted-alternatives, haiku-4-5, haiku-4-5-r2, opus-1m, opus-4-7, opus-4-7-b, opus-4-7-r2, opus-targeted-alternatives, opus-targeted-alternatives-v2, sonnet-4-6, sonnet-4-6-r2)
 **Total vote rows:** 2967
 **Distinct pairs:** 1805
-**Distinct currents:** 814
+**Distinct currents:** 823
 
 Single-table compact view of the master list. One row per (original, candidate) pair; rows for the same `original` are grouped adjacently with the original cell shown only on the first row. Currents are sorted by their top candidate's aggregate weight descending. Within each group, candidates sort by aggregate weight descending; the first row (the winning candidate) is bolded. `(keep)` marks candidate = original; the ⭑ suffix on `(keep)` means at least one vote on that row used the `canonicalize` category. ✗ prefix marks net-rejected candidates (aggregate < 0). Category suffix on non-keep candidates surfaces the per-pair category mix when it differs from the default `rename` action.
 
@@ -1651,4 +1651,20 @@ Single-table compact view of the master list. One row per (original, candidate) 
 | what is derived vs what is chosen | **derivation audit** | +1 |
 |  | derived vs chosen vs assumed | +1 |
 | what is derived vs what is chosen derivation audit table | **derivation audit** | +1 |
+| epistemic status | **_(keep)_** | +12 |
+| working note | **_(keep)_** | +12 |
+| formal expression | **_(keep)_** | +9 |
+| condition | **_(keep)_** | +7 |
+| interiority default | **_(keep)_** | +7 |
+| section ii survival | **_(keep)_** | +5 |
+|  | class 2 carryover map | +3 |
+|  | section ii carryover map | +3 |
+|  | class 2 exit audit | +2 |
+|  | class 2 survival | +2 |
+|  | section ii carryover classification | +1 |
+| feature | **_(keep)_** | +3 |
+| honest limit | **_(keep)_** | +3 |
+|  | limit | +1 |
+| readme md maturity gradient | **_(keep)_** | +2 |
+|  | readme md theory maturity gradient | +1 |
 

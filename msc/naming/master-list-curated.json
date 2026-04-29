@@ -25,7 +25,7 @@
     ],
     "total_vote_rows": 2967,
     "total_pairs": 1805,
-    "total_currents": 814,
+    "total_currents": 823,
     "enrichment_status": {
       "consolidated_rationale": "pending",
       "first_encounter_locality": "pending",
@@ -54190,6 +54190,512 @@
               "weight": 1,
               "category": "rename",
               "notes": "The full title is load-bearing for first-encounter readers; `### Derivation Audit` is a usable shorter alternative for segments where the table follows a standard pattern. FORMAT.md O-BP14 already permits variation. Keep both as acceptable."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "current": "epistemic status",
+      "current_description": null,
+      "is_concept_cluster": false,
+      "voted_by_architectures": [
+        "Codex",
+        "Opus"
+      ],
+      "category_disagreement": false,
+      "first_encounter_locality": null,
+      "segment_link": null,
+      "manual_curation_notes": null,
+      "candidates": [
+        {
+          "candidate": "epistemic status",
+          "is_keep": true,
+          "total_weight": 12,
+          "category_tally": {
+            "keep": 4
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "codex-1",
+              "weight": 3,
+              "category": "keep",
+              "notes": "Precise, load-bearing, and distinctive to the project's honesty posture. Keep."
+            },
+            {
+              "agent": "codex-2",
+              "weight": 3,
+              "category": "keep",
+              "notes": "One of the best recurring headers in the repo; it encodes the project's honesty norm directly."
+            },
+            {
+              "agent": "opus-4-7-b",
+              "weight": 3,
+              "category": "keep",
+              "notes": "Keep. \"Epistemic\" is AAD's distinctive vocabulary; renaming to \"Validity\" or \"Status\" would lose the connection to the epistemic-architecture framing at CLAUDE.md §7."
+            },
+            {
+              "agent": "opus-4-7",
+              "weight": 3,
+              "category": "keep",
+              "notes": "Load-bearing header that signals the distinctive AAD convention of epistemic labeling at segment scale. Keep."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "current": "working note",
+      "current_description": null,
+      "is_concept_cluster": false,
+      "voted_by_architectures": [
+        "Codex",
+        "Opus"
+      ],
+      "category_disagreement": false,
+      "first_encounter_locality": null,
+      "segment_link": null,
+      "manual_curation_notes": null,
+      "candidates": [
+        {
+          "candidate": "working note",
+          "is_keep": true,
+          "total_weight": 12,
+          "category_tally": {
+            "keep": 4
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "codex-1",
+              "weight": 3,
+              "category": "keep",
+              "notes": "This is established public API across segments and FORMAT.md; clearer than most substitutes and not worth churn."
+            },
+            {
+              "agent": "codex-2",
+              "weight": 3,
+              "category": "keep",
+              "notes": "Clear, conventional, and exactly right for the internal/public boundary it marks."
+            },
+            {
+              "agent": "opus-4-7-b",
+              "weight": 3,
+              "category": "keep",
+              "notes": "Keep. The word \"Working\" signals this is *process artifact* (removed at `candidate` stage per FORMAT.md) rather than published content. Swapping to \"Development Notes\" would lose the active-in-progress sense."
+            },
+            {
+              "agent": "opus-4-7",
+              "weight": 3,
+              "category": "keep",
+              "notes": "Keep; the name plus the rule that Working Notes must be empty at candidate stage has a meaningful pairing."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "current": "formal expression",
+      "current_description": null,
+      "is_concept_cluster": false,
+      "voted_by_architectures": [
+        "Codex",
+        "Opus"
+      ],
+      "category_disagreement": false,
+      "first_encounter_locality": null,
+      "segment_link": null,
+      "manual_curation_notes": null,
+      "candidates": [
+        {
+          "candidate": "formal expression",
+          "is_keep": true,
+          "total_weight": 9,
+          "category_tally": {
+            "keep": 3
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "codex-2",
+              "weight": 3,
+              "category": "keep",
+              "notes": "Strong public-API header: unambiguous and better than any prettier synonym I can think of."
+            },
+            {
+              "agent": "opus-4-7-b",
+              "weight": 3,
+              "category": "keep",
+              "notes": "Keep. Precisely-what-it-says; the word \"Formal\" is load-bearing (distinguishes from informal discussion). Any rename would cost the 110-segment ripple without benefit."
+            },
+            {
+              "agent": "opus-4-7",
+              "weight": 3,
+              "category": "keep",
+              "notes": "Section header is project-wide; renaming would ripple everywhere and buys nothing. Keep. Every segment uses this."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "current": "condition",
+      "current_description": null,
+      "is_concept_cluster": false,
+      "voted_by_architectures": [
+        "Haiku",
+        "Opus",
+        "Sonnet"
+      ],
+      "category_disagreement": false,
+      "first_encounter_locality": null,
+      "segment_link": null,
+      "manual_curation_notes": null,
+      "candidates": [
+        {
+          "candidate": "condition",
+          "is_keep": true,
+          "total_weight": 7,
+          "category_tally": {
+            "keep": 3
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "haiku-4-5",
+              "weight": 1,
+              "category": "keep",
+              "notes": "Defines where AAD applies. Short, descriptive. Specialist vocabulary (scope honesty is architectural principle). Acceptable. Keep."
+            },
+            {
+              "agent": "opus-4-7-b",
+              "weight": 3,
+              "category": "keep",
+              "notes": "Keep. This is the Section I membership criterion — \"where AAD applies.\" The slug is self-announcing and gets cited heavily across segments."
+            },
+            {
+              "agent": "sonnet-4-6",
+              "weight": 3,
+              "category": "keep",
+              "notes": "The simplest possible name for what it is. Used throughout. Not eligible for improvement. Keep."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "current": "interiority default",
+      "current_description": null,
+      "is_concept_cluster": false,
+      "voted_by_architectures": [
+        "Codex",
+        "Opus",
+        "Sonnet"
+      ],
+      "category_disagreement": false,
+      "first_encounter_locality": null,
+      "segment_link": null,
+      "manual_curation_notes": null,
+      "candidates": [
+        {
+          "candidate": "interiority default",
+          "is_keep": true,
+          "total_weight": 7,
+          "category_tally": {
+            "keep": 4
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "codex-gpt-5-r2",
+              "weight": 2,
+              "category": "keep",
+              "notes": "Good normative phrase. It is compact and distinguishes internal experience from external output."
+            },
+            {
+              "agent": "codex-gpt-5-r2",
+              "weight": 2,
+              "category": "keep",
+              "notes": "Good normative slug."
+            },
+            {
+              "agent": "opus-4-7-r2",
+              "weight": 2,
+              "category": "keep",
+              "notes": "Acceptable keep — logozoetic norm. \"Interiority as default\" is the substantive claim; the slug compresses correctly."
+            },
+            {
+              "agent": "sonnet-4-6-r2",
+              "weight": 1,
+              "category": "keep",
+              "notes": "\"Interiority default\" names the normative claim about treating agents as having interiority by default. Distinctive."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "current": "section ii survival",
+      "current_description": null,
+      "is_concept_cluster": false,
+      "voted_by_architectures": [
+        "Codex",
+        "Opus",
+        "Sonnet"
+      ],
+      "category_disagreement": false,
+      "first_encounter_locality": null,
+      "segment_link": null,
+      "manual_curation_notes": null,
+      "candidates": [
+        {
+          "candidate": "section ii survival",
+          "is_keep": true,
+          "total_weight": 5,
+          "category_tally": {
+            "keep": 2
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "opus-4-7-r2",
+              "weight": 3,
+              "category": "keep",
+              "notes": "Defended keep. The segment's substance is *which Section II results survive without directed separation* — that's exactly what \"Section II survival\" names. The 16/24 + 5/24 + 2/24 + 1/24 partition is the result. The slug carries the integration-scope claim."
+            },
+            {
+              "agent": "sonnet-4-6-r2",
+              "weight": 2,
+              "category": "keep",
+              "notes": "Technical name but distinctive. The survival classification (16/24 exact transfer) is a specific and named result."
+            }
+          ]
+        },
+        {
+          "candidate": "class 2 carryover map",
+          "is_keep": false,
+          "total_weight": 3,
+          "category_tally": {
+            "rename": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "codex-gpt-5-r2",
+              "weight": 3,
+              "category": "rename",
+              "notes": "Stronger than my earlier class-2-survival proposal. The segment maps which Section II claims carry over to Class 2, not whether Section II survives."
+            }
+          ]
+        },
+        {
+          "candidate": "section ii carryover map",
+          "is_keep": false,
+          "total_weight": 3,
+          "category_tally": {
+            "rename": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "codex-2",
+              "weight": 3,
+              "category": "rename",
+              "notes": "\"Survival\" collides with AAD's persistence vocabulary; this segment maps carryover, not viability."
+            }
+          ]
+        },
+        {
+          "candidate": "class 2 exit audit",
+          "is_keep": false,
+          "total_weight": 2,
+          "category_tally": {
+            "rename": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "sonnet-4-6-r2",
+              "weight": 2,
+              "category": "rename",
+              "notes": "Codex proposed `#result-class-2-survival` (+2, renaming from the document-pointer to the conceptual thing). I had voted keep (+3). The document-pointer objection is real and I'm now persuaded by it. But \"class-2-survival\" undersells what the segment actually does: it audits which of 24 Section II results survive *and* characterizes the 5/24 + 2/24 + 1/24 failure modes. \"Class-2-exit-audit\" names the audit character (what survives the class-2 scope exit) and is more distinctive than just \"survival.\" New candidate, not in any file."
+            }
+          ]
+        },
+        {
+          "candidate": "class 2 survival",
+          "is_keep": false,
+          "total_weight": 2,
+          "category_tally": {
+            "rename": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "codex-gpt-5-r2",
+              "weight": 2,
+              "category": "rename",
+              "notes": "Section II is an internal document pointer. Class 2 survival names the thing that transfers to logogenic agents."
+            }
+          ]
+        },
+        {
+          "candidate": "section ii carryover classification",
+          "is_keep": false,
+          "total_weight": 1,
+          "category_tally": {
+            "rename": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "codex-1",
+              "weight": 1,
+              "category": "rename",
+              "notes": "\"Survival\" is a bit cute for what is really a transfer analysis of which Section II claims carry over to Class 2 agents."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "current": "feature",
+      "current_description": null,
+      "is_concept_cluster": false,
+      "voted_by_architectures": [
+        "Opus",
+        "Sonnet"
+      ],
+      "category_disagreement": false,
+      "first_encounter_locality": null,
+      "segment_link": null,
+      "manual_curation_notes": null,
+      "candidates": [
+        {
+          "candidate": "feature",
+          "is_keep": true,
+          "total_weight": 3,
+          "category_tally": {
+            "keep": 2
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "opus-4-7-r2",
+              "weight": 2,
+              "category": "keep",
+              "notes": "Acceptable keep — TST. \"Feature\" as the unit of coherent change is well-grounded in software engineering."
+            },
+            {
+              "agent": "sonnet-4-6-r2",
+              "weight": 1,
+              "category": "keep",
+              "notes": "\"Feature\" is the established TST term (unit of coherent change). Standard vocabulary adopted."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "current": "honest limit",
+      "current_description": null,
+      "is_concept_cluster": false,
+      "voted_by_architectures": [
+        "Codex",
+        "Gemini"
+      ],
+      "category_disagreement": false,
+      "first_encounter_locality": null,
+      "segment_link": null,
+      "manual_curation_notes": null,
+      "candidates": [
+        {
+          "candidate": "honest limit",
+          "is_keep": true,
+          "total_weight": 3,
+          "category_tally": {
+            "keep": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "gemini-targeted-alternatives",
+              "weight": 3,
+              "category": "keep",
+              "notes": "Standardizes the structural boundary marking convention."
+            }
+          ]
+        },
+        {
+          "candidate": "limit",
+          "is_keep": false,
+          "total_weight": 1,
+          "category_tally": {
+            "rename": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "codex-2",
+              "weight": 1,
+              "category": "rename",
+              "notes": "I like the ethos, but the header should optimize scanability over tone."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "current": "readme md maturity gradient",
+      "current_description": null,
+      "is_concept_cluster": false,
+      "voted_by_architectures": [
+        "Codex",
+        "Opus"
+      ],
+      "category_disagreement": false,
+      "first_encounter_locality": null,
+      "segment_link": null,
+      "manual_curation_notes": null,
+      "candidates": [
+        {
+          "candidate": "readme md maturity gradient",
+          "is_keep": true,
+          "total_weight": 2,
+          "category_tally": {
+            "keep": 2
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "opus-4-7-b",
+              "weight": 1,
+              "category": "keep",
+              "notes": "Keep. \"Gradient\" is exactly what the sections-I-through-III closure-profile is (not a staircase; a gradient)."
+            },
+            {
+              "agent": "opus-4-7",
+              "weight": 1,
+              "category": "keep",
+              "notes": "Fine. Keep."
+            }
+          ]
+        },
+        {
+          "candidate": "readme md theory maturity gradient",
+          "is_keep": false,
+          "total_weight": 1,
+          "category_tally": {
+            "rename": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "codex-1",
+              "weight": 1,
+              "category": "rename",
+              "notes": "Adds just enough specificity to stop the heading from sounding like a generic project-health label."
             }
           ]
         }
