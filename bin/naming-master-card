@@ -97,7 +97,12 @@ groups.each_with_index do |g, idx|
               desc = g[:description].sub(/\A./, &:upcase)
               "## #{idx + 1}. [Concept] *#{desc}*"
             else
-              "## #{idx + 1}. `#{g[:current]}`"
+              # If the current contains $...$ math, drop the backticks (which
+              # render as code, suppressing math). Otherwise use italics for
+              # visual styling consistent with the [Concept] heading shape —
+              # italics let math render normally and read cleanly in Obsidian.
+              cur = g[:current]
+              "## #{idx + 1}. *#{cur}*"
             end
   out << heading
   out << ''
