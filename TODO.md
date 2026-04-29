@@ -14,6 +14,26 @@ This file holds the *miscellaneous* layer of project work — open routing decis
 **Terminology note.** "Audit-findings" are the F#/F-V# items surfaced by audit cycles. "Findings" without the prefix means the catalog of ASF discoveries (see [`FINDINGS.md`](FINDINGS.md) and segment-level `## Findings` sections).
 
 
+## Greek vocabulary prose discipline (audit + author finding, 2026-04-29)
+
+The de-novo audit-471203, walking the formalism segment-by-segment, surfaced that the project's Greek cycle vocabulary (*chronica* / *prolepsis* / *aisthesis* / *aporia* / *epistrophe* / *praxis*) shows up at framing/preamble/lexicon levels but the segment-level math doesn't depend on the distinctions the Greek terms encode. The README claim that "each [Greek term] names a distinction the formalism makes that English alternatives flatten" is overclaimed against current segment prose, where authors routinely fall back to flatter English equivalents (e.g., saying "mismatch" right after defining `aporia` as something specifically richer than mismatch).
+
+Author confirmed independently: *"I've had that exact same complaint actually — that some of the higher level concepts that are important haven't been reinforced in the segments. Like every time we say 'mismatch' after specifically saying that this is much more than just mismatch."*
+
+Cross-architecture deliberate naming-round voters (R1 + R2 cold-start + reactive) near-unanimously *defended* the Greek terms as load-bearing — but they were voting synoptically on whether the names *feel* right in the lexicon. The audit's incremental-mental-model walk surfaced what the synoptic glance was structurally blind to: whether the formalism *requires* the distinctions in actual segment-prose use.
+
+This is not a naming-round vote. It is a project-level prose-discipline pass. Two paths, not mutually exclusive:
+
+- **Tighten segment prose so the Greek distinctions actually do work.** Where the load-bearing content is the thing the Greek term names (not the flatter English equivalent), the Greek term becomes the canonical form in that segment's prose: *mismatch → aporia* where the productive-perplexity-resolves-into-action structure is what's structurally distinctive; *update → epistrophe* where the turning-toward-correction is what's load-bearing; etc. Per-term, per-segment judgment.
+- **Soften the README's framing to honest scope** for any term where path 1 doesn't apply (i.e., the formalism really does only use the Greek as pedagogical surface vocabulary). The README's claim narrows accordingly.
+
+Recommended cycle scope: a dedicated prose-audit pass across `01-aad-core/src/` segments that touch the cycle phases or the chronica/aporia vocabulary; produces a delta-list of Greek-vs-English collapses; each entry either gets a prose fix (enforcing Greek where the segment's load-bearing content matches the Greek's distinction) or feeds back as a downgrade-note for the LEXICON entry and the README claim.
+
+Sources:
+- Audit's full findings: [`msc/naming/naming-votes/audit-471203-incremental.md`](msc/naming/naming-votes/audit-471203-incremental.md) (segments 1–46 only as of 2026-04-28; will be re-extracted after audit FINAL lands).
+- Aggregator's cross-architecture +3 keep votes for Greek terms (illustrating the defended-by-synoptic-voters posture): [`msc/naming/naming-aggregate-r2-review.md`](msc/naming/naming-aggregate-r2-review.md).
+
+
 ## README v2 pass (queued from 2026-04-27 first-human-feedback cycle)
 
 The first *human* read of the framework — Alan Walton (CTO Latitude / AI Dungeon; BS Mathematics + Logic minor; ~10y collaboration history with Joseph; runs a 12k-commit production agentic-system architecture), ~4h read window — surfaced that the README missed the mark for casual-curious readers in ways the multi-agent audit cycles had not. Even Alan, who is about as sympathetic and capable a first-human-reviewer as the project will encounter, found the language "extremely academic," fell out of sustained-attention reading by the end of the README, and switched to test-driven Opus-mediated learning to keep engaged. (Verbatim review pending — Alan is still actively adding to it and will land it as a PR under `msc/` when ready.)

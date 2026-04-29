@@ -2,7 +2,7 @@
 
 ## Cold-start instruction — read this BEFORE any orientation
 
-**Do not read other agents' brainstorms, vote files, aggregations, or rename-mapping records before voting.** Specifically: do not read any file under `msc/naming/naming-votes/`, `msc/naming/naming-brainstorm-*.md`, `msc/naming/naming-aggregate-*`, `msc/naming/naming-alias-*.md`, `msc/naming/naming-cleanup-*.md`, or `msc/naming/naming-pilot-rename-plan.md`. These will anchor your thinking and collapse the diversity this audit depends on.
+**Do not read other agents' brainstorms, vote files, aggregations, or rename-mapping records before voting.** Specifically: do not read any file under `msc/naming/naming-votes/`, `msc/naming/naming-brainstorm-*.md`, `msc/naming/naming-aggregate-*`, `msc/naming/naming-alias-*.md`, `msc/naming/naming-cleanup-*.md`, `msc/naming/naming-pilot-rename-plan.md`, or `msc/naming/_archive/*` (archived prior-round artifacts; opening them defeats the cold-start). These would anchor your thinking and collapse the diversity this audit depends on.
 
 This rule fires *first* — before you read CLAUDE.md, TODO.md, OUTLINE.md, FORMAT.md, segment files, or anything else. The instruction is here at the top precisely because earlier rounds discovered that even glancing at a `git status` showing one of those files disclosed enough to anchor an agent's votes. If you've already read any of the excluded files in this session, disclose it explicitly in your principles-observations section (round-1 evidence: this is recoverable as long as it's marked).
 

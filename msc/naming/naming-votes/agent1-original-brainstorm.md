@@ -17,22 +17,22 @@ Notes are condensed from the original agent's reasoning.
 |---|---|---|---|
 | satisfaction gap | satisfaction gap | +3 | Crispest named pair in the project. 2×2 diagnostic table is memorable *because* the names are memorable. Do not touch. |
 | control regret | control regret | +3 | Pairs with satisfaction gap; same reasoning. |
-| chronica (𝒞_t) | chronica | +3 | Greek root ("records of time"); avoids ℋ-entropy collision in notation and speech; carries the philosophical weight for singular non-forkable trajectory. Pays off in logozoetic extensions. |
+| chronica ($\mathcal{C}_t$) | chronica | +3 | Greek root ("records of time"); avoids ℋ-entropy collision in notation and speech; carries the philosophical weight for singular non-forkable trajectory. Pays off in logozoetic extensions. |
 | aporia | aporia | +3 | Cycle-phase Greek vocabulary works aesthetically AND technically. The risk is preciousness; the payoff is memorable sequence. |
 | prolepsis / aisthesis / aporia / epistrophe / praxis | [keep whole vocabulary] | +3 | Deliberate aesthetic commitment of the project; works. |
 | orient cascade | orient cascade | +3 | Resonates with OODA without being captured by it; "cascade" conveys directional resolution-order succinctly. |
-| adaptive reserve (Δρ*) | adaptive reserve | +3 | Two words, one intuition, immediately suggests shock-absorber depth. |
-| update gain (η*) | update gain | +3 | Adopted from Kalman/control; baggage transfers correctly. |
+| adaptive reserve ($\Delta\rho^\ast$) | adaptive reserve | +3 | Two words, one intuition, immediately suggests shock-absorber depth. |
+| update gain ($\eta^\ast$) | update gain | +3 | Adopted from Kalman/control; baggage transfers correctly. |
 | logogenic | logogenic | +3 | Deliberate neologism; language-generated; reserves memorable-noun slot; trade readability for precision. |
 | logozoetic | logozoetic | +3 | Same reasoning as logogenic; language-living. |
 | #identifiability-floor | #identifiability-floor | +3 | "Floor" is a load-bearing metaphor. Cannot go below it without outside help. |
-| strategy DAG (Σ_t) | strategy DAG | +3 | Adopted directly from probabilistic graphical models lit; baggage transfers correctly. |
-| agent opacity (H_b^{A\|B}) | agent opacity | +3 | "Opacity" carries exactly the right intuition (dual of observability). Hafez's H_b gets an AAD-native name that connects to Section III's info-loss framing cleanly. |
+| strategy DAG ($\Sigma_t$) | strategy DAG | +3 | Adopted directly from probabilistic graphical models lit; baggage transfers correctly. |
+| agent opacity ($H_b^{A\|B}$) | agent opacity | +3 | "Opacity" carries exactly the right intuition (dual of observability). Hafez's $H_b$ gets an AAD-native name that connects to Section III's info-loss framing cleanly. |
 | exploit / explore / deliberate | exploit / explore / deliberate | +3 | Third term sits neatly beside two standard-vocabulary terms; reads as extension not reinvention. |
 | #sector-persistence-template | #sector-persistence-template | +3 | Technical-clinical but clear; meta-segment role legible from name. Keep (though see family-naming question in Quiet Successes). |
 | Auftragstaktik principle | Auftragstaktik principle | +3 | Load-bearing term from specific historical tradition; the reader who knows it gets the full intended intuition. |
-| composition closure / closure defect (ε*) | composition closure / closure defect | +3 | "Closure" is load-bearing abstract-algebra term that reads naturally. "Defect" adds physical/engineering flavor. Framing nudge in Section III preamble would inoculate against CS-closure collision — no rename. |
-| unity dimensions (U_M, U_O, U_Σ) | unity dimensions | +3 | Three-axis coherence intuition works. Framing nudge in Section III preamble to clarify what unity is measuring — no rename. |
+| composition closure / closure defect ($\varepsilon^\ast$) | composition closure / closure defect | +3 | "Closure" is load-bearing abstract-algebra term that reads naturally. "Defect" adds physical/engineering flavor. Framing nudge in Section III preamble would inoculate against CS-closure collision — no rename. |
+| unity dimensions ($U_M, U_O, U_\Sigma$) | unity dimensions | +3 | Three-axis coherence intuition works. Framing nudge in Section III preamble to clarify what unity is measuring — no rename. |
 | #developer-as-act-agent | #developer-as-adaptive-agent | +3 | P1 mechanical. Drops framework-name dependency from slug; matches LEXICON agent-class vocabulary; won't rot under future renames. |
 | #developer-as-act-agent | #developer-as-aad-agent | -1 | Perpetuates pattern of embedding framework name in slug; fragile. Rejected. |
 | #developer-as-act-agent | #developer-as-agent | -1 | Too generic. |
@@ -56,10 +56,10 @@ Notes are condensed from the original agent's reasoning.
 | correlation hierarchy (L0/L1/L1'/L2) | correlation ladder | +1 | Parallelism with #separability-ladder proposal. Only worth doing if that rename lands. |
 | L1' (correlation-hierarchy prime-decoration) | L1-observable | +1 | "L1-prime" is awkward to speak. Giving L1' a name rather than prime-decoration could help if the hierarchy becomes load-bearing for outside readers. |
 | L1' | L1-C | -1 | Too technical; uses symbol. |
-| α₁ (A2' fixed-gain sub-scope) | derived-gain regime | +1 | English equivalent for prose. "This lands in the derived-gain regime" reads naturally. Keep α₁ as shorthand symbol. |
-| α₂ (A2' adaptive-gain sub-scope) | adaptive-gain regime | +1 | Parallel to α₁. |
-| β (A2' assumed-sector sub-scope) | assumed-sector regime | +1 | Parallel to α₁/α₂. |
-| β (A2' assumed-sector sub-scope) | postulated-sector regime | +1 | Alternative framing. |
+| $\alpha_1$ (A2' fixed-gain sub-scope) | derived-gain regime | +1 | English equivalent for prose. "This lands in the derived-gain regime" reads naturally. Keep $\alpha_1$ as shorthand symbol. |
+| $\alpha_2$ (A2' adaptive-gain sub-scope) | adaptive-gain regime | +1 | Parallel to $\alpha_1$. |
+| $\beta$ (A2' assumed-sector sub-scope) | assumed-sector regime | +1 | Parallel to $\alpha_1$/$\alpha_2$. |
+| $\beta$ (A2' assumed-sector sub-scope) | postulated-sector regime | +1 | Alternative framing. |
 | [unnamed: the sector-persistence region in parameter space] | persistence envelope | +1 | Engineering vocabulary, geometrically evocative. "Well inside its persistence envelope" reads more crisply than "satisfies persistence condition with non-marginal adaptive reserve." |
 | [unnamed: chain-layer anchor role in #additive-coordinate-forcing] | chain anchor | +1 | Prose term, not segment rename. Lets three theorem-analogs refer back naturally. |
 | [unnamed: convention-hierarchy monotonicity cascade / satisfaction-gap-and-control-regret strengthening across C1→C3] | inferential force cascade | +1 | Low priority but worth noting. Pedagogical. |

@@ -24,7 +24,7 @@
 | Tempo ($\mathcal{T}$) | Tempo | +3 | "Tempo" is a fantastic foundational term. |
 | Strategic tempo ($\mathcal{T}_\Sigma$) | Strategic tempo | +3 | Perfect counterpart to epistemic tempo. |
 | Unity dimensions ($U_M, U_O, U_\Sigma$) | Coherence dimensions | +1 | "Unity" implies a binary state. "Coherence" feels more like a continuous spectrum, which fits $U \in [-1, 1]$ better. |
-| α₁ / α₂ / β partition | Fixed-gain / Adaptive-gain / Drift regimes | +3 | Translating the symbols into the structural regimes they represent makes the prose readable without a decoder ring. |
+| $\alpha_1$ / $\alpha_2$ / $\beta$ partition | Fixed-gain / Adaptive-gain / Drift regimes | +3 | Translating the symbols into the structural regimes they represent makes the prose readable without a decoder ring. |
 | #identifiability-floor | #identifiability-floor | +3 | "Floor" is a great spatial metaphor for a structural no-go result. |
 | #separability-pattern | #separability-ladder | +1 | "Ladder" conveys the "six ladders of increasing difficulty" described in the outline much better than "pattern". |
 | Deliberation cost | Deliberation drag | +1 | "Cost" sounds like a generic penalty in an objective function. "Drag" evokes the physical accumulation of mismatch over time while pausing. |
@@ -44,7 +44,7 @@
 | #temporal-optimality | #temporal-optimality | +3 | "Temporal optimality" is clear, accurate, and sets the normative grounding perfectly. |
 | #dual-optimization | #dual-cost-optimization | +1 | Adding "cost" clarifies that we are minimizing the dual costs of comprehension and implementation. |
 | [unnamed: the per-reader compounding cost of understanding code] | Turnover multiplier | +3 | "Turnover multiplier" perfectly captures the compounding scaling of comprehension cost under context turnover. |
-| [unnamed: the invisible time spent building M_t] | Comprehension drag | +1 | "Comprehension drag" gives a memorable name to the invisible cost of incomprehensible code. |
+| [unnamed: the invisible time spent building $M_t$] | Comprehension drag | +1 | "Comprehension drag" gives a memorable name to the invisible cost of incomprehensible code. |
 | #context-turnover | #chronica-severance | +3 | "Chronica severance" is much more evocative and precise than "context turnover", directly naming the theoretical object that is broken at the session boundary. |
 | sufficiency-discontinuity | sufficiency-drop | +1 | "Drop" is slightly more intuitive than "discontinuity" for the loss of context. |
 | $f_{\text{init}}$ (Reconstruction function) | Epistemic reconstruction | +1 | Translates the symbol into the specific structural job it does at the session boundary. |

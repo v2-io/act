@@ -172,7 +172,6 @@ The working directory `msc/AUDIT-WORKING-NNNNNN/` (created per the "Before you b
 - **`LOG.md`** — pre-2026-04-24 cycle archaeology.
 - **`CHANGELOG.md`** — forward-going cycle record.
 - **`TODO.md`** — active work navigator.
-- **`PRACTICA.md`** — strategic-portfolio navigator.
 - **`PROPOSALS.md`** — strategic architectural proposals portfolio.
 - **`doc/readme/src/_findings-summary.md`, `_recent-progress.md`, `_known-issues.md`** — the auto-generated live includes underlying the public README. Same priming content as the README's live sections.
 

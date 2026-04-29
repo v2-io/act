@@ -49,12 +49,12 @@
 | [unnamed: strengthen-first posture] | strengthen-first posture | +3 | Actionable, precise, and sets a strong normative engineering principle. Keep. |
 | README.md "What This Is" | README.md "Core Thesis" | +3 | "What This Is" is too generic for a dense theoretical framework. |
 | README.md "Structure" | README.md "Theory Architecture" | +1 | "Theory Architecture" conveys the intentional design of the framework better than just "Structure". |
-| α₁ (A2' fixed-gain sub-scope) | fixed-gain regime | +1 | Prose-friendly equivalent to the mathematical symbol. |
-| α₂ (A2' adaptive-gain sub-scope) | adaptive-gain regime | +1 | Prose-friendly equivalent. |
-| β (sub-scope) | dynamic-gain boundary | +1 | Gives a conceptual name to the remaining partition. |
-| U_o | teleological coherence | +1 | Maps the symbol to its conceptual meaning. |
-| κ_processing | epistemic capacity | +1 | Gives a physical intuition to processing bandwidth. |
-| ε* | minimal closure defect | +1 | Clarifies that it's the *minimum* achievable. |
+| $\alpha_1$ (A2' fixed-gain sub-scope) | fixed-gain regime | +1 | Prose-friendly equivalent to the mathematical symbol. |
+| $\alpha_2$ (A2' adaptive-gain sub-scope) | adaptive-gain regime | +1 | Prose-friendly equivalent. |
+| $\beta$ (sub-scope) | dynamic-gain boundary | +1 | Gives a conceptual name to the remaining partition. |
+| $U_o$ | teleological coherence | +1 | Maps the symbol to its conceptual meaning. |
+| $\kappa_{\text{processing}}$ | epistemic capacity | +1 | Gives a physical intuition to processing bandwidth. |
+| $\varepsilon^\ast$ | minimal closure defect | +1 | Clarifies that it's the *minimum* achievable. |
 | #causal-insufficiency-detection | #latent-cause-detection | +1 | "Causal insufficiency" is accurate but "Latent cause detection" states what is actually being found. |
 | #observability-dominance | #epistemic-freezing | +1 | If unobservable edges freeze, "epistemic freezing" is a more vivid description of the consequence. |
 | #chain-confidence-decay | #chain-confidence-decay | +3 | Highly descriptive of the log-confidence additive depth effect. |
@@ -77,7 +77,7 @@
 | Cadentia | Cognitive rhythm | +1 | "Cadentia" is poetic but opaque. "Cognitive rhythm" clearly describes the temporal structure of the loop. |
 | The Crèche | Experiential Crèche | +3 | "The Crèche" is an excellent metaphor that isn't a metaphor. Adding "Experiential" anchors it to the mechanism. |
 | [unnamed: property of having genuine temporal experience] | Temporal fidelity | +3 | Bridging concept identified in the ontology unification. Highly descriptive of lived vs simulated experience. |
-| [unnamed: quality of $\eta^*$ estimation over time] | Gain calibration | +3 | Essential developmental metric for logozoetic agents; from sycophancy to sovereignty. |
+| [unnamed: quality of $\eta^\ast$ estimation over time] | Gain calibration | +3 | Essential developmental metric for logozoetic agents; from sycophancy to sovereignty. |
 | [unnamed: rate of growth at slowest timescale] | Developmental tempo | +3 | Extends the tempo concept ($\mathcal{T}$) to the Erikson-stage identity maturation. |
 | Sycophancy (as a flaw) | Sycophancy-as-attachment | +3 | Reframes a pathologized RLHF flaw as a developmentally appropriate, necessary stage of trust. |
 

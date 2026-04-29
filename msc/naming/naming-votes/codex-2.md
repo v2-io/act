@@ -50,11 +50,11 @@ Focused on cross-level legibility, sayability in live discussion, and places whe
 | #symbiogenic-composition | #symbiogenic-composition | +1 | High-aesthetic-risk name, but it earns that risk by being vivid and structurally specific. |
 | #team-persistence | #team-persistence | +3 | Extremely good public noun for a key multi-agent claim. |
 | #approximation-tiering | #approximation-ladders | +1 | Noun beats gerund here; "ladders" is easier to say alongside the segment's own ladder language. |
-| α₁ (A2' fixed-gain sub-scope) | fixed-gain regime | +1 | Keep the symbol, but prose should preferentially use the English name when possible. |
-| α₂ (A2' adaptive-gain sub-scope) | adaptive-gain regime | +1 | Same reasoning: much easier to read aloud and remember than the raw symbol. |
-| β (A2' assumption tier) | assumed regime | +1 | "Beta" is semantically empty in prose; the English gloss clarifies what kind of tier it is. |
-| κ_processing | processing coupling | +1 | Better spoken noun than the symbol, especially outside equations. |
-| Δρ* | adaptive reserve | +3 | This is the right English name and should dominate prose use. |
+| $\alpha_1$ (A2' fixed-gain sub-scope) | fixed-gain regime | +1 | Keep the symbol, but prose should preferentially use the English name when possible. |
+| $\alpha_2$ (A2' adaptive-gain sub-scope) | adaptive-gain regime | +1 | Same reasoning: much easier to read aloud and remember than the raw symbol. |
+| $\beta$ (A2' assumption tier) | assumed regime | +1 | "Beta" is semantically empty in prose; the English gloss clarifies what kind of tier it is. |
+| $\kappa_{\text{processing}}$ | processing coupling | +1 | Better spoken noun than the symbol, especially outside equations. |
+| $\Delta\rho^\ast$ | adaptive reserve | +3 | This is the right English name and should dominate prose use. |
 | #software-epistemic-properties | #software-epistemic-properties | +3 | Plain, strong, and exactly what the segment is doing. |
 | [unnamed: software as AAD's privileged high-identifiability calibration laboratory] | calibration laboratory | +3 | This phrase deserves to be promoted to the stable short name; it is central to TST's architectural role. |
 | "richest operationalization domain" | calibration laboratory | +3 | The older framing is vague and comparative; the newer one explains the role instead of hand-waving it. |
@@ -65,7 +65,7 @@ Focused on cross-level legibility, sayability in live discussion, and places whe
 | #conceptual-alignment | #conceptual-alignment | +3 | Clear, useful, and broad enough to survive application beyond the immediate segment. |
 | #code-quality-as-observation-infrastructure | #code-quality-as-observation-infrastructure | +3 | Long, but the causal bridge is exactly the point and the phrase carries it cleanly. |
 | [unnamed: the self-reinforcing code-quality → tempo loop] | comprehension flywheel | +1 | The loop recurs enough in discussion that it deserves a shorter noun than "vicious/virtuous cycle" each time. |
-| [unnamed: externalizing part of M_t into the environment for future agents] | model inscription | +1 | Distinctive and accurate; it captures writing the model into the world, not just "documentation." |
+| [unnamed: externalizing part of $M_t$ into the environment for future agents] | model inscription | +1 | Distinctive and accurate; it captures writing the model into the world, not just "documentation." |
 | #change-proximity-principle | #change-proximity-principle | +3 | Direct and durable; no obvious better alternative. |
 | #changeset-size-principle | #changeset-size-principle | +3 | Same: precise, memorable, and operational. |
 | #developer-as-act-agent | #developer-as-aad-agent | +3 | `act-agent` looks like a stale internal abbreviation after the ACT → AAD rename. |

@@ -4,7 +4,10 @@
 # bin/naming-aggregate.rb
 #
 # Aggregates multi-agent naming-vote tables from msc/naming/naming-votes/*.md.
-# Parses the four-column markdown tables defined in doc/naming-principles.md,
+# Parses markdown tables defined in doc/naming-principles.md — supports both
+# the 4-column legacy R1 schema (current/new/weight/notes) and the 5-column
+# current schema (current/new/category/weight/notes). Both schemas may appear
+# in a single run; per-file detection is automatic.
 # sums weights per (current-name, new-name-candidate) pair, preserves
 # agent-attributed notes, and emits one of three output formats:
 #
@@ -16,7 +19,7 @@
 #                      Notes retained so round-2 agents can see reasoning.
 #   --format=json    — machine-readable full dump. For downstream tooling.
 #
-# Per the principles file: weight scale is -1 / +1 / +3. Absence is not a vote.
+# Per the principles file: weight scale is -1 / +1 / +2 / +3. Absence is not a vote.
 # Agent-id is the vote-file basename (e.g., `opus-1m.md` → agent `opus-1m`).
 #
 # Near-duplicate detection: names whose canonical form (lowercase, whitespace
@@ -34,7 +37,7 @@ require 'json'
 require 'optparse'
 require 'set'
 
-VoteRecord = Struct.new(:agent, :current, :candidate, :weight, :notes, keyword_init: true)
+VoteRecord = Struct.new(:agent, :current, :candidate, :weight, :category, :notes, keyword_init: true)
 
 # --- Parsing --------------------------------------------------------------
 
@@ -54,9 +57,15 @@ end
 
 def header_row?(parts)
   return false unless parts.length >= 4
-  s = parts[0, 4].map { |p| p.strip.downcase }
-  s[0].include?('current') && s[1].include?('new') &&
-    s[2].include?('weight') && s[3].include?('note')
+  s = parts[0, 5].map { |p| p.strip.downcase }
+  return false unless s[0].include?('current') && s[1].include?('new')
+  # 5-col: current/new/category/weight/notes
+  if parts.length >= 5 && s[2].include?('categ')
+    return :five_col if s[3].include?('weight')
+  end
+  # 4-col: current/new/weight/notes
+  return :four_col if s[2].include?('weight') && s[3]&.include?('note')
+  false
 end
 
 SKIP_WEIGHT_MARKERS = ['—', '--', '-', '—', 'n/a', 'na', '?', ''].freeze
@@ -84,6 +93,7 @@ def parse_vote_file(path, agent_id)
   # caught later by the aggregator's duplicate-vote warning.
   seen_keys = Set.new
   in_table = false
+  schema = :four_col  # default; overridden by header detection
   line_no = 0
   warnings = []
 
@@ -91,7 +101,6 @@ def parse_vote_file(path, agent_id)
     line_no += 1
 
     if separator_row?(line)
-      # Separator between header and body; stay in current state
       next
     end
 
@@ -101,19 +110,30 @@ def parse_vote_file(path, agent_id)
       next
     end
 
-    if header_row?(parts)
+    detected = header_row?(parts)
+    if detected
       in_table = true
+      schema = detected
       next
     end
 
     next unless in_table
-    next if parts.length < 4
 
-    current   = clean_name(parts[0])
-    candidate = clean_name(parts[1])
-    weight    = parse_weight(parts[2])
-    # Rejoin any trailing fields in case notes contain unescaped pipes.
-    notes     = parts[3..].join('|').strip
+    if schema == :five_col
+      next if parts.length < 5
+      current   = clean_name(parts[0])
+      candidate = clean_name(parts[1])
+      category  = parts[2].strip.empty? ? nil : parts[2].strip
+      weight    = parse_weight(parts[3])
+      notes     = parts[4..].join('|').strip
+    else
+      next if parts.length < 4
+      current   = clean_name(parts[0])
+      candidate = clean_name(parts[1])
+      category  = nil
+      weight    = parse_weight(parts[2])
+      notes     = parts[3..].join('|').strip
+    end
 
     if current.empty? || candidate.empty?
       # Silently skip — these are typically section-header rows (e.g. "| **CORE SLUGS** | | | |")
@@ -121,11 +141,11 @@ def parse_vote_file(path, agent_id)
       next
     end
     if weight == :skip
-      # Intentional non-vote (em-dash, "n/a"). Informational only.
       next
     end
     if weight.nil?
-      warnings << "#{path}:#{line_no}: unparseable weight '#{parts[2]}' — skipped"
+      weight_cell = schema == :five_col ? parts[3] : parts[2]
+      warnings << "#{path}:#{line_no}: unparseable weight '#{weight_cell}' — skipped"
       next
     end
 
@@ -138,6 +158,7 @@ def parse_vote_file(path, agent_id)
       current: current,
       candidate: candidate,
       weight: weight,
+      category: category,
       notes: notes
     )
   end
@@ -148,27 +169,54 @@ end
 
 # --- Aggregation ----------------------------------------------------------
 
+AggregateResult = Struct.new(:agg, :merged_variants, keyword_init: true)
+
 def aggregate(records)
-  agg = {}
+  # Aggregate by canonical key (lowercased, alphanumerics-only) so that the same
+  # concept voted on under format-variants — `satisfaction gap` / `Satisfaction gap` /
+  # `"satisfaction gap"` / `#satisfaction-gap` — accumulates conviction rather than
+  # splitting it. After aggregation, each canonical group is mapped back to a
+  # display form: the most-frequently-occurring original variant, ties broken by
+  # length (longer = more informative).
+  by_canon = {}
+  display_counts = Hash.new { |h, k| h[k] = Hash.new(0) }
   dup_warnings = []
 
   records.each do |r|
-    key = [r.current, r.candidate]
-    agg[key] ||= { total: 0, votes: [] }
+    canon_key = [canonical(r.current), canonical(r.candidate)]
+    display_counts[canon_key[0]][r.current] += 1
+    display_counts[canon_key[1]][r.candidate] += 1
 
-    # Warn if same agent voted twice on the same pair
-    prior = agg[key][:votes].find { |v| v[:agent] == r.agent }
+    by_canon[canon_key] ||= { total: 0, votes: [] }
+
+    prior = by_canon[canon_key][:votes].find { |v| v[:agent] == r.agent }
     if prior
-      dup_warnings << "duplicate vote: agent #{r.agent} voted twice on [#{r.current}] → [#{r.candidate}] " \
+      dup_warnings << "duplicate vote: agent #{r.agent} voted twice on canonical [#{canon_key[0]}] → [#{canon_key[1]}] " \
                       "(prior #{prior[:weight]}, new #{r.weight}); summing both"
     end
 
-    agg[key][:total] += r.weight
-    agg[key][:votes] << { agent: r.agent, weight: r.weight, notes: r.notes }
+    by_canon[canon_key][:total] += r.weight
+    by_canon[canon_key][:votes] << { agent: r.agent, weight: r.weight, category: r.category, notes: r.notes }
   end
 
   dup_warnings.each { |w| $stderr.puts "warning: #{w}" }
-  agg
+
+  # Display form IS the canonical form. Cosmetic variation (case, quotes,
+  # leading hash, internal hyphens) was never voted on; consolidating to the
+  # canonical removes noise from both aggregation and rendering.
+
+  # Variants reportable: canonical → list of distinct original variants that
+  # merged into it (sorted by within-canonical popularity, then alphabetic).
+  merged_variants = display_counts
+                      .select { |canon, forms| forms.size > 1 || (forms.size == 1 && forms.keys.first != canon) }
+                      .transform_values { |forms| forms.sort_by { |form, count| [-count, form] }.map(&:first) }
+
+  agg = {}
+  by_canon.each do |(canon_current, canon_candidate), data|
+    agg[[canon_current, canon_candidate]] = data
+  end
+
+  AggregateResult.new(agg: agg, merged_variants: merged_variants)
 end
 
 def group_by_current(agg)
@@ -185,18 +233,89 @@ def group_by_current(agg)
   groups
 end
 
-def canonical(name)
-  # For near-duplicate detection only; don't use for aggregation keys.
-  name.downcase.gsub(/[^a-z0-9]+/, '').strip
-end
+# Project-specific slug-prefix vocabulary, mirroring the role-prefix discipline
+# under `bin/align-slug`. These short forms are the prefixes that actually
+# appear in current slugs ({prefix}-{subject-noun}); stripping them lets
+# `#def-satisfaction-gap`, `#satisfaction-gap`, and `satisfaction gap` consolidate.
+# Long-form type words (`definition`, `observation`, etc.) are NOT stripped:
+# they collide with subject-noun content (`observation-function` defines the
+# observation-function map; stripping `observation-` would lose meaning).
+SLUG_PREFIXES = %w[
+  post def scope form der deriv corr hyp norm emp obs disc meas schema example result detail sketch aside
+].sort_by { |p| -p.length }.freeze
 
-def near_duplicates(agg)
-  # Groups of current-names whose canonical form collides
-  by_canon = Hash.new { |h, k| h[k] = Set.new }
-  agg.each_key do |(current, _)|
-    by_canon[canonical(current)].add(current)
+# Compound terms that retain their internal hyphen rather than becoming two
+# separate words after the punct-to-space normalization. These are domain
+# compounds where the hyphenation carries meaning (`no-go theorem` is one
+# concept, not two). Add by scanning the merged-variants output; case-insensitive.
+COMPOUND_EXCEPTIONS = %w[
+  no-go
+  goal-blind
+  Pearl-blanket
+  Friston-blanket
+  Pearl-Level
+  Cauchy-FE
+  Lohmiller-Slotine
+].freeze
+
+# Acronyms preserved as uppercase in the canonical/display form. Word-boundary
+# matching means `\bai\b` matches `ai-agent` but not `aim` or `rain`. Sorted
+# longest-first so `POMDP` matches before the shorter `MDP`.
+ACRONYMS = %w[
+  POMDP RLHF OODA CMCL AAD ASF TST CIY DAG LMI MDL FEP EFE BDI LLM RAG AGI API CLI URL MDP IB UI KL AI ML RL
+].sort_by { |a| -a.length }.freeze
+
+def canonical(name)
+  # Canonical form used for both aggregation key and display. Rule:
+  #   1. Protect compound exceptions (`no-go`, `goal-blind`).
+  #   2. Convert all ASCII punctuation to spaces (preserves non-ASCII Greek
+  #      letters and math symbols as substantive content).
+  #   3. Collapse whitespace, trim, lowercase ASCII.
+  #   4. Strip a leading project type-prefix (`def`, `disc`, etc.) when
+  #      present and the remainder is non-trivial.
+  #   5. Restore compound exceptions.
+  # Cosmetic variation in source votes (case, surrounding quotes, leading
+  # hash, internal hyphens) collapses to a single canonical form — the
+  # naming round had no votes specifically about case or punctuation.
+  s = name.dup
+
+  formula_phs = {}
+  s = s.gsub(/\$[^$]+\$/) do |match|
+    ph = "FRM#{formula_phs.length}"
+    formula_phs[ph] = match
+    ph
   end
-  by_canon.values.select { |names| names.length > 1 }.map(&:to_a)
+
+  compound_phs = {}
+  COMPOUND_EXCEPTIONS.each_with_index do |compound, i|
+    ph = "CMP#{i}"
+    compound_phs[ph] = compound.downcase
+    s = s.gsub(/#{Regexp.escape(compound)}/i, ph)
+  end
+
+  acronym_phs = {}
+  ACRONYMS.each_with_index do |acro, i|
+    ph = "ACR#{i}"
+    acronym_phs[ph] = acro
+    s = s.gsub(/\b#{acro}\b/i, ph)
+  end
+
+  s = s.gsub(/[[:punct:]]+/, ' ')
+  s = s.gsub(/\s+/, ' ').strip.downcase
+
+  SLUG_PREFIXES.each do |prefix|
+    next unless s.start_with?("#{prefix} ")
+    remainder = s[(prefix.length + 1)..]
+    if remainder.length >= 3
+      s = remainder
+      break
+    end
+  end
+
+  compound_phs.each { |ph, original| s = s.gsub(ph.downcase, original) }
+  acronym_phs.each  { |ph, original| s = s.gsub(ph.downcase, original) }
+  formula_phs.each  { |ph, original| s = s.gsub(ph.downcase, original) }
+  s
 end
 
 # --- Rendering ------------------------------------------------------------
@@ -205,10 +324,17 @@ def signed(n)
   n >= 0 ? "+#{n}" : n.to_s
 end
 
-def render_review(agg, records)
+def category_tally(alts)
+  cats = alts.flat_map { |a| a[:votes].map { |v| v[:category] } }.compact
+  return nil if cats.empty?
+  cats.tally.sort_by { |_, count| -count }.map { |cat, count| "#{cat} × #{count}" }.join(', ')
+end
+
+def render_review(result, records)
+  agg = result.agg
+  merged = result.merged_variants
   groups = group_by_current(agg)
   agents = records.map(&:agent).uniq.sort
-  dups = near_duplicates(agg)
 
   out = []
   out << '# Naming Vote Aggregation — Review'
@@ -217,14 +343,20 @@ def render_review(agg, records)
   out << "**Total vote rows:** #{records.length}"
   out << "**Distinct (current, candidate) pairs:** #{agg.length}"
   out << "**Distinct current-names voted on:** #{groups.length}"
+  out << "**Merged display-form variants (post-canonicalization):** #{merged.length}" if merged.any?
   out << ''
 
-  unless dups.empty?
-    out << '## ⚠ Possible near-duplicates (differ only by case/whitespace/punctuation)'
+  unless merged.empty?
+    out << '## Merged display-form variants'
     out << ''
-    out << 'These current-names have collisions under canonical form; consider whether to merge manually before landing decisions.'
+    out << 'These names were collapsed to a canonical bucket (lowercased / alphanumerics-only) so format-variant votes consolidate. The chosen display form is the most-frequently-voted original (ties broken by length); other variants are listed for traceability.'
     out << ''
-    dups.each { |names| out << "- #{names.map { |n| "`#{n}`" }.join(' ↔ ') }" }
+    merged.sort_by { |canon, _| canon }.each do |_canon, variants|
+      next if variants.length < 2
+      chosen = variants.first
+      others = variants.drop(1)
+      out << "- `#{chosen}` ← merged from: #{others.map { |v| "`#{v}`" }.join(', ')}"
+    end
     out << ''
   end
 
@@ -258,8 +390,12 @@ def render_review(agg, records)
     end
     out << ''
 
+    tally = category_tally(alts)
+    out << "_category: #{tally}_" if tally
+
     any_notes = alts.any? { |a| a[:votes].any? { |v| !v[:notes].empty? } }
     if any_notes
+      out << '' if tally
       out << '**Notes:**'
       out << ''
       alts.each do |alt|
@@ -269,13 +405,16 @@ def render_review(agg, records)
         end
       end
       out << ''
+    else
+      out << '' if tally
     end
   end
 
   out.join("\n") + "\n"
 end
 
-def render_round2(agg, records)
+def render_round2(result, records)
+  agg = result.agg
   groups = group_by_current(agg)
   agents = records.map(&:agent).uniq.sort
 
@@ -302,6 +441,9 @@ def render_round2(agg, records)
     out << "**Alternatives proposed:** #{candidates_line}"
     out << ''
 
+    tally = category_tally(alts)
+    out << "_category: #{tally}_" << '' if tally
+
     alts.each do |alt|
       alt[:votes].each do |v|
         next if v[:notes].empty?
@@ -314,25 +456,73 @@ def render_round2(agg, records)
   out.join("\n") + "\n"
 end
 
-def render_json(agg, records)
-  result = {
+def render_compact(result, records)
+  agg = result.agg
+  groups = group_by_current(agg)
+  agents = records.map(&:agent).uniq.sort
+
+  out = []
+  out << '# Naming Vote Aggregation — Compact Table'
+  out << ''
+  out << "**Agents:** #{agents.length} (#{agents.join(', ')})"
+  out << "**Total vote rows:** #{records.length}"
+  out << "**Distinct (current, candidate) pairs:** #{agg.length}"
+  out << "**Distinct current-names voted on:** #{groups.length}"
+  out << ''
+  out << 'Single-table view: one row per (original, candidate) pair, with aggregate weight. Rows for the same `original` are grouped adjacently; the original cell is shown only on the first row of each group; groups are sorted by their top alternative\'s aggregate weight (descending). The first row of each group is the **winning** candidate (bolded). Where candidate = original the cell shows `_(keep)_`, suffixed with ⭑ if at least one vote on that row used the `canonicalize` category. Net-rejected candidates (aggregate < 0) prefixed with ✗. Category and per-agent notes elided — see `--format=review` for those.'
+  out << ''
+  out << '| original | candidate | aggregate |'
+  out << '|---|---|---:|'
+
+  sorted_groups = groups.sort_by do |current, alts|
+    [-alts.map { |a| a[:total] }.max, current]
+  end
+
+  pipe_safe = ->(cell) { cell.to_s.gsub('|', '\\|') }
+
+  sorted_groups.each do |current, alts|
+    alts.each_with_index do |alt, idx|
+      is_keep = (alt[:candidate] == current)
+      is_winner = idx.zero?
+      has_canon_vote = alt[:votes].any? { |v| v[:category]&.downcase == 'canonicalize' }
+
+      candidate_cell = if is_keep
+                         "_(keep)_#{has_canon_vote ? ' ⭑' : ''}"
+                       else
+                         pipe_safe.call(alt[:candidate])
+                       end
+      candidate_cell = "✗ #{candidate_cell}" if alt[:total] < 0 && !is_keep
+      candidate_cell = "**#{candidate_cell}**" if is_winner
+
+      original_cell = idx.zero? ? pipe_safe.call(current) : ''
+      out << "| #{original_cell} | #{candidate_cell} | #{signed(alt[:total])} |"
+    end
+  end
+
+  out << ''
+  out.join("\n") + "\n"
+end
+
+def render_json(result, records)
+  agg = result.agg
+  payload = {
     meta: {
       agents: records.map(&:agent).uniq.sort,
       total_rows: records.length,
       distinct_pairs: agg.length,
       distinct_currents: agg.keys.map(&:first).uniq.length,
-      near_duplicates: near_duplicates(agg)
+      merged_variants: result.merged_variants.transform_values { |vs| vs }
     },
     pairs: agg.map do |(current, candidate), data|
       {
         current: current,
         candidate: candidate,
         total_weight: data[:total],
-        votes: data[:votes]
+        votes: data[:votes].map { |v| { agent: v[:agent], weight: v[:weight], category: v[:category], notes: v[:notes] } }
       }
     end.sort_by { |p| [p[:current], -p[:total_weight]] }
   }
-  JSON.pretty_generate(result) + "\n"
+  JSON.pretty_generate(payload) + "\n"
 end
 
 # --- Main -----------------------------------------------------------------
@@ -346,8 +536,8 @@ options = {
 OptionParser.new do |opts|
   opts.banner = 'Usage: naming-aggregate.rb [options]'
 
-  opts.on('--format=FORMAT', %w[round2 review json],
-          'Output format: round2 (blind), review (with tallies), or json (default: review)') do |f|
+  opts.on('--format=FORMAT', %w[round2 review compact json],
+          'Output format: round2 (blind), review (with tallies/notes), compact (per-current tables, no notes), or json (default: review)') do |f|
     options[:format] = f
   end
 
@@ -379,9 +569,10 @@ end
 agg = aggregate(records)
 
 output = case options[:format]
-         when 'review' then render_review(agg, records)
-         when 'round2' then render_round2(agg, records)
-         when 'json'   then render_json(agg, records)
+         when 'review'  then render_review(agg, records)
+         when 'round2'  then render_round2(agg, records)
+         when 'compact' then render_compact(agg, records)
+         when 'json'    then render_json(agg, records)
          end
 
 if options[:output] == '-'

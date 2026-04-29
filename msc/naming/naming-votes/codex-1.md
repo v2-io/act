@@ -40,7 +40,7 @@ OpenAI Codex - focused on slug legibility, memorable-noun potential, and symbol-
 | alpha1 (fixed-gain A2' sub-scope) | fixed-gain regime | +3 | "Lands in alpha1" is decoder-ring prose. The English label is much cheaper in discussion. |
 | alpha2 (adaptive-gain A2' sub-scope) | adaptive-gain regime | +3 | Same reasoning as alpha1: the English does the work the symbol cannot do in prose. |
 | beta (A2' assumed sub-scope) | assumed-sector regime | +1 | Not elegant, but much more informative than a bare beta when the distinction is whether the sector condition is assumed rather than derived. |
-| kappa_processing | processing coupling | +1 | The symbol is fine in equations, but prose should default to the English name. It clarifies the architectural quantity immediately. |
+| $\kappa_{\text{processing}}$ | processing coupling | +1 | The symbol is fine in equations, but prose should default to the English name. It clarifies the architectural quantity immediately. |
 | #identifiability-floor | #identifiability-floor | +3 | Strong metaphor and well-matched to the segment's job: it names a hard lower boundary while still leaving room for explicit escape routes. |
 | #identifiability-floor | #no-go theorems | -1 | Too generic and too negative. It loses the boundary-and-escape structure that makes the current name useful. |
 | #approximation-tiering | #tiered-approximation | +1 | Slight improvement in natural-language flow. The current phrase is serviceable but abstract. |
@@ -88,7 +88,7 @@ OpenAI Codex - focused on slug legibility, memorable-noun potential, and symbol-
 | 02-tst-core/OUTLINE.md "## Software as Agentic Domain" | 02-tst-core/OUTLINE.md "## Software as Agentic Domain" | +3 | Clear, ambitious, and accurate. This heading earns its weight. |
 | [unnamed: stronger composition-consistency demand that composite admissibility inherit from sub-agent properties plus topology] | heredity commitment | +3 | Strong name from the jacobian-strengthening spike: short, memorable, and explicit about the architectural bet being made. |
 | [unnamed: coupling between an agent's model-of-self and model-of-other, the prose form of kappa_cross] | cross-model coupling | +3 | Clean English complement to kappa_processing. This gives the opacity and theory-of-mind work a reusable noun slot. |
-| [unnamed: git-recorded committed-state subset of the chronica, C_t^{commit}] | commit chronica | +1 | Slightly stylized, but useful. The committed slice shows up often enough in the git/chronica work to deserve a short handle. |
+| [unnamed: git-recorded committed-state subset of the chronica, $\mathcal{C}_t^{\text{commit}}$] | commit chronica | +1 | Slightly stylized, but useful. The committed slice shows up often enough in the git/chronica work to deserve a short handle. |
 | [unnamed: empty stability-plasticity feasibility window in #consolidation-dynamics] | stability-plasticity collapse | +1 | The failure mode is precisely that the feasible interval disappears. Slightly long, but honest and reusable. |
 | [unnamed: fourth diagnostic where terminal conditions are met but the objective is still missed] | terminal alignment error | +1 | The DAG-type-closure spike identifies a real gap in the diagnostic vocabulary. This name is plain, disciplined, and fits the existing apparatus. |
 | [future segment: information-theoretic cost floor for persistence] | #persistence-cost | +1 | Best of the spike's candidates: broad enough to absorb later extensions without misdescribing the current result. |

@@ -130,15 +130,15 @@ Classification: stale current instructions.
 | --- | ---: | --- |
 | `doc/de-novo-audit-instructions.md` | 182 | Says agentic-TFT source materials and naming artifacts are under `msc/`; current paths are `ref/agentic-tft/agentic-tft-*.md` and `msc/naming/...`. |
 | `doc/de-novo-audit-instructions.md` | 183 | Says root `CLAUDE-2.md` is transitional; it has moved to `_obs/CLAUDE-2-superseded-2026-04-28.md`. |
-| `msc/naming/naming-aggregate-round2.md` | 7 | Says to follow `msc/naming-principles.md`; current path is `doc/naming-principles.md`. |
+| `msc/naming/_archive/naming-aggregate-round2.md` | 7 | Says to follow `msc/naming-principles.md`; current path is `doc/naming-principles.md`. *(File moved to `_archive/` 2026-04-28 to remove from active foreground; structurally addresses the recommendation below.)* |
 
 Recommendation:
 
 - Update `doc/de-novo-audit-instructions.md` because it is current user-facing
   process guidance.
-- For `msc/naming/naming-aggregate-round2.md`, either update the path or mark
-  the file explicitly as an old round-2 input artifact. It still reads like
-  executable instructions, so the current stale path is easy to trip over.
+- For `msc/naming/_archive/naming-aggregate-round2.md` (relocated 2026-04-28), the
+  move into `_archive/` itself satisfies the "mark explicitly as an old round-2 input
+  artifact" branch of this recommendation. Path-update inside the file remains optional.
 
 Historical note:
 

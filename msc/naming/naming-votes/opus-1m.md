@@ -28,13 +28,13 @@ Focus of my vote: (1) the Čencov critique of `#cauchy-coordinates`, (2) a stron
 | #ai-agent-as-act-agent | #ai-agent-as-adaptive-agent | +3 | Parallel rename; same reasoning. |
 | satisfaction gap | satisfaction gap | +3 | Crispest pair in the project. The 2×2 disambiguation table organizes itself in the reader's head because of the naming. Do not touch. |
 | control regret | control regret | +3 | Pairs with satisfaction gap. |
-| chronica (𝒞_t) | chronica | +3 | Greek root, avoids entropy-ℋ collision, carries the right philosophical weight for singular non-forkable trajectory. Especially load-bearing for the (PI) axiom and logozoetic extensions. |
+| chronica ($\mathcal{C}_t$) | chronica | +3 | Greek root, avoids entropy-ℋ collision, carries the right philosophical weight for singular non-forkable trajectory. Especially load-bearing for the (PI) axiom and logozoetic extensions. |
 | orient cascade | orient cascade | +3 | Good as-is. |
-| adaptive reserve (Δρ*) | adaptive reserve | +3 | Good as-is. |
-| update gain (η*) | update gain | +3 | Good as-is. |
+| adaptive reserve ($\Delta\rho^\ast$) | adaptive reserve | +3 | Good as-is. |
+| update gain ($\eta^\ast$) | update gain | +3 | Good as-is. |
 | logogenic / logozoetic | logogenic / logozoetic | +3 | Deliberate neologisms filling memorable-noun slots; keep. |
-| strategy DAG (Σ_t) | strategy DAG | +3 | Adopted from probabilistic graphical models; keep. |
-| agent opacity (H_b^{A\|B}) | agent opacity | +3 | Adopted H_b from Hafez 2026 with AAD-native framing. Works. |
+| strategy DAG ($\Sigma_t$) | strategy DAG | +3 | Adopted from probabilistic graphical models; keep. |
+| agent opacity ($H_b^{A\|B}$) | agent opacity | +3 | Adopted $H_b$ from Hafez 2026 with AAD-native framing. Works. |
 | exploit / explore / deliberate | exploit / explore / deliberate | +3 | Three-way extension of two established terms; reads naturally. |
 | Auftragstaktik principle | Auftragstaktik principle | +3 | Load-bearing historical adoption. |
 | prolepsis / aisthesis / aporia / epistrophe / praxis | [keep whole vocabulary] | +3 | Deliberate aesthetic commitment. Working. |
@@ -44,13 +44,13 @@ Focus of my vote: (1) the Čencov critique of `#cauchy-coordinates`, (2) a stron
 | correlation hierarchy (L0/L1/L1'/L2) | correlation hierarchy | +1 | Keep unless #separability-ladder lands AND the parallelism between the three ladders (correlation / separability / continuation) is judged load-bearing. Conditional keep. |
 | correlation hierarchy | correlation ladder | +1 | Conditionally admit the rename only if other ladder-renames land; otherwise keep. Weak. |
 | L1' (prime decoration) | L1-observable | +1 | Agree with original. "L1-prime" awkward to speak; "L1-observable" matches the Prop B.7 observable-common-cause distinction from the 2026-04-22 strengthening cycle. Keep L1' as shorthand symbol. |
-| α₁ (A2' fixed-gain sub-scope) | derived-gain regime | +1 | English equivalent for prose use. Keep α₁ as symbol. |
-| α₂ (A2' adaptive-gain sub-scope) | adaptive-gain regime | +1 | Parallel to α₁. |
-| β (A2' assumed-sector sub-scope) | postulated-sector regime | +1 | Parallel. "Postulated" slightly stronger than "assumed" — conveys the axiomatic move explicitly. |
+| $\alpha_1$ (A2' fixed-gain sub-scope) | derived-gain regime | +1 | English equivalent for prose use. Keep $\alpha_1$ as symbol. |
+| $\alpha_2$ (A2' adaptive-gain sub-scope) | adaptive-gain regime | +1 | Parallel to $\alpha_1$. |
+| $\beta$ (A2' assumed-sector sub-scope) | postulated-sector regime | +1 | Parallel. "Postulated" slightly stronger than "assumed" — conveys the axiomatic move explicitly. |
 | sector condition | sector condition | +3 | Adopted from nonlinear control (Khalil, Vidyasagar); baggage correct. Keep. |
 | #sector-persistence-template | #sector-persistence-template | +3 | Technical but clear; role as shared-lemma is legible. Keep. |
 | directed separation | directed separation | +3 | Keep. The LQR-separation-principle echo is real but best handled by a one-sentence clarification in segment Discussion, not a rename. |
-| composition closure / closure defect (ε*) | composition closure / closure defect | +3 | Keep. CS-closures collision is an inoculation issue (preamble note), not a rename issue. |
+| composition closure / closure defect ($\varepsilon^\ast$) | composition closure / closure defect | +3 | Keep. CS-closures collision is an inoculation issue (preamble note), not a rename issue. |
 | [unnamed: the sector-persistence region in parameter space where the agent is guaranteed to maintain bounded mismatch] | persistence envelope | +3 | Strong preference (upgrading from original's +1). Engineering vocabulary, geometrically evocative. "Well inside its persistence envelope" reads more crisply than "satisfies the persistence condition with non-marginal adaptive reserve." Genuinely useful new named slot. |
 | [unnamed: the chain-layer anchor role in #additive-coordinate-forcing] | chain anchor | +3 | Upgrading from original's +1. The "1-anchor-plus-3-theorem" structure references this role five times across `#additive-coordinate-forcing` and its instance segments. Naming it as "the chain anchor" in prose (not renaming the segment) pays off on every reference. |
 | [unnamed: cascade of inferential force strengthening from C1 to C3 on satisfaction-gap / control-regret diagnostics] | inferential cascade | +1 | Agree with original. Low priority. |
@@ -72,7 +72,7 @@ Focus of my vote: (1) the Čencov critique of `#cauchy-coordinates`, (2) a stron
 | Pearl's causal hierarchy | Pearl's causal hierarchy | +3 | Adopted concept; keep attribution per prior-art-integration convention. |
 | information bottleneck | information bottleneck | +3 | Adopted (Tishby 1999); keep. |
 | Lohmiller-Slotine contraction | Lohmiller-Slotine contraction | +3 | Adopted (1998); keep. |
-| Hafez's H_b | H_b | +3 | Adopted; keep. |
+| Hafez's $H_b$ | $H_b$ | +3 | Adopted; keep. |
 | Bruineberg's Pearl-blanket / Friston-blanket | Pearl-blanket / Friston-blanket | +3 | Adopted (Bruineberg 2022, credit Martin Biehl per fn 3 of that paper per citation audit); keep. |
 | Miller's meta-machine / extreme transition motif | meta-machine / extreme transition motif | +3 | Adopted (Miller 2022); keep. |
 | stability-plasticity feasibility window | stability-plasticity feasibility window | +3 | From `#consolidation-dynamics`; good name as-is, adopts well-known "stability-plasticity dilemma" baggage and adds the feasibility-window refinement. Keep. |

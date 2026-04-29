@@ -50,18 +50,18 @@ A few concepts I encountered that deserve their own memorable noun and probably 
 | mismatch signal ($\delta$) | mismatch signal | +3 | In contrast with "error" or "residual"; the word foreshadows the aporia interpretation. Keep. |
 | update gain ($\eta^\ast$) | update gain | +3 | Kalman-resonance lineage name, self-descriptive. Keep. |
 | #identifiability-floor "escape the floor" | escape route | +1 | Currently referred to variably as "escape the floor," "unique broadly-available escape," "boundary characterization." "Escape route" is a cleaner noun for the reader. Minor pattern-firmer-up. |
-| α₁ (A2' fixed-gain sub-scope) | derived-gain regime | +1 | "Lands in α₁" is cryptic in prose; "lands in the derived-gain regime" reads. Keep α₁ as symbolic shorthand but surface the English in segment text. |
-| α₂ (A2' adaptive-gain sub-scope) | adaptive-gain regime | +1 | Parallel construction to α₁ rename. |
-| β (A2' assumed-not-derived sub-scope) | assumed-regime | +1 | Parallel again; currently reads as "lands in β" which tells the reader nothing. Alternatively "posited-regime." |
-| β (A2' sub-scope) | posited-regime | -1 | Slightly more formal than "assumed" but less transparent. Reject. |
-| α₁ / α₂ / β naming as a whole | α-partition (with English labels above) | +1 | Keep the Greek symbols as shorthand tokens once defined; insist on English equivalents in every new prose usage. Bubble this into FORMAT.md as a convention. |
-| κ_processing | processing coupling | +1 | Symbol is fine but the name "κ-as-scalar" was explicitly retired as a category error — the live reading is "processing coupling as a diagnostic for Class 3 agents." Surface that English name consistently. |
-| U_o (observation uncertainty) | observation uncertainty | +3 | Standard control-theory baggage; adoption is correct. Keep. |
-| U_M (model uncertainty) | model uncertainty | +3 | Parallel to U_o. Keep. |
-| U_O (teleological unity) | teleological unity | +3 | Clearly distinguishes from U_o by subscript letter-case and by semantic content. Awkward because U_o / U_O are near-homographs in some fonts — see next row. |
-| U_o vs U_O collision | consider renaming teleological unity to $U_\Omega$ or $U_\text{goal}$ | +1 | The uppercase/lowercase distinction between observation uncertainty ($U_o$) and teleological unity ($U_O$) is fragile in serif fonts and read-aloud. Worth an audit; a subscript of $\Omega$ or "goal" would be more robust. |
+| $\alpha_1$ (A2' fixed-gain sub-scope) | derived-gain regime | +1 | "Lands in $\alpha_1$" is cryptic in prose; "lands in the derived-gain regime" reads. Keep $\alpha_1$ as symbolic shorthand but surface the English in segment text. |
+| $\alpha_2$ (A2' adaptive-gain sub-scope) | adaptive-gain regime | +1 | Parallel construction to $\alpha_1$ rename. |
+| $\beta$ (A2' assumed-not-derived sub-scope) | assumed-regime | +1 | Parallel again; currently reads as "lands in $\beta$" which tells the reader nothing. Alternatively "posited-regime." |
+| $\beta$ (A2' sub-scope) | posited-regime | -1 | Slightly more formal than "assumed" but less transparent. Reject. |
+| $\alpha_1$ / $\alpha_2$ / $\beta$ naming as a whole | $\alpha$-partition (with English labels above) | +1 | Keep the Greek symbols as shorthand tokens once defined; insist on English equivalents in every new prose usage. Bubble this into FORMAT.md as a convention. |
+| $\kappa_{\text{processing}}$ | processing coupling | +1 | Symbol is fine but the name "$\kappa$-as-scalar" was explicitly retired as a category error — the live reading is "processing coupling as a diagnostic for Class 3 agents." Surface that English name consistently. |
+| $U_o$ (observation uncertainty) | observation uncertainty | +3 | Standard control-theory baggage; adoption is correct. Keep. |
+| $U_M$ (model uncertainty) | model uncertainty | +3 | Parallel to $U_o$. Keep. |
+| $U_O$ (teleological unity) | teleological unity | +3 | Clearly distinguishes from $U_o$ by subscript letter-case and by semantic content. Awkward because $U_o$ / $U_O$ are near-homographs in some fonts — see next row. |
+| $U_o$ vs $U_O$ collision | consider renaming teleological unity to $U_\Omega$ or $U_\text{goal}$ | +1 | The uppercase/lowercase distinction between observation uncertainty ($U_o$) and teleological unity ($U_O$) is fragile in serif fonts and read-aloud. Worth an audit; a subscript of $\Omega$ or "goal" would be more robust. |
 | $\hat P_\Sigma$ (plan confidence) | plan confidence | +1 | LEXICON "Terms to Be Added" flags this. Symbol is fine; adopt the English name as first-class in prose. |
-| ε* (closure defect) | closure defect | +3 | Crisp name for a derived quantity that appears across composition. LEXICON already names it. Keep. |
+| $\varepsilon^\ast$ (closure defect) | closure defect | +3 | Crisp name for a derived quantity that appears across composition. LEXICON already names it. Keep. |
 | $\mathcal C_t^{\text{commit}}$ (committed-state subset) | committed chronica | +1 | TST-specific subset of chronica; prose form would help the 14-EXACT-estimator audit table read more naturally. |
 | [unnamed: the 1-anchor-plus-3-theorem characterization] | pattern anatomy | +1 | Currently a long phrase that the theory uses three to four times per session. "1-anchor-plus-3-theorem" is precise but reads as inventory-counting. "Pattern anatomy" (or "pattern spine") could snapshot the structure. Flagging; low conviction on exact name. |
 | [unnamed: the "strengthen before soften" work posture] | strengthen-first posture | +3 | Already functionally the name (CLAUDE.md §Working Conventions uses it as a heading). Explicit vote to lock this in as a first-class project methodology name. Adopt as canonical. |
