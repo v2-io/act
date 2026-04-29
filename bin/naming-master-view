@@ -125,12 +125,16 @@ def render_full(master)
 
   master['currents'].each_with_index do |c, idx|
     current = c['current']
-    out << "## #{idx + 1}. `#{current}`"
+    heading = if c['is_concept_cluster'] && c['current_description']
+                desc = c['current_description'].sub(/\A./, &:upcase)
+                "## #{idx + 1}. [Concept] *#{desc}*"
+              else
+                "## #{idx + 1}. `#{current}`"
+              end
+    out << heading
     out << ''
     if c['is_concept_cluster']
       out << "*Post-consolidation concept cluster.*"
-      out << ''
-      out << "**Concept description:** #{c['current_description']}" if c['current_description']
       out << ''
     end
     out << "**Voted by architectures:** #{c['voted_by_architectures'].join(', ')}"

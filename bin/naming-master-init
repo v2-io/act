@@ -66,16 +66,26 @@ end
 
 # --- Concept-cluster detection ---------------------------------------------
 
-# A `current` whose form is `[concept: ...]` is a post-consolidation cluster
-# whose label is a deliberate functional description (the consolidation pass
-# wrote it that way to avoid biasing toward any one candidate).
+# A `current` whose source form is `[concept: ...]` is a post-consolidation
+# cluster whose label is a deliberate functional description (the consolidation
+# pass wrote it that way to avoid biasing toward any one candidate).
+#
+# The aggregator's canonical-form normalization strips brackets and colons, so
+# what arrives here as `current` is `concept ...` (no brackets). Detect by the
+# `concept ` prefix; preserve a fallback for the literal-bracket form in case
+# any artifact slips through pre-canonicalization.
 def concept_cluster?(current)
-  current.to_s.start_with?('[concept:')
+  s = current.to_s
+  s.start_with?('[concept:') || s.start_with?('concept ')
 end
 
 def concept_description(current)
   return nil unless concept_cluster?(current)
-  current.sub(/\A\[concept:\s*/, '').sub(/\]\z/, '').strip
+  current.to_s
+         .sub(/\A\[concept:\s*/, '')
+         .sub(/\]\z/, '')
+         .sub(/\Aconcept\s+/, '')
+         .strip
 end
 
 # --- Candidate enrichment --------------------------------------------------

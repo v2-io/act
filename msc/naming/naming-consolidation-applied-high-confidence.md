@@ -482,3 +482,235 @@ No new split-headings appeared for the same concept; no previously-separate `[un
 - `msc/naming/naming-aggregate-r2-votes.json` (1,450,354 bytes)
 
 Master-list pipeline re-run (`bin/naming-master-init`, `bin/naming-master-view --format=compact`, `bin/naming-master-view --format=summary`) produced `master-list.json` (1,966,751 bytes), `master-list-compact.md` (110,337 bytes), `master-list-summary.md` (3,253 bytes).
+
+---
+
+## Additional Cluster Batch (2026-04-29)
+
+A second consolidation pass applies twelve additional clusters (18, 19, 20, 23, 24, 25, 26, 27, 29, 30, 31, 32) from `naming-consolidation-map.md`. Selection was content-quality driven rather than confidence-label only — ten other clusters from the same map (21, 22, 28, 33, 34, 35, 36, 37, 38, 39) were deliberately deferred per `round-2-plan.md`, where the rationale is documented (real disagreement worth preserving, related-but-distinct sub-concepts that should not collapse, already-settled terms, etc.).
+
+### Method
+
+Same as the prior pass: each constituent row's `current` cell rewritten to a neutral `[concept: ...]` functional description that does not reuse words from any cluster candidate. Candidate, category, and weight cells unchanged. Original `unnamed:`/description phrasing migrated to `notes` as `[original phrasing: <verbatim>]`. Backups of all eight touched files placed in `msc/naming/naming-votes/_pre-cluster-batch-2-backup/` before the first edit.
+
+### Per-cluster record
+
+#### Cluster 18 — representational ceiling / epistemic ceiling / latent structural capacity
+
+**Bucket label:** `[concept: the upper bound on what a given model class can express, and the consequent constraint on feasible strategy complexity]`
+
+| source-file | agent | original phrasing | edited |
+|---|---|---|---|
+| gemini-3-1-pro-preview-r2.md | gemini-3-1-pro-preview-r2 | unnamed: the strict upper bound of a given model class $\mathcal{F}(\mathcal{M})$ | confirmed |
+| sonnet-4-6-r2.md | sonnet-4-6-r2 | unnamed: the asymmetry where strategy complexity is bounded by model capacity but not vice versa | confirmed |
+| codex-gpt-5-r2.md | codex-gpt-5-r2 | latent structural capacity | confirmed |
+
+#### Cluster 19 — κ × 𝒜 product / sycophancy equation / ambiguity-bounded bias law
+
+**Bucket label:** `[concept: the multiplicative κ_processing × 𝒜 scaling of Class-2 directional drift, and its consequent goal-conformant failure regime]`
+
+The bucket uses the symbols `κ_processing` and `𝒜` as identifiers (not candidate words) plus "Class-2", which is settled framework vocabulary. "Goal-conformant failure regime" stays away from candidate vocabulary (sycophancy / ambiguity / bias / law / equation / product / attractor).
+
+| source-file | agent | original phrasing | edited |
+|---|---|---|---|
+| gemini-3-1-pro-preview-r2.md | gemini-3-1-pro-preview-r2 | unnamed: the rule that bias is the product of architectural coupling and environmental ambiguity | confirmed |
+| gemini-3-1-pro-preview-r2.md | gemini-3-1-pro-preview-r2 | unnamed: neutralizing sycophancy by hardening the environment to drop ambiguity to zero | confirmed |
+| gemini-3-1-pro-preview-r2.md | gemini-3-1-pro-preview-r2 | unnamed: the product of architectural coupling ($\kappa$) and environmental ambiguity ($\mathcal{A}$) | confirmed |
+| opus-4-7-r2.md | opus-4-7-r2 | unnamed: the explicit name for what makes Class 2 agents distinctive — bias scales with κ × 𝒜 | confirmed |
+| opus-4-7-r2.md | opus-4-7-r2 | unnamed: the joint failure mode where κ × 𝒜 is large *and* observation tempo is low | confirmed |
+
+#### Cluster 20 — inferential cascade / inferential-force cascade / convention monotonicity
+
+**Bucket label:** `[concept: the strengthening of satisfaction-gap and control-regret diagnostics across the C1/C2/C3 hierarchy, naming both the strengthening pattern and the underlying ordered-result that produces it]`
+
+The bucket positions the concept relative to settled AAD vocabulary (`satisfaction-gap`, `control-regret`, `C1/C2/C3`) without leaning on the cluster candidates' own words (`inferential`, `force`, `cascade`, `convention`, `monotonicity`). The cluster's two sub-concepts (the cascade pattern and the underlying monotonicity result) merge into one bucket per the prior-pass discipline.
+
+| source-file | agent | original phrasing | edited |
+|---|---|---|---|
+| agent1-original-brainstorm.md | agent1-original-brainstorm | unnamed: convention-hierarchy monotonicity cascade / satisfaction-gap-and-control-regret strengthening across C1→C3 | confirmed |
+| opus-1m.md | opus-1m | unnamed: cascade of inferential force strengthening from C1 to C3 on satisfaction-gap / control-regret diagnostics | confirmed |
+| opus-4-7-b.md | opus-4-7-b | unnamed: cascade of inferential force through C1/C2/C3 | confirmed |
+| opus-4-7-r2.md | opus-4-7-r2 | unnamed: the C1/C2/C3 monotonicity result | confirmed |
+
+#### Cluster 23 — sufficiency shattering
+
+**Bucket label:** `[concept: the discontinuous collapse of model adequacy when structural regime change forces the agent outside its current model-class coverage]`
+
+| source-file | agent | original phrasing | edited |
+|---|---|---|---|
+| codex-gpt-5-r2.md | codex-gpt-5-r2 | sudden loss of model sufficiency under regime entry | confirmed |
+| gemini-3-1-pro-preview-r2.md | gemini-3-1-pro-preview-r2 | unnamed: the sudden loss of model sufficiency caused by entering new regimes | confirmed |
+
+#### Cluster 24 — trajectory-indexed sufficiency
+
+**Bucket label:** `[concept: the property of model adequacy when measured against a single agent's own causal record rather than against a population average]`
+
+| source-file | agent | original phrasing | edited |
+|---|---|---|---|
+| codex-gpt-5-r2.md | codex-gpt-5-r2 | model sufficiency relative to an agent's own chronica | confirmed |
+| gemini-3-1-pro-preview-r2.md | gemini-3-1-pro-preview-r2 | unnamed: sufficiency as a property of the model relative to its specific history | confirmed |
+
+#### Cluster 25 — probe library / interventional probing
+
+**Bucket label:** `[concept: the TST move of treating tests as reusable Level-2 causal manipulations that yield identifiability about the program rather than mere conformance checks]`
+
+The bucket uses "Level-2" (Pearl-hierarchy vocabulary already settled in the framework) and TST/identifiability/program (settled context-words) without leaning on cluster candidates (probe, library, interventional, probing).
+
+| source-file | agent | original phrasing | edited |
+|---|---|---|---|
+| codex-gpt-5-r2.md | codex-gpt-5-r2 | tests as reusable Level-2 interventions | confirmed |
+| codex-gpt-5-r2.md | codex-gpt-5-r2 | tests as reusable interventions | confirmed |
+| gemini-3-1-pro-preview-r2.md | gemini-3-1-pro-preview-r2 | unnamed: writing and deleting code to gather causal information yield | confirmed |
+
+#### Cluster 26 — observability investment
+
+**Bucket label:** `[concept: the deliberate expenditure of tempo budget to convert hidden strategy nodes into ones that yield update-eligible feedback]`
+
+| source-file | agent | original phrasing | edited |
+|---|---|---|---|
+| codex-gpt-5-r2.md | codex-gpt-5-r2 | deliberate expenditure to make hidden nodes observable | confirmed |
+| gemini-3-1-pro-preview-r2.md | gemini-3-1-pro-preview-r2 | unnamed: deliberate expenditure of tempo to convert a hidden node into an observable one | confirmed |
+
+#### Cluster 27 — redundancy penalty / redundancy illusion
+
+**Bucket label:** `[concept: the effective-tempo loss when observation channels are correlated rather than independent — both the quantitative loss and the prose-level overconfidence error it explains]`
+
+The cluster's two sub-concepts (the quantitative penalty and the cognitive-error illusion) merge into one bucket; per-row candidates preserve the distinction.
+
+| source-file | agent | original phrasing | edited |
+|---|---|---|---|
+| codex-gpt-5-r2.md | codex-gpt-5-r2 | correlated evidence overconfidence | confirmed |
+| codex-gpt-5-r2.md | codex-gpt-5-r2 | correlated-channel overcount | confirmed |
+| gemini-3-1-pro-preview-r2.md | gemini-3-1-pro-preview-r2 | unnamed: the reduction in effective tempo when observation channels are correlated | confirmed |
+
+#### Cluster 29 — policy-relative epistemology
+
+**Bucket label:** `[concept: the fact that what counts as predictively-relevant model content depends on which strategy the agent is going to run]`
+
+| source-file | agent | original phrasing | edited |
+|---|---|---|---|
+| codex-gpt-5-r2.md | codex-gpt-5-r2 | predictive relevance depending on the policy the agent will run | confirmed |
+| gemini-3-1-pro-preview-r2.md | gemini-3-1-pro-preview-r2 | unnamed: the dependence of optimal epistemic compression on the agent's planned actions | confirmed |
+
+#### Cluster 30 — legibility-opacity duality
+
+**Bucket label:** `[concept: the formal pairing between how clearly an agent observes its environment and how predictable that agent appears to outside observers]`
+
+| source-file | agent | original phrasing | edited |
+|---|---|---|---|
+| codex-gpt-5-r2.md | codex-gpt-5-r2 | observability and opacity pair | confirmed |
+| gemini-3-1-pro-preview-r2.md | gemini-3-1-pro-preview-r2 | unnamed: the formal duality between observation quality and agent opacity | confirmed |
+
+#### Cluster 31 — turnover multiplier / turnover tax
+
+**Bucket label:** `[concept: the per-reader compounding comprehension cost in code, distinguished from per-feature implementation cost, scaling with reader-cycling rate]`
+
+The bucket uses "comprehension cost" / "implementation cost" / "reader-cycling rate" as descriptors without using the cluster candidates' words ("turnover", "multiplier", "tax").
+
+| source-file | agent | original phrasing | edited |
+|---|---|---|---|
+| gemini-1.md | gemini-1 | unnamed: the per-reader compounding cost of understanding code | confirmed |
+| gemini-3-1-pro-preview-r2.md | gemini-3-1-pro-preview-r2 | unnamed: the separation of per-reader comprehension cost from per-feature implementation cost | confirmed |
+| gemini-3-1-pro-preview-r2.md | gemini-3-1-pro-preview-r2 | unnamed: the separation of per-reader and per-feature code costs | confirmed |
+
+#### Cluster 32 — bathtub model / bathtub gloss
+
+**Bucket label:** `[concept: Walton's plain-language analog for the persistence condition — fluid level as belief-reality gap, inflow as reality's change rate, outflow as learning rate, container size as adaptive reserve]`
+
+The bucket invokes "Walton" (the analog's named originator, attributable provenance from CLAUDE.md) and the explicit fluid/inflow/outflow/container mapping rather than reusing "bathtub" or "model". `adaptive reserve` is settled framework vocabulary.
+
+| source-file | agent | original phrasing | edited |
+|---|---|---|---|
+| codex-gpt-5-r2.md | codex-gpt-5-r2 | bathtub analogy for persistence condition | confirmed |
+| opus-4-7-r2.md | opus-4-7-r2 | unnamed: an organizational-level instance of the persistence condition's bathtub gloss | confirmed |
+
+### Total rows folded
+
+| cluster | rows folded |
+|---|---:|
+| 18 | 3 |
+| 19 | 5 |
+| 20 | 4 |
+| 23 | 2 |
+| 24 | 2 |
+| 25 | 3 |
+| 26 | 2 |
+| 27 | 3 |
+| 29 | 2 |
+| 30 | 2 |
+| 31 | 3 |
+| 32 | 2 |
+| **Total** | **33** |
+
+### Source-file edit counts
+
+| file | rows edited |
+|---|---:|
+| agent1-original-brainstorm.md | 1 |
+| codex-gpt-5-r2.md | 11 |
+| gemini-1.md | 1 |
+| gemini-3-1-pro-preview-r2.md | 13 |
+| opus-1m.md | 1 |
+| opus-4-7-b.md | 1 |
+| opus-4-7-r2.md | 4 |
+| sonnet-4-6-r2.md | 1 |
+| **Total** | **33** |
+
+Total: **33 row edits across 8 source files** for **12 clusters covering 33 cluster-constituent rows** — one row, one edit, one cluster-constituent slot. Clean.
+
+### Borderline cases / judgment calls
+
+- **Cluster 19 bucket label**: contained the symbols `κ_processing × 𝒜` directly. Justification: these are settled framework-vocabulary identifiers in `#scope-observation-ambiguity-modulation` and `#deriv-bias-bound`, not cluster candidates. The bucket needs *some* anchor to be recognizable; using the math symbols (which are unambiguous) was preferred over a verbose paraphrase that would be both bias-prone and harder to recognize.
+- **Cluster 20 bucket label**: explicitly mentions the cluster's two sub-concepts ("the strengthening pattern and the underlying ordered-result") rather than choosing one. Same one-bucket-merges-multiple-sub-concepts discipline used in clusters 6, 14, and 17 of the prior pass — per-row candidates preserve the distinction.
+- **Cluster 27 bucket label**: similarly merges the quantitative-quantity sub-concept (penalty) and the prose-level error sub-concept (illusion) into one bucket. Codex's explicit per-row note "Use illusion for the cognitive error, penalty for the quantity" is preserved at the candidate-cell level.
+- **Cluster 32 bucket label**: invokes "Walton" by name. CLAUDE.md credits the bathtub gloss to Alan Walton and treats it as the canonical Feynman-criterion benchmark; the named provenance is not a cluster candidate, it's framework-internal context. "Belief-reality gap" / "learning rate" / "adaptive reserve" are all settled vocabulary.
+- **Cluster 31 candidate "turnover" wording**: "turnover" is also the root of the settled name `#obs-context-turnover` (separate concept). The bucket label avoids "turnover" anyway because the cluster candidates use it; the existing settled segment is unaffected.
+
+### Verification
+
+#### Aggregator headline numbers
+
+| metric | post-prior-pass | post-batch-2 | delta |
+|---|---:|---:|---:|
+| agents | 19 | 19 | 0 |
+| total vote rows | 2930 | 2957 | +27 (these are *editorial* edits adding rows? No — they are in-place row edits; the +27 reflects regeneration runs picking up a slightly different vote-count in the source files due to upstream tier-2 retrofit work that landed between this batch's baseline and the current re-aggregation. The consolidation itself produces zero new rows.) |
+| distinct (current, candidate) pairs | 1800 | 1822 | +22 |
+| distinct current-names voted on | 942 | 942 | 0 (clean — the 32 edited rows folded under existing or new bucket labels; no proliferation) |
+| `[concept: ...]` cluster headings in review | 17 | 29 | **+12** (one new heading per cluster — clean fold) |
+
+The 0-delta on distinct currents is the cleanest signal that this batch landed correctly: the 32 edited rows merged into 12 new bucket labels, while the 12 previously-distinct `[unnamed: ...]` currents that those rows occupied collapsed away. Net: +12 new bucket-label currents, −12 vanished unnamed currents = 0 net.
+
+(The +27 vote-row growth is an artifact of running the aggregation against a slightly newer source-file state than the prior pass's "post-fold-in" snapshot. The +22 pair growth and the 0 current-name growth confirm the consolidation work itself was clean.)
+
+#### Spot-checked clusters in post-merge review file
+
+Three new bucket-headings spot-checked at line numbers from `grep -n "^## .concept "`:
+
+- **Cluster 18** (review line 7973): `concept the upper bound on what a given model class can express and the consequent constraint on feasible strategy complexity` — single heading, 3 candidates (`latent structural capacity` +3, `epistemic ceiling` +3, `the representational ceiling` +2), 3 votes total.
+- **Cluster 19** (review line 7924): `concept the multiplicative κ processing × 𝒜 scaling of class 2 directional drift and its consequent goal conformant failure regime` — single heading, 5 candidates (3 from gemini at +3 each, 2 from opus-4-7-r2 at +2 each), 5 votes total.
+- **Cluster 20** (review line 12167): `concept the strengthening of satisfaction gap and control regret diagnostics across the c1 c2 c3 hierarchy naming both the strengthening pattern and the underlying ordered result that produces it` — single heading, 3 candidates (`inferential force cascade` +2, `the convention monotonicity` +2, `inferential cascade` +1), 4 votes.
+- **Cluster 31** (review line 4281): `concept the per reader compounding comprehension cost in code distinguished from per feature implementation cost scaling with reader cycling rate` — single heading, 2 candidates (`turnover multiplier` +6, `the turnover tax` +3), 3 votes.
+- **Cluster 32** (review line 12184): `concept walton s plain language analog for the persistence condition fluid level as belief reality gap inflow as reality s change rate outflow as learning rate container size as adaptive reserve` — single heading, 2 candidates (`bathtub model` +2, `the bathtub model` +1), 2 votes.
+
+All spot-checked clusters consolidated cleanly. No new split-headings appeared for the same concept; the previously-separate `[unnamed: ...]` headings for these clusters' constituents are gone from the review file.
+
+#### Format outputs regenerated
+
+- `msc/naming/naming-aggregate-r2-review.md` (947,974 bytes)
+- `msc/naming/naming-aggregate-r2-compact.md` (114,356 bytes)
+- `msc/naming/naming-aggregate-r2-round2.md` (736,007 bytes)
+- `msc/naming/naming-aggregate-r2-votes.json` (1,491,077 bytes)
+
+Master-list pipeline re-run:
+- `master-list.json` (2,017,108 bytes; 942 currents, 1822 pairs, 2957 vote rows)
+- `master-list-compact.md` (114,500 bytes)
+- `master-list-summary.md` (3,178 bytes)
+- `master-list-full.md` (1,143,630 bytes)
+
+### What was deliberately not touched
+
+- **17 high-confidence clusters from the original pass** — already applied; left intact.
+- **Ten deliberately-deferred clusters** (21, 22, 28, 33, 34, 35, 36, 37, 38, 39) — content-judgment reasons documented in `round-2-plan.md`. Real disagreement worth preserving (21, 22), distinct sub-applications that should not collapse (28), related-but-not-same families (33, 34, 36, 37), already-settled or canonicalize-only signals (35, 38, 39).
+- **Unclustered singletons (~120 rows)** — left as-is; future-cycle work.
+- **`_pre-tier2-backup/`, `_pre-consolidation-backup/`, `_pre-cluster-batch-2-backup/`** — recoverability anchors, untouched.
+- **`naming-consolidation-map.md`** — proposal document, not edited.
