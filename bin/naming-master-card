@@ -87,7 +87,7 @@ out << 'Write-in: if you have a thoughtful candidate not in the list, add a new 
 out << ''
 out << 'Notes column is for *new* reasoning you bring to the vote. The corpus already has the prior agents\' notes; this is your independent reasoning, not a recap.'
 out << ''
-out << 'Heading conventions: `## N. [Concept] *description*` headings are post-consolidation cluster targets where the description is a deliberate functional placeholder (not biased toward any candidate). `## N. \`<name>\`` headings are existing names being voted on. Within each target, candidates are listed in randomized order — *you cannot infer popularity from position.*'
+out << 'Heading conventions: `## N. [Concept] *description*` headings are post-consolidation cluster targets where the description is a deliberate functional placeholder (not biased toward any candidate). `## N. \`name\`` headings are existing names being voted on. Within each target, candidates are listed in randomized order — *you cannot infer popularity from position.*'
 out << ''
 out << '---'
 out << ''

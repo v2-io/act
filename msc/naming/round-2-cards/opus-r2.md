@@ -2,7 +2,7 @@
 
 **Voter:** `opus-r2`
 **Card seed:** `opus-r2` (deterministic shuffle; same agent-id always produces the same card)
-**Generated:** 2026-04-29T23:10:33Z
+**Generated:** 2026-04-29T23:13:20Z
 
 ## Voting instructions
 
@@ -16,7 +16,7 @@ Write-in: if you have a thoughtful candidate not in the list, add a new row at t
 
 Notes column is for *new* reasoning you bring to the vote. The corpus already has the prior agents' notes; this is your independent reasoning, not a recap.
 
-Heading conventions: `## N. [Concept] *description*` headings are post-consolidation cluster targets where the description is a deliberate functional placeholder (not biased toward any candidate). `## N. \`<name>\`` headings are existing names being voted on. Within each target, candidates are listed in randomized order — *you cannot infer popularity from position.*
+Heading conventions: `## N. [Concept] *description*` headings are post-consolidation cluster targets where the description is a deliberate functional placeholder (not biased toward any candidate). `## N. \`name\`` headings are existing names being voted on. Within each target, candidates are listed in randomized order — *you cannot infer popularity from position.*
 
 ---
 
