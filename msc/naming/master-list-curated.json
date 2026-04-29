@@ -25,7 +25,7 @@
     ],
     "total_vote_rows": 2967,
     "total_pairs": 1805,
-    "total_currents": 786,
+    "total_currents": 750,
     "enrichment_status": {
       "consolidated_rationale": "pending",
       "first_encounter_locality": "pending",
@@ -7062,10 +7062,10 @@
         {
           "candidate": "Control regret",
           "is_keep": true,
-          "total_weight": 51,
+          "total_weight": 54,
           "category_tally": {
             "keep": 16,
-            "canonicalize": 1
+            "canonicalize": 2
           },
           "consolidated_rationale": null,
           "votes": [
@@ -7170,6 +7170,12 @@
               "weight": 3,
               "category": "keep",
               "notes": "See above. The 2×2 disambiguation table works because both names work. Keep."
+            },
+            {
+              "agent": "gemini-targeted-alternatives",
+              "weight": 3,
+              "category": "canonicalize",
+              "notes": "Adopts the standard diagnostic dual to the satisfaction gap."
             }
           ]
         },
@@ -7362,10 +7368,10 @@
         {
           "candidate": "Orient cascade",
           "is_keep": true,
-          "total_weight": 47,
+          "total_weight": 53,
           "category_tally": {
             "keep": 15,
-            "canonicalize": 1
+            "canonicalize": 3
           },
           "consolidated_rationale": null,
           "votes": [
@@ -7464,6 +7470,18 @@
               "weight": 3,
               "category": "keep",
               "notes": "See #orient-cascade keep vote. The word \"orient\" is earned by the Boyd connection. Keep."
+            },
+            {
+              "agent": "gemini-3-1-pro-preview-r2",
+              "weight": 3,
+              "category": "canonicalize",
+              "notes": "Canonicalize this over \"diagnostic cascade\" or \"resolution order\"."
+            },
+            {
+              "agent": "gemini-targeted-alternatives",
+              "weight": 3,
+              "category": "canonicalize",
+              "notes": "Standardizes the internal processing order."
             }
           ]
         }
@@ -7668,10 +7686,10 @@
         {
           "candidate": "Identifiability floor",
           "is_keep": true,
-          "total_weight": 45,
+          "total_weight": 51,
           "category_tally": {
             "keep": 14,
-            "canonicalize": 1
+            "canonicalize": 3
           },
           "consolidated_rationale": null,
           "votes": [
@@ -7764,6 +7782,69 @@
               "weight": 3,
               "category": "canonicalize",
               "notes": "See #identifiability-floor keep vote above. Already in prose use. Keep."
+            },
+            {
+              "agent": "codex-gpt-5-r2",
+              "weight": 3,
+              "category": "canonicalize",
+              "notes": "Keep floor as the family noun."
+            },
+            {
+              "agent": "gemini-targeted-alternatives",
+              "weight": 3,
+              "category": "canonicalize",
+              "notes": "Elevates the core limitation meta-pattern."
+            }
+          ]
+        },
+        {
+          "candidate": "Epistemic lower bound",
+          "is_keep": false,
+          "total_weight": 3,
+          "category_tally": {
+            "rename": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "gemini-targeted-alternatives",
+              "weight": 3,
+              "category": "rename",
+              "notes": "Describes exactly what these are: hard limits on what can be inferred."
+            }
+          ]
+        },
+        {
+          "candidate": "Persistence pathology",
+          "is_keep": false,
+          "total_weight": 3,
+          "category_tally": {
+            "name-unnamed": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "opus-4-7-r2",
+              "weight": 3,
+              "category": "name-unnamed",
+              "notes": "New alternative — none of the four peers reached for a family name. We collectively coined \"evidence starvation\" (Sonnet/Codex), \"epistemic shadow\" / \"epistemic decoupling\" / \"gain collapse\" / \"sufficiency shattering\" (Gemini), \"observability dead zone\" (Haiku), but no one names *the family*. \"Persistence pathologies\" gives downstream meta-segments a single phrase to invoke (\"this is a persistence pathology of the gain-collapse type\") and parallels \"approximation tiering\" and \"separability ladder\" as named cross-segment patterns. Highest-value because the slot is empty and it lets the failure-mode names compose."
+            }
+          ]
+        },
+        {
+          "candidate": "Observational limit",
+          "is_keep": false,
+          "total_weight": 2,
+          "category_tally": {
+            "rename": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "gemini-targeted-alternatives",
+              "weight": 2,
+              "category": "rename",
+              "notes": "A slightly more intuitive phrasing for non-theoreticians."
             }
           ]
         },
@@ -8464,10 +8545,11 @@
         {
           "candidate": "Persistence condition",
           "is_keep": true,
-          "total_weight": 27,
+          "total_weight": 39,
           "category_tally": {
-            "keep": 8,
-            "canonicalize": 1
+            "keep": 9,
+            "canonicalize": 3,
+            "rename": 1
           },
           "consolidated_rationale": null,
           "votes": [
@@ -8524,6 +8606,47 @@
               "weight": 3,
               "category": "canonicalize",
               "notes": "Sometimes appears as \"the persistence criterion,\" \"the adaptive persistence condition,\" or \"the alpha > rho/R condition.\" One name: \"persistence condition.\""
+            },
+            {
+              "agent": "gemini-targeted-alternatives",
+              "weight": 3,
+              "category": "canonicalize",
+              "notes": "Standardizes the core inequality."
+            },
+            {
+              "agent": "gemini-targeted-alternatives",
+              "weight": 3,
+              "category": "keep",
+              "notes": "Already the formally correct name."
+            },
+            {
+              "agent": "opus-targeted-alternatives",
+              "weight": 3,
+              "category": "canonicalize",
+              "notes": "Concur — \"persist condition\" appears nowhere as a chosen form. \"Persistence condition\" is established in `LEXICON.md` and `#result-persistence-condition`. The shorter form is a typo or paraphrase, not an alternative; canonicalize."
+            },
+            {
+              "agent": "sonnet-4-6",
+              "weight": 3,
+              "category": "rename",
+              "notes": "Wait — this IS the name already. Correct name. Keep."
+            }
+          ]
+        },
+        {
+          "candidate": "The survival equation",
+          "is_keep": false,
+          "total_weight": 3,
+          "category_tally": {
+            "name-unnamed": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "gemini-3-1-pro-preview-r2",
+              "weight": 3,
+              "category": "name-unnamed",
+              "notes": "The simplest possible elevator pitch for Adaptation Dynamics."
             }
           ]
         },
@@ -11793,10 +11916,11 @@
         {
           "candidate": "Pearl causal hierarchy",
           "is_keep": true,
-          "total_weight": 23,
+          "total_weight": 26,
           "category_tally": {
             "keep": 8,
-            "canonicalize": 1
+            "canonicalize": 1,
+            "name-unnamed": 1
           },
           "consolidated_rationale": null,
           "votes": [
@@ -11853,6 +11977,29 @@
               "weight": 3,
               "category": "canonicalize",
               "notes": "Formally separates Pearl's hierarchy from AAD's internal ones."
+            },
+            {
+              "agent": "opus-4-7",
+              "weight": 3,
+              "category": "name-unnamed",
+              "notes": "Named by original author. Keep proper-noun form."
+            }
+          ]
+        },
+        {
+          "candidate": "Causal hierarchy level",
+          "is_keep": false,
+          "total_weight": 3,
+          "category_tally": {
+            "canonicalize": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "gemini-targeted-alternatives",
+              "weight": 3,
+              "category": "canonicalize",
+              "notes": "Standardizing Pearl's nomenclature within AAD."
             }
           ]
         },
@@ -13494,7 +13641,8 @@
         "Gemini",
         "Haiku",
         "Opus",
-        "Sonnet"
+        "Sonnet",
+        "audit"
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
@@ -13504,9 +13652,10 @@
         {
           "candidate": "Loop interventional access",
           "is_keep": true,
-          "total_weight": 15,
+          "total_weight": 24,
           "category_tally": {
-            "keep": 9
+            "keep": 9,
+            "canonicalize": 3
           },
           "consolidated_rationale": null,
           "votes": [
@@ -13563,6 +13712,41 @@
               "weight": 1,
               "category": "keep",
               "notes": "Accurate but a mouthful. The intended quick-reference name in conversation is probably \"the loop's Level 2 access\" or \"loop as Level 2 engine\" — neither of which is a slug. Mild friction."
+            },
+            {
+              "agent": "gemini-targeted-alternatives",
+              "weight": 3,
+              "category": "canonicalize",
+              "notes": "Locks in the formal capability term."
+            },
+            {
+              "agent": "gemini-targeted-alternatives",
+              "weight": 3,
+              "category": "canonicalize",
+              "notes": "Standardizes the escape route from on-policy causal confounding."
+            },
+            {
+              "agent": "gemini-targeted-alternatives",
+              "weight": 3,
+              "category": "canonicalize",
+              "notes": "The core mechanism bypassing the identifiability floor."
+            }
+          ]
+        },
+        {
+          "candidate": "Interventional loop property",
+          "is_keep": false,
+          "total_weight": 3,
+          "category_tally": {
+            "canonicalize": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "gemini-targeted-alternatives",
+              "weight": 3,
+              "category": "canonicalize",
+              "notes": "Solidifies the mechanism upgrading L1 to L2."
             }
           ]
         },
@@ -13597,6 +13781,23 @@
               "weight": 2,
               "category": "rename",
               "notes": "The current name describes the *result* (the loop provides interventional access). \"Loop as causal engine\" is the framing the README and segment Discussion both reach for, and it surfaces what makes this result distinctive — the agent-environment loop *generates* Pearl-Level-2 data by construction. The README explicitly names \"loop-as-Level-2-causal-engine\" as the framework's third headline result. Slug should match."
+            }
+          ]
+        },
+        {
+          "candidate": "Embodiment upgrade",
+          "is_keep": false,
+          "total_weight": 2,
+          "category_tally": {
+            "name-unnamed": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "gemini-3-1-pro-preview-r2",
+              "weight": 2,
+              "category": "name-unnamed",
+              "notes": "The theoretical justification for agentic-AI over mere chatbots."
             }
           ]
         },
@@ -13648,6 +13849,40 @@
               "weight": 1,
               "category": "rename",
               "notes": "\"Interventional\" is the load-bearing word — it's why the loop matters. Dropping it loses the reason the segment exists. Slight preference for retaining."
+            }
+          ]
+        },
+        {
+          "candidate": "Interventional character",
+          "is_keep": false,
+          "total_weight": 1,
+          "category_tally": {
+            "name-unnamed": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "sonnet-4-6",
+              "weight": 1,
+              "category": "name-unnamed",
+              "notes": "#loop-interventional-access makes this distinction at length: action-generated data has \"interventional character\" but is not the same as \"cleanly identified do-estimates.\" The concept is used twice in the Discussion and deserves a name that can be referenced. \"Interventional character\" or \"loop interventional character.\""
+            }
+          ]
+        },
+        {
+          "candidate": "The perpetual experiment",
+          "is_keep": false,
+          "total_weight": 1,
+          "category_tally": {
+            "canonicalize": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "audit-471203-incremental",
+              "weight": 1,
+              "category": "canonicalize",
+              "notes": "Brief-grade framing observation. The slug-grade name `der-loop-interventional-access` is fine; for *framing-level* material, \"the perpetual experiment\" (from the segment's own Discussion) is the most evocative — captures both the interventional character and the continuous nature. [from 35-38-section-ii-value-strategy-causal-loop.md]"
             }
           ]
         },
@@ -14331,7 +14566,9 @@
       "is_concept_cluster": false,
       "voted_by_architectures": [
         "Codex",
+        "Gemini",
         "Opus",
+        "Sonnet",
         "agent1"
       ],
       "category_disagreement": true,
@@ -14342,10 +14579,11 @@
         {
           "candidate": "Epistemic architecture",
           "is_keep": true,
-          "total_weight": 13,
+          "total_weight": 31,
           "category_tally": {
             "keep": 3,
-            "canonicalize": 2
+            "canonicalize": 7,
+            "name-unnamed": 1
           },
           "consolidated_rationale": null,
           "votes": [
@@ -14378,6 +14616,110 @@
               "weight": 2,
               "category": "canonicalize",
               "notes": "Confirmation with new reasoning — Sonnet proposed this at +2 (canonicalize as primary positioning over \"integration of four disciplines\"). Reading Sonnet's vote crystallized something I had touched on without committing to: the README still leads with integration framing while the audit cycle's convergent recommendation was \"epistemic architecture.\" Sonnet's case is sharper than mine. Lift my own +2 confirmation here so the aggregation reflects two-architecture convergence on the README repositioning."
+            },
+            {
+              "agent": "gemini-targeted-alternatives",
+              "weight": 3,
+              "category": "canonicalize",
+              "notes": "Fourth appearance: locks this in unconditionally."
+            },
+            {
+              "agent": "gemini-targeted-alternatives",
+              "weight": 3,
+              "category": "canonicalize",
+              "notes": "Unifies the structural pillars of the framework."
+            },
+            {
+              "agent": "gemini-targeted-alternatives",
+              "weight": 3,
+              "category": "canonicalize",
+              "notes": "Maps the framework components to the top-level epistemic term."
+            },
+            {
+              "agent": "gemini-targeted-alternatives",
+              "weight": 3,
+              "category": "canonicalize",
+              "notes": "Captures the macro-level framing correctly."
+            },
+            {
+              "agent": "opus-4-7",
+              "weight": 3,
+              "category": "name-unnamed",
+              "notes": "CLAUDE.md §7 now carries this as a load-bearing framing. Surface at segment-preamble level and keep the term consistent. Strong keep as a first-class project concept."
+            },
+            {
+              "agent": "gemini-targeted-alternatives",
+              "weight": 3,
+              "category": "canonicalize",
+              "notes": "Names the foundational setup."
+            }
+          ]
+        },
+        {
+          "candidate": "The meta segment triad",
+          "is_keep": false,
+          "total_weight": 2,
+          "category_tally": {
+            "name-unnamed": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "gemini-3-1-pro-preview-r2",
+              "weight": 2,
+              "category": "name-unnamed",
+              "notes": "Unifies the `identifiability-floor`, `separability-ladder`, and `coordinate-forcing` structure."
+            }
+          ]
+        },
+        {
+          "candidate": "AAD meta architecture",
+          "is_keep": false,
+          "total_weight": 2,
+          "category_tally": {
+            "name-unnamed": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "sonnet-4-6-r2",
+              "weight": 2,
+              "category": "name-unnamed",
+              "notes": "The trio of `#disc-additive-coordinate-forcing` / `#disc-identifiability-floor` / `#disc-separability-pattern` is referred to in multiple places as \"the three meta-segments\" or \"the cross-sectional structure.\" CLAUDE.md §\"Reading AAD\" paragraph names the three but has no single term for the grouping. \"AAD meta-architecture\" or \"the three-lens analysis\" would give the grouping a name usable in framing prose."
+            }
+          ]
+        },
+        {
+          "candidate": "Bounded correction architecture",
+          "is_keep": false,
+          "total_weight": 1,
+          "category_tally": {
+            "rename": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "codex-2",
+              "weight": 1,
+              "category": "rename",
+              "notes": "The long phrase has substance, but it needs a shorter speakable handle if it will recur."
+            }
+          ]
+        },
+        {
+          "candidate": "AAD epistemic triptych",
+          "is_keep": false,
+          "total_weight": -1,
+          "category_tally": {
+            "name-unnamed": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "sonnet-4-6",
+              "weight": -1,
+              "category": "name-unnamed",
+              "notes": "\"Triptych\" is too art-historical and too cute. The naming-principles document warns against cute names that age poorly."
             }
           ]
         }
@@ -16579,6 +16921,7 @@
       "is_concept_cluster": false,
       "voted_by_architectures": [
         "Codex",
+        "Gemini",
         "Opus",
         "Sonnet"
       ],
@@ -16590,9 +16933,10 @@
         {
           "candidate": "Comprehension time",
           "is_keep": true,
-          "total_weight": 10,
+          "total_weight": 13,
           "category_tally": {
-            "keep": 4
+            "keep": 4,
+            "canonicalize": 1
           },
           "consolidated_rationale": null,
           "votes": [
@@ -16619,6 +16963,29 @@
               "weight": 3,
               "category": "keep",
               "notes": "Clean, evocative. \"Comprehension\" is the right word for constructing a local model of code. Keep."
+            },
+            {
+              "agent": "gemini-targeted-alternatives",
+              "weight": 3,
+              "category": "canonicalize",
+              "notes": "Resolving the TST foundational cost."
+            }
+          ]
+        },
+        {
+          "candidate": "Comprehension drag",
+          "is_keep": false,
+          "total_weight": 1,
+          "category_tally": {
+            "name-unnamed": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "gemini-1",
+              "weight": 1,
+              "category": "name-unnamed",
+              "notes": "\"Comprehension drag\" gives a memorable name to the invisible cost of incomprehensible code."
             }
           ]
         }
@@ -16939,6 +17306,7 @@
       "is_concept_cluster": false,
       "voted_by_architectures": [
         "Codex",
+        "Gemini",
         "Haiku",
         "Opus",
         "Sonnet"
@@ -16951,10 +17319,11 @@
         {
           "candidate": "Strengthen first posture",
           "is_keep": true,
-          "total_weight": 10,
+          "total_weight": 16,
           "category_tally": {
             "keep": 2,
-            "canonicalize": 2
+            "canonicalize": 3,
+            "rename": 1
           },
           "consolidated_rationale": null,
           "votes": [
@@ -16981,15 +17350,28 @@
               "weight": 2,
               "category": "canonicalize",
               "notes": "CLAUDE.md uses \"strengthen before softening\" and \"strengthen-first posture\" and \"strengthen-first discipline\" interchangeably. Standardize on \"strengthen-first posture\" (two words, hyphenated)."
+            },
+            {
+              "agent": "codex-1",
+              "weight": 3,
+              "category": "rename",
+              "notes": "The mnemonic is in the first half. \"Then soften\" is still the policy, but it does not need to sit in the name."
+            },
+            {
+              "agent": "gemini-targeted-alternatives",
+              "weight": 3,
+              "category": "canonicalize",
+              "notes": "Methodological commitment to finding the strongest formal claim before relaxing assumptions."
             }
           ]
         },
         {
           "candidate": "Strengthen first",
           "is_keep": false,
-          "total_weight": 3,
+          "total_weight": 5,
           "category_tally": {
-            "rename": 1
+            "rename": 1,
+            "canonicalize": 1
           },
           "consolidated_rationale": null,
           "votes": [
@@ -16998,15 +17380,38 @@
               "weight": 3,
               "category": "rename",
               "notes": "Keep. Compact, verb-first, actionable. \"Strengthen-first\" is doing real work in the codebase (CLAUDE.md §Working Conventions) and has entered the project's working vocabulary. Do not retire."
+            },
+            {
+              "agent": "sonnet-4-6-r2",
+              "weight": 2,
+              "category": "canonicalize",
+              "notes": "CLAUDE.md uses both \"strengthen before softening\" (as a sentence-level instruction) and \"strengthen-first posture\" (as a concept name). The latter is more memorable and slug-friendly. Canonicalize \"strengthen-first\" as the compound that appears in document headings, MEMORY.md, and framing prose."
+            }
+          ]
+        },
+        {
+          "candidate": "Strengthen before softening",
+          "is_keep": true,
+          "total_weight": 3,
+          "category_tally": {
+            "keep": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "codex-2",
+              "weight": 3,
+              "category": "keep",
+              "notes": "Actionable, clear, and better than any more romantic alternative."
             }
           ]
         },
         {
           "candidate": "Attempt the improbable",
           "is_keep": false,
-          "total_weight": 0,
+          "total_weight": -1,
           "category_tally": {
-            "rename": 4
+            "rename": 5
           },
           "consolidated_rationale": null,
           "votes": [
@@ -17033,6 +17438,12 @@
               "weight": 3,
               "category": "rename",
               "notes": "Retiring \"strengthen-first posture\" in favor of \"attempt the improbable\" as the primary working-vocabulary term. \"Strengthen-first\" can remain as the mechanistic description; \"attempt the improbable\" is the spirit."
+            },
+            {
+              "agent": "codex-2",
+              "weight": -1,
+              "category": "rename",
+              "notes": "Memorable, but less directive and much less clear about the actual work posture."
             }
           ]
         }
@@ -17339,7 +17750,8 @@
       "voted_by_architectures": [
         "Codex",
         "Gemini",
-        "Opus"
+        "Opus",
+        "Sonnet"
       ],
       "category_disagreement": true,
       "first_encounter_locality": null,
@@ -17349,10 +17761,12 @@
         {
           "candidate": "Calibration laboratory",
           "is_keep": true,
-          "total_weight": 9,
+          "total_weight": 32,
           "category_tally": {
             "keep": 1,
-            "canonicalize": 2
+            "canonicalize": 8,
+            "add-alias": 1,
+            "rename": 2
           },
           "consolidated_rationale": null,
           "votes": [
@@ -17373,6 +17787,152 @@
               "weight": 3,
               "category": "canonicalize",
               "notes": "The phrase appears in TST OUTLINE preamble, CLAUDE.md, and README, but is paraphrased differently — \"richest operationalization domain,\" \"best operationalization domain,\" \"high-identifiability domain,\" \"privileged calibration laboratory.\" Canonicalize on \"calibration laboratory\" everywhere, with \"privileged high-identifiability\" as the modifier when full form is needed. The example in the principles file's example-votes section is exactly this."
+            },
+            {
+              "agent": "gemini-targeted-alternatives",
+              "weight": 3,
+              "category": "canonicalize",
+              "notes": "Keeps the grounding metaphor intact."
+            },
+            {
+              "agent": "gemini-targeted-alternatives",
+              "weight": 3,
+              "category": "canonicalize",
+              "notes": "Re-adopts the software-TST anchoring metaphor."
+            },
+            {
+              "agent": "opus-targeted-alternatives",
+              "weight": 2,
+              "category": "canonicalize",
+              "notes": "Same — the row name is a description of TST's framing of software. The concept is the calibration-laboratory framing per OUTLINE preamble. Canonicalize."
+            },
+            {
+              "agent": "sonnet-4-6",
+              "weight": 3,
+              "category": "add-alias",
+              "notes": "Excellent coinage. The specific phrase \"privileged high-identifiability calibration laboratory\" is slightly long for prose but \"calibration laboratory\" as a two-word noun is strong. Already in use. Keep."
+            },
+            {
+              "agent": "opus-4-7-b",
+              "weight": 1,
+              "category": "rename",
+              "notes": "Keep. \"Laboratory\" is the right metaphor (high-identifiability, clean instrumentation, lets you measure AAD quantities exactly). \"Framing\" can be dropped in prose when the context is clear."
+            },
+            {
+              "agent": "gemini-targeted-alternatives",
+              "weight": 3,
+              "category": "canonicalize",
+              "notes": "Consistently uses the full phrase instead of the abbreviation."
+            },
+            {
+              "agent": "opus-targeted-alternatives",
+              "weight": 2,
+              "category": "canonicalize",
+              "notes": "Doubled phrasing in the row is a paraphrase artifact. Canonicalize to the longer form for formal use; \"calibration lab\" can be informal short."
+            },
+            {
+              "agent": "sonnet-4-6-r2",
+              "weight": 3,
+              "category": "canonicalize",
+              "notes": "Currently appears as \"richest operationalization domain,\" \"best operationalization domain,\" \"privileged high-identifiability calibration laboratory,\" and \"calibration laboratory.\" The TST OUTLINE.md preamble and `obs-software-epistemic-properties` both use \"calibration laboratory\" as the correct framing, but earlier versions use the paraphrase forms. Standardize on \"calibration laboratory\" (full form) in first use; \"calibration lab\" acceptable in subsequent informal references."
+            },
+            {
+              "agent": "codex-2",
+              "weight": 3,
+              "category": "rename",
+              "notes": "The older framing is vague and comparative; the newer one explains the role instead of hand-waving it."
+            }
+          ]
+        },
+        {
+          "candidate": "Privileged calibration domain",
+          "is_keep": false,
+          "total_weight": 5,
+          "category_tally": {
+            "rename": 1,
+            "canonicalize": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "gemini-targeted-alternatives",
+              "weight": 2,
+              "category": "rename",
+              "notes": "\"Calibration domain\" is stronger and explicitly connects to the TST grounding."
+            },
+            {
+              "agent": "gemini-targeted-alternatives",
+              "weight": 3,
+              "category": "canonicalize",
+              "notes": "Maps exactly to the software TST property."
+            }
+          ]
+        },
+        {
+          "candidate": "Software calibration laboratory",
+          "is_keep": false,
+          "total_weight": 3,
+          "category_tally": {
+            "canonicalize": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "gemini-targeted-alternatives",
+              "weight": 3,
+              "category": "canonicalize",
+              "notes": "Fully qualifies software role."
+            }
+          ]
+        },
+        {
+          "candidate": "Calibration lab framing",
+          "is_keep": false,
+          "total_weight": 1,
+          "category_tally": {
+            "rename": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "codex-1",
+              "weight": 1,
+              "category": "rename",
+              "notes": "Better as framing language than as a formal category label. The idea is excellent; the phrase can be lighter."
+            }
+          ]
+        },
+        {
+          "candidate": "Epistemic laboratory framing",
+          "is_keep": false,
+          "total_weight": 1,
+          "category_tally": {
+            "rename": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "opus-targeted-alternatives",
+              "weight": 1,
+              "category": "rename",
+              "notes": "More descriptive of the role: software is where AAD's epistemic claims can be tested most cleanly because the chronica is observable and interventions are recorded. \"Epistemic\" makes the function explicit; \"laboratory\" carries the controlled-conditions sense. Weak alternative."
+            }
+          ]
+        },
+        {
+          "candidate": "High identifiability calibration lab",
+          "is_keep": false,
+          "total_weight": 1,
+          "category_tally": {
+            "rename": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "codex-1",
+              "weight": 1,
+              "category": "rename",
+              "notes": "Keeps the identification point while reducing adjective drag in repeated prose."
             }
           ]
         }
@@ -17994,6 +18554,7 @@
       "current_description": "Convention hierarchy C1 / C2 / C3",
       "is_concept_cluster": true,
       "voted_by_architectures": [
+        "Gemini",
         "Opus",
         "Sonnet",
         "agent1"
@@ -18006,10 +18567,11 @@
         {
           "candidate": "Convention hierarchy",
           "is_keep": false,
-          "total_weight": 9,
+          "total_weight": 15,
           "category_tally": {
             "rename": 2,
-            "canonicalize": 1
+            "canonicalize": 2,
+            "name-unnamed": 1
           },
           "consolidated_rationale": null,
           "votes": [
@@ -18030,6 +18592,18 @@
               "weight": 3,
               "category": "rename",
               "notes": "Keep — see Correlation Hierarchy note."
+            },
+            {
+              "agent": "gemini-targeted-alternatives",
+              "weight": 3,
+              "category": "canonicalize",
+              "notes": "Elevates it to a proper named object, tracking alongside correlation and causal hierarchies."
+            },
+            {
+              "agent": "opus-4-7",
+              "weight": 3,
+              "category": "name-unnamed",
+              "notes": "Same move — capitalize as proper noun, preserve as named object. The monotonicity result is load-bearing and the Hierarchy is what the result is about."
             }
           ]
         },
@@ -18120,7 +18694,7 @@
       ]
     },
     {
-      "current": "developer as act agent",
+      "current": "developer-as-act-agent",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -18250,9 +18824,10 @@
         {
           "candidate": "Effect spiral",
           "is_keep": true,
-          "total_weight": 9,
+          "total_weight": 12,
           "category_tally": {
-            "keep": 3
+            "keep": 3,
+            "canonicalize": 1
           },
           "consolidated_rationale": null,
           "votes": [
@@ -18273,15 +18848,22 @@
               "weight": 3,
               "category": "keep",
               "notes": "Per `#der-adversarial-destabilization` and `#deriv-strategic-composition`: positive-feedback breakdown where degraded model causes degraded actions causes further degradation. \"Spiral\" carries the *accelerating* feature (not a steady-state mismatch but a runaway), and \"effects\" specifies the locus (the agent's effects on its environment, not its inputs). Pairs well with the \"death spiral\" reference in `#result-persistence-condition`. Strong keep."
+            },
+            {
+              "agent": "gemini-3-1-pro-preview-r2",
+              "weight": 3,
+              "category": "canonicalize",
+              "notes": "A textbook positive-feedback Lyapunov instability in adversarial destabilization."
             }
           ]
         },
         {
           "candidate": "Runaway mismatch cascade",
           "is_keep": false,
-          "total_weight": 3,
+          "total_weight": 6,
           "category_tally": {
-            "add-alias": 1
+            "add-alias": 1,
+            "canonicalize": 1
           },
           "consolidated_rationale": null,
           "votes": [
@@ -18290,6 +18872,12 @@
               "weight": 3,
               "category": "add-alias",
               "notes": "Focuses on the mismatch acceleration ($\\Vert\\delta\\Vert \\uparrow$). Connects to \"cascade\" seen elsewhere (e.g. orient cascade)."
+            },
+            {
+              "agent": "gemini-targeted-alternatives",
+              "weight": 3,
+              "category": "canonicalize",
+              "notes": "Adopts the formal alias for the effects spiral."
             }
           ]
         },
@@ -18850,53 +19438,6 @@
       ]
     },
     {
-      "current": "persist condition",
-      "current_description": null,
-      "is_concept_cluster": false,
-      "voted_by_architectures": [
-        "Gemini",
-        "Opus",
-        "Sonnet"
-      ],
-      "category_disagreement": true,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "Persistence condition",
-          "is_keep": false,
-          "total_weight": 9,
-          "category_tally": {
-            "keep": 1,
-            "canonicalize": 1,
-            "rename": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "gemini-targeted-alternatives",
-              "weight": 3,
-              "category": "keep",
-              "notes": "Already the formally correct name."
-            },
-            {
-              "agent": "opus-targeted-alternatives",
-              "weight": 3,
-              "category": "canonicalize",
-              "notes": "Concur — \"persist condition\" appears nowhere as a chosen form. \"Persistence condition\" is established in `LEXICON.md` and `#result-persistence-condition`. The shorter form is a typo or paraphrase, not an alternative; canonicalize."
-            },
-            {
-              "agent": "sonnet-4-6",
-              "weight": 3,
-              "category": "rename",
-              "notes": "Wait — this IS the name already. Correct name. Keep."
-            }
-          ]
-        }
-      ]
-    },
-    {
       "current": "strategy DAG $\\Sigma_t$",
       "current_description": null,
       "is_concept_cluster": false,
@@ -19076,51 +19617,6 @@
               "weight": 3,
               "category": "keep",
               "notes": "Descriptive of the actual broadest scope boundary. Clear, memorable, accurate."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "current": "calibration laboratory calibration lab",
-      "current_description": null,
-      "is_concept_cluster": false,
-      "voted_by_architectures": [
-        "Gemini",
-        "Opus",
-        "Sonnet"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "Calibration laboratory",
-          "is_keep": false,
-          "total_weight": 8,
-          "category_tally": {
-            "canonicalize": 3
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "gemini-targeted-alternatives",
-              "weight": 3,
-              "category": "canonicalize",
-              "notes": "Consistently uses the full phrase instead of the abbreviation."
-            },
-            {
-              "agent": "opus-targeted-alternatives",
-              "weight": 2,
-              "category": "canonicalize",
-              "notes": "Doubled phrasing in the row is a paraphrase artifact. Canonicalize to the longer form for formal use; \"calibration lab\" can be informal short."
-            },
-            {
-              "agent": "sonnet-4-6-r2",
-              "weight": 3,
-              "category": "canonicalize",
-              "notes": "Currently appears as \"richest operationalization domain,\" \"best operationalization domain,\" \"privileged high-identifiability calibration laboratory,\" and \"calibration laboratory.\" The TST OUTLINE.md preamble and `obs-software-epistemic-properties` both use \"calibration laboratory\" as the correct framing, but earlier versions use the paraphrase forms. Standardize on \"calibration laboratory\" (full form) in first use; \"calibration lab\" acceptable in subsequent informal references."
             }
           ]
         }
@@ -20237,6 +20733,7 @@
       "current_description": "Correlation hierarchy L0 / L1 / L1' / L2",
       "is_concept_cluster": true,
       "voted_by_architectures": [
+        "Gemini",
         "Opus",
         "Sonnet",
         "agent1",
@@ -20250,10 +20747,11 @@
         {
           "candidate": "Correlation hierarchy",
           "is_keep": false,
-          "total_weight": 7,
+          "total_weight": 13,
           "category_tally": {
             "rename": 2,
-            "canonicalize": 1
+            "canonicalize": 2,
+            "name-unnamed": 1
           },
           "consolidated_rationale": null,
           "votes": [
@@ -20274,6 +20772,18 @@
               "weight": 3,
               "category": "rename",
               "notes": "The three-level naming (Correlation / Convention / Contraction) is coherent and each element starts with C. The parallelism aids recall. Keep."
+            },
+            {
+              "agent": "gemini-targeted-alternatives",
+              "weight": 3,
+              "category": "canonicalize",
+              "notes": "Also locks this in as a capitalized proper noun for the DAG modeling levels."
+            },
+            {
+              "agent": "opus-4-7",
+              "weight": 3,
+              "category": "name-unnamed",
+              "notes": "The name is already established capitalized-as-proper-noun in #strategy-dag. Explicit vote to preserve the capitalization and treat it like Pearl's Causal Hierarchy (a first-class named object)."
             }
           ]
         },
@@ -23708,10 +24218,11 @@
         {
           "candidate": "Inevitability core",
           "is_keep": true,
-          "total_weight": 6,
+          "total_weight": 11,
           "category_tally": {
-            "keep": 2,
-            "canonicalize": 1
+            "keep": 3,
+            "canonicalize": 1,
+            "name-unnamed": 1
           },
           "consolidated_rationale": null,
           "votes": [
@@ -23732,6 +24243,18 @@
               "weight": 2,
               "category": "keep",
               "notes": "Per FORMAT.md three-rings framing: ~15 segments where a Categorical-Inevitability claim is plausible. The phrase carries the *aspiration* (one form is structurally forced) without overclaiming (some segments may not actually reach inevitability). Sonnet r1 single-vote +3; my read confirms keep."
+            },
+            {
+              "agent": "gemini-targeted-alternatives",
+              "weight": 2,
+              "category": "keep",
+              "notes": "Describes the undeniable structural consequences."
+            },
+            {
+              "agent": "opus-4-7",
+              "weight": 3,
+              "category": "name-unnamed",
+              "notes": "FORMAT.md already uses this. Keep and surface in prose (\"this segment sits in the inevitability core\" is already idiomatic). Explicit canonicalization vote."
             }
           ]
         },
@@ -24407,45 +24930,6 @@
       ]
     },
     {
-      "current": "strengthen first then soften posture",
-      "current_description": "Strengthen-first-then-soften posture",
-      "is_concept_cluster": true,
-      "voted_by_architectures": [
-        "Codex",
-        "Gemini"
-      ],
-      "category_disagreement": true,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "Strengthen first posture",
-          "is_keep": false,
-          "total_weight": 6,
-          "category_tally": {
-            "rename": 1,
-            "canonicalize": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "codex-1",
-              "weight": 3,
-              "category": "rename",
-              "notes": "The mnemonic is in the first half. \"Then soften\" is still the policy, but it does not need to sit in the name."
-            },
-            {
-              "agent": "gemini-targeted-alternatives",
-              "weight": 3,
-              "category": "canonicalize",
-              "notes": "Methodological commitment to finding the strongest formal claim before relaxing assumptions."
-            }
-          ]
-        }
-      ]
-    },
-    {
       "current": "structural persistence",
       "current_description": null,
       "is_concept_cluster": false,
@@ -24683,7 +25167,7 @@
       ]
     },
     {
-      "current": "the three death",
+      "current": "the three deaths",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -25027,123 +25511,6 @@
       ]
     },
     {
-      "current": "unnamed the convention hierarchy c1 c2 c3",
-      "current_description": "The convention hierarchy C1 / C2 / C3",
-      "is_concept_cluster": true,
-      "voted_by_architectures": [
-        "Gemini",
-        "Opus"
-      ],
-      "category_disagreement": true,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "Convention hierarchy",
-          "is_keep": false,
-          "total_weight": 6,
-          "category_tally": {
-            "canonicalize": 1,
-            "name-unnamed": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "gemini-targeted-alternatives",
-              "weight": 3,
-              "category": "canonicalize",
-              "notes": "Elevates it to a proper named object, tracking alongside correlation and causal hierarchies."
-            },
-            {
-              "agent": "opus-4-7",
-              "weight": 3,
-              "category": "name-unnamed",
-              "notes": "Same move — capitalize as proper noun, preserve as named object. The monotonicity result is load-bearing and the Hierarchy is what the result is about."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "current": "unnamed the correlation hierarchy l0 l1 l1 l2",
-      "current_description": "The correlation hierarchy L0 / L1 / L1' / L2",
-      "is_concept_cluster": true,
-      "voted_by_architectures": [
-        "Gemini",
-        "Opus"
-      ],
-      "category_disagreement": true,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "Correlation hierarchy",
-          "is_keep": false,
-          "total_weight": 6,
-          "category_tally": {
-            "canonicalize": 1,
-            "name-unnamed": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "gemini-targeted-alternatives",
-              "weight": 3,
-              "category": "canonicalize",
-              "notes": "Also locks this in as a capitalized proper noun for the DAG modeling levels."
-            },
-            {
-              "agent": "opus-4-7",
-              "weight": 3,
-              "category": "name-unnamed",
-              "notes": "The name is already established capitalized-as-proper-noun in #strategy-dag. Explicit vote to preserve the capitalization and treat it like Pearl's Causal Hierarchy (a first-class named object)."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "current": "unnamed the epistemic architecture as AAD distinctive contribution frame",
-      "current_description": "The epistemic architecture as AAD's distinctive contribution frame",
-      "is_concept_cluster": true,
-      "voted_by_architectures": [
-        "Gemini",
-        "Opus"
-      ],
-      "category_disagreement": true,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "Epistemic architecture",
-          "is_keep": false,
-          "total_weight": 6,
-          "category_tally": {
-            "canonicalize": 1,
-            "name-unnamed": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "gemini-targeted-alternatives",
-              "weight": 3,
-              "category": "canonicalize",
-              "notes": "Captures the macro-level framing correctly."
-            },
-            {
-              "agent": "opus-4-7",
-              "weight": 3,
-              "category": "name-unnamed",
-              "notes": "CLAUDE.md §7 now carries this as a load-bearing framing. Surface at segment-preamble level and keep the term consistent. Strong keep as a first-class project concept."
-            }
-          ]
-        }
-      ]
-    },
-    {
       "current": "unnamed the evidence starvation effect on downstream edge",
       "current_description": "The evidence starvation effect on downstream edges",
       "is_concept_cluster": true,
@@ -25216,43 +25583,6 @@
               "weight": 3,
               "category": "name-unnamed",
               "notes": "This concept has a name in CLAUDE.md: \"stability-induced myopia patterns (Christensen / Levitt-March / Hannan-Freeman / March / Eldredge-Gould).\" The #detection-latency segment provides the AAD mechanism for it. But \"stability-induced myopia\" does not yet appear as a named concept in any segment — it's only in CLAUDE.md and the cycle history. Promoting this to a LEXICON entry or a named concept in #detection-latency's Discussion would let subsequent agents say \"stability-induced myopia\" without citing the management literature directly. High value."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "current": "unnamed the strictly ordered cascade of operation from epistemology to objective",
-      "current_description": "The strictly ordered cascade of operations from epistemology to objective",
-      "is_concept_cluster": true,
-      "voted_by_architectures": [
-        "Gemini"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "Orient cascade",
-          "is_keep": false,
-          "total_weight": 6,
-          "category_tally": {
-            "canonicalize": 2
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "gemini-3-1-pro-preview-r2",
-              "weight": 3,
-              "category": "canonicalize",
-              "notes": "Canonicalize this over \"diagnostic cascade\" or \"resolution order\"."
-            },
-            {
-              "agent": "gemini-targeted-alternatives",
-              "weight": 3,
-              "category": "canonicalize",
-              "notes": "Standardizes the internal processing order."
             }
           ]
         }
@@ -26334,80 +26664,6 @@
       ]
     },
     {
-      "current": "calibration laboratory software role",
-      "current_description": null,
-      "is_concept_cluster": false,
-      "voted_by_architectures": [
-        "Gemini",
-        "Opus",
-        "Sonnet"
-      ],
-      "category_disagreement": true,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "Calibration laboratory",
-          "is_keep": false,
-          "total_weight": 5,
-          "category_tally": {
-            "canonicalize": 1,
-            "add-alias": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "opus-targeted-alternatives",
-              "weight": 2,
-              "category": "canonicalize",
-              "notes": "Same — the row name is a description of TST's framing of software. The concept is the calibration-laboratory framing per OUTLINE preamble. Canonicalize."
-            },
-            {
-              "agent": "sonnet-4-6",
-              "weight": 3,
-              "category": "add-alias",
-              "notes": "Excellent coinage. The specific phrase \"privileged high-identifiability calibration laboratory\" is slightly long for prose but \"calibration laboratory\" as a two-word noun is strong. Already in use. Keep."
-            }
-          ]
-        },
-        {
-          "candidate": "Software calibration laboratory",
-          "is_keep": false,
-          "total_weight": 3,
-          "category_tally": {
-            "canonicalize": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "gemini-targeted-alternatives",
-              "weight": 3,
-              "category": "canonicalize",
-              "notes": "Fully qualifies software role."
-            }
-          ]
-        },
-        {
-          "candidate": "Epistemic laboratory framing",
-          "is_keep": false,
-          "total_weight": 1,
-          "category_tally": {
-            "rename": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "opus-targeted-alternatives",
-              "weight": 1,
-              "category": "rename",
-              "notes": "More descriptive of the role: software is where AAD's epistemic claims can be tested most cleanly because the chronica is observable and interventions are recorded. \"Epistemic\" makes the function explicit; \"laboratory\" carries the controlled-conditions sense. Weak alternative."
-            }
-          ]
-        }
-      ]
-    },
-    {
       "current": "canonical formulation second ring",
       "current_description": null,
       "is_concept_cluster": false,
@@ -26519,7 +26775,7 @@
       ]
     },
     {
-      "current": "class 1",
+      "current": "Class 1",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -26575,7 +26831,7 @@
       ]
     },
     {
-      "current": "class 2",
+      "current": "Class 2",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -26648,7 +26904,7 @@
       ]
     },
     {
-      "current": "class 3",
+      "current": "Class 3",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -28965,45 +29221,6 @@
               "weight": 3,
               "category": "keep",
               "notes": "Preserves the necessary hyphenation."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "current": "unnamed inevitability core",
-      "current_description": "Inevitability core",
-      "is_concept_cluster": true,
-      "voted_by_architectures": [
-        "Gemini",
-        "Opus"
-      ],
-      "category_disagreement": true,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "Inevitability core",
-          "is_keep": false,
-          "total_weight": 5,
-          "category_tally": {
-            "keep": 1,
-            "name-unnamed": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "gemini-targeted-alternatives",
-              "weight": 2,
-              "category": "keep",
-              "notes": "Describes the undeniable structural consequences."
-            },
-            {
-              "agent": "opus-4-7",
-              "weight": 3,
-              "category": "name-unnamed",
-              "notes": "FORMAT.md already uses this. Keep and surface in prose (\"this segment sits in the inevitability core\" is already idiomatic). Explicit canonicalization vote."
             }
           ]
         }
@@ -32514,7 +32731,7 @@
       ]
     },
     {
-      "current": "OODA Boyd",
+      "current": "OODA (Boyd's loop)",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -33019,7 +33236,7 @@
       ]
     },
     {
-      "current": "appendice detail",
+      "current": "appendices: detail",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -33275,7 +33492,7 @@
       ]
     },
     {
-      "current": "c i",
+      "current": "C-I (composition route)",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -33355,7 +33572,7 @@
       ]
     },
     {
-      "current": "c iii",
+      "current": "C-III (composition route)",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -33404,7 +33621,7 @@
       ]
     },
     {
-      "current": "c iv",
+      "current": "C-IV (composition route)",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -33429,55 +33646,6 @@
               "weight": 3,
               "category": "add-alias",
               "notes": "Better than saying equilibrium route only, because convergence is the scope condition."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "current": "calibration laboratory domain instantiation",
-      "current_description": null,
-      "is_concept_cluster": false,
-      "voted_by_architectures": [
-        "Codex",
-        "Gemini"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "Calibration laboratory",
-          "is_keep": false,
-          "total_weight": 3,
-          "category_tally": {
-            "canonicalize": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "gemini-targeted-alternatives",
-              "weight": 3,
-              "category": "canonicalize",
-              "notes": "Keeps the grounding metaphor intact."
-            }
-          ]
-        },
-        {
-          "candidate": "Calibration lab framing",
-          "is_keep": false,
-          "total_weight": 1,
-          "category_tally": {
-            "rename": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "codex-1",
-              "weight": 1,
-              "category": "rename",
-              "notes": "Better as framing language than as a formal category label. The idea is excellent; the phrase can be lighter."
             }
           ]
         }
@@ -33679,7 +33847,7 @@
       ]
     },
     {
-      "current": "class 1 agent",
+      "current": "Class 1 agent",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -33715,7 +33883,8 @@
       "is_concept_cluster": true,
       "voted_by_architectures": [
         "Codex",
-        "Gemini"
+        "Gemini",
+        "Opus"
       ],
       "category_disagreement": false,
       "first_encounter_locality": null,
@@ -33772,6 +33941,40 @@
               "notes": "Classes are precisely modular, partially modular, and merged."
             }
           ]
+        },
+        {
+          "candidate": "Architectural partition",
+          "is_keep": false,
+          "total_weight": 1,
+          "category_tally": {
+            "name-unnamed": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "opus-4-7-b",
+              "weight": 1,
+              "category": "name-unnamed",
+              "notes": "Symbols stay (Class 1/2/3); prose gets \"the architectural partition\" as a collective handle. Avoids \"architecture hierarchy\" (hierarchy overload) while naming the three-way structure."
+            }
+          ]
+        },
+        {
+          "candidate": "Proposal assign english modifier",
+          "is_keep": false,
+          "total_weight": 1,
+          "category_tally": {
+            "name-unnamed": 1
+          },
+          "consolidated_rationale": null,
+          "votes": [
+            {
+              "agent": "opus-4-7-b",
+              "weight": 1,
+              "category": "name-unnamed",
+              "notes": "Class-numbered labels work but lack mnemonic grip. Proposal: retain \"Class 1 / 2 / 3\" as the primary labels but assign canonical one-word modifiers — **modular** (Class 1), **merged** (Class 2), **partial** (Class 3) — that are already used descriptively. Adopt them as the *canonical* prose forms: \"modular agents\" / \"merged agents\" / \"partially-modular agents\" or \"partial-mix agents.\" Class 2 especially benefits: \"fully merged\" currently appears; normalize to just \"merged.\""
+            }
+          ]
         }
       ]
     },
@@ -33825,7 +34028,7 @@
       ]
     },
     {
-      "current": "class 2 agent",
+      "current": "Class 2 agent",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -33856,7 +34059,7 @@
       ]
     },
     {
-      "current": "class 3 agent",
+      "current": "Class 3 agent",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -34910,7 +35113,7 @@
       ]
     },
     {
-      "current": "crèche creche",
+      "current": "\"crèche\" / \"creche\" (diacritic vs slug)",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -35008,7 +35211,7 @@
       ]
     },
     {
-      "current": "developer as act agent TST",
+      "current": "developer-as-act-agent (TST slug)",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -35335,56 +35538,7 @@
       ]
     },
     {
-      "current": "epistemic architecture for bounded correction under decomposed disturbance",
-      "current_description": "Epistemic architecture for bounded correction under decomposed disturbance",
-      "is_concept_cluster": true,
-      "voted_by_architectures": [
-        "Codex",
-        "Gemini"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "Epistemic architecture",
-          "is_keep": false,
-          "total_weight": 3,
-          "category_tally": {
-            "canonicalize": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "gemini-targeted-alternatives",
-              "weight": 3,
-              "category": "canonicalize",
-              "notes": "Names the foundational setup."
-            }
-          ]
-        },
-        {
-          "candidate": "Bounded correction architecture",
-          "is_keep": false,
-          "total_weight": 1,
-          "category_tally": {
-            "rename": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "codex-2",
-              "weight": 1,
-              "category": "rename",
-              "notes": "The long phrase has substance, but it needs a shorter speakable handle if it will recur."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "current": "exact robust qualitative heuristic conditional claim tier",
+      "current": "exact / robust-qualitative / heuristic / conditional (claim tier)",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -35520,7 +35674,7 @@
       ]
     },
     {
-      "current": "formulation definition result etc segment type",
+      "current": "formulation / definition / result / ... (segment types)",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -35871,7 +36025,7 @@
       "candidates": []
     },
     {
-      "current": "Hafez h b",
+      "current": "Hafez $H_b$",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -35963,72 +36117,6 @@
               "weight": 3,
               "category": "keep",
               "notes": "The section name is accurate and positions Section I correctly. \"Under Uncertainty\" is load-bearing — it distinguishes adaptive systems from optimal-control-over-known-dynamics, which is explicitly out of scope. Keep."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "current": "identifiability floor family",
-      "current_description": null,
-      "is_concept_cluster": false,
-      "voted_by_architectures": [
-        "Codex",
-        "Gemini"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "Identifiability floor",
-          "is_keep": false,
-          "total_weight": 3,
-          "category_tally": {
-            "canonicalize": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "codex-gpt-5-r2",
-              "weight": 3,
-              "category": "canonicalize",
-              "notes": "Keep floor as the family noun."
-            }
-          ]
-        },
-        {
-          "candidate": "Epistemic lower bound",
-          "is_keep": false,
-          "total_weight": 3,
-          "category_tally": {
-            "rename": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "gemini-targeted-alternatives",
-              "weight": 3,
-              "category": "rename",
-              "notes": "Describes exactly what these are: hard limits on what can be inferred."
-            }
-          ]
-        },
-        {
-          "candidate": "Observational limit",
-          "is_keep": false,
-          "total_weight": 2,
-          "category_tally": {
-            "rename": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "gemini-targeted-alternatives",
-              "weight": 2,
-              "category": "rename",
-              "notes": "A slightly more intuitive phrasing for non-theoreticians."
             }
           ]
         }
@@ -36320,7 +36408,7 @@
       ]
     },
     {
-      "current": "l1 prime",
+      "current": "L1' (prime decoration)",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -36507,55 +36595,6 @@
               "weight": 2,
               "category": "rename",
               "notes": "Describes the non-Euclidean extension of sector conditions."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "current": "loop is level 2 engine der loop interventional access",
-      "current_description": "Loop is a level-2 engine (#der-loop-interventional-access)",
-      "is_concept_cluster": true,
-      "voted_by_architectures": [
-        "Gemini",
-        "audit"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "Interventional loop property",
-          "is_keep": false,
-          "total_weight": 3,
-          "category_tally": {
-            "canonicalize": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "gemini-targeted-alternatives",
-              "weight": 3,
-              "category": "canonicalize",
-              "notes": "Solidifies the mechanism upgrading L1 to L2."
-            }
-          ]
-        },
-        {
-          "candidate": "The perpetual experiment",
-          "is_keep": false,
-          "total_weight": 1,
-          "category_tally": {
-            "canonicalize": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "audit-471203-incremental",
-              "weight": 1,
-              "category": "canonicalize",
-              "notes": "Brief-grade framing observation. The slug-grade name `der-loop-interventional-access` is fine; for *framing-level* material, \"the perpetual experiment\" (from the segment's own Discussion) is the most evocative — captures both the interventional character and the continuous nature. [from 35-38-section-ii-value-strategy-causal-loop.md]"
             }
           ]
         }
@@ -37271,11 +37310,12 @@
       ]
     },
     {
-      "current": "persistence overloaded",
+      "current": "persistence structural operational continuity",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
         "Gemini",
+        "agent1",
         "audit"
       ],
       "category_disagreement": false,
@@ -37286,12 +37326,18 @@
         {
           "candidate": "Persistence taxonomy",
           "is_keep": false,
-          "total_weight": 3,
+          "total_weight": 6,
           "category_tally": {
-            "canonicalize": 1
+            "canonicalize": 2
           },
           "consolidated_rationale": null,
           "votes": [
+            {
+              "agent": "gemini-targeted-alternatives",
+              "weight": 3,
+              "category": "canonicalize",
+              "notes": "Asserts the three-part classification of persistence."
+            },
             {
               "agent": "gemini-targeted-alternatives",
               "weight": 3,
@@ -37365,38 +37411,6 @@
               "weight": 2,
               "category": "name-unnamed",
               "notes": "The four-way taxonomy is partially in LEXICON / FORMAT discipline but not surfaced visibly in framing-level material. Auditor: \"Worth surfacing the four-way taxonomy more visibly in the README's Overview.\" Most agent-theoretic frameworks have one sense of \"persists\"; AAD's separation prevents a class of category errors. [from 26-29-section-i-persistence-machinery.md] [one of 4 alternatives proposed in the original audit row]"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "current": "persistence structural operational continuity",
-      "current_description": null,
-      "is_concept_cluster": false,
-      "voted_by_architectures": [
-        "Gemini",
-        "agent1"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "Persistence taxonomy",
-          "is_keep": false,
-          "total_weight": 3,
-          "category_tally": {
-            "canonicalize": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "gemini-targeted-alternatives",
-              "weight": 3,
-              "category": "canonicalize",
-              "notes": "Asserts the three-part classification of persistence."
             }
           ]
         }
@@ -37597,55 +37611,6 @@
       ]
     },
     {
-      "current": "privileged high identifiability calibration laboratory",
-      "current_description": "Privileged high-identifiability calibration laboratory",
-      "is_concept_cluster": true,
-      "voted_by_architectures": [
-        "Codex",
-        "Gemini"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "Privileged calibration domain",
-          "is_keep": false,
-          "total_weight": 3,
-          "category_tally": {
-            "canonicalize": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "gemini-targeted-alternatives",
-              "weight": 3,
-              "category": "canonicalize",
-              "notes": "Maps exactly to the software TST property."
-            }
-          ]
-        },
-        {
-          "candidate": "High identifiability calibration lab",
-          "is_keep": false,
-          "total_weight": 1,
-          "category_tally": {
-            "rename": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "codex-1",
-              "weight": 1,
-              "category": "rename",
-              "notes": "Keeps the identification point while reducing adjective drag in repeated prose."
-            }
-          ]
-        }
-      ]
-    },
-    {
       "current": "\"purpose\" / \"purposeful\"",
       "current_description": null,
       "is_concept_cluster": false,
@@ -37738,55 +37703,6 @@
               "weight": 2,
               "category": "rename",
               "notes": "Explicitly names the set of regimes classifying interaction channel failures."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "current": "richest operationalization domain",
-      "current_description": null,
-      "is_concept_cluster": false,
-      "voted_by_architectures": [
-        "Codex",
-        "Gemini"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "Calibration laboratory",
-          "is_keep": false,
-          "total_weight": 3,
-          "category_tally": {
-            "rename": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "codex-2",
-              "weight": 3,
-              "category": "rename",
-              "notes": "The older framing is vague and comparative; the newer one explains the role instead of hand-waving it."
-            }
-          ]
-        },
-        {
-          "candidate": "Privileged calibration domain",
-          "is_keep": false,
-          "total_weight": 2,
-          "category_tally": {
-            "rename": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "gemini-targeted-alternatives",
-              "weight": 2,
-              "category": "rename",
-              "notes": "\"Calibration domain\" is stronger and explicitly connects to the TST grounding."
             }
           ]
         }
@@ -38272,72 +38188,6 @@
               "weight": 1,
               "category": "rename",
               "notes": "Fallback alternative; accurate and self-announcing, but less tied to the segment's actual formal move (equilibrium convergence) than `#equilibrium-composition`. Acceptable if that name is rejected."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "current": "strengthen before softening",
-      "current_description": null,
-      "is_concept_cluster": false,
-      "voted_by_architectures": [
-        "Codex",
-        "Sonnet"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "Strengthen before softening",
-          "is_keep": true,
-          "total_weight": 3,
-          "category_tally": {
-            "keep": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "codex-2",
-              "weight": 3,
-              "category": "keep",
-              "notes": "Actionable, clear, and better than any more romantic alternative."
-            }
-          ]
-        },
-        {
-          "candidate": "Strengthen first",
-          "is_keep": false,
-          "total_weight": 2,
-          "category_tally": {
-            "canonicalize": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "sonnet-4-6-r2",
-              "weight": 2,
-              "category": "canonicalize",
-              "notes": "CLAUDE.md uses both \"strengthen before softening\" (as a sentence-level instruction) and \"strengthen-first posture\" (as a concept name). The latter is more memorable and slug-friendly. Canonicalize \"strengthen-first\" as the compound that appears in document headings, MEMORY.md, and framing prose."
-            }
-          ]
-        },
-        {
-          "candidate": "Attempt the improbable",
-          "is_keep": false,
-          "total_weight": -1,
-          "category_tally": {
-            "rename": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "codex-2",
-              "weight": -1,
-              "category": "rename",
-              "notes": "Memorable, but less directive and much less clear about the actual work posture."
             }
           ]
         }
@@ -38931,7 +38781,7 @@
       ]
     },
     {
-      "current": "temporal software theory TST",
+      "current": "Temporal Software Theory (TST)",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -39734,37 +39584,6 @@
       ]
     },
     {
-      "current": "unnamed calibration laboratory framing as reusable meta move",
-      "current_description": "Calibration-laboratory framing as reusable meta-move",
-      "is_concept_cluster": true,
-      "voted_by_architectures": [
-        "Gemini"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "Calibration laboratory",
-          "is_keep": false,
-          "total_weight": 3,
-          "category_tally": {
-            "canonicalize": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "gemini-targeted-alternatives",
-              "weight": 3,
-              "category": "canonicalize",
-              "notes": "Re-adopts the software-TST anchoring metaphor."
-            }
-          ]
-        }
-      ]
-    },
-    {
       "current": "unnamed convention hierarchy monotonicity cascade satisfaction gap and control regret strengthening across c1→c3",
       "current_description": "Convention-hierarchy monotonicity cascade: satisfaction gap and control regret strengthening across C1 → C3",
       "is_concept_cluster": true,
@@ -40164,55 +39983,6 @@
       ]
     },
     {
-      "current": "unnamed pearl causal hierarchy level 1 level 2 level 3",
-      "current_description": "Pearl causal hierarchy level 1 / level 2 / level 3",
-      "is_concept_cluster": true,
-      "voted_by_architectures": [
-        "Gemini",
-        "Opus"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "Pearl causal hierarchy",
-          "is_keep": false,
-          "total_weight": 3,
-          "category_tally": {
-            "name-unnamed": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "opus-4-7",
-              "weight": 3,
-              "category": "name-unnamed",
-              "notes": "Named by original author. Keep proper-noun form."
-            }
-          ]
-        },
-        {
-          "candidate": "Causal hierarchy level",
-          "is_keep": false,
-          "total_weight": 3,
-          "category_tally": {
-            "canonicalize": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "gemini-targeted-alternatives",
-              "weight": 3,
-              "category": "canonicalize",
-              "notes": "Standardizing Pearl's nomenclature within AAD."
-            }
-          ]
-        }
-      ]
-    },
-    {
       "current": "unnamed property of having genuine temporal experience",
       "current_description": "Property of having genuine temporal experience",
       "is_concept_cluster": true,
@@ -40501,54 +40271,6 @@
       ]
     },
     {
-      "current": "unnamed runaway positive feedback loop where mismatch exceed capacity",
-      "current_description": "Runaway positive feedback loop where mismatch exceeds capacity",
-      "is_concept_cluster": true,
-      "voted_by_architectures": [
-        "Gemini"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "Runaway mismatch cascade",
-          "is_keep": false,
-          "total_weight": 3,
-          "category_tally": {
-            "canonicalize": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "gemini-targeted-alternatives",
-              "weight": 3,
-              "category": "canonicalize",
-              "notes": "Adopts the formal alias for the effects spiral."
-            }
-          ]
-        },
-        {
-          "candidate": "Effect spiral",
-          "is_keep": false,
-          "total_weight": 3,
-          "category_tally": {
-            "canonicalize": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "gemini-3-1-pro-preview-r2",
-              "weight": 3,
-              "category": "canonicalize",
-              "notes": "A textbook positive-feedback Lyapunov instability in adversarial destabilization."
-            }
-          ]
-        }
-      ]
-    },
-    {
       "current": "unnamed spreading tempo evenly to reduce bottleneck penalty",
       "current_description": "Spreading tempo evenly to reduce bottleneck penalty",
       "is_concept_cluster": true,
@@ -40755,59 +40477,14 @@
       ]
     },
     {
-      "current": "unnamed the $\\mathcal{T} > \\rho$ requirement for persistence",
-      "current_description": "The $\\mathcal{T} > \\rho$ requirement for persistence",
+      "current": "unnamed the 2×2 table of satisfaction gap vs control regret × goal attainability diagnostic",
+      "current_description": "The 2×2 table of satisfaction gap vs control regret × goal attainability diagnostic",
       "is_concept_cluster": true,
       "voted_by_architectures": [
-        "Gemini"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "Persistence condition",
-          "is_keep": false,
-          "total_weight": 3,
-          "category_tally": {
-            "canonicalize": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "gemini-targeted-alternatives",
-              "weight": 3,
-              "category": "canonicalize",
-              "notes": "Standardizes the core inequality."
-            }
-          ]
-        },
-        {
-          "candidate": "The survival equation",
-          "is_keep": false,
-          "total_weight": 3,
-          "category_tally": {
-            "name-unnamed": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "gemini-3-1-pro-preview-r2",
-              "weight": 3,
-              "category": "name-unnamed",
-              "notes": "The simplest possible elevator pitch for Adaptation Dynamics."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "current": "unnamed the 2×2 orient cascade diagnostic table",
-      "current_description": "The 2×2 orient cascade diagnostic table",
-      "is_concept_cluster": true,
-      "voted_by_architectures": [
+        "Codex",
         "Gemini",
+        "Haiku",
+        "Opus",
         "Sonnet"
       ],
       "category_disagreement": false,
@@ -40818,9 +40495,10 @@
         {
           "candidate": "Diagnostic gap matrix",
           "is_keep": false,
-          "total_weight": 3,
+          "total_weight": 9,
           "category_tally": {
-            "canonicalize": 1
+            "canonicalize": 2,
+            "rename": 1
           },
           "consolidated_rationale": null,
           "votes": [
@@ -40828,7 +40506,19 @@
               "agent": "gemini-targeted-alternatives",
               "weight": 3,
               "category": "canonicalize",
+              "notes": "Reinforces the name for the core performance diagnostic."
+            },
+            {
+              "agent": "gemini-targeted-alternatives",
+              "weight": 3,
+              "category": "canonicalize",
               "notes": "Locks in the diagnostic table name."
+            },
+            {
+              "agent": "gemini-targeted-alternatives",
+              "weight": 3,
+              "category": "rename",
+              "notes": "Provides a formal name for the 2x2 performance/strategy diagnostic."
             }
           ]
         },
@@ -40848,38 +40538,6 @@
               "notes": "The four cells of ($\\delta_{\\text{sat}}$, $\\delta_{\\text{regret}}$) are consistently referenced in `der-orient-cascade` as \"the 2×2 diagnostic\" or \"the four cases.\" These deserve a named handle. \"Cascade diagnostic\" is the most natural single-noun form. Weak preference — \"2×2 diagnostic\" is already near-canonical in the prose."
             }
           ]
-        }
-      ]
-    },
-    {
-      "current": "unnamed the 2×2 satisfaction gap control regret table",
-      "current_description": "The 2×2 satisfaction-gap × control-regret table",
-      "is_concept_cluster": true,
-      "voted_by_architectures": [
-        "Codex",
-        "Gemini"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "Diagnostic gap matrix",
-          "is_keep": false,
-          "total_weight": 3,
-          "category_tally": {
-            "rename": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "gemini-targeted-alternatives",
-              "weight": 3,
-              "category": "rename",
-              "notes": "Provides a formal name for the 2x2 performance/strategy diagnostic."
-            }
-          ]
         },
         {
           "candidate": "Diagnostic square",
@@ -40897,36 +40555,21 @@
               "notes": "The table is used often enough to deserve a compact public name."
             }
           ]
-        }
-      ]
-    },
-    {
-      "current": "unnamed the 2×2 table of satisfaction gap vs control regret × goal attainability diagnostic",
-      "current_description": "The 2×2 table of satisfaction gap vs control regret × goal attainability diagnostic",
-      "is_concept_cluster": true,
-      "voted_by_architectures": [
-        "Gemini",
-        "Haiku"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
+        },
         {
-          "candidate": "Diagnostic gap matrix",
+          "candidate": "The 2×2 diagnostic",
           "is_keep": false,
-          "total_weight": 3,
+          "total_weight": 1,
           "category_tally": {
-            "canonicalize": 1
+            "name-unnamed": 1
           },
           "consolidated_rationale": null,
           "votes": [
             {
-              "agent": "gemini-targeted-alternatives",
-              "weight": 3,
-              "category": "canonicalize",
-              "notes": "Reinforces the name for the core performance diagnostic."
+              "agent": "opus-4-7",
+              "weight": 1,
+              "category": "name-unnamed",
+              "notes": "Used ubiquitously in prose. Worth canonicalizing as a named object so that \"see the 2×2 diagnostic\" reads naturally."
             }
           ]
         },
@@ -41320,55 +40963,6 @@
       ]
     },
     {
-      "current": "unnamed the condition that the agent event observation pair constitute genuine intervention as opposed to passive association",
-      "current_description": "The condition that the (agent event, observation) pair constitutes genuine intervention as opposed to passive association",
-      "is_concept_cluster": true,
-      "voted_by_architectures": [
-        "Gemini",
-        "Sonnet"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "Loop interventional access",
-          "is_keep": false,
-          "total_weight": 3,
-          "category_tally": {
-            "canonicalize": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "gemini-targeted-alternatives",
-              "weight": 3,
-              "category": "canonicalize",
-              "notes": "Locks in the formal capability term."
-            }
-          ]
-        },
-        {
-          "candidate": "Interventional character",
-          "is_keep": false,
-          "total_weight": 1,
-          "category_tally": {
-            "name-unnamed": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "sonnet-4-6",
-              "weight": 1,
-              "category": "name-unnamed",
-              "notes": "#loop-interventional-access makes this distinction at length: action-generated data has \"interventional character\" but is not the same as \"cleanly identified do-estimates.\" The concept is used twice in the Discussion and deserves a name that can be referenced. \"Interventional character\" or \"loop interventional character.\""
-            }
-          ]
-        }
-      ]
-    },
-    {
       "current": "unnamed the core driver of AAD what the agent must do given the environment is not the agent",
       "current_description": "The core driver of AAD what the agent must do given that the environment is *not* the agent",
       "is_concept_cluster": true,
@@ -41442,38 +41036,6 @@
               "weight": 3,
               "category": "canonicalize",
               "notes": "Standardizes the coupling of $M_t$ compression to $\\Sigma_t$."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "current": "unnamed the dual concept to satisfaction gap what the world permit minus what the agent achieve",
-      "current_description": "The dual concept to satisfaction gap what the world permits minus what the agent achieves",
-      "is_concept_cluster": true,
-      "voted_by_architectures": [
-        "Gemini",
-        "Haiku"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "Control regret",
-          "is_keep": false,
-          "total_weight": 3,
-          "category_tally": {
-            "canonicalize": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "gemini-targeted-alternatives",
-              "weight": 3,
-              "category": "canonicalize",
-              "notes": "Adopts the standard diagnostic dual to the satisfaction gap."
             }
           ]
         }
@@ -41577,55 +41139,6 @@
       ]
     },
     {
-      "current": "unnamed the family of named ways persistence identifiability can fail",
-      "current_description": "The family of named ways persistence-identifiability can fail",
-      "is_concept_cluster": true,
-      "voted_by_architectures": [
-        "Gemini",
-        "Opus"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "Identifiability floor",
-          "is_keep": false,
-          "total_weight": 3,
-          "category_tally": {
-            "canonicalize": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "gemini-targeted-alternatives",
-              "weight": 3,
-              "category": "canonicalize",
-              "notes": "Elevates the core limitation meta-pattern."
-            }
-          ]
-        },
-        {
-          "candidate": "Persistence pathology",
-          "is_keep": false,
-          "total_weight": 3,
-          "category_tally": {
-            "name-unnamed": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "opus-4-7-r2",
-              "weight": 3,
-              "category": "name-unnamed",
-              "notes": "New alternative — none of the four peers reached for a family name. We collectively coined \"evidence starvation\" (Sonnet/Codex), \"epistemic shadow\" / \"epistemic decoupling\" / \"gain collapse\" / \"sufficiency shattering\" (Gemini), \"observability dead zone\" (Haiku), but no one names *the family*. \"Persistence pathologies\" gives downstream meta-segments a single phrase to invoke (\"this is a persistence pathology of the gain-collapse type\") and parallels \"approximation tiering\" and \"separability ladder\" as named cross-segment patterns. Highest-value because the slot is empty and it lets the failure-mode names compose."
-            }
-          ]
-        }
-      ]
-    },
-    {
       "current": "unnamed the formal duality between observation quality and agent opacity",
       "current_description": "The formal duality between observation quality and agent opacity",
       "is_concept_cluster": true,
@@ -41651,54 +41164,6 @@
               "weight": 3,
               "category": "canonicalize",
               "notes": "Elevates the formal symmetry between observation ambiguity and agent legibility."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "current": "unnamed the invisible time spent building $M_t$",
-      "current_description": "The invisible time spent building $M_t$",
-      "is_concept_cluster": true,
-      "voted_by_architectures": [
-        "Gemini"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "Comprehension time",
-          "is_keep": false,
-          "total_weight": 3,
-          "category_tally": {
-            "canonicalize": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "gemini-targeted-alternatives",
-              "weight": 3,
-              "category": "canonicalize",
-              "notes": "Resolving the TST foundational cost."
-            }
-          ]
-        },
-        {
-          "candidate": "Comprehension drag",
-          "is_keep": false,
-          "total_weight": 1,
-          "category_tally": {
-            "name-unnamed": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "gemini-1",
-              "weight": 1,
-              "category": "name-unnamed",
-              "notes": "\"Comprehension drag\" gives a memorable name to the invisible cost of incomprehensible code."
             }
           ]
         }
@@ -41947,37 +41412,6 @@
       ]
     },
     {
-      "current": "unnamed the mechanism by which an agent uses the feedback loop to gain interventional access to causal structure",
-      "current_description": "The mechanism by which an agent uses the feedback loop to gain interventional access to causal structure",
-      "is_concept_cluster": true,
-      "voted_by_architectures": [
-        "Gemini"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "Loop interventional access",
-          "is_keep": false,
-          "total_weight": 3,
-          "category_tally": {
-            "canonicalize": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "gemini-targeted-alternatives",
-              "weight": 3,
-              "category": "canonicalize",
-              "notes": "Standardizes the escape route from on-policy causal confounding."
-            }
-          ]
-        }
-      ]
-    },
-    {
       "current": "unnamed the meta architecture of separability pattern identifiability floor additive coordinate forcing",
       "current_description": "The meta-architecture of separability pattern / identifiability floor / additive coordinate forcing",
       "is_concept_cluster": true,
@@ -42021,55 +41455,6 @@
               "weight": 1,
               "category": "name-unnamed",
               "notes": "CLAUDE.md already calls this \"AAD's three-part meta-architecture\" in several places. Crystallizing this as a named concept — the scope architecture — would let documentation say \"for AAD's scope architecture\" without four lines of context."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "current": "unnamed the meta architecture of the three meta segment",
-      "current_description": "The meta architecture of the three meta-segments",
-      "is_concept_cluster": true,
-      "voted_by_architectures": [
-        "Gemini",
-        "Sonnet"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "Epistemic architecture",
-          "is_keep": false,
-          "total_weight": 3,
-          "category_tally": {
-            "canonicalize": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "gemini-targeted-alternatives",
-              "weight": 3,
-              "category": "canonicalize",
-              "notes": "Fourth appearance: locks this in unconditionally."
-            }
-          ]
-        },
-        {
-          "candidate": "AAD epistemic triptych",
-          "is_keep": false,
-          "total_weight": -1,
-          "category_tally": {
-            "name-unnamed": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "sonnet-4-6",
-              "weight": -1,
-              "category": "name-unnamed",
-              "notes": "\"Triptych\" is too art-historical and too cute. The naming-principles document warns against cute names that age poorly."
             }
           ]
         }
@@ -42779,103 +42164,6 @@
       ]
     },
     {
-      "current": "unnamed the three part meta architecture of AAD",
-      "current_description": "The three-part meta-architecture of AAD",
-      "is_concept_cluster": true,
-      "voted_by_architectures": [
-        "Gemini"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "Epistemic architecture",
-          "is_keep": false,
-          "total_weight": 3,
-          "category_tally": {
-            "canonicalize": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "gemini-targeted-alternatives",
-              "weight": 3,
-              "category": "canonicalize",
-              "notes": "Unifies the structural pillars of the framework."
-            }
-          ]
-        },
-        {
-          "candidate": "The meta segment triad",
-          "is_keep": false,
-          "total_weight": 2,
-          "category_tally": {
-            "name-unnamed": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "gemini-3-1-pro-preview-r2",
-              "weight": 2,
-              "category": "name-unnamed",
-              "notes": "Unifies the `identifiability-floor`, `separability-ladder`, and `coordinate-forcing` structure."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "current": "unnamed the three part meta architecture of AAD formed by the three meta segment",
-      "current_description": "The three-part meta-architecture of AAD formed by the three meta-segments",
-      "is_concept_cluster": true,
-      "voted_by_architectures": [
-        "Gemini",
-        "Sonnet"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "Epistemic architecture",
-          "is_keep": false,
-          "total_weight": 3,
-          "category_tally": {
-            "canonicalize": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "gemini-targeted-alternatives",
-              "weight": 3,
-              "category": "canonicalize",
-              "notes": "Maps the framework components to the top-level epistemic term."
-            }
-          ]
-        },
-        {
-          "candidate": "AAD meta architecture",
-          "is_keep": false,
-          "total_weight": 2,
-          "category_tally": {
-            "name-unnamed": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "sonnet-4-6-r2",
-              "weight": 2,
-              "category": "name-unnamed",
-              "notes": "The trio of `#disc-additive-coordinate-forcing` / `#disc-identifiability-floor` / `#disc-separability-pattern` is referred to in multiple places as \"the three meta-segments\" or \"the cross-sectional structure.\" CLAUDE.md §\"Reading AAD\" paragraph names the three but has no single term for the grouping. \"AAD meta-architecture\" or \"the three-lens analysis\" would give the grouping a name usable in framing prose."
-            }
-          ]
-        }
-      ]
-    },
-    {
       "current": "unnamed the three part meta pattern structure across the three meta segment",
       "current_description": "The three-part meta-pattern structure across the three meta-segments",
       "is_concept_cluster": true,
@@ -43111,54 +42399,6 @@
               "weight": 3,
               "category": "name-unnamed",
               "notes": "The high-fluency limit where model sufficiency is high and deliberation is unnecessary."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "current": "unnamed upgrading epistemic class from associative to causal via the physical loop",
-      "current_description": "Upgrading epistemic class from associative to causal via the physical loop",
-      "is_concept_cluster": true,
-      "voted_by_architectures": [
-        "Gemini"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "Loop interventional access",
-          "is_keep": false,
-          "total_weight": 3,
-          "category_tally": {
-            "canonicalize": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "gemini-targeted-alternatives",
-              "weight": 3,
-              "category": "canonicalize",
-              "notes": "The core mechanism bypassing the identifiability floor."
-            }
-          ]
-        },
-        {
-          "candidate": "Embodiment upgrade",
-          "is_keep": false,
-          "total_weight": 2,
-          "category_tally": {
-            "name-unnamed": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "gemini-3-1-pro-preview-r2",
-              "weight": 2,
-              "category": "name-unnamed",
-              "notes": "The theoretical justification for agentic-AI over mere chatbots."
             }
           ]
         }
@@ -46087,7 +45327,7 @@
       ]
     },
     {
-      "current": "ELI the agent type",
+      "current": "ELI (agent type)",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -50453,37 +49693,6 @@
       ]
     },
     {
-      "current": "calibration laboratory framing",
-      "current_description": null,
-      "is_concept_cluster": false,
-      "voted_by_architectures": [
-        "Opus"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "Calibration laboratory",
-          "is_keep": false,
-          "total_weight": 1,
-          "category_tally": {
-            "rename": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "opus-4-7-b",
-              "weight": 1,
-              "category": "rename",
-              "notes": "Keep. \"Laboratory\" is the right metaphor (high-identifiability, clean instrumentation, lets you measure AAD quantities exactly). \"Framing\" can be dropped in prose when the context is clear."
-            }
-          ]
-        }
-      ]
-    },
-    {
       "current": "chronica capitalized vs lowercase",
       "current_description": null,
       "is_concept_cluster": false,
@@ -50766,7 +49975,7 @@
       ]
     },
     {
-      "current": "l1 prime decoration",
+      "current": "L1' decoration",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -51364,37 +50573,6 @@
       ]
     },
     {
-      "current": "unnamed class 1 class 2 class 3 agent classe themselve need mnemonic handle",
-      "current_description": "Class 1 / Class 2 / Class 3 agent classes themselves need mnemonic handles",
-      "is_concept_cluster": true,
-      "voted_by_architectures": [
-        "Opus"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "Proposal assign english modifier",
-          "is_keep": false,
-          "total_weight": 1,
-          "category_tally": {
-            "name-unnamed": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "opus-4-7-b",
-              "weight": 1,
-              "category": "name-unnamed",
-              "notes": "Class-numbered labels work but lack mnemonic grip. Proposal: retain \"Class 1 / 2 / 3\" as the primary labels but assign canonical one-word modifiers — **modular** (Class 1), **merged** (Class 2), **partial** (Class 3) — that are already used descriptively. Adopt them as the *canonical* prose forms: \"modular agents\" / \"merged agents\" / \"partially-modular agents\" or \"partial-mix agents.\" Class 2 especially benefits: \"fully merged\" currently appears; normalize to just \"merged.\""
-            }
-          ]
-        }
-      ]
-    },
-    {
       "current": "unnamed effort time risk ranking considered false constraint",
       "current_description": "Effort/time/risk-ranking considered false constraints",
       "is_concept_cluster": true,
@@ -51519,37 +50697,6 @@
       ]
     },
     {
-      "current": "unnamed the 2×2 satisfaction gap × control regret diagnostic table",
-      "current_description": "The 2×2 satisfaction gap × control regret diagnostic table",
-      "is_concept_cluster": true,
-      "voted_by_architectures": [
-        "Opus"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "The 2×2 diagnostic",
-          "is_keep": false,
-          "total_weight": 1,
-          "category_tally": {
-            "name-unnamed": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "opus-4-7",
-              "weight": 1,
-              "category": "name-unnamed",
-              "notes": "Used ubiquitously in prose. Worth canonicalizing as a named object so that \"see the 2×2 diagnostic\" reads naturally."
-            }
-          ]
-        }
-      ]
-    },
-    {
       "current": "unnamed the a2 sub scope partition collectively",
       "current_description": "The (A2') sub-scope partition collectively",
       "is_concept_cluster": true,
@@ -51575,37 +50722,6 @@
               "weight": 1,
               "category": "name-unnamed",
               "notes": "Not a symbol rename; a prose handle for the three-way α₁/α₂/β classification. \"The A2' partition\" lands more cleanly than \"the A2' sub-scope partition\" and aligns with AAD's partition-over-hierarchy vocabulary (it's not a strict-asymmetric hierarchy; it's a partition with derivability-status semantics)."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "current": "unnamed the architectural class partition class 1 class 2 class 3",
-      "current_description": "The architectural class partition: Class 1 / Class 2 / Class 3",
-      "is_concept_cluster": true,
-      "voted_by_architectures": [
-        "Opus"
-      ],
-      "category_disagreement": false,
-      "first_encounter_locality": null,
-      "segment_link": null,
-      "manual_curation_notes": null,
-      "candidates": [
-        {
-          "candidate": "Architectural partition",
-          "is_keep": false,
-          "total_weight": 1,
-          "category_tally": {
-            "name-unnamed": 1
-          },
-          "consolidated_rationale": null,
-          "votes": [
-            {
-              "agent": "opus-4-7-b",
-              "weight": 1,
-              "category": "name-unnamed",
-              "notes": "Symbols stay (Class 1/2/3); prose gets \"the architectural partition\" as a collective handle. Avoids \"architecture hierarchy\" (hierarchy overload) while naming the three-way structure."
             }
           ]
         }
@@ -52410,7 +51526,7 @@
       ]
     },
     {
-      "current": "section ii survival",
+      "current": "section-ii-survival (slug)",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [

@@ -4,22 +4,25 @@
 **Agents:** 19 (agent1-original-brainstorm, audit-471203-incremental, codex-1, codex-2, codex-gpt-5-r2, gemini-1, gemini-2, gemini-3-1-pro-preview-r2, gemini-targeted-alternatives, haiku-4-5, haiku-4-5-r2, opus-1m, opus-4-7, opus-4-7-b, opus-4-7-r2, opus-targeted-alternatives, opus-targeted-alternatives-v2, sonnet-4-6, sonnet-4-6-r2)
 **Total vote rows:** 2967
 **Distinct pairs:** 1805
-**Distinct currents:** 786
+**Distinct currents:** 750
 
 Single-table compact view of the master list. One row per (original, candidate) pair; rows for the same `original` are grouped adjacently with the original cell shown only on the first row. Currents are sorted by their top candidate's aggregate weight descending. Within each group, candidates sort by aggregate weight descending; the first row (the winning candidate) is bolded. `(keep)` marks candidate = original; the ⭑ suffix on `(keep)` means at least one vote on that row used the `canonicalize` category. ✗ prefix marks net-rejected candidates (aggregate < 0). Category suffix on non-keep candidates surfaces the per-pair category mix when it differs from the default `rename` action.
 
 | original | candidate | aggregate |
 |---|---|---:|
-| control regret | **_(keep)_ ⭑** | +51 |
+| control regret | **_(keep)_ ⭑** | +54 |
 |  | ✗ Strategy opportunity cost | -1 |
 | satisfaction gap | **_(keep)_ ⭑** | +51 |
 |  | ✗ Attainability shortfall | -1 |
-| orient cascade | **_(keep)_ ⭑** | +47 |
+| orient cascade | **_(keep)_ ⭑** | +53 |
 | directed separation | **_(keep)_ ⭑** | +45 |
 |  | Epistemic isolation of belief update | +1 |
 |  | Pearl-blanket separation | +1 |
 |  | Goal-blind processing | +1 |
-| identifiability floor | **_(keep)_ ⭑** | +45 |
+| identifiability floor | **_(keep)_ ⭑** | +51 |
+|  | Epistemic lower bound | +3 |
+|  | Persistence pathology [name-unnamed] | +3 |
+|  | Observational limit | +2 |
 |  | ✗ No-go theorem | -1 |
 | [Concept] *The parameter-space region within which an agent maintains bounded mismatch indefinitely* | **Persistence envelope [name-unnamed × 8, canonicalize × 4, rename × 2, add-alias × 1]** | +39 |
 |  | Structural persistence regime [canonicalize] | +3 |
@@ -35,7 +38,8 @@ Single-table compact view of the master list. One row per (original, candidate) 
 | strategy DAG | **_(keep)_ ⭑** | +28 |
 | chain confidence decay | **_(keep)_** | +27 |
 |  | Log confidence additive | +1 |
-| persistence condition | **_(keep)_ ⭑** | +27 |
+| persistence condition | **_(keep)_ ⭑** | +39 |
+|  | The survival equation [name-unnamed] | +3 |
 |  | Survival equation [add-alias] | +1 |
 | [Concept] *The slogan capturing AAD's organizing principle that an adaptive system's correction rate must exceed its target's change rate* | **Contraction over drift principle [canonicalize × 5, name-unnamed × 3]** | +24 |
 |  | Contraction imperative [name-unnamed] | +1 |
@@ -86,7 +90,7 @@ Single-table compact view of the master list. One row per (original, candidate) 
 | shared intent | **_(keep)_** | +22 |
 |  | Teleological unity | +1 |
 |  | Compressed purpose | +1 |
-| adaptive reserve $\Delta\rho^\ast$ | **Adaptive reserve [keep]** | +21 |
+| adaptive reserve $\Delta\rho^\ast$ | **Adaptive reserve** | +21 |
 | AAD (Adaptation and Actuation Dynamics) | **_(keep)_ ⭑** | +20 |
 |  | AAD | +3 |
 |  | AAD agentic adaptation dynamics | +1 |
@@ -124,7 +128,8 @@ Single-table compact view of the master list. One row per (original, candidate) 
 |  | Deliberation threshold | +1 |
 | observability dominance | **_(keep)_ ⭑** | +18 |
 |  | Epistemic freezing | +1 |
-| Pearl causal hierarchy | **_(keep)_ ⭑** | +23 |
+| Pearl causal hierarchy | **_(keep)_ ⭑** | +26 |
+|  | Causal hierarchy level [canonicalize] | +3 |
 |  | Causal hierarchy | +1 |
 | team persistence | **_(keep)_** | +18 |
 | credit assignment boundary | **_(keep)_** | +17 |
@@ -179,12 +184,16 @@ Single-table compact view of the master list. One row per (original, candidate) 
 |  | The bridge theorem | +2 |
 |  | Bridge theorem from gain to sector | +2 |
 |  | Grounding (GA-3) sub-scope α and β | +2 |
-| loop interventional access | **_(keep)_** | +15 |
+| loop interventional access | **_(keep)_ ⭑** | +24 |
+|  | Interventional loop property [canonicalize] | +3 |
 |  | Loop causal engine | +2 |
 |  | Loop as causal engine | +2 |
+|  | Embodiment upgrade [name-unnamed] | +2 |
 |  | Interventional loop access | +1 |
 |  | Interventional feedback | +1 |
 |  | Adaptive loop access | +1 |
+|  | Interventional character [name-unnamed] | +1 |
+|  | The perpetual experiment [canonicalize] | +1 |
 |  | ✗ Loop level2 access | -1 |
 | adversarial tempo advantage | **_(keep)_** | +14 |
 |  | Superlinear tempo advantage | +1 |
@@ -194,7 +203,7 @@ Single-table compact view of the master list. One row per (original, candidate) 
 |  | Purposeful state | +1 |
 | detection latency | **_(keep)_** | +14 |
 | logogenic logozoetic | **_(keep)_** | +14 |
-|  | Logogenic logozoetic distinction [keep] | +3 |
+|  | Logogenic logozoetic distinction | +3 |
 |  | ✗ Language constituted language living | -1 |
 | composition consistency | **_(keep)_** | +13 |
 |  | Scale invariance | +1 |
@@ -204,7 +213,11 @@ Single-table compact view of the master list. One row per (original, candidate) 
 | compression operation | **_(keep)_** | +13 |
 |  | History compression | +1 |
 |  | ✗ OODA1 unification | -1 |
-| epistemic architecture | **_(keep)_ ⭑** | +13 |
+| epistemic architecture | **_(keep)_ ⭑** | +31 |
+|  | The meta segment triad [name-unnamed] | +2 |
+|  | AAD meta architecture [name-unnamed] | +2 |
+|  | Bounded correction architecture | +1 |
+|  | ✗ AAD epistemic triptych [name-unnamed] | -1 |
 | logozoetic agent | **_(keep)_** | +13 |
 |  | Section IV logozoetic agent [canonicalize] | +3 |
 |  | ✗ Sentient agent | -1 |
@@ -231,8 +244,8 @@ Single-table compact view of the master list. One row per (original, candidate) 
 |  | Epistemic unity teleological unity strategic unity [add-alias] | +1 |
 |  | ✗ Content and structural unity | -1 |
 |  | ✗ Coherence dimension | -1 |
-| update gain $\eta^\ast$ | **Update gain [keep]** | +12 |
-|  | Epistemic gain [keep] | +3 |
+| update gain $\eta^\ast$ | **Update gain** | +12 |
+|  | Epistemic gain | +3 |
 | adaptive reserve | **_(keep)_ ⭑** | +11 |
 | agent environment | **_(keep)_** | +11 |
 |  | Agent environment boundary | +1 |
@@ -258,10 +271,11 @@ Single-table compact view of the master list. One row per (original, candidate) 
 |  | L0 / L1 detection | +5 |
 |  | Latent cause detection | +2 |
 |  | Insufficiency detection | +1 |
-| closure defect $\varepsilon^\ast$ | **Closure defect [keep]** | +10 |
+| closure defect $\varepsilon^\ast$ | **Closure defect** | +10 |
 | [Concept] *Code quality as observation infrastructure* | **Observation infrastructure [rename × 4, canonicalize × 1]** | +10 |
 |  | _(keep)_ | +5 |
-| comprehension time | **_(keep)_** | +10 |
+| comprehension time | **_(keep)_ ⭑** | +13 |
+|  | Comprehension drag [name-unnamed] | +1 |
 | mismatch decomposition | **_(keep)_** | +10 |
 |  | Aporia decomposition | +2 |
 | model-class fitness | **_(keep)_ ⭑** | +10 |
@@ -270,16 +284,22 @@ Single-table compact view of the master list. One row per (original, candidate) 
 |  | Teleological objective | +1 |
 | software epistemic property | **_(keep)_** | +10 |
 |  | Software as calibration laboratory | +1 |
-| strengthen first posture | **_(keep)_ ⭑** | +10 |
-|  | Strengthen first | +3 |
-|  | Attempt the improbable | +0 |
+| strengthen first posture | **_(keep)_ ⭑** | +16 |
+|  | Strengthen first [rename × 1, canonicalize × 1] | +5 |
+|  | _(keep)_ | +3 |
+|  | ✗ Attempt the improbable | -1 |
 | $\Delta\rho^\ast$ | **Adaptive reserve [add-alias]** | +9 |
 | $\Delta\rho^\ast$ adaptive reserve | **Adaptive reserve [add-alias]** | +9 |
 | $\alpha_2$ a2 adaptive gain sub-scope | **Adaptive gain regime [add-alias]** | +9 |
 | agency | **_(keep)_** | +9 |
 | agent model | **_(keep)_** | +9 |
 |  | Reality model | +1 |
-| calibration laboratory | **_(keep)_ ⭑** | +9 |
+| calibration laboratory | **_(keep)_ ⭑** | +32 |
+|  | Privileged calibration domain [rename × 1, canonicalize × 1] | +5 |
+|  | Software calibration laboratory [canonicalize] | +3 |
+|  | Calibration lab framing | +1 |
+|  | Epistemic laboratory framing | +1 |
+|  | High identifiability calibration lab | +1 |
 | causal hierarchy requirement | **_(keep)_** | +9 |
 |  | Hierarchy necessity | +1 |
 | [Concept] *Dormant variation in correction architectures across a population that become consequential after regime change but is invisible to current persistence analysis* | **Latent structural diversity [name-unnamed]** | +9 |
@@ -304,16 +324,16 @@ Single-table compact view of the master list. One row per (original, candidate) 
 |  | Calibration laboratory move [canonicalize] | +2 |
 |  | Calibration domain [name-unnamed] | +1 |
 |  | Calibration domain calibration lab [name-unnamed] | +1 |
-| [Concept] *Convention hierarchy C1 / C2 / C3* | **Convention hierarchy [rename × 2, canonicalize × 1]** | +9 |
+| [Concept] *Convention hierarchy C1 / C2 / C3* | **Convention hierarchy [rename × 2, canonicalize × 2, name-unnamed × 1]** | +15 |
 |  | Continuation hierarchy | +2 |
 | cycle vs loop | **_(keep)_** | +9 |
 |  | Cycle loop distinction [canonicalize] | +2 |
-| developer as act agent | **Developer as adaptive agent** | +9 |
+| developer-as-act-agent | **Developer as adaptive agent** | +9 |
 |  | Developer as AAD agent | +4 |
 |  | Developer agent mapping | +1 |
 |  | ✗ Developer as agent | -1 |
-| effect spiral | **_(keep)_** | +9 |
-|  | Runaway mismatch cascade [add-alias] | +3 |
+| effect spiral | **_(keep)_ ⭑** | +12 |
+|  | Runaway mismatch cascade [add-alias × 1, canonicalize × 1] | +6 |
 |  | Adversarial feedback loop | +2 |
 |  | Destabilization vortex | +1 |
 |  | ✗ Coupling cascade | -1 |
@@ -335,12 +355,10 @@ Single-table compact view of the master list. One row per (original, candidate) 
 |  | Channel classification | +3 |
 |  | Interaction regime | +1 |
 |  | ✗ Recipient side channel taxonomy | -1 |
-| persist condition | **Persistence condition [keep × 1, canonicalize × 1, rename × 1]** | +9 |
-| strategy DAG $\Sigma_t$ | **Strategy DAG [keep]** | +9 |
+| strategy DAG $\Sigma_t$ | **Strategy DAG** | +9 |
 | $\alpha_1$ a2 fixed gain sub-scope | **Derived gain regime [add-alias]** | +8 |
 |  | Fixed gain regime [add-alias] | +2 |
 | adaptive system | **_(keep)_** | +8 |
-| calibration laboratory calibration lab | **Calibration laboratory [canonicalize]** | +8 |
 | change distance | **_(keep)_** | +8 |
 |  | ✗ Edit distance | -1 |
 | composite agent | **_(keep)_** | +8 |
@@ -370,13 +388,13 @@ Single-table compact view of the master list. One row per (original, candidate) 
 | bias bound derivation | **_(keep)_** | +7 |
 |  | Class 2 bias bound | +1 |
 | causal structure | **_(keep)_** | +7 |
-| composition closure / closure defect $\varepsilon^\ast$ | **Composition closure closure defect [keep]** | +7 |
+| composition closure / closure defect $\varepsilon^\ast$ | **Composition closure closure defect** | +7 |
 | constitutive utterance | **_(keep)_** | +7 |
 |  | Utterance as intervention | +2 |
 |  | Ontological speech act | +2 |
 |  | ✗ Irrevocable emission | -1 |
 |  | ✗ Irrevocable utterance | -1 |
-| [Concept] *Correlation hierarchy L0 / L1 / L1' / L2* | **Correlation hierarchy [rename × 2, canonicalize × 1]** | +7 |
+| [Concept] *Correlation hierarchy L0 / L1 / L1' / L2* | **Correlation hierarchy [rename × 2, canonicalize × 2, name-unnamed × 1]** | +13 |
 |  | Correlation ladder | +2 |
 |  | _(keep)_ | +2 |
 | discussion | **_(keep)_** | +7 |
@@ -412,7 +430,7 @@ Single-table compact view of the master list. One row per (original, candidate) 
 |  | Objective alignment [add-alias] | +1 |
 | $\eta^\ast$ | **Update gain [add-alias]** | +6 |
 |  | ✗ Learning rate [add-alias] | -1 |
-| AAD (acronym) | **AAD [keep]** | +6 |
+| AAD (acronym) | **AAD** | +6 |
 | action selection | **_(keep)_** | +6 |
 | adaptive gain dynamics | **_(keep)_** | +6 |
 | additive coordinate forcing family | **Forced coordinate family [canonicalize × 1, rename × 1]** | +6 |
@@ -468,7 +486,7 @@ Single-table compact view of the master list. One row per (original, candidate) 
 | [Concept] *The property of model adequacy when measured against a single agent's own causal record rather than against a population average* | **Trajectory indexed sufficiency [name-unnamed]** | +6 |
 | [Concept] *The prose form of κ cross the coupling between an agent's model of self and its model of others* | **Cross model coupling [name-unnamed]** | +6 |
 |  | Cross agent strategic coupling | +3 |
-| control regret $\delta_{\text{regret}}$ | **Control regret [keep]** | +6 |
+| control regret $\delta_{\text{regret}}$ | **Control regret** | +6 |
 | derivation not proof | **Derivation [keep × 1, rename × 1]** | +6 |
 | developer agent | **_(keep)_** | +6 |
 | directional fidelity condition b1 | **Directional fidelity [keep × 1, rename × 1]** | +6 |
@@ -495,13 +513,13 @@ Single-table compact view of the master list. One row per (original, candidate) 
 |  | Gain stable prompting | +1 |
 |  | ✗ Non deceptive input | -1 |
 | implementation time | **_(keep)_** | +6 |
-| inevitability core | **_(keep)_ ⭑** | +6 |
+| inevitability core | **_(keep)_ ⭑** | +11 |
 |  | Forced form core | +1 |
 | [Concept] *Inevitability core: the 15 segments where inevitability is plausible* | **Inevitability core [canonicalize × 1, rename × 1]** | +6 |
 | logogenic | **_(keep)_** | +6 |
 | logozoetic | **_(keep)_** | +6 |
 | Lohmiller-Slotine contraction | **_(keep)_** | +5 |
-| Miller meta machine extreme transition motif | **Meta machine extreme transition motif [keep]** | +6 |
+| Miller meta machine extreme transition motif | **Meta machine extreme transition motif** | +6 |
 | p ij | **Edge credence [add-alias × 1, canonicalize × 1]** | +6 |
 | plan confidence $\hat P_\Sigma$ | **Plan confidence [keep × 1, canonicalize × 1]** | +6 |
 | postulate not axiom | **Postulate [keep × 1, rename × 1]** | +6 |
@@ -509,22 +527,21 @@ Single-table compact view of the master list. One row per (original, candidate) 
 |  | _(keep)_ ⭑ | +1 |
 | purposeful substate | **_(keep)_** | +6 |
 | Regime II-A | **Magnitude shock regime [add-alias × 1, canonicalize × 1]** | +6 |
-| satisfaction gap $\delta_{\text{sat}}$ | **Satisfaction gap [keep]** | +6 |
+| satisfaction gap $\delta_{\text{sat}}$ | **Satisfaction gap** | +6 |
 | separability pattern family | **Separability ladder [canonicalize × 1, rename × 1]** | +6 |
 | stability plasticity feasibility window | **_(keep)_** | +6 |
 | [Concept] *Stochastic disturbance (GA-2S) model* | **Stochastic disturbance [keep × 1, rename × 1]** | +6 |
-| strategic tempo $\mathcal{T}_\Sigma$ | **Strategic tempo [keep]** | +6 |
-| [Concept] *Strengthen-first-then-soften posture* | **Strengthen first posture [rename × 1, canonicalize × 1]** | +6 |
+| strategic tempo $\mathcal{T}_\Sigma$ | **Strategic tempo** | +6 |
 | structural persistence | **_(keep)_** | +6 |
 | tempo $\mathcal{T}$ | **Adaptive tempo [keep × 1, canonicalize × 1]** | +6 |
-|  | Tempo [keep] | +3 |
+|  | Tempo | +3 |
 | temporal software theory | **_(keep)_** | +6 |
 | the crèche | **_(keep)_** | +6 |
 |  | Experiential crèche | +3 |
 |  | Infancy environment | +1 |
 |  | ✗ Developmental locus | -1 |
 |  | ✗ Nursery | -1 |
-| the three death | **Three death [rename × 2, keep × 1]** | +6 |
+| the three deaths | **Three death [rename × 2, keep × 1]** | +6 |
 |  | _(keep)_ | +3 |
 |  | ✗ Persistence failure trio | -1 |
 |  | ✗ Three failure mode | -1 |
@@ -536,12 +553,8 @@ Single-table compact view of the master list. One row per (original, candidate) 
 | [Concept] *Deep plans are mathematically slower to learn from due to proportional blame* | **Evidence starvation [add-alias × 1, canonicalize × 1]** | +6 |
 | [Concept] *The agent identity commitment that AAD applies on one singular non-forkable causal trajectory* | **Singular trajectory commitment [name-unnamed × 1, canonicalize × 1]** | +6 |
 |  | ✗ Trajectory singularity [name-unnamed] | -1 |
-| [Concept] *The convention hierarchy C1 / C2 / C3* | **Convention hierarchy [canonicalize × 1, name-unnamed × 1]** | +6 |
-| [Concept] *The correlation hierarchy L0 / L1 / L1' / L2* | **Correlation hierarchy [canonicalize × 1, name-unnamed × 1]** | +6 |
-| [Concept] *The epistemic architecture as AAD's distinctive contribution frame* | **Epistemic architecture [canonicalize × 1, name-unnamed × 1]** | +6 |
 | [Concept] *The evidence starvation effect on downstream edges* | **Evidence starvation [canonicalize × 1, name-unnamed × 1]** | +6 |
 | [Concept] *The phenomenon where persistence success makes an agent less likely to detect the conditions requiring structural adaptation* | **Stability-induced myopia [canonicalize × 1, name-unnamed × 1]** | +6 |
-| [Concept] *The strictly ordered cascade of operations from epistemology to objective* | **Orient cascade [canonicalize]** | +6 |
 | Čencov invariance | **_(keep)_** | +5 |
 | 𝒯 adaptive tempo | **Adaptive tempo [canonicalize × 1, add-alias × 1]** | +6 |
 | $U_M$ model uncertainty | **Model uncertainty [add-alias]** | +5 |
@@ -552,7 +565,7 @@ Single-table compact view of the master list. One row per (original, candidate) 
 |  | Mismatch signal [add-alias] | +3 |
 | $\varepsilon^\ast$ | **Closure defect [add-alias]** | +5 |
 |  | Minimal closure defect [add-alias] | +1 |
-| ASF (acronym) | **ASF [keep]** | +5 |
+| ASF (acronym) | **ASF** | +5 |
 | active salience management | **_(keep)_** | +5 |
 |  | Two rate attention | +2 |
 |  | Salience tempo split | +2 |
@@ -580,19 +593,16 @@ Single-table compact view of the master list. One row per (original, candidate) 
 |  | Self bayesian empathy isomorphism | +1 |
 | bias bound | **_(keep)_** | +5 |
 | C1 / C2 / C3 | **Convention hierarchy [canonicalize]** | +5 |
-| calibration laboratory software role | **Calibration laboratory [canonicalize × 1, add-alias × 1]** | +5 |
-|  | Software calibration laboratory [canonicalize] | +3 |
-|  | Epistemic laboratory framing | +1 |
 | canonical formulation second ring | **Canonical formulation [keep × 1, rename × 1]** | +5 |
 | change proximity principle | **_(keep)_** | +5 |
 |  | Change proximity | +2 |
 |  | Change locality principle | +1 |
-| class 1 | **Modular [add-alias × 1, rename × 1]** | +5 |
+| Class 1 | **Modular [add-alias × 1, rename × 1]** | +5 |
 |  | _(keep)_ | -1 |
-| class 2 | **Merged [add-alias × 1, rename × 1]** | +5 |
+| Class 2 | **Merged [add-alias × 1, rename × 1]** | +5 |
 |  | Coupled | +2 |
 |  | Integrated | +1 |
-| class 3 | **Scaffolded [add-alias × 1, rename × 1]** | +5 |
+| Class 3 | **Scaffolded [add-alias × 1, rename × 1]** | +5 |
 |  | Partially coupled | +1 |
 | cognitive fusion | **_(keep)_** | +5 |
 |  | Resonance fusion | +2 |
@@ -602,8 +612,8 @@ Single-table compact view of the master list. One row per (original, candidate) 
 | [Concept] *The discontinuous collapse of model adequacy when structural regime change forces the agent outside its current model-class coverage* | **Sufficiency shattering [name-unnamed]** | +5 |
 | [Concept] *The structural meta-pattern in #disc-additive-coordinate-forcing combining one foundational lemma with three derived results* | **Chain layer anchor [rename × 1, canonicalize × 1]** | +5 |
 |  | Chain anchor [name-unnamed] | +5 |
-|  | Anchor plus three theorem [keep] | +2 |
-|  | Additive coordinate forcing meta pattern [keep] | +2 |
+|  | Anchor plus three theorem | +2 |
+|  | Additive coordinate forcing meta pattern | +2 |
 |  | Anchor theorem pattern [name-unnamed] | +1 |
 |  | Anchor theorem trio [name-unnamed] | +1 |
 |  | Identity anchored forcing [name-unnamed] | +1 |
@@ -642,7 +652,7 @@ Single-table compact view of the master list. One row per (original, candidate) 
 |  | Dimensional persistence | +2 |
 |  | Weak link persistence | +1 |
 |  | Weakest link persistence | +1 |
-| proprium terminology | **Proprium [keep]** | +5 |
+| proprium terminology | **Proprium** | +5 |
 | reactive system | **_(keep)_** | +5 |
 | Regime III | **Ambient noise regime [add-alias × 1, canonicalize × 1]** | +5 |
 | routing structure | **_(keep)_** | +5 |
@@ -672,7 +682,6 @@ Single-table compact view of the master list. One row per (original, candidate) 
 |  | Subadditive tempo | +1 |
 |  | Composite tempo | +1 |
 | trust meta model | **_(keep)_** | +5 |
-| [Concept] *Inevitability core* | **Inevitability core [keep × 1, name-unnamed × 1]** | +5 |
 | $H_b$ | **Backward opacity [add-alias]** | +4 |
 |  | Agent opacity [add-alias] | +3 |
 | $R$ sector radius | **Capacity radius [add-alias]** | +4 |
@@ -684,7 +693,7 @@ Single-table compact view of the master list. One row per (original, candidate) 
 | adversarial exponent regime | **_(keep)_** | +4 |
 |  | Adversarial regime | +2 |
 | agentic system framework ASF | **Agentic system** | +4 |
-|  | Agentic system framework [keep] | +3 |
+|  | Agentic system framework | +3 |
 | aisthesis | **_(keep)_** | +4 |
 |  | Aisthesis observation alignment [add-alias] | +2 |
 |  | ✗ Intake | -1 |
@@ -696,7 +705,7 @@ Single-table compact view of the master list. One row per (original, candidate) 
 |  | Combination rule | +2 |
 |  | And or semantics | +1 |
 | auxilia hierarchy | **_(keep)_** | +4 |
-| causal information yield CIY | **Causal information yield [keep]** | +4 |
+| causal information yield CIY | **Causal information yield** | +4 |
 |  | Interventional yield | +2 |
 | century scale event log | **_(keep)_** | +4 |
 |  | Century scale chronica | +2 |
@@ -795,7 +804,7 @@ Single-table compact view of the master list. One row per (original, candidate) 
 |  | Unified objective | +1 |
 |  | _(keep)_ | +1 |
 |  | Joint objective | +1 |
-| OODA Boyd | **OODA loop [keep]** | +3 |
+| OODA (Boyd's loop) | **OODA loop** | +3 |
 | [Concept] *(A2') sub-scope partition* | **Sector condition scope [add-alias]** | +3 |
 |  | Sector scope partition [add-alias] | +3 |
 |  | Sector-bounded operating region | +2 |
@@ -814,48 +823,48 @@ Single-table compact view of the master list. One row per (original, candidate) 
 | [Concept] *Aporia as the phase name* | **Aporia** | +3 |
 | aporia prolepsis aisthesis epistrophe praxis | **_(keep)_** | +3 |
 |  | Greek rooted vocabulary [canonicalize] | +3 |
-| appendice detail | **_(keep)_ ⭑** | +3 |
+| appendices: detail | **_(keep)_ ⭑** | +3 |
 |  | Appendice derivation and detail | +1 |
 | beta prime sub-scope | **Sub-scope beta prime [canonicalize]** | +3 |
 |  | Equilibrium set tier [add-alias] | +2 |
 | boundary condition | **_(keep)_** | +3 |
 |  | Coupling structure [canonicalize] | +1 |
 | Bretagnolle-Huber identity | **_(keep)_** | +5 |
-|  | Bretagnolle-Huber bound [keep] | +3 |
+|  | Bretagnolle-Huber bound | +3 |
 | [Concept] *Brooks's law formalized as the inevitable tempo loss in team composition* | **Sub-additive tempo penalty [canonicalize]** | +3 |
 |  | The coordination drag [add-alias] | +2 |
-| c i | **Shared objective route c i [canonicalize]** | +3 |
+| C-I (composition route) | **Shared objective route c i [canonicalize]** | +3 |
 |  | Shared objective route [add-alias] | +2 |
 | [Concept] *C-I / C-II / C-III / C-IV* | **Composition route [canonicalize]** | +3 |
-| c iii | **Mutual-benefit route C-III [canonicalize]** | +3 |
+| C-III (composition route) | **Mutual-benefit route C-III [canonicalize]** | +3 |
 |  | Mutual benefit route [add-alias] | +2 |
-| c iv | **Strategic convergence route [add-alias]** | +3 |
-| calibration laboratory domain instantiation | **Calibration laboratory [canonicalize]** | +3 |
-|  | Calibration lab framing | +1 |
+| C-IV (composition route) | **Strategic convergence route [add-alias]** | +3 |
 | [Concept] *Calibration laboratory framing for TST* | **Calibration laboratory** | +3 |
 |  | Software calibration laboratory [canonicalize] | +3 |
 | candidate stage | **Candidate** | +3 |
 |  | _(keep)_ | +2 |
 | catastrophic forgetting | **Catastrophic forgetting regime [canonicalize]** | +3 |
 |  | Empty window pathology | +2 |
-| chronica in running prose | **Chronica [keep]** | +3 |
+| chronica in running prose | **Chronica** | +3 |
 |  | Lowercase italic chronica [canonicalize] | +1 |
-| class 1 agent | **Modular agent** | +3 |
+| Class 1 agent | **Modular agent** | +3 |
 | [Concept] *Class 1 / Class 2 / Class 3* | **Goal entanglement hierarchy** | +3 |
 |  | Architecture classe [canonicalize] | +2 |
 |  | Modularity partition | +2 |
+|  | Architectural partition [name-unnamed] | +1 |
+|  | Proposal assign english modifier [name-unnamed] | +1 |
 | [Concept] *Class 1 sub-agents forming a class 3 composite* | **Strategic composition entanglement** | +3 |
 |  | Composition lift [name-unnamed] | +1 |
-| class 2 agent | **Integrated agent** | +3 |
-| class 3 agent | **Partially coupled agent** | +3 |
-| closure defect bridge lemma | **Bridge lemma [keep]** | +3 |
+| Class 2 agent | **Integrated agent** | +3 |
+| Class 3 agent | **Partially coupled agent** | +3 |
+| closure defect bridge lemma | **Bridge lemma** | +3 |
 |  | Closure bridge [canonicalize] | +2 |
 | [Concept] *Closure defect consuming macro reserve* | **Coordination overhead [canonicalize]** | +3 |
 |  | Closure load [name-unnamed] | +2 |
 | coherence coupling measurement | **_(keep)_** | +3 |
 |  | ✗ Q measurement | -1 |
 | communication gain $\eta_{ji}^\ast$ | **Communication gain [canonicalize]** | +3 |
-|  | Trust gain [keep] | +2 |
+|  | Trust gain | +2 |
 | [Concept] *The multiplicative κ processing × 𝒜 scaling of class 2 directional drift and its consequent goal-conformant failure regime* | **The sycophancy equation [name-unnamed]** | +3 |
 |  | Ambiguity bounded bias law [name-unnamed] | +3 |
 |  | Zero ambiguity conditioning [name-unnamed] | +3 |
@@ -892,11 +901,11 @@ Single-table compact view of the master list. One row per (original, candidate) 
 |  | Post-hoc diagnostics | +1 |
 | [Concept] *Crossing from multi-agent to composite scope* | **Composition threshold** | +3 |
 |  | Crossing [name-unnamed] | +2 |
-| crèche creche | **The crèche [keep]** | +3 |
+| "crèche" / "creche" (diacritic vs slug) | **The crèche** | +3 |
 |  | Crèche with diacritic in framing prose creche in slug [canonicalize] | +2 |
 | dark room exploration drive | **Survival imperative [canonicalize]** | +3 |
 |  | _(keep)_ | -1 |
-| developer as act agent TST | **Developer as adaptive agent** | +3 |
+| developer-as-act-agent (TST slug) | **Developer as adaptive agent** | +3 |
 |  | Developer as agent | +2 |
 | developmental trajectory | **_(keep)_** | +3 |
 |  | Creche trajectory | +2 |
@@ -910,14 +919,12 @@ Single-table compact view of the master list. One row per (original, candidate) 
 |  | _(keep)_ | +1 |
 |  | Natural edge update | +1 |
 |  | Log odds update | +1 |
-| [Concept] *Epistemic architecture for bounded correction under decomposed disturbance* | **Epistemic architecture [canonicalize]** | +3 |
-|  | Bounded correction architecture | +1 |
-| exact robust qualitative heuristic conditional claim tier | **_(keep)_ ⭑** | +3 |
+| exact / robust-qualitative / heuristic / conditional (claim tier) | **_(keep)_ ⭑** | +3 |
 |  | Epistemic claim tier | +3 |
 | exponential cognitive load | **_(keep)_** | +3 |
 | fisher whitened update | **_(keep)_** | +3 |
 |  | Fisher rao metric update | +2 |
-| formulation definition result etc segment type | **_(keep)_ ⭑** | +3 |
+| formulation / definition / result / ... (segment types) | **_(keep)_ ⭑** | +3 |
 |  | Segment typology | +2 |
 | gate advantage | **Observation gated tempo advantage** | +3 |
 |  | Noise gated tempo | +2 |
@@ -930,34 +937,29 @@ Single-table compact view of the master list. One row per (original, candidate) 
 |  | _(keep)_ | +2 |
 |  | ✗ Branch insertion | -1 |
 |  | ✗ Hypothesis introduction | -1 |
-| Hafez $H_b$ | **$H_b$ [keep]** | +3 |
+| Hafez $H_b$ | **$H_b$** | +3 |
 |  | Agent opacity $H_b$ [canonicalize] | +3 |
-| Hafez h b | **Agent opacity $H_b$ [canonicalize]** | +3 |
-|  | $H_b$ [keep] | +3 |
+| Hafez $H_b$ | **Agent opacity $H_b$ [canonicalize]** | +3 |
+|  | $H_b$ | +3 |
 | Section I. Adaptive Systems Under Uncertainty | **Section I adaptive system under uncertainty [canonicalize]** | +3 |
 |  | _(keep)_ | +3 |
-| identifiability floor family | **Identifiability floor [canonicalize]** | +3 |
-|  | Epistemic lower bound | +3 |
-|  | Observational limit | +2 |
 | Section III. Agentic Composites | **Section III agentic composite [canonicalize]** | +3 |
 |  | Iii composition agentic composite | +1 |
-| information bottleneck Tishby | **Information bottleneck [keep]** | +3 |
-| [Concept] *Instance 1 / 2 / 3 of identifiability floor* | **Identifiability floor instance [keep]** | +3 |
+| information bottleneck Tishby | **Information bottleneck** | +3 |
+| [Concept] *Instance 1 / 2 / 3 of identifiability floor* | **Identifiability floor instance** | +3 |
 | instance 1 of identifiability floor | **Latent common cause floor** | +3 |
 | [Concept] *Instance 2 of identifiability floor* | **Unobservable mixture floor** | +3 |
 | [Concept] *Instance 3 of identifiability floor* | **Coupling sign floor** | +3 |
 | [Concept] *L0 / L1 / L1' / L2* | **Correlation hierarchy [canonicalize]** | +3 |
 | l1 correlation hierarchy prime decoration | **L1 soft facilitator mixture [canonicalize]** | +3 |
 |  | L1 observable | +1 |
-| l1 prime | **L1 soft facilitator mixture [canonicalize]** | +3 |
+| L1' (prime decoration) | **L1 soft facilitator mixture [canonicalize]** | +3 |
 |  | L1 observable [add-alias] | +2 |
 | linear ode approximation | **_(keep)_** | +3 |
 |  | Linear approximation | +2 |
 | log odds edge coordinate | **_(keep)_** | +3 |
 |  | Additive evidence coordinate [add-alias] | +2 |
 | [Concept] *Lohmiller-Slotine contraction metric generalization used in contraction template* | **Contraction metric generalization** | +2 |
-| [Concept] *Loop is a level-2 engine (#der-loop-interventional-access)* | **Interventional loop property [canonicalize]** | +3 |
-|  | The perpetual experiment [canonicalize] | +1 |
 | Markov blanket as ontology | **Pearl-blanket reading [canonicalize]** | +3 |
 |  | Pearl-blanket d-separation | +3 |
 |  | _(keep)_ | +2 |
@@ -967,7 +969,7 @@ Single-table compact view of the master list. One row per (original, candidate) 
 | [Concept] *Meta-segment for separability pattern / identifiability floor / additive coordinate forcing* | **Meta pattern segment [canonicalize]** | +3 |
 |  | Meta segment | +3 |
 | model sufficiency $S$ | **Model sufficiency [canonicalize]** | +3 |
-|  | Predictive sufficiency [keep] | +1 |
+|  | Predictive sufficiency | +1 |
 | Monderer-Shapley potential game | **_(keep)_** | +3 |
 |  | Potential game convergence | +2 |
 | [Concept] *Monderer-Shapley potential game / Rosen monotone game* | **Strategic convergence condition** | +2 |
@@ -986,12 +988,11 @@ Single-table compact view of the master list. One row per (original, candidate) 
 |  | Pearl-blanket [canonicalize × 1, keep × 1] | +6 |
 |  | Pearl-blanket interpretation [canonicalize] | +6 |
 |  | Pearl-blanket Friston-blanket [canonicalize × 1, keep × 1] | +6 |
-| persistence overloaded | **Persistence taxonomy [canonicalize]** | +3 |
+| persistence structural operational continuity | **Persistence taxonomy [canonicalize]** | +6 |
 |  | Structural persistence [name-unnamed] | +2 |
 |  | Continuity persistence [name-unnamed] | +2 |
 |  | Task adequacy [name-unnamed] | +2 |
 |  | Operational persistence [name-unnamed] | +2 |
-| persistence structural operational continuity | **Persistence taxonomy [canonicalize]** | +3 |
 | persistent residual autocorrelation | **Structured residual [canonicalize]** | +3 |
 |  | Persistent mismatch autocorrelation | +2 |
 | (PI) parameterization invariance | **Parameterization invariance [canonicalize]** | +3 |
@@ -1000,16 +1001,12 @@ Single-table compact view of the master list. One row per (original, candidate) 
 |  | Parameterization invariance axiom [canonicalize] | +3 |
 |  | (PI) parameterization invariance | +1 |
 | [Concept] *Predictive relevance depending on the policy the agent will run* | **Policy conditional relevance** | +3 |
-| [Concept] *Privileged high-identifiability calibration laboratory* | **Privileged calibration domain [canonicalize]** | +3 |
-|  | High identifiability calibration lab | +1 |
-| "purpose" / "purposeful" | **Purposeful [keep]** | +3 |
+| "purpose" / "purposeful" | **Purposeful** | +3 |
 |  | _(keep)_ ⭑ | +2 |
 | [Concept] *Regime I / II-A / II-B / III* | **Reception regime [canonicalize]** | +3 |
 |  | Destabilization regime partition | +2 |
-| richest operationalization domain | **Calibration laboratory** | +3 |
-|  | Privileged calibration domain | +2 |
 | [Concept] *Section header: logogenic agent / logozoetic agent* | **Logogenic agent logozoetic agent [canonicalize]** | +3 |
-|  | Section header logogenic logozoetic [keep] | +2 |
+|  | Section header logogenic logozoetic | +2 |
 | [Concept] *Sector condition (continuous, GA-3)* | **Sector condition** | +3 |
 |  | Continuous sector condition [canonicalize] | +3 |
 | sector condition derivation | **Sector condition [canonicalize]** | +3 |
@@ -1026,11 +1023,8 @@ Single-table compact view of the master list. One row per (original, candidate) 
 | strategic composite | **Equilibrium composite [rename × 1, canonicalize × 1]** | +3 |
 |  | _(keep)_ | +3 |
 | strategic in strategic composition | **Equilibrium composition** | +3 |
-|  | Strategic [keep] | +2 |
+|  | Strategic | +2 |
 |  | Game theoretic composition | +1 |
-| strengthen before softening | **_(keep)_** | +3 |
-|  | Strengthen first [canonicalize] | +2 |
-|  | ✗ Attempt the improbable | -1 |
 | structural change as parametric limit | **_(keep)_** | +3 |
 |  | Strategy maintenance | +2 |
 |  | Structural as parametric limit | +1 |
@@ -1053,8 +1047,8 @@ Single-table compact view of the master list. One row per (original, candidate) 
 |  | Strategy substate [canonicalize] | +3 |
 | system availability | **_(keep)_** | +3 |
 | teleological unity $U_O$ | **Teleological unity $U_o$ [canonicalize]** | +3 |
-|  | Teleological unity [keep] | +3 |
-| temporal software theory TST | **Temporal software theory [keep]** | +3 |
+|  | Teleological unity | +3 |
+| Temporal Software Theory (TST) | **Temporal software theory** | +3 |
 |  | _(keep)_ | +3 |
 | test as reusable intervention | **Interventional probe library [add-alias]** | +3 |
 |  | Interventional test | +2 |
@@ -1073,8 +1067,8 @@ Single-table compact view of the master list. One row per (original, candidate) 
 | transition opacity | **_(keep)_** | +3 |
 | type formulation | **_(keep)_** | +3 |
 |  | ✗ Type representation | -1 |
-| unity dimension $U_M, U_O, U_\Sigma$ | **Unity dimension [keep]** | +3 |
-|  | Coherence dimension [keep] | +2 |
+| unity dimension $U_M, U_O, U_\Sigma$ | **Unity dimension** | +3 |
+|  | Coherence dimension | +2 |
 | [Concept] *AAD's epistemic move to cast results such that verification is a local operation* | **Shaping for verification [name-unnamed]** | +3 |
 |  | Local verifiability principle | +2 |
 | [Concept] *Agency whose effect is on what is seen rather than what happens (e.g., LLM attention)* | **Query bound agency [canonicalize × 1, name-unnamed × 1]** | +6 |
@@ -1086,7 +1080,6 @@ Single-table compact view of the master list. One row per (original, candidate) 
 |  | Induced plasticity shock | +3 |
 | [Concept] *Brooks's law formalized as the inevitable tempo loss in team composition* | **The coordination drag [name-unnamed]** | +3 |
 |  | Sub-additive tempo penalty [canonicalize] | +3 |
-| [Concept] *Calibration-laboratory framing as reusable meta-move* | **Calibration laboratory [canonicalize]** | +3 |
 | [Concept] *Convention-hierarchy monotonicity cascade: satisfaction gap and control regret strengthening across C1 → C3* | **Diagnostic cascade** | +3 |
 | [Concept] *Decomposing mismatch into environment vs other-sub-agent action* | **Effective disturbance decomposition [canonicalize]** | +3 |
 |  | Internal mismatch attribution [name-unnamed] | +1 |
@@ -1103,8 +1096,6 @@ Single-table compact view of the master list. One row per (original, candidate) 
 |  | Exogenous temporal marker [canonicalize] | +2 |
 | [Concept] *Partitioning context into frozen-identity / causal-history / quick-view* | **Bipartite memory factorization [canonicalize]** | +3 |
 |  | Gradient causal memory [name-unnamed] | +3 |
-| [Concept] *Pearl causal hierarchy level 1 / level 2 / level 3* | **Pearl causal hierarchy [name-unnamed]** | +3 |
-|  | Causal hierarchy level [canonicalize] | +3 |
 | [Concept] *Property of having genuine temporal experience* | **Temporal fidelity [name-unnamed]** | +3 |
 |  | Temporal interiority | +2 |
 | [Concept] *Pushing an opponent's disturbance rate past their structural capacity* | **Epistemic buffer overflow [name-unnamed]** | +3 |
@@ -1117,8 +1108,6 @@ Single-table compact view of the master list. One row per (original, candidate) 
 |  | Macro step rate | +2 |
 | [Concept] *Replacing parameters without changing structure* | **Parametric update [canonicalize]** | +3 |
 |  | Parametric thrashing [name-unnamed] | +2 |
-| [Concept] *Runaway positive feedback loop where mismatch exceeds capacity* | **Runaway mismatch cascade [canonicalize]** | +3 |
-|  | Effect spiral [canonicalize] | +3 |
 | [Concept] *Spreading tempo evenly to reduce bottleneck penalty* | **Distributed tempo [canonicalize]** | +3 |
 |  | Isotropic allocation [name-unnamed] | +2 |
 | [Concept] *State where mutual information between human and AI agents approaches channel capacity* | **Cognitive fusion [name-unnamed]** | +3 |
@@ -1127,13 +1116,10 @@ Single-table compact view of the master list. One row per (original, candidate) 
 |  | Superlinear tempo advantage | +2 |
 | [Concept] *Survival determined by the weakest dimension not the average* | **Weakest link bound [canonicalize]** | +3 |
 |  | Min survival principle [name-unnamed] | +3 |
-| [Concept] *The $\mathcal{T} > \rho$ requirement for persistence* | **Persistence condition [canonicalize]** | +3 |
-|  | The survival equation [name-unnamed] | +3 |
-| [Concept] *The 2×2 orient cascade diagnostic table* | **Diagnostic gap matrix [canonicalize]** | +3 |
+| [Concept] *The 2×2 table of satisfaction gap vs control regret × goal attainability diagnostic* | **Diagnostic gap matrix [canonicalize × 2, rename × 1]** | +9 |
 |  | The cascade diagnostic or the 2×2 diagnostic [name-unnamed] | +1 |
-| [Concept] *The 2×2 satisfaction-gap × control-regret table* | **Diagnostic gap matrix** | +3 |
 |  | Diagnostic square [name-unnamed] | +1 |
-| [Concept] *The 2×2 table of satisfaction gap vs control regret × goal attainability diagnostic* | **Diagnostic gap matrix [canonicalize]** | +3 |
+|  | The 2×2 diagnostic [name-unnamed] | +1 |
 |  | ✗ Satisfaction control table the diagnostic 2×2 [name-unnamed] | -1 |
 | [Concept] *The (A2') sub-scope partition into α₁ / α₂ / β* | **Admissibility regime α₁ α₂ β [canonicalize]** | +3 |
 |  | Gain regime partition [name-unnamed] | +2 |
@@ -1150,21 +1136,14 @@ Single-table compact view of the master list. One row per (original, candidate) 
 |  | Agency threshold | +2 |
 | [Concept] *The condition that a strategy DAG endosymbiont crosses the composite agent scope from below* | **Composition threshold crossing** | +3 |
 |  | Crossing threshold [name-unnamed] | +1 |
-| [Concept] *The condition that the (agent event, observation) pair constitutes genuine intervention as opposed to passive association* | **Loop interventional access [canonicalize]** | +3 |
-|  | Interventional character [name-unnamed] | +1 |
 | [Concept] *The core driver of AAD what the agent must do given that the environment is *not* the agent* | **Constitutive information loss boundary [canonicalize]** | +3 |
 |  | The survival imperative [canonicalize] | +3 |
 | [Concept] *The dependence of optimal epistemic compression on the agent planned action* | **Policy conditional relevance [canonicalize]** | +3 |
-| [Concept] *The dual concept to satisfaction gap what the world permits minus what the agent achieves* | **Control regret [canonicalize]** | +3 |
 | [Concept] *The equivalence of learning speed and physical speed* | **The speed quality product [name-unnamed]** | +3 |
 |  | Tempo speed equivalence | +2 |
 | [Concept] *The failure mode where an agent's model-class cannot represent the environment's true causal structure* | **Structural shock regime [canonicalize]** | +3 |
 |  | Model-class insufficiency or structural unidentifiability [name-unnamed] | +1 |
-| [Concept] *The family of named ways persistence-identifiability can fail* | **Identifiability floor [canonicalize]** | +3 |
-|  | Persistence pathology [name-unnamed] | +3 |
 | [Concept] *The formal duality between observation quality and agent opacity* | **Informational dual [canonicalize]** | +3 |
-| [Concept] *The invisible time spent building $M_t$* | **Comprehension time [canonicalize]** | +3 |
-|  | Comprehension drag [name-unnamed] | +1 |
 | [Concept] *The log-additivity result that unifies chain confidence decay / evidence starvation / triple-depth penalty as instances of the same forcing structure* | **Log confidence additivity** | +3 |
 |  | Depth forcing [name-unnamed] | +2 |
 | [Concept] *The loop generates L2 data regardless of architecture* | **The causal loop substrate [name-unnamed]** | +3 |
@@ -1175,11 +1154,8 @@ Single-table compact view of the master list. One row per (original, candidate) 
 |  | Directional fidelity failure | +2 |
 | [Concept] *The mathematical surface mapping unity to closure defect* | **Rate distortion surface [name-unnamed]** | +3 |
 |  | Closure defect manifold | +2 |
-| [Concept] *The mechanism by which an agent uses the feedback loop to gain interventional access to causal structure* | **Loop interventional access [canonicalize]** | +3 |
 | [Concept] *The meta-architecture of separability pattern / identifiability floor / additive coordinate forcing* | **Meta pattern triad [canonicalize]** | +3 |
 |  | Three part scope architecture [name-unnamed] | +1 |
-| [Concept] *The meta architecture of the three meta-segments* | **Epistemic architecture [canonicalize]** | +3 |
-|  | ✗ AAD epistemic triptych [name-unnamed] | -1 |
 | [Concept] *The moment when an agent's model updates due to observing a mismatch* | **Epistrophe [canonicalize]** | +3 |
 | [Concept] *The organizational pathology where confidence decouples from competence* | **Epistemic decoupling [name-unnamed]** | +3 |
 |  | Epistemic decoupling pathology | +2 |
@@ -1207,10 +1183,6 @@ Single-table compact view of the master list. One row per (original, candidate) 
 |  | Logogenic discontinuity barrier | +2 |
 | [Concept] *The triple-depth penalty compounding on strategy chains* | **Tripartite chain attenuation [canonicalize]** | +3 |
 |  | Triple depth penalty [name-unnamed] | +2 |
-| [Concept] *The three-part meta-architecture of AAD* | **Epistemic architecture [canonicalize]** | +3 |
-|  | The meta segment triad [name-unnamed] | +2 |
-| [Concept] *The three-part meta-architecture of AAD formed by the three meta-segments* | **Epistemic architecture [canonicalize]** | +3 |
-|  | AAD meta architecture [name-unnamed] | +2 |
 | [Concept] *The three-part meta-pattern structure across the three meta-segments* | **Meta pattern triad** | +3 |
 |  | ✗ AAD meta architecture scope honesty meta frame [name-unnamed] | -1 |
 | [Concept] *The way AAD uses scope segments to physically support the derivation* | **Epistemic load bearing [name-unnamed]** | +3 |
@@ -1221,8 +1193,6 @@ Single-table compact view of the master list. One row per (original, candidate) 
 |  | Compute sovereignty requirement | +2 |
 | [Concept] *Unifying reflexes / intuition / expertise* | **Action fluency continuum [canonicalize]** | +3 |
 |  | The action fluency continuum [name-unnamed] | +3 |
-| [Concept] *Upgrading epistemic class from associative to causal via the physical loop* | **Loop interventional access [canonicalize]** | +3 |
-|  | Embodiment upgrade [name-unnamed] | +2 |
 | [Concept] *Using hash chains to mathematically guarantee memory hasn't been tampered with* | **Cryptographic ego boundary [name-unnamed]** | +3 |
 |  | Cryptographic continuity verification | +2 |
 | [Concept] *Using past change frequency to predict future change frequency* | **Change expectation baseline [canonicalize]** | +3 |
@@ -1230,7 +1200,7 @@ Single-table compact view of the master list. One row per (original, candidate) 
 | [Concept] *Using residual autocorrelation to diagnose model-class failure* | **Structured residual [canonicalize]** | +3 |
 |  | Residual autocorrelation diagnostic [canonicalize] | +3 |
 | [Concept] *Čencov / Fisher / Cauchy functional equation / Shore-Johnson-Hobson / Aczél* | **Coordinate forcing foundational theorem** | +2 |
-| ε greedy | **$\varepsilon$ greedy [keep]** | +3 |
+| ε greedy | **$\varepsilon$ greedy** | +3 |
 |  | _(keep)_ | +3 |
 | [Concept] *𝒜, e, τ observation ambiguity* | **Observation ambiguity $\mathcal{A}$ [canonicalize]** | +3 |
 |  | Observation ambiguity [add-alias] | +3 |
@@ -1312,7 +1282,7 @@ Single-table compact view of the master list. One row per (original, candidate) 
 |  | Segment claim | +2 |
 | class 2 scope exit | **Class 2 scope boundary** | +2 |
 |  | _(keep)_ ⭑ | +2 |
-| [Concept] *Cognitive substrate / Gemini's logostratum proposal* | **Logostratum [keep]** | +2 |
+| [Concept] *Cognitive substrate / Gemini's logostratum proposal* | **Logostratum** | +2 |
 | completeness c3 | **Predictive completeness behavioral completeness [name-unnamed]** | +2 |
 |  | Predictive completeness | +2 |
 | [Concept] *Composition route C-I / C-II / C-III / C-IV* | **Composition route [canonicalize]** | +2 |
@@ -1335,8 +1305,8 @@ Single-table compact view of the master list. One row per (original, candidate) 
 | derivation audit table heading | **Derivation audit [canonicalize]** | +2 |
 | distributed tempo | **_(keep)_** | +2 |
 |  | Network tempo | +1 |
-| ELI the agent type | **ELI [keep]** | +2 |
-|  | ELI agent [keep] | +2 |
+| ELI (agent type) | **ELI** | +2 |
+|  | ELI agent | +2 |
 | [Concept] *Empirical / heuristic / discussion (third ring)* | **Heuristic ring** | +2 |
 |  | Calibration ring | +1 |
 | escape route | **_(keep)_ ⭑** | +2 |
@@ -1354,7 +1324,7 @@ Single-table compact view of the master list. One row per (original, candidate) 
 |  | Agentic scaffold | +2 |
 | greek rooted vocabulary | **Greek philosophical vocabulary [canonicalize]** | +2 |
 |  | _(keep)_ | +2 |
-| hierarchy as repeated word | **Hierarchy [keep]** | +2 |
+| hierarchy as repeated word | **Hierarchy** | +2 |
 |  | Reserve for Pearl rename other selectively | +1 |
 | [Concept] *Integration of four disciplines as the framing of AAD's contribution* | **Epistemic architecture [canonicalize]** | +2 |
 |  | Four discipline synthesis | +2 |
@@ -1496,7 +1466,7 @@ Single-table compact view of the master list. One row per (original, candidate) 
 | $\beta$ a2 assumption tier | **Assumed regime [add-alias]** | +1 |
 | $\beta$ a2 sub-scope where a2 is assumed not derived | **Postulated sector regime [add-alias]** | +1 |
 | $\kappa_{\text{processing}}$ class 2 processing coupling | **Processing coupling [add-alias]** | +1 |
-| $\mathcal C_t^{\text{commit}}$ (TST committed-state subset) | **$\mathcal C_t^{\text{commit}}$ [keep]** | +1 |
+| $\mathcal C_t^{\text{commit}}$ (TST committed-state subset) | **$\mathcal C_t^{\text{commit}}$** | +1 |
 | $\mathcal C_t^{\text{commit}}$ (committed-state subset) | **Committed chronica [add-alias]** | +1 |
 | $\rho$ environment change rate mismatch injection rate | **$\rho$** | +1 |
 | $\rho_\Sigma$ strategic disturbance rate | **$\rho_\Sigma$** | +1 |
@@ -1504,8 +1474,7 @@ Single-table compact view of the master list. One row per (original, candidate) 
 | $f_M$ event driven update | **Epistemic update function [add-alias]** | +1 |
 | $f_{\text{init}}$ reconstruction function | **Epistemic reconstruction [add-alias]** | +1 |
 | actuated agent class | **Actuated [add-alias]** | +1 |
-| [Concept] *Agentic Systems Framework (ASF) — top-level* | **Agentic system framework [keep]** | +1 |
-| calibration laboratory framing | **Calibration laboratory** | +1 |
+| [Concept] *Agentic Systems Framework (ASF) — top-level* | **Agentic system framework** | +1 |
 | chronica capitalized vs lowercase | **Chronica lowercase in running prose** | +1 |
 | [Concept] *Dark-room critique / citation phrasing (Sun & Firestone)* | **Dark room critique** | +1 |
 | five phase cycle | **Adaptive pentad alternative five phase cycle keep** | +1 |
@@ -1516,9 +1485,9 @@ Single-table compact view of the master list. One row per (original, candidate) 
 | interior baseline | **_(keep)_** | +1 |
 |  | Default interiority | +1 |
 |  | ✗ Pre utterance processing | -1 |
-| l1 prime decoration | **L1 observable [add-alias]** | +1 |
+| L1' decoration | **L1 observable [add-alias]** | +1 |
 | mismatch injection rate $\rho$ | **Effective disturbance $\rho$ [canonicalize]** | +3 |
-|  | Mismatch injection rate [keep] | +1 |
+|  | Mismatch injection rate | +1 |
 | multi agent scope | **Shared environment scope** | +1 |
 |  | _(keep)_ | +1 |
 | Pearl l1 | **Predicting [add-alias]** | +1 |
@@ -1533,18 +1502,15 @@ Single-table compact view of the master list. One row per (original, candidate) 
 | the integrated κ × a law | **The bias bound product law [canonicalize]** | +1 |
 | three part meta architecture | **Floor ladder forced coordinate** | +1 |
 | [Concept] *Track 1 / Track 2 in bias-bound* | **Transport track fisher rao track [add-alias]** | +1 |
-|  | Track 1 track 2 [keep] | +1 |
+|  | Track 1 track 2 | +1 |
 | [Concept] *Track 1 / Track 2 in bias-bound derivation* | **Transport inequality track fisher rao track** | +1 |
 | [Concept] *$U_f$ update-rule homogeneity* | **Update rule homogeneity [add-alias]** | +1 |
 | [Concept] *TST-specific name for code that is observation-cheap because it's well written* | **Observation cheap code [name-unnamed]** | +1 |
-| [Concept] *Class 1 / Class 2 / Class 3 agent classes themselves need mnemonic handles* | **Proposal assign english modifier [name-unnamed]** | +1 |
 | [Concept] *Effort/time/risk-ranking considered false constraints* | **False constraint [name-unnamed]** | +1 |
 | [Concept] *Future segment layer header for narrative pedagogical framing* | **Narrative framing [name-unnamed]** | +1 |
 | [Concept] *Future segment layer header for the SP-5 reader-path proposal* | **Reader path [name-unnamed]** | +1 |
 | [Concept] *Scope-honesty as architecture* | **Honesty [name-unnamed]** | +1 |
-| [Concept] *The 2×2 satisfaction gap × control regret diagnostic table* | **The 2×2 diagnostic [name-unnamed]** | +1 |
 | [Concept] *The (A2') sub-scope partition collectively* | **A2 partition [name-unnamed]** | +1 |
-| [Concept] *The architectural class partition: Class 1 / Class 2 / Class 3* | **Architectural partition [name-unnamed]** | +1 |
 | [Concept] *The dimensional consistency constraint forcing the macro-step formulation* | **Dimensional consistency repair [name-unnamed]** | +1 |
 | [Concept] *The discipline of naming so that the slug survives reorganization* | **Reorganization resilient naming [name-unnamed]** | +1 |
 | [Concept] *The dual that pairs with persistence envelope on the strategic side* | **Strategic persistence envelope [name-unnamed]** | +1 |
@@ -1568,7 +1534,7 @@ Single-table compact view of the master list. One row per (original, candidate) 
 | formal expression | **_(keep)_** | +9 |
 | condition | **_(keep)_** | +7 |
 | interiority default | **_(keep)_** | +7 |
-| section ii survival | **_(keep)_** | +5 |
+| section-ii-survival (slug) | **_(keep)_** | +5 |
 |  | Class 2 carryover map | +3 |
 |  | Section II carryover map | +3 |
 |  | Class 2 exit audit | +2 |
