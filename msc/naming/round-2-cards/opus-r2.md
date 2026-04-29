@@ -2,7 +2,7 @@
 
 **Voter:** `opus-r2`
 **Card seed:** `opus-r2` (deterministic shuffle; same agent-id always produces the same card)
-**Generated:** 2026-04-29T22:59:18Z
+**Generated:** 2026-04-29T23:02:01Z
 
 ## Voting instructions
 
@@ -182,7 +182,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | model uncertainty |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 22. `p ij`
+## 22. `$p_{ij}$`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -292,7 +292,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | Action channel |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 36. `𝒯 adaptive tempo`
+## 36. `$\mathcal{T}$ adaptive tempo`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -463,7 +463,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | discrete sector condition |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 57. `𝒯 σ strategic tempo`
+## 57. `$\mathcal{T}_\Sigma$ strategic tempo`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -1171,7 +1171,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | Postulated sector regime |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 142. [Concept] *The (A2') sub-scope partition into α₁ / α₂ / β*
+## 142. [Concept] *The (A2′) sub-scope partition into α₁ / α₂ / β*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -1270,7 +1270,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | 1 anchor plus 3 theorem |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 155. `a2 sub-scope partition`
+## 155. `(A2′) sub-scope partition`
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -1525,7 +1525,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | change distance |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 186. [Concept] *Α₂ adaptive-gain (A2') sub-scope*
+## 186. [Concept] *Α₂ adaptive-gain (A2′) sub-scope*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -2498,7 +2498,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | Transport track / Fisher-Rao track |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 309. [Concept] *The (A2') sub-scope partition collectively*
+## 309. [Concept] *The (A2′) sub-scope partition collectively*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -3516,7 +3516,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | Observability dead zone |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 433. [Concept] *The multiplicative κ processing × 𝒜 scaling of class 2 directional drift and its consequent goal-conformant failure regime*
+## 433. [Concept] *The multiplicative $\kappa_{\text{processing}} \times \mathcal{A}$ scaling of Class 2 directional drift and its consequent goal-conformant failure regime*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -4418,7 +4418,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | Structural accumulation drag |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 544. [Concept] *Α₁ fixed-gain (A2') sub-scope*
+## 544. [Concept] *Α₁ fixed-gain (A2′) sub-scope*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -4602,7 +4602,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | strategic dynamics |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 568. [Concept] *(A2') sub-scope partition*
+## 568. [Concept] *(A2′) sub-scope partition*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
@@ -5149,7 +5149,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | Ontological speech act |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
-## 637. [Concept] *The set of five conditions under which a2 is derived rather than assumed the sub-scope α agent classes*
+## 637. [Concept] *The set of five conditions under which (A2′) is derived rather than assumed (the sub-scope α agent classes)*
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|

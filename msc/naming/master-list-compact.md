@@ -499,7 +499,7 @@ Single-table compact view of the master list. One row per (original, candidate) 
 | logozoetic | **_(keep)_ ⭑** | +6 |
 | Lohmiller-Slotine contraction | **_(keep)_** | +5 |
 | Miller's meta-machine / extreme transition motif | **Meta machine extreme transition motif [canonicalize]** | +6 |
-| p ij | **Edge credence [add-alias × 1, canonicalize × 1]** | +6 |
+| $p_{ij}$ | **Edge credence [add-alias × 1, canonicalize × 1]** | +6 |
 | plan confidence | **_(keep)_ ⭑** | +6 |
 | postulate not axiom | **Postulate [canonicalize × 1, rename × 1]** | +6 |
 | praxis πρᾶξις | **_(keep)_ ⭑** | +7 |
@@ -531,7 +531,7 @@ Single-table compact view of the master list. One row per (original, candidate) 
 |  | ✗ Trajectory singularity [name-unnamed] | -1 |
 | [Concept] *The phenomenon where persistence success makes an agent less likely to detect the conditions requiring structural adaptation* | **Stability-induced myopia [canonicalize × 1, name-unnamed × 1]** | +6 |
 | Čencov invariance | **_(keep)_** | +5 |
-| 𝒯 adaptive tempo | **_(keep)_ ⭑** | +6 |
+| $\mathcal{T}$ adaptive tempo | **𝒯 adaptive tempo [canonicalize × 1, add-alias × 1]** | +6 |
 | model uncertainty | **_(keep)_** | +5 |
 | observation uncertainty | **_(keep)_** | +7 |
 |  | Observation uncertainty $U_o$ [canonicalize] | +3 |
@@ -733,7 +733,7 @@ Single-table compact view of the master list. One row per (original, candidate) 
 | worked example kalman | **_(keep)_ ⭑** | +4 |
 | worked example l1 | **_(keep)_ ⭑** | +4 |
 | worked example strategy | **_(keep)_ ⭑** | +4 |
-| 𝒯 σ strategic tempo | **_(keep)_ ⭑** | +4 |
+| $\mathcal{T}_\Sigma$ strategic tempo | **𝒯 σ strategic tempo [canonicalize × 1, rename × 1]** | +4 |
 | objective | **_(keep)_** | +4 |
 |  | $O_t$ objective [keep] | +3 |
 |  | Objective functional $O_t$ [canonicalize] | +3 |
@@ -777,10 +777,10 @@ Single-table compact view of the master list. One row per (original, candidate) 
 |  | _(keep)_ | +1 |
 |  | Joint objective | +1 |
 | OODA (Boyd's loop) | **OODA loop [canonicalize]** | +3 |
-| [Concept] *(A2') sub-scope partition* | **Sector condition scope [add-alias]** | +3 |
+| [Concept] *(A2′) sub-scope partition* | **Sector condition scope [add-alias]** | +3 |
 |  | Sector scope partition [add-alias] | +3 |
 |  | Sector-bounded operating region | +2 |
-| a2 sub-scope partition | **Sector scope partition [add-alias]** | +3 |
+| (A2′) sub-scope partition | **Sector scope partition [add-alias]** | +3 |
 |  | Gain regime partition | +2 |
 | [Concept] *Accumulated loss across context resets* | **Context severance penalty** | +3 |
 |  | Turnover drift [name-unnamed] | +2 |
@@ -790,8 +790,8 @@ Single-table compact view of the master list. One row per (original, candidate) 
 |  | Architectural classes [canonicalize] | +2 |
 | alpha prime sub-scope | **Sub-scope alpha prime [canonicalize]** | +3 |
 |  | Potential monotone tier [add-alias] | +2 |
-| [Concept] *Α₁ fixed-gain (A2') sub-scope* | **Fixed gain regime [add-alias]** | +3 |
-| [Concept] *Α₂ adaptive-gain (A2') sub-scope* | **Adaptive gain regime [add-alias]** | +3 |
+| [Concept] *Α₁ fixed-gain (A2′) sub-scope* | **Fixed gain regime [add-alias]** | +3 |
+| [Concept] *Α₂ adaptive-gain (A2′) sub-scope* | **Adaptive gain regime [add-alias]** | +3 |
 | aporia prolepsis aisthesis epistrophe praxis | **_(keep)_ ⭑** | +3 |
 |  | Greek rooted vocabulary [canonicalize] | +3 |
 | appendices: detail | **Appendice detail [canonicalize]** | +3 |
@@ -832,7 +832,7 @@ Single-table compact view of the master list. One row per (original, candidate) 
 |  | Closure load [name-unnamed] | +2 |
 | coherence coupling measurement | **_(keep)_ ⭑** | +3 |
 |  | ✗ Q measurement | -1 |
-| [Concept] *The multiplicative κ processing × 𝒜 scaling of class 2 directional drift and its consequent goal-conformant failure regime* | **The sycophancy equation [name-unnamed]** | +3 |
+| [Concept] *The multiplicative $\kappa_{\text{processing}} \times \mathcal{A}$ scaling of Class 2 directional drift and its consequent goal-conformant failure regime* | **The sycophancy equation [name-unnamed]** | +3 |
 |  | Ambiguity bounded bias law [name-unnamed] | +3 |
 |  | Zero ambiguity conditioning [name-unnamed] | +3 |
 |  | The κ × 𝒜 product [name-unnamed] | +2 |
@@ -1064,7 +1064,7 @@ Single-table compact view of the master list. One row per (original, candidate) 
 |  | Diagnostic square [name-unnamed] | +1 |
 |  | The 2×2 diagnostic [name-unnamed] | +1 |
 |  | ✗ Satisfaction control table the diagnostic 2×2 [name-unnamed] | -1 |
-| [Concept] *The (A2') sub-scope partition into α₁ / α₂ / β* | **Admissibility regime α₁ α₂ β [canonicalize]** | +3 |
+| [Concept] *The (A2′) sub-scope partition into α₁ / α₂ / β* | **Admissibility regime α₁ α₂ β [canonicalize]** | +3 |
 |  | Gain regime partition [name-unnamed] | +2 |
 | [Concept] *The architectural leakage where attention is driven by the goal rather than pure observation* | **Motivated perception [name-unnamed]** | +3 |
 |  | Goal entangled attention | +2 |
@@ -1374,7 +1374,7 @@ Single-table compact view of the master list. One row per (original, candidate) 
 | [Concept] *The regulative ideal that segment names should be re-derivable from a non-specialist everyday language reconstruction* | **Feynman criterion [canonicalize]** | +2 |
 | [Concept] *The rule that bias is the product of architectural coupling and environmental ambiguity* | **Ambiguity coupling rule** | +2 |
 | [Concept] *The separation of per-reader and per-feature code cost* | **Dual optimization partition** | +2 |
-| [Concept] *The set of five conditions under which a2 is derived rather than assumed the sub-scope α agent classes* | **Sub-scope alpha taxonomy** | +2 |
+| [Concept] *The set of five conditions under which (A2′) is derived rather than assumed (the sub-scope α agent classes)* | **Sub-scope alpha taxonomy** | +2 |
 |  | Derived sector classes [name-unnamed] | +1 |
 | [Concept] *The signed coupling structure across all Section III result* | **Signed coupling topology** | +2 |
 |  | Signed coupling pattern [name-unnamed] | +1 |
@@ -1441,7 +1441,7 @@ Single-table compact view of the master list. One row per (original, candidate) 
 | [Concept] *Future segment layer header for narrative pedagogical framing* | **Narrative framing [name-unnamed]** | +1 |
 | [Concept] *Future segment layer header for the SP-5 reader-path proposal* | **Reader path [name-unnamed]** | +1 |
 | [Concept] *Scope-honesty as architecture* | **Honesty [name-unnamed]** | +1 |
-| [Concept] *The (A2') sub-scope partition collectively* | **A2 partition [name-unnamed]** | +1 |
+| [Concept] *The (A2′) sub-scope partition collectively* | **A2 partition [name-unnamed]** | +1 |
 | [Concept] *The dimensional consistency constraint forcing the macro-step formulation* | **Dimensional consistency repair [name-unnamed]** | +1 |
 | [Concept] *The discipline of naming so that the slug survives reorganization* | **Reorganization resilient naming [name-unnamed]** | +1 |
 | [Concept] *The dual that pairs with persistence envelope on the strategic side* | **Strategic persistence envelope [name-unnamed]** | +1 |

@@ -24032,7 +24032,7 @@
       ]
     },
     {
-      "current": "p ij",
+      "current": "$p_{ij}$",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -25051,7 +25051,7 @@
       ]
     },
     {
-      "current": "𝒯 adaptive tempo",
+      "current": "$\\mathcal{T}$ adaptive tempo",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -25065,7 +25065,7 @@
       "candidates": [
         {
           "candidate": "𝒯 adaptive tempo",
-          "is_keep": true,
+          "is_keep": false,
           "total_weight": 6,
           "category_tally": {
             "canonicalize": 1,
@@ -30951,7 +30951,7 @@
       ]
     },
     {
-      "current": "𝒯 σ strategic tempo",
+      "current": "$\\mathcal{T}_\\Sigma$ strategic tempo",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -30965,7 +30965,7 @@
       "candidates": [
         {
           "candidate": "𝒯 σ strategic tempo",
-          "is_keep": true,
+          "is_keep": false,
           "total_weight": 4,
           "category_tally": {
             "canonicalize": 1,
@@ -32133,7 +32133,7 @@
     },
     {
       "current": "a2 prime sub scope partition",
-      "current_description": "(A2') sub-scope partition",
+      "current_description": "(A2′) sub-scope partition",
       "is_concept_cluster": true,
       "voted_by_architectures": [
         "Codex",
@@ -32198,7 +32198,7 @@
       ]
     },
     {
-      "current": "a2 sub-scope partition",
+      "current": "(A2′) sub-scope partition",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -32463,8 +32463,8 @@
       ]
     },
     {
-      "current": "alpha1 fixed gain a2 sub scope",
-      "current_description": "α₁ fixed-gain (A2') sub-scope",
+      "current": "$\\alpha_1$ (A2′) fixed-gain sub-scope",
+      "current_description": "α₁ fixed-gain (A2′) sub-scope",
       "is_concept_cluster": true,
       "voted_by_architectures": [
         "Codex"
@@ -32494,8 +32494,8 @@
       ]
     },
     {
-      "current": "alpha2 adaptive gain a2 sub scope",
-      "current_description": "α₂ adaptive-gain (A2') sub-scope",
+      "current": "$\\alpha_2$ (A2′) adaptive-gain sub-scope",
+      "current_description": "α₂ adaptive-gain (A2′) sub-scope",
       "is_concept_cluster": true,
       "voted_by_architectures": [
         "Codex"
@@ -32879,7 +32879,7 @@
       ]
     },
     {
-      "current": "c i c ii c iii c iv",
+      "current": "C-I / C-II / C-III / C-IV",
       "current_description": "C-I / C-II / C-III / C-IV",
       "is_concept_cluster": true,
       "voted_by_architectures": [
@@ -33532,7 +33532,7 @@
     },
     {
       "current": "concept the multiplicative κ processing × 𝒜 scaling of class 2 directional drift and its consequent goal conformant failure regime",
-      "current_description": "The multiplicative κ processing × 𝒜 scaling of class 2 directional drift and its consequent goal-conformant failure regime",
+      "current_description": "The multiplicative $\\kappa_{\\text{processing}} \\times \\mathcal{A}$ scaling of Class 2 directional drift and its consequent goal-conformant failure regime",
       "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini",
@@ -39319,7 +39319,7 @@
     },
     {
       "current": "unnamed the a2 sub scope partition into α₁ α₂ β",
-      "current_description": "The (A2') sub-scope partition into α₁ / α₂ / β",
+      "current_description": "The (A2′) sub-scope partition into α₁ / α₂ / β",
       "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini",
@@ -41130,7 +41130,7 @@
       ]
     },
     {
-      "current": "𝓐 e τ observation ambiguity",
+      "current": "$\\mathcal{A}(e,\\tau)$ observation ambiguity",
       "current_description": "𝒜, e, τ observation ambiguity",
       "is_concept_cluster": true,
       "voted_by_architectures": [
@@ -43420,7 +43420,7 @@
       ]
     },
     {
-      "current": "composition route c i c ii c iii c iv",
+      "current": "composition route C-I / C-II / C-III / C-IV",
       "current_description": "Composition route C-I / C-II / C-III / C-IV",
       "is_concept_cluster": true,
       "voted_by_architectures": [
@@ -47240,7 +47240,7 @@
     },
     {
       "current": "unnamed the set of five condition under which a2 is derived rather than assumed the sub scope α agent classe",
-      "current_description": "The set of five conditions under which a2 is derived rather than assumed the sub-scope α agent classes",
+      "current_description": "The set of five conditions under which (A2′) is derived rather than assumed (the sub-scope α agent classes)",
       "is_concept_cluster": true,
       "voted_by_architectures": [
         "Gemini",
@@ -49157,7 +49157,7 @@
     },
     {
       "current": "unnamed the a2 sub scope partition collectively",
-      "current_description": "The (A2') sub-scope partition collectively",
+      "current_description": "The (A2′) sub-scope partition collectively",
       "is_concept_cluster": true,
       "voted_by_architectures": [
         "Opus"
