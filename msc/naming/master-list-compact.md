@@ -519,7 +519,7 @@ Single-table compact view of the master list. One row per (original, candidate) 
 | logogenic | **_(keep)_** | +6 |
 | logozoetic | **_(keep)_** | +6 |
 | Lohmiller-Slotine contraction | **_(keep)_** | +5 |
-| Miller meta machine extreme transition motif | **Meta machine extreme transition motif** | +6 |
+| Miller's meta-machine / extreme transition motif | **Meta machine extreme transition motif** | +6 |
 | p ij | **Edge credence [add-alias × 1, canonicalize × 1]** | +6 |
 | plan confidence $\hat P_\Sigma$ | **Plan confidence [keep × 1, canonicalize × 1]** | +6 |
 | postulate not axiom | **Postulate [keep × 1, rename × 1]** | +6 |
@@ -560,7 +560,7 @@ Single-table compact view of the master list. One row per (original, candidate) 
 | $U_M$ model uncertainty | **Model uncertainty [add-alias]** | +5 |
 | $U_o$ observation uncertainty | **Observation uncertainty [add-alias]** | +7 |
 |  | Observation uncertainty $U_o$ [canonicalize] | +3 |
-| $\alpha$ sector bound | **Correction rate [add-alias]** | +5 |
+| $\alpha$ (sector bound) | **Correction rate [add-alias]** | +5 |
 | $\delta_t$ | **Aporia signal [add-alias]** | +5 |
 |  | Mismatch signal [add-alias] | +3 |
 | $\varepsilon^\ast$ | **Closure defect [add-alias]** | +5 |
@@ -684,8 +684,8 @@ Single-table compact view of the master list. One row per (original, candidate) 
 | trust meta model | **_(keep)_** | +5 |
 | $H_b$ | **Backward opacity [add-alias]** | +4 |
 |  | Agent opacity [add-alias] | +3 |
-| $R$ sector radius | **Capacity radius [add-alias]** | +4 |
-| $\hat P_\Sigma$ plan confidence | **Plan confidence [add-alias]** | +4 |
+| $R$ (sector radius) | **Capacity radius [add-alias]** | +4 |
+| $\hat{P}_\Sigma$ plan confidence | **Plan confidence [add-alias]** | +4 |
 | $\iota_{ij}$ | **Identifiability coefficient [add-alias]** | +4 |
 | 1 anchor plus 3 theorem | **_(keep)_** | +4 |
 | action distinguishability | **_(keep)_** | +4 |
@@ -725,7 +725,7 @@ Single-table compact view of the master list. One row per (original, candidate) 
 | epistrophe ἐπιστροφή | **Epistrophe** | +4 |
 |  | _(keep)_ ⭑ | +1 |
 | extreme transition motif | **_(keep)_ ⭑** | +4 |
-| mismatch signal $\delta_t$ | **Mismatch signal [keep × 4, canonicalize × 1]** | +13 |
+| $\delta_t$ mismatch signal | **Mismatch signal [keep × 4, canonicalize × 1]** | +13 |
 | operationalization | **_(keep)_** | +4 |
 | [Concept] *$p_{ij}$ edge confidence weight* | **Edge credence [canonicalize × 1, add-alias × 1]** | +4 |
 | prolepsis πρόληψις | **Prolepsis** | +4 |
@@ -764,14 +764,14 @@ Single-table compact view of the master list. One row per (original, candidate) 
 | $O_t$ objective | **Objective [add-alias]** | +4 |
 |  | _(keep)_ | +3 |
 |  | Objective functional $O_t$ [canonicalize] | +3 |
-| $R$ sector condition radius | **Model-class capacity [add-alias]** | +3 |
+| $R$ (sector-condition radius) | **Model-class capacity [add-alias]** | +3 |
 | $U_o$ vs $U_O$ collision | **_(keep)_** | +3 |
 | $V_{O_t}^{\min}$ | **Satisfaction threshold [add-alias]** | +3 |
 |  | ✗ Objective floor [add-alias] | -1 |
 | $\Sigma_t$ strategy | **_(keep)_** | +3 |
 |  | Strategy [add-alias] | +2 |
-| $\alpha$ lower sector bound | **$\alpha$ sector parameter [add-alias]** | +3 |
-| $\alpha$ sector condition lower bound | **Correction rate constant [add-alias]** | +3 |
+| $\alpha$ (lower sector bound) | **$\alpha$ sector parameter [add-alias]** | +3 |
+| $\alpha$ (sector-condition lower bound) | **Correction rate constant [add-alias]** | +3 |
 |  | Correction rate or decay rate [add-alias] | +1 |
 | $\alpha_1$ | **Fixed gain regime [add-alias]** | +3 |
 |  | Fixed gain tier [add-alias] | +2 |
@@ -787,7 +787,7 @@ Single-table compact view of the master list. One row per (original, candidate) 
 | $\eta_{ji}^\ast$ | **Communication gain [add-alias]** | +3 |
 |  | Trust weighted communication gain [add-alias] | +2 |
 | $\gamma_{\text{adv}}$ and $\gamma_{\text{coop}}$ | **Signed coupling [add-alias]** | +3 |
-| $\hat o_t$ | **Proleptic prediction [add-alias]** | +3 |
+| $\hat{o}_t$ | **Proleptic prediction [add-alias]** | +3 |
 |  | Predicted observation [add-alias] | +1 |
 | $\hat{P}_\Sigma$ | **Plan confidence [add-alias]** | +3 |
 |  | Plan confidence score [add-alias] | +2 |
@@ -795,7 +795,7 @@ Single-table compact view of the master list. One row per (original, candidate) 
 | $\mathcal C_t$ chronica | **$\mathcal C_t$** | +3 |
 | $\rho$ | **Disturbance rate [add-alias]** | +3 |
 |  | Disturbance rate or environmental change rate [add-alias] | +2 |
-| $\rho$ mismatch injection rate | **Disturbance rate [add-alias]** | +3 |
+| $\rho$ (mismatch injection rate) | **Disturbance rate [add-alias]** | +3 |
 | AAD | **_(keep)_** | +3 |
 |  | ✗ Adaptation and purpose dynamics apd | -1 |
 |  | ✗ Adaptation and agency dynamics AAD | -1 |
@@ -815,7 +815,7 @@ Single-table compact view of the master list. One row per (original, candidate) 
 | action transition | **_(keep)_** | +3 |
 |  | Action channel | +0 |
 | [Concept] *Agent classes: Class 1 / 2 / 3* | **Goal entanglement hierarchy [canonicalize]** | +3 |
-|  | Architectural classe [canonicalize] | +2 |
+|  | Architectural classes [canonicalize] | +2 |
 | alpha prime sub-scope | **Sub-scope alpha prime [canonicalize]** | +3 |
 |  | Potential monotone tier [add-alias] | +2 |
 | [Concept] *Α₁ fixed-gain (A2') sub-scope* | **Fixed gain regime [add-alias]** | +3 |
@@ -833,7 +833,7 @@ Single-table compact view of the master list. One row per (original, candidate) 
 |  | Bretagnolle-Huber bound | +3 |
 | [Concept] *Brooks's law formalized as the inevitable tempo loss in team composition* | **Sub-additive tempo penalty [canonicalize]** | +3 |
 |  | The coordination drag [add-alias] | +2 |
-| C-I (composition route) | **Shared objective route c i [canonicalize]** | +3 |
+| C-I (composition route) | **Shared objective route (C-I) [canonicalize]** | +3 |
 |  | Shared objective route [add-alias] | +2 |
 | [Concept] *C-I / C-II / C-III / C-IV* | **Composition route [canonicalize]** | +3 |
 | C-III (composition route) | **Mutual-benefit route C-III [canonicalize]** | +3 |
@@ -849,7 +849,7 @@ Single-table compact view of the master list. One row per (original, candidate) 
 |  | Lowercase italic chronica [canonicalize] | +1 |
 | Class 1 agent | **Modular agent** | +3 |
 | [Concept] *Class 1 / Class 2 / Class 3* | **Goal entanglement hierarchy** | +3 |
-|  | Architecture classe [canonicalize] | +2 |
+|  | Architecture classes [canonicalize] | +2 |
 |  | Modularity partition | +2 |
 |  | Architectural partition [name-unnamed] | +1 |
 |  | Proposal assign english modifier [name-unnamed] | +1 |
@@ -937,14 +937,14 @@ Single-table compact view of the master list. One row per (original, candidate) 
 |  | _(keep)_ | +2 |
 |  | ✗ Branch insertion | -1 |
 |  | ✗ Hypothesis introduction | -1 |
-| Hafez $H_b$ | **$H_b$** | +3 |
+| Hafez's $H_b$ | **$H_b$** | +3 |
 |  | Agent opacity $H_b$ [canonicalize] | +3 |
-| Hafez $H_b$ | **Agent opacity $H_b$ [canonicalize]** | +3 |
+| Hafez's $H_b$ | **Agent opacity $H_b$ [canonicalize]** | +3 |
 |  | $H_b$ | +3 |
 | Section I. Adaptive Systems Under Uncertainty | **Section I adaptive system under uncertainty [canonicalize]** | +3 |
 |  | _(keep)_ | +3 |
 | Section III. Agentic Composites | **Section III agentic composite [canonicalize]** | +3 |
-|  | Iii composition agentic composite | +1 |
+|  | III. Composition: Agentic Composites | +1 |
 | information bottleneck Tishby | **Information bottleneck** | +3 |
 | [Concept] *Instance 1 / 2 / 3 of identifiability floor* | **Identifiability floor instance** | +3 |
 | instance 1 of identifiability floor | **Latent common cause floor** | +3 |
@@ -952,16 +952,16 @@ Single-table compact view of the master list. One row per (original, candidate) 
 | [Concept] *Instance 3 of identifiability floor* | **Coupling sign floor** | +3 |
 | [Concept] *L0 / L1 / L1' / L2* | **Correlation hierarchy [canonicalize]** | +3 |
 | l1 correlation hierarchy prime decoration | **L1 soft facilitator mixture [canonicalize]** | +3 |
-|  | L1 observable | +1 |
+|  | L1-observable | +1 |
 | L1' (prime decoration) | **L1 soft facilitator mixture [canonicalize]** | +3 |
-|  | L1 observable [add-alias] | +2 |
+|  | L1-observable [add-alias] | +2 |
 | linear ode approximation | **_(keep)_** | +3 |
 |  | Linear approximation | +2 |
 | log odds edge coordinate | **_(keep)_** | +3 |
 |  | Additive evidence coordinate [add-alias] | +2 |
 | [Concept] *Lohmiller-Slotine contraction metric generalization used in contraction template* | **Contraction metric generalization** | +2 |
 | Markov blanket as ontology | **Pearl-blanket reading [canonicalize]** | +3 |
-|  | Pearl-blanket d-separation | +3 |
+|  | Pearl-blanket / d-separation | +3 |
 |  | _(keep)_ | +2 |
 |  | Pearl-blanket vs Friston-blanket | +1 |
 | matrix survival constraint | **LMI survival constraint** | +3 |
@@ -1006,7 +1006,7 @@ Single-table compact view of the master list. One row per (original, candidate) 
 | [Concept] *Regime I / II-A / II-B / III* | **Reception regime [canonicalize]** | +3 |
 |  | Destabilization regime partition | +2 |
 | [Concept] *Section header: logogenic agent / logozoetic agent* | **Logogenic agent logozoetic agent [canonicalize]** | +3 |
-|  | Section header logogenic logozoetic | +2 |
+|  | section header: logogenic / logozoetic | +2 |
 | [Concept] *Sector condition (continuous, GA-3)* | **Sector condition** | +3 |
 |  | Continuous sector condition [canonicalize] | +3 |
 | sector condition derivation | **Sector condition [canonicalize]** | +3 |
@@ -1204,7 +1204,7 @@ Single-table compact view of the master list. One row per (original, candidate) 
 |  | _(keep)_ | +3 |
 | [Concept] *𝒜, e, τ observation ambiguity* | **Observation ambiguity $\mathcal{A}$ [canonicalize]** | +3 |
 |  | Observation ambiguity [add-alias] | +3 |
-| 𝓣 adaptive tempo | **Tempo [add-alias]** | +3 |
+| $\mathcal{T}$ adaptive tempo | **Tempo [add-alias]** | +3 |
 |  | Adaptive tempo $\mathcal{T}$ [canonicalize] | +3 |
 | $A_O(M_t; \Pi, N_h)$ | **Achievable value [add-alias]** | +2 |
 | $C_{\text{coord}}$ | **Coordination overhead [add-alias]** | +2 |
@@ -1223,27 +1223,27 @@ Single-table compact view of the master list. One row per (original, candidate) 
 | $\Delta T_{i,\text{cost}}$ | **Coordination drag [add-alias]** | +2 |
 | $\alpha_3$ | **Fisher whitened tier [add-alias]** | +2 |
 |  | Fisher whitened regime [add-alias] | +2 |
-| $\beta$ a2 sub-scope | **Assumed regime [add-alias]** | +2 |
+| $\beta$ (A2′) sub-scope | **Assumed regime [add-alias]** | +2 |
 |  | Postulated regime [add-alias] | +2 |
 |  | ✗ Unverified regime | -1 |
 |  | ✗ Posited regime [add-alias] | -1 |
 | $\beta$ sub-scope | **Assumed sector tier [add-alias]** | +2 |
 |  | Dynamic gain boundary [add-alias] | +1 |
-| $\delta_s$ plan confidence error | **Plan confidence error [add-alias]** | +2 |
-| $\delta_t$ mismatch | **Mismatch or the aporia signal [add-alias]** | +2 |
+| $\delta_s$ plan-confidence error | **Plan confidence error [add-alias]** | +2 |
+| $\delta_t$ (mismatch) | **Mismatch or the aporia signal [add-alias]** | +2 |
 | $\delta_{\text{strategic}}$ | **Strategic calibration [add-alias]** | +2 |
-| $\delta_{\text{strategic}}$ strategic calibration residual | **Strategic calibration residual [add-alias]** | +2 |
-| $\eta^\ast$ optimal update gain | **Trust ratio [add-alias]** | +2 |
+| $\delta_{\text{strategic}}$ strategic-calibration residual | **Strategic calibration residual [add-alias]** | +2 |
+| $\eta^\ast$ (optimal update gain) | **Trust ratio [add-alias]** | +2 |
 |  | Optimal update gain [add-alias] | +2 |
 |  | Update gain [add-alias] | +1 |
 |  | Trust ratio or confidence weighting [add-alias] | +1 |
-| $\iota_{ij}$ identifiability coefficient | **Identifiability coefficient [add-alias]** | +2 |
+| $\iota_{ij}$ (identifiability coefficient) | **Identifiability coefficient [add-alias]** | +2 |
 | $\kappa_{\text{eff}}$ | **Effective ambiguity coupling [add-alias]** | +2 |
-| $\kappa_{\text{processing}}$ architectural coupling | **Processing coupling [add-alias]** | +2 |
+| $\kappa_{\text{processing}}$ (architectural coupling) | **Processing coupling [add-alias]** | +2 |
 | $\lambda(M_t)$ | **Exploration weight [add-alias]** | +2 |
 |  | Exploration multiplier [add-alias] | +1 |
 | $\mathcal{A}(e_\tau)$ | **Observation ambiguity [add-alias]** | +2 |
-| $\mathcal{C}_t$ chronica | **Chronica or interaction history [add-alias]** | +2 |
+| $\mathcal{C}_t$ (chronica) | **Chronica or interaction history [add-alias]** | +2 |
 | $\phi$ | **History compression [add-alias]** | +2 |
 | $\rho_\Sigma$ | **Strategy drift rate [add-alias]** | +2 |
 |  | Strategic disturbance rate [add-alias] | +2 |
@@ -1259,7 +1259,7 @@ Single-table compact view of the master list. One row per (original, candidate) 
 | CIY observational proxy | **Observational CIY** | +2 |
 |  | _(keep)_ | +2 |
 |  | Observational proxy | +1 |
-| adversarial edge target argmax | **Edge targeting optimum [name-unnamed]** | +2 |
+| adversarial edge-target arg-max | **Edge targeting optimum [name-unnamed]** | +2 |
 |  | Adversarial edge targeting | +2 |
 | [Concept] *Agent-visible but objective-irrelevant metric* | **Vanity metric [add-alias]** | +2 |
 |  | Irrelevant visibility artifact | +2 |
@@ -1267,7 +1267,7 @@ Single-table compact view of the master list. One row per (original, candidate) 
 | [Concept] *Bathtub analogy for persistence condition* | **Leaky bathtub analogy [canonicalize]** | +2 |
 |  | Bathtub model | +2 |
 |  | Walton bathtub | +1 |
-| beta a2 assumed sub-scope | **Cyclic game sub-scope** | +2 |
+| $\beta$ (A2′) assumed sub-scope | **Cyclic game sub-scope** | +2 |
 |  | Assumed sector regime | +1 |
 | cadentia | **Adaptive tempo** | +2 |
 |  | _(keep)_ | +2 |
@@ -1283,7 +1283,7 @@ Single-table compact view of the master list. One row per (original, candidate) 
 | class 2 scope exit | **Class 2 scope boundary** | +2 |
 |  | _(keep)_ ⭑ | +2 |
 | [Concept] *Cognitive substrate / Gemini's logostratum proposal* | **Logostratum** | +2 |
-| completeness c3 | **Predictive completeness behavioral completeness [name-unnamed]** | +2 |
+| completeness (C3) | **Predictive completeness behavioral completeness [name-unnamed]** | +2 |
 |  | Predictive completeness | +2 |
 | [Concept] *Composition route C-I / C-II / C-III / C-IV* | **Composition route [canonicalize]** | +2 |
 |  | Composition pathway | +1 |
@@ -1336,7 +1336,7 @@ Single-table compact view of the master list. One row per (original, candidate) 
 |  | ✗ Cognitive substrate | -1 |
 | [Concept] *Low / mixed / high ambiguity event mix* | **Ambiguity profile [name-unnamed]** | +2 |
 |  | Ambiguity stratified event mix | +2 |
-| matrix CIY tensor CIY | **Matrix causal information yield** | +2 |
+| matrix CIY / tensor CIY | **Matrix causal information yield** | +2 |
 |  | Fisher CIY [canonicalize] | +1 |
 |  | Matrix CIY consistent [canonicalize] | +1 |
 | maximum useful chain depth | **_(keep)_ ⭑** | +2 |
@@ -1372,19 +1372,19 @@ Single-table compact view of the master list. One row per (original, candidate) 
 |  | Structural adaptation trigger | +2 |
 | structured rich context | **_(keep)_** | +2 |
 |  | Structured context | +2 |
-| survival fisher floor | **Survival fim floor** | +2 |
+| survival fisher floor | **Survival FIM floor** | +2 |
 |  | _(keep)_ ⭑ | +2 |
 | symbiogenic consolidation time | **Consolidation horizon [name-unnamed]** | +2 |
 |  | Consolidation epoch | +2 |
 | [Concept] *Symbol default bias-bound Track 1 / Track 2* | **Class 2 bias bound** | +2 |
-|  | Transport track fisher track [name-unnamed] | +1 |
+|  | Transport track / Fisher track [name-unnamed] | +1 |
 | technical debt | **Structural capacity debt** | +2 |
 |  | Observability defect | +2 |
 | terminal reached but $O_t$ unsatisfied | **Attainability failure** | +2 |
 |  | Terminal but unsatisfied case | +1 |
 |  | Arrival without success | +1 |
 | [Concept] *The trio collectively M1 / M2 / M3* | **Epistemic architecture** | +2 |
-|  | Floor ladder forced coordinate | +1 |
+|  | floor / ladder / forced-coordinates | +1 |
 |  | Meta architecture trio | +1 |
 | [Concept] *Tier 1 / Tier 2 / Tier 3 contraction* | **Contraction hierarchy** | +2 |
 |  | Contraction tier [canonicalize] | +2 |
@@ -1441,7 +1441,7 @@ Single-table compact view of the master list. One row per (original, candidate) 
 | [Concept] *The rule that bias is the product of architectural coupling and environmental ambiguity* | **Ambiguity coupling rule** | +2 |
 | [Concept] *The separation of per-reader and per-feature code cost* | **Dual optimization partition** | +2 |
 | [Concept] *The set of five conditions under which a2 is derived rather than assumed the sub-scope α agent classes* | **Sub-scope alpha taxonomy** | +2 |
-|  | Derived sector classe [name-unnamed] | +1 |
+|  | Derived sector classes [name-unnamed] | +1 |
 | [Concept] *The signed coupling structure across all Section III result* | **Signed coupling topology** | +2 |
 |  | Signed coupling pattern [name-unnamed] | +1 |
 | [Concept] *The structural cousin of evidence starvation when an upstream edge is so reliable that downstream edges receive too few revising tests* | **Evidence saturation [name-unnamed]** | +2 |
@@ -1450,28 +1450,28 @@ Single-table compact view of the master list. One row per (original, candidate) 
 |  | Operational vs reconstruction persistence | +2 |
 | [Concept] *Working-vocabulary observation: the framework's honesty is load-bearing* | **Honest limit principle** | +2 |
 |  | Load bearing honesty [name-unnamed] | +1 |
-| 𝓣 σ strategic tempo | **Strategic tempo [add-alias]** | +2 |
-| $C$ bias bound constant in bias bound derivation | **Bias bound constant [add-alias]** | +1 |
-| $M_t$ reality model | **Working model** | +1 |
+| $\mathcal{T}_\Sigma$ strategic tempo | **Strategic tempo [add-alias]** | +2 |
+| $C$ (bias-bound constant in bias-bound derivation) | **Bias bound constant [add-alias]** | +1 |
+| $M_t$ (reality model) | **Working model** | +1 |
 |  | Predictive state | +1 |
-| $R$ sector region radius | **Model-class capacity [add-alias]** | +1 |
-| $U_M$ $U_O$ $U_\Sigma$ unity dimension | **Epistemic unity teleological unity strategic unity [add-alias]** | +1 |
+| $R$ (sector-region radius) | **Model-class capacity [add-alias]** | +1 |
+| $U_M$ / $U_O$ / $U_\Sigma$ unity dimensions | **Epistemic unity teleological unity strategic unity [add-alias]** | +1 |
 | $U_M$ dual use model uncertainty and epistemic unity | **Clarify dual use of $U_M$ [canonicalize]** | +1 |
 | $U_o$ | **Teleological coherence [add-alias]** | +1 |
-| $U_o$ $U_M$ observation uncertainty model uncertainty | **$U_o$ $U_M$ [add-alias]** | +1 |
-| $\alpha, \beta$ sector lower and a2 sub-scope | **$\alpha, \beta$** | +1 |
-| $\alpha_1$ $\alpha_2$ $\beta$ naming as a whole | **$\alpha$ partition with english label above [add-alias]** | +1 |
-| $\alpha_2$ a2 adaptive gain sub-scope under mg 1 mg 4 | **Adaptive gain regime [add-alias]** | +1 |
-| $\beta$ a2 assumed not derived sub-scope | **Assumed regime [add-alias]** | +1 |
-| $\beta$ a2 assumption tier | **Assumed regime [add-alias]** | +1 |
-| $\beta$ a2 sub-scope where a2 is assumed not derived | **Postulated sector regime [add-alias]** | +1 |
-| $\kappa_{\text{processing}}$ class 2 processing coupling | **Processing coupling [add-alias]** | +1 |
+| $U_o$ / $U_M$ (observation uncertainty / model uncertainty) | **$U_o$ $U_M$ [add-alias]** | +1 |
+| $\alpha$, $\beta$ — sector lower bound and (A2′) sub-scope | **$\alpha, \beta$** | +1 |
+| $\alpha_1$ / $\alpha_2$ / $\beta$ naming (as a whole) | **$\alpha$ partition with english label above [add-alias]** | +1 |
+| $\alpha_2$ (A2′) adaptive-gain sub-scope under (MG-1)–(MG-4) | **Adaptive gain regime [add-alias]** | +1 |
+| $\beta$ (A2′) assumed-not-derived sub-scope | **Assumed regime [add-alias]** | +1 |
+| $\beta$ (A2′) assumption tier | **Assumed regime [add-alias]** | +1 |
+| $\beta$ (A2′) sub-scope (where A2 is assumed, not derived) | **Postulated sector regime [add-alias]** | +1 |
+| $\kappa_{\text{processing}}$ (Class 2 processing coupling) | **Processing coupling [add-alias]** | +1 |
 | $\mathcal C_t^{\text{commit}}$ (TST committed-state subset) | **$\mathcal C_t^{\text{commit}}$** | +1 |
 | $\mathcal C_t^{\text{commit}}$ (committed-state subset) | **Committed chronica [add-alias]** | +1 |
-| $\rho$ environment change rate mismatch injection rate | **$\rho$** | +1 |
+| $\rho$ (environment change rate / mismatch injection rate) | **$\rho$** | +1 |
 | $\rho_\Sigma$ strategic disturbance rate | **$\rho_\Sigma$** | +1 |
 |  | Strategic disturbance rate [add-alias] | +1 |
-| $f_M$ event driven update | **Epistemic update function [add-alias]** | +1 |
+| $f_M$ (event-driven update) | **Epistemic update function [add-alias]** | +1 |
 | $f_{\text{init}}$ reconstruction function | **Epistemic reconstruction [add-alias]** | +1 |
 | actuated agent class | **Actuated [add-alias]** | +1 |
 | [Concept] *Agentic Systems Framework (ASF) — top-level* | **Agentic system framework** | +1 |
@@ -1485,25 +1485,25 @@ Single-table compact view of the master list. One row per (original, candidate) 
 | interior baseline | **_(keep)_** | +1 |
 |  | Default interiority | +1 |
 |  | ✗ Pre utterance processing | -1 |
-| L1' decoration | **L1 observable [add-alias]** | +1 |
-| mismatch injection rate $\rho$ | **Effective disturbance $\rho$ [canonicalize]** | +3 |
+| L1' decoration | **L1-observable [add-alias]** | +1 |
+| mismatch injection rate ($\rho$) | **Effective disturbance $\rho$ [canonicalize]** | +3 |
 |  | Mismatch injection rate | +1 |
 | multi agent scope | **Shared environment scope** | +1 |
 |  | _(keep)_ | +1 |
-| Pearl l1 | **Predicting [add-alias]** | +1 |
-| Pearl l2 | **Exploring [add-alias]** | +1 |
-| Pearl l3 | **Reasoning [add-alias]** | +1 |
+| Pearl L1 | **Predicting [add-alias]** | +1 |
+| Pearl L2 | **Exploring [add-alias]** | +1 |
+| Pearl L3 | **Reasoning [add-alias]** | +1 |
 | prior art integration convention | **Prior art integration** | +1 |
 | spike research artifact | **Spike [canonicalize]** | +1 |
 | strategic dynamics derivation | **_(keep)_** | +1 |
 |  | Strategy edge dynamics | +1 |
 | terminal alignment error | **Terminal alignment gap** | +1 |
-| the greek vocabulary | **The greek philosophical vocabulary [canonicalize]** | +1 |
-| the integrated κ × a law | **The bias bound product law [canonicalize]** | +1 |
-| three part meta architecture | **Floor ladder forced coordinate** | +1 |
-| [Concept] *Track 1 / Track 2 in bias-bound* | **Transport track fisher rao track [add-alias]** | +1 |
+| the Greek vocabulary | **The greek philosophical vocabulary [canonicalize]** | +1 |
+| the integrated $\kappa \times \mathcal{A}$ law | **The bias bound product law [canonicalize]** | +1 |
+| three-part meta-architecture | **floor / ladder / forced-coordinates** | +1 |
+| [Concept] *Track 1 / Track 2 in bias-bound* | **Transport track / Fisher-Rao track [add-alias]** | +1 |
 |  | Track 1 track 2 | +1 |
-| [Concept] *Track 1 / Track 2 in bias-bound derivation* | **Transport inequality track fisher rao track** | +1 |
+| [Concept] *Track 1 / Track 2 in bias-bound derivation* | **Transport-inequality track / Fisher-Rao track** | +1 |
 | [Concept] *$U_f$ update-rule homogeneity* | **Update rule homogeneity [add-alias]** | +1 |
 | [Concept] *TST-specific name for code that is observation-cheap because it's well written* | **Observation cheap code [name-unnamed]** | +1 |
 | [Concept] *Effort/time/risk-ranking considered false constraints* | **False constraint [name-unnamed]** | +1 |

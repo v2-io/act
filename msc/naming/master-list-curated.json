@@ -24437,7 +24437,7 @@
       ]
     },
     {
-      "current": "Miller meta machine extreme transition motif",
+      "current": "Miller's meta-machine / extreme transition motif",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -25770,7 +25770,7 @@
       ]
     },
     {
-      "current": "$\\alpha$ sector bound",
+      "current": "$\\alpha$ (sector bound)",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -29282,7 +29282,7 @@
       ]
     },
     {
-      "current": "$R$ sector radius",
+      "current": "$R$ (sector radius)",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -29320,7 +29320,7 @@
       ]
     },
     {
-      "current": "$\\hat P_\\Sigma$ plan confidence",
+      "current": "$\\hat{P}_\\Sigma$ plan confidence",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -30496,7 +30496,7 @@
       ]
     },
     {
-      "current": "mismatch signal $\\delta_t$",
+      "current": "$\\delta_t$ mismatch signal",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -31656,7 +31656,7 @@
       ]
     },
     {
-      "current": "$R$ sector condition radius",
+      "current": "$R$ (sector-condition radius)",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -31840,7 +31840,7 @@
       ]
     },
     {
-      "current": "$\\alpha$ lower sector bound",
+      "current": "$\\alpha$ (lower sector bound)",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -31871,7 +31871,7 @@
       ]
     },
     {
-      "current": "$\\alpha$ sector condition lower bound",
+      "current": "$\\alpha$ (sector-condition lower bound)",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -32317,7 +32317,7 @@
       ]
     },
     {
-      "current": "$\\hat o_t$",
+      "current": "$\\hat{o}_t$",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -32532,7 +32532,7 @@
       ]
     },
     {
-      "current": "$\\rho$ mismatch injection rate",
+      "current": "$\\rho$ (mismatch injection rate)",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -32996,7 +32996,7 @@
       ]
     },
     {
-      "current": "agent classe class 1 2 3",
+      "current": "agent classes (Class 1 / 2 / 3)",
       "current_description": "Agent classes: Class 1 / 2 / 3",
       "is_concept_cluster": true,
       "voted_by_architectures": [
@@ -33026,7 +33026,7 @@
           ]
         },
         {
-          "candidate": "Architectural classe",
+          "candidate": "Architectural classes",
           "is_keep": false,
           "total_weight": 2,
           "category_tally": {
@@ -33505,7 +33505,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Shared objective route c i",
+          "candidate": "Shared objective route (C-I)",
           "is_keep": false,
           "total_weight": 3,
           "category_tally": {
@@ -33909,7 +33909,7 @@
           ]
         },
         {
-          "candidate": "Architecture classe",
+          "candidate": "Architecture classes",
           "is_keep": false,
           "total_weight": 2,
           "category_tally": {
@@ -35962,7 +35962,7 @@
       ]
     },
     {
-      "current": "Hafez $H_b$",
+      "current": "Hafez's $H_b$",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -36011,7 +36011,7 @@
       ]
     },
     {
-      "current": "Hafez $H_b$ Miller meta machine Bruineberg Pearl-blanket",
+      "current": "Hafez's $H_b$ / Miller's meta-machine / Bruineberg's Pearl-blanket (lineage)",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -36025,7 +36025,7 @@
       "candidates": []
     },
     {
-      "current": "Hafez $H_b$",
+      "current": "Hafez's $H_b$",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -36153,7 +36153,7 @@
           ]
         },
         {
-          "candidate": "Iii composition agentic composite",
+          "candidate": "III. Composition: Agentic Composites",
           "is_keep": false,
           "total_weight": 1,
           "category_tally": {
@@ -36389,7 +36389,7 @@
           ]
         },
         {
-          "candidate": "L1 observable",
+          "candidate": "L1-observable",
           "is_keep": false,
           "total_weight": 1,
           "category_tally": {
@@ -36438,7 +36438,7 @@
           ]
         },
         {
-          "candidate": "L1 observable",
+          "candidate": "L1-observable",
           "is_keep": false,
           "total_weight": 2,
           "category_tally": {
@@ -36631,7 +36631,7 @@
           ]
         },
         {
-          "candidate": "Pearl-blanket d-separation",
+          "candidate": "Pearl-blanket / d-separation",
           "is_keep": false,
           "total_weight": 3,
           "category_tally": {
@@ -37739,7 +37739,7 @@
           ]
         },
         {
-          "candidate": "Section header logogenic logozoetic",
+          "candidate": "section header: logogenic / logozoetic",
           "is_keep": false,
           "total_weight": 2,
           "category_tally": {
@@ -42679,7 +42679,7 @@
       ]
     },
     {
-      "current": "𝓣 adaptive tempo",
+      "current": "$\\mathcal{T}$ adaptive tempo",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -43229,7 +43229,7 @@
       ]
     },
     {
-      "current": "$\\beta$ a2 sub-scope",
+      "current": "$\\beta$ (A2′) sub-scope",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -43360,7 +43360,7 @@
       ]
     },
     {
-      "current": "$\\delta_s$ plan confidence error",
+      "current": "$\\delta_s$ plan-confidence error",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -43391,7 +43391,7 @@
       ]
     },
     {
-      "current": "$\\delta_t$ mismatch",
+      "current": "$\\delta_t$ (mismatch)",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -43453,7 +43453,7 @@
       ]
     },
     {
-      "current": "$\\delta_{\\text{strategic}}$ strategic calibration residual",
+      "current": "$\\delta_{\\text{strategic}}$ strategic-calibration residual",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -43484,7 +43484,7 @@
       ]
     },
     {
-      "current": "$\\eta^\\ast$ optimal update gain",
+      "current": "$\\eta^\\ast$ (optimal update gain)",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -43568,7 +43568,7 @@
       ]
     },
     {
-      "current": "$\\iota_{ij}$ identifiability coefficient",
+      "current": "$\\iota_{ij}$ (identifiability coefficient)",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -43630,7 +43630,7 @@
       ]
     },
     {
-      "current": "$\\kappa_{\\text{processing}}$ architectural coupling",
+      "current": "$\\kappa_{\\text{processing}}$ (architectural coupling)",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -43747,7 +43747,7 @@
       ]
     },
     {
-      "current": "$\\mathcal{C}_t$ chronica",
+      "current": "$\\mathcal{C}_t$ (chronica)",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -44177,7 +44177,7 @@
       ]
     },
     {
-      "current": "adversarial edge target argmax",
+      "current": "adversarial edge-target arg-max",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -44379,7 +44379,7 @@
       ]
     },
     {
-      "current": "beta a2 assumed sub-scope",
+      "current": "$\\beta$ (A2′) assumed sub-scope",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -44780,7 +44780,7 @@
       ]
     },
     {
-      "current": "completeness c3",
+      "current": "completeness (C3)",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -45651,7 +45651,7 @@
       ]
     },
     {
-      "current": "gemini analysis paralysis for excessive deliberation",
+      "current": "Gemini's \"analysis paralysis\" for excessive deliberation",
       "current_description": "Gemini's analysis-paralysis for excessive deliberation",
       "is_concept_cluster": true,
       "voted_by_architectures": [
@@ -46088,7 +46088,7 @@
       ]
     },
     {
-      "current": "matrix CIY tensor CIY",
+      "current": "matrix CIY / tensor CIY",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -46972,7 +46972,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Survival fim floor",
+          "candidate": "Survival FIM floor",
           "is_keep": false,
           "total_weight": 2,
           "category_tally": {
@@ -47087,7 +47087,7 @@
           ]
         },
         {
-          "candidate": "Transport track fisher track",
+          "candidate": "Transport track / Fisher track",
           "is_keep": false,
           "total_weight": 1,
           "category_tally": {
@@ -47249,7 +47249,7 @@
           ]
         },
         {
-          "candidate": "Floor ladder forced coordinate",
+          "candidate": "floor / ladder / forced-coordinates",
           "is_keep": false,
           "total_weight": 1,
           "category_tally": {
@@ -48717,7 +48717,7 @@
           ]
         },
         {
-          "candidate": "Derived sector classe",
+          "candidate": "Derived sector classes",
           "is_keep": false,
           "total_weight": 1,
           "category_tally": {
@@ -48945,7 +48945,7 @@
       ]
     },
     {
-      "current": "𝓣 σ strategic tempo",
+      "current": "$\\mathcal{T}_\\Sigma$ strategic tempo",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -48976,7 +48976,7 @@
       ]
     },
     {
-      "current": "$C$ bias bound constant in bias bound derivation",
+      "current": "$C$ (bias-bound constant in bias-bound derivation)",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -49007,7 +49007,7 @@
       ]
     },
     {
-      "current": "$M_t$ reality model",
+      "current": "$M_t$ (reality model)",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -49055,7 +49055,7 @@
       ]
     },
     {
-      "current": "$R$ sector region radius",
+      "current": "$R$ (sector-region radius)",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -49086,7 +49086,7 @@
       ]
     },
     {
-      "current": "$U_M$ $U_O$ $U_\\Sigma$ unity dimension",
+      "current": "$U_M$ / $U_O$ / $U_\\Sigma$ unity dimensions",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -49179,7 +49179,7 @@
       ]
     },
     {
-      "current": "$U_o$ $U_M$ observation uncertainty model uncertainty",
+      "current": "$U_o$ / $U_M$ (observation uncertainty / model uncertainty)",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -49210,7 +49210,7 @@
       ]
     },
     {
-      "current": "$\\alpha, \\beta$ sector lower and a2 sub-scope",
+      "current": "$\\alpha$, $\\beta$ — sector lower bound and (A2′) sub-scope",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -49241,7 +49241,7 @@
       ]
     },
     {
-      "current": "$\\alpha_1$ $\\alpha_2$ $\\beta$ naming as a whole",
+      "current": "$\\alpha_1$ / $\\alpha_2$ / $\\beta$ naming (as a whole)",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -49272,7 +49272,7 @@
       ]
     },
     {
-      "current": "$\\alpha_2$ a2 adaptive gain sub-scope under mg 1 mg 4",
+      "current": "$\\alpha_2$ (A2′) adaptive-gain sub-scope under (MG-1)–(MG-4)",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -49303,7 +49303,7 @@
       ]
     },
     {
-      "current": "$\\beta$ a2 assumed not derived sub-scope",
+      "current": "$\\beta$ (A2′) assumed-not-derived sub-scope",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -49334,7 +49334,7 @@
       ]
     },
     {
-      "current": "$\\beta$ a2 assumption tier",
+      "current": "$\\beta$ (A2′) assumption tier",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -49365,7 +49365,7 @@
       ]
     },
     {
-      "current": "$\\beta$ a2 sub-scope where a2 is assumed not derived",
+      "current": "$\\beta$ (A2′) sub-scope (where A2 is assumed, not derived)",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -49396,7 +49396,7 @@
       ]
     },
     {
-      "current": "$\\kappa_{\\text{processing}}$ class 2 processing coupling",
+      "current": "$\\kappa_{\\text{processing}}$ (Class 2 processing coupling)",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -49489,7 +49489,7 @@
       ]
     },
     {
-      "current": "$\\rho$ environment change rate mismatch injection rate",
+      "current": "$\\rho$ (environment change rate / mismatch injection rate)",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -49569,7 +49569,7 @@
       ]
     },
     {
-      "current": "$f_M$ event driven update",
+      "current": "$f_M$ (event-driven update)",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -49987,7 +49987,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "L1 observable",
+          "candidate": "L1-observable",
           "is_keep": false,
           "total_weight": 1,
           "category_tally": {
@@ -50006,7 +50006,7 @@
       ]
     },
     {
-      "current": "mismatch injection rate $\\rho$",
+      "current": "mismatch injection rate ($\\rho$)",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -50104,7 +50104,7 @@
       ]
     },
     {
-      "current": "Pearl l1",
+      "current": "Pearl L1",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -50135,7 +50135,7 @@
       ]
     },
     {
-      "current": "Pearl l2",
+      "current": "Pearl L2",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -50166,7 +50166,7 @@
       ]
     },
     {
-      "current": "Pearl l3",
+      "current": "Pearl L3",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -50339,7 +50339,7 @@
       ]
     },
     {
-      "current": "the greek vocabulary",
+      "current": "the Greek vocabulary",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -50370,7 +50370,7 @@
       ]
     },
     {
-      "current": "the integrated κ × a law",
+      "current": "the integrated $\\kappa \\times \\mathcal{A}$ law",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -50401,7 +50401,7 @@
       ]
     },
     {
-      "current": "three part meta architecture",
+      "current": "three-part meta-architecture",
       "current_description": null,
       "is_concept_cluster": false,
       "voted_by_architectures": [
@@ -50413,7 +50413,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Floor ladder forced coordinate",
+          "candidate": "floor / ladder / forced-coordinates",
           "is_keep": false,
           "total_weight": 1,
           "category_tally": {
@@ -50444,7 +50444,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Transport track fisher rao track",
+          "candidate": "Transport track / Fisher-Rao track",
           "is_keep": false,
           "total_weight": 1,
           "category_tally": {
@@ -50492,7 +50492,7 @@
       "manual_curation_notes": null,
       "candidates": [
         {
-          "candidate": "Transport inequality track fisher rao track",
+          "candidate": "Transport-inequality track / Fisher-Rao track",
           "is_keep": false,
           "total_weight": 1,
           "category_tally": {
