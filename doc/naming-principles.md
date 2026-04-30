@@ -72,7 +72,7 @@ Each vote belongs to exactly one of these categories. Marking the category in yo
 
 - Vote **`add-alias`** when the original is formally precise or deeply established but the framework needs a separate, evocative prose handle for discussion, framing, and pedagogy. Both terms persist with strictly differentiated roles. Example: `effects spiral` → `runaway mismatch cascade` as add-alias keeps `effects spiral` as the formal phenomenon name while making `runaway mismatch cascade` the canonical phrase for explaining the mechanism in prose.
 
-Articulated by Gemini-3.1-pro-preview in the 2026-04-29 targeted-alternatives round: *"A `+3 add-alias` means I strongly believe the framework is currently suffering in its readability because it lacks a dedicated, evocative prose noun for a concept that already has a formal identifier. It is a vote to officially mint that prose noun."*
+Articulated by Gemini-3.1-pro-preview in the 2026-04-29 targeted-alternatives round (R1's four-band scale was active at the time of the quote; under R2's three-value scale this maps to a strong `+2 add-alias`): *"A `+3 add-alias` means I strongly believe the framework is currently suffering in its readability because it lacks a dedicated, evocative prose noun for a concept that already has a formal identifier. It is a vote to officially mint that prose noun."*
 
 ### Rename vs. Canonicalize — invented vs. excavated provenance
 
@@ -137,44 +137,41 @@ Every new acronym carries a maintenance cost: future readers must memorize it; c
 
 **Rule of thumb:** if you would use the name (or paraphrase) repeatedly in a conversation about the theory, it's eligible.
 
-## How to vote — table format
+## How to vote
 
-Write your votes as a markdown table with five columns:
+Voting mechanics depend on the round. **Round 2** voters edit pre-generated voting cards in place — see [`doc/naming-cycle-methodology.md`](naming-cycle-methodology.md) §2 (the tracker) and §4 (the walk) for the active mechanics, and the card's own preamble for the per-row format. **Round 1** used a separate vote-file-per-agent (markdown table; preserved at the end of this section as historical reference). The categories, criteria, and weight scale described below apply across rounds; only the *delivery form* (card-edit vs. vote-file-table) differs.
 
-```
-| current-name | new-name-candidate | category | weight | notes |
-|---|---|---|---|---|
-| ... | ... | ... | ... | ... |
-```
-
-The `category` column is one of: `rename`, `keep`, `canonicalize`, `add-alias`, `name-unnamed`. Use the same category vocabulary (no abbreviations).
+The `category` column / cell is one of: `rename`, `keep`, `canonicalize`, `add-alias`, `name-unnamed`. Use the same category vocabulary (no abbreviations).
 
 ### Weight scale
 
-- **+3** — strong preference. Strong rename; load-bearing keep; name urgently needed.
-- **+2** — moderate preference. Visible improvement; defended-keep against a reasonable alternative.
-- **+1** — weak preference. Mild improvement; acceptable-keep.
+For the active round (Round 2), the scale is intentionally three values:
+
+- **+2** — strong preference. Strong rename; load-bearing keep; name urgently needed.
+- **+1** — would-accept; mild preference. Visible improvement; acceptable-keep.
 - **−1** — explicit rejection. You considered this candidate and reject it.
 
-The +2 level was added after Round 1 (where +1/+3 collapsed "acceptable-keep" and "load-bearing-keep" into the same bucket). Use +2 deliberately when the strength of conviction is between weak and strong — the difference matters for aggregation.
+No `+3`, no `-2`, no `-3`. No zero except by absence. The simpler scale is intentional for finalist resolution and forces decisive picks; bandwidth-of-intensity distinctions weren't load-bearing for the round's purpose.
 
-**Absence is not a vote.** Not including a name in your table means "no opinion." Vote explicitly for anything you considered, whether keep or change. This lets the aggregation distinguish "nobody thought about this" from "several agents looked and declined to change it."
+*Historical note:* Round 1 used a wider four-band scale (+3 / +2 / +1 / -1 / -2 / -3) for open-exploration voting where conviction-bandwidth mattered more. Across the R2 first cohort, every voter except one defaulted back to R1's wider scale anyway because the broader scale is the training prior. Scale-drift back to four-band is a documented failure mode — see [`naming-cycle-methodology.md`](naming-cycle-methodology.md) §5. If you find yourself reaching for `+3` or `-2`, that's the prior asserting itself, and the move is to clamp to the three-value scale rather than rationalize the deviation.
 
-### Example votes
+**Absence is not a vote.** Not including a name in your table (R1) or row (R2) means "no opinion." Vote explicitly for anything you considered, whether keep or change. This lets the aggregation distinguish "nobody thought about this" from "several agents looked and declined to change it."
+
+### Example votes (Round 2 scale; mechanics shown in the R1 table form for compactness — R2 voters cast the same vote by editing their card row)
 
 **Strong rename:**
 ```
-| #discussion-additive-coordinate-forcing | #discussion-forced-coordinates | rename | +3 | Current "additive" doesn't cover the Čencov-Fisher 4th instance; "forced-coordinates" covers both Cauchy-FE and Čencov machineries. Scope-honesty for meta-segment dominates. |
+| #discussion-additive-coordinate-forcing | #discussion-forced-coordinates | rename | +2 | Current "additive" doesn't cover the Čencov-Fisher 4th instance; "forced-coordinates" covers both Cauchy-FE and Čencov machineries. Scope-honesty for meta-segment dominates. |
 ```
 
 **Defended keep:**
 ```
-| satisfaction gap | satisfaction gap | keep | +3 | Crispest named pair in the project; the 2×2 diagnostic works because the names work. Rename would lose load-bearing prose conventions. |
+| satisfaction gap | satisfaction gap | keep | +2 | Crispest named pair in the project; the 2×2 diagnostic works because the names work. Rename would lose load-bearing prose conventions. |
 ```
 
 **Canonicalize (commit to existing name; stop paraphrasing):**
 ```
-| "calibration laboratory" | "calibration laboratory" | canonicalize | +3 | Currently appears as "richest operationalization domain", "best operationalization domain", and "calibration laboratory" across CLAUDE.md and TST OUTLINE. Standardize on the third. |
+| "calibration laboratory" | "calibration laboratory" | canonicalize | +2 | Currently appears as "richest operationalization domain", "best operationalization domain", and "calibration laboratory" across CLAUDE.md and TST OUTLINE. Standardize on the third. |
 ```
 
 **Add-alias (symbol + English):**
@@ -184,7 +181,7 @@ The +2 level was added after Round 1 (where +1/+3 collapsed "acceptable-keep" an
 
 **Name-unnamed-thing:**
 ```
-| [unnamed: the sector-persistence region in parameter space] | "persistence envelope" | name-unnamed | +2 | Engineering vocabulary, geometrically evocative. Currently referenced as "the region where the persistence condition holds" — verbose and non-memorable. |
+| [unnamed: the sector-persistence region in parameter space] | "persistence envelope" | name-unnamed | +1 | Engineering vocabulary, geometrically evocative. Currently referenced as "the region where the persistence condition holds" — verbose and non-memorable. |
 ```
 
 **Explicit rejection:**
@@ -194,10 +191,22 @@ The +2 level was added after Round 1 (where +1/+3 collapsed "acceptable-keep" an
 
 **Multiple alternatives for one current-name (rank with weight):**
 ```
-| #discussion-additive-coordinate-forcing | #discussion-forced-coordinates | rename | +3 | Best fit per scope-honesty and meta-segment criteria. |
+| #discussion-additive-coordinate-forcing | #discussion-forced-coordinates | rename | +2 | Best fit per scope-honesty and meta-segment criteria. |
 | #discussion-additive-coordinate-forcing | #discussion-cauchy-coordinates | rename | -1 | Undersells the Čencov 4th instance (not Cauchy-FE). |
 | #discussion-additive-coordinate-forcing | #discussion-coordinate-forcing | rename | +1 | Verb form; acceptable alternative if forced-coordinates doesn't land. |
 ```
+
+### Round 1 vote-file format (historical reference)
+
+Round 1 voters wrote a markdown table per agent at `msc/naming/naming-votes/{agent-id}.md` with five columns:
+
+```
+| current-name | new-name-candidate | category | weight | notes |
+|---|---|---|---|---|
+| ... | ... | ... | ... | ... |
+```
+
+The four-band scale (+3 / +2 / +1 / -1) applied. R2 replaced the table-file mechanic with inline card editing; the example votes above show how the same conceptual vote translates.
 
 ## What to return
 
