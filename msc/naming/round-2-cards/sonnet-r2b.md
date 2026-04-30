@@ -56,8 +56,8 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| The $U_M$ overload |  |  |  |  |
-| *(write-in)* |  |  |  |  |
+| The $U_M$ overload | name-unnamed | +1 |  | The symbol collision is real — model uncertainty ($U_M$ in Section I) vs epistemic unity ($U_M$ in Section III) is a genuine bug attractor. Naming it as "the $U_M$ overload" is more about internal vocabulary for the theory-building process than for readers of the finished theory. The real fix is renaming one symbol. But as a working vocabulary term during development, "the $U_M$ overload" is useful. Weak positive vote because the concept deserves a name, even if the candidate name is awkward. |
+| *(write-in)* | name-unnamed | +1 | yes | Write-in: "model-unity collision" or "$U_M$ disambiguation" would be cleaner names for this concept if it needs a name at all. The issue is better fixed at the symbol level — rename the epistemic-unity $U_M$ to something that doesn't collide. |
 
 ## 4. *action fluency*
 
@@ -67,7 +67,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| action fluency |  |  |  |  |
+| action fluency | canonicalize | +2 | yes | The term appears in der-deliberation-cost as "the high-tempo limit favors action fluency." The zero-deliberation condition $\Delta\eta^*(\Delta\tau) \approx 0$ is when actions are fluent — no gain improvement from thinking. "Fluency" carries exactly the right connotation: expertise that makes deliberation unnecessary. Not in the agent-theoretic literature as a term-of-art, but the everyday meaning is precisely accurate. Canonicalize this phrase as the standard term for the zero-deliberation-gain regime; don't let it stay as an informal aside in Discussion sections. |
 | *(write-in)* |  |  |  |  |
 
 ## 5. *agent identity*
@@ -87,12 +87,12 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Singular causal trajectory |  |  |  |  |
-| Trajectory identity |  |  |  |  |
-| The trajectory identity scope |  |  |  |  |
-| Causal identity |  |  |  |  |
-| agent identity |  |  |  |  |
-| Identity as singular causal trajectory |  |  |  |  |
+| Singular causal trajectory | rename | +1 |  | What grounds identity in AAD — precise and unambiguous. Slightly long for repeated prose use. |
+| Trajectory identity | rename | +1 |  | Concise and accurate. "Trajectory identity" focuses attention on the non-forkability structure. Pairs well with "model identity" if that term were ever needed for contrast. |
+| The trajectory identity scope | rename | -1 |  | The word "scope" is redundant — the heading prefix already marks this as a scope segment. |
+| Causal identity | rename | +2 | ✓ | Most concise, most informative. "Causal" anchors it to the non-forkable causal-trajectory structure without needing "trajectory" spelled out. Contrast with "model identity" (which would name the model-state-as-identity view that the segment rejects) is implicit and correct. Works in prose: "AAD's causal identity commitment..." |
+| agent identity | keep | -1 |  | Too soft — "agent identity" is the name of every philosophy-of-mind article from the last 30 years. The formal content is specifically about *causal* identity grounded in *non-forkable trajectories*, and the prose handle should say that. |
+| Identity as singular causal trajectory | rename | -1 |  | This is a description, not a name. Works as a gloss in OUTLINE.md; too heavy for repeated prose use. |
 | *(write-in)* |  |  |  |  |
 
 ## 6. [Concept] *Artificially spiking uncertainty to unlearn old architectural habits*
@@ -321,11 +321,11 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Bridge theorem from gain to sector |  |  |  |  |
-| gain sector bridge |  |  |  |  |
-| Grounding (GA-3) sub-scope α and β |  |  |  |  |
-| The bridge theorem |  |  |  |  |
-| *(write-in)* |  |  |  |  |
+| Bridge theorem from gain to sector | rename | -1 |  | Verbose — "from gain to sector" makes the directional dependency explicit but at the cost of readability. "Bridge theorem" alone might be too generic. |
+| gain sector bridge | keep | +2 | yes | The name is precise and minimal. "Gain" and "sector" are the two regimes being bridged. "Bridge" names the structural role correctly. The claim that it "understates centrality" is fair but names don't have to advertise centrality — that's the OUTLINE's job. Keep and rely on the theoretical chain to surface the importance. |
+| Grounding (GA-3) sub-scope α and β | rename | -1 |  | Too much notation in a name. "(GA-3) sub-scope α and β" is a technical address, not a memorable name. Would fail the communal-imagination test. |
+| The bridge theorem | rename | -1 |  | "The bridge theorem" is what you'd call it in conversation once the concept is established, but as a formal name it's too generic — there are many bridge theorems. It would need disambiguation in every citation. |
+| *(write-in)* | rename | +1 |  | Write-in: "directional-fidelity bridge" — names the key assumption (B1 directional fidelity) that the bridge rests on, which is more informative than naming both endpoints. But "gain sector bridge" is more established and works fine. |
 
 ## 22. *tempo composition*
 
@@ -377,11 +377,11 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Trajectory value |  |  |  |  |
-| Policy-conditioned value |  |  |  |  |
-| Decision value |  |  |  |  |
-| value object |  |  |  |  |
-| Value functional |  |  |  |  |
+| Trajectory value | rename | -1 |  | Loses the continuation-convention conditioning. "Trajectory value" suggests something computable from a trajectory alone — which the segment explicitly shows is impossible without specifying convention (C1/C2/C3). The convention is part of the definition. |
+| Policy-conditioned value | rename | +2 | ✓ | Names the central content: the value quantity is conditioned on a continuation policy convention, which is what the C1/C2/C3 hierarchy is about. "Policy-conditioned" is self-announcing. The software "value object" baggage is a real cost. |
+| Decision value | rename | +1 |  | Acceptable short form. "Decision" situates it in the action-selection context without the software-pattern baggage of "value object." Less precise than "policy-conditioned value" since it doesn't name the conditioning. |
+| value object | keep | -1 |  | The software-pattern baggage ("value object" in OOP = immutable container for a value type) misleads readers from non-mathematical backgrounds. The name doesn't signal the continuation-convention dependency that is the segment's central content. |
+| Value functional | rename | -1 |  | Would collide with "objective functional" (#form-objective-functional) — the upstream functional that value object inherits from. The names cleanly disambiguate now; renaming would collapse a useful distinction. |
 | *(write-in)* |  |  |  |  |
 
 ## 25. [Concept] *Low / mixed / high ambiguity event mix*
@@ -408,10 +408,10 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Channel rate |  |  |  |  |
-| Adaptive tempo |  |  |  |  |
-| Cognitive rhythm |  |  |  |  |
-| cadentia |  |  |  |  |
+| Channel rate | rename | +1 |  | Clean, mechanical, immediately parseable. Works well in technical prose: "the channel rate $\nu^{(k)}$." Not distinctive — doesn't carry the rhythmic quality of the concept. |
+| Adaptive tempo | rename | -1 |  | Adaptive tempo is already the name for $\mathcal{T}$ (the aggregate across channels). Using "adaptive tempo" for $\nu^{(k)}$ (per-channel rate) would create collision within the same framework. Hard reject. |
+| Cognitive rhythm | rename | -1 |  | Too soft and biological. Not in the right register for a formal framework. "Cognitive" is agent-architecture vocabulary; this is a channel-physics property. |
+| cadentia | keep | +2 | yes | "Cadentia" is right for this concept. Latin *cadere* (to fall, beat) → cadence → the temporal rhythm of a channel. The term has the same aesthetic register as "chronica" — both are Latinate terms that have settled into natural English usage (cadence is common). It's distinctive without being opaque. In prose: "each channel has its own cadentia" reads with the right weight. The PROPRIUM register connection is a bonus, but the term works on its own. |
 | *(write-in)* |  |  |  |  |
 
 ## 27. [Concept] *The strengthen-first attempt artifact a spike that tried to derive something stronger and failed*
@@ -525,10 +525,10 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Objective free tracker |  |  |  |  |
-| adaptive tracker |  |  |  |  |
-| Pure epistemic agent |  |  |  |  |
-| Model only agent |  |  |  |  |
+| Objective free tracker | rename | -1 |  | Defining a quadrant by what it lacks ("objective-free") is the wrong angle — it makes the concept sound like a deficient version of something else. The segment explicitly says the regions are not ranked. |
+| adaptive tracker | keep | +2 | ✓ | Active, dynamic, precise. "Tracker" signals that the agent follows reality (like a Kalman filter tracking a state). "Adaptive" captures that M_t is updated. The pair is memorable and self-explanatory. |
+| Pure epistemic agent | rename | +1 |  | Appealing alternative that links to the epistemic update f_M. Slightly more formal-sounding; "tracker" may be more accessible. |
+| Model only agent | rename | -1 |  | "Model only" is description, not a name, and "agent" is redundant with the context. |
 | *(write-in)* |  |  |  |  |
 
 ## 36. *$U_M$ as model uncertainty*
@@ -541,9 +541,9 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Model uncertainty $U_M$ |  |  |  |  |
-| $U_M$ |  |  |  |  |
-| Model uncertainty |  |  |  |  |
+| Model uncertainty $U_M$ | canonicalize | +2 | yes | "Model uncertainty" is the right prose handle for $U_M$ in Section I contexts. The $U_M$ symbol is useful in equations. The natural prose form "the model's uncertainty" or "model uncertainty $U_M$" is already in use. The collision with epistemic unity (also $U_M$) in Section III is a real problem — it means the symbol alone is ambiguous without context. Canonicalizing the *prose form* "model uncertainty" for this Section I use helps distinguish from "epistemic unity" in Section III. Note: the symbol overload is a separate naming issue worth addressing at the symbol level, not just the prose level. |
+| $U_M$ | canonicalize | -1 |  | Canonicalizing $U_M$ alone as the symbol for model uncertainty doesn't resolve the collision with epistemic unity — both concepts use $U_M$ in different sections. The symbol needs disambiguation, not canonicalization. |
+| Model uncertainty | canonicalize | +1 |  | Acceptable English alias. Slightly less specific than "Model uncertainty $U_M$" which makes the symbol connection explicit. |
 | *(write-in)* |  |  |  |  |
 
 ## 37. *turnover multiplier*
@@ -708,10 +708,10 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Weak link persistence |  |  |  |  |
-| Dimensional persistence |  |  |  |  |
-| per dimension persistence |  |  |  |  |
-| Weakest link persistence |  |  |  |  |
+| Weak link persistence | rename | +2 | yes | The weak-dimension-as-bottleneck result is the core insight: 84% of mismatch concentrates in the weak dimension. "Weak link" names this binding constraint perfectly. In prose: "the system faces a weak link persistence problem" reads better than "per-dimension persistence." Survives the communal-imagination test — everyone knows the weakest link metaphor. |
+| Dimensional persistence | rename | +1 |  | More grammatically flexible than "per-dimension" but loses the bottleneck connotation. "Dimensional persistence" is neutral where the concept is not — the point is that the WORST dimension dominates. |
+| per dimension persistence | keep | -1 |  | Accurate but inert. "Per-dimension" describes the methodology (checking each dimension separately) rather than the insight (the worst dimension dominates). The "weak link" framing is strictly better. |
+| Weakest link persistence | rename | +1 |  | "Weakest" is more precise than "weak" — it names the specific dimensionally-worst element. But slightly awkward in flow ("the system faces a weakest link persistence constraint"). "Weak link" is idiomatically smoother. |
 | *(write-in)* |  |  |  |  |
 
 ## 49. [Concept] *The tension between lowering internal opacity for coordination and increasing external vulnerability*
@@ -806,7 +806,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Model-class capacity |  |  |  |  |
+| Model-class capacity | canonicalize | +2 | ✓ | $R$ bounds how large $\|\delta\|$ can grow before the sector condition fails — "capacity" names the load-bearing interpretation. Canonicalizing here resolves the inconsistency: "sector-region radius" stays for geometric derivations, "model-class capacity" enters prose as the meaning-bearing handle. The pair are the same quantity seen from two angles (geometric vs. functional); committing one for prose prevents drift. |
 | *(write-in)* |  |  |  |  |
 
 ## 56. *epistemic architecture*
@@ -824,14 +824,14 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| floor / ladder / forced-coordinates |  |  |  |  |
-| Bounded correction architecture |  |  |  |  |
-| AAD epistemic triptych |  |  |  |  |
-| AAD meta architecture |  |  |  |  |
-| Meta architecture trio |  |  |  |  |
-| The meta segment triad |  |  |  |  |
-| epistemic architecture |  |  |  |  |
-| Four discipline synthesis |  |  |  |  |
+| floor / ladder / forced-coordinates | add-alias | +1 |  | Useful as the compact internal reference when all three components are individually at play. Not the name for framing prose — it's a mnemonic, not a description. |
+| Bounded correction architecture | canonicalize | -1 |  | "Bounded correction" privileges the identifiability-floor piece; the forced-coordinates meta-result is equally important and doesn't read as "bounded correction." This candidate underweights the structural-forcing insight. |
+| AAD epistemic triptych | rename | -1 |  | "Triptych" is art-historical and will read as cute in a decade. The naming-principles document is right to warn against this. |
+| AAD meta architecture | canonicalize | +2 | ✓ | Clean, speakable, self-locating. "AAD" places it in the framework; "meta" signals these are second-order segments (segments about what the theory can and cannot determine); "architecture" signals the three pieces fit together structurally. No cute-word risk. Usable in framing prose and CLAUDE.md prose alike. |
+| Meta architecture trio | canonicalize | +1 |  | Acceptable but weaker — "trio" is a count, not a description. "AAD meta architecture" carries the framing function "trio" does not. |
+| The meta segment triad | canonicalize | -1 |  | Same count-word problem as "trio," plus "triad" is slightly precious. |
+| epistemic architecture | canonicalize | +1 |  | What it's positioning toward is right (AAD's contribution is architecturally epistemic). But it's also what framing prose already reaches for naturally — canonicalizing this could displace "AAD meta architecture" which is more specific about *which* epistemic architecture within the document family. Both can coexist: "epistemic architecture" for external positioning, "AAD meta architecture" for internal segment references. |
+| Four discipline synthesis | canonicalize | -1 |  | This names the method (synthesis from four disciplines) not the thing synthesized. CLAUDE.md is explicit that AAD's contribution is integration, but the *result* of integration is the architecture, not the synthesis process itself. Wrong angle. |
 | *(write-in)* |  |  |  |  |
 
 ## 57. [Concept] *The signed coupling structure across all Section III result*
@@ -880,8 +880,8 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Correction rate constant |  |  |  |  |
-| Correction rate or decay rate |  |  |  |  |
+| Correction rate constant | canonicalize | +2 | ✓ | The gain-sector bridge makes this precise: $\alpha = \eta^* \cdot c_{\min}$, so $\alpha$ is the effective worst-case rate at which correction machinery reduces mismatch. Units are $t^{-1}$; the timescale $1/\alpha$ is how long a single correction cycle takes at minimum capacity. "Constant" is right — it's a property of the architecture, not a variable. The persistence condition then reads naturally in prose: "correction rate constant must exceed the disturbance-to-capacity ratio." |
+| Correction rate or decay rate | canonicalize | -1 |  | The `or` signals unresolved ambiguity — that's not what a canonicalization should convey. "Decay rate" is the linear-ODE reading, which the segment explicitly marks as pedagogical (heuristic status). Better to commit to the sector-condition reading ("correction rate constant") than to hedge with an alternative that applies only to the linearized approximation. |
 | *(write-in)* |  |  |  |  |
 
 ## 61. *principled decision integration*
@@ -958,8 +958,8 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Purposeful state |  |  |  |  |
-| complete agent state |  |  |  |  |
+| Purposeful state | rename | -1 |  | Names only the G_t component, not the full X_t = (M_t, G_t) pair. The word "complete" is load-bearing — it signals this is the whole agent state, not just the purposeful half. |
+| complete agent state | keep | +2 | ✓ | Exactly right — X_t is the complete agent state; M_t is the epistemic substate; G_t is the purposeful substate. The three-level hierarchy (complete / epistemic / purposeful) is architecturally important and the naming carries it cleanly. |
 | *(write-in)* |  |  |  |  |
 
 ## 67. *honesty as architecture*
@@ -991,9 +991,9 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Predictive information retention |  |  |  |  |
-| model sufficiency |  |  |  |  |
-| Predictive sufficiency |  |  |  |  |
+| Predictive information retention | rename | -1 |  | Too verbose for regular use. "The model's predictive information retention was low" is awkward; "the model's sufficiency was low" is clean. Information retention doesn't survive the prose-frequency test. |
+| model sufficiency | keep | +2 | yes | Term-of-art in statistics with adjacent meaning; the reuse is intentional and accurate. The segment explicitly grounds it in information-theoretic conditional mutual information ratios, so it's not an import-with-misuse. Most readers in the target audience will have the right intuition from statistical sufficiency. Clean, concise, defended keep. |
+| Predictive sufficiency | rename | +1 |  | Modest improvement over "model sufficiency" — the word "predictive" disambiguates from structural/causal sufficiency. But the cost is losing the alignment with the statistical term-of-art. If the confusion with statistical sufficiency proves real in practice, "predictive sufficiency" is the right fallback rename. |
 | *(write-in)* |  |  |  |  |
 
 ## 69. *routing structure*
@@ -1028,7 +1028,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| transition opacity |  |  |  |  |
+| transition opacity | keep | +1 | yes | The term appears directly in def-action-transition as a named formal condition. It's technically precise — the transition function T is opaque to the agent. The word "opacity" is mild but the pairing with the definition slot makes it work. Survives the communal-imagination test at the technical level, though in casual prose "unknown dynamics" or "hidden transition" might be more evocative. Weak keep because the concept is definitionally pinned but the name is just acceptable, not great. |
 | *(write-in)* |  |  |  |  |
 
 ## 72. [Concept] *Dark-room critique / citation phrasing (Sun & Firestone)*
@@ -1212,11 +1212,11 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Self directed agent |  |  |  |  |
-| Purposeful agent |  |  |  |  |
-| Autonomous agent |  |  |  |  |
-| actuated agent |  |  |  |  |
-| Goal actuated agent |  |  |  |  |
+| Self directed agent | rename | -1 |  | "Self-directed" implies the agent sets its own objectives, which is the *self-actuated* sub-case. "Actuated agent" includes both externally-tasked and self-tasked agents. |
+| Purposeful agent | rename | -1 |  | Imports consciousness baggage. "Purpose" carries phenomenological weight that "actuated" deliberately avoids — that avoidance is load-bearing for the framework's scope (which applies to thermostats and commanders alike). |
+| Autonomous agent | rename | -1 |  | "Autonomous" is overloaded in AI, robotics, and moral philosophy in incompatible ways. Too noisy. |
+| actuated agent | keep | +2 | ✓ | Deliberate avoidance of consciousness/intention baggage while maintaining the mechanical driven-toward-setpoint shape. Tied to the framework name (Actuation Dynamics) — a rename here cascades. The segment's own defense is strong. Keep. |
+| Goal actuated agent | rename | -1 |  | Heavy for canonical use — "goal-actuated" as a first-contact gloss is fine, but the canonical term should be shorter. |
 | *(write-in)* |  |  |  |  |
 
 ## 86. *agent environment*
@@ -1282,9 +1282,9 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| CIY |  |  |  |  |
-| causal information yield |  |  |  |  |
-| Interventional yield |  |  |  |  |
+| CIY | add-alias | +2 | yes | The acronym earns its keep: used 10+ times in nearby prose, distinctive enough to be memorable, no obvious collisions. "CIY" in math context; "causal information yield" as the canonical expansion in prose first use. The pair should be maintained as a convention. |
+| causal information yield | canonicalize | +2 |  | The full form is well-chosen: "causal" (Level 2, not just information), "information" (KL-divergence units), "yield" (what the action produces). All three words earn their place. The mixed use of CIY vs "Causal Information Yield" needs standardizing — canonicalize the full form as prose first-use, CIY as shorthand thereafter. |
+| Interventional yield | rename | -1 |  | Shorter, but loses "information" — and information content is precisely what's being measured. "Interventional yield" could mean yield of any kind (money, crops). "Causal information yield" is more specific and the specificity earns the extra word. |
 | *(write-in)* |  |  |  |  |
 
 ## 90. *$\delta_{\text{strategic}}$ strategic-calibration residual*
@@ -1382,8 +1382,8 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| model-class fitness |  |  |  |  |
-| Class capacity ceiling |  |  |  |  |
+| model-class fitness | keep | +2 | yes | The term pairs well with "model sufficiency" — the parallel structure (both have "model" prefix) helps readers see they're companion concepts measuring the class ceiling vs the instance value. "Fitness" is slightly unusual but not bad — it names the match between model class and prediction task, which is what fitness in a broader sense means. The evolutionary connotation is mild and doesn't mislead. Defended keep: the name is doing work alongside its pair. |
+| Class capacity ceiling | rename | +1 |  | More evocative than model-class fitness; "ceiling" is a good spatial metaphor for the supremum. But it loses the connection to "model sufficiency" as a paired concept. If the pair structure (sufficiency / fitness) isn't maintained throughout the corpus, this could work. |
 | *(write-in)* |  |  |  |  |
 
 ## 97. *agent model*
@@ -1399,8 +1399,8 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| agent model |  |  |  |  |
-| Reality model |  |  |  |  |
+| agent model | rename | -1 |  | "Agent model" is too generic — any agent's model of anything. This segment is specifically about the agent's model of reality/the environment. The name loses the key distinction between the model-of-reality ($M_t$) and the goal/strategy states ($G_t$). |
+| Reality model | rename | +2 | yes | The segment itself calls this "The Reality Model" in its title. "Reality model" names what $M_t$ is *of*: reality, the external environment. Survives the communal-imagination test — "the agent's reality model was updated" reads naturally. The contrast with the goal state $G_t$ is clearer: model of reality vs model of desired future. |
 | *(write-in)* |  |  |  |  |
 
 ## 98. [Concept] *Symbol default $M_t$ in prose*
@@ -1412,8 +1412,8 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Epistemic substate |  |  |  |  |
-| Model state |  |  |  |  |
+| Epistemic substate | add-alias | +1 |  | Technically precise but "epistemic substate" is jargon-heavy for introductory prose. Useful when distinguishing $M_t$ from $G_t$ as components of $X_t$. Keep as a technical alias, not the default prose handle. |
+| Model state | add-alias | +2 | yes | "The agent's model state was updated" is natural, accessible, and doesn't lose precision in most contexts. When the argument is specifically about the epistemic vs goal decomposition, "epistemic substate" steps in. These two can coexist with differentiated roles. |
 | *(write-in)* |  |  |  |  |
 
 ## 99. *mismatch injection rate ($\rho$)*
@@ -1425,8 +1425,8 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Mismatch injection rate |  |  |  |  |
-| Effective disturbance $\rho$ |  |  |  |  |
+| Mismatch injection rate | canonicalize | +2 | yes | "Mismatch injection rate" is more precise than "environment change rate" — it names what $\rho$ does to the system (injects mismatch) rather than naming one mechanism for how that happens. This matters because $\rho$ covers environmental drift, stochastic noise, AND adversarial disturbance — not just "environment change." The injection framing generalizes correctly across all sources. Canonicalize this form; remove "environment change rate" from prose. |
+| Effective disturbance $\rho$ | add-alias | +1 |  | Good for equations and symbol-first introductions. "Effective disturbance" is a useful qualifier when distinguishing from base disturbance rate and adversarial contribution. Keep as a secondary alias for technical contexts. |
 | *(write-in)* |  |  |  |  |
 
 ## 100. *C-IV (composition route)*
@@ -2263,8 +2263,8 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| control regret |  |  |  |  |
-| Strategy opportunity cost |  |  |  |  |
+| control regret | keep | +2 | ✓ | The pair partner of "satisfaction gap." "Control" narrows the regret to the attainability layer: the agent is regret-ting its control strategy, not its goal. RL regret baggage transfers correctly: regret = best-achievable − current is exactly the standard RL formulation. Both words are load-bearing in the paired compound. Canonicalize. |
+| Strategy opportunity cost | rename | -1 |  | "Opportunity cost" is economics terminology that loses the RL-regret precision. "Strategy regret" or "execution regret" (mentioned in working notes) would be better alternatives if the rename were needed, but it isn't. |
 | *(write-in)* |  |  |  |  |
 
 ## 158. [Concept] *Observability boundary in a strategy DAG*
@@ -2369,7 +2369,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| "epistemic substate" / "purposeful substate" |  |  |  |  |
+| "epistemic substate" / "purposeful substate" | canonicalize | +2 | ✓ | The pair is load-bearing in Directed Separation discussions: the claim is precisely that M_t's update (epistemic substate) is independent of G_t (purposeful substate). Without canonical names for both components, the directed-separation claim reads as a claim about symbols rather than components. The pairing also anchors "complete agent state" as the whole: complete = epistemic + purposeful. Canonicalize the pair together. |
 | *(write-in)* |  |  |  |  |
 
 ## 165. [Concept] *The strict upper bound of a given model-class $\mathcal{F}(\mathcal{M})$*
@@ -2774,8 +2774,8 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| continuity persistence |  |  |  |  |
-| Identity continuity |  |  |  |  |
+| continuity persistence | keep | +2 | ✓ | The three-way LEXICON.md distinction (structural / operational / continuity persistence) uses "continuity persistence" as the established term. Changing it to "identity continuity" would break the parallel with the other two terms in the trio. The slight redundancy ("continuity persistence" — persistence of continuity) is an acceptable tradeoff for lexicon coherence across the three. |
+| Identity continuity | rename | -1 |  | Loses the parallel with "structural persistence" and "operational persistence." The three-term family needs a shared suffix; "identity continuity" breaks the family structure. |
 | *(write-in)* |  |  |  |  |
 
 ## 193. [Concept] *Context wiping at session boundaries*
@@ -2828,12 +2828,12 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Architectural classes |  |  |  |  |
-| Architectural partition |  |  |  |  |
-| Goal entanglement hierarchy |  |  |  |  |
-| Architecture classes |  |  |  |  |
-| Modularity partition |  |  |  |  |
-| Proposal assign english modifier |  |  |  |  |
+| Architectural classes | canonicalize | +2 | ✓ | The right umbrella term — "architectural" signals these are determined by processing topology, not by performance or task. Disambiguates from the LEXICON's agent-type classification (adaptive system / agentic system / actuated agent) which uses "agent classes" in a different sense. The canonical prose form "the architectural classification (Class 1 / Class 2 / Class 3)" with canonical English modifiers (modular / merged / partially modular) is the right implementation. |
+| Architectural partition | canonicalize | +1 |  | Good alternative. "Partition" emphasizes the three-way decomposition. Slightly less natural in prose ("the agent belongs to the modular architectural partition" vs "the agent is Class 1 / modular"). |
+| Goal entanglement hierarchy | rename | -1 |  | "Hierarchy" implies ordering from better to worse; the classes are not ranked. "Entanglement" imports quantum-information connotations unnecessarily. |
+| Architecture classes | canonicalize | +1 |  | Acceptable but "architectural classes" (with -al) is slightly more natural English for the adjectival use. |
+| Modularity partition | rename | +1 |  | Precise — the classes are defined by degree of modularity. Slightly less recognizable than "architectural classes" which is already in use. |
+| Proposal assign english modifier | canonicalize | +2 |  | Not a candidate name but the right proposal: assign canonical English modifiers alongside the Class 1/2/3 numbers. Modular / merged / partially modular. Class 2 especially benefits: "fully merged" is already used; normalize to "merged." These one-word modifiers let prose say "merged agents" rather than "Class 2 agents" when the architecture matters more than the class number. |
 | *(write-in)* |  |  |  |  |
 
 ## 197. *prompt engineering*
@@ -3699,8 +3699,8 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| class 2 scope exit |  |  |  |  |
-| Class 2 scope boundary |  |  |  |  |
+| class 2 scope exit | keep | +2 | ✓ | "Scope exit" is the right framing — it names the methodological move of explicitly handing Class 2 agents to a different part of the theory (03-logogenic-agents/) rather than treating directed separation as an unenforced approximation for them. The word "exit" carries the right connotation: the agent leaves one scope region and enters another, cleanly. Canonicalize to make the scope-honesty move explicit and referenceable. |
+| Class 2 scope boundary | keep | +1 |  | Good alternative. "Boundary" emphasizes the dividing line rather than the handoff action. Less evocative of the deliberate methodological choice. |
 | *(write-in)* |  |  |  |  |
 
 ## 260. *adaptive tempo*
@@ -3717,9 +3717,9 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| tempo |  |  |  |  |
-| Adaptation rate |  |  |  |  |
-| adaptive tempo |  |  |  |  |
+| tempo | keep | +1 |  | Works as a shortened form in prose after "adaptive tempo" has been established. Good for the LEXICON and for repeated references in long passages. |
+| Adaptation rate | keep | -1 |  | "Adaptation rate" flattens the compound — tempo is rate × quality, not just rate. This would be like naming η* "update quantity" instead of "update gain." The quality component (η*) is load-bearing. |
+| adaptive tempo | keep | +2 | ✓ | "Tempo" carries both rate and quality simultaneously — exactly what T = Σ ν^(k) η^(k)* compounds. "Adaptive" distinguishes it from "tempo" in music or sports. The Boyd-OODA lineage is apt: the OODA loop's tempo is about quality of cycling, not just frequency. The word is underused in ML, making it available for AAD to own. |
 | *(write-in)* |  |  |  |  |
 
 ## 261. *observation gate advantage*
@@ -3928,9 +3928,9 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| agent spectrum |  |  |  |  |
-| Agent quadrant |  |  |  |  |
-| Agency spectrum |  |  |  |  |
+| agent spectrum | keep | +2 | ✓ | The segment is explicit: these are regions of a continuum. "Spectrum" is the right word. "Quadrant" implies discrete corners; "typology" implies classification schema; both would misrepresent the segment's continuity claim. The word "spectrum" in the name signals to readers that gradations are real and migration between regions is possible. |
+| Agent quadrant | keep | -1 |  | Oversells discreteness. The segment explicitly rejects this framing. |
+| Agency spectrum | keep | -1 |  | Shifts focus to the degree of agency rather than the types/positions within the agent space. The spectrum is in the *agent space* (agents at different points), not in the *agency property* alone. |
 | *(write-in)* |  |  |  |  |
 
 ## 274. *unity closure mapping*
@@ -4029,11 +4029,11 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Diagnostic gap matrix |  |  |  |  |
-| Satisfaction control table the diagnostic 2×2 |  |  |  |  |
-| The cascade diagnostic or the 2×2 diagnostic |  |  |  |  |
-| The 2×2 diagnostic |  |  |  |  |
-| Diagnostic square |  |  |  |  |
+| Diagnostic gap matrix | name-unnamed | -1 |  | "Matrix" sounds like a software term; the 2×2 table is a conceptual framework, not a numerical matrix. |
+| Satisfaction control table the diagnostic 2×2 | name-unnamed | -1 |  | Too verbose for a canonical name. |
+| The cascade diagnostic or the 2×2 diagnostic | name-unnamed | +1 |  | Two candidates within one row — "cascade diagnostic" is fine, "the 2×2 diagnostic" is better (already near-canonical in the prose). |
+| The 2×2 diagnostic | name-unnamed | +2 | ✓ | Already used as "the 2×2 diagnostic" throughout #der-orient-cascade and #def-control-regret. Canonicalizing it as a named handle lets prose say "see the 2×2 diagnostic" naturally. The axes are δ_sat and δ_regret; the four cells give: success / strategy problem / both / capability limit. The table *is* the core orient-cascade decision logic. Worth naming. |
+| Diagnostic square | name-unnamed | -1 |  | "Square" is geometric; the table isn't particularly square-ish conceptually. |
 | *(write-in)* |  |  |  |  |
 
 ## 281. *composition scope condition*
@@ -4076,7 +4076,8 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Meta machine extreme transition motif |  |  |  |  |
+| Meta machine extreme transition motif | keep | -1 |  | This flattens two distinct Miller concepts ("meta-machine" as an architectural pattern, "extreme transition motif" as the five-phase neutral-drift cascade) into one compound phrase, losing the slash that marks them as related-but-separate. The original heading "Miller's meta-machine / extreme transition motif" preserves the source attribution and the two-concept structure. |
+| Miller extreme transition motif | keep | +1 | ✓ | Write-in: "Miller's extreme transition motif" (with possessive, naming just the five-phase cascade) is the precise adopted name for what the segment uses most. The meta-machine concept is upstream; the extreme-transition-motif is the specific pattern being adopted. If the two concepts need separate names, vote on each separately. |
 | *(write-in)* |  |  |  |  |
 
 ## 284. *specification bound*
@@ -4661,8 +4662,8 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Teleological objective |  |  |  |  |
-| objective functional |  |  |  |  |
+| Teleological objective | rename | -1 |  | "Teleological objective" is redundant — all objectives are teleological by definition. The word "functional" is the load-bearing part of the name: O_t is formalized as a functional V_{O_t}: trajectories → ℝ, and the name should signal that mathematical type. "Functional" is not just clinical — it's exact. |
+| objective functional | keep | +2 | ✓ | Names both what it is (objective) and its mathematical type (functional = function on trajectories). "The objective functional V_{O_t}" reads cleanly in technical prose. Once the surrounding formalism lands (Section II context), the name is self-explaining. |
 | *(write-in)* |  |  |  |  |
 
 ## 326. [Concept] *The externalization and rehydration mechanism for carrying part of $M_t$ or $G_t$ across session boundaries via the environment*
@@ -4790,7 +4791,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| strategy DAG |  |  |  |  |
+| strategy DAG | keep | +2 | ✓ | Both words carry load: "strategy" for Σ_t the state object (what the agent plans), "DAG" for the structural representation (acyclicity from temporal ordering, Markov factorization from CMC theorem under causal sufficiency). "DAG" is field-standard, pronounceable, and used as a noun in graphical-models prose. The canonical form should absorb paraphrases: "strategy graph," "agent's strategic model," "strategic causal model" → all should yield to "strategy DAG" in formal contexts. |
 | *(write-in)* |  |  |  |  |
 
 ## 334. *stability plasticity window*
@@ -5327,10 +5328,10 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| correlation hierarchy |  |  |  |  |
-| Correlation ladder |  |  |  |  |
-| Correlation hierarchy L0 / L1 / L1' / L2 |  |  |  |  |
-| Predicting exploring reasoning triad |  |  |  |  |
+| correlation hierarchy | keep | +2 | ✓ | Already canonical in #def-strategy-dag and downstream segments. The four-level structure (L0/L1/L1'/L2) is load-bearing: L1' under unobservable common cause is formally refuted (Cramér-Rao floor / Fisher rank-1), not "open." This makes the four-level partition a genuine structural result, not just an organizational convenience. The hierarchy name should coexist with the explicit level labels (L0/L1/L1'/L2) which carry the technical content. |
+| Correlation ladder | keep | +1 |  | Acceptable if "separability ladder" lands — the parallelism (correlation/separability/continuation ladders) would be clean. But don't rename for parallelism alone; "hierarchy" is equally valid and already established. |
+| Correlation hierarchy L0 / L1 / L1' / L2 | canonicalize | +1 |  | The expanded form is correct for first-use contexts where the levels need to be named. But it's too long for repeated prose use; the short form "correlation hierarchy" plus explicit L0/L1/L1'/L2 labels in context is the right implementation. |
+| Predicting exploring reasoning triad | rename | -1 |  | This is Pearl's causal hierarchy, not the correlation hierarchy. Wrong target. |
 | *(write-in)* |  |  |  |  |
 
 ## 372. *proprium mapping*
@@ -5417,8 +5418,8 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Attainability shortfall |  |  |  |  |
-| satisfaction gap |  |  |  |  |
+| Attainability shortfall | rename | -1 |  | Focuses on the A_O component, not on the V_O_min threshold being unmet. The gap is between the threshold and the attainability — "satisfaction gap" captures the distance from the satisfaction threshold (V_O_min), not just the attainability. "Shortfall" also doesn't form a natural pair with "regret" the way "gap" does. |
+| satisfaction gap | keep | +2 | ✓ | The paired name (satisfaction gap / control regret) carries the full 2×2 diagnostic system. "Satisfaction" points to V_O_min (the satisfaction threshold) — the agent's measure of "objective met." "Gap" names the distance to that threshold. Together with "control regret," the two-word pair is the project's clearest example of names that do work for the reader. Canonicalize and absorb paraphrases ("objective gap," "attainability gap"). |
 | *(write-in)* |  |  |  |  |
 
 ## 378. *survival FIM floor*
@@ -5634,9 +5635,9 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Epistemic capacity |  |  |  |  |
-| Processing coupling coefficient |  |  |  |  |
-| Processing coupling |  |  |  |  |
+| Epistemic capacity | rename | -1 |  | "Epistemic capacity" suggests how much the agent can know, not how much goal information leaks into belief updates. Wrong referent. |
+| Processing coupling coefficient | canonicalize | +1 |  | Precise. "Coefficient" signals it's a scalar in [0,1]. Slightly heavy for prose. |
+| Processing coupling | canonicalize | +2 | ✓ | Clean prose handle for repeated use: "the agent's processing coupling is low" reads naturally. The κ symbol stays in equations. The word "coupling" correctly conveys the information-theoretic sense (how much G_t and M_τ+ are coupled through the processing pathway). |
 | *(write-in)* |  |  |  |  |
 
 ## 394. *$\eta^\ast$ (optimal update gain)*
@@ -5650,10 +5651,10 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Trust ratio or confidence weighting |  |  |  |  |
-| Update gain |  |  |  |  |
-| Optimal update gain |  |  |  |  |
-| Trust ratio |  |  |  |  |
+| Trust ratio or confidence weighting | add-alias | -1 |  | The `or` signals ambiguity. Pick one prose alias, not a compound. |
+| Update gain | canonicalize | +1 |  | Clean short form that works in prose. "The update gain" is already in use. |
+| Optimal update gain | canonicalize | +2 | ✓ | Already canonical in NOTATION.md and LEXICON.md. "Optimal" is load-bearing — it distinguishes η* (the optimal gain derived from U_M and U_o) from any other update gain. Confirms what's already established. |
+| Trust ratio | add-alias | +1 |  | Good intuitive alias for the U_M / (U_M + U_o) formula — it names what the ratio actually is: how much the agent trusts its model vs. the observation. Useful for pedagogical and framing prose alongside the formal "optimal update gain." |
 | *(write-in)* |  |  |  |  |
 
 ## 395. *strategy persistence schema*
@@ -6321,8 +6322,8 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| structural adaptation necessity |  |  |  |  |
-| Adaptation necessity |  |  |  |  |
+| structural adaptation necessity | keep | +2 | ✓ | "Structural" is not redundant — parametric adaptation is equally adaptation, and the result is specifically about when *structural* adaptation becomes necessary. Dropping "structural" would leave a phrase that covers both the result and its converse. The two-word qualifier pair ("structural adaptation") is already the established technical term in the framework. Keep it. |
+| Adaptation necessity | keep | -1 |  | Drops the load-bearing qualifier. "Adaptation necessity" could refer to any necessity of adaptation; "structural adaptation necessity" is the specific threshold result. |
 | *(write-in)* |  |  |  |  |
 
 ## 442. *derivation audit table heading*
@@ -6874,10 +6875,10 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Pearl-blanket separation |  |  |  |  |
-| Epistemic isolation of belief update |  |  |  |  |
-| Goal-blind processing |  |  |  |  |
-| directed separation |  |  |  |  |
+| Pearl-blanket separation | rename | +1 |  | Precise and credits the right lineage (Pearl's d-separation). Slightly heavy — "Pearl-blanket" is a two-word qualifier that requires knowing Bruineberg et al. 2022. Good for technical sections; may not carry well in framing prose. |
+| Epistemic isolation of belief update | rename | -1 |  | Too long for repeated prose use. |
+| Goal-blind processing | add-alias | +1 |  | The intuitive gloss — "the agent's belief-update doesn't peek at its goals." Valid as a first-contact description, but "processing" is ambiguous (it could mean information processing generally, not the specific epistemic update). Better as an alias than the canonical name. |
+| directed separation | keep | +2 | ✓ | Both words carry load: "directed" signals the asymmetry (one-way from M to G; not symmetric separation), "separation" carries the conditional-independence sense from d-separation lineage. The LQR/Kalman separation-principle collision is informative, not harmful — the separation principle is a Class 1 consequence of directed separation. The Class 1/2/3 classification hangs off this name; the architectural tether is important. |
 | *(write-in)* |  |  |  |  |
 
 ## 479. *greek rooted vocabulary*
@@ -7454,9 +7455,9 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Evaluation hierarchy |  |  |  |  |
-| Continuation hierarchy |  |  |  |  |
-| convention hierarchy |  |  |  |  |
+| Evaluation hierarchy | rename | -1 |  | Too generic. The hierarchy is specifically about continuation policy choice, not about evaluation quality levels. |
+| Continuation hierarchy | rename | +2 | ✓ | Self-announcing: C1/C2/C3 index the continuation policy (one-step, receding-horizon, Bellman). "Continuation hierarchy" avoids the Lewisian convention baggage while keeping the C-mnemonic. The rename churn cost is real but the clarity gain is significant — "convention" has too many competing meanings in mathematics and game theory for a project that already uses causal conventions (d-separation), social conventions (Auftragstaktik), and protocol conventions (FORMAT.md). |
+| convention hierarchy | keep | -1 |  | "Convention" is overloaded across the project. The rename churn argument is weak justification for keeping a name that causes real collision risk. |
 | *(write-in)* |  |  |  |  |
 
 ## 520. *hierarchy as a project wide word*
@@ -7544,15 +7545,15 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Adaptive cycle |  |  |  |  |
-| Adaptive cycle phase |  |  |  |  |
-| The pentad |  |  |  |  |
-| The adaptive pentad |  |  |  |  |
-| orient cascade |  |  |  |  |
-| Five adaptive cycle phase |  |  |  |  |
-| Adaptive traversal |  |  |  |  |
-| The five turn |  |  |  |  |
-| The pentad five phase cycle |  |  |  |  |
+| Adaptive cycle | rename | -1 |  | Too generic — this is the term for the whole 5-phase cycle (Prolepsis, Aisthesis, Aporia, Epistrophe, Praxis). The orient cascade names a SPECIFIC PART of the cycle (the Epistrophe step expanded for actuated agents). Conflating the two would eliminate an important distinction. |
+| Adaptive cycle phase | rename | -1 |  | Same problem — "orient cascade" is the expansion of the Epistrophe phase, not a synonym for the whole cycle or for a generic phase. |
+| The pentad | rename | -1 |  | Renames the whole 5-phase cycle (which already has no canonical single-word name), not the orient cascade specifically. |
+| The adaptive pentad | rename | -1 |  | Same: the 5-phase cycle as a whole. The orient cascade is the multi-step expansion of Epistrophe for actuated agents — not the whole cycle. |
+| orient cascade | keep | +2 | ✓ | "Cascade" captures the geometry: forced sequential resolution by information dependency — each step's input requires the prior step's output. "Orient" connects to Boyd's OODA and positions the segment correctly within that tradition. The lowercase convention is correct. Both words carry load. Downstream references are extensive across Sections I, II, III. |
+| Five adaptive cycle phase | rename | -1 |  | Clunky and wrong (the cascade doesn't name five phases of the cycle; it names the multi-step resolution within one phase). |
+| Adaptive traversal | rename | -1 |  | "Traversal" is graph-traversal vocabulary that doesn't carry the forced-ordering / information-dependency sense that "cascade" does. |
+| The five turn | rename | -1 |  | Loses Greek vocabulary register as noted; gains nothing. |
+| The pentad five phase cycle | rename | -1 |  | Excessive length; same confusion with the whole-cycle naming. |
 | *(write-in)* |  |  |  |  |
 
 ## 526. *adversarial tempo advantage*
@@ -7890,12 +7891,12 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| strategy dimension |  |  |  |  |
-| Strategic dimension |  |  |  |  |
-| Purposeful decomposition |  |  |  |  |
-| Strategy decomposition |  |  |  |  |
-| Objective strategy split |  |  |  |  |
-| Purposeful substate |  |  |  |  |
+| strategy dimension | rename | -1 |  | Undersells the O_t half of the split — the segment defines the G_t = (O_t, Σ_t) decomposition, not just the Σ_t dimension. Also, "dimension" implies a scalar axis, but the split is a structural decomposition. |
+| Strategic dimension | rename | -1 |  | Same problem, slightly worse — the adjective form makes it sound like "the dimension along which things are strategic," not "the decomposition of the purposeful substate." |
+| Purposeful decomposition | rename | +2 | ✓ | Names what the segment does: decomposes the purposeful substate. Parallels "directed separation" (a structural decomposition of update functions). The word "purposeful" connects to "purposeful substate" — the segment decomposes the purposeful substate into O_t and Σ_t. Both components are named, not just one. |
+| Strategy decomposition | rename | +1 |  | Better than "strategy dimension" — "decomposition" is accurate. Slightly undersells O_t vs Σ_t since "strategy" primarily evokes Σ_t. |
+| Objective strategy split | rename | +1 |  | Names both components explicitly. Slightly clunky. "Purposeful decomposition" is cleaner. |
+| Purposeful substate | rename | -1 |  | Would conflict with the existing use of "purposeful substate" to name G_t as a whole. The segment *decomposes* the purposeful substate — naming it "purposeful substate" would be the name of the thing being decomposed, not the decomposition. |
 | *(write-in)* |  |  |  |  |
 
 ## 547. *$\mathcal C_t^{\text{commit}}$ (committed-state subset)*
@@ -8757,9 +8758,9 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| temporal nesting |  |  |  |  |
-| Timescale nesting |  |  |  |  |
-| Timescale stratification |  |  |  |  |
+| temporal nesting | keep | +2 | ✓ | The slug is right. "Nesting" captures the containment structure (faster processes are nested inside the slower ones that use their output). The TST collision argument is weak — "temporal" has distinct scope in each context and won't confuse readers. Singular perturbation theory uses both "timescale" and "temporal" interchangeably; either word works. |
+| Timescale nesting | keep | +1 |  | Acceptable alternative that emphasizes the rate-separation mechanism. Slightly more technical-sounding. |
+| Timescale stratification | keep | -1 |  | "Stratification" loses the nesting/containment intuition. The key insight is that faster processes are *nested inside* slower ones (their output feeds the slower level), not just layered beside them. |
 | *(write-in)* |  |  |  |  |
 
 ## 609. *sector condition*
@@ -9044,6 +9045,34 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| deliberation threshold |  |  |  |  |
+| deliberation threshold | keep | +2 | ✓ | The segment (#der-deliberation-cost) derives a threshold condition: deliberation is justified when Δη*·‖δ_post‖ > ρ_delib·Δτ. "Deliberation threshold" names the inequality itself — not just the condition but the *crossing point* that separates act-immediately from think-first. Clean and precise. |
 | *(write-in)* |  |  |  |  |
+
+---
+
+## Process notes from sonnet-r2b
+
+**Coverage summary:** Walked 34 segments in OUTLINE order (all of Section I, beginning of Section II through the orient cascade). Voted on 42 named targets spanning both sections. Reflection files written for all segments at `msc/AUDIT-WORKING-266847/01-def-agent-environment.md` through `34-der-orient-cascade.md`.
+
+**Engagement quality over coverage breadth:** Methodology guidance was followed. Multiple segments received extended reflection (def-strategy-dag, der-directed-separation, der-orient-cascade) where the content warranted it. Did not race to fill rows with thin votes.
+
+**Weight scale:** Used +2/+1/-1 throughout (R2 scale as specified in the methodology document), not the +3 that appears in naming-principles.md examples. The inconsistency between the two documents was noted in the workflow restatement (00-workflow-restatement.md).
+
+**Key naming positions taken:**
+
+*Strong keeps:* satisfaction gap, control regret (paired compound), directed separation (asymmetry + separation both load-bearing), orient cascade (cascade geometry + Boyd heritage), adaptive tempo (rate × quality compound), strategy DAG (both words carry load), temporal nesting (nesting > stratification for containment intuition), structural adaptation necessity ("structural" is not redundant), continuity persistence (family coherence with structural/operational persistence).
+
+*Strong renames or canonicalizations:* causal identity (+2 for "agent identity" rename, "causal" anchors to the non-forkability structure), AAD meta architecture (+2 for "epistemic architecture" cluster), correction rate constant (+2 for α prose handle), model-class capacity (+2 for R prose handle), processing coupling (+2 for κ_processing prose handle), weak link persistence (+2 for per-dimension persistence rename), purposeful decomposition (+2 for "strategy dimension" rename — names the decomposition, not just one half of it), policy-conditioned value (+2 for "value object" rename — names the continuation-convention dependence), continuation hierarchy (+2 for "convention hierarchy" rename — avoids Lewisian baggage).
+
+*Architectural commits:* "Architectural classes" canonicalized with canonical English modifiers (modular/merged/partially modular) alongside Class 1/2/3 numbers. "epistemic substate / purposeful substate" pair canonicalized together.
+
+**Segments skipped in walk:** form-information-bottleneck, der-recursive-update, der-action-selection (occurred in OUTLINE between form-agent-model and def-model-sufficiency — dependency gap noted in reflection 19). Also: der-loop-interventional-access, scope-ciy-observational-proxy, disc-ciy-unified-objective, norm-explicit-strategy-condition, der-chain-confidence-decay, scope-and-or, def-strategic-calibration, der-causal-insufficiency-detection, der-observability-dominance, hyp-edge-update-via-gain, scope-edge-update-causal-validity, disc-credit-assignment-boundary, form-structural-change-as-parametric-limit, def-strategic-tempo, form-strategy-complexity-cost, schema-strategy-persistence, form-consolidation-dynamics, disc-exploit-explore-deliberate (Section II segments between der-causal-hierarchy-requirement and def-strategy-dag, plus remaining Section II after orient cascade). All of Section III was not reached.
+
+**Cross-architecture note:** I brought a different angle to several contested rows. The "convention hierarchy → continuation hierarchy" rename is a significant departure from the prior consensus (R1 agents tended to keep "convention hierarchy"). I voted for the rename because the Lewisian-convention collision is real and the rename churn cost is finite. Similarly, "value object → policy-conditioned value" departs from the prior consensus because the software-pattern baggage is a real problem, not a hypothetical one.
+
+**Unsurfaced targets that deserve attention:** Row 56 (epistemic architecture cluster) received a vote but it's a complex target with 8 candidates — the vote was substantive but other voters should weigh in. Rows for Section III concepts (composition closure, unity dimensions, signed coupling pattern) were not reached and need coverage from voters who walked Section III segments.
+
+**Stopping rationale:** 34 segments walked, 42 targets voted on, sustained high engagement throughout. The methodology says partial coverage at high engagement is the designed outcome. Stopping here rather than racing through Section III rows with shallow engagement.
+
+*sonnet-r2b, 2026-04-29*
 

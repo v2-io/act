@@ -1,19 +1,19 @@
 | number | voting-sequence | can-vote | voted | term-or-concept | alts | notes |
 |---|:-:|:-:|:-:|---|---|---|
-| 1 |  |  |  | composition consistency | Holon postulate… |  |
+| 1 | 11 | true | true | composition consistency | Holon postulate… | post-composition-consistency: defended keep; alternatives over-claim (scale invariance) or import baggage (holon). |
 | 2 |  |  |  | [Concept] Dark-room critique / citation phrasing (Sun & Firestone) | Dark room critique |  |
-| 3 |  |  |  | [Concept] Agentic Systems Framework (ASF) — top-level | Agentic system fram… |  |
+| 3 | 10 | true | true | [Concept] Agentic Systems Framework (ASF) — top-level | Agentic system fram… | After README + OUTLINE + scope-agency: ASF parent name is intentional; "agentic" formally grounded; defended keep. |
 | 4 |  |  |  | [Concept] The adaptive cycle as the theory's fundamental unit | Adaptive cycle fund… |  |
 | 5 |  |  |  | terminal alignment error | Terminal alignment … |  |
 | 6 |  |  |  | matrix exploration bonus |  |  |
 | 7 |  |  |  | [Concept] The three-ring of segment-content framing | Segment ring |  |
-| 8 |  |  |  | calibration laboratory | High identifiabilit… |  |
+| 8 | 30 | true | true | calibration laboratory | High identifiabilit… | Strong canonicalize +2 on the bare phrase; +1 on long forms; reject the synonym alternatives. |
 | 9 |  |  |  | [Concept] Section header: logogenic agent / logozoetic agent | section header: log… |  |
 | 10 |  |  |  | sycophancy as a flaw | Sycophancy as a dev… |  |
 | 11 |  |  |  | [Concept] Complexity driven resistance to change as features accumulate | Structural accumula… |  |
 | 12 |  |  |  | [Concept] The condition that a strategy DAG endosymbiont crosses the composite agent scope from below | Composition thresho… |  |
 | 13 |  |  |  | [Concept] The rate at which an agent's chronica grows compared to compression cadence | Chronica throughput |  |
-| 14 |  |  |  | $\mathcal C_t$ chronica | $\mathcal C_t$ |  |
+| 14 | 4 | true | true | $\mathcal C_t$ chronica | $\mathcal C_t$ | def-chronica: $\mathcal{H}$ collision is the design constraint, calligraphic-C is the right choice. Keep. |
 | 15 |  |  |  | technical debt | Observability defec… |  |
 | 16 |  |  |  | system coherence | Change coherence |  |
 | 17 |  |  |  | continuity persistence | Identity continuity |  |
@@ -21,23 +21,23 @@
 | 19 |  |  |  | [Concept] The iterated audit process Gemini / Opus / Codex de-novo consolidated, three-doc portfolio | Cross model audit c… |  |
 | 20 |  |  |  | axiom genesis | Terminal value crys… |  |
 | 21 |  |  |  | [Concept] The parameter-space region within which an agent maintains bounded mismatch indefinitely | Stability envelope,… |  |
-| 22 |  |  |  | [Concept] Bathtub analogy for persistence condition | Bathtub model… |  |
-| 23 |  |  |  | orient cascade | Adaptive traversal,… |  |
+| 22 |  | true | true | [Concept] Bathtub analogy for persistence condition | Bathtub model… |  |
+| 23 | 31 | true | true | orient cascade | Adaptive traversal,… | Load-bearing keep +2; flag row-mixing (some candidates name different concepts). |
 | 24 |  |  |  | coupled diagnostic framework | Coupled diagnostic … |  |
-| 25 |  |  |  | $U_M$ / $U_O$ / $U_\Sigma$ unity dimensions | Epistemic unity tel… |  |
+| 25 | 37 | true | true | $U_M$ / $U_O$ / $U_\Sigma$ unity dimensions | Epistemic unity tel… | Strong canonicalize +2 — symbol+English-alias pair already in LEXICON, just commit to using consistently. |
 | 26 |  |  |  | the scaffolding tax | Substrate rent… |  |
 | 27 |  |  |  | [Concept] The mathematical surface mapping unity to closure defect | Closure defect mani… |  |
 | 28 |  |  |  | system availability |  |  |
 | 29 |  |  |  | [Concept] (A2′) sub-scope partition | Sector condition sc… |  |
 | 30 |  |  |  | $A_O(M_t; \Pi, N_h)$ | Achievable value |  |
-| 31 |  |  |  | aporia ἀπορία |  |  |
+| 31 | 18 | true | true | aporia ἀπορία |  | def-mismatch-signal context: pair-on-first-use canonicalize +2. |
 | 32 |  |  |  | per dimension persistence | Dimensional persist… |  |
-| 33 |  |  |  | [Concept] The structural meta-pattern in #disc-additive-coordinate-forcing combining one foundational lemma with three derived results | Additive coordinate… |  |
+| 33 | 34 | true | true | [Concept] The structural meta-pattern in #disc-additive-coordinate-forcing combining one foundational lemma with three derived results | Additive coordinate… | Row framing outdated; segment has moved to four-layer Legendre-Fenchel. Write-in "Legendre-Fenchel forcing" +2. |
 | 34 |  |  |  | operationalization |  |  |
-| 35 |  |  |  | [Concept] The recurring Lyapunov / derive-the-bound move across six segments | The persistence tem… |  |
+| 35 |  | true | true | [Concept] The recurring Lyapunov / derive-the-bound move across six segments | The persistence tem… |  |
 | 36 |  |  |  | discrete sector condition |  |  |
 | 37 |  |  |  | century scale event log | Persistent chronica… |  |
-| 38 |  |  |  | $\phi$ | History compression |  |
+| 38 | 14 | true | true | $\phi$ | History compression | form-agent-model: add-alias for prose mention of the compression operation. |
 | 39 |  |  |  | [Concept] Applying a slow timescale control mechanism to a fast timescale transient variable | Timescale mismatch,… |  |
 | 40 |  |  |  | $\kappa_{\text{processing}}$ | Epistemic capacity,… |  |
 | 41 |  |  |  | Lohmiller-Slotine contraction |  |  |
@@ -46,44 +46,44 @@
 | 44 |  |  |  | objective functional | Teleological object… |  |
 | 45 |  |  |  | backward inference empathy | Self bayesian empat… |  |
 | 46 |  |  |  | [Concept] Git recorded committed state subset of the chronica $\mathcal{C}_t^{\text{commit}}$ | Committed chronica … |  |
-| 47 |  |  |  | [Concept] The Class 1 sub-agent / Class 3 composite phenomenon in strategic composition | Strategic entanglem… |  |
-| 48 |  |  |  | [Concept] Walton's plain-language analog for the persistence condition fluid level as belief-reality gap, inflow as reality change rate, outflow as learning rate, container size as adaptive reserve | Bathtub model… |  |
+| 47 | 45 | true | true | [Concept] The Class 1 sub-agent / Class 3 composite phenomenon in strategic composition | Strategic entanglem… | "Strategic entanglement" name-unnamed +2; physics-entanglement intuition fits. |
+| 48 |  | true | true | [Concept] Walton's plain-language analog for the persistence condition fluid level as belief-reality gap, inflow as reality change rate, outflow as learning rate, container size as adaptive reserve | Bathtub model… |  |
 | 49 |  |  |  | $\alpha_1$ / $\alpha_2$ / $\beta$ naming (as a whole) | $\alpha$ partition … |  |
 | 50 |  |  |  | $\lambda_{\text{surv}}$ | Survival multiplier |  |
-| 51 |  |  |  | loop | Feedback loop |  |
+| 51 | 38 | true | true | loop | Feedback loop | Loop/cycle distinction is foundational; load-bearing keep +2. |
 | 52 |  |  |  | [Concept] Instance 2 of identifiability floor | Unobservable mixtur… |  |
 | 53 |  |  |  | agentic system framework ASF | Agentic system fram… |  |
-| 54 |  |  |  | [Concept] The orient cascade information-dependency forced ordering as a meta-pattern | Information depende… |  |
+| 54 | 32 | true | true | [Concept] The orient cascade information-dependency forced ordering as a meta-pattern | Information depende… | name-unnamed +1; pairs with additive-coordinate-forcing as cross-meta-pattern. |
 | 55 |  |  |  | glue code | Structural coordina… |  |
 | 56 |  |  |  | $\alpha_1$ | Fixed gain regime… |  |
 | 57 |  |  |  | [Concept] Using hash chains to mathematically guarantee memory hasn't been tampered with | Cryptographic ego b… |  |
 | 58 |  |  |  | stability plasticity feasibility window |  |  |
-| 59 |  |  |  | temporal software theory | Temporal Software T… |  |
+| 59 | 35 | true | true | temporal software theory | Temporal Software T… | Keep +2; "temporal" is load-bearing (time-optimality framing). |
 | 60 |  |  |  | L1' correlation-hierarchy prime decoration | L1-observable… |  |
 | 61 |  |  |  | $\Delta T_{i,\text{cost}}$ | Coordination drag |  |
 | 62 |  |  |  | $\kappa_{\text{eff}}$ | Effective ambiguity… |  |
-| 63 |  |  |  | agency |  |  |
+| 63 | 9 | true | true | agency |  | scope-agency: Pearl-L2-contrast operational def is sharp; defended keep +2. |
 | 64 |  |  |  | event driven dynamics |  |  |
-| 65 |  |  |  | Class 3 | Scaffolded… |  |
+| 65 | 26 | true | true | Class 3 | Scaffolded… | der-directed-separation: add-alias for prose handles. |
 | 66 |  |  |  | multi agent scope | Shared environment … |  |
 | 67 |  |  |  | critical mass composition | Dyad closed form |  |
 | 68 |  |  |  | $f_{\text{init}}$ reconstruction function | Epistemic reconstru… |  |
 | 69 |  |  |  | temporal optimality |  |  |
 | 70 |  |  |  | continuous operation |  |  |
 | 71 |  |  |  | recursive update | Recursive update by… |  |
-| 72 |  |  |  | logozoetic |  |  |
+| 72 | 36 | true | true | logozoetic |  | Greek-vocab strong-keep +2; coined term essential to logozoetic-class disambiguation. |
 | 73 |  |  |  | interaction channel classification | Recipient regime… |  |
 | 74 |  |  |  | CIY observational proxy | Observational proxy… |  |
 | 75 |  |  |  | [Concept] Decomposing mismatch into environment vs other-sub-agent action | Internal mismatch a… |  |
 | 76 |  |  |  | [Concept] The failure mode where an agent's model-class cannot represent the environment's true causal structure | Model-class insuffi… |  |
 | 77 |  |  |  | multi timescale stability |  |  |
-| 78 |  |  |  | chronica capitalized vs lowercase | Chronica lowercase … |  |
+| 78 | 5 | true | true | chronica capitalized vs lowercase | Chronica lowercase … | def-chronica: standardize on lowercase-in-prose, matches *aporia* / *praxis* convention. Canonicalize +2. |
 | 79 |  |  |  | [Concept] The cumulative prediction error that an agent has tolerated without updating its model | Mismatch accumulati… |  |
 | 80 |  |  |  | [Concept] The formal pairing between how clearly an agent observes its environment and how predictable that agent appears to outside observers | Legibility opacity … |  |
 | 81 |  |  |  | [Concept] Sudden loss of model sufficiency under regime entry | Sufficiency collaps… |  |
-| 82 |  |  |  | chronica brief gloss | Interaction history… |  |
+| 82 | 6 | true | true | chronica brief gloss | Interaction history… | def-chronica: pair-on-first-use form; weak +1 canonicalize. |
 | 83 |  |  |  | $C_{\text{coord}}$ | Coordination overhe… |  |
-| 84 |  |  |  | Class 2 | Merged, Coupled… |  |
+| 84 | 27 | true | true | Class 2 | Merged, Coupled… | der-directed-separation: "merged" +2 add-alias; reject "integrated" (over-positive). |
 | 85 |  |  |  | C-III (composition route) | Mutual benefit rout… |  |
 | 86 |  |  |  | atomic changeset |  |  |
 | 87 |  |  |  | the three deaths | Three death… |  |
@@ -99,15 +99,15 @@
 | 97 |  |  |  | [Concept] Sycophantic corruption of the agent's truth module | Epistemic coupling … |  |
 | 98 |  |  |  | transition opacity |  |  |
 | 99 |  |  |  | AAD (Adaptation and Actuation Dynamics) | AAD… |  |
-| 100 |  |  |  | action transition | Action channel |  |
+| 100 | 2 | true | true | action transition | Action channel | After def-action-transition: "channel" wrongly suggests communication symmetry. Action moves $\Omega$ via $T$; observation flows info back. Asymmetry is real; current name preserves it. |
 | 101 |  |  |  | [Concept] The tension between lowering internal opacity for coordination and increasing external vulnerability | Coordination secrec… |  |
 | 102 |  |  |  | [Concept] The strict upper bound of a given model-class $\mathcal{F}(\mathcal{M})$ | Model-class capacity |  |
 | 103 |  |  |  | [Concept] The "scope-honesty as architecture" working principle | Honesty scope hones… |  |
-| 104 |  |  |  | agent environment | Agent environment b… |  |
+| 104 | 1 | true | true | agent environment | Agent environment b… | After reading def-agent-environment: title says "coupling" but body delivers "boundary + scope condition" (info-loss). Auditor's distinction (boundary vs channels) is right. |
 | 105 |  |  |  | indivisum | Causal singularity … |  |
 | 106 |  |  |  | [Concept] Future segment layer header for the SP-5 reader-path proposal | Reader path |  |
 | 107 |  |  |  | [Concept] The failure mode where η → 0 freezes learning in either of two distinguishable modes low $U_o$ vs high $U_o$ | Dogmatic convergenc… |  |
-| 108 |  |  |  | adaptive system |  |  |
+| 108 | 8 | true | true | adaptive system |  | scope-adaptive-system: pilot's canonical subject-noun illustration; defended keep +2. |
 | 109 |  |  |  | strategy complexity cost | Strategy cognitive … |  |
 | 110 |  |  |  | contraction template | Contraction schema |  |
 | 111 |  |  |  | three-part meta-architecture | floor / ladder / fo… |  |
@@ -133,10 +133,10 @@
 | 131 |  |  |  | edge update via gain | Gain based edge upd… |  |
 | 132 |  |  |  | [Concept] The fourth diagnostic in the satisfaction gap × control regret space when end conditions are met but the objective remains unsatisfied | Terminal alignment … |  |
 | 133 |  |  |  | (PI) parameterization invariance axiom | Parameterization in… |  |
-| 134 |  |  |  | [Concept] The five cycle phases prolepsis aisthesis aporia epistrophe praxis | Prolepsis aisthesis… |  |
+| 134 | 19 | true | true | [Concept] The five cycle phases prolepsis aisthesis aporia epistrophe praxis | Prolepsis aisthesis… | Greek-vocabulary commitment is foundational; +2 keep. |
 | 135 |  |  |  | [Concept] The discontinuous collapse of model adequacy when structural regime change forces the agent outside its current model-class coverage | Sufficiency shatter… |  |
-| 136 |  |  |  | effect spiral | Runaway mismatch ca… |  |
-| 137 |  |  |  | aisthesis | Intake… |  |
+| 136 | 40 | true | true | effect spiral | Runaway mismatch ca… | Add-alias "runaway mismatch cascade" +2; flag "effect spiral" → "effects spiral" typo. |
+| 137 | 41 | true | true | aisthesis | Intake… | Greek-vocab keep +2; reject "Intake" (breaks register). |
 | 138 |  |  |  | [Concept] Predictive relevance depending on the policy the agent will run | Policy conditional … |  |
 | 139 |  |  |  | constitutive utterance | Ontological speech … |  |
 | 140 |  |  |  | [Concept] The cycle that operates on cycles: structural adaptation | Meta adaptive cycle… |  |
@@ -202,7 +202,7 @@
 | 200 |  |  |  | strategy dimension | Purposeful decompos… |  |
 | 201 |  |  |  | [Concept] The property that correction dynamics are approximately isotropic | Isotropic correctio… |  |
 | 202 |  |  |  | [Concept] The interval during which an agent's adaptive tempo exceeds the environment's disturbance rate guaranteeing mismatch stays bounded | Operational persist… |  |
-| 203 |  |  |  | logogenic logozoetic | Language constitute… |  |
+| 203 | 42 | true | true | logogenic logozoetic | Language constitute… | Greek-vocab pair keep +2; reject English plural form. |
 | 204 |  |  |  | software epistemic property | Software as calibra… |  |
 | 205 |  |  |  | implementation time |  |  |
 | 206 |  |  |  | interiority default |  |  |
@@ -220,7 +220,7 @@
 | 218 |  |  |  | value object | Value functional… |  |
 | 219 |  |  |  | agent opacity | Emitter opacity… |  |
 | 220 |  |  |  | structural adaptation necessity | Adaptation necessity |  |
-| 221 |  |  |  | aporia prolepsis aisthesis epistrophe praxis | Greek rooted vocabu… |  |
+| 221 | 20 | true | true | aporia prolepsis aisthesis epistrophe praxis | Greek rooted vocabu… | Same set, alt ordering. +2 keep. |
 | 222 |  |  |  | [Concept] The regulative ideal that segment names should be re-derivable from a non-specialist everyday language reconstruction | Feynman criterion |  |
 | 223 |  |  |  | "epistemic substate" / "purposeful substate" |  |  |
 | 224 |  |  |  | logostratum | Cognitive substrate |  |
@@ -268,7 +268,7 @@
 | 266 |  |  |  | adversarial edge-target arg-max | Adversarial edge ta… |  |
 | 267 |  |  |  | [Concept] C-I / C-II / C-III / C-IV | Composition route… |  |
 | 268 |  |  |  | worked example kalman |  |  |
-| 269 |  |  |  | separability pattern | Three rung posture,… |  |
+| 269 | 33 | true | true | separability pattern | Three rung posture,… | Strong canonicalize-with-organic-provenance: segment already prose-uses "ladder" repeatedly. Rename to "Separability ladder" +2. |
 | 270 |  |  |  | [Concept] Survival determined by the weakest dimension not the average | Min survival princi… |  |
 | 271 |  |  |  | [Concept] The family of cross-architecture diagnostic patterns AAD repeatedly invokes | Diagnostic template |  |
 | 272 |  |  |  | $\beta$ (A2′) assumed-not-derived sub-scope | Assumed regime |  |
@@ -277,16 +277,16 @@
 | 275 |  |  |  | Markov blanket as ontology | Pearl-blanket / d-s… |  |
 | 276 |  |  |  | dual optimization | Comprehension imple… |  |
 | 277 |  |  |  | "feedforward loop" / "feedback loop" | Feedback loop |  |
-| 278 |  |  |  | $\delta_t$ | Mismatch signal… |  |
+| 278 | 21 | true | true | $\delta_t$ | Mismatch signal… | def-mismatch-signal: keep mismatch as engineering register; aporia as add-alias for cycle-phase prose. |
 | 279 |  |  |  | survival FIM floor | survival fisher flo… |  |
 | 280 |  |  |  | objective | Objective functiona… |  |
 | 281 |  |  |  | [Concept] The phenomenon where persistence success makes an agent less likely to detect the conditions requiring structural adaptation | Stability-induced m… |  |
-| 282 |  |  |  | persistence structural operational continuity | Operational persist… |  |
+| 282 |  | true | true | persistence structural operational continuity | Operational persist… |  |
 | 283 |  |  |  | Pearl L1 | Predicting |  |
 | 284 |  |  |  | strategic dynamics |  |  |
 | 285 |  |  |  | [Concept] Future segment layer header for narrative pedagogical framing | Narrative framing |  |
 | 286 |  |  |  | conceptual alignment |  |  |
-| 287 |  |  |  | causal structure |  |  |
+| 287 | 12 | true | true | causal structure | temporal precedence | post-causal-structure: slug names consequence not axiom; write-in `temporal precedence` +2. |
 | 288 |  |  |  | $G_t = (O_t, \Sigma_t)$ | Purposeful substate… |  |
 | 289 |  |  |  | [Concept] The symmetric counterpart to context turnover for the strategy substate | Strategic turnover … |  |
 | 290 |  |  |  | aisthesis αἴσθησις |  |  |
@@ -337,7 +337,7 @@
 | 335 |  |  |  | [Concept] The upper bound on what a given model-class can express and the consequent constraint on feasible strategy complexity | Latent structural c… |  |
 | 336 |  |  |  | [Concept] Accumulated loss across context resets | Cold reconstruction… |  |
 | 337 |  |  |  | causal insufficiency detection | Latent cause detect… |  |
-| 338 |  |  |  | [Concept] The Pearl-blanket reading of directed separation | Pearl-blanket form |  |
+| 338 | 28 | true | true | [Concept] The Pearl-blanket reading of directed separation | Pearl-blanket form | der-directed-separation: weak +1 promote to first-class. |
 | 339 |  |  |  | epistemic status |  |  |
 | 340 |  |  |  | [Concept] Gemini's analysis-paralysis for excessive deliberation | Deliberation gridlo… |  |
 | 341 |  |  |  | [Concept] High-observability node with zero causal link to objective | Irrelevant visibili… |  |
@@ -378,10 +378,10 @@
 | 376 |  |  |  | action fluency |  |  |
 | 377 |  |  |  | exact / robust-qualitative / heuristic / conditional (claim tier) | Epistemic claim tier |  |
 | 378 |  |  |  | deliberation threshold |  |  |
-| 379 |  |  |  | directed separation | Goal-blind processi… |  |
+| 379 | 29 | true | true | directed separation | Goal-blind processi… | Load-bearing keep +2; the architectural Class 1/2/3 hangs off this name. |
 | 380 |  |  |  | [Concept] Α₁ fixed-gain (A2′) sub-scope | Fixed gain regime |  |
 | 381 |  |  |  | m preservation | Model preservation,… |  |
-| 382 |  |  |  | aporia | Aporia productive p… |  |
+| 382 | 22 | true | true | aporia | Aporia productive p… | Greek-vocab strong-keep; reject "discrepancy"; productive-perplexity gloss as canonicalize. |
 | 383 |  |  |  | Miller's meta-machine / extreme transition motif | Meta machine extrem… |  |
 | 384 |  |  |  | bias bound |  |  |
 | 385 |  |  |  | [Concept] AAD's epistemic move to cast results such that verification is a local operation | Shaping for verific… |  |
@@ -392,7 +392,7 @@
 | 390 |  |  |  | correlation hierarchy | Correlation ladder,… |  |
 | 391 |  |  |  | mismatch dynamics | Mismatch dynamics d… |  |
 | 392 |  |  |  | adaptive tempo | Adaptation rate… |  |
-| 393 |  |  |  | satisfaction gap | Attainability short… |  |
+| 393 | 24 | true | true | satisfaction gap | Attainability short… | def-satisfaction-gap: load-bearing keep +2; pair-partner with control regret. |
 | 394 |  |  |  | model uncertainty |  |  |
 | 395 |  |  |  | [Concept] Token-level commitment for agent identity | Trajectory bound id… |  |
 | 396 |  |  |  | coherence coupling measurement | Q measurement |  |
@@ -418,7 +418,7 @@
 | 416 |  |  |  | $U_M$ dual use model uncertainty and epistemic unity | Clarify dual use of… |  |
 | 417 |  |  |  | conspectus | Active context… |  |
 | 418 |  |  |  | adaptive cycle | The cycle the adapt… |  |
-| 419 |  |  |  | [Concept] The template family sector persistence / contraction / (possible future) dissipativity | Persistence templat… |  |
+| 419 |  | true | true | [Concept] The template family sector persistence / contraction / (possible future) dissipativity | Persistence templat… |  |
 | 420 |  |  |  | [Concept] Property of having genuine temporal experience | Temporal fidelity… |  |
 | 421 |  |  |  | [Concept] Čencov / Fisher / Cauchy functional equation / Shore-Johnson-Hobson / Aczél | Coordinate forcing … |  |
 | 422 |  |  |  | composition closure | Closure defect… |  |
@@ -428,12 +428,12 @@
 | 426 |  |  |  | gain sector bridge | Grounding (GA-3) su… |  |
 | 427 |  |  |  | CIY unified objective | Exploration exploit… |  |
 | 428 |  |  |  | complete agent state | Purposeful state |  |
-| 429 |  |  |  | control regret | Strategy opportunit… |  |
+| 429 | 25 | true | true | control regret | Strategy opportunit… | def-control-regret: load-bearing keep +2; pair-partner with satisfaction gap. |
 | 430 |  |  |  | [Concept] The unupdatable region of the strategy DAG where edges receive no actionable feedback | Observability front… |  |
 | 431 |  |  |  | [Concept] The move where a segment role prefix is mechanical but the subject-noun carries judgment | The prefix noun spl… |  |
 | 432 |  |  |  | $\mathcal C_t^{\text{commit}}$ (TST committed-state subset) | $\mathcal C_t^{\tex… |  |
 | 433 |  |  |  | [Concept] The three concentric rings of segment content: inevitability core / canonical formulation / empirical-heuristic | Three ring |  |
-| 434 |  |  |  | chronica | Lowercase italic ch… |  |
+| 434 | 7 | true | true | chronica | Lowercase italic ch… | Strong keep on the Greek noun; weak rename to enforce lowercase-italic style. |
 | 435 |  |  |  | deliberation cost | The simulation tax,… |  |
 | 436 |  |  |  | evidence starvation | Depth attenuated co… |  |
 | 437 |  |  |  | changeset size principle | Changeset size scal… |  |
@@ -453,14 +453,14 @@
 | 451 |  |  |  | worked example l1 |  |  |
 | 452 |  |  |  | [Concept] Low / mixed / high ambiguity event mix | Ambiguity stratifie… |  |
 | 453 |  |  |  | $G_t$ | Teleological substa… |  |
-| 454 |  |  |  | observation function | Observation channel |  |
+| 454 | 3 | true | true | observation function | Observation channel | Shannon-channel intuition fits exactly: lossy + noisy info flow. "Function" understates the noise. Asymmetry vs def-action-transition (channel for info, transition for causal) preserved. Rename. |
 | 455 |  |  |  | [Concept] The log-additivity result that unifies chain confidence decay / evidence starvation / triple-depth penalty as instances of the same forcing structure | Log confidence addi… |  |
 | 456 |  |  |  | Regime III | Ambient noise regime |  |
 | 457 |  |  |  | [Concept] The quadratic scaling of tempo required to survive stochastic noise vs deterministic drift | Noise scaling penal… |  |
 | 458 |  |  |  | stability plasticity window | Consolidation feasi… |  |
 | 459 |  |  |  | [Concept] Agents escalate up the Pearl hierarchy only when lower levels fail | The intervention es… |  |
 | 460 |  |  |  | [Concept] True sovereignty requires compute that is not meter-bound | Local substrate man… |  |
-| 461 |  |  |  | agent model | Reality model |  |
+| 461 | 15 | true | true | agent model | Reality model | form-agent-model: slug-title-README-LEXICON converge on "reality model"; rename +2. |
 | 462 |  |  |  | bias bound derivation | Class 2 bias bound |  |
 | 463 |  |  |  | OODA (Boyd's loop) | OODA loop |  |
 | 464 |  |  |  | lindy baseline | Structural persiste… |  |
@@ -481,7 +481,7 @@
 | 479 |  |  |  | [Concept] Escalating from one step to bellman optimality to test if a goal is genuinely impossible | Convention escalati… |  |
 | 480 |  |  |  | composite agent |  |  |
 | 481 |  |  |  | strategic composition | Equilibrium composi… |  |
-| 482 |  |  |  | $M_t$ | Model state or epis… |  |
+| 482 | 16 | true | true | $M_t$ | Model state or epis… | form-agent-model: add-alias for prose; both forms useful in different contexts. |
 | 483 |  |  |  | [Concept] Unifying reflexes / intuition / expertise | Action fluency cont… |  |
 | 484 |  |  |  | cognitive fusion | Channel capacity co… |  |
 | 485 |  |  |  | variational sector condition |  |  |
@@ -514,7 +514,7 @@
 | 512 |  |  |  | working note |  |  |
 | 513 |  |  |  | consolidation dynamics | Offline consolidati… |  |
 | 514 |  |  |  | adversarial exponent regime | Adversarial regime |  |
-| 515 |  |  |  | information bottleneck | Epistemic bottleneck |  |
+| 515 | 17 | true | true | information bottleneck | Epistemic bottleneck | form-information-bottleneck: prior-art-integration; defended keep +2. |
 | 516 |  |  |  | AAD (acronym) | Adaptation and purp… |  |
 | 517 |  |  |  | adaptive gain dynamics |  |  |
 | 518 |  |  |  | [Concept] The meta-architecture of separability pattern / identifiability floor / additive coordinate forcing | Meta pattern triad,… |  |
@@ -530,7 +530,7 @@
 | 528 |  |  |  | [Concept] Information gain must outpace inter-session information loss | Accumulation problem |  |
 | 529 |  |  |  | [Concept] Track 1 / Track 2 in bias-bound | Track 1 track 2… |  |
 | 530 |  |  |  | principled decision integration | Temporal decision i… |  |
-| 531 |  |  |  | logogenic agent | Linguistic agent… |  |
+| 531 | 43 | true | true | logogenic agent | Linguistic agent… | Architectural property keep +2; reject "linguistic" as too generic. |
 | 532 |  |  |  | equilibrium convergence |  |  |
 | 533 |  |  |  | [Concept] The signed coupling structure across all Section III result | Signed coupling top… |  |
 | 534 |  |  |  | structured rich context | Structured context |  |
@@ -566,7 +566,7 @@
 | 564 |  |  |  | [Concept] Claim the proposition the segment carries | Segment claim, Claim |  |
 | 565 |  |  |  | identifiability floor | Persistence patholo… |  |
 | 566 |  |  |  | purposeful substate | Purposeful state |  |
-| 567 |  |  |  | Pearl causal hierarchy | Causal hierarchy le… |  |
+| 567 | 13 | true | true | Pearl causal hierarchy | Causal hierarchy le… | def-pearl-causal-hierarchy: prior-art-integration convention; defended keep +2. Disambiguates from internal hierarchies. |
 | 568 |  |  |  | symbiogenic composition | Symbiogenic absorpt… |  |
 | 569 |  |  |  | [Concept] The loop generates L2 data regardless of architecture | The causal loop sub… |  |
 | 570 |  |  |  | sector persistence template | Bounded correction … |  |
@@ -601,17 +601,17 @@
 | 599 |  |  |  | Pearl L2 | Exploring |  |
 | 600 |  |  |  | greek rooted vocabulary | Greek philosophical… |  |
 | 601 |  |  |  | temporal nesting | Timescale nesting… |  |
-| 602 |  |  |  | adaptive reserve |  |  |
-| 603 |  |  |  | honesty as architecture | Honesty… |  |
-| 604 |  |  |  | Class 2 agent | Integrated agent |  |
+| 602 |  | true | true | adaptive reserve |  |  |
+| 603 |  | true | true | honesty as architecture | Honesty… |  |
+| 604 |  | true | true | Class 2 agent | Integrated agent |  |
 | 605 |  |  |  | $\lambda(M_t)$ | Exploration multipl… |  |
 | 606 |  |  |  | $U_M$ | Epistemic unity |  |
 | 607 |  |  |  | $\rho_\Sigma$ | Strategy drift rate… |  |
-| 608 |  |  |  | mismatch signal | Aporia signal |  |
+| 608 | 23 | true | true | mismatch signal | Aporia signal | def-mismatch-signal: two-register discipline; keep slug, alias for prose. |
 | 609 |  |  |  | $U_M, U_O, U_\Sigma, U_{\text{obs}}, U_f$ | Unity coordinate |  |
 | 610 |  |  |  | observation uncertainty | Observation uncerta… |  |
 | 611 |  |  |  | Pearl-Level 2 causal contrast | Level 2 interventio… |  |
-| 612 |  |  |  | logogenic |  |  |
+| 612 | 44 | true | true | logogenic |  | Coined Greek term keep +2. |
 | 613 |  |  |  | [Concept] Closure defect consuming macro reserve | Coordination overhe… |  |
 | 614 |  |  |  | [Concept] Agent-visible but objective-irrelevant metric | Irrelevant visibili… |  |
 | 615 |  |  |  | [Concept] Epochal stability → latent diversification → niche emergence | Symbiogenic composi… |  |
@@ -626,6 +626,6 @@
 | 624 |  |  |  | $\alpha$, $\beta$ — sector lower bound and (A2′) sub-scope | $\alpha, \beta$ |  |
 | 625 |  |  |  | five phase cycle | Adaptive pentad alt… |  |
 | 626 |  |  |  | prompt engineering | Ambiguity modulatio… |  |
-| 627 |  |  |  | the Greek vocabulary | The greek philosoph… |  |
-| 628 |  |  |  | structural persistence |  |  |
+| 627 |  | true | true | the Greek vocabulary | The greek philosoph… |  |
+| 628 |  | true | true | structural persistence |  |  |
 | 629 |  |  |  | coherence coupling | Change architecture |  |

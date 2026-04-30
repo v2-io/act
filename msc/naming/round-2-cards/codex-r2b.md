@@ -32,7 +32,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Derivation audit |  |  |  |  |
+| Derivation audit | canonicalize | +2 | yes | The recursive-update appendix's "What Is Derived vs. What Is Chosen" table proves the practice earns a compact name: it makes mixed derivation/definition/formulation status visible at a glance. |
 | *(write-in)* |  |  |  |  |
 
 ## 2. *$\mathcal C_t^{\text{commit}}$ (TST committed-state subset)*
@@ -58,7 +58,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| causal structure |  |  |  |  |
+| causal structure | keep | +2 | yes | Plain but correct for the root postulate: temporal ordering gives the agent-environment interaction irreducible possible-influence structure before Pearl/statistical causality enters. |
 | *(write-in)* |  |  |  |  |
 
 ## 4. [Concept] *Observation design lever reducing ambiguity*
@@ -167,7 +167,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Epistemic update function |  |  |  |  |
+| Epistemic update function | add-alias | +2 | yes | Good prose alias for $f_M$: it updates the model/reality state and will need to stay distinct from later $G_t$ or strategy update functions. |
 | *(write-in)* |  |  |  |  |
 
 ## 13. *linear ode approximation*
@@ -396,7 +396,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| action fluency |  |  |  |  |
+| action fluency | keep | +2 | yes | Strong name for the degree to which effective praxis flows from $M_t$ without deliberative computation; bridges reflex, expertise, and software familiarity without reducing to any one domain. |
 | *(write-in)* |  |  |  |  |
 
 ## 28. *change proximity principle*
@@ -427,8 +427,9 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Predictive state |  |  |  |  |
-| Working model |  |  |  |  |
+| Predictive state | add-alias | +1 |  | Captures prolepsis/prediction but loses the compression-of-chronica and belief-about-reality roles. |
+| Working model | add-alias | +1 |  | Usable casual gloss, but too generic for the canonical prose alias. |
+| Reality model | add-alias | +2 | yes | Segment title and content support this directly: $M_t$ is the agent's compressed representation of how the world works. |
 | *(write-in)* |  |  |  |  |
 
 ## 30. *terminal reached but $O_t$ unsatisfied*
@@ -579,7 +580,8 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Reasoning |  |  |  |  |
+| Reasoning | add-alias | -1 |  | Too broad for Pearl L3. All three levels are reasoning modes; Level 3 is specifically counterfactual. |
+| Counterfactual reasoning | add-alias | +2 | yes | Best brief-grade gloss for Pearl L3: "given what happened, what would have happened if I had done otherwise?" |
 | *(write-in)* |  |  |  |  |
 
 ## 41. *C-IV (composition route)*
@@ -793,7 +795,8 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Interaction history chronica |  |  |  |  |
+| Interaction history chronica | add-alias | -1 |  | Awkward as written and too weak: "interaction history" loses the complete, singular, irreversible causal-record force that the segment gives `chronica`. |
+| complete interaction history | add-alias | +2 | yes | Best first-use gloss. It stays English-accessible while preserving the key property that $\mathcal C_t$ is the complete raw sequence from which $M_t$ is constructed. |
 | *(write-in)* |  |  |  |  |
 
 ## 57. *$U_M, U_O, U_\Sigma, U_{\text{obs}}, U_f$*
@@ -1202,8 +1205,8 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Pearl-Level 2 causal contrast |  |  |  |  |
-| Level 2 interventional contrast |  |  |  |  |
+| Pearl-Level 2 causal contrast | keep | +1 |  | Accurate and keeps provenance, but "causal contrast" is slightly less specific than the segment's interventional-distribution distinction. |
+| Level 2 interventional contrast | canonicalize | +2 | yes | Best mechanism gloss for the agency boundary: distinct actions produce distinct $P(o \mid do(a))$ distributions. |
 | *(write-in)* |  |  |  |  |
 
 ## 85. *exploit explore deliberate*
@@ -1240,8 +1243,8 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| recursive update |  |  |  |  |
-| Recursive update by completeness |  |  |  |  |
+| recursive update | keep | +2 | yes | Exact, standard name for the forced update form $M_{\tau^+}=f_M(M_{\tau^-}, e_\tau)$. The completeness nuance is crucial but belongs in the derivation/status explanation. |
+| Recursive update by completeness | rename | +1 |  | Names the distinctive Markov-by-complete-state move, but too explanatory as the canonical result name. |
 | *(write-in)* |  |  |  |  |
 
 ## 87. *prolepsis πρόληψις*
@@ -1677,8 +1680,8 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Action channel |  |  |  |  |
-| action transition |  |  |  |  |
+| Action channel | rename | -1 |  | Misleading symmetry: observations arrive through a channel, but actions induce world-state transition through $T$. The segment's own distinction is transition, not communication. |
+| action transition | keep | +1 | yes | Serviceable slug noun for the segment: plain and accurate. I would not strengthen it beyond +1 because the actual memorable sub-concept here is `transition opacity`, not the broader action-transition primitive. |
 | *(write-in)* |  |  |  |  |
 
 ## 118. [Concept] *The unupdatable region of the strategy DAG where edges receive no actionable feedback*
@@ -2149,9 +2152,9 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| model sufficiency |  |  |  |  |
-| Predictive sufficiency |  |  |  |  |
-| Predictive information retention |  |  |  |  |
+| model sufficiency | keep | +2 | yes | Central quantity and clear statistical term. The segment's guardrails make the scope precise: compression sufficiency for a prediction task, not accuracy or causal validity. |
+| Predictive sufficiency | add-alias | +1 |  | Useful clarifier where readers might overread sufficiency as truth or causal adequacy; less canonical than the established metric name. |
+| Predictive information retention | add-alias | +1 |  | Descriptive but more phrase-like than name-like. Good explanatory paraphrase for the numerator/denominator intuition. |
 | *(write-in)* |  |  |  |  |
 
 ## 149. *$U_\text{obs}$ (perceptual unity)*
@@ -2319,8 +2322,9 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| I adaptive system under uncertainty |  |  |  |  |
-| Section I adaptive system under uncertainty |  |  |  |  |
+| I adaptive system under uncertainty | keep | +1 |  | Points at the right content, but singular/lowercase reads like a normalized artifact rather than the actual section heading. |
+| Section I adaptive system under uncertainty | keep | +1 |  | Acceptable as a mechanical reference form, but the reader-facing heading should keep the plural and title casing. |
+| Adaptive Systems Under Uncertainty | keep | +2 | yes | The defining scope segment makes "under uncertainty" load-bearing: $\mathcal O \neq \emptyset$ and residual uncertainty are the whole Section I boundary. |
 | *(write-in)* |  |  |  |  |
 
 ## 162. [Concept] *Symbol default (PI) parameterization-invariance axiom*
@@ -2503,7 +2507,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| action selection |  |  |  |  |
+| action selection | keep | +2 | yes | Standard and accurate for the derived policy form $a_t=\pi(M_t)$, later lifted to $\pi(M_t,G_t)$. No need for a more ornate AAD term here. |
 | *(write-in)* |  |  |  |  |
 
 ## 173. *value object*
@@ -2559,7 +2563,8 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Exploring |  |  |  |  |
+| Exploring | add-alias | -1 |  | Too narrow. Level 2 is intervention/do-access; the same structure supports exploration and exploitation. |
+| Intervening | add-alias | +2 | yes | Direct agent-side gloss for Pearl L2: "what will I observe if I do this?" |
 | *(write-in)* |  |  |  |  |
 
 ## 177. [Concept] *The (A2′) sub-scope partition into α₁ / α₂ / β*
@@ -2682,7 +2687,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| agency |  |  |  |  |
+| agency | keep | +2 | yes | High-baggage but correct scope noun. The segment disciplines ordinary "agency" into binary choice plus Pearl-Level-2 causal contrast, which is exactly the boundary Sections II/III need. |
 | *(write-in)* |  |  |  |  |
 
 ## 186. *observation uncertainty*
@@ -2717,7 +2722,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| epistemic opacity |  |  |  |  |
+| epistemic opacity | keep | +1 | yes | The segment explicitly defines it as the agent not knowing $h$ or the noise distribution. Weak keep because "epistemic" is broad enough to risk collision with later model/agent opacity terms; the modifier must stay scoped in prose. |
 | *(write-in)* |  |  |  |  |
 
 ## 189. *$G_t = (O_t, \Sigma_t)$*
@@ -2942,7 +2947,8 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Chronica or interaction history |  |  |  |  |
+| Chronica or interaction history | add-alias | -1 |  | The "or" framing makes the terms sound freely substitutable. The segment needs `chronica` as the canonical noun and an English gloss for first encounter. |
+| chronica (complete interaction history) | canonicalize | +2 | yes | Canonicalize the pairing: `chronica` names the complete, singular, non-forkable causal record; "complete interaction history" is the explanatory gloss, not a replacement. |
 | *(write-in)* |  |  |  |  |
 
 ## 206. [Concept] *The set of five conditions under which (A2′) is derived rather than assumed (the sub-scope α agent classes)*
@@ -2971,12 +2977,12 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Attentional coupling |  |  |  |  |
-| Attention bound |  |  |  |  |
-| Query coupling |  |  |  |  |
-| Query bound agency |  |  |  |  |
-| Epistemic only |  |  |  |  |
-| Query bound |  |  |  |  |
+| Attentional coupling | rename | +1 |  | Better than `nominal coupling` for LLM-like cases, but narrower than the segment's general "choice of what to observe" structure. |
+| Attention bound | rename | +1 |  | Good adjective but incomplete as a noun phrase; would need "agency" or "coupling" to be speakable. |
+| Query coupling | rename | +1 |  | Captures the mechanism where action changes what is observed, though the segment's real scope boundary is agency-via-query rather than coupling alone. |
+| Query bound agency | rename | +2 | yes | Best candidate here, with hyphenation in final prose: query-bound agency names choices whose effect is on what can be observed, not primarily on world state. |
+| Epistemic only | rename | -1 |  | Too vague and misleading; the point is not "only epistemic" but that query choices still generate interventional contrasts. |
+| Query bound | rename | +1 |  | Useful shorthand, but too fragmentary as the canonical target name. |
 | *(write-in)* |  |  |  |  |
 
 ## 208. *contraction template*
@@ -3101,7 +3107,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Chronica lowercase in running prose |  |  |  |  |
+| Chronica lowercase in running prose | canonicalize | +2 | yes | Matches the Greek phase-vocabulary convention: lowercase in running prose like `aporia` and `praxis`, capitalized only in headings or sentence-initial position. |
 | *(write-in)* |  |  |  |  |
 
 ## 217. *$\kappa_{\text{eff}}$*
@@ -3136,7 +3142,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| $\mathcal C_t$ |  |  |  |  |
+| $\mathcal C_t$ | keep | +2 | yes | Calligraphic C reads naturally with `chronica` and avoids the $\mathcal H$ collision with Shannon entropy that the segment explicitly flags. |
 | *(write-in)* |  |  |  |  |
 
 ## 220. *$\rho_\Sigma$*
@@ -3391,7 +3397,8 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| event driven dynamics |  |  |  |  |
+| event driven dynamics | keep | +1 |  | Accurate, but should be hyphenated in prose because it modifies "dynamics." |
+| event-driven dynamics | keep | +2 | yes | Correctly names the formulation choice: asynchronous typed events, not clock ticks, are the primitive update triggers. |
 | *(write-in)* |  |  |  |  |
 
 ## 237. *experiential training*
@@ -3647,8 +3654,9 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Coupling structure |  |  |  |  |
-| boundary condition |  |  |  |  |
+| Coupling structure | rename | +1 |  | Better than bare "boundary condition" because the segment is about an interaction topology, but it underplays the actual constitutive constraint: the agent's contact with $\Omega_t$ is lossy. |
+| boundary condition | rename | -1 |  | Too generic and imports mathematical baggage from PDE/control usage; the segment is not naming an arbitrary boundary condition but the information-loss boundary that makes adaptation non-vacuous. |
+| information-loss boundary | rename | +2 | yes | Defining segment names this directly as `information-loss-boundary`; it carries both the scope restriction and why AAD starts here. Six months later "the information-loss boundary" is much easier to recover than "the boundary condition." |
 | *(write-in)* |  |  |  |  |
 
 ## 256. *transition opacity*
@@ -3659,7 +3667,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| transition opacity |  |  |  |  |
+| transition opacity | keep | +2 | yes | The segment explicitly defines this as the agent-relative unknowability of $T$. It is better than "transition uncertainty" because deterministic transitions can still be opaque to the agent. |
 | *(write-in)* |  |  |  |  |
 
 ## 257. *$\eta^\ast$ (optimal update gain)*
@@ -3807,11 +3815,11 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Scale invariance |  |  |  |  |
-| Scale invariance of adaptive dynamics |  |  |  |  |
-| Holon postulate |  |  |  |  |
-| composition consistency |  |  |  |  |
-| Cross level coherence |  |  |  |  |
+| Scale invariance | rename | -1 |  | Overclaims. The postulate requires compatible predictions across valid levels, not sameness under arbitrary scale transformation. |
+| Scale invariance of adaptive dynamics | rename | -1 |  | More specific than bare "scale invariance" but still imports the wrong mathematical baggage; closure defect and degraded transfer are central later. |
+| Holon postulate | rename | -1 |  | The segment itself warns holon has baggage. It would obscure the straightforward cross-level compatibility requirement. |
+| composition consistency | keep | +2 | yes | Accurate postulate name: if both system and decomposition satisfy scope, AAD's predictions cannot contradict across those levels. Humble and scope-honest. |
+| Cross level coherence | add-alias | +1 |  | Useful explanatory gloss for the postulate's plain-English content, though I would hyphenate it as "cross-level coherence" and keep `composition consistency` canonical. |
 | *(write-in)* |  |  |  |  |
 
 ## 267. *correlation hierarchy*
@@ -4135,7 +4143,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| recursive update derivation |  |  |  |  |
+| recursive update derivation | keep | +2 | yes | Accurate appendix name: it proves uniqueness from arrow of time, partial observability, and complete-state commitment, then stress-tests the form with counterexamples. |
 | *(write-in)* |  |  |  |  |
 
 ## 291. *logogenic agent*
@@ -4183,8 +4191,8 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Class capacity ceiling |  |  |  |  |
-| model-class fitness |  |  |  |  |
+| Class capacity ceiling | add-alias | +1 |  | Helpful gloss for the supremum idea, but "capacity" can imply raw model size rather than best achievable predictive sufficiency. |
+| model-class fitness | keep | +2 | yes | Strong companion to `model sufficiency`: best achievable sufficiency within the representational class, and the quantity that makes structural adaptation necessary when low. |
 | *(write-in)* |  |  |  |  |
 
 ## 294. *composition scope condition*
@@ -4364,9 +4372,9 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Causal hierarchy |  |  |  |  |
-| Causal hierarchy level |  |  |  |  |
-| Pearl causal hierarchy |  |  |  |  |
+| Causal hierarchy | add-alias | +1 |  | Acceptable shorthand after first attribution, but not as the canonical name because AAD also has internal hierarchies. |
+| Causal hierarchy level | canonicalize | +1 |  | Useful phrase for individual L1/L2/L3 entries, but not a replacement for the hierarchy name. |
+| Pearl causal hierarchy | keep | +2 | yes | Adopted prior-art term should retain attribution. This also disambiguates Pearl's hierarchy from AAD's correlation and convention hierarchies. |
 | *(write-in)* |  |  |  |  |
 
 ## 306. [Concept] *Čencov / Fisher / Cauchy functional equation / Shore-Johnson-Hobson / Aczél*
@@ -4415,8 +4423,8 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Lowercase italic chronica |  |  |  |  |
-| chronica |  |  |  |  |
+| Lowercase italic chronica | canonicalize | +1 |  | Good style convention, but this candidate is orthogonal to the name itself and is covered more cleanly by the capitalization-convention target. |
+| chronica | keep | +2 | yes | One of the project's strongest core nouns: it is speakable, avoids the entropy-symbol collision, and carries the singular/non-forkable causal-record idea that "history" flattens. |
 | *(write-in)* |  |  |  |  |
 
 ## 310. [Concept] *The discipline of naming so that the slug survives reorganization*
@@ -5582,8 +5590,8 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Epistemic substate |  |  |  |  |
-| Model state |  |  |  |  |
+| Epistemic substate | add-alias | +1 |  | Precise when the $M_t$ / $G_t$ split is being foregrounded, but too structural as the default prose name before that contrast is active. |
+| Model state | add-alias | +2 | yes | Best neutral default for $M_t$ in update/sufficiency/persistence mechanics: short, accurate, and less grand than repeating "reality model" everywhere. |
 | *(write-in)* |  |  |  |  |
 
 ## 395. [Concept] *The symmetric counterpart to context turnover for the strategy substate*
@@ -5938,7 +5946,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Predicting |  |  |  |  |
+| Predicting | add-alias | +2 | yes | Good brief-grade gloss for Pearl L1/associational access: pattern recognition over prior observations and actions to predict what comes next. |
 | *(write-in)* |  |  |  |  |
 
 ## 418. [Concept] *The property that unity achieves in a macro agent*
@@ -6091,8 +6099,8 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| agent model |  |  |  |  |
-| Reality model |  |  |  |  |
+| agent model | keep | -1 |  | Ambiguous: it can read as a model *of* an agent. The segment title and prose define the agent's model of reality, compressed from chronica. |
+| Reality model | rename | +2 | yes | Better canonical prose name for `#form-agent-model`: self-descriptive, aligned with the segment title, and clear about what $M_t$ represents. |
 | *(write-in)* |  |  |  |  |
 
 ## 430. [Concept] *The failure mode where an agent's model-class cannot represent the environment's true causal structure*
@@ -6127,7 +6135,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| History compression |  |  |  |  |
+| History compression | add-alias | +2 | yes | Good prose handle for $\phi: \mathcal C^\ast \to \mathcal M$: the map compresses chronica into the current model state. |
 | *(write-in)* |  |  |  |  |
 
 ## 433. *loop*
@@ -6277,8 +6285,8 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Action fluency continuum |  |  |  |  |
-| The action fluency continuum |  |  |  |  |
+| Action fluency continuum | name-unnamed | +2 | yes | The segment defines fluency as a degree, not a binary implicit/explicit split; this names the shared spectrum behind reflexes, intuition, expertise, and familiar-code action. |
+| The action fluency continuum | name-unnamed | +1 |  | Same concept, but the article should not be part of the canonical name. |
 | *(write-in)* |  |  |  |  |
 
 ## 442. [Concept] *Observability boundary in a strategy DAG*
@@ -6764,8 +6772,8 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| observation function |  |  |  |  |
-| Observation channel |  |  |  |  |
+| observation function | keep | +2 | yes | Correct formal name for $h(\Omega_t, a_{t-1}, \varepsilon_t)$. The presence of noise/loss does not make "function" misleading because the noise variable is part of the mapping. |
+| Observation channel | add-alias | +1 |  | Useful prose/interface phrase when discussing lossy contact with $\Omega_t$, but it should not replace the formal function name; channel and function are adjacent layers. |
 | *(write-in)* |  |  |  |  |
 
 ## 475. [Concept] *The separation of per-reader and per-feature code cost*
@@ -7924,8 +7932,8 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Epistemic bottleneck |  |  |  |  |
-| information bottleneck |  |  |  |  |
+| Epistemic bottleneck | rename | -1 |  | Unnecessary AAD-branded replacement for a standard external term; it would lose Tishby provenance and confuse the imported theorem with this application. |
+| information bottleneck | keep | +2 | yes | Adopted directly and correctly from Tishby/Pereira/Bialek; the AAD binding is specific, but the parent name should remain the prior-art term. |
 | *(write-in)* |  |  |  |  |
 
 ## 553. [Concept] *The tension between lowering internal opacity for coordination and increasing external vulnerability*
@@ -8831,7 +8839,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| adaptive system |  |  |  |  |
+| adaptive system | keep | +2 | yes | Exact outer-scope name: observation under residual uncertainty, without smuggling in causal action or purpose. Prior-art baggage is helpful here rather than misleading. |
 | *(write-in)* |  |  |  |  |
 
 ## 615. *independence audit*
@@ -9047,3 +9055,11 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 | Developer as agent |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
+## Cold-start observations / Process notes
+
+- **Cold-start scope:** I did not open other voters' cards/trackers, vote files, aggregates, `master-list-*`, `naming-votes/`, `naming-consolidation-*`, `naming-tier2-*`, `naming-pilot-rename-plan.md`, or `_archive/` artifacts. I read the launch prompt, instruction docs, top-level orientation files, component outlines, this card, and my tracker. `PRACTICA.md` contains process-level history about the prior R2 launch and failure modes; it did not expose candidate-level rankings or target-specific positions, but it is a mild process-priming bleed worth disclosing.
+- **Scale resolution:** The instruction set still contains older examples using `+3`, but this card's preamble and the methodology's scale-drift warning make the active scale unambiguous for this pass: I used only `+2`, `+1`, and `-1`.
+- **Coverage:** I stopped after the opening AAD primitive block plus the recursive-update/action-selection appendix detour: 17 reflection files in `msc/AUDIT-WORKING-527914/` and 36 sequenced tracker targets. This is intentionally partial. The votes are concentrated where the defining segment had just been read.
+- **Method observation:** The segment-walk method materially changed several votes I would have guessed differently from the card alone: `boundary condition` became a write-in for `information-loss boundary`; `agent model` became `Reality model`; Pearl L2's `Exploring` gloss became a rejection in favor of `Intervening`; and `nominal coupling` became query-bound agency. That is evidence the method is doing real work.
+- **Appendix-back-pointer note:** `#der-recursive-update` depends on Appendix A `#deriv-recursive-update`. I initially pulled the main segment before separating that dependency, then corrected by reading the appendix immediately and writing it as its own reflection before voting. Future agents may want to inspect frontmatter separately before pulling long main-section files to catch appendix jumps earlier.
+- **Target-framing note:** Several card entries are really style/gloss/convention targets rather than name replacements (`Pearl L1/L2/L3` glosses, `chronica` capitalization, derivation-audit table heading). The card supports this via category choice, but notes need to be explicit so aggregation does not treat glosses as wholesale renames.

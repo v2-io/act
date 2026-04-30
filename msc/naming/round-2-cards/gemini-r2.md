@@ -133,7 +133,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| epistemic opacity |  |  |  |  |
+| epistemic opacity | keep | +2 | yes | The perfect counterpart to transition opacity. The philosophy-of-mind baggage (opacity of other minds) is overridden by the exact structural use here: opacity of the observation channel to the agent's mind. |
 | *(write-in)* |  |  |  |  |
 
 ## 9. *glue code*
@@ -326,7 +326,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | Agentic system framework |  |  |  |  |
-| Agentic system |  |  |  |  |
+| Agentic system | rename | +2 | yes | The argument to avoid the extra acronym (ASF) is strong. AAD and TST are the dense mathematical blocks; the overarching container should just be the plain English 'Agentic systems'. |
 | *(write-in)* |  |  |  |  |
 
 ## 24. *fluid limit (GA-5)*
@@ -461,7 +461,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | Dimensional persistence |  |  |  |  |
-| Weakest link persistence |  |  |  |  |
+| Weakest link persistence | rename | +2 | yes | The adversarial audit of this segment revealed that the theorem depends on a conjunctive (L-infinity) failure boundary. 'Weakest link' bakes this exact mathematical geometry into the name, making it vastly superior to the generic 'per dimension'. |
 | Weak link persistence |  |  |  |  |
 | per dimension persistence |  |  |  |  |
 | *(write-in)* |  |  |  |  |
@@ -562,7 +562,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| $\alpha$ sector parameter |  |  |  |  |
+| $\alpha$ sector parameter | keep | +2 | yes | The symbol $\alpha$ is fundamental to the persistence condition. Adding 'sector parameter' grounds it in its control-theoretic origin (the sector bounds from Lur'e systems). |
 | *(write-in)* |  |  |  |  |
 
 ## 40. *test as reusable intervention*
@@ -845,7 +845,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 |---|---|:-:|:-:|---|
 | Partially coupled |  |  |  |  |
 | Scaffolded |  |  |  |  |
-| *(write-in)* |  |  |  |  |
+| Class 3 | write-in | +2 | yes | Consistent with my vote on Class 1. The numbered taxonomy (Class 1/2/3) is neutral and structurally clean. Replacing it with descriptive adjectives breaks the set. |
 
 ## 60. *gain sector bridge*
 
@@ -862,7 +862,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| The bridge theorem |  |  |  |  |
+| The bridge theorem | name-unnamed | +2 | yes | While 'gain sector bridge' is technically descriptive, this segment functions as the central meta-theoretical bridge between the Machine Learning (gradient descent) and Control Theory (Lyapunov) sides of the framework. Calling it 'The bridge theorem' gives it the mathematical gravity it deserves. |
 | gain sector bridge |  |  |  |  |
 | Grounding (GA-3) sub-scope α and β |  |  |  |  |
 | Bridge theorem from gain to sector |  |  |  |  |
@@ -1115,7 +1115,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 |---|---|:-:|:-:|---|
 | Sector condition scope |  |  |  |  |
 | Sector-bounded operating region |  |  |  |  |
-| Sector scope partition |  |  |  |  |
+| Sector scope partition | name-unnamed | +2 | yes | The alpha/beta partition explicitly scopes where the sector condition is derived vs assumed. 'Sector scope partition' is the precise meta-structural name for this boundary. |
 | *(write-in)* |  |  |  |  |
 
 ## 79. *$\lambda_{\text{surv}}$*
@@ -1569,7 +1569,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| prolepsis πρόληψις |  |  |  |  |
+| prolepsis πρόληψις | keep | +2 | yes | The five-phase Greek vocabulary (aporia/prolepsis/aisthesis/epistrophe/praxis) creates a distinct, elevated register for the agentic cycle. 'Prolepsis' perfectly captures the active 'taking-before' of a model prediction. |
 | *(write-in)* |  |  |  |  |
 
 ## 111. *structural change as parametric limit*
@@ -1940,7 +1940,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| AAD (Adaptation and Actuation Dynamics) |  |  |  |  |
+| AAD (Adaptation and Actuation Dynamics) | keep | +2 | yes | The rename cost has been paid. 'Actuation' accurately describes the purpose of Section II (the agent acts on the environment). Changing it again would introduce catastrophic citation drift. |
 | AAD agentic adaptation dynamics |  |  |  |  |
 | AAD |  |  |  |  |
 | *(write-in)* |  |  |  |  |
@@ -2957,7 +2957,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Strategy DAG sufficiency |  |  |  |  |
+| Strategy DAG sufficiency | rename | +2 | yes | The word 'uniqueness' is an overclaim that the segment explicitly disavows in the first paragraph (comparing itself to Cox's theorem). The segment proves *sufficiency*. This name fixes the epistemic error in the slug. |
 | DAG uniqueness |  |  |  |  |
 | Graph structure sufficiency |  |  |  |  |
 | Strategy DAG uniqueness |  |  |  |  |
@@ -5102,7 +5102,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | observation gate advantage |  |  |  |  |
-| Observation gated tempo advantage |  |  |  |  |
+| Observation gated tempo advantage | keep | +2 | yes | The phrasing 'Observation gated tempo advantage' is mathematically tighter. It accurately reflects that observation noise ($U_o$) gates the effective tempo. |
 | *(write-in)* |  |  |  |  |
 
 ## 356. *$U_M$ / $U_O$ / $U_\Sigma$ unity dimensions*
@@ -5723,7 +5723,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | recursive update |  |  |  |  |
-| Recursive update by completeness |  |  |  |  |
+| Recursive update by completeness | name-unnamed | +2 | yes | The phrase 'by completeness' is essential. As noted in my adversarial audit, the recursive Markovian form is not a law of physics, but a direct logical consequence of defining $M_t$ as the complete state. Naming the constraint that forces the form is structurally honest. |
 | *(write-in)* |  |  |  |  |
 
 ## 401. *$\hat{o}_t$*
@@ -6053,7 +6053,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| persistence cost |  |  |  |  |
+| persistence cost | keep | +2 | yes | Very strong name. It perfectly captures the thermodynamic/information-theoretic necessity derived in the segment. It is the cost of staying alive. |
 | *(write-in)* |  |  |  |  |
 
 ## 423. *experiential training*
@@ -6124,7 +6124,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| multi timescale stability |  |  |  |  |
+| multi timescale stability | keep | +2 | yes | The name perfectly captures the singular perturbation framework being sketched (Tikhonov's theorem applied to nested agents). |
 | *(write-in)* |  |  |  |  |
 
 ## 428. *composition closure*
@@ -6254,7 +6254,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 |---|---|:-:|:-:|---|
 | Bounded correction template |  |  |  |  |
 | Persistence template |  |  |  |  |
-| sector persistence template |  |  |  |  |
+| sector persistence template | keep | +2 | yes | 'Sector' is the load-bearing word here. As my adversarial audit noted, the difference between the one-point sector condition (T2) and the full two-point monotonicity required by the compositional bridge lemma is a massive structural boundary. Dropping 'sector' from the name would hide the specific mathematical mechanism that enables the template. |
 | *(write-in)* |  |  |  |  |
 
 ## 436. *matrix CIY / tensor CIY*
@@ -6509,7 +6509,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| linear ode approximation |  |  |  |  |
+| linear ode approximation | keep | +2 | yes | The word 'approximation' is vital. As the segment proves, assuming linearity makes survival look easier than it is because it ignores structural failure boundaries ($R$). Keeping 'approximation' in the slug serves as a constant warning flag. |
 | Linear approximation |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
@@ -6738,7 +6738,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| critical mass composition |  |  |  |  |
+| critical mass composition | keep | +2 | yes | The phase-transition resonance of 'critical mass' perfectly matches the mathematical reality: below a certain threshold of coupling or unity, the composite dissolves. 'Dyad closed form' is a description of the math, not a name for the phenomenon. |
 | Dyad closed form |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
@@ -7522,7 +7522,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| strategic dynamics |  |  |  |  |
+| strategic dynamics | keep | +2 | yes | The name perfectly captures the content of the appendix: the dynamical equations that govern the strategy dimension ($\Sigma_t$). It provides a clean parallel to 'epistemic dynamics' (which govern $M_t$). |
 | *(write-in)* |  |  |  |  |
 
 ## 523. [Concept] *Meta-segment for separability pattern / identifiability floor / additive coordinate forcing*
@@ -8185,7 +8185,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| discrete sector condition |  |  |  |  |
+| discrete sector condition | keep | +2 | yes | The 'discrete' modifier is strictly necessary to distinguish this from the continuous A2' condition. As my adversarial audit noted, the discrete version requires the Lipschitz (no-overshoot) bound, making it a mathematically distinct, stronger condition. |
 | *(write-in)* |  |  |  |  |
 
 ## 568. *$\phi$*

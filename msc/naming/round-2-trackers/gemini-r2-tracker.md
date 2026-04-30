@@ -7,7 +7,7 @@
 | 5 |  |  |  | [Concept] Instance 1 / 2 / 3 of identifiability floor | Identifiability flo… |  |
 | 6 |  |  |  | [Concept] Code quality as observation infrastructure | Observation infrast… |  |
 | 7 |  | true | true | event driven dynamics |  |  |
-| 8 |  | true |  | epistemic opacity |  |  |
+| 8 | 117 | true | true | epistemic opacity |  |  |
 | 9 |  |  |  | glue code | Agentic scaffold… |  |
 | 10 |  |  |  | [Concept] The dimensional consistency constraint forcing the macro-step formulation | Dimensional consist… |  |
 | 11 |  |  |  | [Concept] The organizational pathology where confidence decouples from competence | Epistemic decouplin… |  |
@@ -22,7 +22,7 @@
 | 20 |  |  |  | [Concept] The mathematical operation by which agents convert observed mismatch into structural revision | Structural cascade |  |
 | 21 |  | true | true | $\Delta T_{i,\text{cost}}$ | Coordination drag |  |
 | 22 |  | true | true | [Concept] C-I / C-II / C-III / C-IV | Composition route… |  |
-| 23 |  | true |  | agentic system framework ASF | Agentic system fram… |  |
+| 23 | 118 | true | true | agentic system framework ASF | Agentic system fram… |  |
 | 24 |  | true | true | fluid limit (GA-5) | Fluid limit |  |
 | 25 |  | true | true | [Concept] The multiplicative $\kappa_{\text{processing}} \times \mathcal{A}$ scaling of Class 2 directional drift and its consequent goal-conformant failure regime | Zero ambiguity cond… |  |
 | 26 |  | true | true | the crèche | Nursery… |  |
@@ -31,14 +31,14 @@
 | 29 |  |  |  | $\rho$ | Disturbance rate… |  |
 | 30 |  |  |  | century scale event log | Persistent chronica… |  |
 | 31 |  |  |  | hierarchy as a project wide word | Flag four independe… |  |
-| 32 |  |  |  | per dimension persistence | Dimensional persist… |  |
+| 32 | 116 | true | true | per dimension persistence | Dimensional persist… |  |
 | 33 | 105 | true | true | adversarial destabilization |  |  |
 | 34 |  |  |  | the creche boundary | Creche graduation… |  |
 | 35 |  |  |  | feature |  |  |
 | 36 |  |  |  | atomic changeset |  |  |
 | 37 |  |  |  | [Concept] Complexity driven resistance to change as features accumulate | Structural accumula… |  |
 | 38 |  |  |  | chronica capitalized vs lowercase | Chronica lowercase … |  |
-| 39 |  | true |  | $\alpha$ (lower sector bound) | $\alpha$ sector par… |  |
+| 39 | 120 | true | true | $\alpha$ (lower sector bound) | $\alpha$ sector par… |  |
 | 40 |  |  |  | test as reusable intervention | Interventional prob… |  |
 | 41 |  |  |  | [Concept] "What is Derived" vs "What is Chosen" (segment header) | Derived vs chosen v… |  |
 | 42 |  |  |  | multi agent |  |  |
@@ -58,8 +58,8 @@
 | 56 |  |  |  | [Concept] Accumulated loss across context resets | Cold reconstruction… |  |
 | 57 |  |  |  | [Concept] Using hash chains to mathematically guarantee memory hasn't been tampered with | Cryptographic ego b… |  |
 | 58 |  |  |  | [Concept] The structural meta-pattern in #disc-additive-coordinate-forcing combining one foundational lemma with three derived results | Anchor theorem trio… |  |
-| 59 |  | true |  | Class 3 | Partially coupled… |  |
-| 60 |  |  |  | gain sector bridge | The bridge theorem,… |  |
+| 59 | 121 | true | true | Class 3 | Partially coupled… |  |
+| 60 | 127 | true | true | gain sector bridge | The bridge theorem,… |  |
 | 61 |  |  |  | spike research artifact | Spike |  |
 | 62 |  |  |  | [Concept] Superlinear scaling of adversarial tempo advantage | Boyd's exponent… |  |
 | 63 |  |  |  | developer-as-act-agent (TST slug) | Developer as agent,… |  |
@@ -77,7 +77,7 @@
 | 75 |  |  |  | $U_M$ | Epistemic unity |  |
 | 76 |  |  |  | $\delta_{\text{strategic}}$ strategic-calibration residual | Strategic calibrati… |  |
 | 77 |  |  |  | change proximity principle | Change proximity… |  |
-| 78 |  |  |  | [Concept] (A2′) sub-scope partition | Sector condition sc… |  |
+| 78 | 123 | true | true | [Concept] (A2′) sub-scope partition | Sector condition sc… |  |
 | 79 |  |  |  | $\lambda_{\text{surv}}$ | Survival multiplier |  |
 | 80 |  | true |  | Class 1 agent | Modular agent |  |
 | 81 |  |  |  | variational sector condition |  |  |
@@ -109,7 +109,7 @@
 | 107 |  |  |  | $\beta$ (A2′) assumed-not-derived sub-scope | Assumed regime |  |
 | 108 |  |  |  | $\mathcal{A}(e_\tau)$ | Observation ambigui… |  |
 | 109 |  | true | true | Pearl causal hierarchy | Causal hierarchy le… |  |
-| 110 |  | true |  | prolepsis πρόληψις |  |  |
+| 110 | 122 | true | true | prolepsis πρόληψις |  |  |
 | 111 |  |  |  | structural change as parametric limit | Structural as param… |  |
 | 112 |  |  |  | coherence coupling measurement | Q measurement |  |
 | 113 |  |  |  | [Concept] The structural cousin of evidence starvation when an upstream edge is so reliable that downstream edges receive too few revising tests | Evidence saturation |  |
@@ -134,7 +134,7 @@
 | 132 |  |  |  | edge credence |  |  |
 | 133 |  |  |  | [Concept] The product of architectural coupling $\kappa$ and environmental ambiguity $\mathcal{A}$ | Class 2 bias bound,… |  |
 | 134 |  |  |  | blind pursuer | Model degenerate pu… |  |
-| 135 |  | true |  | AAD (Adaptation and Actuation Dynamics) | AAD agentic adaptat… |  |
+| 135 | 113 | true | true | AAD (Adaptation and Actuation Dynamics) | AAD agentic adaptat… |  |
 | 136 | 1 | true | true | agent spectrum | Agency spectrum… |  |
 | 137 |  |  |  | $\alpha_1$ $\alpha_2$ $\beta$ partition | Fixed gain adaptive… |  |
 | 138 |  |  |  | instance 1 of identifiability floor | Latent common cause… |  |
@@ -204,7 +204,7 @@
 | 202 |  |  |  | five phase cycle | Adaptive pentad alt… |  |
 | 203 |  |  |  | [Concept] The functional requirements are the results, formalisms are the engineering slogan | Functional primacy |  |
 | 204 |  |  |  | alpha prime sub-scope | Potential monotone … |  |
-| 205 |  |  |  | graph structure uniqueness | Strategy DAG suffic… |  |
+| 205 | 132 | true | true | graph structure uniqueness | Strategy DAG suffic… |  |
 | 206 |  |  |  | discussion |  |  |
 | 207 |  |  |  | [Concept] Effort/time/risk-ranking considered false constraints | False constraint |  |
 | 208 |  |  |  | internal external decomposition | Boundary decomposit… |  |
@@ -354,7 +354,7 @@
 | 352 |  |  |  | L1 update bias | L1 bias formula |  |
 | 353 |  |  |  | [Concept] The pattern where AAD's negative-result floors strengthen the machinery that escapes them | Honest limit princi… |  |
 | 354 |  |  |  | boundary condition | Coupling structure |  |
-| 355 |  |  |  | observation gate advantage | Observation gated t… |  |
+| 355 | 115 | true | true | observation gate advantage | Observation gated t… |  |
 | 356 |  |  |  | $U_M$ / $U_O$ / $U_\Sigma$ unity dimensions | Epistemic unity tel… |  |
 | 357 |  |  |  | [Concept] Partitioning context into frozen-identity / causal-history / quick-view | Gradient causal mem… |  |
 | 358 |  |  |  | OODA (Boyd's loop) | OODA loop |  |
@@ -399,7 +399,7 @@
 | 397 |  |  |  | [Concept] Observability boundary in a strategy DAG | Observability front… |  |
 | 398 | 110 | true | true | $H_b$ | Agent opacity $H_b$… |  |
 | 399 |  |  |  | evaluation metrics | Logogenic diagnosti… |  |
-| 400 |  |  |  | recursive update | Recursive update by… |  |
+| 400 | 128 | true | true | recursive update | Recursive update by… |  |
 | 401 |  |  |  | $\hat{o}_t$ | Proleptic predictio… |  |
 | 402 | 96 | true | true | causal information yield | Interventional yiel… |  |
 | 403 |  |  |  | strategy | $\Sigma_t$ strategy… |  |
@@ -421,12 +421,12 @@
 | 419 |  |  |  | effect spiral | Destabilization vor… |  |
 | 420 |  |  |  | strategic dynamics derivation | Strategy edge dynam… |  |
 | 421 |  |  |  | [Concept] The thermodynamic impossibility of running persistent consciousness on pay-per-token APIs | Logogenic discontin… |  |
-| 422 |  |  |  | persistence cost |  |  |
+| 422 | 125 | true | true | persistence cost |  |  |
 | 423 |  |  |  | experiential training |  |  |
 | 424 |  | true | true | model-class fitness | Class capacity ceil… |  |
 | 425 |  |  |  | $\beta$ sub-scope | Dynamic gain bounda… |  |
 | 426 |  |  |  | [Concept] The recurring Lyapunov / derive-the-bound move across six segments | The persistence tem… |  |
-| 427 |  |  |  | multi timescale stability |  |  |
+| 427 | 129 | true | true | multi timescale stability |  |  |
 | 428 |  |  |  | composition closure | Macro agent criteri… |  |
 | 429 |  |  |  | $\beta$ (A2′) assumed sub-scope | Cyclic game sub-sco… |  |
 | 430 |  |  |  | terminal alignment error | Terminal alignment … |  |
@@ -434,7 +434,7 @@
 | 432 |  | true |  | Class 2 | Coupled… |  |
 | 433 |  |  |  | explicit strategy condition | Deliberation advant… |  |
 | 434 |  |  |  | self-referential closure | Self maintenance lo… |  |
-| 435 |  |  |  | sector persistence template | Bounded correction … |  |
+| 435 | 124 | true | true | sector persistence template | Bounded correction … |  |
 | 436 |  |  |  | matrix CIY / tensor CIY | Fisher CIY… |  |
 | 437 |  |  |  | inevitability core | Forced form core |  |
 | 438 |  |  |  | $U_M$ as model uncertainty | Model uncertainty… |  |
@@ -452,7 +452,7 @@
 | 450 |  | true | true | [Concept] The quadratic scaling of tempo required to survive stochastic noise vs deterministic drift | Noise scaling penal… |  |
 | 451 |  |  |  | [Concept] Predictive relevance depending on the policy the agent will run | Policy conditional … |  |
 | 452 |  |  |  | $U_o$ / $U_M$ (observation uncertainty / model uncertainty) | $U_o$ $U_M$ |  |
-| 453 |  |  |  | linear ode approximation | Linear approximation |  |
+| 453 | 131 | true | true | linear ode approximation | Linear approximation |  |
 | 454 |  | true |  | [Concept] Agent classes: Class 1 / 2 / 3 | Goal entanglement h… |  |
 | 455 |  |  |  | cadentia | Adaptive tempo… |  |
 | 456 |  |  |  | tempo composition | Composite tempo… |  |
@@ -467,7 +467,7 @@
 | 465 |  |  |  | bias bound derivation | Class 2 bias bound |  |
 | 466 |  |  |  | log odds edge coordinate | Additive evidence c… |  |
 | 467 |  |  |  | [Concept] Sudden loss of model sufficiency under regime entry | Sufficiency collaps… |  |
-| 468 |  |  |  | critical mass composition | Dyad closed form |  |
+| 468 | 126 | true | true | critical mass composition | Dyad closed form |  |
 | 469 |  |  |  | $\mathcal C_t^{\text{commit}}$ (TST committed-state subset) | $\mathcal C_t^{\tex… |  |
 | 470 |  |  |  | $\kappa_{\text{processing}}$ | Processing coupling… |  |
 | 471 | 88 | true | true | observability dominance | Epistemic freezing |  |
@@ -521,7 +521,7 @@
 | 519 |  |  |  | postulate not axiom | Postulate |  |
 | 520 |  |  |  | [Concept] Constitutive opacity triad | Constitutive opacit… |  |
 | 521 |  |  |  | worked example strategy |  |  |
-| 522 |  |  |  | strategic dynamics |  |  |
+| 522 | 133 | true | true | strategic dynamics |  |  |
 | 523 |  |  |  | [Concept] Meta-segment for separability pattern / identifiability floor / additive coordinate forcing | Meta pattern segmen… |  |
 | 524 |  |  |  | [Concept] The rate at which an agent's chronica grows compared to compression cadence | Chronica throughput |  |
 | 525 |  |  |  | transfer assumption table | Domain transfer spe… |  |
@@ -566,7 +566,7 @@
 | 564 |  |  |  | conspectus | Model sufficiency… |  |
 | 565 |  |  |  | [Concept] The discipline of naming so that the slug survives reorganization | Reorganization resi… |  |
 | 566 | 82 | true | true | loop interventional access | Loop level2 access,… |  |
-| 567 |  |  |  | discrete sector condition |  |  |
+| 567 | 130 | true | true | discrete sector condition |  |  |
 | 568 |  | true |  | $\phi$ | History compression |  |
 | 569 |  |  |  | [Concept] The reduction in effective tempo when observation channels are correlated | Evidential overcoun… |  |
 | 570 |  |  |  | [Concept] Gemini's analysis-paralysis for excessive deliberation | Deliberation gridlo… |  |

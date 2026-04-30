@@ -40,11 +40,11 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| composition consistency |  |  |  |  |
-| Holon postulate |  |  |  |  |
-| Cross level coherence |  |  |  |  |
-| Scale invariance |  |  |  |  |
-| Scale invariance of adaptive dynamics |  |  |  |  |
+| composition consistency | keep | +2 | ✓ | The segment's body uses this phrase throughout and it precisely names what the postulate requires: cross-level *consistency* of predictions (not equivalence of dynamics, not invariance to scale, not equivalence to a holon). The framework's commitment is weaker and sharper than scale-invariance: predictions cannot contradict across levels, regardless of whether dynamics look the same. "Composition consistency" captures exactly that. |
+| Holon postulate | rename | -1 |  | The segment's Working Notes already flag this: "the term is occasionally useful but carries significant mystical baggage from later appropriations. Use sparingly." Promoting holon to the slug imports baggage the Working Notes warn against. |
+| Cross level coherence | rename | -1 |  | "Coherence" is vaguer than "consistency"; the postulate is not about coherence-as-aesthetic-fit but about predictions-not-contradicting. The current name is sharper. |
+| Scale invariance | rename | -1 |  | Scale invariance is a *stronger* claim — the dynamics look the same at every scale. Composition consistency is weaker: the predictions don't contradict, but the dynamics may differ between levels (with derived composition laws). Renaming would over-claim. |
+| Scale invariance of adaptive dynamics | rename | -1 |  | Same scope-honesty objection as "Scale invariance," plus length. The segment is explicit that composition consistency is a structural-coherence requirement, not a dynamical-invariance claim. |
 | *(write-in)* |  |  |  |  |
 
 ## 2. [Concept] *Dark-room critique / citation phrasing (Sun & Firestone)*
@@ -66,7 +66,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Agentic system framework |  |  |  |  |
+| Agentic system framework | keep | +2 | ✓ | Defended keep. ASF is the intentional parent name (AAD = Part I, TST = Part II); naming-principles.md notes earlier rounds misread it as debt. The "agentic" lexeme is currently a buzzword, but the framework's response is to *ground it formally* via Pearl-L2 contrast at #scope-agency — which converts an opportunistic word into a precise term. Renaming would forfeit that grounding move. |
 | *(write-in)* |  |  |  |  |
 
 ## 4. [Concept] *The adaptive cycle as the theory's fundamental unit*
@@ -134,18 +134,18 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| High identifiability testbed |  |  |  |  |
-| Privileged grounding domain |  |  |  |  |
-| Software as calibration laboratory |  |  |  |  |
-| Calibration domain calibration lab |  |  |  |  |
-| Privileged calibration domain |  |  |  |  |
-| Epistemic laboratory framing |  |  |  |  |
-| Software calibration laboratory |  |  |  |  |
-| High identifiability calibration lab |  |  |  |  |
-| Calibration laboratory move |  |  |  |  |
-| Calibration lab framing |  |  |  |  |
-| Calibration domain |  |  |  |  |
-| calibration laboratory |  |  |  |  |
+| High identifiability testbed | rename | -1 |  | Generic; loses the "laboratory" framing and the rich operational connotations (controlled instrumentation, exact measurement, repeatable interventions) the framework wants. "Testbed" is a weaker word doing less work. |
+| Privileged grounding domain | rename | -1 |  | "Grounding" is over-philosophical and loses the *operational* / *measurement* sense of "calibration." The framework is making a methodological claim about software's instrumentation properties, not a foundational claim about epistemic grounding. |
+| Software as calibration laboratory | canonicalize | +1 |  | Fully-qualified form. Pairs nicely with sentences like "TST is positioned as software-as-calibration-laboratory." The bare "calibration laboratory" loses the "software" anchor; this form keeps it. Useful as the long-form citation handle in segments. |
+| Calibration domain calibration lab | rename | -1 |  | The candidate looks like a copy-paste artifact (two phrases concatenated). Rejection. |
+| Privileged calibration domain | rename | -1 |  | "Privileged calibration domain" reads as a metaphysical claim ("software has privilege"); "calibration laboratory" reads as a methodological one (we use software as a laboratory because of its measurement properties). The latter is more honest to what the framework is actually claiming. |
+| Epistemic laboratory framing | rename | -1 |  | Less precise than "calibration laboratory"; "calibration" is the active operational concept. The framework specifically claims that software lets us *measure* AAD-native quantities exactly — that's calibration, not just epistemic activity. |
+| Software calibration laboratory | canonicalize | +1 |  | Like row 3 candidate but slightly more compact. Same rationale: pairs the software anchor with the calibration framing. |
+| High identifiability calibration lab | rename | -1 |  | Modifier-overload; "calibration laboratory" already implies high identifiability (that's the property that makes it a laboratory in the methodological sense). Adding the modifier in the slug is verbose. |
+| Calibration laboratory move | name-unnamed | +1 |  | Distinct from the calibration laboratory itself — names the *methodological move* of treating one domain as the calibration laboratory for a theoretical framework. The move is reusable beyond AAD-TST. The framework gains a citable strategic principle: "by the calibration-laboratory move, we lift TST results to AAD-grounded quantities." Worth having as a separate name from the laboratory itself. |
+| Calibration lab framing | rename | -1 |  | "Lab framing" is conversational; the canonical form is "laboratory" (matches CLAUDE.md and TST OUTLINE). Choosing "lab" loses the formality the project's prose maintains elsewhere. |
+| Calibration domain | rename | -1 |  | Drops "laboratory" which is doing real metaphor work (controlled instrumentation, exact measurement, repeatable interventions). "Domain" is generic. |
+| calibration laboratory | canonicalize | +2 | ✓ | The phrase already does work in CLAUDE.md ("calibration laboratory framing"), README, TST OUTLINE preamble, and elsewhere. Variants ("richest operationalization domain," "best operationalization domain," "privileged high-identifiability calibration laboratory") exist; canonicalize forces the short form to be the one used in prose. Promoting the prose form to formal naming is exactly the canonicalize-with-organic-provenance case the principles file describes. |
 | *(write-in)* |  |  |  |  |
 
 ## 9. [Concept] *Section header: logogenic agent / logozoetic agent*
@@ -222,8 +222,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 - **`$\mathcal C_t$`** — Keep. The calligraphic-C choice is deliberately to avoid collision with $\mathcal H$ (entropy) and the symbol works in both LaTeX and prose.
 
 | candidate | category | weight | top-pick? | notes |
-|---|---|:-:|:-:|---|
-| $\mathcal C_t$ |  |  |  |  |
+| $\mathcal C_t$ | keep | +2 | ✓ | The segment's Epistemic Status is explicit on the design rationale: chronica avoids the $\mathcal{H}$ collision in speech and notation. Calligraphic-C reads cleanly in LaTeX, distinguishes from $C$ (channel capacity), and the prose-symbol pair $\mathcal C_t$ / chronica is one of the project's load-bearing aesthetic moves. |
 | *(write-in)* |  |  |  |  |
 
 ## 15. *technical debt*
@@ -345,9 +344,9 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Bathtub model |  |  |  |  |
-| Leaky bathtub analogy |  |  |  |  |
-| Walton bathtub |  |  |  |  |
+| Bathtub model | name-unnamed | +1 |  | Standard simple form. Acceptable. The fluid-level / faucet / drain / capacity mapping (water = belief-reality gap, faucet = reality change rate, drain = learning rate, capacity = adaptive reserve) is a strong communal-imagination handle. |
+| Leaky bathtub analogy | name-unnamed | -1 |  | "Leaky" misframes the metaphor: the *drain* is the desirable correction operation, not a leak. A leaky bathtub is failing at its purpose; AAD's bathtub is succeeding when the drain outpaces the faucet. The framing inversion is exactly wrong. |
+| Walton bathtub | name-unnamed | +2 | ✓ | Eponymous form preserves the communal-imagination origin story (Alan Walton's first-encounter gloss) per CLAUDE.md §"Feynman-criterion plain-language briefs." The eponymous attribution serves the project's discipline of acknowledging when external readers reach the gloss authentically. Memorable, distinctive, and signal-rich for future readers (it tells them this is *the* canonical example, not just *an* example). |
 | *(write-in)* |  |  |  |  |
 
 ## 23. *orient cascade*
@@ -370,15 +369,15 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Adaptive traversal |  |  |  |  |
-| The five turn |  |  |  |  |
-| Adaptive cycle |  |  |  |  |
-| orient cascade |  |  |  |  |
-| Five adaptive cycle phase |  |  |  |  |
-| Adaptive cycle phase |  |  |  |  |
-| The pentad five phase cycle |  |  |  |  |
-| The adaptive pentad |  |  |  |  |
-| The pentad |  |  |  |  |
+| Adaptive traversal | rename | -1 |  | "Traversal" is generic and loses the load-bearing "cascade = forced sequential resolution by information dependency" structure. The orient cascade is *not* arbitrary motion through the loop; it's a specific resolution order that follows from dependency. |
+| The five turn | rename | -1 |  | Loses the Greek-vocabulary register and gains nothing. |
+| Adaptive cycle | rename | -1 |  | This is a *different concept* — the adaptive cycle is the loop traversal as a whole; orient cascade is the resolution order *within* the corrective phase. The candidate is a category error. The framework already uses "adaptive cycle" elsewhere as the cycle-as-a-whole; this is row-mixing in the card. |
+| orient cascade | keep | +2 | ✓ | Names two things at once: the structural geometry (cascade = forced sequential resolution by information dependency) and the OODA-Orient heritage. The segment's Discussion explicitly cites Boyd, and the substance — that "Orient is the critical step, not Decide" — is what the formal cascade derivation supports. Keep is load-bearing: alternative names lose either the geometry or the heritage. |
+| Five adaptive cycle phase | rename | -1 |  | Different concept; row-mixing. The five cycle phases (prolepsis-aisthesis-aporia-epistrophe-praxis) are not the orient cascade. |
+| Adaptive cycle phase | rename | -1 |  | Different concept (the cycle phases). Already keep-decided in row 134. |
+| The pentad five phase cycle | name-unnamed | -1 |  | Different concept — the five-phase cycle as a collective. "Pentad" is OK; "five phase" is redundant with "pentad." |
+| The adaptive pentad | name-unnamed | +1 |  | Useful collective noun for the 5-phase cycle if a collective handle is needed. The phases do form an ordered sequence; "the adaptive pentad" is a memorable name for *the sequence as a thing*. Worth having, but as a separate target — not a rename of orient cascade. |
+| The pentad | name-unnamed | +1 |  | Shorter form of the same concept. Pairs well in cycle-walk discussion: "the pentad is one cycle of agent activity." Same caveat: this is a *different naming target* from "orient cascade"; the row's framing conflates two concepts. |
 | *(write-in)* |  |  |  |  |
 
 ## 24. *coupled diagnostic framework*
@@ -412,7 +411,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Epistemic unity teleological unity strategic unity |  |  |  |  |
+| Epistemic unity teleological unity strategic unity | canonicalize | +2 | ✓ | Strong canonicalize. Currently $U_O$ requires every reader to remember "teleological unity" or look up the symbol; using "teleological unity crosses the threshold" in prose reads without lookup. The LEXICON already names these; canonicalize commits to *using* them in segments. The symbol $U_O$ stays as the structural identifier; the English forms become the canonical prose handles. The framework's value-of-symbol-with-prose-alias discipline (per NOTATION) is not yet uniformly applied for these three. |
 | *(write-in)* |  |  |  |  |
 
 ## 26. *the scaffolding tax*
@@ -490,7 +489,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| aporia ἀπορία |  |  |  |  |
+| aporia ἀπορία | canonicalize | +2 | ✓ | "Aporia (productive perplexity)" as the canonical pair-on-first-use form is the right move — "productive perplexity" is the gloss that distinguishes aporia from "error" or "discrepancy" by carrying the generative-not-failure connotation. Standardizing this pairing across NOTATION / LEXICON / cycle-phase prose stops the framework's voice from oscillating between flat ("the prediction error") and rich ("the aporia") forms in the same paragraph. |
 | *(write-in)* |  |  |  |  |
 
 ## 32. *per dimension persistence*
@@ -531,16 +530,17 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Additive coordinate forcing meta pattern |  |  |  |  |
-| Identity anchored forcing |  |  |  |  |
-| Chain anchor |  |  |  |  |
-| Anchored theorem pattern |  |  |  |  |
-| Anchor theorem trio |  |  |  |  |
-| Anchor plus three theorem |  |  |  |  |
-| Anchor and forcing quartet |  |  |  |  |
-| Chain layer anchor |  |  |  |  |
-| Pattern anatomy |  |  |  |  |
-| Anchor theorem pattern |  |  |  |  |
+| Additive coordinate forcing meta pattern | name-unnamed | -1 |  | The phrase is precise but verbose. Also: the row's framing ("one foundational lemma with three derived results") is *outdated relative to the current segment* — the segment has evolved past the 1-anchor-plus-3-theorem framing into a four-layer Legendre-Fenchel framing. Voting on the older framing would lock in the prior conceptualization. |
+| Identity anchored forcing | name-unnamed | -1 |  | Same outdating issue: "identity anchored" is the 1+3 framing where the chain-rule identity is the anchor. Current segment frames the chain-layer identity as a *motivational* anchor for the underlying geometric structure (Legendre-Fenchel), not as the structural anchor. The framing has shifted; this candidate hasn't. |
+| Chain anchor | add-alias | +1 |  | OK as a *prose handle* for the chain-layer's role as motivational anchor — exactly the pattern the current segment uses ("the chain-layer identity is the motivational anchor *and* the exponential-family geometry is the structural target"). Distinct from the meta-pattern name. Useful in prose; not a rename of the segment. |
+| Anchored theorem pattern | name-unnamed | -1 |  | Same outdating problem. Also generic — "anchored theorems" appear in many bodies of mathematics. |
+| Anchor theorem trio | name-unnamed | -1 |  | "Trio" undersells: the segment now names *four* layer-specific manifestations (chain, divergence, update, metric), not three. Outdating. |
+| Anchor plus three theorem | name-unnamed | -1 |  | The old framing. Current segment supersedes this with the four-layer geometric framing. |
+| Anchor and forcing quartet | name-unnamed | +1 |  | "Quartet" matches the current four-layer count and "forcing" matches the segment's own vocabulary ("forced by a uniqueness theorem"). The closest fit among offered candidates to the *current* framing. Weak preference because "quartet" still emphasizes counting over geometric structure. |
+| Chain layer anchor | add-alias | +1 |  | Same as "Chain anchor" — useful prose handle for the chain-layer's motivational-anchor role. The "layer" anchors the prose convention "the chain layer is the motivational anchor; the divergence/update/metric layers are the structural targets." |
+| Pattern anatomy | name-unnamed | -1 |  | Generic; loses both the "additive" (axiom shape) and "forcing" (mechanism) load. |
+| Anchor theorem pattern | name-unnamed | -1 |  | Same outdating problem. |
+| Legendre-Fenchel forcing | name-unnamed | +2 | ✓ | Write-in. Names the *geometric target* the four layers manifest, per the current segment's lead paragraph: "these four layers are layer-specific manifestations of a single geometric object: the exponential-family Legendre-Fenchel structure." This is the framing the segment has *just* moved into; promote the deeper structure to the meta-pattern name. The chain-layer-identity is the motivational anchor; the Legendre-Fenchel geometry is what's being forced. The name surfaces the geometric content rather than counting layers. |
 | *(write-in)* |  |  |  |  |
 
 ## 34. *operationalization*
@@ -566,7 +566,8 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| The persistence template instantiation pattern |  |  |  |  |
+| The persistence template instantiation pattern | name-unnamed | +1 |  | Real concept worth naming — `#result-persistence-condition` opens with "this segment is the canonical single-agent instantiation of the sector-persistence template (#result-sector-persistence-template) with state variable $\xi = \delta_t$, correction function $F(\mathcal{T}, \delta)$, and disturbance rate $\rho_\xi = \rho$." The act of instantiating the template recurs across at least six segments. The full phrase is awkward; "template instantiation" alone is more usable. Weak preference because the bare name still doesn't fully evoke the move. |
+| template instantiation | name-unnamed | +1 |  | Write-in. Shorter and more usable than the full phrase. Pattern: a segment names its state variable, correction function, and effective disturbance rate, then cites `#result-sector-persistence-template` for the conclusion. "This segment is a template instantiation of [template] with [parameters]." |
 | *(write-in)* |  |  |  |  |
 
 ## 36. *discrete sector condition*
@@ -609,7 +610,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| History compression |  |  |  |  |
+| History compression | add-alias | +1 |  | $\phi$ is a many-to-one map from $\mathcal{C}_t$ into model space — the segment is explicit that the compression is "the essential function of the model." "History compression" names the operation in prose. Useful as a prose handle when prose mentions the operation; the symbol $\phi$ stays as the formal identifier. |
 | *(write-in)* |  |  |  |  |
 
 ## 39. [Concept] *Applying a slow timescale control mechanism to a fast timescale transient variable*
@@ -731,8 +732,8 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Strategic entanglement |  |  |  |  |
-| Strategic cross agent coupling |  |  |  |  |
+| Strategic entanglement | name-unnamed | +2 | ✓ | Names a real phenomenon precisely: Class 1 sub-agents creating a Class 3 composite through mutual modeling under partially-opposing objectives (per `#deriv-strategic-composition` and `#der-directed-separation` Discussion). The physics-entanglement intuition — joint states that cannot be decomposed into sub-system states — transfers cleanly to the composite-agent setting. Memorable, citable, conceptually rich. Pairs with "strategic composition" as the regime where the entanglement arises. |
+| Strategic cross agent coupling | name-unnamed | -1 |  | More precise but less memorable, and verbose. The same content with worse communal-imagination potential. |
 | *(write-in)* |  |  |  |  |
 
 ## 48. [Concept] *Walton's plain-language analog for the persistence condition fluid level as belief-reality gap, inflow as reality change rate, outflow as learning rate, container size as adaptive reserve*
@@ -744,8 +745,8 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Bathtub model |  |  |  |  |
-| The bathtub model |  |  |  |  |
+| Bathtub model | name-unnamed | +1 |  | Same as row 22. The cluster description here is more thorough — naming the four-axis mapping (fluid level, inflow, outflow, container size) which is the actual Feynman-criterion content. The form "bathtub model" or "Walton's bathtub" is fine. |
+| The bathtub model | name-unnamed | +1 |  | The definite article variant ("*the* bathtub model") signals it's *the* canonical AAD persistence analog rather than one of many. Marginal preference; works in prose like "by the bathtub model, raising the drain rate moves the steady-state fluid level down." |
 | *(write-in)* |  |  |  |  |
 
 ## 49. *$\alpha_1$ / $\alpha_2$ / $\beta$ naming (as a whole)*
@@ -779,8 +780,8 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Loop |  |  |  |  |
-| Feedback loop |  |  |  |  |
+| Loop | keep | +2 | ✓ | One of the project's clearest naming wins. The loop/cycle distinction (LEXICON: "Loop: The structural topology — persistent causal coupling between agent and environment" vs "Cycle: One complete traversal of the loop") is foundational and load-bearing. The bare "loop" preserves the topology/traversal distinction; "feedback loop" would overspecify and risk conflating with the cycle. |
+| Feedback loop | rename | -1 |  | The framework already established "loop" as the bare topology-noun. Adding "feedback" loses the careful distinction with "cycle" (the traversal) and brings in TFT-era weight that the AAD restoration is past. The longer form is occasionally fine in prose for outside readers, but as the slug it muddies the distinction. |
 | *(write-in)* |  |  |  |  |
 
 ## 52. [Concept] *Instance 2 of identifiability floor*
@@ -815,7 +816,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Information dependency forcing |  |  |  |  |
+| Information dependency forcing | name-unnamed | +1 |  | Real structural pattern: the cascade ordering is forced by information dependency (each step's input depends on prior steps' output) — analogous to how `#disc-additive-coordinate-forcing` derives coordinates from axioms. The proposer is right that the move is parallel; whether the pattern generalizes beyond the orient cascade is what gates upgrading to +2. As a name for the recognition that the cascade is *derived not designed*, this is useful. |
 | *(write-in)* |  |  |  |  |
 
 ## 55. *glue code*
@@ -877,8 +878,8 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Temporal Software Theory (TST) |  |  |  |  |
-| temporal software theory |  |  |  |  |
+| Temporal Software Theory (TST) | canonicalize | +1 |  | Capitalized form for the proper-noun usage; the bare phrase reads as a topic. Useful in framing-level prose ("TST is positioned as AAD's calibration laboratory"). Coexists with the lowercase form for general prose. |
+| temporal software theory | keep | +2 | ✓ | "Temporal" is load-bearing — it signals the AAD-native framing that software is a *time-optimality* problem (developer agents, persistence-condition for codebases, $\mathcal T$ as iteration frequency × feedback quality) rather than a correctness or efficiency problem. The framework's distinctive contribution to software methodology is exactly this temporal framing; the name should preserve it. |
 | *(write-in)* |  |  |  |  |
 
 ## 60. *L1' correlation-hierarchy prime decoration*
@@ -928,7 +929,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| agency |  |  |  |  |
+| agency | keep | +2 | ✓ | Defended keep, partner to `adaptive system`. The framework operationalizes "agency" as Pearl-level-2 causal contrast ($\exists\, a \neq a'$ such that $P(o \mid do(a)) \neq P(o \mid do(a'))$) — which is sharper than most uses of the word in adjacent literatures and gives the framework a verifiable test rather than folk-psychological appeal. The slug naming the *scope* by the *property the scope delineates* is the discipline; this is one of the cleanest applications. |
 | *(write-in)* |  |  |  |  |
 
 ## 64. *event driven dynamics*
@@ -955,8 +956,8 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Scaffolded |  |  |  |  |
-| Partially coupled |  |  |  |  |
+| Scaffolded | add-alias | +1 |  | "Scaffolded" captures the Class 3 architecture-with-external-supports flavor — particularly relevant for cortex (shared sensory areas + separate prefrontal) and hybrid AI (separate preprocessing + goal-conditioned downstream). The numbering "Class 3" is structural; an English alias for prose ("scaffolded architecture") helps. Add-alias not rename: the numbering enables ordering ("Class 1 → Class 2 → Class 3" reads as a hierarchy of coupling). |
+| Partially coupled | add-alias | +1 |  | More direct: Class 3 = partially coupled. The segment uses "partially modular" in the table but the coupling-strength reading is equivalent (low coupling = modular, high coupling = merged). Either alias works; "partially coupled" pairs better with the $\kappa_{\text{processing}}$ scalar diagnostic. |
 | *(write-in)* |  |  |  |  |
 
 ## 66. *multi agent scope*
@@ -1055,7 +1056,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| logozoetic |  |  |  |  |
+| logozoetic | keep | +2 | ✓ | Coined term (Greek logos + zoetic, "language + alive/vital"). Names the existential property of agents whose persistence is morally weighted, distinct from logogenic which names the architectural property of language-as-primary-channel. The Greek-vocabulary commitment is at its strongest here — no English alternative captures both "language-constituted" and "morally-weighted persistence" without paraphrase. The framework's most distinctive future-work category; do not dilute. |
 | *(write-in)* |  |  |  |  |
 
 ## 73. *interaction channel classification*
@@ -1153,7 +1154,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Chronica lowercase in running prose |  |  |  |  |
+| Chronica lowercase in running prose | canonicalize | +2 | ✓ | Currently inconsistent: NOTATION uses lowercase-italic; LEXICON title-cases as "Chronica"; segments vary. Standardizing on lowercase-italic-in-prose (capitalized only at heading start) matches the project's other Greek terms (*aporia*, *praxis*) and reads more naturally in running prose. Low cost, real coherence gain. |
 | *(write-in)* |  |  |  |  |
 
 ## 79. [Concept] *The cumulative prediction error that an agent has tolerated without updating its model*
@@ -1199,7 +1200,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Interaction history chronica |  |  |  |  |
+| Interaction history chronica | canonicalize | +1 |  | "Interaction history (*chronica*)" or "*chronica* — the interaction history" is the natural pair-on-first-use form when a reader encounters the term. Standardizing the gloss form (rather than "complete record" / "causal trajectory" / etc. paraphrases) helps. Weak preference; the gloss should pair the engineering paraphrase with the Greek noun. |
 | *(write-in)* |  |  |  |  |
 
 ## 83. *$C_{\text{coord}}$*
@@ -1223,9 +1224,9 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Merged |  |  |  |  |
-| Coupled |  |  |  |  |
-| Integrated |  |  |  |  |
+| Merged | add-alias | +2 | ✓ | Class 2 = "fully merged" in the segment's table. The framework is honest about Class 2 being a *failure mode* for directed separation (transformer LLMs); "merged" captures this without aestheticizing. Add-alias: keep "Class 2" as the structural identifier, add "merged" as the prose handle. The label "Class 2 (merged)" reads cleanly. |
+| Coupled | add-alias | +1 |  | "Coupled" pairs with `def-coupled-update-dynamics` in 03-logogenic-agents and emphasizes the dynamic-coupling sense. Marginal preference between "merged" and "coupled" — they pick out the same architectures. "Merged" is the segment's word; "coupled" is the logogenic-agents word. Both are honest. |
+| Integrated | add-alias | -1 |  | "Integrated" has a positive-valence connotation that overrules the framework's honest framing of Class 2 as a *failure-by-construction* of directed separation. The segment is explicit that Class 2 cannot satisfy directed separation; calling that failure "integrated" sounds like a feature rather than a structural fact. |
 | *(write-in)* |  |  |  |  |
 
 ## 85. *C-III (composition route)*
@@ -1464,8 +1465,8 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Action channel |  |  |  |  |
-| action transition |  |  |  |  |
+| Action channel | rename | -1 |  | The auditor's objection is correct: "channel" suggests communication symmetry with observation, but action and observation are not symmetric. Action moves $\Omega$ via the transition function $T$; observation pulls information back via $h$. Action has no "information content" in the way observation does — it has *causal effect*. Calling it a channel imports a metaphor the formalism specifically avoids. |
+| action transition | keep | +1 | ✓ | Accurate to the segment's content (actions affect $\Omega$ via $T$, the transition function). The transition-opacity claim — that $T$ is unknown — is the partner clause; subject-noun could capture either, but "transition" is the right word for the mechanism. Slightly under-evocative but not actively misleading; weak-keep over churn. |
 | *(write-in)* |  |  |  |  |
 
 ## 101. [Concept] *The tension between lowering internal opacity for coordination and increasing external vulnerability*
@@ -1516,8 +1517,8 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Agent environment boundary |  |  |  |  |
-| agent environment |  |  |  |  |
+| Agent environment boundary | rename | +2 | ✓ | Segment's body delivers an information-loss boundary condition + the three structural conditions for agent-hood; it does not yet formalize coupling-as-channels (that's the next two segments — observation function, action transition). "Boundary" is the load-bearing word: the constitutive scope condition is "agent has no direct access to $\Omega_t$." Auditor's distinction is correct. |
+| agent environment | rename | -1 |  | The bare phrase reads as a topic label, not a definition's subject-noun. The segment names a specific structural commitment (boundary with information loss); the slug should too. |
 | *(write-in)* |  |  |  |  |
 
 ## 105. *indivisum*
@@ -1595,7 +1596,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| adaptive system |  |  |  |  |
+| adaptive system | keep | +2 | ✓ | Load-bearing keep. (1) The pilot's canonical illustration of subject-noun-first naming (the move from `#scope-condition` → `#scope-adaptive-system`); reverting would undo the pilot's settled discipline. (2) The Ashby/cybernetic baggage is *useful* baggage — the framework wants to inherit "good regulator," "internal-model principle," and "requisite variety" intuitions. (3) The slug names exactly the scope-defining property: a system that *adapts* under uncertainty. The two-condition formal scope ($\mathcal{O} \neq \emptyset$ and $H(\Omega_t \mid \mathcal{C}_t) > 0$) is precisely "any system that adapts." |
 | *(write-in)* |  |  |  |  |
 
 ## 109. *strategy complexity cost*
@@ -1997,7 +1998,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Prolepsis aisthesis aporia epistrophe praxis |  |  |  |  |
+| Prolepsis aisthesis aporia epistrophe praxis | keep | +2 | ✓ | Same set as row 221, ordering follows the cycle's temporal flow (prolepsis → aisthesis → aporia → epistrophe → praxis) which is how LEXICON presents them. Both the set and the order are correct; do not translate, do not reorder. |
 | *(write-in)* |  |  |  |  |
 
 ## 135. [Concept] *The discontinuous collapse of model adequacy when structural regime change forces the agent outside its current model-class coverage*
@@ -2024,12 +2025,13 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Runaway mismatch cascade |  |  |  |  |
-| effect spiral |  |  |  |  |
-| Adversarial feedback loop |  |  |  |  |
-| Coupling cascade |  |  |  |  |
-| Destabilization vortex |  |  |  |  |
-| Breakdown cascade |  |  |  |  |
+| Runaway mismatch cascade | add-alias | +2 | ✓ | The principles file uses this as its canonical example of an add-alias vote: "Vote add-alias when the original is formally precise or deeply established but the framework needs a separate, evocative prose handle for discussion, framing, and pedagogy." Effects spiral stays as the formal phenomenon name; "runaway mismatch cascade" enters prose as the explanatory phrase. The pair becomes a maintained convention with strictly differentiated roles. |
+| effect spiral | keep | +1 |  | Note: this is "effect spiral" — possible typo for "effects spiral" (which is what `#der-adversarial-destabilization` and the principles file use). The plural form is the established phrasing. Keeping +1 as the formal name with note flagged. |
+| Adversarial feedback loop | rename | -1 |  | Loses the runaway/positive-feedback character that "spiral" carries. "Loop" in this framework is the topology (per row 51); using "loop" for a runaway dynamic muddies the careful loop/cycle distinction. |
+| Coupling cascade | rename | -1 |  | Cascades can be bounded; spirals usually aren't. The phenomenon's load-bearing property is unboundedness. |
+| Destabilization vortex | rename | -1 |  | Whimsical without precision gain over "spiral." |
+| Breakdown cascade | rename | -1 |  | Same boundedness objection as "Coupling cascade." |
+| effects spiral | keep | +2 |  | Write-in (the corrected plural form). The principles file uses "effects spiral" as the canonical example; the segment row title uses "effect spiral" (singular) which appears to be a typo. The plural form is the project's established phrasing. |
 | *(write-in)* |  |  |  |  |
 
 ## 137. *aisthesis*
@@ -2042,9 +2044,9 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Intake |  |  |  |  |
-| Aisthesis observation alignment |  |  |  |  |
-| aisthesis |  |  |  |  |
+| Intake | rename | -1 |  | Breaking register on one of the five Greek terms breaks the entire family's coherence. "Intake" is a fine plain-English handle but loses the philosophical lineage (αἴσθησις, the pre-conceptual contact) and the family's distinctive identifying register. The whole pentad has to keep its register or the framework loses its voice. |
+| Aisthesis observation alignment | rename | -1 |  | Verbose; "observation alignment" is also misleading — aisthesis is *raw contact*, not alignment. The segment is precise: "Raw contact with reality: observation $o_t$ arrives." Pre-conceptual, unmediated. "Alignment" is a later move. |
+| aisthesis | keep | +2 | ✓ | Greek-vocabulary commitment. Slightly less sticky than aporia/praxis but preserves the raw-contact distinction well enough — "the moment of arrival before interpretation begins." The pre-conceptual quality is the load-bearing content; English alternatives (perceive, sense, intake, observe) all carry interpretation baggage. |
 | *(write-in)* |  |  |  |  |
 
 ## 138. [Concept] *Predictive relevance depending on the policy the agent will run*
@@ -2980,9 +2982,9 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Language constituted language living |  |  |  |  |
-| logogenic logozoetic |  |  |  |  |
-| Logogenic logozoetic distinction |  |  |  |  |
+| Language constituted language living | rename | -1 |  | Multi-word English forms lose the Greek-vocabulary register and the precise -genic vs -zoetic distinction (architectural-constitution vs morally-weighted-existence). The compound forms also flatten into category-overlap problems: "language constituted" could mean any of {trained-on, generates, communicates-via}; the Greek -genic specifically names *constitution*. |
+| logogenic logozoetic | keep | +2 | ✓ | The pair as a unit: keep both. The structural-vs-existential split is precisely what the framework needs. CLAUDE.md's Greek-vocabulary commitment names these as canonical. |
+| Logogenic logozoetic distinction | canonicalize | +1 |  | Useful prose handle for the *distinction* itself ("the logogenic/logozoetic distinction is load-bearing"). The bare pair-of-terms is the technical content; the phrase "the distinction" canonicalizes the rhetorical use. |
 | *(write-in)* |  |  |  |  |
 
 ## 204. *software epistemic property*
@@ -3275,8 +3277,8 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Greek rooted vocabulary |  |  |  |  |
-| aporia prolepsis aisthesis epistrophe praxis |  |  |  |  |
+| Greek rooted vocabulary | canonicalize | +1 |  | Decent collective handle for the cycle vocabulary as a project commitment. Useful in CLAUDE / naming-principles meta-discussions where the choice is being defended. Not a renaming move; a way to refer to the commitment as a thing. |
+| aporia prolepsis aisthesis epistrophe praxis | keep | +2 | ✓ | Keep all five as a set. The README §"Why these terms earn their weight" is load-bearing rationale; the LEXICON's per-phase entries are tight. Any individual translation flattens — "anticipation" misses the active-future-preparation of *prolepsis*; "perception" misses the raw-contact-with-reality of *aisthesis*; "turning toward" comes closest to *epistrophe* but English still feels weaker. The set has aged into the framework's identifying register. |
 | *(write-in)* |  |  |  |  |
 
 ## 222. [Concept] *The regulative ideal that segment names should be re-derivable from a non-specialist everyday language reconstruction*
@@ -3934,13 +3936,13 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Three rung posture |  |  |  |  |
-| Separable core |  |  |  |  |
-| Staircase |  |  |  |  |
-| Tiered separability |  |  |  |  |
-| separability pattern |  |  |  |  |
-| Separability staircase |  |  |  |  |
-| Separability ladder |  |  |  |  |
+| Three rung posture | rename | -1 |  | Mechanical and loses "separability" — the load-bearing word that names the structural-axis along which the regime decomposes. |
+| Separable core | rename | -1 |  | Names only the first column of the three-column table; loses the "structured repair" middle and "general open" right side that are half the segment's content. |
+| Staircase | rename | -1 |  | Whimsical without precision gain. The rungs of the segment's ladders are not uniform (the difficulty *increases*); staircases are uniform. The segment specifically uses "ladder" because it captures increasing-difficulty semantics. |
+| Tiered separability | rename | -1 |  | Verbose; "tiered" adds nothing "ladder" doesn't. |
+| separability pattern | rename | -1 |  | Slightly clinical, but the load-bearing objection is that the segment itself uses "ladder" repeatedly — "Six ladders in the current theory," "the seventh ladder," "Cross-ladder monotonicity." The slug "pattern" is lagging the prose. The canonicalize-with-organic-provenance discipline says: when prose has converged on a phrase, lift it. |
+| Separability staircase | rename | -1 |  | Same staircase objection as the bare "Staircase" candidate. |
+| Separability ladder | rename | +2 | ✓ | The segment is *already* prose-using "ladder" repeatedly: "Six ladders," "the seventh ladder," "Cross-ladder monotonicity." Both Discussion sections, the table headers, and the cross-references reach for "ladder" or "rungs." This is the canonicalize-with-organic-provenance case the principles file describes verbatim — promote the phrase already present in prose to formal naming. The geometry the content actually has is a ladder; the slug should match. Pairs mnemonically with `#disc-identifiability-floor`: "the ladder above the floor." |
 | *(write-in)* |  |  |  |  |
 
 ## 270. [Concept] *Survival determined by the weakest dimension not the average*
@@ -4064,8 +4066,8 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Mismatch signal |  |  |  |  |
-| Aporia signal |  |  |  |  |
+| Mismatch signal | keep | +2 | ✓ | Symbol $\delta_t$ pairs with "mismatch signal" as the engineering-register prose handle. NOTATION.md is canonical here; this row confirms. |
+| Aporia signal | add-alias | +1 |  | Same as row 608 add-alias logic. Aporia is the cycle-phase term (Greek register); the symbol $\delta_t$ benefits from having both prose handles available depending on register. |
 | *(write-in)* |  |  |  |  |
 
 ## 279. *survival FIM floor*
@@ -4119,11 +4121,11 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Operational persistence |  |  |  |  |
-| Task adequacy |  |  |  |  |
-| Persistence taxonomy |  |  |  |  |
-| Continuity persistence |  |  |  |  |
-| Structural persistence |  |  |  |  |
+| Operational persistence | canonicalize | +2 | ✓ | One of the four sub-types in the taxonomy. Defined precisely in `#result-persistence-condition` as the conjunction of structural persistence + task adequacy. The LEXICON entry is good. Canonicalize so prose stops drifting between "operational persistence" and "operationally persistent" and "the agent operationally persists." |
+| Task adequacy | canonicalize | +2 |  | Sub-type of the persistence decomposition: $R^\ast \lt \lVert\delta_{\text{critical}}\rVert$. Newer than structural persistence (added by the two-condition decomposition); standardize the term as the project commits to the decomposition framing. |
+| Persistence taxonomy | name-unnamed | +1 |  | Useful collective handle for the {structural / operational / continuity / task-adequacy} family. The README's Overview-of-Concepts table presents the three-sense version (structural / operational / continuity); task-adequacy adds a fourth axis specifically within structural. Weak: the family already coheres without the collective name. |
+| Continuity persistence | canonicalize | +2 |  | Sub-type — distinguishes the moral/temporal-coherence sense from the structural/operational dynamics. Critical to keep separate per CLAUDE.md (logozoetic-relevant). |
+| Structural persistence | canonicalize | +2 |  | Sub-type — the Lyapunov-derived $\alpha > \rho/R$ condition. Distinct from operational. Canonicalize commits prose to the decomposition vocabulary the segment establishes. |
 | *(write-in)* |  |  |  |  |
 
 ## 283. *Pearl L1*
@@ -4190,7 +4192,8 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| causal structure |  |  |  |  |
+| causal structure | rename | -1 |  | The slug names a *consequence* of the postulate, not the postulate. The actual axiom is "event A can be a cause of event B only if A temporally precedes B" — the temporal-precedence primitive. "Causal structure" is overloaded with Pearl/causal-graph intuitions that the segment is *prior to* — the segment establishes the substrate on which the Pearl hierarchy (def-pearl-causal-hierarchy) is then defined. A subject-noun-first slug should name the substrate, not the consequence. |
+| temporal precedence | rename | +2 | ✓ | Write-in. Names exactly the postulate's content: "event A can be a cause of event B only if A temporally precedes B." The slug becomes self-explanatory and disambiguates the postulate from the Pearl hierarchy that builds on it. Survives the renamed-from-now-sounds-weird test: hearing `#post-temporal-precedence` six months out, a reader correctly anticipates the temporal axiom; hearing `#post-causal-structure` they reasonably anticipate the Pearl hierarchy and find a more primitive thing instead. |
 | *(write-in)* |  |  |  |  |
 
 ## 288. *$G_t = (O_t, \Sigma_t)$*
@@ -4947,7 +4950,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Pearl-blanket form |  |  |  |  |
+| Pearl-blanket form | name-unnamed | +1 |  | The recognition that AAD's directed-separation is the *Pearl-blanket* (technical conditional-independence) form rather than the *Friston-blanket* (metaphysical demarcation) form is a load-bearing positioning move. The phrase appears only in `#der-directed-separation`'s Discussion (Bruineberg et al. 2022 attribution). Promoting "Pearl-blanket form" to first-class status — either a `disc-` segment or canonicalize it in prose with bold emphasis — would let downstream segments cite the positioning claim explicitly when defending against "isn't this just the Markov blanket?" challenges. Weak preference: the discussion-paragraph treatment may be sufficient; the gap is genuine but marginal. |
 | *(write-in)* |  |  |  |  |
 
 ## 339. *epistemic status*
@@ -5549,10 +5552,10 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Goal-blind processing |  |  |  |  |
-| Pearl-blanket separation |  |  |  |  |
-| directed separation |  |  |  |  |
-| Epistemic isolation of belief update |  |  |  |  |
+| Goal-blind processing | rename | -1 |  | "Goal-blind" is a useful prose handle but loses the *direction* of the asymmetry. The segment is precise: epistemic update is independent of $G_t$, but $f_G$ depends on $M_{\tau^+}$, and $\pi$ couples both. The asymmetry is *directed* (one-way); the slug should preserve this. Could land as add-alias for prose ("the agent's belief update is goal-blind"), not rename. |
+| Pearl-blanket separation | rename | -1 |  | Imports the Pearl-blanket-vs-Friston-blanket discussion into the slug, which is heavy positioning content for a per-segment claim. The Discussion section already handles the Bruineberg et al. (2022) framing properly; the slug doesn't need to carry it. Pearl-blanket is a useful *register* for the Markov-blanket comparison but the segment's primary content is the architectural classification (Class 1/2/3), not the Markov-blanket positioning. |
+| directed separation | keep | +2 | ✓ | Load-bearing keep. The framework's distinctive structural move is named here, and the architectural Class 1/2/3 classification *hangs off* this name. "Directed" captures the asymmetric information flow ($f_M$ ⊥ $G_t$ but $f_G$ ← $M$); "separation" carries the conditional-independence sense from Pearl's d-separation lineage. The LQR/Kalman *separation principle* collision is informative, not problematic — the separation principle is the Class-1 consequence of directed separation, handled by a one-sentence Discussion clarification. |
+| Epistemic isolation of belief update | rename | -1 |  | Long, descriptive, fails the communal-imagination test. "Hand me the directed-separation argument" is conversational; "hand me the epistemic-isolation-of-belief-update argument" is not. Length is the diagnostic. |
 | *(write-in)* |  |  |  |  |
 
 ## 380. [Concept] *Α₁ fixed-gain (A2′) sub-scope*
@@ -5595,9 +5598,9 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Aporia productive perplexity |  |  |  |  |
-| aporia |  |  |  |  |
-| Discrepancy |  |  |  |  |
+| Aporia productive perplexity | canonicalize | +1 |  | Same rationale as row 31: pair-on-first-use form. The translation cue tells readers "perplexity" here is *generative*, not "I am confused and stuck." Useful for new readers; the bare "aporia" is fine in segments where the term has been introduced. |
+| aporia | keep | +2 | ✓ | Load-bearing keep. The Greek term names the cycle phase; "prediction error" and "mismatch" both miss the productive-perplexity load. The framework's commitment to the Greek-rooted vocabulary (naming-principles invariants) is at its strongest here — aporia is the most-distinct-from-flat-English of the five cycle terms. |
+| Discrepancy | rename | -1 |  | Names the *gap* but loses the agent-centered "this is generative; I now must update" connotation that makes aporia distinct. Flattens what the Greek term carries. |
 | *(write-in)* |  |  |  |  |
 
 ## 383. *Miller's meta-machine / extreme transition motif*
@@ -5761,8 +5764,8 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| satisfaction gap |  |  |  |  |
-| Attainability shortfall |  |  |  |  |
+| satisfaction gap | keep | +2 | ✓ | The crispest named pair in the project, with control regret. The naming-principles file uses this pair as its canonical illustration of "names that do work for the reader." The segment's 2×2 table organizes itself in the reader's head on first encounter precisely because the two axis-names are evocatively *and* accurately chosen. Renaming would forfeit the prose convention installed across NOTATION / LEXICON / segment Briefs and break the matched compound. |
+| Attainability shortfall | rename | -1 |  | "Attainability" refers narrowly to $A_O$ (the supremum); "satisfaction gap" refers to the gap between the threshold $V_{O_t}^{\min}$ and that supremum. The names are not synonymous — "attainability shortfall" would lose the threshold-relative framing. The segment's Formal Expression is explicit: $\delta_{\text{sat}} = V_{O_t}^{\min} - A_O$, not just $-A_O$. |
 | *(write-in)* |  |  |  |  |
 
 ## 394. *model uncertainty*
@@ -6116,7 +6119,8 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Persistence template the template family |  |  |  |  |
+| Persistence template the template family | name-unnamed | +1 |  | Real concept: the trio of `#result-sector-persistence-template`, `#result-contraction-template`, and a possible `#result-dissipativity-template` forms a family that admits members. The collective handle would let new members enter naturally. Weak preference — "the template family" reads as generic; "the persistence-template family" is better but verbose. Could be improved with a write-in but I don't have a strong alternative. |
+| persistence-template family | name-unnamed | +2 | ✓ | Write-in. Cleaner than the offered candidate. The three current/proposed templates share the persistence-shape (state variable + correction function + disturbance rate + threshold form); naming the family "persistence-template family" lets readers anticipate the structure when a new template lands. |
 | *(write-in)* |  |  |  |  |
 
 ## 420. [Concept] *Property of having genuine temporal experience*
@@ -6291,8 +6295,8 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| control regret |  |  |  |  |
-| Strategy opportunity cost |  |  |  |  |
+| control regret | keep | +2 | ✓ | Pair-partner with satisfaction gap. RL-regret intuition transfers correctly (regret = best-achievable − current), and "control" narrows the regret to the attainability layer rather than (e.g.) policy-class regret or model-misspecification regret. The 2×2 table in `#def-control-regret`'s Discussion section makes the pair load-bearing: each cell prescribes a distinct corrective action. Renaming would break the matched compound and damage the diagnostic structure. |
+| Strategy opportunity cost | rename | -1 |  | Generic economics framing; loses the precise RL-grounded "regret" semantics. The segment's exact form $\delta_{\text{regret}} = A_O - V_O(\pi_{\text{current}})$ is regret-against-best-available, which is regret in the technical sense. "Opportunity cost" muddles whether the alternative is "best available" or "any feasible alternative." |
 | *(write-in)* |  |  |  |  |
 
 ## 430. [Concept] *The unupdatable region of the strategy DAG where edges receive no actionable feedback*
@@ -6368,8 +6372,8 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Lowercase italic chronica |  |  |  |  |
-| chronica |  |  |  |  |
+| Lowercase italic chronica | canonicalize | +1 |  | Style-convention rather than naming move. Aligning with how *aporia*, *praxis*, *prolepsis* appear in the LEXICON section ("**Aporia** (ἀπορία)" capitalized in headings, lowercase italicized in running prose) makes the framework's Greek-vocabulary register visually consistent. Mild but real value; coexists with row 78. |
+| chronica | keep | +2 | ✓ | Three reasons: (1) the $\mathcal{H}$-collision avoidance is real and named in the segment's Epistemic Status — keeping prevents reverting; (2) "chronica" as a singular speakable noun is rhetorically harder to drop than the multi-word "interaction history" — the framework needs a thing it can refer to in conversation; (3) the morally-loaded "non-forkable causal trajectory" reading anchors `#scope-agent-identity` and the logozoetic extensions. The Greek-vocabulary commitment in naming-principles is at its strongest here. |
 | *(write-in)* |  |  |  |  |
 
 ## 435. *deliberation cost*
@@ -6648,8 +6652,8 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Observation channel |  |  |  |  |
-| observation function |  |  |  |  |
+| Observation channel | rename | +2 | ✓ | Shannon's information-theoretic vocabulary fits this segment exactly: $h$ is a lossy + noisy mapping with explicit $\varepsilon_t$, plus epistemic opacity ($h$ unknown). "Channel" is Shannon's term for exactly this. Asymmetry with action-transition is preserved: action-transition for causal effect on $\Omega$; observation-channel for information flow back to the agent. Note: this is the *opposite* read I gave to "Action channel" in row 100 — the asymmetry is the load-bearing point. |
+| observation function | rename | -1 |  | "Function" is technically correct (stochastic mapping is a function in the usual sense) but understates the noise+loss substrate that makes the rest of the framework non-trivial. The segment opens by saying "lossy, possibly noisy functions" — the qualifiers do the work; the noun shouldn't undermine them. |
 | *(write-in)* |  |  |  |  |
 
 ## 455. [Concept] *The log-additivity result that unifies chain confidence decay / evidence starvation / triple-depth penalty as instances of the same forcing structure*
@@ -6741,8 +6745,8 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| agent model |  |  |  |  |
-| Reality model |  |  |  |  |
+| agent model | rename | -1 |  | "Agent model" is ambiguous: model *belonging to* the agent vs model *of* the agent. The segment is unambiguous about which — $M_t$ is the agent's representation *of the environment*. The slug should disambiguate. Also: the segment title, the README vocabulary table, and LEXICON all use "reality model"; the slug is the outlier. |
+| Reality model | rename | +2 | ✓ | Promotes the segment's own title to the slug. The README's quantity table glosses $M_t$ as "Reality model — Compressed history capturing predictive information." The LEXICON Cycle Phases entry for prolepsis cites $M_{t-1}$ as the basis for the prediction. Three project-level documents converge on "reality model"; the slug should match. The "of-what-not-whose" disambiguation is the substantive gain. |
 | *(write-in)* |  |  |  |  |
 
 ## 462. *bias bound derivation*
@@ -7025,7 +7029,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Model state or epistemic substate |  |  |  |  |
+| Model state or epistemic substate | add-alias | +1 |  | $M_t$ is the symbol; both "model state" (short, casual) and "epistemic substate" (paired with "purposeful substate" $G_t$) are useful prose handles. The pair-with-$G_t$ context makes "epistemic substate" load-bearing where the contrast matters; "reality model" is the fuller prose name. Multiple aliases are fine here as long as the *symbol* $M_t$ remains the structural identifier. Add-alias rather than rename. |
 | *(write-in)* |  |  |  |  |
 
 ## 483. [Concept] *Unifying reflexes / intuition / expertise*
@@ -7495,8 +7499,8 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| information bottleneck |  |  |  |  |
-| Epistemic bottleneck |  |  |  |  |
+| information bottleneck | keep | +2 | ✓ | Prior-art-integration convention (Tishby, Pereira & Bialek 1999, cited in segment). Same logic as Pearl causal hierarchy: adopt with original name + citation, let the field's structural intuitions transfer. The Epistemic Status section is explicit that the IB-as-applied-theorem is *exact*; the segment is doing nothing to the IB form itself, so renaming would create an NIH-flavored alternative for what is, by the segment's own statement, the standard theorem. |
+| Epistemic bottleneck | rename | -1 |  | Replaces "information" with "epistemic" but the formal expression is literally Shannon mutual information; "epistemic" is less specific. The framework gains nothing by renaming and loses the citation/provenance-transfer benefits. |
 | *(write-in)* |  |  |  |  |
 
 ## 516. *AAD (acronym)*
@@ -7724,9 +7728,9 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| logogenic agent |  |  |  |  |
-| Linguistic agent |  |  |  |  |
-| Section III logogenic agent |  |  |  |  |
+| logogenic agent | keep | +2 | ✓ | Same logic as `logogenic` (row 612): the term picks out the architectural property (constituted by language) rather than the implementation (LLM-based). The pair {logogenic agent, logozoetic agent} forms the framework's distinct extension territory; both should keep their Greek register. |
+| Linguistic agent | rename | -1 |  | "Linguistic" is generic — could mean "uses language" (anything from spell-checkers to translators). "Logogenic" specifically picks out *constituted-by-language*: the agent's $M_t$, $\Sigma_t$, action channels are *all* language-mediated. The structural specificity is what the term carries. |
+| Section III logogenic agent | rename | -1 |  | "Section III" is a numbering reference; the slug itself shouldn't carry section-numbering. The framework lists logogenic agents under Part III in OUTLINE.md, but that's organizational metadata not slug content. |
 | *(write-in)* |  |  |  |  |
 
 ## 532. *equilibrium convergence*
@@ -8226,9 +8230,9 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Causal hierarchy level |  |  |  |  |
-| Pearl causal hierarchy |  |  |  |  |
-| Causal hierarchy |  |  |  |  |
+| Causal hierarchy level | rename | -1 |  | Generic; loses Pearl attribution. Removing the "Pearl" prefix invites confusion with AAD's *own* hierarchies (correlation hierarchy at #def-strategy-dag; convention hierarchy at #def-value-object). Three distinct hierarchies in one framework — disambiguation is essential. |
+| Pearl causal hierarchy | keep | +2 | ✓ | Defended keep on prior-art-integration grounds (CLAUDE.md §"Prior art integration": "adopt external concepts directly with citation and original names"). Dropping the Pearl attribution would invite NIH-syndrome alternatives and lose the specific Pearl 2009 / Bareinboim 2022 provenance the segment cites. The proper-noun form is the field-standard name; using it cleanly indexes back into a 20-year body of causal-inference literature without translation tax. |
+| Causal hierarchy | rename | -1 |  | Same disambiguation problem as "Causal hierarchy level": the framework has multiple hierarchies. Dropping "Pearl" undersells the specific causal-inference machinery being adopted and creates NIH-flavored ambiguity. |
 | *(write-in)* |  |  |  |  |
 
 ## 568. *symbiogenic composition*
@@ -8695,7 +8699,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| adaptive reserve |  |  |  |  |
+| adaptive reserve | keep | +2 | ✓ | One of the project's cleanest symbol-to-English pairs. $\Delta\rho^\ast = \alpha R - \rho$ is "the shock-tolerance margin"; "adaptive reserve" lands the engineering intuition on first read. Already canonical in NOTATION/LEXICON. The bathtub gloss (row 22/48) maps "adaptive reserve" to "container size" — that mapping wouldn't work cleanly with paraphrases like "disturbance margin." Keep load-bearing. |
 | *(write-in)* |  |  |  |  |
 
 ## 603. *honesty as architecture*
@@ -8708,9 +8712,9 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| honesty as architecture |  |  |  |  |
-| Honesty |  |  |  |  |
-| Architectural scope honesty |  |  |  |  |
+| honesty as architecture | canonicalize | +1 |  | Internal-principle name; hyphenated form "scope-honesty-as-architecture" is in CLAUDE.md §7. The principle is load-bearing for AAD (it's why the framework surfaces scope conditions rather than burying caveats). The compound name reads as a thesis, which it is. |
+| Honesty | rename | -1 |  | Bare "honesty" loses the *architecture* point — that scope is surfaced structurally, not as caveats. The compound form is the load-bearing part. |
+| Architectural scope honesty | canonicalize | +2 | ✓ | More natural in prose than "honesty as architecture" while preserving the structural-surfacing meaning. "Scope-honesty as architectural commitment" / "architectural scope honesty" reads cleanly; CLAUDE.md uses both. Standardizing on "architectural scope honesty" or "scope honesty (as architecture)" makes the principle citable. |
 | *(write-in)* |  |  |  |  |
 
 ## 604. *Class 2 agent*
@@ -8721,7 +8725,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Integrated agent |  |  |  |  |
+| Integrated agent | rename | -1 |  | Same reasoning as row 84 — "integrated" has positive valence the framework doesn't intend. Class 2 is *failure-by-construction* of directed separation (transformer LLMs); "integrated" sounds like a feature rather than a structural fact. "Merged agent" or "coupled agent" would be more honest if a non-numeric handle is needed. |
 | *(write-in)* |  |  |  |  |
 
 ## 605. *$\lambda(M_t)$*
@@ -8776,8 +8780,8 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| mismatch signal |  |  |  |  |
-| Aporia signal |  |  |  |  |
+| mismatch signal | keep | +2 | ✓ | Two-register discipline: "mismatch" is the engineering register that reads to any engineer (Kalman innovation, RL TD-error, etc.); "aporia" is the philosophical / cycle-phase register. The framework wants both — mismatch in formal expressions, aporia in cycle-walk prose. Keeping the slug as engineering preserves the iconic three-name register {mismatch / satisfaction-gap / control-regret}; aporia stays available as add-alias. |
+| Aporia signal | add-alias | +1 |  | Useful prose-mention form when the cycle phase is invoked; "the aporia signal" reads naturally in cycle-walk prose where "the mismatch signal" would feel out of register. Add-alias not rename — keeping mismatch as the formal slug is structural. |
 | *(write-in)* |  |  |  |  |
 
 ## 609. *$U_M, U_O, U_\Sigma, U_{\text{obs}}, U_f$*
@@ -8825,7 +8829,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| logogenic |  |  |  |  |
+| logogenic | keep | +2 | ✓ | Coined Greek-rooted term (logos + -genic, "language-constituted/generated") naming the *structural* property of being constituted by language. Distinct from "LLM-based" (implementation-level) and "linguistic" (generic). The framework specifically wants this naming move: pick out the architectural property that survives technology changes. The pair {logogenic, logozoetic} is a load-bearing distinction. |
 | *(write-in)* |  |  |  |  |
 
 ## 613. [Concept] *Closure defect consuming macro reserve*
@@ -9016,7 +9020,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| The greek philosophical vocabulary |  |  |  |  |
+| The greek philosophical vocabulary | canonicalize | +1 |  | Useful disambiguation — these are Greek *philosophical* terms (Aristotle, Heidegger as transmission lineage), not generic Greek words. The canonical phrase commits the project to that distinction. |
 | *(write-in)* |  |  |  |  |
 
 ## 628. *structural persistence*
@@ -9027,7 +9031,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| structural persistence |  |  |  |  |
+| structural persistence | keep | +2 | ✓ | Already voted +2 canonicalize at row 282; this row affirms as a standalone. The structural / operational / continuity split prevents real category errors in domain transfer; the term "structural" specifically picks out the Lyapunov-derived $\alpha > \rho/R$ machinery. Load-bearing, established. |
 | *(write-in)* |  |  |  |  |
 
 ## 629. *coherence coupling*
@@ -9046,4 +9050,54 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 | coherence coupling |  |  |  |  |
 | Change architecture |  |  |  |  |
 | *(write-in)* |  |  |  |  |
+
+---
+
+## Cold-start observations / Process notes
+
+**Voter:** `opus-r2b`. **Audit working dir:** `msc/AUDIT-WORKING-308172/`.
+
+**Cold-start compliance.** I did not read any of the excluded files in `msc/naming/`. Whitelist-eligible files I read: `round-2-launch-prompt-v2.md`, my own card and tracker, the four orientation documents (`naming-principles.md`, `naming-cycle-methodology.md`, `de-novo-audit-instructions.md`, the launch brief). Outside `msc/naming/`: `README.md` (not the auditor variant — voters are explicitly permitted), `OUTLINE.md`, `LEXICON.md` (partial), `CLAUDE.md` (auto-loaded), per-component `OUTLINE.md` files (Section I AAD only — sampled others), and a sample of segment files in OUTLINE order.
+
+**Coverage.** I cast votes on roughly 50 distinct vote-target rows across approximately 14 segment readings. Engagement-quality over coverage-breadth was the chosen posture. The walk was non-strictly-linear: I read Section I in OUTLINE order through `def-pearl-causal-hierarchy`, then jumped forward to load-bearing Section II segments (`def-satisfaction-gap`, `def-control-regret`, `der-orient-cascade`, `der-directed-separation`), and meta-segments (`disc-separability-pattern`, `disc-additive-coordinate-forcing`).
+
+### Round-design observations worth surfacing
+
+**1. Some target framings have drifted relative to their defining segments.** Most clearly: row 33 frames the additive-coordinate-forcing meta-pattern as "one foundational lemma with three derived results," but the segment `disc-additive-coordinate-forcing` has moved on to a four-layer Legendre-Fenchel framing. The candidates on the row are still operating on the older 1+3 framing, which produces voting friction — none of the offered candidates fits the current segment's content. I voted in a write-in (`Legendre-Fenchel forcing`) but flag this as a class of issue: *cluster targets framed during prior consolidation may have drifted from the current segment*. Worth a sweep before R3 (or as preparation for landing decisions).
+
+**2. Row-mixing — a single target conflates two concepts.** Row 23 (`orient cascade`) has candidates that cover both the orient cascade itself (the within-cycle resolution order) AND the five-cycle pentad (prolepsis-aisthesis-aporia-epistrophe-praxis). These are distinct concepts; the candidate set conflates them. I split my votes accordingly (keep `orient cascade` +2; weak +1 name-unnamed for "the adaptive pentad" / "the pentad" as a separately-warranted concept), but the row is doing two jobs. Worth splitting in a future card revision.
+
+**3. Apparent typo in row 136.** Row title is "effect spiral" (singular). The principles file, prior naming cycles, and the segment `der-adversarial-destabilization` all use "effects spiral" (plural). I voted on the corrected plural form as a write-in. Minor, but it's the kind of artifact that confuses voters who think the singular form is the intended canonical.
+
+**4. The two-register naming discipline (engineering / Greek) is consistently load-bearing.** I voted to keep this discipline in several places: `mismatch signal` (engineering) + `aporia signal` (Greek register) as add-alias; `loop` (topology) vs `cycle` (traversal); `chronica` Greek noun vs "interaction history" engineering paraphrase. The framework's distinctive voice partly rests on this dual-register move, and many `[Concept]` cluster targets ask renaming-style questions when the right answer is actually add-alias-with-strict-roles.
+
+**5. Some "render symbol's prose alias" rows are obvious enough that they may not need R2 voter attention.** Examples: $\Delta\rho^* = $ adaptive reserve (row 602); $\mathcal C_t = $ chronica (row 14); $\delta_t = $ mismatch signal (row 278). These are essentially confirmed in NOTATION/LEXICON; my +2 keeps were near-unanimous-feeling. Future rounds might pre-confirm the symbol-prose pairs in setup and only vote on contested cases.
+
+### What I found surprising or hard
+
+**The candidate row for `causal structure` (row 287) felt like a place where a small write-in had real merit.** The current slug `post-causal-structure` names a *consequence* of the postulate (causal structure exists); the actual axiom is the temporal-precedence claim ("event A can be a cause of B only if A temporally precedes B"). Voted write-in `temporal precedence` +2 with rationale. Whether this lands is for the aggregator; the issue is *the slug names the wrong noun*, which is the discipline the principles file explicitly warns against.
+
+**The `agent model` → `reality model` rename felt cleaner than I expected.** The slug, segment title, README vocabulary table, and LEXICON all converge on "reality model" except the slug, which uses "agent model." The alignment is straightforward; the only counter-argument I could see was a weak "model is the agent's, not of the agent's" defense, which the segment's own use of "the agent's representation of the environment" (i.e., *of*, not *by*) refutes.
+
+**The `separability pattern` → `separability ladder` move surfaced as canonicalize-with-organic-provenance.** The segment uses "ladder" / "rungs" / "six ladders" / "the seventh ladder" / "Cross-ladder monotonicity" throughout — the prose has converged on "ladder" while the slug stays at "pattern." This is the case the principles file describes verbatim: "promote the prose-use to formal canonical naming." Voted +2 rename (could also be canonicalize).
+
+### One framework-recursive reading
+
+The methodology's own description of voting trajectory ("your voting trajectory is a $\mathcal{C}_t$") fired for me as I noticed myself updating earlier impressions during the walk. I did not change any earlier vote in this session, but the *can-update-without-ceremony* permission shifted my pace: I cast more confident votes on later targets because I knew I could correct them if a later segment shifted the read. The discipline of "later corrections are *more* model-grounded than first impressions" (per `#emp-update-gain`) is the operational permission the methodology grants.
+
+The framework-recursive reading that surprised me: my `+2` on row 47 (`Strategic entanglement` for the Class-1-sub-agents-yielding-Class-3-composite phenomenon) came at a moment I had read both `#der-directed-separation` and the cross-references to `#deriv-strategic-composition` — i.e., I had enough context for the pattern *to be a thing in my head* before the candidate appeared. Without that integration, "strategic entanglement" reads as a metaphor; with it, the metaphor lands precisely. This is *exactly* what the methodology's "vote when the segment makes the term concrete in your head" framing predicts.
+
+### Coverage summary
+
+Voted-on targets (approximate count, by category):
+- Strong keeps (+2): ~17 (cycle phases, chronica, loop, agency, adaptive system, satisfaction gap, control regret, directed separation, mismatch signal, aporia, logogenic, logozoetic, ASF top-level, persistence sub-types, etc.)
+- Strong renames (+2): ~3 (agent model → reality model; observation function → observation channel; separability pattern → separability ladder); plus one strong write-in (causal structure → temporal precedence)
+- Strong canonicalize (+2): ~6 (calibration laboratory; chronica capitalized vs lowercase; aporia ἀπορία; epistemic/teleological/strategic unity; structural / operational / task-adequacy / continuity persistence sub-types; architectural scope honesty)
+- Strong name-unnamed (+2): ~3 (Walton bathtub / bathtub model; Strategic entanglement; persistence-template family — write-in)
+- Strong add-alias (+2): ~2 (Class 2 = "Merged"; Runaway mismatch cascade)
+- +1 votes: ~10 across categories
+- -1 rejections: ~20 (mostly registered against alternative candidates that over-claimed, lost register, or misframed)
+
+The walk stopped at this point not because targets exhausted but because (a) my engagement was decaying on rows that required reading segments I hadn't yet read, and (b) the methodology's "stop at engagement-quality" rule fired honestly. I considered continuing for another ~30 targets but the closing-observations work was non-trivial and I wanted runway for it.
+
 
