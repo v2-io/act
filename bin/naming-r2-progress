@@ -1,0 +1,269 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+# bin/naming-r2-progress
+#
+# Cohort-progress checker for R2 voting. Scans voting cards and trackers,
+# reports per-voter and cohort-level stats. Useful for monitoring active
+# voters, deciding when to relaunch / aggregate, and surfacing data that
+# informs the aggregator design (note-depth distribution, off-scale
+# residual, coverage shape).
+#
+# Output is a markdown report. The report's columns and bands are designed
+# to be the things that drive next-step decisions, not an exhaustive dump.
+#
+# Usage:
+#   ruby bin/naming-r2-progress
+#   ruby bin/naming-r2-progress --out=msc/naming/r2-progress-snapshot.md
+#   ruby bin/naming-r2-progress --notes-threshold=50    # stricter "substantive"
+
+require 'optparse'
+require 'set'
+require 'time'
+
+options = {
+  cards_dir: 'msc/naming/round-2-cards',
+  trackers_dir: 'msc/naming/round-2-trackers',
+  notes_threshold: 30,
+  out: nil
+}
+
+OptionParser.new do |opts|
+  opts.banner = 'Usage: bin/naming-r2-progress [options]'
+  opts.on('--cards-dir=PATH', 'Directory of voting cards (default msc/naming/round-2-cards)') { |p| options[:cards_dir] = p }
+  opts.on('--trackers-dir=PATH', 'Directory of trackers (default msc/naming/round-2-trackers)') { |p| options[:trackers_dir] = p }
+  opts.on('--notes-threshold=N', Integer, 'Char-count threshold for "substantive" notes (default 30). Tune per the depth-of-engagement distribution you actually see.') { |n| options[:notes_threshold] = n }
+  opts.on('--out=PATH', 'Output path (default stdout)') { |p| options[:out] = p }
+  opts.on('-h', '--help') { puts opts; exit }
+end.parse!
+
+# Discover voters from the cards directory. The seed = filename minus .md.
+voters = Dir.glob(File.join(options[:cards_dir], '*.md')).map { |p| File.basename(p, '.md') }.sort
+abort "No voting cards found in #{options[:cards_dir]}" if voters.empty?
+
+# Off-scale weight values relative to the R2 spec (+2 / +1 / -1).
+OFF_SCALE = %w[+3 -2 -3].freeze
+
+# Parse a voting card and produce per-voter stats. The card is segmented by
+# `## N.` headings; within each section the vote table follows. We collect
+# (per voted candidate-row) the weight, category, top-pick marker, and notes
+# length. A "voted target" is any section with at least one row that has a
+# non-empty weight or category cell.
+def parse_card(path, notes_threshold)
+  stats = {
+    targets_voted: Set.new,    # set of target-numbers with at least one voted row
+    total_votes: 0,            # total candidate-row votes (across all targets)
+    top_picks: 0,              # rows with non-empty top-pick cell
+    substantive: 0,            # rows with notes >= threshold chars
+    weights: Hash.new(0),      # +2/+1/-1/+3/-2/-3 → count
+    categories: Hash.new(0)    # rename/keep/canonicalize/add-alias/name-unnamed → count
+  }
+
+  current_target = nil
+  in_vote_table = false
+
+  File.foreach(path) do |line|
+    if (m = line.match(/^## (\d+)\. /))
+      current_target = m[1].to_i
+      in_vote_table = false
+      next
+    end
+    if line =~ /^\|\s*candidate\s*\|/i
+      in_vote_table = true
+      next
+    end
+    next unless in_vote_table && line.start_with?('|')
+    next if line =~ /^\|[\s:|-]+\|\s*$/
+
+    cells = line.split('|').map(&:strip)
+    # cells[0] is empty (before leading |). Content cells:
+    # [1]=candidate, [2]=category, [3]=weight, [4]=top-pick, [5]=notes
+    next unless cells.length >= 6
+    category = cells[2]
+    weight = cells[3]
+    top_pick = cells[4]
+    notes = cells[5]
+
+    # A "voted row" has at least a category or a weight (allows -1 with no
+    # category, and category-only abstentions, but ignores fully-empty rows).
+    next if category.empty? && weight.empty?
+
+    stats[:total_votes] += 1
+    stats[:weights][weight] += 1 unless weight.empty?
+    stats[:categories][category] += 1 unless category.empty?
+    stats[:top_picks] += 1 unless top_pick.empty?
+    stats[:substantive] += 1 if notes.length >= notes_threshold
+    stats[:targets_voted] << current_target if current_target
+  end
+
+  stats
+end
+
+# Parse a tracker and return can-vote count, voted count (per the tracker's
+# voted column — should match the card's), max voting-sequence integer, and
+# the in-flight gap (can-vote rows that haven't voted yet).
+def parse_tracker(path)
+  return nil unless File.exist?(path)
+  can_vote = 0
+  voted = 0
+  seq_max = 0
+  File.foreach(path) do |line|
+    next unless line.start_with?('|')
+    next if line =~ /^\|\s*number\s*\|/i
+    next if line =~ /^\|[\s:|-]+\|\s*$/
+    cells = line.split('|').map(&:strip)
+    next unless cells.length >= 5 && cells[1]&.match?(/^\d+$/)
+    seq = cells[2]
+    cv = cells[3]
+    v = cells[4]
+    can_vote += 1 if cv == 'true'
+    voted += 1 if v == 'true'
+    seq_max = seq.to_i if seq =~ /^\d+$/ && seq.to_i > seq_max
+  end
+  { can_vote: can_vote, voted: voted, gap: can_vote - voted, seq_max: seq_max }
+end
+
+# Collect per-voter data and cohort coverage.
+voter_data = {}
+target_coverage = Hash.new(0) # target_number → count of voters who voted on it
+
+voters.each do |voter|
+  card_path = File.join(options[:cards_dir], "#{voter}.md")
+  tracker_path = File.join(options[:trackers_dir], "#{voter}-tracker.md")
+
+  card_stats = parse_card(card_path, options[:notes_threshold])
+  tracker_stats = parse_tracker(tracker_path)
+
+  card_stats[:targets_voted].each { |t| target_coverage[t] += 1 }
+
+  voter_data[voter] = { card: card_stats, tracker: tracker_stats }
+end
+
+# Total targets per card (assumes uniform across voters; takes the first card
+# as ground truth). Computed from the highest `## N.` heading rather than
+# the count, in case any cards have edits.
+total_targets = 0
+first_card = File.join(options[:cards_dir], "#{voters.first}.md")
+File.foreach(first_card) do |line|
+  if (m = line.match(/^## (\d+)\. /))
+    n = m[1].to_i
+    total_targets = n if n > total_targets
+  end
+end
+
+# Cohort rollup.
+cohort_targets_covered = target_coverage.size
+cohort_targets_2plus = target_coverage.count { |_, c| c >= 2 }
+cohort_targets_3plus = target_coverage.count { |_, c| c >= 3 }
+cohort_targets_4plus = target_coverage.count { |_, c| c >= 4 }
+cohort_total_votes = voter_data.values.sum { |d| d[:card][:total_votes] }
+cohort_substantive = voter_data.values.sum { |d| d[:card][:substantive] }
+cohort_offscale = voter_data.values.sum do |d|
+  d[:card][:weights].select { |w, _| OFF_SCALE.include?(w) }.values.sum
+end
+
+# Helper for the at-a-glance row.
+def fmt_pct(num, den)
+  return '–' if den.zero?
+  "#{num} (#{(100.0 * num / den).round}%)"
+end
+
+def fmt_dash(v)
+  v.nil? || v == 0 ? '–' : v.to_s
+end
+
+# Build report.
+out = []
+out << '# R2 Voting Cohort — Progress'
+out << ''
+out << "**Generated:** #{Time.now.utc.iso8601}"
+out << "**Voters discovered:** #{voters.length} (`#{voters.join('`, `')}`)"
+out << "**Targets per card:** #{total_targets}"
+out << "**Substantive-notes threshold:** ≥ #{options[:notes_threshold]} chars (tunable via `--notes-threshold=N`)"
+out << ''
+
+out << '## At a glance'
+out << ''
+out << '| voter | tgt voted | votes | top-picks | substantive | can-vote | gap | drift | seq max | off-scale |'
+out << '|---|--:|--:|--:|--:|--:|--:|--:|--:|--:|'
+voters.each do |voter|
+  c = voter_data[voter][:card]
+  t = voter_data[voter][:tracker]
+  off = c[:weights].select { |w, _| OFF_SCALE.include?(w) }.values.sum
+  drift = t.nil? ? nil : t[:voted] - c[:targets_voted].size
+  drift_str = drift.nil? ? '–' : (drift.zero? ? '–' : (drift.positive? ? "+#{drift}" : drift.to_s))
+  out << "| `#{voter}` | #{c[:targets_voted].size} | #{c[:total_votes]} | #{c[:top_picks]} | #{fmt_pct(c[:substantive], c[:total_votes])} | #{fmt_dash(t&.dig(:can_vote))} | #{fmt_dash(t&.dig(:gap))} | #{drift_str} | #{fmt_dash(t&.dig(:seq_max))} | #{fmt_dash(off)} |"
+end
+out << ''
+out << '*Columns:* `tgt voted` = unique targets with at least one voted candidate-row in the card (the ground truth); `votes` = total candidate-row votes (multiple per target possible); `top-picks` = rows marked as top-pick; `substantive` = rows whose notes column meets the threshold; `can-vote` and `gap` come from the tracker (gap = can-vote rows that haven\'t cast yet); `drift` = tracker\'s `voted=true` count minus card\'s `tgt voted` (positive = stale `voted=true` markers in tracker; negative = card has cast votes the tracker hasn\'t synced to yet — re-run `bin/naming-master-tracker` to resync); `seq max` = highest voting-sequence integer; `off-scale` = votes using R1\'s wider scale (+3 / -2 / -3) instead of R2\'s spec (+2 / +1 / -1).'
+out << ''
+
+out << '## Cohort coverage'
+out << ''
+out << "- **Targets with ≥1 voter:** #{cohort_targets_covered} / #{total_targets} (#{(100.0 * cohort_targets_covered / [total_targets, 1].max).round}%)"
+out << "- **Targets with ≥2 voters:** #{cohort_targets_2plus} / #{total_targets}"
+out << "- **Targets with ≥3 voters:** #{cohort_targets_3plus} / #{total_targets}"
+out << "- **Targets with ≥4 voters:** #{cohort_targets_4plus} / #{total_targets}"
+out << "- **Total candidate-row votes:** #{cohort_total_votes}"
+out << "- **Substantive votes (cohort-wide):** #{fmt_pct(cohort_substantive, cohort_total_votes)}"
+out << "- **Off-scale residual:** #{cohort_offscale} (R2 spec is +2/+1/-1; off-scale votes can be clamped at aggregation time but signal the R1-scale prior leaking through)"
+out << ''
+
+out << '## Off-scale breakdown'
+out << ''
+any_offscale = false
+voters.each do |voter|
+  c = voter_data[voter][:card]
+  off_breakdown = c[:weights].select { |w, _| OFF_SCALE.include?(w) }
+  if off_breakdown.empty?
+    out << "- `#{voter}`: clean (no off-scale votes)"
+  else
+    any_offscale = true
+    breakdown_str = off_breakdown.sort.map { |w, count| "#{count} `#{w}`" }.join(', ')
+    out << "- `#{voter}`: #{breakdown_str}"
+  end
+end
+out << ''
+out << '*Note:* the R2 card preamble specifies +2/+1/-1 only. R1 used a wider scale (+3/+2/+1/-1/-2/-3); voters trained on R1\'s scale will sometimes default back to it. The methodology document\'s §5 names this as a known failure mode.' if any_offscale
+out << ''
+
+out << '## Vote-category distribution'
+out << ''
+out << '| voter | rename | keep | canonicalize | add-alias | name-unnamed |'
+out << '|---|--:|--:|--:|--:|--:|'
+voters.each do |voter|
+  c = voter_data[voter][:card]
+  rename = c[:categories]['rename'] || 0
+  keep = c[:categories]['keep'] || 0
+  canon = c[:categories]['canonicalize'] || 0
+  alias_ = c[:categories]['add-alias'] || 0
+  unnamed = c[:categories]['name-unnamed'] || 0
+  out << "| `#{voter}` | #{rename} | #{keep} | #{canon} | #{alias_} | #{unnamed} |"
+end
+out << ''
+
+out << '## Quality signal — substantive-note distribution'
+out << ''
+out << '| voter | total votes | substantive | empty-or-thin | sub-rate |'
+out << '|---|--:|--:|--:|--:|'
+voters.each do |voter|
+  c = voter_data[voter][:card]
+  total = c[:total_votes]
+  sub = c[:substantive]
+  thin = total - sub
+  rate = total.zero? ? '–' : "#{(100.0 * sub / total).round}%"
+  out << "| `#{voter}` | #{total} | #{sub} | #{thin} | #{rate} |"
+end
+out << ''
+out << '*Substantive-note rate is the headline depth-of-engagement signal — a +2 with substantive notes carries different aggregation weight than a +2 with no notes, regardless of identical face-value weight.*'
+out << ''
+
+result = out.join("\n") + "\n"
+if options[:out]
+  require 'fileutils'
+  FileUtils.mkdir_p(File.dirname(options[:out]))
+  File.write(options[:out], result)
+  warn "Wrote progress report to #{options[:out]}"
+else
+  $stdout.write(result)
+end
