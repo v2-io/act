@@ -56,12 +56,25 @@ rng = Random.new(seed_int)
 master = JSON.parse(File.read(options[:in]))
 
 # Build per-target groups, project away leak-fields, shuffle within-group.
+# We carry the per-candidate consolidated_rationale and canonicalize_provenance
+# so they can be surfaced to voters (these were written specifically for the R2
+# audience). We carry first_encounter_locality and segment_link at the target
+# level. Aggregate weights, vote attribution, category tallies, and ⭑ / ✗
+# markers stay hidden — those are leak-fields per the zero-leak design.
 groups = master['currents'].map do |c|
-  shuffled_candidates = c['candidates'].map { |a| a['candidate'] }.shuffle(random: rng)
+  shuffled_candidates = c['candidates'].map do |a|
+    {
+      candidate:   a['candidate'],
+      rationale:   a['consolidated_rationale'],
+      provenance:  a['canonicalize_provenance']
+    }
+  end.shuffle(random: rng)
   {
     current:     c['current'],
     is_concept:  c['is_concept_cluster'],
     description: c['current_description'],
+    locality:    c['first_encounter_locality'],
+    segment:     c['segment_link'],
     candidates:  shuffled_candidates
   }
 end
@@ -106,10 +119,44 @@ groups.each_with_index do |g, idx|
             end
   out << heading
   out << ''
+
+  # Locality + segment link, if available. These help a voter who wants to
+  # apply the first-encounter-feel discipline find the segment without
+  # navigating the OUTLINE manually.
+  if g[:locality]
+    out << "*First-encounter locality:* #{g[:locality]}"
+    out << ''
+  end
+  if g[:segment]
+    out << "*Segment:* [`#{g[:segment]}`](../../#{g[:segment]})"
+    out << ''
+  end
+
+  # Per-candidate rationales — the journalistic synthesis the Pass A brief
+  # was written for. Candidates appear here in the same shuffled order they
+  # appear in the vote table below, so the voter reads the rationale, then
+  # votes. Provenance tag (when present) shows whether the candidate phrase
+  # is excavated from existing segment prose or invented as a fresh proposal.
+  has_any_rationale = g[:candidates].any? { |c| c[:rationale] }
+  if has_any_rationale
+    out << "*The exploration team's case for each candidate (these summaries are intended to surface arguments, not vote distributions; candidates here appear in the same order as in the vote table below):*"
+    out << ''
+    g[:candidates].each do |cand|
+      safe_name = cand[:candidate].to_s.gsub('|', '\\|')
+      prov_tag = cand[:provenance] ? " *#{cand[:provenance].to_s.split(' — ', 2).first.strip}*" : ''
+      if cand[:rationale]
+        out << "- **`#{safe_name}`**#{prov_tag} — #{cand[:rationale]}"
+      else
+        out << "- **`#{safe_name}`**#{prov_tag}"
+      end
+    end
+    out << ''
+  end
+
   out << '| candidate | category | weight | top-pick? | notes |'
   out << '|---|---|:-:|:-:|---|'
   g[:candidates].each do |cand|
-    safe = cand.to_s.gsub('|', '\\|')
+    safe = cand[:candidate].to_s.gsub('|', '\\|')
     out << "| #{safe} |  |  |  |  |"
   end
   out << '| *(write-in)* |  |  |  |  |'
