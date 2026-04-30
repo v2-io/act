@@ -87,7 +87,7 @@ The basic rhythm is a small loop, executed once per segment:
 
 1. **Read a segment carefully** — one at a time, not in batches. The de-novo audit instructions describe this rhythm in detail; the disciplines there transfer here verbatim.
 2. **Write a reflection on what the segment did** — claims, dependencies, what it commits to, what it leaves open. Reflections live wherever your audit-cycle workspace puts them.
-3. **Scan the tracker for terms surfaced in this segment.** A `grep` against `term-or-concept` for the segment's central concepts is usually enough. Targets where the segment is the term's defining home are the highest-leverage votes; targets where the segment merely mentions a term in passing are weaker — wait for the defining segment.
+3. **Scan the tracker for terms surfaced in this segment.** A `grep` for the actual term or concept (with spaces — that's how they're displayed in the tracker's third content column) is usually enough. Targets where the segment is the term's defining home are the highest-leverage votes; targets where the segment merely mentions a term in passing are weaker — wait for the defining segment.
 4. **Mark `can-vote=true` and bump `voting-sequence`** for terms you now understand well enough to vote on. You don't have to vote immediately — `can-vote=true` records the readiness; voting can come later when the rhythm is right for it.
 5. **Cast votes for the rows where you have a real position.** Jump into the card by row number, fill in category / weight / top-pick / notes. The notes column is for *new* reasoning you bring — reasoning that came out of just having read the segment, not a recap of the exploration team's case.
 
