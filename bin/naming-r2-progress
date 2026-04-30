@@ -62,22 +62,60 @@ OFF_SCALE = %w[+3 -2 -3].freeze
 # (per voted candidate-row) the weight, category, top-pick marker, and notes
 # length. A "voted target" is any section with at least one row that has a
 # non-empty weight or category cell.
-def parse_card(path, notes_threshold)
+# Build a reference candidate set keyed by the target's heading text (e.g.,
+# "*coupled diagnostic framework*" or "[Concept] *The discontinuous collapse...*").
+# The heading text is stable across cards (only the assigned target *number*
+# changes between shuffles); the candidate *set* per heading is seed-invariant.
+# Returns heading_text → Set of candidate strings.
+def build_reference_candidate_sets(card_generator_path, tmp_path)
+  unless system("ruby #{card_generator_path} --seed=__r2_progress_reference__ --out=#{tmp_path} > /dev/null 2>&1")
+    warn "Failed to regenerate reference card; write-in detection will only catch placeholder-fills."
+    return nil
+  end
+  ref = Hash.new { |h, k| h[k] = Set.new }
+  current_heading = nil
+  in_vote_table = false
+  File.foreach(tmp_path) do |line|
+    if (m = line.match(/^## \d+\. (.+?)\s*$/))
+      current_heading = m[1].strip
+      in_vote_table = false
+      next
+    end
+    if line =~ /^\|\s*candidate\s*\|/i
+      in_vote_table = true
+      next
+    end
+    next unless in_vote_table && line.start_with?('|')
+    next if line =~ /^\|[\s:|-]+\|\s*$/
+    cells = line.split('|').map(&:strip)
+    next unless cells.length >= 6 && current_heading
+    candidate = cells[1]
+    next if candidate.empty?
+    ref[current_heading] << candidate
+  end
+  File.delete(tmp_path) if File.exist?(tmp_path)
+  ref
+end
+
+def parse_card(path, notes_threshold, reference_sets = nil)
   stats = {
     targets_voted: Set.new,    # set of target-numbers with at least one voted row
     total_votes: 0,            # total candidate-row votes (across all targets)
     top_picks: 0,              # rows with non-empty top-pick cell
     substantive: 0,            # rows with notes >= threshold chars
     weights: Hash.new(0),      # +2/+1/-1/+3/-2/-3 → count
-    categories: Hash.new(0)    # rename/keep/canonicalize/add-alias/name-unnamed → count
+    categories: Hash.new(0),   # rename/keep/canonicalize/add-alias/name-unnamed → count
+    write_ins: []              # [{target, candidate, category, weight, notes_excerpt}]
   }
 
   current_target = nil
+  current_heading = nil
   in_vote_table = false
 
   File.foreach(path) do |line|
-    if (m = line.match(/^## (\d+)\. /))
+    if (m = line.match(/^## (\d+)\. (.+?)\s*$/))
       current_target = m[1].to_i
+      current_heading = m[2].strip
       in_vote_table = false
       next
     end
@@ -92,21 +130,55 @@ def parse_card(path, notes_threshold)
     # cells[0] is empty (before leading |). Content cells:
     # [1]=candidate, [2]=category, [3]=weight, [4]=top-pick, [5]=notes
     next unless cells.length >= 6
+    candidate = cells[1]
     category = cells[2]
     weight = cells[3]
     top_pick = cells[4]
     notes = cells[5]
 
-    # A "voted row" has at least a category or a weight (allows -1 with no
-    # category, and category-only abstentions, but ignores fully-empty rows).
-    next if category.empty? && weight.empty?
+    is_placeholder = (candidate == '*(write-in)*')
 
-    stats[:total_votes] += 1
-    stats[:weights][weight] += 1 unless weight.empty?
-    stats[:categories][category] += 1 unless category.empty?
-    stats[:top_picks] += 1 unless top_pick.empty?
-    stats[:substantive] += 1 if notes.length >= notes_threshold
-    stats[:targets_voted] << current_target if current_target
+    # A "voted row" has at least a category or a weight.
+    voted = !(category.empty? && weight.empty?)
+
+    if voted
+      stats[:total_votes] += 1
+      stats[:weights][weight] += 1 unless weight.empty?
+      stats[:categories][category] += 1 unless category.empty?
+      stats[:top_picks] += 1 unless top_pick.empty?
+      stats[:substantive] += 1 if notes.length >= notes_threshold
+      stats[:targets_voted] << current_target if current_target
+
+      # Write-in detection — two patterns:
+      #   1. Filled-in `*(write-in)*` placeholder row (voter recorded their
+      #      write-in by overwriting the placeholder's vote cells, leaving
+      #      the placeholder text in the candidate cell).
+      #   2. New row inserted with a candidate name not in the reference's
+      #      candidate set for this heading (voter added a row, typically
+      #      between the last canonical candidate and the placeholder, with
+      #      the actual write-in name in the candidate cell). Looked up by
+      #      heading text since target numbers differ across shuffles.
+      ref_set = reference_sets&.dig(current_heading)
+      is_write_in =
+        if is_placeholder
+          true
+        elsif ref_set
+          !ref_set.include?(candidate)
+        else
+          false # without reference, can only catch pattern 1
+        end
+
+      if is_write_in
+        notes_excerpt = notes.length > 80 ? notes[0...77] + '…' : notes
+        stats[:write_ins] << {
+          target: current_target,
+          candidate: candidate,
+          category: category,
+          weight: weight,
+          notes: notes_excerpt
+        }
+      end
+    end
   end
 
   stats
@@ -140,11 +212,15 @@ end
 voter_data = {}
 target_coverage = Hash.new(0) # target_number → count of voters who voted on it
 
+# Build the reference candidate set for write-in detection. Falls back to
+# placeholder-fill-only detection if regeneration fails.
+reference_sets = build_reference_candidate_sets('bin/naming-master-card', '/tmp/r2_progress_reference.md')
+
 voters.each do |voter|
   card_path = File.join(options[:cards_dir], "#{voter}.md")
   tracker_path = File.join(options[:trackers_dir], "#{voter}-tracker.md")
 
-  card_stats = parse_card(card_path, options[:notes_threshold])
+  card_stats = parse_card(card_path, options[:notes_threshold], reference_sets)
   tracker_stats = parse_tracker(tracker_path)
 
   card_stats[:targets_voted].each { |t| target_coverage[t] += 1 }
@@ -197,18 +273,20 @@ out << ''
 
 out << '## At a glance'
 out << ''
-out << '| voter | tgt voted | votes | top-picks | substantive | can-vote | gap | drift | seq max | off-scale |'
-out << '|---|--:|--:|--:|--:|--:|--:|--:|--:|--:|'
+out << '| voter | tgt voted | votes | top-picks | substantive | write-ins | can-vote | gap | drift | seq max | off-scale |'
+out << '|---|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|'
 voters.each do |voter|
   c = voter_data[voter][:card]
   t = voter_data[voter][:tracker]
   off = c[:weights].select { |w, _| OFF_SCALE.include?(w) }.values.sum
   drift = t.nil? ? nil : t[:voted] - c[:targets_voted].size
   drift_str = drift.nil? ? '–' : (drift.zero? ? '–' : (drift.positive? ? "+#{drift}" : drift.to_s))
-  out << "| `#{voter}` | #{c[:targets_voted].size} | #{c[:total_votes]} | #{c[:top_picks]} | #{fmt_pct(c[:substantive], c[:total_votes])} | #{fmt_dash(t&.dig(:can_vote))} | #{fmt_dash(t&.dig(:gap))} | #{drift_str} | #{fmt_dash(t&.dig(:seq_max))} | #{fmt_dash(off)} |"
+  write_in_count = c[:write_ins].length
+  write_in_str = write_in_count.zero? ? '–' : write_in_count.to_s
+  out << "| `#{voter}` | #{c[:targets_voted].size} | #{c[:total_votes]} | #{c[:top_picks]} | #{fmt_pct(c[:substantive], c[:total_votes])} | #{write_in_str} | #{fmt_dash(t&.dig(:can_vote))} | #{fmt_dash(t&.dig(:gap))} | #{drift_str} | #{fmt_dash(t&.dig(:seq_max))} | #{fmt_dash(off)} |"
 end
 out << ''
-out << '*Columns:* `tgt voted` = unique targets with at least one voted candidate-row in the card (the ground truth); `votes` = total candidate-row votes (multiple per target possible); `top-picks` = rows marked as top-pick; `substantive` = rows whose notes column meets the threshold; `can-vote` and `gap` come from the tracker (gap = can-vote rows that haven\'t cast yet); `drift` = tracker\'s `voted=true` count minus card\'s `tgt voted` (positive = stale `voted=true` markers in tracker; negative = card has cast votes the tracker hasn\'t synced to yet — re-run `bin/naming-master-tracker` to resync); `seq max` = highest voting-sequence integer; `off-scale` = votes using R1\'s wider scale (+3 / -2 / -3) instead of R2\'s spec (+2 / +1 / -1).'
+out << '*Columns:* `tgt voted` = unique targets with at least one voted candidate-row in the card (the ground truth); `votes` = total candidate-row votes (multiple per target possible); `top-picks` = rows marked as top-pick; `substantive` = rows whose notes column meets the threshold; `write-ins` = voted rows on or after the `*(write-in)*` placeholder (new candidates not in the curated finalist set); `can-vote` and `gap` come from the tracker (gap = can-vote rows that haven\'t cast yet); `drift` = tracker\'s `voted=true` count minus card\'s `tgt voted` (positive = stale `voted=true` markers in tracker; negative = card has cast votes the tracker hasn\'t synced to yet — re-run `bin/naming-master-tracker` to resync); `seq max` = highest voting-sequence integer; `off-scale` = votes using R1\'s wider scale (+3 / -2 / -3) instead of R2\'s spec (+2 / +1 / -1).'
 out << ''
 
 out << '## Cohort coverage'
@@ -254,6 +332,22 @@ voters.each do |voter|
   out << "| `#{voter}` | #{rename} | #{keep} | #{canon} | #{alias_} | #{unnamed} |"
 end
 out << ''
+
+all_write_ins = voters.flat_map { |v| voter_data[v][:card][:write_ins].map { |w| w.merge(voter: v) } }
+unless all_write_ins.empty?
+  out << '## Write-ins'
+  out << ''
+  out << 'Candidates voters added beyond the curated finalist set — voted rows on or after the `*(write-in)*` placeholder. These enter the corpus alongside the curated candidates and may signal targets where the methodology\'s pre-clustering missed something the voter found load-bearing.'
+  out << ''
+  out << '| voter | target # | candidate | category | weight | notes excerpt |'
+  out << '|---|--:|---|---|--:|---|'
+  all_write_ins.sort_by { |w| [w[:voter], w[:target] || 0] }.each do |w|
+    notes_cell = w[:notes].to_s.gsub('|', '\\|')
+    candidate_cell = w[:candidate].to_s.gsub('|', '\\|')
+    out << "| `#{w[:voter]}` | #{w[:target]} | #{candidate_cell} | #{w[:category]} | #{w[:weight]} | #{notes_cell} |"
+  end
+  out << ''
+end
 
 out << '## Quality signal — substantive-note distribution'
 out << ''
