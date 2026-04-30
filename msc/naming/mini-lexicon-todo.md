@@ -24,6 +24,7 @@ Cross-references rather than duplicates: where the substantive concern is alread
 8. [Acronym / abbreviation conventions](#8-acronym--abbreviation-conventions) — 3 items
 9. [Deprecation / avoid lists](#9-deprecation--avoid-lists) — 1 consolidated item
 10. [Cross-component naming consistency](#10-cross-component-naming-consistency) — 2 items
+11. [Collision check — external naming overlaps with adjacent literature](#11-collision-check--external-naming-overlaps-with-adjacent-literature) — sweep results, post-R2 surgery list
 
 ---
 
@@ -481,6 +482,122 @@ Specific cases in the corpus where acronym usage is still in flux:
 **Proposed actions:** Decide whether component-flat slug naming will survive growth or whether component prefixes will eventually be needed. Currently there's no collision; the question is whether to design for one preemptively.
 
 **Status:** open; future-facing. Not blocking now.
+
+---
+
+## 11. Collision check — external naming overlaps with adjacent literature
+
+External-collision sweep on the 47 likely-R2-finalist candidates was completed 2026-04-29; full report at [`collision-check-2026-04-29.md`](collision-check-2026-04-29.md), brief at [`collision-check-brief.md`](collision-check-brief.md). The sweep used the post-Pass-A/B/C curated master list to ground per-candidate analysis in actual ASF usage before web-searching, then issued per-candidate verdicts (severe / moderate / minor / clean) with sources and recommended action.
+
+**Calibration insight worth carrying forward:** the dominant failure mode on this list is **semantic-import mismatch** ("will the reader silently swap our meaning for theirs?") rather than **territorial step-on** ("is the term already claimed?"). The ACT precedent does not seem to repeat at the same severity anywhere on the list. Most "moderate" cases are addressable by first-encounter cite-and-distinguish discipline at the segment-Discussion level rather than rename — which folds naturally into the post-R2 voice-discipline / lexicon-coherence pass.
+
+The severe / severe-resolvable cases that need concrete action are listed below. Moderate / minor cases live in the report and are best absorbed as a discipline rather than item-by-item entries here.
+
+### 11.1 *artificial hippocampus* — severe (rename strongly recommended)
+
+**Issue:** Theodore Berger's lab at USC has an active, FDA-trial-stage hippocampal-prosthesis research program (Hampson et al. 2018+); "artificial hippocampus" is a literal medical device, not a metaphor. Using the term as a canonical name for the externalization-and-rehydration mechanism in `03-logogenic-agents/` / `04-logozoetic-agents/` invites both semantic-import mismatch (neuroengineering readers import the literal device) and territorial step-on (Berger's lab has spent decades on this).
+
+**Sources:** [collision-check report §34](collision-check-2026-04-29.md). Master list already has *externalization reconstruction cycle* (+6) as a non-colliding alternative.
+
+**Proposed actions:** Demote *artificial hippocampus* to simile-only ("functions as something like an artificial hippocampus, in the engineering sense"), promote *externalization reconstruction cycle* or *memory-rehydration cycle* / *chronica externalization* as the canonical name. Decision pre-R2 finalist-locking would be cleaner, but this is non-blocking (master list already carries the non-colliding alternatives in the same finalist cluster).
+
+**Status:** open; awaits R2-finalist-resolution.
+
+**Priority hint:** HIGH (real medical-device collision; one of the two ACT-shaped cases on the list).
+
+### 11.2 *cognitive fusion* — severe (rename strongly recommended)
+
+**Issue:** "Cognitive fusion" is a *core* concept in **Acceptance and Commitment Therapy (ACT)** — Steven C. Hayes 1999 onward. Hundreds of clinical-psychology papers use the term in a *opposite* sense to ASF's: in ACT, cognitive fusion is the pathological state of *over-identifying with one's own thoughts*; in ASF, cognitive fusion is *two systems merging into one macro-agent*. Bonus collision: this would add a second link to the ACT-therapy ecosystem at exactly the time the framework just renamed away from the ACT acronym (Schneider & Turner *AI Consciousness Test*).
+
+**Sources:** [collision-check report §14](collision-check-2026-04-29.md).
+
+**Proposed actions:** Rename. Candidates from the master list and the agent's recommendation: *agent fusion*, *system fusion*, *macro-agent fusion*, *resonant fusion* (ties to the Class 1 macro-agent *resonance* framing — see 11.6 below), *channel-saturation fusion*. *Resonant fusion* is the most semantically anchored if the Resonance framing in `03-logogenic-agents/` is canonical.
+
+**Status:** open; awaits R2-finalist-resolution.
+
+**Priority hint:** HIGH (closest analogue to the ACT precedent on this list).
+
+### 11.3 *adaptive cycle* (in ASF's reframed-Boyd sense) — severe
+
+**Issue:** Holling's *adaptive cycle* (panarchy theory, r/K/Ω/α phases) is the dominant established meaning across resilience ecology and is heavily cited. ASF uses *adaptive cycle* for the OODA-flavored prolepsis / aisthesis / aporia / epistrophe / praxis sequence, which is structurally different from Holling's r/K/Ω/α.
+
+**Sources:** [collision-check report §9](collision-check-2026-04-29.md).
+
+**Proposed actions:** Decision branches on whether ASF's phase structure is genuinely incompatible with Holling's. If compatible (Holling's r/K/Ω/α maps cleanly onto ASF's prolepsis/aisthesis/aporia/epistrophe/praxis), treat as adoption-with-citation — Holling's panarchy belongs in Discussion / prior-art-positioning. If incompatible, rename — candidate alternatives in the master list cluster around *the cycle* with various qualifiers. The structural-compatibility check is a small spike, not a sweep-level decision.
+
+**Status:** open; awaits compatibility check + R2-finalist-resolution.
+
+**Priority hint:** MEDIUM-HIGH. Resolvable by spike.
+
+### 11.4 *shared intent* — severe (substantive disambiguation required)
+
+**Issue:** Tomasello's *shared intentionality* (developmental psychology / comparative cognition; Tomasello 2008, 2014) is a cornerstone of human-evolution and great-ape-cognition research. ASF's *shared intent* is a near-rendering of the string. ASF's actual referent (the IB-compressed cross-agent communication object) is narrower and more formalized than Tomasello's developmental capacity; the names are close enough that readers will silently substitute. The collision substantive enough that a one-line cite does not cleanly resolve it.
+
+**Sources:** [collision-check report §22](collision-check-2026-04-29.md). ASF segment: `01-aad-core/src/def-shared-intent.md`.
+
+**Proposed actions:** Keep the name but add a paragraph-level Discussion-section disambiguation explicitly distinguishing ASF's *shared intent* (the IB-compressed communication object, $O_{\text{shared}}$) from Tomasello's *shared intentionality* (the developmental capacity for joint goals). Different referents; the disambiguation should be on the segment, not just the lexicon.
+
+**Status:** open; can be addressed pre-R2 since the action is a Discussion-section edit, not a rename.
+
+**Priority hint:** MEDIUM-HIGH. Pre-R2-doable.
+
+### 11.5 *proprium* — severe-by-collision, resolvable by Allport citation
+
+**Issue:** Gordon Allport's *proprium* (Allport 1955, *Becoming*) is the established personality-psychology concept — the central organizing self-function with its seven developmental stages. ASF (via Firmatum upstream) uses the term as the container for the artificial agent's identity infrastructure (CHRONICA, AXIOMATA, sovereignty/visibility/authority dimensions). Spot-check confirms Firmatum source documents (`PROPRIUM-ONTOLOGY.md`, `PROPRIUM-ARCHITECTURE.md`) do not currently cite Allport — closing that citation gap at the segment level resolves the collision.
+
+**Sources:** [collision-check report §13](collision-check-2026-04-29.md). ASF segment: `04-logozoetic-agents/src/def-proprium-mapping.md`.
+
+**Proposed actions:** Add explicit Allport citation on first encounter at the segment level. The semantic distinction (ASF/Firmatum proprium = component taxonomy of artificial-agent identity infrastructure; Allport's proprium = developmental-psychological self-construct) is sufficiently clear once both are named. No rename. Allport's primacy is a 70-year-old uncontested reference — citation is sufficient.
+
+**Status:** open; segment-level edit, no R2 dependency.
+
+**Priority hint:** LOW-MEDIUM. Can land independently of R2.
+
+### 11.6 *adaptive reserve* — severe-by-collision, resolvable by citation
+
+**Issue:** Crabtree-Miller-Stange *Practice Adaptive Reserve* (primary care medicine, 2010+) uses the term for organizational learning capacity in clinical practices. ASF's *adaptive reserve* (one of the top-weight finalists at +50) is the parameter-space margin for absorbing disturbances without losing persistence. Different referents; same string.
+
+**Sources:** [collision-check report §7](collision-check-2026-04-29.md).
+
+**Proposed actions:** Cite Crabtree-Miller-Stange on first encounter; distinguish ASF's mathematical-margin meaning from the primary-care-medicine adaptive-reserve scale. No rename — the medical-care usage is sufficiently distant in domain that confusion in any actual reader is unlikely once the citation lands.
+
+**Status:** open; segment-level edit.
+
+**Priority hint:** LOW-MEDIUM.
+
+### 11.7 *bathtub model* — keep as gloss only, do not formalize
+
+**Issue:** Walton's bathtub gloss for the persistence condition (water = belief-reality gap, faucet = environmental change rate, drain = learning rate, container = adaptive reserve) is the canonical Feynman-criterion-meeting plain-language analog (per CLAUDE.md). Elevating "the bathtub model" to a canonical compound would collide with the reliability-engineering *bathtub curve* (failure rate vs. time) and Forrester's system-dynamics *bathtub model* (stocks-and-flows pedagogy).
+
+**Sources:** [collision-check report §A1 (Additional flags)](collision-check-2026-04-29.md).
+
+**Proposed actions:** Keep "bathtub" as the casual *gloss* / *analog* discipline (canonical for plain-language pedagogy); do not promote "bathtub model" to a canonical compound. Use *Walton's bathtub analog* or *the bathtub gloss* if a formal handle is needed.
+
+**Status:** open; project-level register convention.
+
+**Priority hint:** LOW. Convention discipline, not rename.
+
+### 11.8 *resonance* (Class 1 macro-agent sense) — moderate
+
+**Issue:** Grossberg's Adaptive Resonance Theory (ART, 1976+) uses *resonance* as a specific technical term — bottom-up activation matches top-down expectation, foundational in neural-network learning theory and tied directly to the stability-plasticity dilemma. If "Resonance" is used as a canonical name in `03-logogenic-agents/` for mutual-information saturation between two agents, the ART adjacency wants disambiguation. Pairs with 11.2 — if *cognitive fusion* renames to *resonant fusion*, the *resonance* parent term inherits the same disambiguation requirement.
+
+**Sources:** [collision-check report §A4 (Additional flags)](collision-check-2026-04-29.md).
+
+**Proposed actions:** If "Resonance" is canonical in `03-logogenic-agents/`, cite Grossberg ART on first encounter. Distinguish ASF's mutual-information-saturation meaning from ART's pattern-matching meaning.
+
+**Status:** open; depends partly on 11.2 resolution.
+
+**Priority hint:** LOW-MEDIUM.
+
+### 11.9 Moderate cases — absorbed by post-R2 voice-discipline / lexicon-coherence pass
+
+The report flags ~20 moderate-collision cases where ASF inhabits an adjacent-term neighborhood (Pearl, Kalman, IIT, Vygotsky, Grossberg, McClelland CLS, Bayesian recursion, Lewis convention, robust control, etc.). The corrective in each is first-encounter cite-and-distinguish at the segment level — the same discipline already in scope for the post-R2 voice / lexicon-coherence pass per [`round-2-plan.md`](round-2-plan.md). Listing each here would duplicate the report; instead, this entry serves as the pointer.
+
+**Proposed action:** When the post-R2 lexicon-coherence pass runs, treat the report as input — each moderate case has the source citation and recommended distinguishing language already worked out.
+
+**Status:** open; folded into the post-R2 pass workflow.
+
+**Priority hint:** MEDIUM (as a class). Per-item is LOW.
 
 ---
 
