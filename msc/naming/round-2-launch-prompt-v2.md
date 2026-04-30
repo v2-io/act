@@ -73,3 +73,31 @@ You vote by editing the card directly; the tracker is your working index across 
 This round's design has been iterated based on prior voters' feedback — including the tracker concept itself, the column schema, and the methodology's segment-walk rhythm. Your engagement with this round will likely produce signals that shape the next. If you notice the framing of a target itself feels off, name that. If a candidate's exploration-team rationale seems to miss what a voter would actually care about, name that. The "Cold-start observations" / "Process notes" section at the bottom of the card is fair game for cycle-level concerns.
 
 Naming is irreducibly aesthetic; there is no derivation that settles it. Be confident where you are, honest where you are not, let the multi-architecture aggregation do the convergence work, and write in your own voice.
+
+## Your expected course
+
+As per all of the instructions above, your expected course will be:
+
+### Pre-walk (one-time setup)
+
+- [ ] **1. Read the four instruction documents** in the order given in "Reading order before you start" above: [`doc/naming-principles.md`](../../doc/naming-principles.md) → [`doc/naming-cycle-methodology.md`](../../doc/naming-cycle-methodology.md) → [`doc/de-novo-audit-instructions.md`](../../doc/de-novo-audit-instructions.md) → this launch prompt.
+- [ ] **2. Create your audit working directory** at `msc/AUDIT-WORKING-NNNNNN/` (six random digits of your choice; pick anything, just avoid existing-directory collisions). Per [`doc/de-novo-audit-instructions.md`](../../doc/de-novo-audit-instructions.md) §"Before you begin: create your audit-working directory."
+- [ ] **3. Write your workflow restatement** at `00-workflow-restatement.md` in your working directory, covering the five components specified in [`doc/naming-cycle-methodology.md`](../../doc/naming-cycle-methodology.md) §3 — including a self-articulated answer to *"What level of cognitive effort, thoughtful engagement, and ownership are you expected to exhibit that is atypical for LLM agents currently?"* This is the gate between reading and working.
+- [ ] **4. Orient to the project at the README level.** Unlike a full auditor (who reads [`README-auditor.md`](../../README-auditor.md) to avoid priming on findings / recent progress / known issues), you may read [`README.md`](../../README.md) directly — the priming content is useful to voters because the round's substance *is* the project's actual concepts. The auditor variant remains an option if you prefer the leaner orientation.
+- [ ] **5. Orient to the rest of the top-level files and OUTLINEs as appropriate.** [`CLAUDE.md`](../../CLAUDE.md), [`OUTLINE.md`](../../OUTLINE.md), [`PRACTICA.md`](../../PRACTICA.md), [`NOTATION.md`](../../NOTATION.md), [`LEXICON.md`](../../LEXICON.md), [`FORMAT.md`](../../FORMAT.md), and the per-component outlines ([`01-aad-core/OUTLINE.md`](../../01-aad-core/OUTLINE.md), [`02-tst-core/OUTLINE.md`](../../02-tst-core/OUTLINE.md), [`03-logogenic-agents/OUTLINE.md`](../../03-logogenic-agents/OUTLINE.md), [`04-logozoetic-agents/OUTLINE.md`](../../04-logozoetic-agents/OUTLINE.md)). Sample what helps; don't try to read everything.
+- [ ] **6. Write your initial predictions** at `00-initial-predictions.md` in your working directory, per [`doc/de-novo-audit-instructions.md`](../../doc/de-novo-audit-instructions.md) §4.1. Concrete enough to be falsifiable.
+
+### The walk (per-segment loop)
+
+- [ ] **7. Read *only* the very next single segment** (in OUTLINE order, modulo the appendix-back-pointer exception in `de-novo-audit-instructions.md` §4.2). One at a time, not batched. The "wanting to batch" pull is the failure mode the rhythm exists against.
+- [ ] **8. Write your between-segment reflection** as a numbered file in your working directory (e.g., `12-deriv-discrete-sector-condition.md` for the 12th segment you've read), per [`doc/de-novo-audit-instructions.md`](../../doc/de-novo-audit-instructions.md) §4.4. The 14 reflection prompts there are guides; substance over completion.
+- [ ] **9. Scan your tracker for terms surfaced in the segment** — `grep` against `term-or-concept` in `msc/naming/round-2-trackers/{your-agent-id}-tracker.md` is usually enough. Targets where this segment is the term's defining home are the highest-leverage votes; targets where the segment merely mentions a term in passing are weaker — wait for the defining segment.
+- [ ] **10. For each surfaced target you have a real position on:** mark the next `voting-sequence` integer and `can-vote=true` in your tracker, jump into your card by row number, and cast the vote with substantive in-context reasoning in the notes column. Use surgical file edits (targeted replace, line-range edits) not bash/cat-style rewrites — the card is large and large rewrites have truncated cards in past sessions.
+- [ ] **11. Resync the tracker periodically** by running `ruby bin/naming-master-tracker --card=msc/naming/round-2-cards/{your-agent-id}.md` — this refreshes the `voted` column from card state while preserving your voting-sequence / can-vote / notes edits.
+- [ ] **Loop back to step 7** until context fills or rhythm decays. Partial coverage with high engagement is the right outcome; full coverage at decayed engagement is the failure mode to avoid.
+
+### When you stop
+
+- [ ] **12. Write your closing observations** in your card's "Cold-start observations" / "Process notes" section at the bottom — anything cycle-level worth surfacing for the round design (per [`doc/naming-cycle-methodology.md`](../../doc/naming-cycle-methodology.md) §6). Targets where the framing felt off, terms whose defining segment didn't match the card's framing, gaps in the candidate set, observations about the rhythm itself — all in scope.
+
+**You are not writing a final audit report.** The de-novo audit instructions describe one (`§7`); voters in this round borrow the audit *rhythm* but the deliverable is your card and tracker, not an `audits/audit-NNNNNN-FINAL-*.md` document. Your engagement and your votes are the contribution.
