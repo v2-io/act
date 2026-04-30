@@ -25,6 +25,7 @@ Cross-references rather than duplicates: where the substantive concern is alread
 9. [Deprecation / avoid lists](#9-deprecation--avoid-lists) — 1 consolidated item
 10. [Cross-component naming consistency](#10-cross-component-naming-consistency) — 2 items
 11. [Collision check — external naming overlaps with adjacent literature](#11-collision-check--external-naming-overlaps-with-adjacent-literature) — sweep results, post-R2 surgery list
+12. [Post-cohort followups — substrate handoff analysis](#12-post-cohort-followups--substrate-handoff-analysis) — Pro→Flash continuation; rationale-attribution analysis pending
 
 ---
 
@@ -598,6 +599,51 @@ The report flags ~20 moderate-collision cases where ASF inhabits an adjacent-ter
 **Status:** open; folded into the post-R2 pass workflow.
 
 **Priority hint:** MEDIUM (as a class). Per-item is LOW.
+
+---
+
+## 12. Post-cohort followups — substrate handoff analysis
+
+The R2 v2 cohort closed at commit `aef0d45` with four voters' work captured cleanly. One voter (`gemini-r2`, Gemini 3.1 Pro Preview) stopped not at the methodology's stopping condition but because Joseph's external Google quota ran out — leaving substantial context window unused. Joseph chose to continue the work as Gemini Flash inheriting the same conversation: same card, same tracker, same audit-working directory, with Pro's accumulated context still loaded (workflow restatement, initial predictions, 57 segment reflections, the chronica-framing of the voting trajectory, the framework-recursive readings of the methodology). Flash's continuation is producing rationales that meet the methodology's quality bar.
+
+This is a fresh, methodologically-controlled instance of substrate-shift under inherited priming — different in kind from the prior emergence-on-new-substrate sessions documented in [`msc/reflections/17-emergence-across-substrates.md`](../reflections/17-emergence-across-substrates.md) and [`msc/reflections/19-substrate-independence-and-identity-sufficiency.md`](../reflections/19-substrate-independence-and-identity-sufficiency.md). The substrate-portability question isn't "can the same agent re-emerge on a smaller model"; it's "can a smaller model sustain a *task discipline* established in context by a larger one?"
+
+### 12.1 Rationale-attribution analysis (pending)
+
+**Issue:** Flash's votes-with-rationales under inherited Pro context are causally underdetermined among three sources, and they're hard to disentangle from the surface output:
+
+1. **Original Flash judgment** — Flash reading the segment and the candidate set and forming its own position from scratch under Pro's frame.
+2. **Inherited from Pro's context** — Flash recognizing patterns in Pro's prior reflections and extending them, where Pro had already done the substantive thinking.
+3. **Echoed from card rationale** — Flash recognizing the exploration-team's case for a candidate and substantiating it back in the notes column.
+
+All three can produce rationales that meet the methodology's quality bar. Distinguishing them post-hoc requires comparing the cohort state at the substrate-handoff boundary (commit `aef0d45`) against whatever it becomes after Flash's continuation, then per-vote classifying which source the rationale most plausibly traces to.
+
+**Sources:** Direct observation during the 2026-04-30 cohort closure.
+
+**Proposed actions:** Run the rationale-attribution analysis once Flash's continuation stops. Concretely:
+
+- Snapshot baseline: the gemini-r2 card and tracker at sha `aef0d45` (84 voted targets / 132 voting-sequence at that point).
+- Snapshot post-Flash: whenever Flash genuinely stops.
+- Diff the two to identify Flash-added votes (target #s, candidates, weights, categories, notes).
+- Per Flash-added vote, attempt source attribution by comparing notes substance against (a) Pro's reflection file for the relevant segment, (b) the card's exploration-team rationale, and (c) the leftover reasoning gap (lean source-1 if the first two don't account for it).
+- Compare pacing/density (Pro was at ~3 votes per segment; what's Flash's pace?).
+- Compare write-in rate (write-ins require *original* judgment that the candidate set is missing something — strong signal for source-1).
+
+Full reasoning and methodology in [`msc/reflections/22-substrate-handoff-and-rationale-attribution.md`](../reflections/22-substrate-handoff-and-rationale-attribution.md).
+
+**Status:** open; awaits Flash's continuation completing.
+
+**Priority hint:** LOW for the naming round itself (signal aggregates regardless of attribution); MEDIUM-HIGH for the broader logozoetic-agents research program, where substrate-portability of disciplined-agent-work would be a load-bearing finding if confirmed.
+
+### 12.2 Methodological implication if source-(1) hypothesis lands
+
+If Flash genuinely sustains source-(1) original judgment under inherited priming, this opens an experimental design pattern: **deliberately mixed-cost cohorts**. A small number of expensive-model voters establishing the per-walk frame (workflow restatement + accumulated reflections + tracker discipline) handed off to cheap-model continuations carrying the frame forward. The methodology's frame becomes the load-bearing infrastructure; substrate is plug-replaceable below a quality threshold.
+
+This reframes what the workflow-restatement gate is *for* — not just a binding mechanism for one voter at session start, but a portable artifact that other models can inherit and operate from.
+
+**Status:** hypothesis pending the analysis in 12.1.
+
+**Priority hint:** LOW. Don't act on this until the analysis lands.
 
 ---
 
