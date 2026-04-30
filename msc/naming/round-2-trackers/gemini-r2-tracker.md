@@ -50,7 +50,7 @@
 | 48 |  |  |  | [Concept] The property of model adequacy when measured against a single agent's own causal record rather than against a population average | Trajectory indexed … |  |
 | 49 |  |  |  | working note |  |  |
 | 50 |  |  |  | [Concept] The 1-anchor / 3-theorem structure in additive coordinate forcing | Anchor theorem stru… |  |
-| 51 | 193 | true | true | [Concept] Structural persistence / operational persistence / continuity persistence | Persistence taxonomy |  |
+| 51 | 193 | true | true | [Concept] Structural persistence / operational persistence / continuity persistence | Structural operatio… |  |
 | 52 | 194 | true | true | Regime III | Ambient noise regime |  |
 | 53 | 104 | true | true | team persistence |  |  |
 | 54 | 195 | true | true | [Concept] Lohmiller-Slotine contraction metric generalization used in contraction template | Contraction metric … |  |
@@ -85,7 +85,7 @@
 | 83 |  |  |  | [Concept] Section header: logogenic agent / logozoetic agent | Logogenic agent log… |  |
 | 84 |  |  |  | indivisum | Causal lock… |  |
 | 85 |  |  |  | [Concept] Track 1 / Track 2 in bias-bound derivation | Transport-inequalit… |  |
-| 86 | 134 | true | true | separability pattern | Tiered separability… |  |
+| 86 | 223 | true | true | separability pattern | Tiered separability… |  |
 | 87 | 109 | true | true | agent opacity | Emitter opacity… |  |
 | 88 | 203 | true | true | Regime II-A | Magnitude shock reg… |  |
 | 89 | 204 | true | true | communication gain | Trust weighted comm… |  |
@@ -126,14 +126,14 @@
 | 124 |  | true | true | structural adaptation | Architectural adapt… |  |
 | 125 | 220 | true | true | [Concept] Symbol default $M_t$ in prose | Model state… |  |
 | 126 |  |  |  | [Concept] Future segment layer header for the o bp14 derivation audit table | Derivation audit ta… |  |
-| 127 |  | true |  | [Concept] The family of cross-architecture diagnostic patterns AAD repeatedly invokes | Diagnostic template |  |
-| 128 |  | true |  | strategic composition | Game theoretic comp… |  |
+| 127 |  | true | true | [Concept] The family of cross-architecture diagnostic patterns AAD repeatedly invokes | Diagnostic template |  |
+| 128 |  | true | true | strategic composition | Game theoretic comp… |  |
 | 129 |  | true |  | [Concept] Replacing parameters without changing structure | Parametric update… |  |
 | 130 | 141 | true | true | AAD (acronym) | AAD… |  |
 | 131 | 84 | true | true | chain confidence decay | Log confidence addi… |  |
-| 132 |  | true |  | edge credence |  |  |
+| 132 | 226 | true | true | edge credence |  |  |
 | 133 |  |  |  | [Concept] The product of architectural coupling $\kappa$ and environmental ambiguity $\mathcal{A}$ | Class 2 bias bound,… |  |
-| 134 |  | true |  | blind pursuer | Model degenerate pu… |  |
+| 134 | 227 | true | true | blind pursuer | Model degenerate pu… |  |
 | 135 | 113 | true | true | AAD (Adaptation and Actuation Dynamics) | AAD agentic adaptat… |  |
 | 136 | 163 | true | true | agent spectrum | Agency spectrum… | Accurate and established. |
 | 137 |  |  |  | $\alpha_1$ $\alpha_2$ $\beta$ partition | Fixed gain adaptive… |  |
@@ -141,19 +141,19 @@
 | 139 |  | true | true | chronica | Lowercase italic ch… |  |
 | 140 |  | true | true | adaptive tempo | tempo… |  |
 | 141 |  |  |  | $f_{\text{init}}$ reconstruction function | Epistemic reconstru… |  |
-| 142 |  | true |  | [Concept] The adaptive cycle as the theory's fundamental unit | The adaptive cycle,… |  |
-| 143 |  | true |  | gate 1 2 3 4 | Dependency content … |  |
-| 144 |  | true |  | [Concept] The self-reinforcing positive feedback loop linking $M_t$ quality and $\Sigma_t$ evaluable complexity TST-specific and AAD-general forms | Quality tempo compo… |  |
-| 145 |  | true |  | auxilia hierarchy | Sub-agent instantia… |  |
+| 142 | 228 | true | true | [Concept] The adaptive cycle as the theory's fundamental unit | The adaptive cycle,… |  |
+| 143 | 229 | true | true | gate 1 2 3 4 | Dependency content … |  |
+| 144 | 230 | true | true | [Concept] The self-reinforcing positive feedback loop linking $M_t$ quality and $\Sigma_t$ evaluable complexity TST-specific and AAD-general forms | Quality tempo compo… |  |
+| 145 | 231 | true | true | auxilia hierarchy | Sub-agent instantia… |  |
 | 146 |  |  |  | observation function | Observation channel |  |
-| 147 |  | true |  | "purpose" / "purposeful" | Purposeful |  |
+| 147 | 232 | true | true | "purpose" / "purposeful" | Purposeful |  |
 | 148 |  |  |  | [Concept] Using residual autocorrelation to diagnose model-class failure | Structured residual… |  |
 | 149 |  |  |  | [Concept] The failure mode where η → 0 freezes learning in either of two distinguishable modes low $U_o$ vs high $U_o$ | Update calcificatio… |  |
 | 150 |  |  |  | [Concept] Master developer writing clean code in the same time as messy code | Near zero cost obse… |  |
 | 151 |  |  |  | [Concept] Symbol default (PI) parameterization-invariance axiom | Coordinate invarian… |  |
-| 152 |  | true |  | Pearl L2 | Exploring |  |
-| 153 |  | true |  | $U_M, U_O, U_\Sigma, U_{\text{obs}}, U_f$ | Unity coordinate |  |
-| 154 |  | true |  | agent identity | Singular causal tra… |  |
+| 152 | 233 | true | true | Pearl L2 | Exploring |  |
+| 153 | 234 | true | true | $U_M, U_O, U_\Sigma, U_{\text{obs}}, U_f$ | Unity coordinate |  |
+| 154 | 235 | true | true | agent identity | Singular causal tra… |  |
 | 155 |  | true |  | edge update natural parameter | Log odds edge coord… |  |
 | 156 |  | true |  | [Concept] The strengthening of satisfaction gap and control regret diagnostics across the C1 / C2 / C3 hierarchy naming both the strengthening pattern and the underlying ordered result that produce it | The convention mono… |  |
 | 157 |  | true |  | $\alpha$, $\beta$ — sector lower bound and (A2′) sub-scope | $\alpha, \beta$ |  |
@@ -258,7 +258,7 @@
 | 256 |  | true |  | formulation / definition / result / ... (segment types) | Formulation definit… |  |
 | 257 |  |  |  | structured rich context | Structured context |  |
 | 258 |  |  |  | [Concept] Property of having genuine temporal experience | Temporal interiorit… |  |
-| 259 |  |  |  | temporal optimality |  |  |
+| 259 | 236 | true | true | temporal optimality |  |  |
 | 260 |  |  |  | [Concept] Rate of growth at slowest timescale | Developmental tempo… |  |
 | 261 |  | true |  | $\gamma_{\text{adv}}$ and $\gamma_{\text{coop}}$ | Signed coupling |  |
 | 262 |  | true |  | [Concept] Čencov / Fisher / Cauchy functional equation / Shore-Johnson-Hobson / Aczél | Coordinate forcing … |  |
@@ -368,12 +368,12 @@
 | 366 |  | true |  | [Concept] The Pearl-blanket reading of directed separation | Pearl-blanket form |  |
 | 367 |  |  |  | simulation result |  |  |
 | 368 |  | true |  | purposeful substate | Purposeful state |  |
-| 369 |  |  |  | specification bound |  |  |
+| 369 | 240 | true | true | specification bound |  |  |
 | 370 |  |  |  | change investment | Change amortization |  |
 | 371 |  | true |  | unity closure mapping | Coherence closure m… |  |
 | 372 |  | true |  | [Concept] The equivalence of learning speed and physical speed | The speed quality p… |  |
 | 373 |  | true | true | adaptive system |  |  |
-| 374 |  |  |  | software scope | Software domain sco… |  |
+| 374 | 237 | true | true | software scope | Software domain sco… |  |
 | 375 |  | true |  | [Concept] Brooks's law formalized as the inevitable tempo loss in team composition | Sub-additive tempo … |  |
 | 376 |  |  |  | [Concept] The tension between lowering internal opacity for coordination and increasing external vulnerability | Coordination secrec… |  |
 | 377 |  | true |  | [Concept] The condition that a strategy DAG endosymbiont crosses the composite agent scope from below | Composition thresho… |  |
@@ -392,7 +392,7 @@
 | 390 |  |  |  | [Concept] Artificially spiking uncertainty to unlearn old architectural habits | Gain reset… |  |
 | 391 |  | true |  | honesty as architecture | Architectural scope… |  |
 | 392 |  |  |  | [Concept] The asymmetry where strategy complexity is bounded by model capacity but not vice versa | Epistemic ceiling… |  |
-| 393 |  |  |  | [Concept] Git recorded committed state subset of the chronica $\mathcal{C}_t^{\text{commit}}$ | Committed chronica … |  |
+| 393 | 238 | true | true | [Concept] Git recorded committed state subset of the chronica $\mathcal{C}_t^{\text{commit}}$ | Committed chronica … |  |
 | 394 |  | true |  | symbiogenic composition | Asymmetric absorpti… |  |
 | 395 |  |  |  | sufficiency discontinuity | Sufficiency drop |  |
 | 396 |  |  |  | $U_{\text{src}}$ and $U_{\text{align}}$ | Trust uncertainty |  |
@@ -427,7 +427,7 @@
 | 425 |  | true |  | $\beta$ sub-scope | Dynamic gain bounda… |  |
 | 426 |  | true |  | [Concept] The recurring Lyapunov / derive-the-bound move across six segments | The persistence tem… |  |
 | 427 | 129 | true | true | multi timescale stability |  |  |
-| 428 |  | true |  | composition closure | Macro agent criteri… |  |
+| 428 |  | true | true | composition closure | Macro agent criteri… |  |
 | 429 |  | true |  | $\beta$ (A2′) assumed sub-scope | Cyclic game sub-sco… |  |
 | 430 |  | true |  | terminal alignment error | Terminal alignment … |  |
 | 431 |  | true |  | [Concept] Brooks's law formalized as the inevitable tempo loss in team composition | Sub-additive tempo … |  |
@@ -576,7 +576,7 @@
 | 574 | 156 | true | true | Section I. Adaptive Systems Under Uncertainty | Section I adaptive … |  |
 | 575 |  | true |  | adaptive gain dynamics |  |  |
 | 576 |  | true |  | [Concept] The per-reader compounding cost of understanding code | Comprehension compo… |  |
-| 577 |  | true |  | $\mathcal C_t^{\text{commit}}$ (committed-state subset) | Committed chronica |  |
+| 577 | 239 | true | true | $\mathcal C_t^{\text{commit}}$ (committed-state subset) | Committed chronica |  |
 | 578 |  | true |  | [Concept] Two-condition decomposition of persistence | Structural task ade… |  |
 | 579 |  | true |  | prompt engineering | Observation boundar… |  |
 | 580 |  | true |  | structural adaptation enablement | Consolidation enabl… |  |

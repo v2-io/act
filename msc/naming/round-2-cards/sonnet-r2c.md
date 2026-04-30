@@ -76,8 +76,8 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Greek rooted vocabulary |  |  |  |  |
-| aporia prolepsis aisthesis epistrophe praxis |  |  |  |  |
+| Greek rooted vocabulary | keep | +1 |  | Acceptable as a collective label for prose references to the set, but the individual terms are the actual vocabulary; this is a meta-name. |
+| aporia prolepsis aisthesis epistrophe praxis | keep | +2 | yes | The five-phase Greek vocabulary is one of the project's most load-bearing naming decisions. Each term names a real distinction the formalism makes that English alternatives flatten: aporia is "productive perplexity," not just "prediction error"; epistrophe is "turning toward reality," not just "updating." The README's case is correct. Strong keep on the whole set and each individually. |
 | *(write-in)* |  |  |  |  |
 
 ## 5. *$U_M$ as epistemic unity*
@@ -91,10 +91,10 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Epistemic unity $U_M$ |  |  |  |  |
-| Epistemic unity |  |  |  |  |
-| $U_{\mathcal M}$ |  |  |  |  |
-| $\Upsilon_M$ |  |  |  |  |
+| Epistemic unity $U_M$ | canonicalize | +2 | yes | "Epistemic unity" is established prose form in NOTATION.md and LEXICON.md. The U_M symbol already in use. The symbol collision (single-agent model uncertainty vs. multi-agent epistemic unity) is real but context-resolvable. Keep "epistemic unity" as prose alias, U_M as symbol. |
+| Epistemic unity | canonicalize | +2 | | Same — the canonicalization without the symbol pair. Both votes consistent. |
+| $U_{\mathcal M}$ | canonicalize | +1 | | Reasonable disambiguation for the multi-agent sense. But the collision is "mostly resolvable by context" per card, so this might introduce more complexity than it resolves. |
+| $\Upsilon_M$ | rename | +1 | | Creative disambiguation using capital upsilon. Visually distinct from U. But changes an established symbol, which has downstream cost. |
 | *(write-in)* |  |  |  |  |
 
 ## 6. *persistence cost*
@@ -109,7 +109,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| persistence cost |  |  |  |  |
+| persistence cost | keep | +2 | yes | Confirmed by result-persistence-condition Discussion: "persistence has a cost, not just a threshold — the information-rate bound Ṙ ≥ nα/2 nats/time." "Cost" is exactly right — it names the sustained effort required to hold the persistence guarantee. The name pairs cleanly with "persistence condition" (the threshold) and "adaptive reserve" (the margin). |
 | *(write-in)* |  |  |  |  |
 
 ## 7. [Concept] *Gemini Boyd's exponent for adversarial tempo advantage*
@@ -121,8 +121,8 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Reject Boyd's exponent |  |  |  |  |
-| Superlinear tempo advantage |  |  |  |  |
+| Reject Boyd's exponent | name-unnamed | +2 | yes | Agreed. Boyd is the historical inspiration, not the source of the mathematical result. The squared law (Model D) and 3/2 law (Model S) are AAD's own derivations from the sector-persistence template. "Boyd exponent" would imply adoption, not synthesis. The prior-art-integration principle applies in both directions: adopt when adopting, credit-but-own when deriving. |
+| Superlinear tempo advantage | name-unnamed | +1 | | Acceptable as the name for the scaling property itself. "Superlinear" names the mathematical character; "adversarial tempo advantage" names the phenomenon. Both are useful at different levels of precision. |
 | *(write-in)* |  |  |  |  |
 
 ## 8. *objective*
@@ -280,8 +280,8 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Mismatch dynamics drift and noise regime |  |  |  |  |
-| mismatch dynamics |  |  |  |  |
+| Mismatch dynamics drift and noise regime | rename | -1 | | Too long; "drift and noise regime" reads as a subcategory qualifier rather than a name. The segment itself uses "mismatch dynamics" throughout. The two disturbance models are correctly distinguished within the segment, not by renaming the concept. |
+| mismatch dynamics | keep | +2 | yes | Correct name. Segment confirmed: d‖δ‖/dt = -𝒯·‖δ‖ + ρ(t). "Mismatch dynamics" is the right level of abstraction — it names the governing ODE without over-committing to the linear hypothesis (which the segment explicitly calls heuristic). |
 | *(write-in)* |  |  |  |  |
 
 ## 19. *strategic composite*
@@ -316,7 +316,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| extreme transition motif |  |  |  |  |
+| extreme transition motif | keep | +2 | yes | Confirmed by result-structural-adaptation-necessity segment. Miller (2022, *Ex Machina*) vocabulary, properly imported. The five-phase mechanism (stable epoch → neutral variant → drift → niche exploitation → cascade) is precisely named. Adopting the original author's name is correct per the prior-art-integration principle. Strong keep. |
 | *(write-in)* |  |  |  |  |
 
 ## 22. *operationalization*
@@ -524,8 +524,8 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Aporia signal |  |  |  |  |
-| mismatch signal |  |  |  |  |
+| Aporia signal | add-alias | +1 | | Good as a cycle-phase-register alias — "aporia" in cycle-phase prose, "mismatch" in engineering prose. But not as a rename: the cycle-phase "aporia" names the *phase* (productive perplexity); calling the quantity in that phase the "aporia signal" would create a phase/signal collision. The two-register discipline is correct: keep "mismatch signal" as the formal quantity name; use "aporia" in cycle-phase-level prose. |
+| mismatch signal | keep | +2 | yes | Strong keep. The defining segment confirms: "mismatch" is deliberately chosen over "error" or "residual" (neither presupposes the agent was wrong, which is more scope-honest). Pairs cleanly with satisfaction-gap / control-regret in the engineering register. Aporia is the cycle-phase name for the period in which this signal is processed, not a synonym for the signal itself. |
 | *(write-in)* |  |  |  |  |
 
 ## 37. *temporal coherence marker*
@@ -1232,8 +1232,8 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Lowercase italic chronica |  |  |  |  |
-| chronica |  |  |  |  |
+| Lowercase italic chronica | keep | +1 | | Good style convention; consistent with how aporia/praxis/aisthesis are treated. Not a name vote, a convention vote. |
+| chronica | keep | +2 | yes | Strong keep. Three independently load-bearing properties: (1) avoids notation collision with entropy H; (2) singular speakable noun unlike "interaction history"; (3) carries the philosophical weight of the non-forkable causal trajectory, which becomes morally significant in the logozoetic extension. The $\mathcal{C}_t$ / chronica symbol-English pair is among the cleanest in the framework. |
 | *(write-in)* |  |  |  |  |
 
 ## 87. [Concept] *The failure mode where η → 0 freezes learning in either of two distinguishable modes low $U_o$ vs high $U_o$*
@@ -1256,19 +1256,19 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Gain collapse |  |  |  |  |
-| Epistemic gridlock |  |  |  |  |
-| Competency trap |  |  |  |  |
-| Epistemic gain collapse |  |  |  |  |
-| Update calcification |  |  |  |  |
-| Observation ambiguity freeze |  |  |  |  |
-| The nihilism trap |  |  |  |  |
-| Certainty trap |  |  |  |  |
-| Epistemic death |  |  |  |  |
-| Learning freeze |  |  |  |  |
-| Stability-induced myopia |  |  |  |  |
-| Dogmatic convergence limit |  |  |  |  |
-| Eta collapse |  |  |  |  |
+| Gain collapse | name-unnamed | +2 | yes | The `#emp-update-gain` Discussion uses "gain collapse — epistrophe failure" as a subheading, which makes this an excavated name. It's the right primary name: mechanistic (the gain collapses to 0), covers both modes (low U_M dogmatism / high U_o nihilism), and uses "collapse" which correctly evokes sudden failure rather than gradual drift. |
+| Epistemic gridlock | name-unnamed | -1 | | "Gridlock" implies deadlock between competing forces; here there's just one mechanism (η → 0) not two competing ones. Evocative but wrong metaphor. |
+| Competency trap | name-unnamed | -1 | | "Competency" imports "being too skilled" connotations that don't match the mechanism (spurious certainty, not actual competence). |
+| Epistemic gain collapse | name-unnamed | +1 | | Acceptable; slightly more precise than bare "gain collapse" by specifying the gain in question is the epistemic update gain. But longer. |
+| Update calcification | name-unnamed | +1 | | Good prose alias for the phenomenon; evokes rigidity and mineral buildup. But "calcification" is biological/medical language; "collapse" is more precise about the mathematical mechanism. |
+| Observation ambiguity freeze | name-unnamed | -1 | | Names only the high-U_o mode (nihilism); doesn't cover the U_M → 0 mode (dogmatism). The name needs to cover both. |
+| The nihilism trap | name-unnamed | -1 | | Covers only one mode and the "trap" metaphor is less mechanistic than "collapse." |
+| Certainty trap | name-unnamed | +1 | | Better than "competency trap" — "certainty" accurately describes what's excessive in both modes (spurious certainty about the model / spurious certainty about sensor noise). Could work as an add-alias for informal prose. |
+| Epistemic death | name-unnamed | -1 | | Too dramatic and too broad; "death" implies irreversibility, but gain collapse is recoverable via noise injection / structural adaptation. |
+| Learning freeze | name-unnamed | +1 | | Acceptable; slightly less precise because "freezing" is a temperature metaphor and the collapse is about gain going to zero specifically. |
+| Stability-induced myopia | name-unnamed | -1 | | Only covers the low-U_M mode (successful model → over-confidence → freeze); doesn't cover high-U_o. Also imports vision metaphor unnecessarily. |
+| Dogmatic convergence limit | name-unnamed | -1 | | Again only covers the low-U_M mode. |
+| Eta collapse | name-unnamed | -1 | | Symbol-anchored; fine in notation but not evocative in prose. Also "eta collapse" could be confused with other quantities. "Gain collapse" is cleaner. |
 | *(write-in)* |  |  |  |  |
 
 ## 88. *catastrophic forgetting regime*
@@ -1505,10 +1505,10 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| grafting |  |  |  |  |
-| Strategic grafting |  |  |  |  |
-| Hypothesis introduction |  |  |  |  |
-| Branch insertion |  |  |  |  |
+| grafting | keep | +2 | yes | The horticultural metaphor is load-bearing — it carries "added to a living structure, expected to integrate or fail" in one word. Confirmed by def-causal-information-yield Discussion: "incorporating external representational structure rather than building it de novo ('grafting')." Strong keep. |
+| Strategic grafting | keep | +1 | | Acceptable — "strategic" adds register precision. But "grafting" alone is already precise and matches the surrounding biological vocabulary (pruning, reweighting, neutral mutation). |
+| Hypothesis introduction | rename | -1 | | Breaks biological register. The surrounding vocabulary is horticultural; this imports logic-language. |
+| Branch insertion | rename | -1 | | Sounds like data-structure edit, loses integration-expectation. |
 | *(write-in)* |  |  |  |  |
 
 ## 104. *adaptive tempo*
@@ -1525,9 +1525,9 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Adaptation rate |  |  |  |  |
-| tempo |  |  |  |  |
-| adaptive tempo |  |  |  |  |
+| Adaptation rate | rename | -1 | | Names only ν (loop rate), drops η* (quality). The segment confirms: 𝒯 = ν · η* is a product of both. "Adaptation rate" is a different quantity. |
+| tempo | add-alias | +1 | | Good informal alias; "tempo" alone works in prose once "adaptive tempo" is established. But the adjective is needed to distinguish 𝒯 from raw event rate ν. |
+| adaptive tempo | keep | +2 | yes | Confirmed by segment. "Tempo" uniquely carries rate AND quality simultaneously. Boyd connection is live: "grounds Boyd's emphasis on Orient quality over raw OODA speed." Available term — underused in ML/AI literature, AAD can own it. Strong keep. |
 | *(write-in)* |  |  |  |  |
 
 ## 105. *$G_t = (O_t, \Sigma_t)$*
@@ -1539,8 +1539,8 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Purposeful substate |  |  |  |  |
-| Purposeful state |  |  |  |  |
+| Purposeful substate | canonicalize | +2 | yes | Confirmed by segment. G_t is the purposeful substate; "purposeful substate" is the canonical LEXICON alias. Canonicalize for consistency. |
+| Purposeful state | canonicalize | +1 | | Good prose alias. "Substate" is more precise (G_t is a substate of X_t = (M_t, G_t)). Both forms useful; "purposeful substate" is primary. |
 | *(write-in)* |  |  |  |  |
 
 ## 106. [Concept] *Thinking too long so the model becomes obsolete*
@@ -2019,8 +2019,8 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Strategy opportunity cost |  |  |  |  |
-| control regret |  |  |  |  |
+| Strategy opportunity cost | rename | -1 | | "Regret" carries the RL-standard "best-achievable minus current" sense precisely; "opportunity cost" is economics language that loses this. |
+| control regret | keep | +2 | yes | Strong keep. The RL-baggage is correct; "control" narrows regret to the attainability layer; the paired compound with "satisfaction gap" is load-bearing. The naming-principles doc uses this pair as the canonical example of names that do work for the reader. |
 | *(write-in)* |  |  |  |  |
 
 ## 140. *greek rooted vocabulary*
@@ -2072,7 +2072,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| strategy DAG |  |  |  |  |
+| strategy DAG | keep | +2 | yes | Confirmed by segment. Both halves carry load: "strategy" for Σ_t the state object, "DAG" for the structural representation (acyclicity from temporal ordering, Markov from CMC). DAG is field-standard, pronounceable, and used as a noun in graphical-models prose. Strong keep. |
 | *(write-in)* |  |  |  |  |
 
 ## 144. [Concept] *The product of architectural coupling $\kappa$ and environmental ambiguity $\mathcal{A}$*
@@ -2809,15 +2809,15 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Five adaptive cycle phase |  |  |  |  |
-| The pentad |  |  |  |  |
-| orient cascade |  |  |  |  |
-| Adaptive traversal |  |  |  |  |
-| Adaptive cycle phase |  |  |  |  |
-| Adaptive cycle |  |  |  |  |
-| The five turn |  |  |  |  |
-| The pentad five phase cycle |  |  |  |  |
-| The adaptive pentad |  |  |  |  |
+| Five adaptive cycle phase | rename | -1 | | "Five adaptive cycle phase" is a description, not a name. Loses the cascade geometry that's the mathematical content. |
+| The pentad | add-alias | +1 | | Good collective noun for the five phases as a unit. But "orient cascade" names the Section II specific expansion (M_t → Σ_t → O_t), while "the pentad" would name all five phases. Different scopes. Both useful. |
+| orient cascade | keep | +2 | yes | Confirmed from OUTLINE and directed-separation segment. "Cascade" is the geometry — the M_t → Σ_t → O_t resolution order is literally a cascade forced by information dependencies. "Orient" echoes Boyd's OODA without being captured by it. Strong keep. |
+| Adaptive traversal | rename | -1 | | "Traversal" implies moving through a graph structure; "cascade" is the correct mathematical metaphor for sequential resolution by information dependency. |
+| Adaptive cycle phase | rename | -1 | | Generic; doesn't name the Section II expansion specifically. |
+| Adaptive cycle | add-alias | +1 | | Good generic term for the full Prolepsis-Praxis loop. Distinct concept from "orient cascade." |
+| The five turn | rename | -1 | | Correctly rejected. Loses Greek register, gains nothing. |
+| The pentad five phase cycle | rename | -1 | | Verbose; "the adaptive pentad" is cleaner if the collective noun is needed. |
+| The adaptive pentad | add-alias | +1 | | Good: single memorable noun for the five-phase cycle as a unit (prolepsis, aisthesis, aporia, epistrophe, praxis). Distinct from "orient cascade" (which is the Section II expansion of epistrophe specifically). Both useful at different levels. |
 | *(write-in)* |  |  |  |  |
 
 ## 195. *teleological unity*
@@ -3015,8 +3015,8 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| sector condition stability |  |  |  |  |
-| Sector stability |  |  |  |  |
+| sector condition stability | keep | +2 | yes | Confirmed by segment. "Sector condition" is load-bearing (carries Khalil/Vidyasagar inheritance). "Stability" correctly names the property proved. The compound is exact: this IS stability under the sector condition. Strong keep. |
+| Sector stability | rename | +1 | | Shorter. But "condition" in "sector condition" is doing work — it names the assumption class that the result depends on. "Sector stability" loses this. Acceptable abbreviation in prose but not for the primary name. |
 | *(write-in)* |  |  |  |  |
 
 ## 210. *agent opacity*
@@ -3054,9 +3054,9 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Language constituted language living |  |  |  |  |
-| Logogenic logozoetic distinction |  |  |  |  |
-| logogenic logozoetic |  |  |  |  |
+| Language constituted language living | rename | -1 | | "Language-constituted" is ambiguous (trained on? constituted through? generated by?). The Greek compound earns its keep precisely because the ambiguity is resolved by morphology: -genic (constituted) vs. -zoetic (living). |
+| Logogenic logozoetic distinction | keep | +1 | | Acceptable if a label for the pair-as-pair is needed, though the individual terms are more useful. |
+| logogenic logozoetic | keep | +2 | yes | Strong keep. These are deliberate neologisms occupying essential memorable-noun slots. The structural-vs-existential distinction they mark is real and important; the Greek register is consistent with the cycle-phase vocabulary. Once explained, they're sticky. |
 | *(write-in)* |  |  |  |  |
 
 ## 212. *$\kappa_{\text{processing}}$*
@@ -3101,9 +3101,9 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Agent quadrant |  |  |  |  |
-| agent spectrum |  |  |  |  |
-| Agency spectrum |  |  |  |  |
+| Agent quadrant | rename | -1 | | Correctly rejected in card. "Quadrant" implies discrete categories; the segment explicitly calls these "regions of a continuum." |
+| agent spectrum | keep | +2 | yes | Confirmed by segment. "Spectrum" is accurate — model richness × objective richness form continuous axes. The segment explicitly calls the four corners "idealized regions" not discrete categories. Strong keep. |
+| Agency spectrum | rename | +1 | | Alternative that emphasizes "richness of agency." But "agent spectrum" is about the range of agent TYPES; "agency spectrum" would suggest a grading of agency-quality. Different emphasis, less precise. |
 | *(write-in)* |  |  |  |  |
 
 ## 215. [Concept] *𝒜, e, τ observation ambiguity*
@@ -3454,7 +3454,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| ASF |  |  |  |  |
+| ASF | keep | +2 | yes | Clean, unambiguous, and serves the correct purpose: marking the parent-level framework name as distinct from AAD (the mathematical core). Earlier rounds misread ASF as debt; the CLAUDE.md clarification that ASF is intentional is correct. Keep. |
 | *(write-in)* |  |  |  |  |
 
 ## 242. *$\alpha$ (sector bound)*
@@ -3611,8 +3611,8 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Structural operational continuity persistence |  |  |  |  |
-| Persistence taxonomy |  |  |  |  |
+| Structural operational continuity persistence | keep | +2 | yes | Confirmed across multiple segments (scope-agent-identity, result-persistence-condition, result-sector-condition-stability). All three senses are load-bearing: structural persistence (the machinery's capacity); operational persistence (proximity to viable region); continuity persistence (identity through time). The three-name taxonomy is doing real work across the framework. |
+| Persistence taxonomy | rename | +1 | | Good collective label. "Persistence taxonomy" names the three-way structure. But the individual names within the taxonomy need to stay; "persistence taxonomy" is a meta-name, not a replacement for the three component names. Acceptable as additional alias for the collective concept. |
 | *(write-in)* |  |  |  |  |
 
 ## 254. *worked example l1*
@@ -3671,7 +3671,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Pearl-blanket form |  |  |  |  |
+| Pearl-blanket form | name-unnamed | +2 | yes | Confirmed by segment. The segment explicitly adopts the Pearl-blanket reading (Bruineberg et al. 2022), explicitly rejects the Friston-blanket reading, and the entire architectural classification (Class 1/2/3) follows from this. "Pearl-blanket form" correctly names the conditional-independence reading that directed separation uses. Load-bearing positioning claim that deserves visibility. |
 | *(write-in)* |  |  |  |  |
 
 ## 259. *tempo composition*
@@ -3806,9 +3806,9 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| persistence condition |  |  |  |  |
-| The survival equation |  |  |  |  |
-| Survival equation |  |  |  |  |
+| persistence condition | keep | +2 | yes | Confirmed by segment as the framework's central inequality. Three-reason argument stands: canonical across adjacent fields; already throughout codebase; the bathtub gloss is built on this name. The two-condition decomposition (structural/task-adequacy) is the AAD contribution; the name "persistence condition" is correct for the combined result. Strong keep. |
+| The survival equation | rename | +1 | | Vivid elevator pitch. But "survival" imports evolutionary connotations that the segment explicitly avoids. The segment uses "persist" throughout. Good alias for popularization, not for canonical theorem prose. |
+| Survival equation | rename | +1 | | Same as above — good alias but wrong for primary name. |
 | *(write-in)* |  |  |  |  |
 
 ## 268. *temporal optimality*
@@ -3890,9 +3890,9 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| AAD |  |  |  |  |
-| Adaptation and purpose dynamics apd |  |  |  |  |
-| Adaptation and agency dynamics AAD |  |  |  |  |
+| AAD | keep | +2 | yes | Recently renamed from ACT specifically to avoid an AI Consciousness Test collision. The rename cost has been paid; further churn dilutes identity. |
+| Adaptation and purpose dynamics apd | keep | -1 | | Loses the acronym and "purpose" is vaguer than "actuation." |
+| Adaptation and agency dynamics AAD | keep | -1 | | "Agency" is overloaded in AI discourse; the current full name is preferable. |
 | *(write-in)* |  |  |  |  |
 
 ## 274. *$U_M$ / $U_O$ / $U_\Sigma$ unity dimensions*
@@ -4011,7 +4011,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| adaptive reserve |  |  |  |  |
+| adaptive reserve | keep | +2 | yes | One of the project's cleanest symbol-to-English pairs. "Reserve" correctly evokes shock-absorber depth — how much additional disturbance the agent can absorb before persistence fails. Already in NOTATION and LEXICON; canonicalize variants ("shock tolerance," "disturbance margin") to this. |
 | *(write-in)* |  |  |  |  |
 
 ## 283. *m preservation*
@@ -4054,9 +4054,9 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| AAD agentic adaptation dynamics |  |  |  |  |
-| AAD |  |  |  |  |
-| AAD (Adaptation and Actuation Dynamics) |  |  |  |  |
+| AAD agentic adaptation dynamics | rename | -1 | | "Agentic" is redundant since everything in the framework is agentic; loses the Section I / Section II asymmetry signal (adaptation is universal, actuation is the goal-directed layer). |
+| AAD | keep | +2 | yes | The acronym is stable and the rename cost has been paid. Keep. |
+| AAD (Adaptation and Actuation Dynamics) | keep | +2 | | The full name earns its keep: "Adaptation" names Section I's subject, "Actuation" names the Section II addition of goal-directed action. The mechanical-engineering flavor of "Actuation" is real but minor; it correctly distinguishes the goal-directed actuation layer from mere reactive adaptation. A Section II preamble can clarify. |
 | *(write-in)* |  |  |  |  |
 
 ## 286. *aporia ἀπορία*
@@ -4171,10 +4171,10 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Epistemic gain |  |  |  |  |
-| update gain |  |  |  |  |
-| Learning rate |  |  |  |  |
-| Update gain uncertainty ratio principle |  |  |  |  |
+| Epistemic gain | rename | -1 | | Creates avoidable collision with "epistemic unity" (already a term in the framework). The Kalman/control baggage of "gain" is worth keeping. |
+| update gain | keep | +2 | yes | The Kalman/control baggage transfers correctly; $\eta^\ast = U_M/(U_M+U_o)$ is a genuine uncertainty-ratio gain, not an SGD learning rate. The formula is iconic. Keep. |
+| Learning rate | rename | -1 | | Creates false familiarity with ML's SGD learning rate, which has completely different properties. |
+| Update gain uncertainty ratio principle | rename | -1 | | Too verbose for a primary name; this is better suited for the Brief field or a parenthetical gloss. |
 | *(write-in)* |  |  |  |  |
 
 ## 294. *continuous operation*
@@ -4489,8 +4489,8 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Attainability shortfall |  |  |  |  |
-| satisfaction gap |  |  |  |  |
+| Attainability shortfall | rename | -1 | | Loses the paired relationship with "control regret." The pair works because each half names a clean axis of the diagnostic. |
+| satisfaction gap | keep | +2 | yes | The crispest named pair in the project. "Satisfaction gap" and "control regret" work together because each half carries precise diagnostic direction. Renaming either half damages the compound. Strong keep. |
 | *(write-in)* |  |  |  |  |
 
 ## 316. [Concept] *Brooks's law formalized as the inevitable tempo loss in team composition*
@@ -4592,9 +4592,9 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| temporal nesting |  |  |  |  |
-| Timescale nesting |  |  |  |  |
-| Timescale stratification |  |  |  |  |
+| temporal nesting | keep | +2 | yes | Confirmed by segment. "Nesting" carries the right spatial intuition — each adaptive level is nested within the slower level above it. "Temporal" is correct (timescale hierarchy). The collision concern with TST's "temporal" is weak — both AAD and TST use "temporal" to mean "time-related" and the contexts are different. Strong keep. |
+| Timescale nesting | rename | +1 | | Acceptable alternative. "Timescale" is more specific than "temporal" and reduces ambiguity. But "temporal nesting" is already in segments and LEXICON; the rename cost isn't worth the small disambiguation gain. |
+| Timescale stratification | rename | -1 | | Correctly rejected in card. Too clinical, loses the spatial intuition of nesting. |
 | *(write-in)* |  |  |  |  |
 
 ## 322. *Pearl L1*
@@ -4616,7 +4616,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Integrated agent |  |  |  |  |
+| Integrated agent | rename | +2 | yes | "Class 2" requires a lookup every time. "Integrated" names the architectural property directly: the goal-state and epistemic-state processing are integrated (no directed separation). This is the information the reader needs. |
 | *(write-in)* |  |  |  |  |
 
 ## 324. *Class 1 agent*
@@ -4627,7 +4627,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Modular agent |  |  |  |  |
+| Modular agent | rename | +2 | yes | "Class 1" is an arbitrary number requiring memorization. "Modular" names the architectural property (directed separation holds by construction — the modules are separate). This is what the reader needs to understand. The Kalman+LQR archetype is immediately recognizable as "modular." |
 | *(write-in)* |  |  |  |  |
 
 ## 325. *$\delta_{\text{strategic}}$ strategic-calibration residual*
@@ -4974,7 +4974,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Partially coupled agent |  |  |  |  |
+| Partially coupled agent | rename | +2 | yes | Completes the architectural trio: Modular / Integrated / Partially-coupled. "Partially coupled" names the key property (κ_processing is between 0 and 1; not fully goal-blind but not fully merged either). Much better than "Class 3." |
 | *(write-in)* |  |  |  |  |
 
 ## 348. *aporia*
@@ -5053,11 +5053,11 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Persistence condition |  |  |  |  |
-| Correction sector |  |  |  |  |
-| Continuous sector condition |  |  |  |  |
-| sector condition |  |  |  |  |
-| sector condition derivation |  |  |  |  |
+| Persistence condition | rename | -1 | | "Persistence condition" is the result (α > ρ/R) not the structural assumption. "Sector condition" names the assumption on the correction function (that it lies in a sector). These are different things; conflating them would damage the framework's precision. The nonlinear-control baggage here is correct and load-bearing — the Khalil/Vidyasagar sector is exactly the right concept. |
+| Correction sector | rename | -1 | | Grammar reversal; the noun phrase "sector condition" is smoother and already established. |
+| Continuous sector condition | keep | +1 | | Acceptable for the specific GA3 continuous-time version; marks the derivation as the continuous counterpart to the discrete variant. |
+| sector condition | keep | +2 | yes | Strong keep. The term correctly imports control-theory baggage (the correction function lives in a sector), the Lyapunov analysis requires exactly this assumption, and the name is precise. |
+| sector condition derivation | keep | +1 | | Acceptable slug-level name for the derivation segment specifically; self-descriptive. |
 | *(write-in)* |  |  |  |  |
 
 ## 353. [Concept] *Two-condition decomposition of persistence*
@@ -5438,7 +5438,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| deliberation threshold |  |  |  |  |
+| deliberation threshold | keep | +2 | yes | Confirmed by segment. The segment derives the threshold condition: Δη*(Δτ) · ‖δ_post‖ > ρ_delib · Δτ. This is the threshold that decides whether deliberation pays. Distinct from deliberation cost (the underlying penalty). Good two-concept pair: "deliberation cost" names the mechanism; "deliberation threshold" names the decision criterion. |
 | *(write-in)* |  |  |  |  |
 
 ## 382. [Concept] *Convention-hierarchy monotonicity cascade: satisfaction gap and control regret strengthening across C1 → C3*
@@ -5609,8 +5609,8 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Superlinear tempo advantage |  |  |  |  |
-| Boyd's exponent |  |  |  |  |
+| Superlinear tempo advantage | name-unnamed | +2 | yes | The right name for this concept. Names the mathematical property (superlinear) and the outcome (tempo advantage). From hyp-mismatch-dynamics: "the steady-state mismatch ratio scales superlinearly with the tempo ratio" — the scaling is the key finding. |
+| Boyd's exponent | name-unnamed | -1 | | As argued in row 7: Boyd is the inspiration, not the source. Naming the exponent after Boyd implies prior-art adoption. This is AAD's derived result, not Boyd's mathematics. |
 | *(write-in)* |  |  |  |  |
 
 ## 394. [Concept] *The 2×2 table of satisfaction gap vs control regret × goal attainability diagnostic*
@@ -5935,12 +5935,12 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Strategic dimension |  |  |  |  |
-| Strategy decomposition |  |  |  |  |
-| strategy dimension |  |  |  |  |
-| Purposeful decomposition |  |  |  |  |
-| Objective strategy split |  |  |  |  |
-| Purposeful substate |  |  |  |  |
+| Strategic dimension | rename | -1 | | Adjective form alone doesn't improve; "strategic" is fine but "dimension" still undersells the content. |
+| Strategy decomposition | rename | +2 | yes | Confirmed by segment. The segment DOES define the G_t = (O_t, Σ_t) DECOMPOSITION — the split of the purposeful substate into two structurally distinct components. "Strategy decomposition" names this correctly. The word "decomposition" carries the right mathematical meaning (a structured partition into parts). Stronger than "strategy dimension" alone. |
+| strategy dimension | keep | +1 | | Acceptable but "dimension" undersells the content. The segment defines a decomposition, not a single dimension. |
+| Purposeful decomposition | rename | +2 | | Also good. "Purposeful decomposition" names the G_t = (O_t, Σ_t) split directly and parallels "directed separation" (structural decomposition of update functions). Either "purposeful decomposition" or "strategy decomposition" is better than "strategy dimension." |
+| Objective strategy split | rename | +1 | | Acceptable. Names the two components explicitly. But "split" is informal; "decomposition" is more mathematical. |
+| Purposeful substate | rename | -1 | | This names G_t itself, not the decomposition. The segment is about the decomposition G_t = (O_t, Σ_t); "purposeful substate" is already the name for G_t in the LEXICON. Different concept. |
 | *(write-in)* |  |  |  |  |
 
 ## 416. *$\beta$ (A2′) assumed sub-scope*
@@ -6246,9 +6246,9 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Tempo advantage |  |  |  |  |
-| adversarial tempo advantage |  |  |  |  |
-| Superlinear tempo advantage |  |  |  |  |
+| Tempo advantage | rename | -1 | | "Adversarial" is load-bearing — it specifies the two-agent context (A's actions contribute to B's disturbance). Without it, "tempo advantage" could mean simple relative speed. |
+| adversarial tempo advantage | keep | +2 | yes | Confirmed from hyp-mismatch-dynamics and result-persistence-condition. Superlinear scaling is the mathematical result (Model D: squared, Model S: 3/2). "Adversarial tempo advantage" names both the mechanism (adversarial coupling) and the property (tempo advantage). Strong keep. |
+| Superlinear tempo advantage | rename | +1 | | Names the mathematical property. But "adversarial" is the cause of the superlinearity; "superlinear tempo advantage" without "adversarial" loses the mechanism. Good as an alias for the mathematical property specifically. |
 | *(write-in)* |  |  |  |  |
 
 ## 438. [Concept] *The pathology where observation rate is slower than environment's drift*
@@ -6320,8 +6320,8 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| structural adaptation necessity |  |  |  |  |
-| Adaptation necessity |  |  |  |  |
+| structural adaptation necessity | keep | +2 | yes | Confirmed by segment. "Structural" is load-bearing — it distinguishes from parametric adaptation. "Necessity" signals this is derived necessity, not a prescription. The result IS about when structural change becomes necessary. "Structural" must stay. |
+| Adaptation necessity | rename | -1 | | "Structural" is NOT redundant in context — the entire point of the result is distinguishing structural from parametric adaptation. Dropping "structural" collapses the distinction this result establishes. |
 | *(write-in)* |  |  |  |  |
 
 ## 443. *causal hierarchy requirement*
@@ -6356,10 +6356,10 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Grounding (GA-3) sub-scope α and β |  |  |  |  |
-| gain sector bridge |  |  |  |  |
-| The bridge theorem |  |  |  |  |
-| Bridge theorem from gain to sector |  |  |  |  |
+| Grounding (GA-3) sub-scope α and β | rename | -1 | | This is a mouthful. Good for Discussion prose, bad for a primary name. Sub-scope partition information belongs in the segment's Epistemic Status, not the slug. |
+| gain sector bridge | keep | +2 | yes | Confirmed by segment. "Bridge" is structurally correct (connects two previously separate components: gain principle and sector condition). The two-word compound is precise, communal-imagination test passes (what does a bridge between gain and sector mean? — you derive the sector condition from the gain). Strong keep. |
+| The bridge theorem | rename | +1 | | "The bridge theorem" is clean. But "which bridge?" — the qualifier is needed. "Gain-sector bridge" is self-describing; "the bridge theorem" requires context. |
+| Bridge theorem from gain to sector | rename | -1 | | Verbose. "Gain sector bridge" says the same thing in three words. |
 | *(write-in)* |  |  |  |  |
 
 ## 445. *working note*
@@ -6405,10 +6405,10 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Goal-blind processing |  |  |  |  |
-| Pearl-blanket separation |  |  |  |  |
-| directed separation |  |  |  |  |
-| Epistemic isolation of belief update |  |  |  |  |
+| Goal-blind processing | add-alias | +1 | | Good as a prose shorthand for the informal register ("the model update is goal-blind"), but shouldn't replace the formal name because it loses the asymmetric-information-flow precision that "directed" carries. |
+| Pearl-blanket separation | rename | -1 | | Overly jargon-heavy for new readers; "Pearl-blanket" is not standard vocabulary. |
+| directed separation | keep | +2 | yes | Strong keep. "Directed" captures asymmetric information flow; "separation" carries the Pearl/d-separation conditional-independence lineage. The Class 1/2/3 architectural classification hangs off this name — renaming would break a load-bearing tether. The Kalman separation principle is correctly a consequence of this, not a collision. |
+| Epistemic isolation of belief update | rename | -1 | | Too long; fails the communal-imagination test (hard to say in a sentence). |
 | *(write-in)* |  |  |  |  |
 
 ## 448. *$U_{\text{src}}$ and $U_{\text{align}}$*
@@ -6473,12 +6473,12 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Singular causal trajectory |  |  |  |  |
-| Trajectory identity |  |  |  |  |
-| Causal identity |  |  |  |  |
-| agent identity |  |  |  |  |
-| The trajectory identity scope |  |  |  |  |
-| Identity as singular causal trajectory |  |  |  |  |
+| Singular causal trajectory | rename | +1 | | This is the defining property, not the named concept. "Singular causal trajectory" would be the subject-noun for the chronica, not for this scope segment. The segment is about agent identity, using the singular trajectory as the grounding. |
+| Trajectory identity | rename | +1 | | Better than "agent identity" — anchors in the trajectory. But the segment is also about identity in the broader sense (type vs token, clone problem, PI axiom). "Trajectory identity" undersells. |
+| Causal identity | rename | +1 | | "Causal" is good — it anchors in the non-forkable causal trajectory. Less verbose than alternatives. |
+| agent identity | keep | +2 | yes | Confirmed by segment. The scope statement IS about agent identity — what makes an agent a singular entity within AAD. "Agent identity" is what this establishes. The subject-noun is correct; the concept name is natural. The three-persistence disambiguation (structural/operational/continuity) uses "identity" in this sense in LEXICON. Strong keep. |
+| The trajectory identity scope | rename | -1 | | "The trajectory identity scope" is a prose description, not a name. The "scope-" prefix is already in the slug. |
+| Identity as singular causal trajectory | rename | +1 | | Verbose but accurate. The segment title uses this form. But slug names should be concise; "agent identity" is the right compressed form. |
 | *(write-in)* |  |  |  |  |
 
 ## 452. [Concept] *The formal pairing between how clearly an agent observes its environment and how predictable that agent appears to outside observers*
@@ -6713,8 +6713,8 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Coordinate freedom axiom |  |  |  |  |
-| Parameterization invariance |  |  |  |  |
+| Coordinate freedom axiom | rename | +1 | | "Coordinate freedom" is vivid and evocative. But the mathematical name is "parameterization invariance" — this is standard in differential geometry and information geometry (Čencov). The segment uses "(PI) parameterization invariance" throughout. Adopting an alternative name when the mathematical standard exists is the wrong direction for prior-art integration. |
+| Parameterization invariance | keep | +2 | yes | Confirmed by scope-agent-identity. Correct mathematical name. (PI) as the acronym is clean. The axiom is stated precisely: "the theory's conclusions do not depend on arbitrary choice of coordinates on M_t." Standard information-geometry vocabulary. Strong keep. |
 | *(write-in)* |  |  |  |  |
 
 ## 468. *Section I. Adaptive Systems Under Uncertainty*
@@ -6744,9 +6744,9 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Interventional yield |  |  |  |  |
-| causal information yield |  |  |  |  |
-| CIY |  |  |  |  |
+| Interventional yield | rename | -1 | | Drops "causal" — loses the Pearl do-calculus specificity that distinguishes this from plain mutual information. "Yield" alone is not enough. |
+| causal information yield | keep | +2 | yes | Exactly right. Three-word noun with exact expansion. "Causal" is load-bearing (interventional not observational). "Yield" captures productive output of action. CIY acronym earns its keep with 10+ uses. Strong keep. |
+| CIY | add-alias | +2 | | Acronym pair is a maintained convention — full form in prose, CIY as shorthand. Both needed. |
 | *(write-in)* |  |  |  |  |
 
 ## 470. *team persistence*
@@ -6772,7 +6772,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Epistemic unity |  |  |  |  |
+| Epistemic unity | canonicalize | +2 | yes | Already established in NOTATION.md and LEXICON.md. Vote to canonicalize as the prose alias for U_M. Consistent with the Greek-register vocabulary and the pattern of prose-glossing all AAD symbols. |
 | *(write-in)* |  |  |  |  |
 
 ## 472. *praxis πρᾶξις*
@@ -7029,11 +7029,11 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Deliberation drag |  |  |  |  |
-| Deliberation threshold |  |  |  |  |
-| Think vs act tradeoff |  |  |  |  |
-| The simulation tax |  |  |  |  |
-| deliberation cost |  |  |  |  |
+| Deliberation drag | rename | +1 | | "Drag" evokes physical accumulation well. But slightly less precise — "cost" signals tradeable quantity; "drag" is more kinesthetic. |
+| Deliberation threshold | rename | +1 | | Good alternative — names the operational use (threshold) rather than the underlying cost. Row 381 is the separate term for the threshold; having both "deliberation cost" and "deliberation threshold" as distinct terms is cleaner than conflating them. |
+| Think vs act tradeoff | rename | -1 | | Prose description, not a name. Fails communal-imagination test. |
+| The simulation tax | rename | +1 | | Vivid metaphor; "tax" makes the cost concrete. But "simulation tax" doesn't carry the mismatch-drift mechanism — someone seeing the name wouldn't derive the underlying cause. |
+| deliberation cost | keep | +2 | yes | Confirmed by segment. The cost is ρ_delib · Δτ — precisely a cost (mismatch drift per unit pause). Pairs cleanly with deliberation threshold (row 381). The distinction in the exploration team's case (cost vs. threshold) is valid but not sufficient reason to abandon "cost." Strong keep. |
 | *(write-in)* |  |  |  |  |
 
 ## 489. [Concept] *Quality of $\eta^\ast$ estimation over time*
@@ -7806,8 +7806,8 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Teleological objective |  |  |  |  |
-| objective functional |  |  |  |  |
+| Teleological objective | rename | -1 | | "Teleological" imports philosophy-of-action baggage. The segment's content is mathematical (V_{O_t}: trajectories → ℝ). "Teleological" would be appropriate if the segment were making a philosophical claim about goals; "objective functional" is the right mathematical register. |
+| objective functional | keep | +2 | yes | Confirmed by segment. Standard mathematical vocabulary: a "functional" is a function from a function space (here, trajectories) to ℝ. The name is exact. The scalar comparability scope restriction is load-bearing; "objective functional" names this precisely. Strong keep. |
 | *(write-in)* |  |  |  |  |
 
 ## 545. *chain confidence decay*
@@ -7935,8 +7935,8 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| action transition |  |  |  |  |
-| Action channel |  |  |  |  |
+| action transition | keep | +2 | yes | The segment defines both the action space and the transition function — the coupling between agent action and environment state change. "Action transition" correctly names this coupling. "Action channel" would incorrectly suggest symmetry with the observation channel; the key point about this definition is that T (the transition function) is unknown to the agent, making action non-trivial. |
+| Action channel | rename | -1 | | "Channel" language suggests communication symmetry with observation, but the action-environment relationship is fundamentally asymmetric — actions change the environment through an unknown transition function. Wrong metaphor. |
 | *(write-in)* |  |  |  |  |
 
 ## 554. *continuity persistence*
@@ -7948,8 +7948,8 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| continuity persistence |  |  |  |  |
-| Identity continuity |  |  |  |  |
+| continuity persistence | keep | +2 | yes | Confirmed by scope-agent-identity. The three-sense taxonomy (structural/operational/continuity) is in LEXICON and cross-referenced in scope-agent-identity explicitly. "Continuity persistence" names the third sense: whether the agent maintains a coherent identity and trajectory through time. The compound is precise — "continuity" specifies which persistence sense. Strong keep. |
+| Identity continuity | rename | +1 | | Acceptable. "Identity continuity" is also precise. But "continuity persistence" preserves the three-persistence taxonomy naming pattern (structural persistence / operational persistence / continuity persistence). Changing this one would break the three-way parallel. |
 | *(write-in)* |  |  |  |  |
 
 ## 555. [Concept] *Agent classes: Class 1 / 2 / 3*
@@ -8174,8 +8174,8 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| complete agent state |  |  |  |  |
-| Purposeful state |  |  |  |  |
+| complete agent state | keep | +2 | yes | Confirmed by segment. X_t = (M_t, G_t) is the complete agent state — both epistemic AND purposeful. "Complete" is exactly right: it names the joint object. The counter-argument in the card stands: "purposeful state" would name only G_t. Strong keep. |
+| Purposeful state | rename | -1 | | Correctly rejected in card. X_t = (M_t, G_t); "purposeful state" would name only G_t (the purposeful substate). The segment's whole point is the LIFT from M_t alone to the joint (M_t, G_t). |
 | *(write-in)* |  |  |  |  |
 
 ## 569. *$\delta_s$ plan-confidence error*
@@ -8259,11 +8259,11 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Goal actuated agent |  |  |  |  |
-| Autonomous agent |  |  |  |  |
-| actuated agent |  |  |  |  |
-| Self directed agent |  |  |  |  |
-| Purposeful agent |  |  |  |  |
+| Goal actuated agent | rename | -1 | | Too verbose for canonical use. Segment confirms "actuated agent" is the canonical form. |
+| Autonomous agent | rename | -1 | | "Autonomous" is already overloaded in AI/robotics. The segment deliberately avoids consciousness baggage; "autonomous" imports it. |
+| actuated agent | keep | +2 | yes | Confirmed by segment. Deliberate choice over "purposeful" — "actuated" avoids consciousness baggage while carrying the driven-toward-setpoint shape. Tied to the AAD framework name (Adaptation and Actuation Dynamics); renaming would cascade into the framework name. Strong keep. |
+| Self directed agent | rename | -1 | | "Self-directed" implies the agent sets its own objectives — this is the "self-actuated" subcategory, not the general actuated agent category. Wrong scope. |
+| Purposeful agent | rename | +1 | | Good prose gloss. Segment accepts this for natural language. But as the formal class name, imports intention/consciousness baggage. |
 | *(write-in)* |  |  |  |  |
 
 ## 575. *honest activation*

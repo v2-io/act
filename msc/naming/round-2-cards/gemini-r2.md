@@ -1480,7 +1480,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | Postulated sector regime |  |  |  |  |
-| Assumed sector regime |  |  |  |  |
+| Assumed sector regime | rename | +1 | yes | This name is honest about the status of the sector condition in this sub-scope. It contrasts properly with the 'derived' alpha-regimes. |
 | *(write-in)* |  |  |  |  |
 
 ## 104. [Concept] *Default internal processing before output*
@@ -1504,7 +1504,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| structural persistence |  |  |  |  |
+| structural persistence | keep | +2 | yes | Core concept distinguishing the machinery's capacity from operational/continuity persistence. The name is descriptive and established. |
 | *(write-in)* |  |  |  |  |
 
 ## 106. [Concept] *Gemini Boyd's exponent for adversarial tempo advantage*
@@ -1603,7 +1603,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | Q measurement |  |  |  |  |
-| coherence coupling measurement |  |  |  |  |
+| coherence coupling measurement | keep | +2 | yes | This name correctly identifies the structural property ($Q$) being measured from git history. It bridges the theoretical 'coherence' to the empirical 'coupling'. |
 | *(write-in)* |  |  |  |  |
 
 ## 113. [Concept] *The structural cousin of evidence starvation when an upstream edge is so reliable that downstream edges receive too few revising tests*
@@ -1629,7 +1629,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| bias bound |  |  |  |  |
+| bias bound | keep | +2 | yes | The canonical term for the limit on model degradation under coupled updates. It correctly identifies the quantity as a 'bound' on 'bias'. |
 | *(write-in)* |  |  |  |  |
 
 ## 115. *identifiability floor*
@@ -1650,9 +1650,10 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 |---|---|:-:|:-:|---|
 | Epistemic lower bound |  |  |  |  |
 | Persistence pathology |  |  |  |  |
-| identifiability floor |  |  |  |  |
+| identifiability floor | keep | +2 | yes | The name 'floor' correctly captures the geometric intuition of an absolute lower boundary on inference that must be 'escaped' through augmentation. It pairs perfectly with 'separability ladder'. |
 | Observational limit |  |  |  |  |
 | No-go theorem |  |  |  |  |
+| *(write-in)* |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
 ## 116. *$\iota_{ij}$*
@@ -1663,7 +1664,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Identifiability coefficient |  |  |  |  |
+| Identifiability coefficient | add-alias | +2 | yes | This is the necessary English alias for $\iota_{ij}$. It correctly identifies the parameter that scales the interventional contrast in Section III. |
 | *(write-in)* |  |  |  |  |
 
 ## 117. [Concept] *Decomposing mismatch into environment vs other-sub-agent action*
@@ -1725,7 +1726,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Epistemic update function |  |  |  |  |
+| Epistemic update function | add-alias | +2 | yes | This is the necessary English alias for $f_M$. It correctly distinguishes the model update from the purposeful substate processing ($f_G$). |
 | *(write-in)* |  |  |  |  |
 
 ## 121. *satisfaction gap*
@@ -1797,7 +1798,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Model state |  |  |  |  |
+| Model state | add-alias | +2 | yes | This is the necessary English alias for $M_t$ in general prose. It correctly identifies the object as the state of the agent's internal model. |
 | Epistemic substate |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
@@ -1822,7 +1823,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Diagnostic template |  |  |  |  |
+| Diagnostic template | name-unnamed | +2 | yes | This name correctly identifies the recurring meta-pattern of specifying a state variable, a correction function, and an effective disturbance rate to derive a persistence bound. |
 | *(write-in)* |  |  |  |  |
 
 ## 128. *strategic composition*
@@ -1839,7 +1840,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| strategic composition |  |  |  |  |
+| strategic composition | keep | +2 | yes | Though 'Equilibrium composition' is more descriptive of the machinery, 'Strategic composition' is the established family name in the section and correctly distinguishes partially-opposing composites from shared-objective ones. |
 | Game theoretic composition |  |  |  |  |
 | Equilibrium composition |  |  |  |  |
 | *(write-in)* |  |  |  |  |
@@ -1897,7 +1898,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| edge credence |  |  |  |  |
+| edge credence | keep | +2 | yes | 'Credence' is the correct Bayesian vocabulary for subjective belief. It correctly identifies the parameter of a strategy DAG edge. |
 | *(write-in)* |  |  |  |  |
 
 ## 133. [Concept] *The product of architectural coupling $\kappa$ and environmental ambiguity $\mathcal{A}$*
@@ -1926,7 +1927,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 |---|---|:-:|:-:|---|
 | Model degenerate pursuer |  |  |  |  |
 | Reality blind agent |  |  |  |  |
-| blind pursuer |  |  |  |  |
+| blind pursuer | keep | +2 | yes | Memorable and precise for objective-rich, model-poor systems (low-$M_t$, high-$O_t$). It correctly captures the 'pursuit without vision' aspect. |
 | Model poor pursuer |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
@@ -2042,7 +2043,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| The adaptive cycle |  |  |  |  |
+| The adaptive cycle | keep | +2 | yes | The pair distinction (cycle vs loop) is load-bearing. 'Adaptive cycle' correctly identifies the 5-phase recurrent process. |
 | Adaptive cycle fundamental unit |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
@@ -2056,7 +2057,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | Dependency content mechanical wn gate |  |  |  |  |
-| gate 1 2 3 4 |  |  |  |  |
+| gate 1 2 3 4 | keep | +2 | yes | Numbered gates are well-established in the project's internal workflow and FORMAT.md. |
 | *(write-in)* |  |  |  |  |
 
 ## 144. [Concept] *The self-reinforcing positive feedback loop linking $M_t$ quality and $\Sigma_t$ evaluable complexity TST-specific and AAD-general forms*
@@ -2074,7 +2075,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 | Quality tempo compound effect |  |  |  |  |
 | Model strategy coupling |  |  |  |  |
 | Comprehension flywheel |  |  |  |  |
-| Quality tempo spiral |  |  |  |  |
+| Quality tempo spiral | name-unnamed | +2 | yes | This name vividly captures the self-reinforcing (virtuous or vicious) nature of the loop between model sufficiency and adaptive tempo. |
 | Virtuous vicious quality cycle |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
@@ -2087,7 +2088,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| auxilia hierarchy |  |  |  |  |
+| auxilia hierarchy | keep | +2 | yes | Part of the established Latin register for Section III. It correctly names the recursive structure of sub-agents. |
 | Sub-agent instantiation |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
@@ -2118,7 +2119,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | "purpose" / "purposeful" |  |  |  |  |
-| Purposeful |  |  |  |  |
+| Purposeful | keep | +2 | yes | This is the essential distinction from mere mechanical actuation. It correctly identifies the class of agents that possess an explicit objective $O_t$. |
 | *(write-in)* |  |  |  |  |
 
 ## 148. [Concept] *Using residual autocorrelation to diagnose model-class failure*
@@ -2203,7 +2204,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Exploring |  |  |  |  |
+| Exploring | add-alias | +2 | yes | Necessary agent-side gloss for Pearl's L2 (interventional). It provides an intuitive English handle for the deliberation phase where actions are taken to gather information. |
 | *(write-in)* |  |  |  |  |
 
 ## 153. *$U_M, U_O, U_\Sigma, U_{\text{obs}}, U_f$*
@@ -2214,7 +2215,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Unity coordinate |  |  |  |  |
+| Unity coordinate | add-alias | +2 | yes | This is the necessary collective handle for the individual $U$ factors. It correctly identifies them as the 'coordinates' of the agent's teleological/epistemic unity. |
 | *(write-in)* |  |  |  |  |
 
 ## 154. *agent identity*
@@ -2234,7 +2235,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| agent identity |  |  |  |  |
+| agent identity | keep | +2 | yes | Though 'trajectory identity' is more precise, 'agent identity' is the established term for the singular, non-forkable causal record. It correctly centers the focus on the agent as a persistent entity. |
 | Singular causal trajectory |  |  |  |  |
 | Identity as singular causal trajectory |  |  |  |  |
 | Trajectory identity |  |  |  |  |
@@ -3716,7 +3717,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| temporal optimality |  |  |  |  |
+| temporal optimality | keep | +2 | yes | Foundational normative principle of TST. It correctly centers the time dimension as the primary optimization residual for agentic survival. |
 | *(write-in)* |  |  |  |  |
 
 ## 260. [Concept] *Rate of growth at slowest timescale*
@@ -5280,7 +5281,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| specification bound |  |  |  |  |
+| specification bound | keep | +2 | yes | Strong, theorem-style name. It correctly identifies the information-theoretic limit on implementation speed derived from the specifier-to-implementer bottleneck. |
 | *(write-in)* |  |  |  |  |
 
 ## 370. *change investment*
@@ -5360,7 +5361,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| software scope |  |  |  |  |
+| software scope | keep | +2 | yes | Accurate and established for the TST domain. It correctly identifies the scope condition ($P(\text{change}) > \varepsilon$) that makes a system subject to TST analysis. |
 | Software domain scope |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
@@ -5617,7 +5618,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Committed chronica subset |  |  |  |  |
+| Committed chronica subset | name-unnamed | +2 | yes | This name correctly identifies the version-controlled subset of the causal record. It precisely maps the theoretical $\mathcal{C}_t^{\text{commit}}$ to its implementation in git. |
 | Commit chronica |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
@@ -6145,7 +6146,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 | Macro agent criterion |  |  |  |  |
 | Coarse graining closure |  |  |  |  |
 | Closure defect |  |  |  |  |
-| composition closure |  |  |  |  |
+| composition closure | keep | +2 | yes | This is the precise formal name for the approximate dynamical homomorphism requirement. It captures the 'closing' of the micro-macro loop. |
 | *(write-in)* |  |  |  |  |
 
 ## 429. *$\beta$ (A2′) assumed sub-scope*
@@ -8315,7 +8316,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Committed chronica |  |  |  |  |
+| Committed chronica | keep | +2 | yes | This is the necessary prose handle for $\mathcal{C}_t^{\text{commit}}$. It correctly identifies the cryptographically signed subset of the interaction history. |
 | *(write-in)* |  |  |  |  |
 
 ## 578. [Concept] *Two-condition decomposition of persistence*

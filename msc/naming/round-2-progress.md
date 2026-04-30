@@ -1,6 +1,6 @@
 # R2 Voting Cohort — Progress
 
-**Generated:** 2026-04-30T18:59:49Z
+**Generated:** 2026-04-30T19:31:10Z
 **Voters discovered:** 6 (`codex-r2b`, `gemini-r2`, `opus-r2b`, `opus-r2c`, `sonnet-r2b`, `sonnet-r2c`)
 **Targets per card:** 629
 **Substantive-notes threshold:** ≥ 30 chars (tunable via `--notes-threshold=N`)
@@ -10,22 +10,22 @@
 | voter | tgt voted | votes | top-picks | substantive | write-ins | can-vote | gap | drift | seq max | off-scale |
 |---|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|
 | `codex-r2b` | 58 | 113 | 58 | 113 (100%) | 8 | 58 | – | – | 58 | – |
-| `gemini-r2` | 164 | 167 | 165 | 163 (98%) | 4 | 462 | 290 | +8 | 220 | – |
+| `gemini-r2` | 190 | 193 | 191 | 189 (98%) | 4 | 466 | 276 | – | 240 | – |
 | `opus-r2b` | 54 | 141 | 44 | 140 (99%) | 5 | 54 | – | – | 45 | – |
-| `opus-r2c` | 0 | 0 | 0 | – | – | – | – | – | – | – |
+| `opus-r2c` | 78 | 219 | 76 | 216 (99%) | – | 78 | – | – | – | – |
 | `sonnet-r2b` | 43 | 137 | 43 | 136 (99%) | 3 | 43 | – | – | 4 | – |
-| `sonnet-r2c` | 0 | 0 | 0 | – | – | – | – | – | – | – |
+| `sonnet-r2c` | 48 | 140 | 48 | 140 (100%) | – | 44 | – | -4 | – | – |
 
 *Columns:* `tgt voted` = unique targets with at least one voted candidate-row in the card (the ground truth); `votes` = total candidate-row votes (multiple per target possible); `top-picks` = rows marked as top-pick; `substantive` = rows whose notes column meets the threshold; `write-ins` = voted rows on or after the `*(write-in)*` placeholder (new candidates not in the curated finalist set); `can-vote` and `gap` come from the tracker (gap = can-vote rows that haven't cast yet); `drift` = tracker's `voted=true` count minus card's `tgt voted` (positive = stale `voted=true` markers in tracker; negative = card has cast votes the tracker hasn't synced to yet — re-run `bin/naming-master-tracker` to resync); `seq max` = highest voting-sequence integer; `off-scale` = votes using R1's wider scale (+3 / -2 / -3) instead of R2's spec (+2 / +1 / -1).
 
 ## Cohort coverage
 
-- **Targets with ≥1 voter:** 258 / 629 (41%)
-- **Targets with ≥2 voters:** 57 / 629
-- **Targets with ≥3 voters:** 3 / 629
-- **Targets with ≥4 voters:** 1 / 629
-- **Total candidate-row votes:** 558
-- **Substantive votes (cohort-wide):** 552 (99%)
+- **Targets with ≥1 voter:** 335 / 629 (53%)
+- **Targets with ≥2 voters:** 110 / 629
+- **Targets with ≥3 voters:** 20 / 629
+- **Targets with ≥4 voters:** 5 / 629
+- **Total candidate-row votes:** 943
+- **Substantive votes (cohort-wide):** 934 (99%)
 - **Off-scale residual:** 0 (R2 spec is +2/+1/-1; off-scale votes can be clamped at aggregation time but signal the R1-scale prior leaking through)
 
 ## Off-scale breakdown
@@ -43,11 +43,11 @@
 | voter | rename | keep | canonicalize | add-alias | name-unnamed |
 |---|--:|--:|--:|--:|--:|
 | `codex-r2b` | 23 | 39 | 17 | 30 | 4 |
-| `gemini-r2` | 14 | 109 | 7 | 12 | 22 |
+| `gemini-r2` | 15 | 126 | 7 | 17 | 25 |
 | `opus-r2b` | 54 | 29 | 19 | 12 | 27 |
-| `opus-r2c` | 0 | 0 | 0 | 0 | 0 |
+| `opus-r2c` | 121 | 54 | 17 | 20 | 7 |
 | `sonnet-r2b` | 60 | 37 | 25 | 8 | 7 |
-| `sonnet-r2c` | 0 | 0 | 0 | 0 | 0 |
+| `sonnet-r2c` | 62 | 47 | 6 | 7 | 18 |
 
 ## Write-ins
 
@@ -81,11 +81,11 @@ Candidates voters added beyond the curated finalist set — voted rows on or aft
 | voter | total votes | substantive | empty-or-thin | sub-rate |
 |---|--:|--:|--:|--:|
 | `codex-r2b` | 113 | 113 | 0 | 100% |
-| `gemini-r2` | 167 | 163 | 4 | 98% |
+| `gemini-r2` | 193 | 189 | 4 | 98% |
 | `opus-r2b` | 141 | 140 | 1 | 99% |
-| `opus-r2c` | 0 | 0 | 0 | – |
+| `opus-r2c` | 219 | 216 | 3 | 99% |
 | `sonnet-r2b` | 137 | 136 | 1 | 99% |
-| `sonnet-r2c` | 0 | 0 | 0 | – |
+| `sonnet-r2c` | 140 | 140 | 0 | 100% |
 
 *Substantive-note rate is the headline depth-of-engagement signal — a +2 with substantive notes carries different aggregation weight than a +2 with no notes, regardless of identical face-value weight.*
 
