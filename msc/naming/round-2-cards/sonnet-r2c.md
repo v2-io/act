@@ -242,7 +242,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Identifiability coefficient |  |  |  |  |
+| Identifiability coefficient | canonicalize | +2 | yes | Confirmed by scope-edge-update-causal-validity. ι_ij ∈ [0,1] is "the identifiability coefficient" — the agent's estimate of how cleanly an observed outcome can be attributed to edge (i,j). Already in use in deriv-strategic-dynamics. Load-bearing: unifies with observability into η_eff = η_edge · ι_ij as a complete frozen-edge characterization. Strong canonicalize. |
 | *(write-in)* |  |  |  |  |
 
 ## 16. [Concept] *Observability boundary in a strategy DAG*
@@ -2303,10 +2303,10 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Latent cause detection |  |  |  |  |
-| L0 / L1 detection |  |  |  |  |
-| causal insufficiency detection |  |  |  |  |
-| Insufficiency detection |  |  |  |  |
+| Latent cause detection | rename | -1 | | Shifts emphasis from the no-go (structural impossibility) to the positive recipe (finding hidden causes). The segment's primary result is the no-go theorem — the name should foreground structural impossibility, not the engineering fix. |
+| L0 / L1 detection | rename | +1 | | Accurate and ties directly to the Correlation Hierarchy. But loses the SGS "causal insufficiency" vocabulary, which is used correctly here and connected to external literature. Acceptable alternative. |
+| causal insufficiency detection | keep | +2 | yes | Confirmed by segment. "Causal insufficiency" is precise SGS vocabulary. The no-go IS about the impossibility of causal insufficiency detection on-policy, so the name accurately describes the topic from both angles: the impossibility AND the resolution routes. Keeps the external literature connection. |
+| Insufficiency detection | rename | -1 | | Too ambiguous without "causal." "Insufficiency" could mean model inadequacy, resource insufficiency, or capability limits. |
 | *(write-in)* |  |  |  |  |
 
 ## 160. *and or scope*
@@ -2423,11 +2423,11 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Structural parametric limit |  |  |  |  |
-| Strategy maintenance |  |  |  |  |
-| Structural as parametric limit |  |  |  |  |
-| structural change as parametric limit |  |  |  |  |
-| *(write-in)* |  |  |  |  |
+| Structural parametric limit | rename | -1 | | Dropping "change" loses the load-bearing qualifier. The segment is about CHANGES to the DAG (the operations), not about DAG states or the limit state itself. |
+| Strategy maintenance | rename | -1 | | Names the practical APPLICATION but loses the theoretical CLAIM (structural change as continuous parametric limit). A formulation segment should name its theoretical contribution. |
+| Structural as parametric limit | rename | +1 | | Mild compression; "structural" without "change" is ambiguous but inferrable from context. Marginally acceptable. |
+| structural change as parametric limit | keep | +2 | yes | Confirmed by segment. Long but precise — the length is the price of precision for a formulation that makes a specific theoretical claim. "Change" is load-bearing (the segment is about operations, not states). The theoretical claim (structural change is a parametric limit) should be preserved in the name. |
+| *(write-in) DAG structural continuity* | rename | +1 | | Alternative shorter form: names WHAT is established (that structural changes to the DAG are continuous). "Continuity" is mathematically precise — structural changes are continuous operations in credence space. Worth considering. |
 
 ## 168. *convention hierarchy*
 
@@ -2472,8 +2472,8 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| observability dominance |  |  |  |  |
-| Epistemic freezing |  |  |  |  |
+| observability dominance | keep | +2 | yes | Confirmed by segment. "Dominance" is technically precise: observability determines gain (uncertainty ratio), which determines update rate, which determines whether a path is epistemically alive or dead. The mechanism IS dominance — observability dominates the equation. Strong keep. |
+| Epistemic freezing | rename | -1 | | Names the CONSEQUENCE (edges freeze) not the MECHANISM (observability determines gain, which dominates the update). Mechanism-segments should be named by their mechanism. |
 | *(write-in)* |  |  |  |  |
 
 ## 171. *epistemic opacity*
@@ -2568,11 +2568,11 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| edge update causal validity |  |  |  |  |
-| Causal edge update |  |  |  |  |
-| Identification regime |  |  |  |  |
-| Edge causal validity |  |  |  |  |
-| Causal validity |  |  |  |  |
+| edge update causal validity | keep | +1 | | Accurate but verbose (five words). Acceptable if the rename candidates don't land. Precisely names the scope topic. |
+| Causal edge update | rename | -1 | | Confusingly names the THING (what an update is) rather than the SCOPE of where it applies. A scope segment should name what it scopes, not what it acts on. |
+| Identification regime | rename | +2 | yes | Confirmed by segment. The core content IS the Regime A/B/C identification lattice — this segment is the canonical home of that classification. "Identification regime" says what the segment is about in two words. Much stronger than the verbose five-word alternative. |
+| Edge causal validity | rename | +1 | | Shorter while preserving the key concept. Acceptable alternative to "identification regime." |
+| Causal validity | rename | -1 | | Too bare. "Causal validity" in Section II could refer to many things; loses the edge-update context that scopes it. |
 | *(write-in)* |  |  |  |  |
 
 ## 178. *Regime III*
@@ -3541,8 +3541,8 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| No-go result or impossibility result |  |  |  |  |
-| *(write-in)* |  |  |  |  |
+| No-go result or impossibility result | name-unnamed | +2 | yes | Confirmed by der-causal-insufficiency-detection, which is the clearest example of an AAD no-go theorem. The segment uses "no-go theorem" and "impossibility" throughout, but these results aren't collected under a family name. "Impossibility result" is cleaner than "no-go result" (less physics-specific, more mathematical). The family should be named so OUTLINE can foreground them parallel to templates and ladders. Write-in vote for "impossibility result" as the preferred form. |
+| *(write-in) impossibility result* | name-unnamed | +2 | | "Impossibility result" preferred over "no-go result" — more mathematical, less physics-specific. The segment uses both but "impossibility" is the more general term. |
 
 ## 249. *change expectation baseline*
 
@@ -4638,7 +4638,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Strategic calibration residual |  |  |  |  |
+| Strategic calibration residual | canonicalize | +2 | yes | Confirmed by def-strategic-calibration. The segment uses three paraphrases: "strategic calibration residual," "edge residual aggregate," and δ_strategic. Canonicalize: "strategic calibration residual" for the aggregated quantity, "edge residual" for per-edge r_ij, δ_strategic for the symbol. "Edge residual aggregate" should be retired. |
 | *(write-in)* |  |  |  |  |
 
 ## 326. [Concept] *The Class 1 sub-agent / Class 3 composite phenomenon in strategic composition*
@@ -5127,8 +5127,8 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| edge update via gain |  |  |  |  |
-| Gain based edge update |  |  |  |  |
+| edge update via gain | keep | +2 | yes | Confirmed by segment. "Via gain" names the EXTENSION — the hypothesis IS about applying the uncertainty-ratio gain principle to strategy edges (not just model state). Accurately frames what's hypothesized. Strong keep. |
+| Gain based edge update | keep | +1 | | Acceptable prose variation. Slightly better flow in prose contexts. But "via gain" is more precise about what the mechanism extends from. |
 | *(write-in)* |  |  |  |  |
 
 ## 358. [Concept] *Decomposing mismatch into environment vs other-sub-agent action*
@@ -5778,15 +5778,15 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Observability dominance |  |  |  |  |
-| Feedback-starved branch |  |  |  |  |
-| Epistemic shadow |  |  |  |  |
-| Epistemic dead zone |  |  |  |  |
-| The epistemic shadow |  |  |  |  |
-| Unupdatable region |  |  |  |  |
-| Observability frontier |  |  |  |  |
-| Unobservable strategy subgraph |  |  |  |  |
-| Observability dead zone |  |  |  |  |
+| Observability dominance | rename | -1 | | Already the segment name (#der-observability-dominance) — reusing it for the REGION concept creates collision. "Observability dominance" names the MECHANISM; the dead region it produces needs a different name. |
+| Feedback-starved branch | rename | -1 | | "Branch" is too narrow (the structure is a subgraph/path, not necessarily a branch). "Feedback-starved" is vivid but technically imprecise — it's not that feedback is missing, it's that the gain mechanism is frozen. |
+| Epistemic shadow | name-unnamed | +2 | | Compelling visual metaphor — paths cast in the shadow of an unobservable node. "Shadow" implies directionality (blocked by something upstream), which is accurate: unobservable intermediates block the update signal from reaching downstream edges. More poetic register. |
+| Epistemic dead zone | name-unnamed | +2 | yes | Confirmed by der-observability-dominance. "Dead zone" is the standard English metaphor for regions where signals don't penetrate (radio dead zones). Geometric (region of DAG) + operational (no signal reaches it). Clinical register appropriate for mathematical segments. Pairs with "identifiability floor" as an impossibility-class vocabulary cluster. Top pick between shadow and dead zone. |
+| The epistemic shadow | name-unnamed | +1 | | Grammatically, the definite article "The" is unnecessary in a concept name. "Epistemic shadow" without article is cleaner. |
+| Unupdatable region | rename | -1 | | "Unupdatable" is grammatically awkward. The concept deserves a more memorable name. |
+| Observability frontier | name-unnamed | +1 | | Good for discussing instrumentation investments (the boundary between observable and unobservable). But names the BOUNDARY not the REGION. Different concept from the dead zone. Could name both: "observability frontier" for the boundary, "epistemic dead zone" for the region beyond it. |
+| Unobservable strategy subgraph | rename | -1 | | Descriptive but inert — names the geometric cause without capturing the epistemic consequence. |
+| Observability dead zone | name-unnamed | +1 | | Extension of observability dominance. "Observability" scope is right. "Dead zone" is strong. But "Epistemic dead zone" is more precise about WHY it's dead (epistemic freezing, not just physical unobservability). |
 | *(write-in)* |  |  |  |  |
 
 ## 406. *five phase cycle*
@@ -6067,9 +6067,9 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| strategic calibration |  |  |  |  |
-| Strategy calibration |  |  |  |  |
-| Strategic calibration residual |  |  |  |  |
+| strategic calibration | keep | +1 | | Acceptable as concept name. "Strategic calibration" is the concept; "strategic calibration residual" is its measurement. Both can coexist but need clear register separation. |
+| Strategy calibration | rename | -1 | | Grammatically awkward. "Strategy calibration" reads as "measuring a strategy's precision" rather than "calibrating the strategy DAG's edge predictions." The adjective form is more precise. |
+| Strategic calibration residual | canonicalize | +2 | yes | Confirmed by segment. The full form for the aggregated L² quantity. Retires "edge residual aggregate" as a third paraphrase. See also row 325 vote. |
 | *(write-in)* |  |  |  |  |
 
 ## 425. *adversarial destabilization*
@@ -6150,8 +6150,8 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Plan confidence score |  |  |  |  |
-| plan confidence |  |  |  |  |
+| Plan confidence score | canonicalize | +2 | yes | Confirmed by def-strategic-calibration and def-strategy-dag. P̂_Σ = s_v_root — the root-node propagated status — IS the plan-confidence score. The full form "plan confidence score" is needed to distinguish from the plan-confidence ERROR δ_s. Strong canonicalize to prevent collision. |
+| plan confidence | keep | +1 | | Acceptable compression for prose contexts where "score" vs "error" is already established. "Plan confidence score" is the anchor. |
 | *(write-in)* |  |  |  |  |
 
 ## 431. [Concept] *Track 1 / Track 2 in bias-bound derivation*
@@ -7057,7 +7057,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| default signal function |  |  |  |  |
+| default signal function | canonicalize | +2 | yes | Confirmed by disc-credit-assignment-boundary. Explicitly defined as "AAD's default implementation, analogous to η* = U_M/(U_M + U_o) being the default gain." The gradient-based log-odds attribution is the Level 1 default credit-assignment scheme. Strong canonicalize. |
 | *(write-in)* |  |  |  |  |
 
 ## 491. *composition closure*
@@ -8054,8 +8054,8 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Credit assignment frontier |  |  |  |  |
-| credit assignment boundary |  |  |  |  |
+| Credit assignment frontier | keep | +1 | | "Frontier" is an acceptable synonym for boundary in this context. Works well in prose ("beyond the credit-assignment frontier"). |
+| credit assignment boundary | keep | +2 | yes | Confirmed by segment. Both words carry load: "credit assignment" names the problem; "boundary" names what the segment characterizes — the tractable/intractable boundary. The segment explicitly uses this framing throughout. Strong keep. |
 | *(write-in)* |  |  |  |  |
 
 ## 561. [Concept] *Instance 3 of identifiability floor*
@@ -8090,7 +8090,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Ambiguity zeroing intervention |  |  |  |  |
+| Ambiguity zeroing intervention | name-unnamed | +2 | yes | Confirmed by disc-credit-assignment-boundary. The segment's Discussion notes the gradient signal loses directional fidelity outside the convexity basin — the fix is to force the environment to drop ambiguity to zero (observable intermediates, isolated interventions). "Ambiguity zeroing" names the action; "intervention" names the category (a deliberate design choice). Strong name for a real tactic. |
 | *(write-in)* |  |  |  |  |
 
 ## 564. *Class 2*
@@ -8186,7 +8186,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Plan confidence error |  |  |  |  |
+| Plan confidence error | canonicalize | +2 | yes | Confirmed by def-strategic-calibration. δ_s = P̂_Σ - Φ is the plan-confidence ERROR (distinct from the plan-confidence SCORE P̂_Σ). The distinction matters: the score tells you what the current plan predicts; the error tells you how miscalibrated that prediction is. Critical to introduce English form before the symbol since δ_s is easily confused with δ_strategic. |
 | *(write-in)* |  |  |  |  |
 
 ## 570. *honest limit*
@@ -8452,10 +8452,10 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| directional fidelity |  |  |  |  |
-| Corrective alignment |  |  |  |  |
-| Correction direction integrity |  |  |  |  |
-| Pointing condition |  |  |  |  |
+| directional fidelity | keep | +2 | yes | Confirmed by disc-credit-assignment-boundary. The design requirement IS directional fidelity: E[(signal - p)(p - θ)] ≤ 0 — correction expected value must point toward truth. "Fidelity" carries the engineering register (signal fidelity, control fidelity) that places the term correctly. Strong keep. |
+| Corrective alignment | rename | -1 | | "Alignment" is overloaded in AI safety discourse. Avoid even in a technical context — an AI-safety reader will parse this differently than intended. |
+| Correction direction integrity | rename | -1 | | Verbose and hyphen-heavy. "Directional fidelity" is already two words; no reason for three. |
+| Pointing condition | rename | -1 | | Accurate but loses the engineering register. "Fidelity" better signals the metric/quality connotation. "Pointing condition" sounds like a spatial geometry result. |
 | *(write-in)* |  |  |  |  |
 
 ## 589. [Concept] *Partitioning context into frozen-identity / causal-history / quick-view*
@@ -8665,8 +8665,8 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Instrumented intermediate |  |  |  |  |
-| Forced observability node |  |  |  |  |
+| Instrumented intermediate | name-unnamed | +1 | | Describes the physical action (making a hidden node observable by adding sensors/measurement). Good for engineering contexts. |
+| Forced observability node | name-unnamed | +2 | yes | Confirmed by disc-credit-assignment-boundary. The segment's OKR analysis demonstrates that Key Results ARE forced observability nodes — they convert #P-hard credit assignment to O(1) local updates by making intermediate nodes observable. "Forced" is load-bearing: the point is that the agent CHOOSES to make a node observable (designs the strategy to include it as a measurable checkpoint). "Forced observability node" names the mechanism and the consequence in three words. |
 | *(write-in)* |  |  |  |  |
 
 ## 604. *coordination overhead threshold*
@@ -9008,8 +9008,8 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Epistemic instrumenting |  |  |  |  |
-| Observability investment |  |  |  |  |
+| Epistemic instrumenting | name-unnamed | +1 | | Captures the physical action (adding a sensor/monitor to a node). Good for contexts where the action is described. But loses the economic tradeoff framing. |
+| Observability investment | name-unnamed | +2 | yes | Confirmed by der-observability-dominance. The segment quantifies the INVESTMENT: cost of making an intermediate node observable yields improvement in α_Σ (from plan-level rate to per-edge weakest-link rate). "Investment" carries the economic tradeoff (cost vs persistence gain) that makes this concept actionable. The value of the investment is the difference in sector parameters. |
 | *(write-in)* |  |  |  |  |
 
 ## 627. [Concept] *The strict upper bound of a given model-class $\mathcal{F}(\mathcal{M})$*
