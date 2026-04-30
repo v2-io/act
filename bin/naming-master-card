@@ -102,6 +102,10 @@ out << 'Notes column is for *new* reasoning you bring to the vote. The corpus al
 out << ''
 out << 'Heading conventions: `## N. [Concept] *description*` headings are post-consolidation cluster targets where the description is a deliberate functional placeholder (not biased toward any candidate). `## N. \`name\`` headings are existing names being voted on. Within each target, candidates are listed in randomized order — *you cannot infer popularity from position.*'
 out << ''
+out << '## A note on noise'
+out << ''
+out << 'Multiple passes and a lot of quick consolidation rounds have left some relics and noise in the voting entries — odd phrasings, broken-looking candidates, the occasional rationale that reads strangely against its candidate, and some entries where canonicalize-provenance information is missing or partial. Do your best to understand the original intent (the segment usually clarifies it), and use the notes column to flag anything where the noise is severe enough to make the vote ambiguous. This is the point in the pipeline where a voter\'s read can catch what an editorial pass missed.'
+out << ''
 out << '---'
 out << ''
 

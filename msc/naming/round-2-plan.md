@@ -188,3 +188,12 @@ Lean: pre-launch, given the rename-vs-add-alias semantic distinction is now load
 - Lexicon-coherence pass: voter-prompt only / post-R2 only / both (lean: both).
 - Voice-discipline pass: pre- or post-naming-coherence-pass (lean: pre, if scheduling allows).
 - Treatment of medium-confidence and low-confidence consolidation-map clusters (still in proposal-stage).
+
+## Post-launch update — 2026-04-29
+
+R2 voting was launched against this design. The first cohort surfaced two systematic failure modes that argue for round-design changes before completing R2 — full diagnostic in [`handoff-2026-04-29-post-r2-launch.md`](handoff-2026-04-29-post-r2-launch.md). Headline findings:
+
+- **Scale drift (4/4 voters).** Agents defaulted to R1's +3/+2/+1/-1/-2/-3 scale despite the card preamble specifying R2's +2/+1/-1. Mitigation: card preamble needs to anti-pattern the R1 scale explicitly (in addition to specifying the R2 scale). Aggregation can recover the votes already in by clamping +3→+2 and -2/-3→-1.
+- **Load past quality-over-quantity threshold.** 629 targets in one ~648KB card pulls every agent toward heuristic completion despite the prompt's "honest skips beat manufactured ones" framing. opus's 10% high-conviction coverage was the *good* outcome; gemini/codex's broader-but-shallow shortcut behavior was typical. Mitigations to consider before re-launching: pre-cluster the corpus and slice (50-100 targets per voter), explicit stopping clause, or trajectory-audit walker as supplement.
+
+Pass D (collision-check) completed cleanly as a separate sweep — report at [`collision-check-2026-04-29.md`](collision-check-2026-04-29.md). Severe-rename cases queued in [`mini-lexicon-todo.md`](mini-lexicon-todo.md) §11 for post-R2 surgery.

@@ -6,7 +6,7 @@ The R1/R2 vote schema is built around "vote on a candidate name for a target con
 
 Decision (Joseph, 2026-04-29) is to *stop trying*: leave the malformed votes in the corpus, accept that R2 voters will work around them via write-ins where they have ideas, and capture the substantive content here as a separate punch-list. Each item is something a future agent (or Joseph) can pick up and act on.
 
-Sources walked: [`master-list-full.md`](master-list-full.md), [`explanatory-candidate-scan.md`](explanatory-candidate-scan.md), [`round-2-plan.md`](round-2-plan.md), [`naming-tier2-classification-log.md`](naming-tier2-classification-log.md), [`/doc/naming-principles.md`](../../doc/naming-principles.md), [`TODO.md`](../../TODO.md). Joseph's nine annotations on the explanatory-candidate-scan high-confidence tier seeded the categorization.
+Sources walked: [`master-list-full.md`](master-list-full.md), [`explanatory-candidate-scan.md`](_archive/explanatory-candidate-scan.md), [`round-2-plan.md`](round-2-plan.md), [`naming-tier2-classification-log.md`](_archive/naming-tier2-classification-log.md), [`/doc/naming-principles.md`](../../doc/naming-principles.md), [`TODO.md`](../../TODO.md). Joseph's nine annotations on the explanatory-candidate-scan high-confidence tier seeded the categorization.
 
 Cross-references rather than duplicates: where the substantive concern is already tracked in `TODO.md` or `round-2-plan.md`, the entry is a one-liner pointing there.
 
@@ -168,7 +168,7 @@ Auditors offered prose explanations as candidate names — "the river that the a
 
 **Issue:** Auditor offered this as a candidate name; really a Brief-field gloss for the layperson. The slug stays.
 
-**Sources:** [explanatory-candidate-scan high-conf row 3](explanatory-candidate-scan.md), Joseph's annotation: "definitely not a vote for canonicalize, and allow gloss statements like this with double-quote delimiters that aren't normalized by the script". From audit-471203-incremental on `04-def-chronica`.
+**Sources:** [explanatory-candidate-scan high-conf row 3](_archive/explanatory-candidate-scan.md), Joseph's annotation: "definitely not a vote for canonicalize, and allow gloss statements like this with double-quote delimiters that aren't normalized by the script". From audit-471203-incremental on `04-def-chronica`.
 
 **Proposed actions:** Drop into `#def-chronica` Findings Brief; cross-link from LEXICON `Chronica` entry. Possibly into README's loop section. Verify the gloss actually preserves the Greek's distinction (records-of-time, not just history).
 
@@ -180,7 +180,7 @@ Auditors offered prose explanations as candidate names — "the river that the a
 
 **Issue:** Same shape as 3.1. Brief-grade gloss for `pearl-level-2-causal-contrast` from audit-471203-incremental. Master-list has it filed as canonicalize +1, which it isn't.
 
-**Sources:** [explanatory-candidate-scan high-conf row 13](explanatory-candidate-scan.md). Master-list §`pearl-level 2 causal contrast`.
+**Sources:** [explanatory-candidate-scan high-conf row 13](_archive/explanatory-candidate-scan.md). Master-list §`pearl-level 2 causal contrast`.
 
 **Proposed actions:** Move gloss into `#der-loop-interventional-access` Findings Brief or the relevant Pearl-vocabulary segment. README's loop-as-causal-engine section is a candidate location.
 
@@ -286,7 +286,7 @@ Single rows that bundle multiple distinct decisions. These can't be aggregated c
 
 **Issue:** Single row carries the whole notation-collision discussion (item 1.1) plus three candidate fixes. Joseph's annotation on explanatory-candidate-scan rows 1 & 2: "split into 3 rows - the two currents and the three candidates", "same — 2 rows, one saying canonicalize $U_M$ for model uncertainty, and the other a vote to canonicalize $\Upsilon_M$ for Epistemic Unity."
 
-**Sources:** [explanatory-candidate-scan high-conf rows 1, 2](explanatory-candidate-scan.md); master-list §346, §347.
+**Sources:** [explanatory-candidate-scan high-conf rows 1, 2](_archive/explanatory-candidate-scan.md); master-list §346, §347.
 
 **Proposed actions:** Master-list manual edit. Pairs with 1.1 (the substantive notation-discipline fix).
 
@@ -296,7 +296,7 @@ Single rows that bundle multiple distinct decisions. These can't be aggregated c
 
 **Issue:** Single name-unnamed vote whose "current" field is malformed (the concept it points at is already named — `#der-loop-interventional-access`) and whose "candidate" field bundles two competing names ("loop as intervention" and "der-loop-interventional-access"). Joseph's annotation on explanatory-candidate-scan row 5: "fix 'current' field and separate into multiple candidate rows."
 
-**Sources:** [explanatory-candidate-scan high-conf row 5](explanatory-candidate-scan.md). haiku-4-5-r2.
+**Sources:** [explanatory-candidate-scan high-conf row 5](_archive/explanatory-candidate-scan.md). haiku-4-5-r2.
 
 **Proposed actions:** Master-list edit: drop the name-unnamed claim (the concept is already named); if any candidate names are substantive, re-file as alias / canonicalize for the existing slug.
 
@@ -306,7 +306,7 @@ Single rows that bundle multiple distinct decisions. These can't be aggregated c
 
 **Issue:** Several rows combine a *keep* on a primary name with an *implicit secondary action* — e.g., "keep gate numbers but add one-word names" (opus-4-7-b on `gate 1 gate 2 gate 3 gate 4`); "keep flag aporia gloss as pedagogical only" (audit-471203-incremental on `$\delta_t$ mismatch signal`). These are really keep + canonicalize bundles.
 
-**Sources:** [master-list per-row entries on `gate 1-4` and `$\delta_t$ mismatch signal`](master-list-full.md). [explanatory-candidate-scan high-conf rows 12, 17, etc.](explanatory-candidate-scan.md).
+**Sources:** [master-list per-row entries on `gate 1-4` and `$\delta_t$ mismatch signal`](master-list-full.md). [explanatory-candidate-scan high-conf rows 12, 17, etc.](_archive/explanatory-candidate-scan.md).
 
 **Proposed actions:** Master-list edits as bundles surface — split into the two component votes when the bundling matters; otherwise treat the secondary action as informal annotation.
 
@@ -324,7 +324,7 @@ Votes that point at a real concern but underspecify the action. The work is to t
 
 **What's distinctive in AAD's IB use that needs separate naming:** likely the policy-conditioning extension and/or the L0/L1/L2 correlation hierarchy that AAD layers onto the IB framing. Both are candidates for separate-label naming, but the audit row didn't name them.
 
-**Sources:** [explanatory-candidate-scan high-conf row 9](explanatory-candidate-scan.md), master-list §`information bottleneck`.
+**Sources:** [explanatory-candidate-scan high-conf row 9](_archive/explanatory-candidate-scan.md), master-list §`information bottleneck`.
 
 **Proposed actions:** Re-read `audit-471203-incremental.md` for the surrounding context (likely segments 30-40 range); identify the specific distinctive-feature(s) the auditor had in mind; create separate name-unnamed entries for each.
 
@@ -334,7 +334,7 @@ Votes that point at a real concern but underspecify the action. The work is to t
 
 **Issue:** codex-1 voted -1 against renaming `auftragstaktik-principle` to "objective-first bandwidth principle" — "too explanatory and strips away the doctrinal lineage that gives the claim its empirical weight." This is a real concern: auftragstaktik carries baggage (military doctrine, communication theory) that's load-bearing for the claim. But the name is high-friction for English readers.
 
-**Sources:** [explanatory-candidate-scan low-conf rows](explanatory-candidate-scan.md), `auftragstaktik principle` in master-list.
+**Sources:** [explanatory-candidate-scan low-conf rows](_archive/explanatory-candidate-scan.md), `auftragstaktik principle` in master-list.
 
 **Proposed actions:** Decide whether to (a) keep auftragstaktik with an English alias for casual readers (add-alias case) — needs the right alias, which is what's underspecified; (b) rename. The "objective-first bandwidth principle" candidate is one direction but maybe not the right one — the principle is about *delegating tactical decisions while constraining only objectives*, which "bandwidth" doesn't capture.
 
@@ -354,7 +354,7 @@ Votes that point at a real concern but underspecify the action. The work is to t
 
 **Issue:** codex-gpt-5-r2 (-1 name-unnamed) on `dark room exploration drive`: "Avoid. It imports active-inference baggage and misnames the AAD result, which is survival exploration." This points at a real prior-art-collision concern but doesn't propose the right name.
 
-**Sources:** [explanatory-candidate-scan low-conf entry](explanatory-candidate-scan.md), master-list per-row.
+**Sources:** [explanatory-candidate-scan low-conf entry](_archive/explanatory-candidate-scan.md), master-list per-row.
 
 **Proposed actions:** Decide whether AAD's $\lambda_{\text{info}}$ exploration drive should be named via active-inference vocabulary (dark-room) or via AAD-internal vocabulary ("survival exploration"). The latter is what the segment derives. Master-list also has "two parallel exploration drives" and "u-shaped exploration valuation" rows that are adjacent.
 

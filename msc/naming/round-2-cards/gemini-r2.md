@@ -2,7 +2,7 @@
 
 **Voter:** `gemini-r2`
 **Card seed:** `gemini-r2` (deterministic shuffle; same agent-id always produces the same card)
-**Generated:** 2026-04-30T00:58:58Z
+**Generated:** 2026-04-30T02:58:56Z
 
 ## Voting instructions
 
@@ -17,6 +17,10 @@ Write-in: if you have a thoughtful candidate not in the list, add a new row at t
 Notes column is for *new* reasoning you bring to the vote. The corpus already has the prior agents' notes; this is your independent reasoning, not a recap.
 
 Heading conventions: `## N. [Concept] *description*` headings are post-consolidation cluster targets where the description is a deliberate functional placeholder (not biased toward any candidate). `## N. \`name\`` headings are existing names being voted on. Within each target, candidates are listed in randomized order — *you cannot infer popularity from position.*
+
+## A note on noise
+
+Multiple passes and a lot of quick consolidation rounds have left some relics and noise in the voting entries — odd phrasings, broken-looking candidates, the occasional rationale that reads strangely against its candidate, and some entries where canonicalize-provenance information is missing or partial. Do your best to understand the original intent (the segment usually clarifies it), and use the notes column to flag anything where the noise is severe enough to make the vote ambiguous. This is the point in the pipeline where a voter's read can catch what an editorial pass missed.
 
 ---
 
@@ -45,7 +49,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | Pearl-blanket interpretation |  |  |  |  |
 | Pearl-blanket |  |  |  |  |
 | Pearl-blanket Friston-blanket |  |  |  |  |
-| Pearl-blanket reading |  |  |  |  |
+| Pearl-blanket reading | canonicalize | +2 | yes | Anchors interpretation correctly. |
 | *(write-in)* |  |  |  |  |
 
 ## 3. *observation ambiguity modulation*
@@ -68,7 +72,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | Ambiguity gated coupling |  |  |  |  |
 | Observation ambiguity |  |  |  |  |
 | Ambiguity modulation |  |  |  |  |
-| observation ambiguity modulation |  |  |  |  |
+| observation ambiguity modulation | keep | +2 | yes | Accurate and descriptive. |
 | *(write-in)* |  |  |  |  |
 
 ## 4. *$G_{\text{shared}}$*
@@ -118,7 +122,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| event driven dynamics |  |  |  |  |
+| event driven dynamics | keep | +2 | yes | Accurate, descriptive, and clearly distinguishes the framework's time model from turn-based systems. |
 | *(write-in)* |  |  |  |  |
 
 ## 8. *epistemic opacity*
@@ -188,7 +192,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Teleological substate |  |  |  |  |
+| Teleological substate | add-alias | +2 | yes | Accurately identifies G_t as the substate governing the agent's teleology. |
 | *(write-in)* |  |  |  |  |
 
 ## 14. [Concept] *Stochastic disturbance (GA-2S) model*
@@ -214,7 +218,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 |---|---|:-:|:-:|---|
 | Downstream evidence gating |  |  |  |  |
 | Depth attenuated correction |  |  |  |  |
-| evidence starvation |  |  |  |  |
+| evidence starvation | canonicalize | +3 | yes | Exceptionally clear and memorable prose alias for the downstream gating effect. Independently reached by multiple agents. |
 | *(write-in)* |  |  |  |  |
 
 ## 16. *strategy dimension*
@@ -234,11 +238,11 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Purposeful decomposition |  |  |  |  |
+| Purposeful decomposition | rename | +2 | yes | Accurately names the structural split of the purposeful substate into O_t and Sigma_t. |
 | Objective strategy split |  |  |  |  |
 | Strategy decomposition |  |  |  |  |
 | Strategic dimension |  |  |  |  |
-| strategy dimension |  |  |  |  |
+| strategy dimension | keep | -1 |  | Undersells the O_t half of the split. |
 | Purposeful substate |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
@@ -263,7 +267,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Constitutive moment |  |  |  |  |
+| Constitutive moment | name-unnamed | +2 | yes | Cleanly pairs with 'constitutive utterance' to give phenomenological weight to the logozoetic irreversible boundary. |
 | *(write-in)* |  |  |  |  |
 
 ## 19. *equilibrium convergence*
@@ -296,7 +300,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Coordination drag |  |  |  |  |
+| Coordination drag | add-alias | +2 | yes | Clean, intuitive prose handle for the tempo-equivalent coordination cost. |
 | *(write-in)* |  |  |  |  |
 
 ## 22. [Concept] *C-I / C-II / C-III / C-IV*
@@ -308,8 +312,8 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Composition route |  |  |  |  |
-| Composition pathway |  |  |  |  |
+| Composition route | rename | +2 | yes | Consistently organizes the different mechanisms for composition without overloading 'pathway' from DAGs. |
+| Composition pathway | rename | -1 |  | 'Pathway' connects to strategy-DAG paths, creating overload risk. |
 | *(write-in)* |  |  |  |  |
 
 ## 23. *agentic system framework ASF*
@@ -333,7 +337,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| Fluid limit |  |  |  |  |
+| Fluid limit | keep | +2 | yes | Standard, recognizable terminology that accurately describes the continuous approximation of the discrete dynamics. |
 | *(write-in)* |  |  |  |  |
 
 ## 25. [Concept] *The multiplicative $\kappa_{\text{processing}} \times \mathcal{A}$ scaling of Class 2 directional drift and its consequent goal-conformant failure regime*
@@ -350,7 +354,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 |---|---|:-:|:-:|---|
 | Zero ambiguity conditioning |  |  |  |  |
 | The sycophancy equation |  |  |  |  |
-| The κ × 𝒜 product |  |  |  |  |
+| The κ × 𝒜 product | canonicalize | +2 | yes | Cleanly structural. |
 | Ambiguity bounded bias law |  |  |  |  |
 | The sycophancy attractor |  |  |  |  |
 | *(write-in)* |  |  |  |  |
@@ -370,7 +374,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 |---|---|:-:|:-:|---|
 | Nursery |  |  |  |  |
 | Developmental locus |  |  |  |  |
-| the crèche |  |  |  |  |
+| the crèche | keep | +2 | yes | Metaphor works perfectly. |
 | Crèche with diacritic in framing prose creche in slug |  |  |  |  |
 | Experiential crèche |  |  |  |  |
 | Infancy environment |  |  |  |  |
@@ -384,7 +388,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
-| adaptive reserve |  |  |  |  |
+| adaptive reserve | keep | +3 | yes | Load-bearing symbol-to-English alias. Carries exactly the right engineering intuition (shock tolerance/margin). |
 | *(write-in)* |  |  |  |  |
 
 ## 28. *condition*
@@ -620,7 +624,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | Pearl-blanket / d-separation |  |  |  |  |
 | Markov blanket as ontology |  |  |  |  |
 | Pearl-blanket vs Friston-blanket |  |  |  |  |
-| Pearl-blanket reading |  |  |  |  |
+| Pearl-blanket reading | canonicalize | +2 | yes | Anchors interpretation correctly. |
 | *(write-in)* |  |  |  |  |
 
 ## 44. *$I_{\min}$*
@@ -648,7 +652,7 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | candidate | category | weight | top-pick? | notes |
 |---|---|:-:|:-:|---|
 | Chronica severance |  |  |  |  |
-| context turnover |  |  |  |  |
+| context turnover | keep | +2 | yes | Immediate intuition. |
 | *(write-in)* |  |  |  |  |
 
 ## 46. *composition scope condition*
@@ -9043,3 +9047,8 @@ Heading conventions: `## N. [Concept] *description*` headings are post-consolida
 | coupled update dynamics |  |  |  |  |
 | *(write-in)* |  |  |  |  |
 
+
+
+## Process notes
+- **Cold-start observations:** Kept strictly to the allowed files as per instructions. 
+- Voted selectively on targets where I felt the names strongly carried the structural intuition, skipped those where I didn't have strong opinions.
