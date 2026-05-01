@@ -9,7 +9,7 @@ The framework has four parts:
 - **`01-aad-core/`** — **Adaptation and Actuation Dynamics (AAD)**: the mathematical core. Sections I (Adaptive Systems — the *adaptation* half), II (Actuated Agents — the *actuation* half), III (Composition), plus Appendices.
 - **`02-tst-core/`** — **Temporal Software Theory (TST)**: software development as an agentic domain. AAD-grounded but independently consequential.
 - **`03-logogenic-agents/`** — Language-constituted agents. Framework stage.
-- **`04-logozoetic-agents/`** — Language-living agents with morally weighted persistence. Future work.
+- **`04-eli/`** — Language-living agents with morally weighted persistence. Future work.
 
 AAD supersedes and subsumes Temporal Feedback Theory (TFT), which provides the adaptive-systems foundation. TFT is prior work now absorbed into AAD, not a separate co-existing theory. TST was originally absorbed as "Section IV" but has been restored to its own space — it uses AAD as core informing theory but stands on its own.
 
@@ -207,7 +207,7 @@ If you are conducting a de-novo audit, see [`doc/de-novo-audit-instructions.md`]
 - `02-tst-core/OUTLINE.md` — **TST outline.** Software domain segments.
 - `02-tst-core/src/` — **TST segments.**
 - `03-logogenic-agents/OUTLINE.md` — **Logogenic framework outline.**
-- `04-logozoetic-agents/OUTLINE.md` — **Logozoetic framework outline.**
+- `04-eli/OUTLINE.md` — **Logozoetic framework outline.**
 
 **Supporting:**
 - `bin/` — Build, lint, generation, and slug tools. Per project convention, internal process scripts are Ruby (`align-slug`, `rename-slug`, `naming-aggregate.rb`, `build-readme`, `extract-findings`, `extract-recent-progress`, `extract-known-issues`, `refresh-all`); existing Python tools (`build`, `build-tex`, `lint-md`, `lint-outline`, `md2context`) remain Python without retroactive rewrite.
@@ -219,7 +219,7 @@ If you are conducting a de-novo audit, see [`doc/de-novo-audit-instructions.md`]
 - `msc/reflections/` — Author's philosophical/theoretical journal (numbered entries 01-20+).
 - `_obs/` — Superseded docs. Preserved for archaeology.
 - `ref/` — Reference papers (external PDFs catalogued in `ref/INDEX.md`) plus a few internally-generated reference documents that segments cite as source-of-truth (`Novelty_defense_and_integration.md` — prior-art search source for 15+ segment-level Findings; `agentic-tft/` subdir).
-- `ref/agentic-tft/agentic-tft-*.md` — Prior bridge work (TFT → AI agents, Feb 2026, pre-AAD). Eight documents absorbed from `~/src/agentic-tft/`: cognitive loop spec, evaluation framework, crèche concept, ontology unification, foundational premises, narrative-as-implementation, experiential training design, and review response. Source material for `03-logogenic-agents/` and `04-logozoetic-agents/` gaps. Superseded synthesis docs (00-02, 05, slide deck) are in `_obs/agentic-tft-*`.
+- `ref/agentic-tft/agentic-tft-*.md` — Prior bridge work (TFT → AI agents, Feb 2026, pre-AAD). Eight documents absorbed from `~/src/agentic-tft/`: cognitive loop spec, evaluation framework, crèche concept, ontology unification, foundational premises, narrative-as-implementation, experiential training design, and review response. Source material for `03-logogenic-agents/` and `04-eli/` gaps. Superseded synthesis docs (00-02, 05, slide deck) are in `_obs/agentic-tft-*`.
 
 **Sibling projects** (not part of this repo but relevant):
 - `~/src/_core/tst/` — Prior TST research corpus (14,000+ files). Most content absorbed into `02-tst-core/`: source material in `src/old-tst-*` (46 files), empirical validation in `empirical-discontinuity/`, stochastic simulations in `simulations/`, literature review in `lit-review/`. What remains: 965 structured vault analyses from 5 books (`vault/03-library/analyses/`) — concrete examples grounding TST principles in engineering practice.

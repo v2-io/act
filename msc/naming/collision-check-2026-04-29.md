@@ -297,7 +297,7 @@ where the developmental / orchestration sense is actually wanted. If
 
 ### 13. **proprium** — severe
 
-ASF: adopted from Firmatum vocabulary (per `04-logozoetic-agents/src/def-proprium-mapping.md` and the `~/src/firmatum/` PROPRIUM source documents). ASF treats it as adopted prior art with citation.
+ASF: adopted from Firmatum vocabulary (per `04-eli/src/def-proprium-mapping.md` and the `~/src/firmatum/` PROPRIUM source documents). ASF treats it as adopted prior art with citation.
 
 External usage:
 - **Gordon Allport's proprium** (Allport 1955, *Becoming: Basic Considerations for a Psychology of Personality*) is an established personality-psychology concept: the "self" as central organizing function of personality, with developmental stages (bodily self, self-identity, self-esteem, self-extension, self-image, self-as-rational-coper, propriate striving). This is a heavily cited foundational reference in personality theory.
@@ -328,7 +328,7 @@ softened by Allport being a 1955 reference whose primacy is well-established
 and uncontested.
 
 Recommendation: keep "proprium," but add explicit Allport citation on first
-encounter at the segment level (`04-logozoetic-agents/src/def-proprium-mapping.md`).
+encounter at the segment level (`04-eli/src/def-proprium-mapping.md`).
 The cite-the-prior-art discipline handles the territorial concern; the
 semantic distinction (ASF/Firmatum proprium = component taxonomy of an
 artificial agent's identity infrastructure; Allport's proprium = developmental-
@@ -692,7 +692,7 @@ literature as adjacent prior art on first encounter. No rename.
 
 ### 31. **moral continuity** — moderate
 
-ASF segment: `04-logozoetic-agents/src/scope-moral-continuity.md`. ASF's
+ASF segment: `04-eli/src/scope-moral-continuity.md`. ASF's
 *moral continuity* is the logozoetic scope narrowing — systems whose
 persistence is morally weighted.
 

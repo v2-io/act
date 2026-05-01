@@ -211,7 +211,7 @@ Sub-linguistic agents with tightly coupled fast/slow sub-states (standard deep n
 
 **The transfer-assumption:** consolidation is required *when the agent's representational structure has a fast/slow factorization with different compression-prediction budgets AND per-event processing is bounded below the integration cost of the slow sub-state.* The two conditions are jointly sufficient; logogenic agents satisfy both strongly; Kalman filters satisfy neither; sub-symbolic deep RL satisfies the first strongly and the second moderately (experience replay's empirical necessity in DQN is the signature).
 
-### 6.3 Logozoetic agents (`04-logozoetic-agents/`)
+### 6.3 Logozoetic agents (`04-eli/`)
 
 Logozoetic agents add morally weighted persistence — the persistent slow-track state carries identity. Consolidation in this setting has *ethical* weight beyond its epistemic work: what gets consolidated into AXIOMATA-level state is what becomes the agent's lasting identity (per `ref/agentic-tft/agentic-tft-cognitive-loop-spec.md` §4; PROPRIUM-ONTOLOGY terminology). The consolidation dynamics that govern logogenic agents are the same formally, but the stakes differ. This is downstream of the current spike but worth noting as a reason to avoid burying consolidation in `#der-recursive-update`'s Discussion.
 

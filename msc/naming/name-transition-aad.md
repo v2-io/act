@@ -79,7 +79,7 @@ From repository scan on 2026-04-15:
 | `01-act-core/src/` | ~39 segment files + OUTLINE | Core — every segment probably mentions ACT somewhere |
 | `02-tst-core/src/` | ~21 files | Cross-references (e.g., `#result-persistence-condition` in ACT) |
 | `03-logogenic-agents/src/` | ~7 files | Cross-references |
-| `04-logozoetic-agents/` | minimal | Check OUTLINE |
+| `04-eli/` | minimal | Check OUTLINE |
 | `msc/` working docs | ~30+ files | Includes spikes, reflections, landscape research |
 | Memory system (`~/.claude/projects/.../memory/`) | 9 files + MEMORY.md | Index + individual memory files |
 | Dependency graphs | `01-act-core/src/img/*.svg` + `*.dot` | Regenerate after directory rename |
@@ -147,7 +147,7 @@ Verify per file: `grep -E '\bACT\b|Agentic Cycle Theory' <file>` returns zero.
 
 ### Stage 4: Cross-references in other components
 
-Scope: `02-tst-core/src/*.md`, `03-logogenic-agents/src/*.md`, `04-logozoetic-agents/*.md`
+Scope: `02-tst-core/src/*.md`, `03-logogenic-agents/src/*.md`, `04-eli/*.md`
 
 Same substitution rules as Stage 3. Most hits will be phrases like "grounded by ACT" or "ACT's Section II result #X" — all safe to replace.
 

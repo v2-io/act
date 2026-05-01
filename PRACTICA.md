@@ -10,7 +10,7 @@
   1. [AAD OUTLINE](01-aad-core/OUTLINE.md),  Segment Refinement & Promotion
   2. [TST OUTLINE](02-tst-core/OUTLINE.md), Segment Refinement & Promotion
   3. [LOGOGENIC OUTLINE](03-logogenic-agents/OUTLINE.md), Segment Refinement & Promotion
-  4. [LOGOZOETIC OUTLINE](04-logozoetic-agents/OUTLINE.md), Segment Refinement & Promotion
+  4. [LOGOZOETIC OUTLINE](04-eli/OUTLINE.md), Segment Refinement & Promotion
 - [ ] Empirical Experiments & Analysis
 - [ ] Prior/Adjacent Art, Novelty Analysis, & Citations
 - [ ] Pedagogy (initially needs vision & plan)

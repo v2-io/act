@@ -15,7 +15,7 @@
   src/                Claim segments (one per file, named by slug)
 02-tst-core/          Temporal Software Theory (AAD-grounded)
 03-logogenic-agents/  Language-constituted agents (framework stage)
-04-logozoetic-agents/ Language-living agents (future work)
+04-eli/ Language-living agents (future work)
 
 OUTLINE.md            Top-level assembly index
 LEXICON.md            Prose vocabulary (cycle phases, agent classes)

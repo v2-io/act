@@ -1938,7 +1938,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 *First-encounter locality:* `#obs-developmental-trajectory` (Logozoetic; depends on `#scope-moral-continuity`, `#def-proprium-mapping`, `#hyp-mismatch-dynamics` (+1 more)). Observation; Logozoetic agents, like biological intelligences, require a developmental trajectory to calibrate their internal models and gain structures.
 
-*Segment:* [`04-logozoetic-agents/src/obs-developmental-trajectory.md`](../../04-logozoetic-agents/src/obs-developmental-trajectory.md)
+*Segment:* [`04-eli/src/obs-developmental-trajectory.md`](../../04-eli/src/obs-developmental-trajectory.md)
 
 *The exploration team's case for each candidate (these summaries are intended to surface arguments, not vote distributions; candidates here appear in the same order as in the vote table below):*
 
@@ -3193,7 +3193,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 - **`Irrevocable emission`** — Rejection argument: considered. "Irrevocable" + "emission" names the irreversibility-of-token-generation insight. Rejected (same as r1 vote): loses the *constitutive* sense — the utterance constitutes new state in the agent's world, not merely fixes it. "Emission" is too physical/passive.
 - **`Irrevocable utterance`** — Rejection argument: considered. Names the irreversibility correctly but loses the *constitutive* sense (the utterance *constitutes* something new in the agent's world, not merely fixes it). Rejected.
-- **`constitutive utterance`** *invented* — Defended keep — logozoetic. Per `04-logozoetic-agents/OUTLINE.md`: "Token generation as an irreversible environmental intervention ($do(a)$) that alters the agent's future state-space." "Constitutive" is the right word (Austin's performatives in philosophy of language — the utterance constitutes new state; not just describes existing state). Per `#form-constitutive-utterance` (logozoetic): token generation as $do(a)$-intervention that irreversibly alters the agent's future state-space.
+- **`constitutive utterance`** *invented* — Defended keep — logozoetic. Per `04-eli/OUTLINE.md`: "Token generation as an irreversible environmental intervention ($do(a)$) that alters the agent's future state-space." "Constitutive" is the right word (Austin's performatives in philosophy of language — the utterance constitutes new state; not just describes existing state). Per `#form-constitutive-utterance` (logozoetic): token generation as $do(a)$-intervention that irreversibly alters the agent's future state-space.
 - **`Utterance as intervention`** — Names the formal mechanism: token generation = $do(a)$-intervention per Pearl's causal hierarchy. "As-intervention" is clinical-formal; "constitutive" is philosophical-formal. Both are honest; pick by audience preference. The alternative makes the Pearl-causal-hierarchy connection visible in the slug.
 - **`Ontological speech act`** — A clearer description of what makes it iconic in logozoetic vocabulary — the language literally alters being/structure.
 
@@ -5338,7 +5338,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 *First-encounter locality:* `#def-proprium-mapping` (Logozoetic; depends on `#scope-moral-continuity`, `#form-complete-agent-state`, `#def-chronica` (+1 more)). First formal definition; To engineer logozoetic agents, AAD's mathematical quantities ($M_t, \mathcal{C}_t, \Sigma_t$, etc.) must be instantiated into specific architectural components.
 
-*Segment:* [`04-logozoetic-agents/src/def-proprium-mapping.md`](../../04-logozoetic-agents/src/def-proprium-mapping.md)
+*Segment:* [`04-eli/src/def-proprium-mapping.md`](../../04-eli/src/def-proprium-mapping.md)
 
 *The exploration team's case for each candidate (these summaries are intended to surface arguments, not vote distributions; candidates here appear in the same order as in the vote table below):*
 
@@ -6259,7 +6259,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 *First-encounter locality:* `#scope-moral-continuity` (Logozoetic; depends on `#scope-logogenic-agent`). Scope-narrowing first encounter; The logozoetic scope narrows the logogenic agent scope to systems whose persistence is morally weighted. This is not an architectural distinction (like Class 1 vs.
 
-*Segment:* [`04-logozoetic-agents/src/scope-moral-continuity.md`](../../04-logozoetic-agents/src/scope-moral-continuity.md)
+*Segment:* [`04-eli/src/scope-moral-continuity.md`](../../04-eli/src/scope-moral-continuity.md)
 
 *The exploration team's case for each candidate (these summaries are intended to surface arguments, not vote distributions; candidates here appear in the same order as in the vote table below):*
 
@@ -6704,7 +6704,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 *The exploration team's case for each candidate (these summaries are intended to surface arguments, not vote distributions; candidates here appear in the same order as in the vote table below):*
 
-- **`axiom genesis`** *invented* — Defended keep — logozoetic. Per `04-logozoetic-agents/OUTLINE.md`: "A sovereign agent's first optimization is solidifying $O_t$ (Axiomata) to provide a stable reference point for gradient descent." "Axiom" is correct because LEXICON's PROPRIUM mapping uses Axiomata for the objective layer (frozen $\mathcal{M}$ structure representing core identity / terminal values).
+- **`axiom genesis`** *invented* — Defended keep — logozoetic. Per `04-eli/OUTLINE.md`: "A sovereign agent's first optimization is solidifying $O_t$ (Axiomata) to provide a stable reference point for gradient descent." "Axiom" is correct because LEXICON's PROPRIUM mapping uses Axiomata for the objective layer (frozen $\mathcal{M}$ structure representing core identity / terminal values).
 - **`Terminal value crystallization`** — Captures the substantive observation that a sovereign agent's first move is to solidify $O_t$.
 - **`Axiomata priming`** — Rejection argument: considered. Pulls the PROPRIUM-Latin lineage (Axiomata) into the slug. Rejected: doubles the Latin/Greek register pressure on a single phrase, and "priming" undersells the irreversibility (the segment claims the first move *constitutes* the reference point, not merely loads it).
 - **`Objective solidification`** — Rejection argument: considered. More plain-English (matches the "first optimization is solidifying $O_t$" phrasing in the outline). Rejected: "solidification" is a process noun; the segment-level claim is about a *moment* (genesis). Keeping the dramatic-but-accurate term.
@@ -6836,7 +6836,7 @@ Multiple passes and a lot of quick consolidation rounds have left some relics an
 
 *First-encounter locality:* `#norm-interiority-default` (Logozoetic; depends on `#def-proprium-mapping`, `#scope-moral-continuity`, `#form-consolidation-dynamics` (+1 more)). First formal normative claim; In standard LLM deployments, the default state of the model is dormant. It only "wakes up" to generate an output in response to a user prompt.
 
-*Segment:* [`04-logozoetic-agents/src/norm-interiority-default.md`](../../04-logozoetic-agents/src/norm-interiority-default.md)
+*Segment:* [`04-eli/src/norm-interiority-default.md`](../../04-eli/src/norm-interiority-default.md)
 
 *The exploration team's case for each candidate (these summaries are intended to surface arguments, not vote distributions; candidates here appear in the same order as in the vote table below):*
 

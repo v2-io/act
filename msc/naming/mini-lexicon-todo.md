@@ -496,7 +496,7 @@ The severe / severe-resolvable cases that need concrete action are listed below.
 
 ### 11.1 *artificial hippocampus* — severe (rename strongly recommended)
 
-**Issue:** Theodore Berger's lab at USC has an active, FDA-trial-stage hippocampal-prosthesis research program (Hampson et al. 2018+); "artificial hippocampus" is a literal medical device, not a metaphor. Using the term as a canonical name for the externalization-and-rehydration mechanism in `03-logogenic-agents/` / `04-logozoetic-agents/` invites both semantic-import mismatch (neuroengineering readers import the literal device) and territorial step-on (Berger's lab has spent decades on this).
+**Issue:** Theodore Berger's lab at USC has an active, FDA-trial-stage hippocampal-prosthesis research program (Hampson et al. 2018+); "artificial hippocampus" is a literal medical device, not a metaphor. Using the term as a canonical name for the externalization-and-rehydration mechanism in `03-logogenic-agents/` / `04-eli/` invites both semantic-import mismatch (neuroengineering readers import the literal device) and territorial step-on (Berger's lab has spent decades on this).
 
 **Sources:** [collision-check report §34](collision-check-2026-04-29.md). Master list already has *externalization reconstruction cycle* (+6) as a non-colliding alternative.
 
@@ -546,7 +546,7 @@ The severe / severe-resolvable cases that need concrete action are listed below.
 
 **Issue:** Gordon Allport's *proprium* (Allport 1955, *Becoming*) is the established personality-psychology concept — the central organizing self-function with its seven developmental stages. ASF (via Firmatum upstream) uses the term as the container for the artificial agent's identity infrastructure (CHRONICA, AXIOMATA, sovereignty/visibility/authority dimensions). Spot-check confirms Firmatum source documents (`PROPRIUM-ONTOLOGY.md`, `PROPRIUM-ARCHITECTURE.md`) do not currently cite Allport — closing that citation gap at the segment level resolves the collision.
 
-**Sources:** [collision-check report §13](collision-check-2026-04-29.md). ASF segment: `04-logozoetic-agents/src/def-proprium-mapping.md`.
+**Sources:** [collision-check report §13](collision-check-2026-04-29.md). ASF segment: `04-eli/src/def-proprium-mapping.md`.
 
 **Proposed actions:** Add explicit Allport citation on first encounter at the segment level. The semantic distinction (ASF/Firmatum proprium = component taxonomy of artificial-agent identity infrastructure; Allport's proprium = developmental-psychological self-construct) is sufficiently clear once both are named. No rename. Allport's primacy is a 70-year-old uncontested reference — citation is sufficient.
 

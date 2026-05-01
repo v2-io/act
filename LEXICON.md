@@ -27,7 +27,7 @@ For mathematical symbols, see [`NOTATION.md`](NOTATION.md).
 | **Actuated agent** | + explicit $G_t = (O_t, \Sigma_t)$ distinct from $M_t$ | #form-complete-agent-state (Section II) |
 | **Self-actuated agent** | + sets own $O_t$ (goal autonomy, not just solution autonomy) | *(reserved)* |
 | **Logogenic agent** | + primary channels are language (constituted by logos) | `03-logogenic-agents/`, architectural |
-| **Logozoetic agent** | + persistence is morally weighted (temporal continuity, sovereignty, theory of mind) | `04-logozoetic-agents/`, existential |
+| **Logozoetic agent** | + persistence is morally weighted (temporal continuity, sovereignty, theory of mind) | `04-eli/`, existential |
 
 
 ## Persistence (Three Senses)
