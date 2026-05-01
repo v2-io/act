@@ -56,15 +56,20 @@
 # detail view shows the raw R1 inputs alongside the synthesized vote so
 # every synthesis is auditable in a glance. Tune from observed surprises.
 #
-# Substance discount for R2 votes:
-#   tokens(s)  = lowercased s, punctuation stripped, stopwords removed
-#   novelty    = 1 - Jaccard(tokens(note), tokens(card-bullet))
-#   substance  = raw_weight × (0.5 + 0.5 × novelty) × min(1.0, note_chars/100)
+# Substance factor for votes (R2 voters; R1 synth gets factor=1 as a single
+# entity-equivalent vote without per-vote substance assessment):
+#   tokens(s)     = lowercased s, punctuation stripped, stopwords removed
+#   novelty       = 1 - Jaccard(tokens(note), tokens(card-bullet))
+#   length_factor = min(1.0, note_chars / 30.0)
+#   factor        = length_factor × (1.0 + novelty)        ∈ [0, 2]
+#   substance     = raw_weight × factor
 #
-# The 0.5 floor on the multiplier means even a pure paraphrase keeps half
-# its weight — the act of voting is a judgment, not zero signal. Long novel
-# notes get full weight; short paraphrased notes get sharply discounted.
-# Components surfaced separately so Joseph can see what feeds each score.
+# Factor shape: empty note → 0 (button-click is no signal); 30+ char paraphrase
+# → 1 (the vote-act is a judgment, raw weight is the right baseline); 30+ char
+# fully-novel rationale → 2 (new reasoning amplifies). For negative votes the
+# same shape applies: -1 with empty note → 0; -1 with novel rationale → -2
+# (amplified rejection). 30-char threshold matches the project's existing
+# "substantive notes" convention.
 #
 # Usage:
 #   ruby bin/naming-r2-aggregate                                # write defaults
@@ -102,6 +107,10 @@ OptionParser.new do |opts|
   opts.on('--detail-out=PATH', "Detail output path (default #{DEFAULT_DETAIL_OUT})") { |p| options[:detail_out] = p }
   opts.on('--min-r2-voters=N', Integer, 'Minimum R2 voter count for inclusion (default 2)') { |n| options[:min_r2_voters] = n }
   opts.on('--include-uncontested-keeps', 'Include targets with exactly one candidate (the current name) and no write-ins. Default: filter out — these need no decision.') { options[:include_uncontested_keeps] = true }
+  opts.on('--show-all', 'Show every target that has any vote (R1 or R2). Equivalent to --min-r2-voters=0 --include-uncontested-keeps. The implicit no-vote filter still applies — targets with literally zero votes anywhere are still skipped.') do
+    options[:min_r2_voters] = 0
+    options[:include_uncontested_keeps] = true
+  end
   opts.on('--limit=N', Integer, 'Limit output to first N matching targets (debug)') { |n| options[:limit] = n }
   opts.on('--verbose', 'Print parse / match diagnostics to stderr') { options[:verbose] = true }
   opts.on('-h', '--help') { puts opts; exit }
@@ -147,9 +156,50 @@ def novelty(note, bullet)
   1.0 - jaccard(tokenize(note), tokenize(bullet))
 end
 
-def substance_score(raw_weight, novelty, note_chars)
+def substance_score(raw_weight, novelty, note_chars, bullet_chars, top_pick: false, category: nil)
   return 0.0 if raw_weight.nil? || raw_weight.zero?
-  raw_weight * (0.5 + 0.5 * novelty) * [1.0, note_chars / 100.0].min
+  return 0.0 if note_chars.zero?
+  # Smooth substance factor, two tunables, plus two categorical 1.2× multipliers:
+  #   relative_length = note_chars / bullet_chars  (capped at 1; no extra credit for verbosity)
+  #   effort          = min(1, relative_length)
+  #   factor          = (0.7 + 0.3 × effort) × (1.0 + novelty)
+  #   factor         *= 1.2 if top_pick                    (voter chose this when forced)
+  #   factor         *= 1.2 if category == 'canonicalize'  (excavated-from-prose evidence)
+  #
+  # Properties:
+  #   no note          → 0      (special-cased above; nullify)
+  #   fragment + match → 0.7    (small penalty)
+  #   bandwagon        → 1.0    (full effort, no novelty — vote at face value)
+  #   thoughtful       → 2.0    (full effort + fully novel — full amplification)
+  #   thoughtful + top-pick                         → 2.4
+  #   thoughtful + canonicalize                     → 2.4
+  #   thoughtful + top-pick + canonicalize          → 2.88
+  #   write-in         → 2.0+   (no bullet → effort=1, novelty=1 by construction;
+  #                              lands at thoughtful naturally, no extra multiplier)
+  #   -1 with novel rationale → -2.0  (amplified rejection, matching spec)
+  #
+  # Top-pick × 1.2 rationale: top-pick is "if exactly one had to land, this one."
+  # The data shows top-pick acts as a tiebreaker in 20/20 cases where a voter
+  # has multiple +2s on a target; elsewhere it's mostly redundant with +2. The
+  # multiplier captures the tiebreaker signal without distorting the common case.
+  #
+  # Canonicalize × 1.2 rationale: per naming-principles.md, canonicalize means
+  # "the phrase is already organically in the prose" — empirical evidence the
+  # name fits, beyond just one voter's preference. Excavated-from-prose votes
+  # carry stronger fit-signal than invented-rename votes.
+  #
+  # Length is only meaningful relative to the bullet the voter was responding
+  # to. Token-Jaccard novelty conflates true paraphrase ("same idea, different
+  # words") with genuine novelty — for this corpus we treat that as acceptable
+  # noise (rephrase-of-known-argument is itself signal of engagement, and the
+  # cold-start protocol minimized cross-voter paraphrase). Embeddings would
+  # distinguish the two if it ever matters more.
+  relative_length = bullet_chars.positive? ? note_chars.to_f / bullet_chars : 1.0
+  effort = [1.0, relative_length].min
+  factor = (0.7 + 0.3 * effort) * (1.0 + novelty)
+  factor *= 1.2 if top_pick
+  factor *= 1.2 if category == 'canonicalize'
+  raw_weight * factor
 end
 
 # ----------------------------------------------------------------------------
@@ -432,23 +482,27 @@ def consolidate(master, cards, verbose: false)
       rec[:bullets_by_voter][voter] = t[:bullets]
       rec[:target_numbers][voter] = t[:number]
 
+      master_candidate_names = master_entry['candidates'].map { |c| c['candidate'] }.to_set
+
       t[:votes].each do |v|
         bullet = t[:bullets][v[:candidate]] || ''
         nv = novelty(v[:notes], bullet)
         weight_int = v[:weight].to_i
+        is_write_in = !master_candidate_names.include?(v[:candidate])
         rec[:r2_votes] << {
-          voter:      voter,
-          arch:       architecture_of(voter),
-          candidate:  v[:candidate],
-          category:   v[:category],
-          weight:     weight_int,
-          weight_str: v[:weight],
-          top_pick:   v[:top_pick],
-          notes:      v[:notes],
-          notes_len:  v[:notes].length,
-          novelty:    nv,
-          substance:  substance_score(weight_int, nv, v[:notes].length),
-          bullet:     bullet
+          voter:        voter,
+          arch:         architecture_of(voter),
+          candidate:    v[:candidate],
+          category:     v[:category],
+          weight:       weight_int,
+          weight_str:   v[:weight],
+          top_pick:     v[:top_pick],
+          notes:        v[:notes],
+          notes_len:    v[:notes].length,
+          novelty:      nv,
+          is_write_in:  is_write_in,
+          substance:    substance_score(weight_int, nv, v[:notes].length, bullet.length, top_pick: v[:top_pick], category: v[:category]),
+          bullet:       bullet
         }
         rec[:r2_voters] << voter
       end
@@ -477,25 +531,47 @@ end
 def band(record)
   # Build per-candidate aggregate.
   per_candidate = Hash.new do |h, k|
-    h[k] = { r2_votes: [], total_substance: 0.0, n_pos: 0, n_neg: 0, top_picks: 0 }
+    h[k] = {
+      r2_votes:        [],
+      total_substance: 0.0,
+      total_votes:     0,    # sum of signed weights (R1 synth + R2)
+      n_voters:        0,    # count of distinct voters (R1 synth counts as 1)
+      n_pos:           0,
+      n_neg:           0,
+      top_picks:       0,
+      has_add_alias:   false # any R1 or R2 vote in add-alias category
+    }
   end
 
   record[:r2_votes].each do |v|
     pc = per_candidate[v[:candidate]]
     pc[:r2_votes] << v
     pc[:total_substance] += v[:substance]
+    pc[:total_votes] += v[:weight]
+    pc[:n_voters] += 1
     pc[:n_pos] += 1 if v[:weight] > 0
     pc[:n_neg] += 1 if v[:weight] < 0
     pc[:top_picks] += 1 if v[:top_pick]
+    pc[:has_add_alias] = true if v[:category] == 'add-alias'
   end
 
-  # Add R1 synthetic vote per candidate.
+  # Add R1 synthetic vote per candidate. R1's contribution carries an implicit
+  # canonicalize × 1.2 multiplier when its category_tally is canonicalize-dominant
+  # (excavated-from-prose evidence; same rationale as the per-vote multiplier).
   record[:master]['candidates'].each do |c|
     name = c['candidate']
     r1 = synthesize_r1(c)
     per_candidate[name][:r1] = r1
-    if r1[:weight] && r1[:weight] != 0
-      per_candidate[name][:total_substance] += r1[:weight].to_f
+    cat_tally = c['category_tally'] || {}
+    per_candidate[name][:has_add_alias] = true if cat_tally['add-alias'].to_i.positive?
+    next unless r1[:weight]
+    per_candidate[name][:total_votes] += r1[:weight]
+    per_candidate[name][:n_voters] += 1
+    if r1[:weight] != 0
+      r1_factor = 1.0
+      dominant_cat = cat_tally.max_by { |_, v| v }&.first
+      r1_factor *= 1.2 if dominant_cat == 'canonicalize'
+      per_candidate[name][:total_substance] += r1[:weight].to_f * r1_factor
       per_candidate[name][:n_pos] += 1 if r1[:weight] > 0
       per_candidate[name][:n_neg] += 1 if r1[:weight] < 0
     end
@@ -542,18 +618,22 @@ def render_table(records, multi_voter_records, voters)
   out << ''
   out << 'Filtered out (default): targets where the only master candidate is the current name (`is_keep`) and no R2 voter wrote in an alternative. These are uncontested keeps — no decision needed. Override with `--include-uncontested-keeps`.'
   out << ''
-  out << '- **Bold row** = leader (highest total substance score)'
+  out << '- **Bold row** = leader (highest score)'
   out << '- **▸** = candidate is the current name in the corpus (`is_keep` from master-list)'
-  out << '- **R1**: synthesized R1 vote on R2 scale ({+2, +1, 0, -1}); blank = no R1 evidence'
-  out << '- **One column per R2 voter**: signed integer weight, blank = did not vote'
+  out << '- **⊕** = at least one voter (R1 or R2) cast an `add-alias` vote on this candidate. Read the detail view: an add-alias vote means "keep the current name AND add this as a parallel handle," not "replace." Different downstream action than rename/keep/canonicalize.'
   out << '- **★**: top-pick count across R2 voters'
-  out << '- **subst**: total substance score across R1 + R2 (Jaccard-discounted; see header of detail view)'
-  out << '- **arch**: number of distinct R2 architectures voting on this candidate'
+  out << '- **n-votes**: count of distinct voters who weighed in on this candidate (R1 synthetic counts as 1 alongside each R2 voter)'
+  out << '- **v-total**: sum of signed weights across all voters (raw tally before substance factor)'
+  out << '- **score**: substance-adjusted vote tally — sum of (weight × factor) across voters, where factor = (0.7 + 0.3 × effort) × (1.0 + novelty), with effort = min(1, note_chars / bullet_chars). × 1.2 for top-pick votes, × 1.2 for canonicalize votes (both multiplicative). Empty note → 0. Bandwagon → 1.0. Thoughtful → 2.0. Top-picked thoughtful canonicalize → 2.88. Write-ins land near 2.0 by construction (no bullet → effort=1, novelty=1).'
+  out << '- **score/n**: score normalized by total voters who weighed in on *any candidate* in this target (R1 synth counts as 1 if R1 has any votes anywhere in target). Other candidates in the target are implicit zeros. Useful for comparing across targets with different voter counts and for spotting under-engaged targets.'
+  out << '- **arch**: distinct R2 architectures voting on this candidate'
+  out << ''
+  out << 'Per-voter weights and notes live in the detail view.'
   out << ''
   out << 'See [r2-aggregate-detail.md](r2-aggregate-detail.md) for per-target full vote breakdown, notes, and rationale.'
   out << ''
 
-  header = ['target / candidate', 'R1'] + voters + %w[★ subst arch]
+  header = ['target / candidate', '★', 'n-votes', 'v-total', 'score', 'score/n', 'arch']
   out << '| ' + header.join(' | ') + ' |'
   out << '|' + (['---'] + ['--:'] * (header.size - 1)).join('|') + '|'
 
@@ -563,6 +643,14 @@ def render_table(records, multi_voter_records, voters)
 
   multi_voter_records.each do |canonical, rec|
     _, per_cand, leader_name, _ = band(rec)
+
+    # Denominator for score/n: distinct voters who weighed in on ANY candidate
+    # in this target. R1 synth counts as 1 if any R1 evidence exists across
+    # the target's candidates. Other candidates in the target are implicit
+    # zeros — a voter who voted on candidate A but not on candidate B still
+    # counts in candidate B's denominator (they saw B and chose not to vote).
+    n_target_voters = rec[:r2_voters].size
+    n_target_voters += 1 if rec[:master]['candidates'].any? { |c| (c['votes'] || []).any? }
 
     short = canonical.length > 70 ? canonical[0..67] + '…' : canonical
     short = short.gsub('|', '\\|')
@@ -580,27 +668,29 @@ def render_table(records, multi_voter_records, voters)
       # current name. The arrow ▸ marks "this candidate is what's in segments
       # right now" — orthogonal to leader (which is what aggregation prefers).
       is_current = data[:r1] && data[:r1][:raw][:is_keep] == true
+      has_add_alias = data[:has_add_alias]
 
-      r1_cell = data[:r1] && data[:r1][:weight] ? format_weight(data[:r1][:weight]) : ''
-      voter_cells = voters.map do |voter|
-        vote = data[:r2_votes].find { |v| v[:voter] == voter }
-        vote ? format_weight(vote[:weight]) : ''
-      end
       tp_cell = data[:top_picks].positive? ? data[:top_picks].to_s : ''
-      subst_cell = data[:total_substance].abs < 0.05 ? '0' : format('%.1f', data[:total_substance])
+      n_cell = data[:n_voters].positive? ? data[:n_voters].to_s : ''
+      votes_cell = data[:total_votes].zero? ? '0' : format_weight(data[:total_votes])
+      score_cell = data[:total_substance].abs < 0.05 ? '0' : format('%.1f', data[:total_substance])
+      score_per = n_target_voters.positive? ? data[:total_substance] / n_target_voters : 0.0
+      score_per_cell = score_per.abs < 0.05 ? '0' : format('%.2f', score_per)
       arch_count = data[:r2_votes].map { |v| v[:arch] }.uniq.size
       arch_cell = arch_count.positive? ? arch_count.to_s : ''
 
       candidate_label = name.length > 60 ? name[0..57] + '…' : name
       candidate_label = candidate_label.gsub('|', '\\|')
       candidate_label = "**#{candidate_label}**" if is_leader
-      candidate_label = "▸ #{candidate_label}" if is_current
+      markers = [is_current ? '▸' : nil, has_add_alias ? '⊕' : nil].compact.join(' ')
+      candidate_label = "#{markers} #{candidate_label}" unless markers.empty?
 
       cells =
         if is_leader
-          [candidate_label, bold.(r1_cell)] + voter_cells.map(&bold) + [bold.(tp_cell), bold.(subst_cell), bold.(arch_cell)]
+          [candidate_label, bold.(tp_cell), bold.(n_cell),
+           bold.(votes_cell), bold.(score_cell), bold.(score_per_cell), bold.(arch_cell)]
         else
-          [candidate_label, r1_cell] + voter_cells + [tp_cell, subst_cell, arch_cell]
+          [candidate_label, tp_cell, n_cell, votes_cell, score_cell, score_per_cell, arch_cell]
         end
       out << '| ' + cells.join(' | ') + ' |'
     end
@@ -775,9 +865,21 @@ end
 warn 'Consolidating...' if options[:verbose]
 records = consolidate(master, cards, verbose: options[:verbose])
 
+# Filter 0 (always-on): no-vote targets. A target is "no-vote" if every
+# candidate has neither R1 evidence (no R1 agents voted) nor R2 votes. These
+# cannot inform any decision and would show as headings with empty bodies.
+def has_any_vote?(rec)
+  return true unless rec[:r2_votes].empty?
+  rec[:master]['candidates'].any? { |c| (c['votes'] || []).any? }
+end
+
+voted_records = records.select { |_, rec| has_any_vote?(rec) }
+no_vote_count = records.size - voted_records.size
+warn "  #{no_vote_count} targets with no votes anywhere (always excluded)" if options[:verbose] && no_vote_count.positive?
+
 # Filter 1: minimum R2 voter count.
-multi_voter = records.select { |_, rec| rec[:r2_voters].size >= options[:min_r2_voters] }
-warn "  #{records.size} total targets, #{multi_voter.size} with ≥#{options[:min_r2_voters]} R2 voters" if options[:verbose]
+multi_voter = voted_records.select { |_, rec| rec[:r2_voters].size >= options[:min_r2_voters] }
+warn "  #{voted_records.size} voted targets, #{multi_voter.size} with ≥#{options[:min_r2_voters]} R2 voters" if options[:verbose]
 
 # Filter 2: drop "uncontested keeps" — targets with exactly one master candidate
 # (the current name, is_keep=true) and no R2 write-ins. These are decisions that
