@@ -1,0 +1,77 @@
+{
+  "_comment": "Ground-truth retrieval queries for AAD-specific benchmark. Each query has 1-3 'right answer' segments (slugs without .md). 'primary' = the canonical anchor; 'also' = strongly relevant adjacents. Scoring uses primary for hit/MRR; 'also' counted as supplementary credit.",
+  "queries": [
+    {
+      "id": "q01-update-gain-eta",
+      "query": "find the segment that defines η* (update gain) — the optimal weight an agent assigns to new observations relative to its prior model",
+      "primary": ["emp-update-gain"],
+      "also": ["def-mismatch-signal", "deriv-fisher-whitened-update-rule"]
+    },
+    {
+      "id": "q02-persistence-condition",
+      "query": "find the derivation that establishes the persistence condition (when an agent can keep up with environmental change)",
+      "primary": ["result-persistence-condition", "deriv-sector-condition"],
+      "also": ["result-sector-condition-stability", "result-sector-persistence-template"]
+    },
+    {
+      "id": "q03-satisfaction-vs-control-regret",
+      "query": "what is the relationship between satisfaction gap and control regret",
+      "primary": ["def-satisfaction-gap", "def-control-regret"],
+      "also": ["def-value-object", "form-objective-functional"]
+    },
+    {
+      "id": "q04-directed-separation",
+      "query": "find where the framework discusses directed separation between M_t (model) and Σ_t (strategy) — epistemic update being goal-blind while purposeful update depends on the model",
+      "primary": ["der-directed-separation"],
+      "also": ["disc-separability-pattern", "hyp-directed-separation-under-composition"]
+    },
+    {
+      "id": "q05-logogenic-vs-logozoetic",
+      "query": "logogenic vs logozoetic agent distinction — language-constituted versus language-living agents",
+      "primary": ["scope-logogenic-agent"],
+      "also": ["def-coupled-update-dynamics"]
+    },
+    {
+      "id": "q06-pearl-causal-hierarchy",
+      "query": "Pearl causal hierarchy — association, intervention, counterfactual rungs — as it appears in AAD",
+      "primary": ["def-pearl-causal-hierarchy"],
+      "also": ["der-causal-hierarchy-requirement", "der-loop-interventional-access"]
+    },
+    {
+      "id": "q07-strategy-as-dag",
+      "query": "strategy as a probabilistic causal DAG with AND/OR nodes and edges weighted by confidence",
+      "primary": ["def-strategy-dag"],
+      "also": ["scope-and-or", "deriv-graph-structure-uniqueness"]
+    },
+    {
+      "id": "q08-orient-cascade",
+      "query": "the orient cascade — how an observation triggers model update, then strategy revision, then possibly objective revision",
+      "primary": ["der-orient-cascade"],
+      "also": ["der-recursive-update"]
+    },
+    {
+      "id": "q09-information-bottleneck",
+      "query": "information bottleneck formulation — Tishby compression of model state to retain only task-relevant information",
+      "primary": ["form-information-bottleneck"],
+      "also": ["deriv-causal-ib-lmi", "deriv-causal-ib-exploration"]
+    },
+    {
+      "id": "q10-mismatch-signal",
+      "query": "mismatch signal δ — discrepancy between predicted observations and actual observations",
+      "primary": ["def-mismatch-signal"],
+      "also": ["result-mismatch-decomposition", "hyp-mismatch-dynamics"]
+    },
+    {
+      "id": "q11-sector-condition-lyapunov",
+      "query": "Lyapunov derivation of the sector condition for nonlinear correction dynamics",
+      "primary": ["deriv-sector-condition"],
+      "also": ["result-sector-condition-stability", "deriv-variational-sector-condition"]
+    },
+    {
+      "id": "q12-adaptive-tempo",
+      "query": "adaptive tempo T — the rate at which the agent corrects its model in response to mismatch",
+      "primary": ["def-adaptive-tempo"],
+      "also": ["def-strategic-tempo", "der-tempo-composition"]
+    }
+  ]
+}

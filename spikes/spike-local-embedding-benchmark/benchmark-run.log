@@ -1,0 +1,64 @@
+Loaded 122 segments, 12 queries.
+
+=== nomic-embed-text:latest (variant=body) ===
+  embedding 122 segments...
+  done in 4.2s (34ms/seg)
+  embedded 12 queries in 0.2s
+  MRR=0.903  R@5=1.00  R@10=1.00  median_rank=1
+
+=== nomic-embed-text-v2-moe:latest (variant=body) ===
+  embedding 122 segments...
+  done in 11.5s (95ms/seg)
+  embedded 12 queries in 0.9s
+  MRR=1.000  R@5=1.00  R@10=1.00  median_rank=1
+
+=== mxbai-embed-large:latest (variant=body) ===
+  embedding 122 segments...
+  done in 6.9s (57ms/seg)
+  embedded 12 queries in 0.2s
+  MRR=0.917  R@5=1.00  R@10=1.00  median_rank=1
+
+=== bge-m3:latest (variant=body) ===
+  embedding 122 segments...
+  done in 16.0s (131ms/seg)
+  embedded 12 queries in 0.9s
+  MRR=1.000  R@5=1.00  R@10=1.00  median_rank=1
+
+=== snowflake-arctic-embed:latest (variant=body) ===
+  embedding 122 segments...
+  done in 6.2s (51ms/seg)
+  embedded 12 queries in 0.2s
+  MRR=0.555  R@5=0.67  R@10=0.92  median_rank=2
+
+=== embeddinggemma:300m (variant=body) ===
+  embedding 122 segments...
+  done in 12.3s (100ms/seg)
+  embedded 12 queries in 0.8s
+  MRR=0.958  R@5=1.00  R@10=1.00  median_rank=1
+
+=== granite-embedding:30m (variant=body) ===
+  embedding 122 segments...
+  done in 4.7s (39ms/seg)
+  embedded 12 queries in 0.2s
+  MRR=0.896  R@5=1.00  R@10=1.00  median_rank=1
+
+=== qwen3-embedding:latest (variant=body) ===
+  embedding 122 segments...
+  done in 112.3s (921ms/seg)
+  embedded 12 queries in 1.2s
+  MRR=1.000  R@5=1.00  R@10=1.00  median_rank=1
+
+=== nomic-embed-text-v2-moe:latest (variant=terse) ===
+  embedding 122 segments...
+  done in 10.2s (83ms/seg)
+  embedded 12 queries in 0.9s
+  [terse] nomic-embed-text-v2-moe:latest MRR=0.958  R@5=1.00
+
+=== bge-m3:latest (variant=terse) ===
+  embedding 122 segments...
+  done in 10.2s (84ms/seg)
+  embedded 12 queries in 1.0s
+  [terse] bge-m3:latest MRR=1.000  R@5=1.00
+
+Wrote /Users/josephwecker-v2/src/agentic-systems/spikes/spike-local-embedding-benchmark/results.json
+Wrote /Users/josephwecker-v2/src/agentic-systems/spikes/spike-local-embedding-benchmark/summary.md
