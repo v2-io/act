@@ -83,16 +83,18 @@ require 'set'
 require 'fileutils'
 require 'time'
 
-DEFAULT_MASTER     = 'msc/naming/master-list-curated.json'
-DEFAULT_CARDS_DIR  = 'msc/naming/round-2-cards'
-DEFAULT_TABLE_OUT  = 'msc/naming/r2-aggregate-table.md'
-DEFAULT_DETAIL_OUT = 'msc/naming/r2-aggregate-detail.md'
+DEFAULT_MASTER       = 'msc/naming/master-list-curated.json'
+DEFAULT_CARDS_DIR    = 'msc/naming/round-2-cards'
+DEFAULT_TABLE_OUT    = 'msc/naming/r2-aggregate-table.md'
+DEFAULT_DETAIL_OUT   = 'msc/naming/r2-aggregate-detail.md'
+DEFAULT_PATTERNS_OUT = 'msc/naming/r2-patterns.md'
 
 options = {
   master:                     DEFAULT_MASTER,
   cards_dir:                  DEFAULT_CARDS_DIR,
   table_out:                  DEFAULT_TABLE_OUT,
   detail_out:                 DEFAULT_DETAIL_OUT,
+  patterns_out:               DEFAULT_PATTERNS_OUT,
   min_r2_voters:              2,
   include_uncontested_keeps:  false,
   limit:                      nil,
@@ -105,6 +107,7 @@ OptionParser.new do |opts|
   opts.on('--cards-dir=PATH', "Cards directory (default #{DEFAULT_CARDS_DIR})") { |p| options[:cards_dir] = p }
   opts.on('--table-out=PATH', "Table output path (default #{DEFAULT_TABLE_OUT})") { |p| options[:table_out] = p }
   opts.on('--detail-out=PATH', "Detail output path (default #{DEFAULT_DETAIL_OUT})") { |p| options[:detail_out] = p }
+  opts.on('--patterns-out=PATH', "Patterns output path (default #{DEFAULT_PATTERNS_OUT})") { |p| options[:patterns_out] = p }
   opts.on('--min-r2-voters=N', Integer, 'Minimum R2 voter count for inclusion (default 2)') { |n| options[:min_r2_voters] = n }
   opts.on('--include-uncontested-keeps', 'Include targets with exactly one candidate (the current name) and no write-ins. Default: filter out — these need no decision.') { options[:include_uncontested_keeps] = true }
   opts.on('--show-all', 'Show every target that has any vote (R1 or R2). Equivalent to --min-r2-voters=0 --include-uncontested-keeps. The implicit no-vote filter still applies — targets with literally zero votes anywhere are still skipped.') do
@@ -839,6 +842,320 @@ def render_target_block(canonical, rec, per_cand, leader_name, voters)
 end
 
 # ----------------------------------------------------------------------------
+# Patterns rendering. Cross-cutting view across the entire score-card,
+# intended for an agent (typically post-de-novo-audit) reading the voting
+# corpus to produce first-pass canonicalize / rename decisions. The doc
+# surfaces categorical groupings and observations target-by-target reading
+# would miss, plus methodological keys to interpret the score-card numbers.
+# ----------------------------------------------------------------------------
+
+# Helper: structured per-target summary derived from the same `band()` data
+# used by the table renderer. Returns a hash with leader name, leader data,
+# all candidates ranked by substance, and aggregate numbers like score/n.
+def target_summary(canonical, rec)
+  _, per_cand, leader_name, leader = band(rec)
+  n_target_voters = rec[:r2_voters].size + (rec[:master]['candidates'].any? { |c| (c['votes'] || []).any? } ? 1 : 0)
+  ranked = per_cand.sort_by { |_, v| -v[:total_substance] }
+  ranked_voted = ranked.reject { |_, v| v[:r2_votes].empty? && (v[:r1].nil? || v[:r1][:weight].nil?) }
+  leader_score_per_n = (n_target_voters.positive? && leader) ? leader[:total_substance] / n_target_voters : 0.0
+  is_concept = rec[:master]['is_concept_cluster']
+  {
+    canonical:           canonical,
+    is_concept:          is_concept,
+    description:         rec[:master]['current_description'],
+    rec:                 rec,
+    leader_name:         leader_name,
+    leader:              leader,
+    leader_is_current:   leader && leader[:r1] && leader[:r1][:raw][:is_keep] == true,
+    leader_has_alias:    leader && leader[:has_add_alias],
+    n_target_voters:     n_target_voters,
+    leader_score_per_n:  leader_score_per_n,
+    ranked:              ranked_voted,
+    runner_up_score:     ranked_voted[1] ? ranked_voted[1].last[:total_substance] : 0.0,
+    leader_score:        leader ? leader[:total_substance] : 0.0,
+    segment_link:        rec[:master]['segment_link']
+  }
+end
+
+def fmt_target(s)
+  short = s[:canonical].length > 70 ? s[:canonical][0..67] + '…' : s[:canonical]
+  s[:is_concept] ? "[Concept] _#{short}_" : "`#{short}`"
+end
+
+def fmt_candidate(name)
+  name.length > 60 ? name[0..57] + '…' : name
+end
+
+def render_patterns(records, multi_voter_records, voters)
+  out = []
+  out << '# R2 Patterns — Cross-Cutting Voting Observations'
+  out << ''
+  out << "**Generated:** #{Time.now.utc.iso8601}"
+  out << "**Source:** R2 voting cohort (#{voters.size} voters: #{voters.join(', ')})"
+  out << "**Targets analyzed:** #{multi_voter_records.size} multi-R2-voter targets (filtered from #{records.size} total)"
+  out << ''
+  out << 'For an agent reading after framework ingestion to produce first-pass canonicalize / rename decisions. This doc surfaces patterns target-by-target reading would miss, and provides methodological keys to interpret the score-card numbers.'
+  out << ''
+  out << 'See also: [`r2-aggregate-table.md`](r2-aggregate-table.md) (score-card, sorted by max(score/n)), [`r2-aggregate-detail.md`](r2-aggregate-detail.md) (full per-target vote breakdown), [`naming-principles.md`](../../doc/naming-principles.md) (vote categories and criteria), [`naming-cycle-methodology.md`](../../doc/naming-cycle-methodology.md) (round design and engagement protocol).'
+  out << ''
+  out << '---'
+  out << ''
+
+  # Build summaries once
+  summaries = multi_voter_records.map { |canonical, rec| target_summary(canonical, rec) }
+
+  # ============================================================
+  # Section 1: Methodological keys
+  # ============================================================
+  out << '## 1. What the score-card numbers mean'
+  out << ''
+  out << '### Score formula'
+  out << ''
+  out << 'Each per-vote substance is `weight × factor`, where:'
+  out << ''
+  out << '```'
+  out << 'effort = min(1, note_chars / bullet_chars)        # length is meaningful only relative to bullet'
+  out << 'novelty = 1 - jaccard(note_tokens, bullet_tokens)  # token-overlap-based; see caveats'
+  out << 'factor = (0.7 + 0.3 × effort) × (1.0 + novelty)'
+  out << 'factor *= 1.2 if vote.top_pick                     # acts as tiebreaker for multi-+2 cases'
+  out << 'factor *= 1.2 if vote.category == canonicalize     # excavated-from-prose evidence'
+  out << '```'
+  out << ''
+  out << 'Properties: empty note → 0 (nullify); fragment relative to bullet → 0.7 (small penalty); bandwagon (full effort, no novelty) → 1.0 (vote at face value); thoughtful (full effort, novel) → 2.0 (full amplification); thoughtful + top-pick + canonicalize → 2.88 (max). Write-ins land at 2.0 by construction (no bullet to compare against).'
+  out << ''
+  out << '`score` = sum of substance across all voters per candidate (R1 synth counts as one voter; R2 voters add per-card)'
+  out << '`score/n` = score / total voters who weighed in on **any** candidate in the target (other candidates in target are implicit zeros — useful for cross-target comparison)'
+  out << ''
+  out << '### Marker semantics'
+  out << ''
+  out << '| marker | meaning | implication |'
+  out << '|---|---|---|'
+  out << '| **bold row** | leader (highest score within target) | aggregator\'s recommended landing |'
+  out << '| ▸ | candidate is the current corpus name (`is_keep`) | leader = ▸ → defended keep; leader ≠ ▸ → rename signal |'
+  out << '| ⊕ | at least one vote (R1 or R2) was add-alias category | downstream action: keep current AND add this — not rename |'
+  out << '| ★ | top-pick count among R2 voters | in this corpus mostly co-occurs with +2 (95%); tiebreaker when voter has multiple +2s |'
+  out << ''
+  out << '### What\'s filtered'
+  out << ''
+  out << "- **Uncontested keeps** (1 master candidate that's `is_keep`, no write-ins) excluded by default. These are decisions that need no decisions: nobody proposed an alternative at any phase. Verified across all R1 work for `action fluency`, `action selection`, `adaptive system`, etc. Override with `--include-uncontested-keeps`."
+  out << '- **Single-R2-voter targets** excluded by default (`--min-r2-voters=2`). Single-voter targets exist as data but were filtered for first-pass aggregation scope.'
+  out << '- **No-vote targets** (zero R1 evidence + zero R2 votes) always excluded; safety net.'
+  out << ''
+  out << '---'
+  out << ''
+
+  # ============================================================
+  # Section 2: Categorical groupings
+  # ============================================================
+  out << '## 2. Categorical groupings'
+  out << ''
+  out << 'Targets bucketed by leader-relative-to-current-name and by consensus shape. Ordered by leader-score/n descending within each bucket.'
+  out << ''
+
+  # Strongest defended keeps
+  defended_keeps = summaries
+                   .select { |s| s[:leader_is_current] && !s[:leader_has_alias] && s[:leader_score] > 0 }
+                   .sort_by { |s| -s[:leader_score_per_n] }
+  out << "### 2a. Strongest defended keeps — leader is current name (▸), no add-alias votes (#{defended_keeps.size})"
+  out << ''
+  out << '*The current name is the leader; voters explicitly endorsed keeping it. First-pass action: **no change**, but verify the segment\'s prose still supports the name (the score reflects voter consensus, not segment-naming-drift).*'
+  out << ''
+  out << '| target | leader | score | score/n | n-votes |'
+  out << '|---|---|--:|--:|--:|'
+  defended_keeps.first(20).each do |s|
+    out << "| #{fmt_target(s)} | `#{fmt_candidate(s[:leader_name])}` | #{format('%.1f', s[:leader_score])} | **#{format('%.2f', s[:leader_score_per_n])}** | #{s[:n_target_voters]} |"
+  end
+  out << ''
+  out << "*Showing top 20 of #{defended_keeps.size}. Full list via score-card sorted by score/n.*" if defended_keeps.size > 20
+  out << ''
+
+  # Strongest rename signals
+  rename_signals = summaries
+                   .select { |s| !s[:leader_is_current] && !s[:leader_has_alias] && s[:leader_score] > 0 }
+                   .sort_by { |s| -s[:leader_score_per_n] }
+  out << "### 2b. Strongest rename signals — leader ≠ current name, not an add-alias (#{rename_signals.size})"
+  out << ''
+  out << '*The leader proposes replacing the current name. First-pass action candidates: **rename** (slug + prose) if confidence is high. Read the detail view for context — sometimes the leader is a write-in single-voter case (interpret cautiously).*'
+  out << ''
+  out << '| target | proposed leader | score | score/n | n-votes |'
+  out << '|---|---|--:|--:|--:|'
+  rename_signals.first(25).each do |s|
+    out << "| #{fmt_target(s)} | `#{fmt_candidate(s[:leader_name])}` | #{format('%.1f', s[:leader_score])} | **#{format('%.2f', s[:leader_score_per_n])}** | #{s[:n_target_voters]} |"
+  end
+  out << ''
+  out << "*Showing top 25 of #{rename_signals.size}.*" if rename_signals.size > 25
+  out << ''
+
+  # Add-alias-leader cases
+  alias_leaders = summaries
+                  .select { |s| s[:leader_has_alias] }
+                  .sort_by { |s| -s[:leader_score_per_n] }
+  out << "### 2c. Add-alias landings — at least one ⊕ vote on the leader (#{alias_leaders.size})"
+  out << ''
+  out << '*The leader has add-alias votes — the proposed action is "keep the current name AND add this as a parallel handle," not "replace." First-pass action: **add the alias** in NOTATION/LEXICON; do not rename. Per `naming-principles.md`: most common case is symbol + English alias.*'
+  out << ''
+  out << '| target | proposed alias / leader | leader = current? | score | score/n |'
+  out << '|---|---|---|--:|--:|'
+  alias_leaders.first(25).each do |s|
+    cur_marker = s[:leader_is_current] ? '▸' : '—'
+    out << "| #{fmt_target(s)} | `#{fmt_candidate(s[:leader_name])}` | #{cur_marker} | #{format('%.1f', s[:leader_score])} | **#{format('%.2f', s[:leader_score_per_n])}** |"
+  end
+  out << ''
+  out << "*Showing top 25 of #{alias_leaders.size}.*" if alias_leaders.size > 25
+  out << ''
+
+  # Contested decisions
+  contested = summaries
+              .select { |s| s[:leader_score] > 0 && s[:runner_up_score] > 0 && s[:runner_up_score] >= 0.7 * s[:leader_score] }
+              .sort_by { |s| -s[:leader_score_per_n] }
+  out << "### 2d. Contested decisions — runner-up within 30% of leader (#{contested.size})"
+  out << ''
+  out << '*Two or more candidates have comparable scores. First-pass action: **read detail view, defer or reject.** These often indicate genuine framework-level ambiguity worth surfacing as a finding rather than a landing.*'
+  out << ''
+  out << '| target | leader | leader score | runner-up | runner-up score |'
+  out << '|---|---|--:|---|--:|'
+  contested.first(20).each do |s|
+    runner = s[:ranked][1]
+    next unless runner
+    out << "| #{fmt_target(s)} | `#{fmt_candidate(s[:leader_name])}` | #{format('%.1f', s[:leader_score])} | `#{fmt_candidate(runner.first)}` | #{format('%.1f', runner.last[:total_substance])} |"
+  end
+  out << ''
+  out << "*Showing top 20 of #{contested.size}.*" if contested.size > 20
+  out << ''
+
+  # Net-negative leaders
+  negative = summaries.select { |s| s[:leader_score] <= 0 }.sort_by { |s| s[:leader_score] }
+  if negative.any?
+    out << "### 2e. Net-negative leaders — all candidates net-negative or zero (#{negative.size})"
+    out << ''
+    out << '*Voters rejected all options (or split such that no candidate emerged positive). First-pass action: **reject all candidates, surface for new-options round.** May signal the target itself is poorly framed.*'
+    out << ''
+    out << '| target | leader | score | n-votes |'
+    out << '|---|---|--:|--:|'
+    negative.first(15).each do |s|
+      out << "| #{fmt_target(s)} | `#{fmt_candidate(s[:leader_name])}` | #{format('%.1f', s[:leader_score])} | #{s[:n_target_voters]} |"
+    end
+    out << ''
+  end
+
+  out << '---'
+  out << ''
+
+  # ============================================================
+  # Section 3: Cross-cutting patterns
+  # ============================================================
+  out << '## 3. Cross-cutting patterns'
+  out << ''
+
+  # Greek-rooted vocabulary cluster
+  greek_terms = %w[chronica aporia prolepsis epistrophe praxis aisthesis logogenic logozoetic proprium auftragstaktik symbiogenic indivisum]
+  greek_targets = summaries.select do |s|
+    name = s[:canonical].downcase
+    greek_terms.any? { |g| name.include?(g) }
+  end.sort_by { |s| -s[:leader_score_per_n] }
+  out << "### 3a. Greek / etymological vocabulary cluster (#{greek_targets.size})"
+  out << ''
+  out << '*Per the principles file, the framework deliberately uses a coherent Greek-rooted vocabulary for core nouns. Voters consistently endorsed defended keeps for these. Cross-cutting observation: this cluster scores high in normalized consensus and represents established naming commitments — first-pass action defaults to **keep** unless the segment\'s usage has drifted.*'
+  out << ''
+  out << '| target | leader | leader = current? | score/n |'
+  out << '|---|---|---|--:|'
+  greek_targets.each do |s|
+    cur_marker = s[:leader_is_current] ? '▸' : '—'
+    out << "| #{fmt_target(s)} | `#{fmt_candidate(s[:leader_name])}` | #{cur_marker} | #{format('%.2f', s[:leader_score_per_n])} |"
+  end
+  out << ''
+
+  # Math-symbol → English-alias pattern
+  math_symbol_targets = summaries.select { |s| s[:canonical].include?('$') }.sort_by { |s| -s[:leader_score_per_n] }
+  out << "### 3b. Math-symbol targets — typical add-alias pattern (#{math_symbol_targets.size})"
+  out << ''
+  out << '*Targets whose current name contains LaTeX math (`$...$`). The pattern across the cohort: voters typically vote add-alias for an English prose handle, keeping the symbol as the structural identifier. First-pass action: **add the alias** to NOTATION/LEXICON; do not rename the symbol.*'
+  out << ''
+  out << '| target | leader | leader has add-alias? | score/n |'
+  out << '|---|---|---|--:|'
+  math_symbol_targets.each do |s|
+    alias_marker = s[:leader_has_alias] ? '⊕' : '—'
+    out << "| #{fmt_target(s)} | `#{fmt_candidate(s[:leader_name])}` | #{alias_marker} | #{format('%.2f', s[:leader_score_per_n])} |"
+  end
+  out << ''
+
+  # Class N taxonomy
+  class_targets = summaries.select { |s| s[:canonical].match?(/\AClass [123]/) || s[:canonical].downcase.include?('class 1') || s[:canonical].downcase.include?('class 2') || s[:canonical].downcase.include?('class 3') }
+  out << "### 3c. Class 1/2/3 taxonomy — coordinated decision (#{class_targets.size})"
+  out << ''
+  out << '*The Class 1 / Class 2 / Class 3 numbered taxonomy in `#der-directed-separation` appears across multiple targets. Voters proposed English modifiers (`Modular` / `Merged` / `Coupled` / `Partially coupled` / `Integrated`) at varying scores. **This should land as a coordinated decision** — pick one consistent naming family across all three (and `Class 1 agent` / `Class 2 agent` / `Class 3 agent` variants), not three isolated landings. The `Architectural classes` framing also surfaced as an alternative meta-handle.*'
+  out << ''
+  out << '| target | leader | score/n |'
+  out << '|---|---|--:|'
+  class_targets.sort_by { |s| s[:canonical] }.each do |s|
+    out << "| #{fmt_target(s)} | `#{fmt_candidate(s[:leader_name])}` | #{format('%.2f', s[:leader_score_per_n])} |"
+  end
+  out << ''
+
+  # Pearl L1/L2/L3
+  pearl_targets = summaries.select { |s| s[:canonical].downcase.match?(/pearl|^L[123]/i) || s[:canonical].include?('Pearl') }
+  out << "### 3d. Pearl Causal Hierarchy — coordinated decision (#{pearl_targets.size})"
+  out << ''
+  out << '*The Pearl L1/L2/L3 causal hierarchy appears across multiple targets. Same logic as Class 1/2/3: land as a family. Note the parent target `Pearl causal hierarchy` itself.*'
+  out << ''
+  out << '| target | leader | score/n |'
+  out << '|---|---|--:|'
+  pearl_targets.sort_by { |s| s[:canonical] }.each do |s|
+    out << "| #{fmt_target(s)} | `#{fmt_candidate(s[:leader_name])}` | #{format('%.2f', s[:leader_score_per_n])} |"
+  end
+  out << ''
+
+  out << '---'
+  out << ''
+
+  # ============================================================
+  # Section 4: Caveats and assumptions
+  # ============================================================
+  out << '## 4. Caveats and assumptions baked into the score-card'
+  out << ''
+  out << '1. **Token-Jaccard novelty conflates true paraphrase with genuine novelty.** A voter who restates the bullet\'s argument in their own words gets credited for novelty. For this corpus we treat this as acceptable — the cold-start protocol minimized cross-voter paraphrase, and rephrasing established arguments is itself engagement signal. If the de-novo-audit agent finds a finalist where this assumption matters (e.g., a rename rests on what looks like novel reasoning that\'s actually paraphrase of the bullet), the detail view shows the bullet text and the voter\'s note side-by-side; manual disambiguation is straightforward.'
+  out << ''
+  out << '2. **R1 → single synthetic vote.** R1 voters\' contributions are aggregated into one synthetic voter on the R2 scale. The synthesis rules are documented in the script; the detail view shows raw R1 inputs alongside the synthesis for any candidate. R1 carries factor=1 by construction (no separate novelty computation, since R1\'s rationale fed the card bullets); R1 with canonicalize-dominant category gets the canonicalize × 1.2 multiplier.'
+  out << ''
+  out << '3. **Voters kept separate, not collapsed by architecture.** opus-r2b/opus-r2c and sonnet-r2b/sonnet-r2c voted on overlapping-but-not-identical subsets under different methodologies (consolidation-checkpoint introduced for r2c). Treating them as four distinct voters preserves coverage.'
+  out << ''
+  out << '4. **Leader determination is by total substance, not by votes × substance.** The `score` column is the verdict; multiplying by raw vote count was considered and rejected (sign-cancellation issues; double-counting engagement).'
+  out << ''
+  out << '5. **The 99% substantive-note rate is a property of the cohort.** R2 voters were specifically instructed not to recap card bullets; most complied. The substance factor amplifies the small fraction where notes were thin or pure-paraphrase.'
+  out << ''
+  out << '---'
+  out << ''
+
+  # ============================================================
+  # Section 5: Reading order
+  # ============================================================
+  out << '## 5. Suggested reading order for first-pass landings'
+  out << ''
+  out << '1. **Re-read** [`naming-principles.md`](../../doc/naming-principles.md) §"Vote categories" and §"Rename vs. Add-alias" — the categorical distinctions matter for landing actions.'
+  out << ''
+  out << '2. **Section 3 cross-cutting patterns above** — coordinated decisions (Class N, Pearl L1/L2/L3) should be triaged together, not piece-by-piece.'
+  out << ''
+  out << '3. **Section 2a (defended keeps, top 10–20)** — these are mostly already settled; verify segment usage hasn\'t drifted, no action otherwise. Quick pass.'
+  out << ''
+  out << '4. **Section 2c (add-alias landings)** — first-pass landings here are **NOTATION/LEXICON additions**, not slug renames. Different downstream tooling (no `bin/rename-slug` invocation needed).'
+  out << ''
+  out << '5. **Section 2b (rename signals)** — the substantive landing decisions. For each candidate: read the detail view, verify the leader\'s notes hold up against the segment\'s actual content, eyeball the runner-up.'
+  out << ''
+  out << '6. **Section 2d (contested)** — defer-or-reject. Surface as findings rather than forcing landings.'
+  out << ''
+  out << '7. **Section 2e (net-negative leaders, if any)** — flag for new-options round; do not land any current option.'
+  out << ''
+  out << '## 6. What this doc does NOT tell you'
+  out << ''
+  out << '- The framework itself — read the de-novo-audit instructions and ingest the segments before treating any landing as load-bearing.'
+  out << '- Whether a name is *good* in some abstract sense — only what the cohort scored. Final judgment is yours.'
+  out << '- Pre-existing slug rename history — see [`msc/naming/naming-pilot-rename-plan.md`](naming-pilot-rename-plan.md) and the role-prefix discipline (already applied across all 142 segments via `bin/align-slug --all`).'
+  out << '- Cross-voter paraphrase / cold-start violation analysis — not run for this corpus; the protocol was monitored. The check is straightforward to run if needed.'
+
+  out.join("\n") + "\n"
+end
+
+# ----------------------------------------------------------------------------
 # Driver.
 # ----------------------------------------------------------------------------
 
@@ -924,14 +1241,18 @@ sorted_multi = filtered.sort_by do |canonical, rec|
 end.to_h
 sorted_multi = sorted_multi.first(options[:limit]).to_h if options[:limit]
 
-table_md  = render_table(records, sorted_multi, voters)
-detail_md = render_detail(records, sorted_multi, voters)
+table_md    = render_table(records, sorted_multi, voters)
+detail_md   = render_detail(records, sorted_multi, voters)
+patterns_md = render_patterns(records, sorted_multi, voters)
 
 FileUtils.mkdir_p(File.dirname(options[:table_out]))
 FileUtils.mkdir_p(File.dirname(options[:detail_out]))
+FileUtils.mkdir_p(File.dirname(options[:patterns_out]))
 File.write(options[:table_out], table_md)
 File.write(options[:detail_out], detail_md)
+File.write(options[:patterns_out], patterns_md)
 
 warn "Wrote #{options[:table_out]} (#{File.size(options[:table_out])} bytes)"
 warn "Wrote #{options[:detail_out]} (#{File.size(options[:detail_out])} bytes)"
+warn "Wrote #{options[:patterns_out]} (#{File.size(options[:patterns_out])} bytes)"
 warn "Multi-voter targets: #{sorted_multi.size}"

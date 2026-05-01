@@ -1,6 +1,6 @@
 # R2 Aggregation — Detail View
 
-**Generated:** 2026-05-01T01:32:16Z
+**Generated:** 2026-05-01T01:43:29Z
 **Targets included:** 106 (filtered to ≥2 R2 voters from 629 total)
 **R2 voters:** codex-r2b, gemini-r2, opus-r2b, opus-r2c, sonnet-r2b, sonnet-r2c
 
