@@ -38,3 +38,11 @@ repository-code: "https://github.com/v2-io/agentic-systems"
 url: "https://github.com/v2-io/agentic-systems"
 version: 0.1.0
 date-released: "2026-05-02"
+doi: "10.5281/zenodo.19986312"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.19986312"
+    description: "Concept DOI — always resolves to the latest version"
+  - type: doi
+    value: "10.5281/zenodo.19987996"
+    description: "Version DOI for v0.1.0"
