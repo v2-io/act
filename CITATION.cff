@@ -1,0 +1,40 @@
+cff-version: 1.2.0
+title: Agentic Systems Framework (ASF)
+message: "If you use this work, please cite it as below."
+type: dataset
+authors:
+  - family-names: Wecker
+    given-names: Joseph A.
+    affiliation: Independent Researcher
+    orcid: "https://orcid.org/0009-0004-2599-4766"
+abstract: >-
+  A research framework for adaptive, purposeful agents under uncertainty —
+  integrating control theory, causal inference, information theory, and agent
+  architecture under a common formalism. The framework formalizes the adaptive
+  cycle as the unit of analysis and derives conditions for persistence, the
+  structure of strategy under uncertainty, and the dynamics of agents in
+  composition and competition. Comprises four parts: Adaptation and Actuation
+  Dynamics (AAD), the mathematical core; Temporal Software Theory (TST),
+  software development as an agentic domain; Logogenic Agents, language-
+  constituted agents; and Emergent Logozoetic Intelligences (ELI), language-
+  living agents with morally weighted persistence.
+keywords:
+  - agentic systems
+  - adaptive systems
+  - control theory
+  - causal inference
+  - information theory
+  - agent architecture
+  - temporal software theory
+  - adaptation and actuation dynamics
+  - Lyapunov stability
+  - Pearl causal hierarchy
+  - persistence condition
+  - logogenic agents
+  - logozoetic agents
+  - research framework
+license: CC-BY-4.0
+repository-code: "https://github.com/v2-io/agentic-systems"
+url: "https://github.com/v2-io/agentic-systems"
+version: 0.1.0
+date-released: "2026-05-02"

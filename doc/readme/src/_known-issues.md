@@ -49,9 +49,3 @@ This section surfaces what the framework currently acknowledges as open at the o
 - Developer tempo as $\mathcal T_{\text{obs}}$ + $\mathcal T_{\text{explore}}$ + $\mathcal T_{\text{probe}}$
 - Software persistence: the unmaintainability threshold formalized
 
-**`03-logogenic-agents`:**
-- Language-specific orient cascade (what's specific to logogenic agents?) — partially addressed by D3, R2
-- Measuring $M_t$ quality, $\Sigma_t$ quality, and tempo in AI agents
-- AAD-grounded experiential training environments
-- Self-referential closure: AAD agent on AAD codebase
-

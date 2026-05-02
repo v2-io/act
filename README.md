@@ -174,16 +174,16 @@ Some of the framework's distinctive results, with epistemic tiers and links into
   [`01-aad-core/src/deriv-critical-mass-composition.md`](01-aad-core/src/deriv-critical-mass-composition.md)
 - **`#deriv-edge-update-natural-parameter`** *(status: conditional)* — *Log-Odds as Uniquely-Forced Edge-Update Coordinate* — *Claim differentiation* on an already-canonical representational choice (log-odds as the natural Bayesian-update coordinate, well-known from logistic regression / exponential-family / information-geometry traditions) by deriving its uniqueness under an AAD-internally-motivated evidential-additivity axiom.  
   [`01-aad-core/src/deriv-edge-update-natural-parameter.md`](01-aad-core/src/deriv-edge-update-natural-parameter.md)
-- **`#deriv-causal-ib-exploration`** *(status: conditional)* — *Survival-Imperative Exploration as Lyapunov-Forced Drive* — *Claim differentiation* on the structural source of agentic exploration.  
-  [`01-aad-core/src/deriv-causal-ib-exploration.md`](01-aad-core/src/deriv-causal-ib-exploration.md)
-- **`#deriv-causal-ib-lmi`** *(status: conditional)* — *Matrix Lift of the Survival-Imperative Constraint via Fisher-Information LMI* — *Claim differentiation* on the directional discrimination of the survival-imperative exploration drive.  
-  [`01-aad-core/src/deriv-causal-ib-lmi.md`](01-aad-core/src/deriv-causal-ib-lmi.md)
 - **`#disc-identifiability-floor`** *(status: discussion-grade)* — *The Identifiability Floor as Cross-Cutting Meta-Pattern* — *Claim recognition* of structural pattern across four AAD results that import external information-theoretic theorems to derive impossibility statements with mapped boundary-route escapes; the meta-pattern is an organizing principle rather than a theorem, and the per-instance prior-art positioning lives in the instance segments (`#der-causal-insufficiency-detection`, `#deriv-strategic-dynamics`, `#deriv-critical-mass-composition` / `#result-contraction-template`, `#deriv-bias-bound`).  
   [`01-aad-core/src/disc-identifiability-floor.md`](01-aad-core/src/disc-identifiability-floor.md)
 - **`#disc-additive-coordinate-forcing`** *(status: discussion-grade)* — *Cross-Layer Coordinate Forcing on Legendre-Fenchel Geometry* — *Claim recognition* of cross-layer pattern across four AAD coordinate-forcing results, with the recognition itself as the contribution rather than any new theorem.  
   [`01-aad-core/src/disc-additive-coordinate-forcing.md`](01-aad-core/src/disc-additive-coordinate-forcing.md)
 - **`#result-contraction-template`** *(status: conditional)* — *Topology-Indexed Compositional Closures via Contraction-Metric Generalization* — *Claim synthesis* on contraction-metric machinery + AAD's sub-scope partition + (PI)/Čencov axiom.  
   [`01-aad-core/src/result-contraction-template.md`](01-aad-core/src/result-contraction-template.md)
+- **`#deriv-causal-ib-exploration`** *(status: conditional)* — *Survival-Imperative Exploration as Lyapunov-Forced Drive* — *Claim differentiation* on the structural source of agentic exploration.  
+  [`01-aad-core/src/deriv-causal-ib-exploration.md`](01-aad-core/src/deriv-causal-ib-exploration.md)
+- **`#deriv-causal-ib-lmi`** *(status: conditional)* — *Matrix Lift of the Survival-Imperative Constraint via Fisher-Information LMI* — *Claim differentiation* on the directional discrimination of the survival-imperative exploration drive.  
+  [`01-aad-core/src/deriv-causal-ib-lmi.md`](01-aad-core/src/deriv-causal-ib-lmi.md)
 - **`#deriv-bias-bound`** *(status: conditional)* — *Universal Constant for the Coupled-Agent Bias Bound under Parameterization-Invariance* — *Claim differentiation* on the Lipschitz-posterior + Otto-Villani composition for AAD's coupled-agent bias bound, plus *claim novelty* on the no-go counterexample showing that universal $C$ in Euclidean-parameter norms cannot exist, which jointly elevates the (PI) axiom from convergent representational choice to load-bearing for theorem-level status.  
   [`01-aad-core/src/deriv-bias-bound.md`](01-aad-core/src/deriv-bias-bound.md)
 
@@ -212,23 +212,23 @@ Some of the framework's distinctive results, with epistemic tiers and links into
 
 The 3 most recent cycle narratives. Full record at [`CHANGELOG.md`](CHANGELOG.md); pre-2026-04-24 archaeology at [`LOG.md`](LOG.md).
 
+### Zenodo release prep (v0.1.0): .zenodo.json + LICENSE + CITATION.cff; worktree cleanup; sub-agent authorization discipline
+
+*2026-05-02*
+
+**Release-prep metadata landed.** Three files added at the repo root for the first Zenodo deposit: `.zenodo.json` carries the upload metadata (title, multi-paragraph HTML description, creators with ORCID, keywords, `upload_type: publication` / `publication_type: workingpaper`, CC-BY-4.0, working-draft notes); `LICENSE` is the canonical Creative Commons Attribution 4.0 International legalcode text fetched verbatim from creativecommons.org (byte-identical to `legalcode.txt`); `CITATION.cff` is CFF v1.2.0 with `type: dataset`, ORCID-linked author, license CC-BY-4.0, repository URL, and placeholder `version: 0.1.0` / `date-released: 2026-05-02` matching the tag.
+
+### R2 aggregator + score-card + patterns view; role-encounter over-engineering and reframe; Phase 2 embedding spike
+
+*2026-05-01*
+
+**R2 naming aggregator landed** as `bin/naming-r2-aggregate.rb` producing three outputs: a single-table score-card (`msc/naming/r2-aggregate-table.md`) sorted by `max(score/n)` descending, a per-target detail view with full vote breakdown (`msc/naming/r2-aggregate-detail.md`), and a cross-cutting patterns doc (`msc/naming/r2-patterns.md`) with categorical groupings (defended keeps / rename signals / add-alias landings / contested / negative) and coordination flags (Greek-vocabulary cluster, math-symbol add-alias pattern, Class-N taxonomy, Pearl hierarchy). Substance factor evolved through ~6 refinement iterations from a discrete-tier shape to a smooth `(0.7 + 0.3 × effort) × (1.0 + novelty)` with 1.2× multipliers for top-pick and canonicalize votes. Top-pick multiplier is data-justified — benchmark showed it acts as tiebreaker in 20/20 multi-+2-per-target cases. R1 cohort folded in as one synthetic voter on the R2 scale. Filters: ≥2 R2 voters AND alternatives proposed (excludes 16 uncontested keeps where no alternative was offered at any phase). Commits `21ef4a5`, `7abdb7a`, `3dbc0aa`, `45bd00e`. Coverage: 122 multi-R2-voter targets out of 629; ~40% have a metadata anchor in the naming-context-map (139 by master-list `segment_link` + 110 by grep first-mention).
+
 ### CLAUDE-2.md sunset; PRACTICA navigator; catalog extraction
 
 *2026-04-28*
 
 Three interlocking documentation moves landed.
-
-### First human review (Alan Walton) + catalog consolidation + brainstorm-as-permanent-workspace
-
-*2026-04-27*
-
-A long working day driven by the project's *first human reviewer's* feedback (Alan Walton — CTO of Latitude / AI Dungeon; mathematician + practitioner running a 12k-commit production agentic-system architecture; ~4h read window). The session landed three interlocking moves; commits `998172b` and `e0cc27b` carry them.
-
-### Doc pipeline cycle: composable README, segment-level Findings, doc/ established
-
-*2026-04-26*
-
-A consolidation cycle on the project's documentation surface, motivated by Bundle 1 (framework-face reframe) in PROPOSALS.md and the long-standing observation that the public README had drifted from the convergent epistemic-architecture reframe and that the Lexicon section in particular was both very long (300+ lines) and partly duplicative of LEXICON.md. The cycle landed four interlocking moves rather than treating any one as standalone.
 
 
 
@@ -282,12 +282,6 @@ This section surfaces what the framework currently acknowledges as open at the o
 **`02-tst-core`:**
 - Developer tempo as $\mathcal T_{\text{obs}}$ + $\mathcal T_{\text{explore}}$ + $\mathcal T_{\text{probe}}$
 - Software persistence: the unmaintainability threshold formalized
-
-**`03-logogenic-agents`:**
-- Language-specific orient cascade (what's specific to logogenic agents?) — partially addressed by D3, R2
-- Measuring $M_t$ quality, $\Sigma_t$ quality, and tempo in AI agents
-- AAD-grounded experiential training environments
-- Self-referential closure: AAD agent on AAD codebase
 
 
 
