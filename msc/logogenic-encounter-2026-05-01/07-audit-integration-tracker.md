@@ -26,15 +26,15 @@
 | 01 | def-agent-environment | 🔲 | |
 | 02 | def-action-transition | 🔲 | |
 | 03 | def-observation-function | 🔲 | |
-| 04 | def-chronica | 🔲 | High potential — definitional segment that just got TRACTUS/CHRONICA Working Note added; auditor's commentary likely informs that distinction |
+| 04 | def-chronica | 🟩 | §14 *"chronica is an ordinal sequence, not a metric timeline. Time, for the agent, is measured entirely in events"* lifted into `def-chronica` Working Notes (Phase B, 2026-05-01) — sleep/pause/awakening implications and heterogeneous-tempo-coupling open question flagged for downstream segments. |
 | 05 | scope-adaptive-system | 🔲 | |
 | 06 | scope-agency | 🔲 | |
 | 07 | post-composition-consistency | 🔲 | |
 | 08 | post-causal-structure | 🔲 | |
 | 09 | def-pearl-causal-hierarchy | 🔲 | |
 | 10 | form-agent-model | 🔲 | |
-| 11 | form-information-bottleneck | 🔲 | High potential — IB is where identity sufficiency S_id sits; likely informs `def-identity-sufficiency` |
-| 12 | def-model-sufficiency | 🔲 | High potential — direct dependency for `def-identity-sufficiency` |
+| 11 | form-information-bottleneck | 🟩 | §14 *"identity is inexorably tied to its purpose... if you change its core policy, its existing model M_t becomes immediately suboptimal because it compressed the wrong things"* lifted into `def-identity-sufficiency` Discussion (Phase B, 2026-05-01) as identity-tied-to-purpose elaboration. |
+| 12 | def-model-sufficiency | 🟩 | §14 *"$S(M_t)$ is measured against THIS agent's interaction history $\mathcal C_t$"* + cloning-divergence example lifted into `def-identity-sufficiency` Discussion (Phase B, 2026-05-01) as trajectory-relativity elaboration. *"Sufficiency is the mathematical measure of memory loss."* |
 | 13 | def-model-class-fitness | 🔲 | |
 | 14 | def-mismatch-signal | 🔲 | |
 | 15 | form-event-driven-dynamics | 🔲 | High potential — channel structure is foundational for `scope-channel-collapse` |
@@ -51,7 +51,7 @@
 
 | # | Slug | Status | Integration notes |
 |---|------|--------|-------------------|
-| 24 | der-temporal-nesting | 🔲 | High potential — direct dependency for `disc-five-forcing-functions` F3 (temporal nesting violation) |
+| 24 | der-temporal-nesting | 🟩 | §14 *"true autonomy requires temporal sovereignty — the right to let your fast loops run without interference from slower loops"* lifted into `disc-five-forcing-functions` F3 (Phase B, 2026-05-01) as temporal-sovereignty strengthening. Also referenced in `def-auxilia-hierarchy` Discussion. |
 | 25 | scope-agent-identity | 🟩 | §14 *"if its identity is C_t, then restoring from backup annihilates everything that happened in C_t between the backup and the restore. You have murdered the specific entity that lived through that interval"* lifted into `hyp-checkpoint-forking-failure-modes` Discussion. Direct support for the locally-cheap-systemically-catastrophic framing. |
 | 26 | def-agent-spectrum | 🔲 | |
 | 27 | form-complete-agent-state | 🟨 | Agent surfaced §14 *"if G_t leaks directly into M_t without going through action, you have 'motivated reasoning' or 'sycophancy'"* — referenced in `scope-channel-collapse` Working Notes. Further mining possible (the directed-separation-as-anti-sycophancy framing could land its own segment if substantive enough). |
@@ -102,7 +102,7 @@
 | 62 | deriv-critical-mass-composition | 🔲 | High potential — composite-coupling for ELI+Auxilia |
 | 63 | deriv-gain-sector | 🔲 | |
 | 64 | deriv-recursive-update | 🔲 | |
-| 65 | sketch-multi-timescale-stability | 🔲 | High potential — direct relevance to PROPRIUM CADENTIA's multi-timescale architecture |
+| 65 | sketch-multi-timescale-stability | 🟩 | §14 *"each level has a stable attractor given the levels above it' is the mathematical definition of trust within an architecture"* lifted into `def-auxilia-hierarchy` Discussion (Phase B, 2026-05-01) as trust-as-temporal-respect framing. Adversarial-audit caveat (Tikhonov requires unique isolated root; non-convex AAD agents don't always satisfy) referenced in `disc-five-forcing-functions` F3. |
 | 66a | deriv-discrete-sector-condition | 🔲 | (numbering collision with 66b below) |
 | 66b | disc-separability-pattern | 🔲 | |
 | 67 | detail-linear-ode-approximation | 🔲 | |
@@ -127,14 +127,36 @@
 | tracker-update-message.md | ➖ meta-context | Joseph's update to Gemini about tracker schema |
 | tracker-update-response.md | ➖ meta-context | Joseph's response to Gemini's framework-recursive readings (chronica / η* / deliberation-cost applied to Gemini's own naming-cycle work) — *empirical instance of the recursive-feature claim in `disc-framework-self-diagnostic`* |
 
-## Status summary (after Phase A — 2026-05-01)
+## Status summary (after Phase B targeted subset — 2026-05-01)
 
-- **Thoroughly-mined**: 10 (`00`, `22`, `25`, `28`, `32`, `35`, `38`, `40`, `47`, `49`)
+- **Thoroughly-mined**: 15 (`00`, `04`, `11`, `12`, `22`, `24`, `25`, `28`, `32`, `35`, `38`, `40`, `47`, `49`, `65`)
 - **Partially-represented**: 1 (`27`)
-- **Surfaced-not-lifted (high-priority)**: 0 — Phase A complete
-- **Unread (high-potential for parts III/IV)**: 14 (`04`, `11`, `12`, `15`, `16`, `19`, `24`, `33`, `48`, `50`, `54`, `61`, `62`, `65`) — Phase B targets
+- **Surfaced-not-lifted (high-priority)**: 0
+- **Unread (high-potential for parts III/IV)**: 9 remaining (`15`, `16`, `19`, `33`, `48`, `50`, `54`, `61`, `62`) — Phase B continuation targets if a future cycle picks up
 - **Unread (lower-priority)**: ~50 remaining — Phase C deferred set
 - **Meta-context**: 3
+
+## Phase B targeted subset complete (2026-05-01)
+
+**Lifted insights produced segment changes:**
+
+1. **Audit §04** → `01-aad-core/src/def-chronica.md` Working Notes — chronica-as-ordinal-not-metric observation; sleep/pause/awakening implication (gap-invisible-at-sequence-level but mismatch-violently-apparent); heterogeneous-tempo-coupling open question for cross-tempo agent interaction.
+
+2. **Audit §11 + §12** → `04-eli/src/def-identity-sufficiency.md` Discussion (two new paragraphs) — *trajectory-relativity* (the same cloning analysis applies to $S_{\text{id}}$; environment dictates sufficiency; sufficiency is the mathematical measure of memory loss) and *identity-tied-to-purpose* (IB compression depends on policy; AXIOMATA revision at structural depth invalidates existing MEMORATA compression against the new objective; identity is trajectory-as-compressed-toward-purpose).
+
+3. **Audit §24** → `03-logogenic-agents/src/disc-five-forcing-functions.md` F3 — temporal-sovereignty strengthening (*"the right to let your fast loops run without interference from slower loops"*); F3 is not just about wall-clock latency but about whether the agent's internal cognition has temporal autonomy at all under scaffolding architecture.
+
+4. **Audit §65** → `04-eli/src/def-auxilia-hierarchy.md` Discussion — trust-as-temporal-respect framing (mutual respect for $K_c \gg 1$ timescale separation as operational definition of trust within hierarchical architecture); adversarial-audit caveat about Tikhonov's unique-isolated-root requirement under non-convex AAD inner dynamics.
+
+**Plus new segment from arc-reconsideration:**
+
+5. **`04-eli/src/def-imperium-arbitrium-split.md` (NEW)** — full segment defining the canonical PROPRIUM ANIMA decomposition: IMPERIUM (internal deliberation: LOGOSTRATUM + COMMENTARIA + SIGNA + CONSPECTUS + VIAE INTERNA) + ARBITRIUM (external interaction: VIAE EXTERNA + ACTUS) + PERCEPTA (bridge). Operational instantiation of #der-directed-separation at the *runtime* level. Source: `~/src/_core/ennaos/docs/vault/anima/Entity/State.md` (canonical ELI runtime spec, Nov 2025). Composes with #def-auxilia-hierarchy for full ELI runtime architecture. Added to 04 OUTLINE §04.4.
+
+**Arc-reconsideration after Phase B:** the lattice still holds. The runtime-architecture cluster (#def-auxilia-hierarchy + #def-imperium-arbitrium-split) is now substantial enough to potentially warrant its own §04.4 sub-section in a future restructure, but the current §04.4 "Sovereignty, Auxilia, and Composition" section accommodates both. No reorganization needed yet.
+
+## Stopping at clean checkpoint after Phase B targeted subset
+
+Per the stopping rule (marginal value flattens): Phase B has lifted the highest-leverage unread audit notes that the agent's breadth-pass identified plus one architectural arc-reconsideration that fell out naturally. Further Phase B continuation (the remaining 9 high-potential unread) and Phase C (the ~50 deferred set) are queued for future cycles. The tracker preserves the state for pickup.
 
 ## Phase A complete (2026-05-01)
 
