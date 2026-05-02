@@ -1,0 +1,530 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+# bin/segment-stats
+#
+# Walks every component's OUTLINE.md and src/ directory and emits an
+# aggregate report of the framework's segment population by component,
+# stage, type, and epistemic status.
+#
+# The report is meant to be read alongside (or embedded into) release
+# notes to give a single-glance picture of "what is in this deposit"
+# without enumerating 200+ segments individually. It is also useful
+# for cycle-close discipline: stage progression, type distribution
+# shifts, and gap closures show up here directly.
+#
+# Four views, each as a Markdown matrix:
+#
+#   View A — Component × stage (with GAPs as the first column).
+#     The natural promotion ladder from "named in OUTLINE but doesn't
+#     yet exist as a file" through to fully-promoted segments. GAPs
+#     are detected from `--GAP--` rows in OUTLINE.md.
+#
+#   View B — Component × type. The categorical distribution of moves
+#     the framework makes. Postulates and definitions ground the
+#     formalism; derivations and results carry the mathematical
+#     content; hypotheses, observations, and discussions surface the
+#     scaffolding around the load-bearing claims.
+#
+#   View C — Component × epistemic status. Columns ordered by rigor
+#     (most rigorous first). Empirical claims sit before hypotheses
+#     because empirical has data support; hypothesis is unverified
+#     posit. Discussion-grade is the bottom of the ladder.
+#
+#   AAD section breakdown — the same three views applied within
+#     01-aad-core/, broken out by Section I / II / III / Appendices.
+#     AAD's internal sections matter for the maturity narrative
+#     (Section I closed vs Section III bridging) so they get their
+#     own slice.
+#
+# A single-line JSON summary is emitted at the top of the output for
+# downstream tooling that wants to extract counts without re-parsing
+# the Markdown tables.
+#
+# Usage:
+#   bin/segment-stats              # write to stdout
+#   bin/segment-stats --out FILE   # write to FILE
+#   bin/segment-stats --json       # emit just the JSON summary line
+
+require 'json'
+require 'optparse'
+require 'pathname'
+require 'set'
+
+REPO_ROOT = Pathname.new(__dir__).parent.expand_path
+
+COMPONENTS = [
+  '01-aad-core',
+  '02-tst-core',
+  '03-logogenic-agents',
+  '04-eli'
+].freeze
+
+# Stage ladder, in promotion order (left = least mature). GAPs are
+# pre-stub (named in OUTLINE but no file). Stages observed in current
+# segments include stub / exploratory / draft / deps-verified /
+# claims-verified / candidate. Unknown stages are surfaced under
+# "(other)" so the script doesn't silently lose data when new stages
+# are added.
+STAGE_ORDER = %w[
+  gap
+  stub
+  exploratory
+  draft
+  deps-verified
+  claims-verified
+  candidate
+].freeze
+
+# Epistemic status ordered by rigor (most rigorous first). Empirical
+# claims (data-supported) precede hypotheses (unverified posits) per
+# the project's epistemic conventions. Statuses observed but not
+# listed here are surfaced under "(other)".
+STATUS_ORDER = [
+  'exact',
+  'axiomatic',
+  'robust-qualitative',
+  'derived',
+  'conditional',
+  'heuristic',
+  'empirical',
+  'hypothesis',
+  'discussion-grade',
+  'sketch'
+].freeze
+
+# Known absorbed-prior-work archive prefixes. Files in src/ matching
+# these are not real orphans — they are legacy material kept on disk
+# for archaeology (per the per-component README and CLAUDE.md). They
+# are excluded from the orphan count and surfaced separately.
+ARCHIVE_PREFIXES = %w[old-tst- old-tf- old-aad-].freeze
+
+# Type ordering groups the categorical FORMAT.md kinds by role:
+# postulates and definitions ground the formalism; formulations and
+# scope statements carve out where claims apply; derivations,
+# corollaries, and results carry the mathematical content;
+# hypotheses, observations, empirical claims, and measurements
+# surface the empirical layer; discussions, sketches, details, and
+# asides carry the supporting prose. This is a curated order, not a
+# rigor ranking.
+TYPE_ORDER = %w[
+  postulate
+  definition
+  formulation
+  scope
+  derivation
+  derived
+  corollary
+  result
+  hypothesis
+  observation
+  empirical
+  measurement
+  normative
+  proposed-schema
+  worked-example
+  discussion
+  sketch
+  detail
+  aside
+].freeze
+
+# --- Frontmatter parsing -----------------------------------------------
+
+# Pulls type, status, and stage from a segment's YAML frontmatter.
+# Each field is optional; missing fields return nil.
+def parse_frontmatter(path)
+  text = path.read
+  return {} unless text.start_with?("---\n") || text.start_with?("---\r\n")
+  fm_end = text.index("\n---", 4)
+  return {} unless fm_end
+  fm = text[4...fm_end]
+  out = {}
+  fm.each_line do |line|
+    if (m = line.match(/^(type|status|stage|slug):\s*(.+?)\s*$/))
+      out[m[1].to_sym] = m[2].strip
+    end
+  end
+  out
+end
+
+# --- Outline parsing ---------------------------------------------------
+
+# Walks an OUTLINE.md, yielding rows for either a segment reference
+# (with section context, type from the table, and slug) or a GAP
+# marker. Section is the most recent H2 heading (e.g., "Section I.
+# Adaptive Systems Under Uncertainty"). The H2 capture is generous
+# because OUTLINE files vary slightly in heading shape.
+def walk_outline(outline_path)
+  return [] unless outline_path.exist?
+  current_section = nil
+  rows = []
+  outline_path.each_line do |line|
+    if (m = line.match(/\A##\s+(.+?)\s*\z/))
+      current_section = m[1]
+      next
+    end
+    # Segment row: contains a [#slug](src/path.md) link.
+    if (m = line.match(/\[#([a-z0-9-]+)\]\(([^)]+\.md)\)/))
+      cells = line.split('|').map(&:strip)
+      rows << {
+        kind: :segment,
+        section: current_section,
+        slug: m[1],
+        relpath: m[2],
+        outline_type: cells[2],
+        outline_stage: cells[6]
+      }
+      next
+    end
+    # GAP row: contains "--GAP--" in the type cell.
+    if line.include?('--GAP--')
+      rows << {
+        kind: :gap,
+        section: current_section,
+        line: line.strip
+      }
+    end
+  end
+  rows
+end
+
+# --- Component aggregation --------------------------------------------
+
+# For one component, returns a hash with:
+#   - segments: array of { slug, section, stage, type, status }
+#   - gap_count: integer
+#   - missing: slugs referenced in OUTLINE but file not on disk
+def aggregate_component(component)
+  outline = REPO_ROOT.join(component, 'OUTLINE.md')
+  src_dir = REPO_ROOT.join(component, 'src')
+  rows = walk_outline(outline)
+
+  segments = []
+  missing = []
+  outline_slugs = Set.new
+
+  rows.each do |row|
+    next unless row[:kind] == :segment
+    outline_slugs << row[:slug]
+    seg_path = src_dir.join("#{row[:slug]}.md")
+    unless seg_path.exist?
+      missing << row[:slug]
+      next
+    end
+    fm = parse_frontmatter(seg_path)
+    # Stage prefers frontmatter; falls back to the OUTLINE row's
+    # stage cell when frontmatter doesn't carry it. TST in particular
+    # has segments where the OUTLINE table has been updated but the
+    # absorbed-prior-work frontmatter hasn't been retrofitted.
+    stage = fm[:stage] || row[:outline_stage]
+    stage = '(unset)' if stage.nil? || stage.empty?
+    segments << {
+      slug: row[:slug],
+      section: row[:section],
+      stage: stage,
+      type: fm[:type] || '(unset)',
+      status: fm[:status] || '(unset)'
+    }
+  end
+
+  # Segment files present on disk but not referenced in OUTLINE.
+  # bin/lint-outline already flags these. We split them into "real"
+  # orphans (need attention) and "archive" entries (absorbed-prior-
+  # work kept for archaeology) so the report tells the truth without
+  # crying wolf about 40+ legacy files.
+  on_disk = src_dir.glob('*.md').map { |p| p.basename('.md').to_s }
+  unreferenced = on_disk - outline_slugs.to_a
+  archive, orphans = unreferenced.partition { |slug| ARCHIVE_PREFIXES.any? { |p| slug.start_with?(p) } }
+
+  gap_count = rows.count { |r| r[:kind] == :gap }
+
+  {
+    segments: segments,
+    gap_count: gap_count,
+    missing: missing,
+    orphans: orphans,
+    archive: archive
+  }
+end
+
+# --- Matrix construction -----------------------------------------------
+
+# Builds a counts hash keyed by [component, dimension_value] from a
+# list of per-component aggregates.
+def build_matrix(per_component, dim_key)
+  matrix = Hash.new { |h, k| h[k] = Hash.new(0) }
+  per_component.each do |component, agg|
+    agg[:segments].each do |seg|
+      matrix[component][seg[dim_key]] += 1
+    end
+  end
+  matrix
+end
+
+# Returns the full set of dimension values seen, in the order given
+# by `preferred_order`, with any unseen-but-listed values omitted and
+# any seen-but-unlisted values appended (so the table doesn't lose
+# data when frontmatter introduces a new value).
+def order_columns(seen_values, preferred_order)
+  ordered = preferred_order.select { |v| seen_values.include?(v) }
+  trailing = (seen_values - preferred_order).sort
+  ordered + trailing
+end
+
+# Renders a Markdown table for a component × dimension matrix, with a
+# leading "Component" column and trailing "TOTAL" column. Adds a
+# bottom TOTAL row.
+#
+# Cosmetic: zero-valued cells render as blank to make tables easier
+# to scan. Counts in the leading-extras and trailing-extras columns
+# follow the same rule.
+#
+# `trailing_extras` is symmetric to `leading_extras` but the resulting
+# columns appear AFTER the TOTAL column. Useful for derived fields
+# (percentages, ratios) that depend on row aggregates.
+def render_matrix(title, matrix, columns, leading_extras: {}, trailing_extras: {})
+  rows = []
+  rows << "### #{title}"
+  rows << ''
+  header_cells = ['Component'] + leading_extras.keys + columns + ['TOTAL'] + trailing_extras.keys
+  rows << ('| ' + header_cells.join(' | ') + ' |')
+  rows << ('|' + (['---'] * header_cells.length).map { |c| " #{c} " }.join('|') + '|')
+
+  blank = ->(v) { v.is_a?(Numeric) && v.zero? ? '' : v.to_s }
+
+  totals_per_col = Hash.new(0)
+  leading_totals = Hash.new(0)
+  grand_total = 0
+
+  matrix.keys.sort.each do |component|
+    counts = matrix[component]
+    extras_cells = leading_extras.map { |_, fn| fn.call(component) }
+    extras_cells.each_with_index do |v, i|
+      leading_totals[leading_extras.keys[i]] += v
+    end
+    col_cells = columns.map { |c| counts.fetch(c, 0) }
+    col_cells.each_with_index { |v, i| totals_per_col[columns[i]] += v }
+    row_total = col_cells.sum + extras_cells.sum
+    grand_total += row_total
+    trailing_cells = trailing_extras.map { |_, fn| fn.call(component, counts, extras_cells, leading_extras.keys) }
+    cells = [component] + extras_cells.map(&blank) + col_cells.map(&blank) + [row_total] + trailing_cells
+    rows << ('| ' + cells.join(' | ') + ' |')
+  end
+
+  total_extras = leading_extras.keys.map { |k| leading_totals[k] }
+  total_cols = columns.map { |c| totals_per_col[c] }
+  total_trailing = trailing_extras.map do |_, fn|
+    aggregate_counts = totals_per_col.dup
+    fn.call('**TOTAL**', aggregate_counts, total_extras, leading_extras.keys)
+  end
+  total_row_cells = total_extras.map(&blank) + total_cols.map(&blank) + [grand_total] + total_trailing
+  rows << ('| **TOTAL** | ' + total_row_cells.join(' | ') + ' |')
+  rows.join("\n")
+end
+
+# Computes Joseph's project-progress proxy:
+#   (n-drafts + n-deps-v + n-claims-v) / ((n-drafts + n-gaps + n-missing) * 3)
+#
+# Reads as: forward progress (segments-on-disk at any stage of the
+# verification ladder) over remaining work (unverified or unwritten
+# items, each weighted by 3 verification steps). Yields 1/3 when the
+# project is all-draft-no-gaps; rises as drafts get promoted and
+# gaps/missing close. Division-by-zero when no remaining work — the
+# project is verification-complete in this proxy's sense.
+def percent_complete(_component, counts, leading_cells, leading_keys)
+  drafts = counts.fetch('draft', 0)
+  deps_v = counts.fetch('deps-verified', 0)
+  claims_v = counts.fetch('claims-verified', 0)
+  candidate = counts.fetch('candidate', 0)
+  gaps_idx = leading_keys.index('gaps')
+  missing_idx = leading_keys.index('missing')
+  gaps = gaps_idx ? leading_cells[gaps_idx] : 0
+  missing = missing_idx ? leading_cells[missing_idx] : 0
+  numerator = drafts + deps_v + claims_v + candidate
+  denominator = (drafts + gaps + missing) * 3
+  return '100.0%' if denominator.zero?
+  format('%.1f%%', (numerator.to_f / denominator) * 100)
+end
+
+# --- AAD section breakdown --------------------------------------------
+
+# Maps an OUTLINE H2 heading to a short section key (I / II / III / A
+# / B / Appendices) for AAD specifically. Returns nil if the section
+# cannot be classified — the segment is then bucketed as "(unsorted)".
+def aad_section_key(section)
+  return '(unsorted)' if section.nil?
+  case section
+  when /^Section\s+I\b/, /^I\.\s/, /^Part\s+I\b/ then 'I'
+  when /^Section\s+II\b/, /^II\.\s/, /^Part\s+II\b/ then 'II'
+  when /^Section\s+III\b/, /^III\.\s/, /^Part\s+III\b/ then 'III'
+  when /^Appendi/i, /^A\.\s/, /^B\.\s/ then 'Appendices'
+  else '(unsorted)'
+  end
+end
+
+# Builds AAD section-level matrices identical in shape to the
+# component-level matrices.
+def aad_section_matrices(aad_aggregate)
+  segments = aad_aggregate[:segments]
+  by_section = segments.group_by { |s| aad_section_key(s[:section]) }
+  matrices = {}
+  %w[stage type status].each do |dim|
+    matrix = Hash.new { |h, k| h[k] = Hash.new(0) }
+    by_section.each do |sec, segs|
+      segs.each { |s| matrix[sec][s[dim.to_sym]] += 1 }
+    end
+    matrices[dim.to_sym] = matrix
+  end
+  matrices
+end
+
+# --- Main --------------------------------------------------------------
+
+def main
+  options = { mode: :full, out: nil }
+  OptionParser.new do |o|
+    o.banner = 'Usage: bin/segment-stats [options]'
+    o.on('--out FILE', 'Write Markdown to FILE') { |v| options[:out] = v }
+    o.on('--json', 'Emit only the JSON summary line') { options[:mode] = :json }
+    o.on('-h', '--help', 'Show this help') { puts o; exit }
+  end.parse!
+
+  per_component = {}
+  COMPONENTS.each do |c|
+    per_component[c] = aggregate_component(c)
+  end
+
+  # ── JSON summary -----------------------------------------------------
+  summary = {
+    generated_at: Time.now.utc.iso8601,
+    components: per_component.transform_values do |agg|
+      {
+        segments: agg[:segments].length,
+        gaps: agg[:gap_count],
+        missing: agg[:missing].length,
+        orphans: agg[:orphans].length,
+        by_stage: agg[:segments].group_by { |s| s[:stage] }.transform_values(&:length),
+        by_type: agg[:segments].group_by { |s| s[:type] }.transform_values(&:length),
+        by_status: agg[:segments].group_by { |s| s[:status] }.transform_values(&:length)
+      }
+    end
+  }
+  summary[:totals] = {
+    segments: per_component.values.sum { |a| a[:segments].length },
+    gaps: per_component.values.sum { |a| a[:gap_count] }
+  }
+
+  if options[:mode] == :json
+    out = JSON.generate(summary)
+    if options[:out]
+      File.write(options[:out], out)
+    else
+      puts out
+    end
+    return
+  end
+
+  # ── Build matrices ----------------------------------------------------
+  stage_matrix = build_matrix(per_component, :stage)
+  type_matrix = build_matrix(per_component, :type)
+  status_matrix = build_matrix(per_component, :status)
+
+  seen_stages = stage_matrix.values.flat_map(&:keys).uniq
+  seen_types = type_matrix.values.flat_map(&:keys).uniq
+  seen_statuses = status_matrix.values.flat_map(&:keys).uniq
+
+  # Stage order: skip "gap" because that becomes a leading-extras
+  # column (counted from OUTLINE GAPs, not from segment frontmatter).
+  stage_cols = order_columns(seen_stages, STAGE_ORDER - ['gap'])
+  type_cols = order_columns(seen_types, TYPE_ORDER)
+  status_cols = order_columns(seen_statuses, STATUS_ORDER)
+
+  # ── Render -----------------------------------------------------------
+  out = []
+  out << "<!-- Generated by bin/segment-stats — #{Time.now.utc.iso8601} -->"
+  out << '<!-- ' + JSON.generate(summary) + ' -->'
+  out << ''
+  out << '## Segment population by component'
+  out << ''
+  out << "Total segments: **#{summary[:totals][:segments]}** across #{COMPONENTS.length} components."
+  out << "Total OUTLINE GAPs: **#{summary[:totals][:gaps]}** (named placeholders awaiting authorship)."
+  out << ''
+
+  out << render_matrix(
+    'View A — Stage distribution (gaps first, then promotion ladder)',
+    stage_matrix,
+    stage_cols,
+    leading_extras: {
+      'gaps' => ->(c) { per_component[c][:gap_count] },
+      'missing' => ->(c) { per_component[c][:missing].length }
+    },
+    trailing_extras: {
+      '%-complete' => method(:percent_complete)
+    }
+  )
+  out << ''
+  out << "*Gaps* are explicit `--GAP--` placeholders in OUTLINE (named area without slug commitment). *Missing* are slugs referenced in OUTLINE without a corresponding file on disk (slug committed-to, segment unwritten). Both count toward \"named but not yet present.\" *%-complete* is a project-progress proxy: forward progress (segments-on-disk across draft / deps-verified / claims-verified / candidate) divided by remaining work ((drafts + gaps + missing) × 3). Yields 1/3 when the project is all-draft-no-unwritten; rises as drafts get promoted and gaps/missing close; reads 100% when no remaining work. View A's TOTAL includes gaps and missing (= full OUTLINE-scoped commitment); Views B and C below total only segments-on-disk (since gaps and missing have no type or status to classify)."
+  out << ''
+  out << render_matrix(
+    'View B — Type distribution (categorical, FORMAT.md kinds)',
+    type_matrix,
+    type_cols
+  )
+  out << ''
+  out << render_matrix(
+    'View C — Epistemic status distribution (ordered by rigor, most rigorous first)',
+    status_matrix,
+    status_cols
+  )
+
+  # ── AAD section breakdown -------------------------------------------
+  out << ''
+  out << '## AAD section breakdown (01-aad-core only)'
+  out << ''
+  out << "AAD has internal sections (I / II / III / Appendices) at different maturity levels. The same three views, applied within AAD."
+  out << ''
+
+  aad_matrices = aad_section_matrices(per_component['01-aad-core'])
+  aad_stage_cols = order_columns(aad_matrices[:stage].values.flat_map(&:keys).uniq, STAGE_ORDER - ['gap'])
+  aad_type_cols = order_columns(aad_matrices[:type].values.flat_map(&:keys).uniq, TYPE_ORDER)
+  aad_status_cols = order_columns(aad_matrices[:status].values.flat_map(&:keys).uniq, STATUS_ORDER)
+
+  out << render_matrix('AAD-A — Stage', aad_matrices[:stage], aad_stage_cols).gsub('Component', 'Section')
+  out << ''
+  out << render_matrix('AAD-B — Type', aad_matrices[:type], aad_type_cols).gsub('Component', 'Section')
+  out << ''
+  out << render_matrix('AAD-C — Epistemic status', aad_matrices[:status], aad_status_cols).gsub('Component', 'Section')
+
+  # ── Data-quality footer ----------------------------------------------
+  out << ''
+  out << '## Data-quality notes'
+  out << ''
+  total_missing = per_component.values.sum { |a| a[:missing].length }
+  total_orphans = per_component.values.sum { |a| a[:orphans].length }
+  total_archive = per_component.values.sum { |a| a[:archive].length }
+  out << "- **Missing**: #{total_missing} slug(s) referenced in OUTLINE but no corresponding file on disk (effectively additional gaps; promotion candidates)."
+  out << "- **Orphans**: #{total_orphans} segment file(s) on disk but not referenced in OUTLINE (also flagged by `bin/lint-outline`)."
+  out << "- **Absorbed-prior-work archive**: #{total_archive} legacy file(s) (matching #{ARCHIVE_PREFIXES.join(' / ')}) kept on disk for archaeology; not active framework segments."
+  if total_missing > 0
+    per_component.each do |c, agg|
+      next if agg[:missing].empty?
+      out << "  - `#{c}`: missing — #{agg[:missing].join(', ')}"
+    end
+  end
+  if total_orphans > 0
+    per_component.each do |c, agg|
+      next if agg[:orphans].empty?
+      out << "  - `#{c}`: orphans — #{agg[:orphans].join(', ')}"
+    end
+  end
+
+  rendered = out.join("\n") + "\n"
+  if options[:out]
+    File.write(options[:out], rendered)
+  else
+    puts rendered
+  end
+end
+
+main if __FILE__ == $PROGRAM_NAME

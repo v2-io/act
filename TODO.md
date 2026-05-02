@@ -211,6 +211,18 @@ Replaces the shelved `tools/role-encounter/` approach. Extend the existing `doc/
 
 `psql-18` + pgvector + ollama + `nomic-embed-text-v2-moe`. Lift memorata's data layer wholesale, patch with multi-level chunking + source-class tagging + frontmatter-aware markdown chunker + embedding-model identity per vector. Drives the four-signal naming-target context map (anchor + heaviest-attention + supplementary references + dependency chain) for the renaming agent's harder cases. Architecture brief at [`spikes/spike-local-embedding-benchmark/FINDINGS.md`](spikes/spike-local-embedding-benchmark/FINDINGS.md). Build sequence in §5 of that doc.
 
+### Release-notes regeneration pipeline (queued 2026-05-02)
+
+**Context.** [`releases/v0.1.0.md`](releases/v0.1.0.md) was hand-written as a one-off "master list of everything since the beginning of the framework." That is not the long-run shape of release notes. Subsequent releases (v0.2.0+) will be incremental — what changed since the last tag — and benefit from a regeneration pipeline analogous to the README pipeline (`bin/build-readme` + `doc/readme/src/` partials + extraction scripts chained by `bin/refresh-all`).
+
+**What's already in place.** [`bin/segment-stats`](bin/segment-stats) (introduced 2026-05-02) regenerates per-component aggregates by stage / type / epistemic status with an AAD section breakdown — its output is embedded verbatim into v0.1.0's "By the numbers" section and would become a partial in the future pipeline. [`bin/extract-findings`](bin/extract-findings) and [`bin/extract-recent-progress`](bin/extract-recent-progress) already feed the README pipeline; with version-window arguments they can serve "distinctive results in this release" and "what changed since the last release" respectively.
+
+**What's not yet pipelined.** The "framework at a glance" four-paragraph synopsis (composes from component OUTLINE preambles; currently hand-written). The "what's not in this release" honest-scoping section (composes from `--GAP--` rows + `_known-issues` + segment Working Notes flagged as promotion-blocking; the curation judgment is human). The mathematical-lineage breakdown (segment frontmatter does not currently carry a `lineages:` field; v0.1.0's lineage section is sub-agent-curated). Adding `lineages:` to the FORMAT.md schema would let `bin/extract-lineages` walk it programmatically — candidate move for the v0.2.0 build-out.
+
+**Discipline note.** The pilot-then-sweep pattern says: hand-write v0.1.0, observe what was painful and what worked, then build the pipeline informed by what the pilot taught. Building the pipeline before any release notes have been published would risk the parallel-vs-extend over-engineering pattern the project has felt before (per the role-encounter shelving). v0.1.0 is the pilot; v0.2.0 should hand-write again with attention to repetitive sections; v0.3.0+ formalize as `bin/build-release-notes` if the pattern holds.
+
+**Concrete first move when the cycle opens.** Either (a) define the canonical sections of a release-notes document as a Liquid template (`doc/release-notes/release.md.liquid` + partials in `doc/release-notes/src/`, mirroring `doc/readme/`), or (b) introduce a `lineages:` frontmatter field in FORMAT.md and sweep the existing 166 segments to populate it (sub-agent task; bottlenecked on sweep effort). The lineage-field move is more useful long-run and shouldn't be bundled with the template work.
+
 
 ---
 
