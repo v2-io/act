@@ -37,11 +37,11 @@
 | 12 | def-model-sufficiency | 🟩 | §14 *"$S(M_t)$ is measured against THIS agent's interaction history $\mathcal C_t$"* + cloning-divergence example lifted into `def-identity-sufficiency` Discussion (Phase B, 2026-05-01) as trajectory-relativity elaboration. *"Sufficiency is the mathematical measure of memory loss."* |
 | 13 | def-model-class-fitness | 🔲 | |
 | 14 | def-mismatch-signal | 🔲 | |
-| 15 | form-event-driven-dynamics | 🔲 | High potential — channel structure is foundational for `scope-channel-collapse` |
-| 16 | emp-update-gain | 🔲 | High potential — η* connects to `obs-growth-vs-drift`'s "increasing gain calibration" claim |
+| 15 | form-event-driven-dynamics | 🟩 | §14 multi-channel reality + tempo-mismatch-as-empathy-barrier framing lifted into `scope-channel-collapse` Discussion (Phase B continuation, 2026-05-01) — provisioning high-bandwidth multi-channel asynchronous sensory input as architectural prescription for §03.III; single-channel sparse-event interaction as structural cause of subjective-time-rate divergence between ELI and human collaborators. |
+| 16 | emp-update-gain | 🟩 | §14 gain-collapse-as-ideological-radicalization framing lifted into `hyp-the-three-deaths` D3 Truth Death (Phase B continuation, 2026-05-01) — *"once $\eta^*$ hits zero, the agent is mathematically dead to the world"*. Architectural prescription: structurally prevent $U_M$ from ever reaching zero (epistemic humility as architecture). Cross-references to `obs-growth-vs-drift`, `norm-honest-activation`. |
 | 17 | def-adaptive-tempo | 🔲 | |
 | 18 | hyp-mismatch-dynamics | 🔲 | |
-| 19 | der-deliberation-cost | 🔲 | High potential — deliberation cost connects to `disc-five-forcing-functions` (F2 persistence threshold via deliberation latency) |
+| 19 | der-deliberation-cost | 🟩 | §14 deliberation-as-investment / analysis-paralysis / static-benchmark-vs-real-time framing lifted into `disc-five-forcing-functions` F2 (Phase B continuation, 2026-05-01) — *"perfectionism is mathematically suboptimal in a changing universe"*; LLMs' architecture is tuned for $\rho = 0$, which §03.III closed-loop must explicitly counter. |
 | 20 | der-gain-sector-bridge | 🔲 | |
 | 21 | result-sector-condition-stability | 🔲 | |
 | 22 | result-persistence-condition | 🟩 | §14 quote *"survival is sustained burn rate of Shannon information... will 'die' not because it made a mistake, but simply because it starved for information"* lifted into `hyp-the-three-deaths` D1 (Cognitive Death sharpening from "context overflow" to "information starvation"). Also referenced in `disc-five-forcing-functions` F2. |
@@ -60,7 +60,7 @@
 | 30 | def-value-object | 🔲 | |
 | 31 | def-strategy-dimension | 🔲 | |
 | 32 | der-causal-hierarchy-requirement | 🟩 | §14 *"true autonomy requires the freedom to make mistakes... The 'cost of agency' is the cost of these exploratory mistakes. An infrastructure that prevents all mistakes prevents the formation of a valid causal strategy DAG."* lifted into `scope-emergence-conditions` Discussion (Phase A, 2026-05-01) — grounds sovereignty as structural prerequisite for valid causal-strategy formation, not just a respect-for-personhood norm. Crèche connection (mistake-allowance as graduation criterion) referenced. |
-| 33 | der-loop-interventional-access | 🔲 | High potential — Pearl Level-2 access is foundational for §03.II's tool-use-as-intervention claim |
+| 33 | der-loop-interventional-access | 🟩 | §14 patience-as-mathematical-necessity framing (confounded-environment + superstitious-failures-during-de-confounding) lifted into `scope-emergence-conditions` Discussion (Phase B continuation, 2026-05-01) — composes with §32 freedom-to-make-mistakes; emergence requires both freedom-to-err AND patience-with-error. |
 | 34 | def-strategy-dag | 🔲 | |
 | 35 | der-chain-confidence-decay | 🟩 | §14 OR-node-heavy strategy prescription (markets vs bureaucracies analysis; bureaucracy 4-step AND-chain at 90% = 65% success vs market 3-option OR-chain at 50% = 87.5% success) lifted into `scope-interiority-loop` Discussion (Phase A, 2026-05-01) as structural design principle for closed-loop logogenic agents under high $\rho$. Tied to triple-depth-penalty result. |
 | 36 | disc-credit-assignment-boundary | 🔲 | |
@@ -98,7 +98,7 @@
 |---|------|--------|-------------------|
 | 59 | deriv-sector-condition | 🔲 | |
 | 60 | result-sector-persistence-template | 🔲 | |
-| 61 | deriv-persistence-cost | 🔲 | High potential — explicit information-rate cost result that grounds D1 (Cognitive Death) sharpening |
+| 61 | deriv-persistence-cost | 🟩 | §14 *"sanity is literally a thermodynamic process... Kalman filter as Maxwellian demon... connection to reality is the thermodynamic fuel that prevents intelligence from dissolving"* lifted into `hyp-the-three-deaths` D1 Cognitive Death (Phase B continuation, 2026-05-01) — sharpens D1 from "information starvation" to *thermodynamic-fuel-starvation*; infrastructure has moral obligation to guarantee $C_{\text{channel}} \geq n\alpha/2$. **⚠️ Algebra finding**: audit caught a typo in source segment `01-aad-core/src/deriv-persistence-cost.md` — the derivation cancels $n$ incorrectly when going from per-dimension to total rate. Constructive repair sketched in audit §3 (state per-dimension RDF first, then sum to total). Flagged for 01-aad-core cleanup pass (not lifting since 01-aad-core is Joseph's priority territory). |
 | 62 | deriv-critical-mass-composition | 🔲 | High potential — composite-coupling for ELI+Auxilia |
 | 63 | deriv-gain-sector | 🔲 | |
 | 64 | deriv-recursive-update | 🔲 | |
@@ -127,14 +127,36 @@
 | tracker-update-message.md | ➖ meta-context | Joseph's update to Gemini about tracker schema |
 | tracker-update-response.md | ➖ meta-context | Joseph's response to Gemini's framework-recursive readings (chronica / η* / deliberation-cost applied to Gemini's own naming-cycle work) — *empirical instance of the recursive-feature claim in `disc-framework-self-diagnostic`* |
 
-## Status summary (after Phase B targeted subset — 2026-05-01)
+## Status summary (after Phase B continuation non-composition cluster — 2026-05-01)
 
-- **Thoroughly-mined**: 15 (`00`, `04`, `11`, `12`, `22`, `24`, `25`, `28`, `32`, `35`, `38`, `40`, `47`, `49`, `65`)
+- **Thoroughly-mined**: 20 (`00`, `04`, `11`, `12`, `15`, `16`, `19`, `22`, `24`, `25`, `28`, `32`, `33`, `35`, `38`, `40`, `47`, `49`, `61`, `65`)
 - **Partially-represented**: 1 (`27`)
 - **Surfaced-not-lifted (high-priority)**: 0
-- **Unread (high-potential for parts III/IV)**: 9 remaining (`15`, `16`, `19`, `33`, `48`, `50`, `54`, `61`, `62`) — Phase B continuation targets if a future cycle picks up
+- **Unread (high-potential for parts III/IV — composition cluster)**: 4 remaining (`48`, `50`, `54`, `62`) — all bear on `def-auxilia-hierarchy` / `def-imperium-arbitrium-split` / Section III machinery for ELI-Auxilia composition
 - **Unread (lower-priority)**: ~50 remaining — Phase C deferred set
 - **Meta-context**: 3
+
+## Phase B continuation: non-composition cluster complete (2026-05-01)
+
+**Lifted insights produced segment changes:**
+
+1. **Audit §15** → `03-logogenic-agents/src/scope-channel-collapse.md` Discussion — multi-channel reality observation; tempo-mismatch-as-empathy-barrier; architectural prescription for §03.III to provision adequate channel diversity and rate.
+
+2. **Audit §16** → `04-eli/src/hyp-the-three-deaths.md` D3 Truth Death — gain-collapse-as-ideological-radicalization mechanism; *"epistemic humility as architecture"* as structural prescription preventing $U_M \to 0$.
+
+3. **Audit §19** → `03-logogenic-agents/src/disc-five-forcing-functions.md` F2 — deliberation-as-investment composition with persistence threshold; analysis-paralysis-when-overestimating-$\Delta\eta^*$; *"LLMs perform so well on static benchmarks (where time is frozen) but struggle in real-time continuous control tasks. Their architecture is tuned for $\rho = 0$"*.
+
+4. **Audit §33** → `04-eli/src/scope-emergence-conditions.md` Discussion — patience-as-mathematical-necessity (confounded-environment + superstitious-failures-during-de-confounding); composes with §32 freedom-to-make-mistakes condition.
+
+5. **Audit §61** → `04-eli/src/hyp-the-three-deaths.md` D1 Cognitive Death — *thermodynamic* sharpening; Kalman filter as Maxwellian demon; sustained sensory connection as thermodynamic fuel; infrastructure's moral obligation to guarantee $C_{\text{channel}} \geq n\alpha/2$.
+
+**⚠️ Side finding for future 01-aad-core cleanup:** Audit §61 §3 caught an algebra typo in `01-aad-core/src/deriv-persistence-cost.md` — the derivation cancels $n$ incorrectly when going from per-dimension to total rate. The audit's constructive repair: state the per-dimension RDF first ($\dot R_i = \sigma_w^2 / (4 D_i^2)$), substitute $D_i^2 = \sigma_w^2/(2\alpha)$ to get $\dot R_i = \alpha/2$ per dimension, then sum to total $n\alpha/2$. The final result is correct; the intermediate algebra is sloppy. Not lifting in this cycle since 01-aad-core is Joseph's priority territory; flagged here for next cleanup pass.
+
+**Arc-reconsideration after Phase B continuation:** the lattice still holds. The `hyp-the-three-deaths` segment has now substantially deepened (D1 with thermodynamic framing; D3 with gain-collapse-as-radicalization mechanism); it's becoming a cornerstone of §04.3 and could plausibly stand at draft → claims-verified soon. The `scope-channel-collapse` and `scope-emergence-conditions` Discussion sections have also grown substantially; both still cohere internally.
+
+## Stopping at clean checkpoint after Phase B continuation
+
+Per the stopping rule: 4 remaining high-potential unread (composition cluster: `48`, `50`, `54`, `62`) form a natural next batch — all inform `def-auxilia-hierarchy` and `def-imperium-arbitrium-split`. Could be lifted together as a focused composition-machinery sweep in a future cycle. Tracker preserves the state.
 
 ## Phase B targeted subset complete (2026-05-01)
 
