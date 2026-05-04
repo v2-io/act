@@ -26,6 +26,7 @@ Cross-references rather than duplicates: where the substantive concern is alread
 10. [Cross-component naming consistency](#10-cross-component-naming-consistency) — 2 items
 11. [Collision check — external naming overlaps with adjacent literature](#11-collision-check--external-naming-overlaps-with-adjacent-literature) — sweep results, post-R2 surgery list
 12. [Post-cohort followups — substrate handoff analysis](#12-post-cohort-followups--substrate-handoff-analysis) — Pro→Flash continuation; rationale-attribution analysis pending
+13. [Agent-ontology refinements — pending second-opinion review (2026-05-04)](#13-agent-ontology-refinements--pending-second-opinion-review-2026-05-04) — 12 items routed to here from `msc/domain-unification-2026-05-04/recommended-agent-ontology.md` and pressure-test against `doc/DOMAINS.md`; awaiting Joseph's second-opinion pass on the broader four-axis lattice
 
 ---
 
@@ -689,6 +690,134 @@ The chronological-encounter signal is therefore noisier than the column's design
 **Status:** open; structural limitation of the current methodology design.
 
 **Priority hint:** LOW for the current cohort (signal is still useful at the coarse level); MEDIUM for the future-cards-default-to-encounter-order goal in `round-2-plan.md`, which depends on cleaner sequence data than this cohort produces.
+
+---
+
+## 13. Agent-ontology refinements — pending second-opinion review (2026-05-04)
+
+The proposal at `msc/domain-unification-2026-05-04/recommended-agent-ontology.md` (extraction-trail; will move to `_obs/` once landed) put forward a four-axis lattice (Semantic Tier × Knowledge Type × Goal-Update Coupling × Arity) and named several refinement candidates surfaced by pressure-testing against the domain table at `doc/DOMAINS.md` (the living master-list — formerly `02-domain-instantiation-table.md` / `domain-instantiations.md` in the proposal directory; promoted to `doc/` 2026-05-04). Two items are committed and routed to the rename plan: the Goal-Update Coupling Class naming (Separated / Coupled / Partial) and the Knowledge Type axis name (Static / Learning). The items below are the *not-yet-committed* remainder, parked here pending Joseph's second-opinion review of the broader ontology.
+
+When the second-opinion pass runs, each item gets a routing decision: into a segment (definitional refinement), into LEXICON / README (gloss / presentation refinement), into a segment Discussion or Working Notes (working-note refinement), into `doc/DOMAINS.md` (domain-table refinement), or rejected.
+
+### 13.1 Tier 1 / Tier 2 boundary cut
+
+**Issue:** the current `#scope-agency` framing (Tier 2 = "at least one action that is a *causal intervention*") is misleading — PID's actions ARE causal interventions in the formal Pearl sense. The proposed cleaner cut is *"action selection by goal-conditioned argmax over alternatives"* vs *"error-driven regulation where action is a direct function of mismatch."* Under this reading: PID, thermostat, basic homeostasis sit at Tier 1; MPC-with-planning, Q-learning, MCTS at Tier 2.
+
+**Source:** [`recommended-agent-ontology.md` §"Refinement candidates" (a)](../domain-unification-2026-05-04/recommended-agent-ontology.md).
+
+**Likely routing:** segment-definitional refinement to `#scope-agency`. Cascades: ripple-check downstream segments depending on `#scope-agency` (~12 per OUTLINE).
+
+**Status:** pending second-opinion review.
+
+### 13.2 Tier 3 / Tier 4 boundary — generated vs acquired $O_t$
+
+**Issue:** Inverse RL learns $O_t$ from demonstrations — is this Tier 3 (acquired) or Tier 4 (chosen)? Proposed framing: Tier 4 requires the agent to *generate* its own $O_t$ from internal drives, not just *acquire* it from external evidence. This raises a follow-up: are intrinsically-motivated RL agents (curiosity drives, novelty-seeking, count-based exploration) at Tier 4 by virtue of internal-drive-generated objectives?
+
+**Source:** [`recommended-agent-ontology.md` §"Refinement candidates" (d)](../domain-unification-2026-05-04/recommended-agent-ontology.md). Also surfaced in the Inverse RL row of `doc/DOMAINS.md` with explicit footnote.
+
+**Likely routing:** definitional refinement to (eventual) Tier 4 segment. Currently `(reserved)` in LEXICON; cut lives in LEXICON's Tier 4 row until promoted.
+
+**Status:** pending second-opinion review.
+
+### 13.3 Tier 4 → Tier 5 substrate-vs-capability — table layout
+
+**Issue:** the current LEXICON tier table format with "+ primary channels are language" makes Tier 5-6 look strictly cumulative when they're a *specific substrate-lineage out of Tier 4*. Tiers 1-4 are capability-progression tiers; Tiers 5-6 are substrate-and-existential. The proposed table layout splits at Tier 4 with Tier 5-6 in a separate "Logogenic lineage" sub-table.
+
+**Source:** [`recommended-agent-ontology.md` "Diff from current LEXICON" item 8](../domain-unification-2026-05-04/recommended-agent-ontology.md); my flagged item.
+
+**Likely routing:** gloss / presentation / lexicon refinement (LEXICON table layout; README's *Structure of the Framework* section).
+
+**Status:** pending second-opinion review.
+
+### 13.4 Coupling for biological agents — measurable vs pattern-attributable
+
+**Issue:** $\kappa_{\text{processing}}$ is well-defined for engineered systems (where you can inspect or measure architecture) but pattern-attributable only for biological brains (perception, deliberation, motor control are neuro-anatomically intertwined). The Goal-Update Coupling axis description should say so explicitly.
+
+**Source:** [`recommended-agent-ontology.md` §"Refinement candidates" (c)](../domain-unification-2026-05-04/recommended-agent-ontology.md).
+
+**Likely routing:** lands together with the Goal-Update Coupling Class naming commitment in the rename plan — `#der-directed-separation` Discussion gets the engineered-vs-biological note, plus parallel LEXICON gloss. Closely tied to the approved Coupling-axis vocabulary commit; can land in the same prose pass.
+
+**Status:** pending second-opinion review *(but tightly coupled to the approved Goal-Update Coupling Class commit; landing the rename without this clarification would leave the axis under-specified for biological domains — the domain table has 5+ biological rows that depend on the engineered-vs-pattern distinction)*.
+
+### 13.5 Static can apply at Tier 3+
+
+**Issue:** the proposed Knowledge Type axis is described as "first relevant at Tier 2." But the *Pre-compiled actuated agent* row in `doc/DOMAINS.md` (Actuated + Static + Separated + Composite) shows Static applies wherever the strategy is *designed* rather than learned, including doctrine-fixed military units and flowchart-driven business processes — i.e., at Tier 3+ too.
+
+**Source:** [`recommended-agent-ontology.md` §"Refinement candidates" (b)](../domain-unification-2026-05-04/recommended-agent-ontology.md).
+
+**Likely routing:** lands together with the Knowledge Type axis-naming commit — LEXICON description should say "Knowledge Type activates at Tier 2 and remains relevant upward" rather than "first relevant at Tier 2." Closely tied to the approved Knowledge Type vocabulary commit.
+
+**Status:** pending second-opinion review *(but, like 13.4, tightly coupled to an approved commit; landing the axis name without this clarification would leave the activation-tier wording wrong)*.
+
+### 13.6 Knowledge Type at Tier 1 — fixed-vs-learned collapses into model-class capacity
+
+**Issue:** Tier 1 adaptive systems do have a fixed-vs-learned distinction (Kalman with fixed $A$/$B$ vs adaptive control that learns them). The proposed framing says Knowledge Type "first activates at Tier 2," eliding this. Probably correct — the fixed-vs-learned distinction at Tier 1 collapses into model-class capacity $R$ rather than into Knowledge Type — but worth an explicit note.
+
+**Source:** my flagged item during proposal review.
+
+**Likely routing:** gloss in LEXICON's Knowledge Type axis description.
+
+**Status:** pending second-opinion review.
+
+### 13.7 Active inference positioning — single row oversimplifies
+
+**Issue:** `doc/DOMAINS.md` has one *Active inference / FEP* row (Actuated + Coupled + Primitive). AIF has at least three architectural variants (model-based, model-free, full-belief-propagation hybrid) that map to different Coupling classes. Given AIF is the framework's main theoretical interlocutor (per HISTORICAL-CONTEXT framing), single-row treatment may oversimplify.
+
+**Source:** my flagged item during proposal review; spike `spikes/spike-active-inference-vs-aad.md` discusses variants.
+
+**Likely routing:** domain-table refinement — split row or add footnote referencing the spike. Lives in `doc/DOMAINS.md`.
+
+**Status:** pending second-opinion review.
+
+### 13.8 Tier 3 → Tier 4 architectural transition — the bootstrap problem
+
+**Issue:** Tier 4 = "generates own $O_t$" — but the agent that generates objectives is itself doing optimization with some outer-loop $O_t$. This is the classical infinite-regress in agent design. Drives-not-objectives at the floor closes the regress, but the proposal treats Tier 4 as a clean additive capability.
+
+**Source:** my flagged item during proposal review.
+
+**Likely routing:** Discussion in `#form-objective-functional` or in the eventual Tier 4 segment Discussion section. Working-note for now.
+
+**Status:** pending second-opinion review.
+
+### 13.9 Active-vs-passive predictive processing — within-architecture distinction
+
+**Issue:** `doc/DOMAINS.md` separates *Predictive processing (passive)* at Tier 1 and *Hierarchical predictive processing (active)* at Tier 3. Active-vs-passive is a *within-architecture* distinction that maps onto the tier ladder rather than being orthogonal to it.
+
+**Source:** [`recommended-agent-ontology.md` §"Refinement candidates" (e)](../domain-unification-2026-05-04/recommended-agent-ontology.md).
+
+**Likely routing:** working-note / brief preamble note in `doc/DOMAINS.md`. Not a definitional change.
+
+**Status:** pending second-opinion review.
+
+### 13.10 Composite-arity has degrees
+
+**Issue:** military unit, beehive, LLM-scaffolded agent, AI coding agent are all *Composite*, but the *kind* of composition differs (hierarchical command vs emergent coordination vs tool-router scaffolding). AAD's `#def-unity-dimensions` names four dimensions of coherence; the binary Primitive/Composite axis collapses these.
+
+**Source:** [`recommended-agent-ontology.md` §"Refinement candidates" (f)](../domain-unification-2026-05-04/recommended-agent-ontology.md).
+
+**Likely routing:** future-work flag in `#def-unity-dimensions` Working Notes; possible future segment surfacing which unity-dimension is operative for a given Composite.
+
+**Status:** pending second-opinion review; not blocking.
+
+### 13.11 Continuity stance demoted to deployment-level
+
+**Issue:** the proposal demotes continuity stance (indifferent / task-terminal / instrumentally-continuous / morally-continuous / negotiated) from a structural axis to a deployment-level concern, on the ground that most variation is tier-gated rather than free.
+
+**Source:** [`recommended-agent-ontology.md` §"Continuity stance — separate concern"](../domain-unification-2026-05-04/recommended-agent-ontology.md).
+
+**Likely routing:** LEXICON restructure — current "Continuity Stance" table moves out of structural axes into a "deployment-level properties" section (or similar). Potentially affects LEXICON section headings.
+
+**Status:** pending second-opinion review.
+
+### 13.12 The four-axis lattice itself
+
+**Issue:** the broader proposal is to ratify the lattice (Semantic Tier × Knowledge Type × Goal-Update Coupling × Arity) as the canonical agent-classification structure, replacing the current LEXICON's flat agent-class table. Substantial restructure with downstream segment ripple. Pressure-tested against ~50 domains in `doc/DOMAINS.md`; lattice survives without forcing a fifth axis or breaking structure.
+
+**Source:** [`recommended-agent-ontology.md`](../domain-unification-2026-05-04/recommended-agent-ontology.md) (whole proposal); pressure-test in `doc/DOMAINS.md`.
+
+**Likely routing:** if ratified, focused-cycle worth of LEXICON / README rewrite with cascading segment-Discussion updates. The Goal-Update Coupling Class and Knowledge Type naming commits are the lowest-hanging-fruit and have already been routed independently; the broader lattice is the substantive structural decision.
+
+**Status:** pending second-opinion review. *This is the load-bearing decision; many of the items above (13.1, 13.2, 13.3, 13.5, 13.6, 13.11) become near-mechanical follow-ons once the lattice is ratified or rejected.*
 
 ---
 

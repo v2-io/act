@@ -108,6 +108,19 @@ For each name you consider, weigh these axes. You do not need to score all of th
 
 8. **Renamed-from-now-sounds-weird test.** Imagine the project six months from now, the proposed name installed and in routine use. Does the *old* name now sound quaint, dated, or naive — clearly inferior, *of course we renamed it*? Or does the *new* name sound forced, pretentious, like a thing someone tried to make happen? Strong renames pass this test in the first direction; weak renames fail it in the second.
 
+9. **Standalone citability.** Could a researcher reading or referencing this name in a context outside the project — in a different paper, a Slack discussion, a search query — unambiguously point at *this* concept, without having to add a project qualifier ("AAD's bias bound", "TST's specification bound") to disambiguate? This test is the *external* counterpart to overload risk (criterion 4): overload risk asks whether the name collides with other uses inside the project; citability asks whether the name still does work *when extracted from project context*. The Googleability variant is a good operational form — search the bare name; do project-flavor results dominate the top page, or does the name melt into the field's noise?
+
+   *Names that pass the test:* *chronica*, *directed separation*, *orient cascade*, *adaptive reserve*, *purposeful substate*. The pair *satisfaction gap* / *control regret* also passes — both halves are individually generic, but the pair structure is unique and load-bearing for the 2×2 diagnostic, so the *pair* travels even when neither word would alone. *Paired vocabulary* is one of the legitimate routes to citability for an otherwise-generic short name.
+
+   *Names that fail the test:* *bias bound* (thousands of bias bounds in statistics, ML fairness, generalization theory), *change distance* (every diff tool and code-metric paper), *specification bound* (formal verification, software contracts), *detection latency* (used in every field), *causal structure* (used pervasively in stats / ML / Pearl literature), *action selection* (RL-domain term used by everyone). These names work *in-context* — the surrounding paragraph carries the meaning — but they don't travel.
+
+   *When a name fails this test, the fix is usually one of three moves:*
+   - **(a) Add a structural qualifier the segment already implies.** Example: *bias bound* → *Class-2 ambiguity bias bound* — the segment's own title (`#deriv-bias-bound` reads as "Bias-Bound Constant $C$ for Class-2 Agent Observation-Ambiguity Modulation") already carries the longer disambiguated form; the canonical move promotes that to the citation handle.
+   - **(b) Pivot to a more distinct sibling concept.** Example: *specification bound* → *communication bottleneck bound* — the segment carries a named corollary that's sharper than the parent; the move promotes the corollary to the canonical name.
+   - **(c) Treat the short form as the in-segment shorthand and commit a longer form as the citation handle.** Analogous to the symbol-to-English add-alias pattern but in reverse: instead of giving math symbols English handles, you give short generic prose names disambiguated cross-reference forms. The short form keeps reading naturally inside the segment ("the bias bound shows..."); the long form is what travels in citations and search queries.
+
+   The principle is distinct from familiarity gradient (criterion 2), which asks how much trained-reader intuition the name imports. A name can have low unfamiliarity *and* low standalone citability — *bias bound* is highly familiar but uselessly so, because the familiarity points everywhere. Citability is about whether the name *uniquely points back at this concept*, not whether the reader recognizes any of its words.
+
 ## Scope of eligible names
 
 Broad. Any named thing — *or* currently-unnamed-but-recurring thing that would benefit from a name — anywhere in the project is eligible.
